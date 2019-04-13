@@ -1,193 +1,263 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-        <meta charset="utf-8" />
-        <title>大阪大学医学部Python会</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">大阪大学医学部Python会 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/atcoder.html">atcoder</a></li>
-                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
-                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
-                    <li><a href="/category/github.html">github</a></li>
-                    <li><a href="/category/kaggle.html">kaggle</a></li>
-                    <li><a href="/category/paper.html">paper</a></li>
-                    <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/shell.html">shell</a></li>
-                    <li><a href="/category/statistics.html">statistics</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+    <title>大阪大学医学部Python会</title>
 
-                <section id="content" class="body">
-                    <ol id="posts-list" class="hfeed" start="9">
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/sushi_typing.html" rel="bookmark"
-                           title="Permalink to 寿司打タイピング自動化">寿司打タイピング自動化</a></h1>
-                </header>
+    <!-- Meta -->
+    <meta name="description" content="大阪大学医学部Python会 &ndash; ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- Social -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="大阪大学医学部Python会"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:site_name" content="大阪大学医学部Python会" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="../images/"/>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>寿司打タイピング自動化</p>
-                <a class="readmore" href="/sushi_typing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="大阪大学医学部Python会">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="../images/">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/twitter_automation.html" rel="bookmark"
-                           title="Permalink to Twitter自動投稿あれこれ">Twitter自動投稿あれこれ</a></h1>
-                </header>
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="http://johndoe.disqus.com/latest.rss" title="大阪大学医学部Python会 Comments RSS Feed">
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/custom.css">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/chuan-qi.html">川崎</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>Twitter自動投稿あれこれ</p>
-                <a class="readmore" href="/twitter_automation.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/umap.html" rel="bookmark"
-                           title="Permalink to 超高速次元圧縮アルゴリズムUMAP">超高速次元圧縮アルゴリズムUMAP</a></h1>
-                </header>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
+  </head>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+  <body>
+    <div class="w3-row w3-card w3-white">
+      <header id="header">
+        <a href="" id="header-logo" title="Home">平</a>
+        <nav id="header-menu">
+          <ul>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/atcoder.html">atcoder</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/bioinformatics.html">bioinformatics</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/deeplearning.html">deeplearning</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/github.html">github</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/kaggle.html">kaggle</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/paper.html">paper</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/python.html">python</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/shell.html">shell</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/statistics.html">statistics</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>超高速次元圧縮アルゴリズムUMAP</p>
-                <a class="readmore" href="/umap.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/velocyto.html" rel="bookmark"
-                           title="Permalink to VELOCYTO">VELOCYTO</a></h1>
-                </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <br><br><br>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/guang-lai.html">廣瀬</a>
-        </address>
-<p>In <a href="/category/bioinformatics.html">bioinformatics</a>.</p>
-<p>tags: <a href="/tag/bioinformatics.html">bioinformatics</a> </p>
-</footer><!-- /.post-info -->                <p>VELOCYTO</p>
-                <a class="readmore" href="/velocyto.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <section id="listing">
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/sushi_typing.html">寿司打タイピング自動化</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/voice_recognition.html" rel="bookmark"
-                           title="Permalink to NTT corevoチャレンジ: 話者の性別・年代識別">NTT corevoチャレンジ: 話者の性別・年代識別</a></h1>
-                </header>
+        <div class="entry-content">
+          寿司打タイピング自動化
+        </div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/sushi_typing.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/zuo-teng.html">佐藤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>NTT corevoチャレンジ: 話者の性別・年代識別</p>
-                <a class="readmore" href="/voice_recognition.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+      <br><br><br>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/article_reading.html" rel="bookmark"
-                           title="Permalink to 論文抄読で便利なサイト">論文抄読で便利なサイト</a></h1>
-                </header>
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/twitter_automation.html">Twitter自動投稿あれこれ</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-03-25T23:00:00+09:00">
-                Published: Mon 25 March 2019
-        </abbr>
+        <div class="entry-content">
+          Twitter自動投稿あれこれ
+        </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/liu-ze.html">柳澤</a>
-        </address>
-<p>In <a href="/category/paper.html">paper</a>.</p>
-<p>tags: <a href="/tag/paper.html">paper</a> </p>
-</footer><!-- /.post-info -->                <p>論文抄読で便利なサイト</p>
-                <a class="readmore" href="/article_reading.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-        <a href="/index3.html">&laquo;</a>
-    Page 4 / 4
-</p>
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/twitter_automation.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+      <br><br><br>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/umap.html">超高速次元圧縮アルゴリズムUMAP</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+        <div class="entry-content">
+          超高速次元圧縮アルゴリズムUMAP
+        </div>
 
-</body>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/umap.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/velocyto.html">VELOCYTO</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/bioinformatics.html" title="All articles in category bioinformatics">bioinformatics</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/bioinformatics.html" title="All articles with Bioinformatics tag">#bioinformatics</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          VELOCYTO
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/velocyto.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/voice_recognition.html">NTT corevoチャレンジ: 話者の性別・年代識別</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          NTT corevoチャレンジ: 話者の性別・年代識別
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/voice_recognition.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/article_reading.html">論文抄読で便利なサイト</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-03-25T23:00:00+09:00">Mon 25 March 2019</time> in <a href="/category/paper.html" title="All articles in category paper">paper</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/paper.html" title="All articles with Paper tag">#paper</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          論文抄読で便利なサイト
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/article_reading.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+
+      <div class="w3-center">
+        <ul class="w3-pagination">
+          <li><a href="/index3.html">&#10094;</a></li>
+          <li><a class="" href="/index.html">1</a></li>
+          <li><a class="" href="/index2.html">2</a></li>
+          <li><a class="" href="/index3.html">3</a></li>
+          <li><a class="w3-green" href="/index4.html">4</a></li>
+        </ul>
+      </div>
+      <br><br><br>
+
+    </section>
+
+
+    <footer id="footer">
+      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
+        <span>
+          &copy;
+          2018&dash;2019          平岡悠
+        </span>
+      </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-12345678-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
 </html>

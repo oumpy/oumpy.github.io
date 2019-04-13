@@ -1,233 +1,286 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-        <meta charset="utf-8" />
-        <title>大阪大学医学部Python会 - python</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">大阪大学医学部Python会 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/atcoder.html">atcoder</a></li>
-                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
-                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
-                    <li><a href="/category/github.html">github</a></li>
-                    <li><a href="/category/kaggle.html">kaggle</a></li>
-                    <li><a href="/category/paper.html">paper</a></li>
-                    <li class="active"><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/shell.html">shell</a></li>
-                    <li><a href="/category/statistics.html">statistics</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+    <title>python &ndash; 大阪大学医学部Python会</title>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/google_colaboratory.html">いまさらGoogle Colaboratory入門</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- Meta -->
+    <meta name="description" content="大阪大学医学部Python会 &ndash; ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gong-qi.html">宮崎</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><p>いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。</p>
-<p>動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。</p>
-<p>(あと、PCがクソザコなので、クラウドがいいかなーと思いました)
-<h1>対象</h1>
-初学者に非常に向いています。</p>
-<p>pythonの勉強会や趣味レベルまで対応している神環境だと思います。
-<h1>特徴</h1>
-一言でいうと：コードの共有に向いています。
-<blockquote>・無料
-・install不要
-・ブラウザさえ使えればどこでもできる
-・google driveとの連携が便利
-・githubとの連携が簡単(コピーする、というボタンだけでuploadできる)
-・しかもGPU使える(TPUも)</blockquote>
-<h1>使用</h1>
-登録：<a href="https://colab.research.google.com/" target="_blank" rel="noopener">https://colab.research.google.com/</a></p>
-<p>標準では書いたノートブックはGoogle Driveに保存されるようになっています。</p>
-<p><img class="alignnone size-full wp-image-196" src="https://pythonoum.files.wordpress.com/2018/10/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-10-08-12-18-55.png" alt="スクリーンショット 2018-10-08 12.18.55" width="2836" height="1606" /></p>
-<p>右上の共有コマンドから、Google Documentと同じようにリンクを作ったり、他の人と共有できます。</p>
-<p>ファイルの選択から、Google DriveやGitHubと連携ができます(すごい)。
-<h1>感想</h1>
-全部クラウドでできるので良い。</p>
-<p>notebookがGoogle用にチューニングされていて更に使いやすい。</p>
-<p>初学の時はpycharm使ってましたが、今から始めるなら間違いなくこれを使います。
-<h1>参考</h1>
-https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4</p>
-<p>https://karaage.hatenadiary.jp/entry/2018/03/21/073000</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+    <!-- Social -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="大阪大学医学部Python会"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:site_name" content="大阪大学医学部Python会" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="../images/"/>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/julia_python_competition.html" rel="bookmark"
-                           title="Permalink to JuliaとPythonと競技プログラミング">JuliaとPythonと競技プログラミング</a></h1>
-                </header>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="大阪大学医学部Python会">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="../images/">
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="http://johndoe.disqus.com/latest.rss" title="大阪大学医学部Python会 Comments RSS Feed">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/xiao-chuan.html">小川</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>JuliaとPythonと競技プログラミング</p>
-                <a class="readmore" href="/julia_python_competition.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/custom.css">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/python_value.html" rel="bookmark"
-                           title="Permalink to Pythonの変数と代入について">Pythonの変数と代入について</a></h1>
-                </header>
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
+  </head>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/xiao-chuan.html">小川</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>Pythonの変数と代入について</p>
-                <a class="readmore" href="/python_value.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+  <body>
+    <div class="w3-row w3-card w3-white">
+      <header id="header">
+        <a href="" id="header-logo" title="Home">平</a>
+        <nav id="header-menu">
+          <ul>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/atcoder.html">atcoder</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/bioinformatics.html">bioinformatics</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/deeplearning.html">deeplearning</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/github.html">github</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/kaggle.html">kaggle</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/paper.html">paper</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" style="font-weight: bold;"><a href="/category/python.html">python</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/shell.html">shell</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/statistics.html">statistics</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/python_visualization.html" rel="bookmark"
-                           title="Permalink to Pythonで可視化入門">Pythonで可視化入門</a></h1>
-                </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <br><br><br>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gong-qi.html">宮崎</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>Pythonで可視化入門</p>
-                <a class="readmore" href="/python_visualization.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <div class="w3-container col-main w3-center">
+      <h2>python</h2>
+    </div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/regular_expression.html" rel="bookmark"
-                           title="Permalink to pythonで使える正規表現まとめ">pythonで使える正規表現まとめ</a></h1>
-                </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/xi-yuan.html">西垣</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>pythonで使える正規表現まとめ</p>
-                <a class="readmore" href="/regular_expression.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <br><br><br>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/sushi_typing.html" rel="bookmark"
-                           title="Permalink to 寿司打タイピング自動化">寿司打タイピング自動化</a></h1>
-                </header>
+    <section id="listing">
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/google_colaboratory.html">いまさらGoogle Colaboratory入門</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+        <div class="entry-content">
+          いまさらGoogle Colaboratory入門
+        </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>寿司打タイピング自動化</p>
-                <a class="readmore" href="/sushi_typing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/google_colaboratory.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/twitter_automation.html" rel="bookmark"
-                           title="Permalink to Twitter自動投稿あれこれ">Twitter自動投稿あれこれ</a></h1>
-                </header>
+      <br><br><br>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/julia_python_competition.html">JuliaとPythonと競技プログラミング</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/chuan-qi.html">川崎</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>Twitter自動投稿あれこれ</p>
-                <a class="readmore" href="/twitter_automation.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+        <div class="entry-content">
+          JuliaとPythonと競技プログラミング
+        </div>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/julia_python_competition.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+      <br><br><br>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/python_value.html">Pythonの変数と代入について</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-</body>
+        <div class="entry-content">
+          Pythonの変数と代入について
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/python_value.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/python_visualization.html">Pythonで可視化入門</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          Pythonで可視化入門
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/python_visualization.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/regular_expression.html">pythonで使える正規表現まとめ</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          pythonで使える正規表現まとめ
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/regular_expression.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/sushi_typing.html">寿司打タイピング自動化</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          寿司打タイピング自動化
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/sushi_typing.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/twitter_automation.html">Twitter自動投稿あれこれ</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/python.html" title="All articles in category python">python</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/python.html" title="All articles with Python tag">#python</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          Twitter自動投稿あれこれ
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/twitter_automation.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+
+
+    </section>
+
+
+    <footer id="footer">
+      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
+        <span>
+          &copy;
+          2018&dash;2019          平岡悠
+        </span>
+      </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-12345678-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
 </html>

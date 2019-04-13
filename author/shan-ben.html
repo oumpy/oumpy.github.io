@@ -1,81 +1,132 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-        <meta charset="utf-8" />
-        <title>大阪大学医学部Python会 - 山本</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">大阪大学医学部Python会 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/atcoder.html">atcoder</a></li>
-                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
-                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
-                    <li><a href="/category/github.html">github</a></li>
-                    <li><a href="/category/kaggle.html">kaggle</a></li>
-                    <li><a href="/category/paper.html">paper</a></li>
-                    <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/shell.html">shell</a></li>
-                    <li><a href="/category/statistics.html">statistics</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+    <title>Articles by 山本 &ndash; 大阪大学医学部Python会</title>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/hamiltonian_descent_method.html">Hamiltonian Descent Methodの要点</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- Meta -->
+    <meta name="description" content="大阪大学医学部Python会 &ndash; ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/shan-ben.html">山本</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info --><p>解説自体は<a href="https://omedstu.jimdo.com/2018/09/26/hamiltonian-descent-methods%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E8%A7%A3%E8%AA%AC/" target="_blank" rel="noopener">Hamiltonian Descent Methodsの実装についての解説</a>に書いたのですが、こちらには要点だけまとめておきます。</p>
-<h3>要点のまとめ</h3>
+    <!-- Social -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="大阪大学医学部Python会"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:site_name" content="大阪大学医学部Python会" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="../images/"/>
 
-<p><img class="aligncenter size-full wp-image-170" src="https://pythonoum.files.wordpress.com/2018/09/1537941381.jpg" alt="1537941381" width="800" height="269" />
-- Hamiltonian Descent法を用いると凸関数最適化が高速かつ高精度で行える。
-- 超収束(Super-Convergence, <a href="https://arxiv.org/pdf/1708.07120.pdf">arxiv</a>)とは関係ある？論文読んだ限りはなさそう。
-- ニューラルネットワークの最適化に応用するには運動エネルギー関数の研究が必要。
-- なぜ高速に学習できるのか、なぜSGDと比べてニューラルネットワークの学習が不能なのか不明。でも学習できるならもっと実装あるよなと思っています。</p>
-<h3>アルゴリズム（1つ目の陽解法）</h3>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="大阪大学医学部Python会">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="../images/">
 
-<p>パラメータx以外に運動量のパラメータpを用意します。以下の更新式に従ってパラメータを更新します。
-<img class="aligncenter size-medium wp-image-168" src="https://pythonoum.files.wordpress.com/2018/09/texclip20180929003048.png?w=600" alt="texclip20180929003048" width="300" height="81" />
-ここでx_tは時刻tにおける解、p_tは時刻tにおける運動量、kは運動エネルギー関数、fは最小化したい関数（位置エネルギー関数）です2回微分が必要ですが、運動エネルギー関数k(p)を解析的に微分可能にしておけば、∇k(p)を定義すれば微分は1回でokです。</p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="http://johndoe.disqus.com/latest.rss" title="大阪大学医学部Python会 Comments RSS Feed">
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/custom.css">
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
+  </head>
 
-</body>
+  <body>
+    <div class="w3-row w3-card w3-white">
+      <header id="header">
+        <a href="" id="header-logo" title="Home">平</a>
+        <nav id="header-menu">
+          <ul>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/atcoder.html">atcoder</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/bioinformatics.html">bioinformatics</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/deeplearning.html">deeplearning</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/github.html">github</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/kaggle.html">kaggle</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/paper.html">paper</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/python.html">python</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/shell.html">shell</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/statistics.html">statistics</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+
+    <br><br><br>
+
+    <div class="w3-container col-main w3-center">
+      <h2>Articles by 山本</h2>
+      <br>
+      <a href="/author/shan-ben.html" style="display: flex; align-items: center; justify-content: center;"><img style="width: 50px; height: 50px;" src="../images/" onerror="this.src='../theme/images/avatar.png'"></img></a>
+    </div>
+
+
+
+    <br><br><br>
+
+    <section id="listing">
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/hamiltonian_descent_method.html">Hamiltonian Descent Methodの要点</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          Hamiltonian Descent Methodの要点
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/hamiltonian_descent_method.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+
+
+    </section>
+
+
+    <footer id="footer">
+      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
+        <span>
+          &copy;
+          2018&dash;2019          平岡悠
+        </span>
+      </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-12345678-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
 </html>

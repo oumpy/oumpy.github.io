@@ -1,383 +1,364 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-        <meta charset="utf-8" />
-        <title>大阪大学医学部Python会 - deeplearning</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">大阪大学医学部Python会 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/atcoder.html">atcoder</a></li>
-                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
-                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
-                    <li><a href="/category/github.html">github</a></li>
-                    <li><a href="/category/kaggle.html">kaggle</a></li>
-                    <li><a href="/category/paper.html">paper</a></li>
-                    <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/shell.html">shell</a></li>
-                    <li><a href="/category/statistics.html">statistics</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+    <title>deeplearning &ndash; 大阪大学医学部Python会</title>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/animalshogi.html">PythonとKerasでどうぶつしょうぎ</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- Meta -->
+    <meta name="description" content="大阪大学医学部Python会 &ndash; ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/xiao-chuan.html">小川</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info --><h2 id="toc_1">はじめに</h2>
+    <!-- Social -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="大阪大学医学部Python会"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:site_name" content="大阪大学医学部Python会" />
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content="../images/"/>
 
-<p><strong>「どうぶつしょうぎ」</strong>というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E3%81%97%E3%82%87%E3%81%86%E3%81%8E">wikipediaの解説</a>）</p>
-<p>普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。</p>
-<p>駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。</p>
-<p>駒に描かれているイラストも、大変、かわいいです。</p>
-<p>ゲーム空間の規模がそこそこ小さいため、すでに随分前に<a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/">完全解析もされています</a>。
-双方最善を尽くすと78手まで後手勝ち、だそうです。</p>
-<p>今回は、<a href="https://www.nature.com/articles/nature16961">AlphaGo </a>(<a href="https://www.nature.com/articles/nature24270">Zero</a>)を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、<strong>どうぶつしょうぎをプレイするプログラム</strong>を作ってみました。</p>
-<p>ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。</p>
-<p>今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。 （たぶん。）
-<h2 id="toc_2">つくりかた概要</h2>
-「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。</p>
-<p>この部分を、深層ニューラルネットワーク「だけ」で作ります。</p>
-<p>実はこれ、<strong>画像カテゴリ認識と殆ど同じ</strong>です。
-例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。</p>
-<p>入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。
-<h2 id="toc_3">ネットワーク構成</h2>
-<h3 id="toc_4">入力：盤面と持駒の表現</h3>
-どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
-（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）</p>
-<p>なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
-各マスで11チャネルのうち1つだけが1、残りは0をとるようにします。</p>
-<p>次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。</p>
-<p>こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。</p>
-<p>入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。
-<h3 id="toc_5">出力：可能な指し手を網羅する</h3>
-どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。</p>
-<p>これらは任意の局面に対して、</p>
-<p>(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」</p>
-<p>(2)「打つ駒の種類」「打つ位置」</p>
-<p>を与えると一意に決められます。</p>
-<p>一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。</p>
-<p>合わせて<strong>合法手の可能性は97通り</strong>です。
-ですからネットワークは、<strong>97ノードのソフトマックスを出力とすればよい</strong>ことになります。
-<h3 id="toc_6">今回使ったネットワーク</h3>
-入力と出力が決まったので、あとは工夫しだい。
-今回は適当に、こんなネットワークでやってみます。
-<div>
-<pre><code class="language-none"><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__
-Layer (type)                     Output Shape          Param #     Connected to                   <br>
-====================================================================================================
-input_1 (InputLayer)             (None, 3, 4, 11)      0                                            </p>
-<hr>
-<p>input_2 (InputLayer)            (None, 2, 3, 2)       0                                            </p>
-<hr>
-<p>flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    </p>
-<hr>
-<p>flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   </p>
-<hr>
-<p>concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                <br>
-                                                                   flatten_2[0][0]                 </p>
-<hr>
-<p>dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              </p>
-<hr>
-<p>dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   </p>
-<hr>
-<p>dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   </p>
-<hr>
-<p>dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   </p>
-<hr>
-<p>dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   </p>
-<hr>
-<p>dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   </p>
-<hr>
-<h1>dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]</h1>
-<p>Total params: 113,633
-Trainable params: 113,633
-Non-trainable params: 0
-<strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__</code></pre>
-</div>
-input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。</p>
-<p>盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。
-<h2 id="toc_7">強化学習：自己対戦と指し手評価</h2>
-さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。</p>
-<p>そのためには、<strong>審判・履歴機能付きのどうぶつしょうぎ盤セット</strong>をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。</p>
-<p>自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。
-<ul>
-    <li>初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。</li>
-    <li>出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。</li>
-    <li>自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。</li>
-    <li>敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。（褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）</li>
-</ul>
-今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。</p>
-<p>計算は全てノートPC上で行い、計算時間は45分程度でした。
-<h2 id="toc_8">学習結果</h2>
-<h3 id="toc_9">ルールの習得</h3>
-まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。</p>
-<p>ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに<strong>合法手が98.7%</strong>となりました。1.3%の指し手が反則です。</p>
-<p>これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。</p>
-<p>ルールについてはかなり良く習得してきていることがわかります。
-<h3 id="toc_10">どれくらい強い？</h3>
-自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。</p>
-<p>結果は、、、</p>
-<p><strong>勝率 53% !!!!!!</strong> (´･ω･`)</p>
-<p>んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。</p>
-<p>ランダムに指すのと比べて、確実に強いです。</p>
-<p>しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。</p>
-<p>原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。</p>
-<p>強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。</p>
-<p>例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。</p>
-<p>そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。</p>
-<p>今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
-自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。</p>
-<p>ひとまず今回はここまで。おしまい。
-<h3 id="toc_11">追記1</h3>
-強化学習をさらに2倍、総計2^18局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。
-<h3 id="toc_12">追記2</h3>
-強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。</p>
-<p>今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。</p>
-<p>最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="大阪大学医学部Python会">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:image" content="../images/">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/breast_cancer_detection.html" rel="bookmark"
-                           title="Permalink to Improving Breast Cancer Detection using Symmetry Information with Deep Learning">Improving Breast Cancer Detection using Symmetry Information with Deep Learning</a></h1>
-                </header>
+    <!-- Feed -->
+    <link rel="alternate" type="application/rss+xml" href="http://johndoe.disqus.com/latest.rss" title="大阪大学医学部Python会 Comments RSS Feed">
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/theme/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/jqcloud.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygments-highlight-github.css">
+    <link rel="stylesheet" type="text/css" href="/theme/css/custom.css">
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/qiu-shan.html">秋山</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>Improving Breast Cancer Detection using Symmetry Information with Deep Learning</p>
-                <a class="readmore" href="/breast_cancer_detection.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cluster_analysis.html" rel="bookmark"
-                           title="Permalink to クラスター分析">クラスター分析</a></h1>
-                </header>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/theme/js/jqcloud.min.js"></script>
+  </head>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+  <body>
+    <div class="w3-row w3-card w3-white">
+      <header id="header">
+        <a href="" id="header-logo" title="Home">平</a>
+        <nav id="header-menu">
+          <ul>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/atcoder.html">atcoder</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/bioinformatics.html">bioinformatics</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/deeplearning.html">deeplearning</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/github.html">github</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/kaggle.html">kaggle</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/paper.html">paper</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/python.html">python</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/shell.html">shell</a></li>
+            <li class="w3-bottombar w3-border-white w3-hover-border-green" ><a href="/category/statistics.html">statistics</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/liu-ze.html">柳澤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>クラスター分析</p>
-                <a class="readmore" href="/cluster_analysis.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/doctor_exam_ai.html" rel="bookmark"
-                           title="Permalink to (論文まとめ)医師国家試験問題自動生成AI">(論文まとめ)医師国家試験問題自動生成AI</a></h1>
-                </header>
+    <br><br><br>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <div class="w3-container col-main w3-center">
+      <h2>Articles tagged with #deeplearning</h2>
+    </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/qiu-shan.html">秋山</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>(論文まとめ)医師国家試験問題自動生成AI</p>
-                <a class="readmore" href="/doctor_exam_ai.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/hamiltonian_descent_method.html" rel="bookmark"
-                           title="Permalink to Hamiltonian Descent Methodの要点">Hamiltonian Descent Methodの要点</a></h1>
-                </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+    <br><br><br>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/shan-ben.html">山本</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>Hamiltonian Descent Methodの要点</p>
-                <a class="readmore" href="/hamiltonian_descent_method.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    <section id="listing">
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/animalshogi.html">PythonとKerasでどうぶつしょうぎ</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/hardware_for_deeplearning.html" rel="bookmark"
-                           title="Permalink to 組み込みでDeep Learningにつかえるハードについて">組み込みでDeep Learningにつかえるハードについて</a></h1>
-                </header>
+        <div class="entry-content">
+          PythonとKerasでどうぶつしょうぎ
+        </div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/animalshogi.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>組み込みでDeep Learningにつかえるハードについて</p>
-                <a class="readmore" href="/hardware_for_deeplearning.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+      <br><br><br>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/parametaer_tuning.html" rel="bookmark"
-                           title="Permalink to Parameter Tuning">Parameter Tuning</a></h1>
-                </header>
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/breast_cancer_detection.html">Improving Breast Cancer Detection using Symmetry Information with Deep Learning</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+        <div class="entry-content">
+          Improving Breast Cancer Detection using Symmetry Information with Deep Learning
+        </div>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/zuo-teng.html">佐藤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>Parameter Tuning</p>
-                <a class="readmore" href="/parametaer_tuning.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/breast_cancer_detection.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/particle_filter.html" rel="bookmark"
-                           title="Permalink to particle filter">particle filter</a></h1>
-                </header>
+      <br><br><br>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/cluster_analysis.html">クラスター分析</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/liu-ze.html">柳澤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>particle filter</p>
-                <a class="readmore" href="/particle_filter.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+        <div class="entry-content">
+          クラスター分析
+        </div>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/umap.html" rel="bookmark"
-                           title="Permalink to 超高速次元圧縮アルゴリズムUMAP">超高速次元圧縮アルゴリズムUMAP</a></h1>
-                </header>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/cluster_analysis.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+      <br><br><br>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>超高速次元圧縮アルゴリズムUMAP</p>
-                <a class="readmore" href="/umap.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/doctor_exam_ai.html">(論文まとめ)医師国家試験問題自動生成AI</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/voice_recognition.html" rel="bookmark"
-                           title="Permalink to NTT corevoチャレンジ: 話者の性別・年代識別">NTT corevoチャレンジ: 話者の性別・年代識別</a></h1>
-                </header>
+        <div class="entry-content">
+          (論文まとめ)医師国家試験問題自動生成AI
+        </div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/doctor_exam_ai.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/zuo-teng.html">佐藤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>NTT corevoチャレンジ: 話者の性別・年代識別</p>
-                <a class="readmore" href="/voice_recognition.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+      <br><br><br>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/hamiltonian_descent_method.html">Hamiltonian Descent Methodの要点</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+        <div class="entry-content">
+          Hamiltonian Descent Methodの要点
+        </div>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/hamiltonian_descent_method.html">Read &#10093;</a>
+        </footer>
+      </article>
 
-</body>
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/hardware_for_deeplearning.html">組み込みでDeep Learningにつかえるハードについて</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          組み込みでDeep Learningにつかえるハードについて
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/hardware_for_deeplearning.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/parametaer_tuning.html">Parameter Tuning</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          Parameter Tuning
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/parametaer_tuning.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/particle_filter.html">particle filter</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          particle filter
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/particle_filter.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/umap.html">超高速次元圧縮アルゴリズムUMAP</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          超高速次元圧縮アルゴリズムUMAP
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/umap.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+      <article class="w3-container w3-card-2 w3-white col-main">
+        <header>
+          <h2><a href="/voice_recognition.html">NTT corevoチャレンジ: 話者の性別・年代識別</a></h2>
+          <div class="post-info">
+            <div class="w3-opacity w3-margin-right w3-margin-bottom" style="flex-grow: 1;">
+              <span><time datetime="2019-04-14T00:00:00+09:00">Sun 14 April 2019</time> in <a href="/category/deeplearning.html" title="All articles in category deeplearning">deeplearning</a></span>
+            </div>
+            <div class="w3-margin-right">
+              <span class="w3-tag w3-light-grey w3-text-green w3-hover-green">
+                <a href="/tag/deeplearning.html" title="All articles with Deeplearning tag">#deeplearning</a>
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <div class="entry-content">
+          NTT corevoチャレンジ: 話者の性別・年代識別
+        </div>
+
+        <footer>
+          <a class="w3-btn w3-green w3-right" href="/voice_recognition.html">Read &#10093;</a>
+        </footer>
+      </article>
+
+      <br><br><br>
+
+
+
+    </section>
+
+
+    <footer id="footer">
+      <div id="footer-copyright" class="w3-center w3-small w3-text-grey w3-padding-48">
+        <span>
+          &copy;
+          2018&dash;2019          平岡悠
+        </span>
+      </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-12345678-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
 </html>
