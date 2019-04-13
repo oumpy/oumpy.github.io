@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="utf-8" />
+        <title>超高速次元圧縮アルゴリズムUMAP</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">大阪大学医学部Python会 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/atcoder.html">atcoder</a></li>
+                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
+                    <li class="active"><a href="/category/deeplearning.html">deeplearning</a></li>
+                    <li><a href="/category/github.html">github</a></li>
+                    <li><a href="/category/kaggle.html">kaggle</a></li>
+                    <li><a href="/category/paper.html">paper</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/shell.html">shell</a></li>
+                    <li><a href="/category/statistics.html">statistics</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/umap.html" rel="bookmark"
+           title="Permalink to 超高速次元圧縮アルゴリズムUMAP">超高速次元圧縮アルゴリズムUMAP</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-04-14T00:00:00+09:00">
+                Published: Sun 14 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
+        </address>
+<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
+<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
+</footer><!-- /.post-info -->      <h1>超高速次元圧縮アルゴリズムUMAP</h1>
+
+<p>世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 <a href="https://deepage.net/machine_learning/2017/03/08/tsne.html">tsneのパラメータについて</a>）</p>
+<p>そこで今回紹介するのはUMAP。 arxivで今月publishされたばかりのアルゴリズムです(記事執筆時 2018年2月時点)。 試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。</p>
+<p>tSNEではちょうど1時間30分でしたが、UMAPではたったの1分でした。</p>
+<p>詳細はこちら。 https://github.com/lmcinnes/umap</p>
+<p>インストールは $ pip install umap</p>
+<p>こちらが今回のソースコード。</p>
+<table>
+<tbody>
+<tr>
+<td>from sklearn import datasets
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+digits = datasets.fetch_mldata('MNIST original')
+
+print(digits['data'].shape)
+
+import umap
+embedding = umap.UMAP().fit_transform(digits.data)
+plt.figure(figsize=(12,8))
+plt.scatter(embedding[:,0],embedding[:,1],c=digits.target, s=0.1)
+plt.title('UMAP')
+plt.savefig('umap.png')
+
+from sklearn.manifold import TSNE
+model = TSNE(n_components=2)
+tsne_result = model.fit_transform(digits.data)
+plt.figure(figsize=(12,8))
+plt.scatter(tsne_result[:,0],tsne_result[:,1],c=digits.target, s=0.1)
+plt.title('tSNE')
+plt.savefig('tsne.png')</td>
+</tr>
+</tbody>
+</table>
+
+<p><img title="" src="https://pythonoum.files.wordpress.com/2018/09/null1.png" alt="" width="334" height="222" /><img title="" src="https://pythonoum.files.wordpress.com/2018/09/null.png" alt="" width="333" height="221" /></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

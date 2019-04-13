@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
         <meta charset="utf-8" />
-        <title>大阪大学医学部Python会 - Categories</title>
+        <title>大阪大学医学部Python会 - kaggle</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -21,18 +21,39 @@
                     <li><a href="/category/statistics.html">statistics</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-    <h1>Categories on 大阪大学医学部Python会</h1>
-    <ul>
-        <li><a href="/category/atcoder.html">atcoder</a> (1)</li>
-        <li><a href="/category/bioinformatics.html">bioinformatics</a> (6)</li>
-        <li><a href="/category/deeplearning.html">deeplearning</a> (9)</li>
-        <li><a href="/category/github.html">github</a> (1)</li>
-        <li><a href="/category/kaggle.html">kaggle</a> (1)</li>
-        <li><a href="/category/paper.html">paper</a> (1)</li>
-        <li><a href="/category/python.html">python</a> (5)</li>
-        <li><a href="/category/shell.html">shell</a> (2)</li>
-        <li><a href="/category/statistics.html">statistics</a> (2)</li>
-    </ul>
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/pandas_pivot_table.html">pandasのpivot_tableを用いた高速データ処理</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-04-14T00:00:00+09:00">
+                Published: Sun 14 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jin-zi.html">金子</a>
+        </address>
+<p>In <a href="/category/kaggle.html">kaggle</a>.</p>
+<p>tags: <a href="/tag/kaggle.html">kaggle</a> </p>
+</footer><!-- /.post-info --><h1>pandasのpivot_tableを用いた高速データ処理</h1>
+
+<h2>概要</h2>
+
+<p>pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。</p>
+<p>pivot_tableを使った計算で個人的によく使う処理をまとめたものをkaggle の<strong><a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table">kernel</a></strong>で公開しました。</p>
+<p>このkernelでは簡単なダミーデータでpivot_tableに対する計算の仕方をまとめた後、実例として<a href="https://www.kaggle.com/c/PLAsTiCC-2018">PLAsTiCC コンペ</a>の<a href="https://www.kaggle.com/michaelapers/the-plasticc-astronomy-starter-kit">Starter Kit</a>にあった特徴量の計算をpandasのpivot_tableを用いて高速化しました。
+<h2>どんなことができるようになるの？</h2>
+<ul>
+    <li>カテゴリごとに組み込みの集計関数より高度な関数を適用できる</li>
+    <li>カテゴリごとの移動平均をかけるようになる</li>
+    <li>未来のデータを含まないmean_encodingがかける</li>
+</ul>
+<h2>どれくらい早くなるの？</h2>
+上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、</p>
+<p>愚直なコード(1時間以上)→groupbyでの処理(2分半)→pivot_table(4秒)</p>
+<p>という感じで早くなりました。
+ </p>                </article>
+            </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

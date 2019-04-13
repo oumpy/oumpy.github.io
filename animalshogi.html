@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
         <meta charset="utf-8" />
-        <title>大阪大学医学部Python会</title>
+        <title>PythonとKerasでどうぶつしょうぎ</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -12,7 +12,7 @@
                 <nav><ul>
                     <li><a href="/category/atcoder.html">atcoder</a></li>
                     <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
-                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
+                    <li class="active"><a href="/category/deeplearning.html">deeplearning</a></li>
                     <li><a href="/category/github.html">github</a></li>
                     <li><a href="/category/kaggle.html">kaggle</a></li>
                     <li><a href="/category/paper.html">paper</a></li>
@@ -21,10 +21,15 @@
                     <li><a href="/category/statistics.html">statistics</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/animalshogi.html" rel="bookmark"
+           title="Permalink to PythonとKerasでどうぶつしょうぎ">PythonとKerasでどうぶつしょうぎ</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/animalshogi.html">PythonとKerasでどうぶつしょうぎ</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-04-14T00:00:00+09:00">
                 Published: Sun 14 April 2019
@@ -35,7 +40,7 @@
         </address>
 <p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
 <p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info --><h2 id="toc_1">はじめに</h2>
+</footer><!-- /.post-info -->      <h2 id="toc_1">はじめに</h2>
 
 <p><strong>「どうぶつしょうぎ」</strong>というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E3%81%97%E3%82%87%E3%81%86%E3%81%8E">wikipediaの解説</a>）</p>
 <p>普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。</p>
@@ -145,216 +150,11 @@ input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層�
 <h3 id="toc_12">追記2</h3>
 強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。</p>
 <p>今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。</p>
-<p>最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/atcoder.html" rel="bookmark"
-                           title="Permalink to AtCoder Beginners Selection 雑感">AtCoder Beginners Selection 雑感</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/ping-gang-you.html">平岡悠</a>
-        </address>
-<p>In <a href="/category/atcoder.html">atcoder</a>.</p>
-<p>tags: <a href="/tag/atcoder.html">atcoder</a> </p>
-</footer><!-- /.post-info -->                <p>AtCoder Beginners Selection 雑感</p>
-                <a class="readmore" href="/atcoder.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/bayesian_T_test.html" rel="bookmark"
-                           title="Permalink to ベイズ流T検定 BEST">ベイズ流T検定 BEST</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/statistics.html">statistics</a>.</p>
-<p>tags: <a href="/tag/statistics.html">statistics</a> </p>
-</footer><!-- /.post-info -->                <p>ベイズ流T検定 BEST</p>
-                <a class="readmore" href="/bayesian_T_test.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/breast_cancer_detection.html" rel="bookmark"
-                           title="Permalink to Improving Breast Cancer Detection using Symmetry Information with Deep Learning">Improving Breast Cancer Detection using Symmetry Information with Deep Learning</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/qiu-shan.html">秋山</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>Improving Breast Cancer Detection using Symmetry Information with Deep Learning</p>
-                <a class="readmore" href="/breast_cancer_detection.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cluster_analysis.html" rel="bookmark"
-                           title="Permalink to クラスター分析">クラスター分析</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/liu-ze.html">柳澤</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>クラスター分析</p>
-                <a class="readmore" href="/cluster_analysis.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/cwl.html" rel="bookmark"
-                           title="Permalink to Common Workflow Language入門">Common Workflow Language入門</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/bioinformatics.html">bioinformatics</a>.</p>
-<p>tags: <a href="/tag/bioinformatics.html">bioinformatics</a> </p>
-</footer><!-- /.post-info -->                <p>Common Workflow Language入門</p>
-                <a class="readmore" href="/cwl.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/doctor_exam_ai.html" rel="bookmark"
-                           title="Permalink to (論文まとめ)医師国家試験問題自動生成AI">(論文まとめ)医師国家試験問題自動生成AI</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/qiu-shan.html">秋山</a>
-        </address>
-<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
-<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
-</footer><!-- /.post-info -->                <p>(論文まとめ)医師国家試験問題自動生成AI</p>
-                <a class="readmore" href="/doctor_exam_ai.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/environment_bioinformatics.html" rel="bookmark"
-                           title="Permalink to LinuxでのBioinformatics環境構築_01">LinuxでのBioinformatics環境構築_01</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/ping-gang.html">平岡</a>
-        </address>
-<p>In <a href="/category/bioinformatics.html">bioinformatics</a>.</p>
-<p>tags: <a href="/tag/bioinformatics.html">bioinformatics</a> </p>
-</footer><!-- /.post-info -->                <p>LinuxでのBioinformatics環境構築_01</p>
-                <a class="readmore" href="/environment_bioinformatics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/github_desktop.html" rel="bookmark"
-                           title="Permalink to github desktopアプリの使い方">github desktopアプリの使い方</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
-        </address>
-<p>In <a href="/category/github.html">github</a>.</p>
-<p>tags: <a href="/tag/github.html">github</a> </p>
-</footer><!-- /.post-info -->                <p>github desktopアプリの使い方</p>
-                <a class="readmore" href="/github_desktop.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/google_colaboratory.html" rel="bookmark"
-                           title="Permalink to いまさらGoogle Colaboratory入門">いまさらGoogle Colaboratory入門</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-04-14T00:00:00+09:00">
-                Published: Sun 14 April 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gong-qi.html">宮崎</a>
-        </address>
-<p>In <a href="/category/python.html">python</a>.</p>
-<p>tags: <a href="/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <p>いまさらGoogle Colaboratory入門</p>
-                <a class="readmore" href="/google_colaboratory.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 3
-        <a href="/index2.html">&raquo;</a>
-</p>
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

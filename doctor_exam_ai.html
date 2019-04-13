@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="utf-8" />
+        <title>(論文まとめ)医師国家試験問題自動生成AI</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">大阪大学医学部Python会 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/atcoder.html">atcoder</a></li>
+                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
+                    <li class="active"><a href="/category/deeplearning.html">deeplearning</a></li>
+                    <li><a href="/category/github.html">github</a></li>
+                    <li><a href="/category/kaggle.html">kaggle</a></li>
+                    <li><a href="/category/paper.html">paper</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/shell.html">shell</a></li>
+                    <li><a href="/category/statistics.html">statistics</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/doctor_exam_ai.html" rel="bookmark"
+           title="Permalink to (論文まとめ)医師国家試験問題自動生成AI">(論文まとめ)医師国家試験問題自動生成AI</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-04-14T00:00:00+09:00">
+                Published: Sun 14 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/qiu-shan.html">秋山</a>
+        </address>
+<p>In <a href="/category/deeplearning.html">deeplearning</a>.</p>
+<p>tags: <a href="/tag/deeplearning.html">deeplearning</a> </p>
+</footer><!-- /.post-info -->      <p>On the Generation of Medical Question-Answer Pairs.
+Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. arXiv. 2018.
+http://arxiv.org/abs/1811.00681</p>
+<p>上記論文を軽く紹介。
+Tensent Mediacal AI lab Internからの論文。
+Deep learning技術により質問文に対して回答するAI (question answering, QA)が発展している。しかし、QAを医療に応用するためにはAIを学習させるためのデータが不足している。そこで質問文と解答のペアを自動生成するモデルを提案した。</p>
+<p>手法
+Key Phrase Detector
+質問文の各フレーズが解答の決め手となるキーフレーズであるかを評価する。キーフレーズであるかどうかは特定の解答に対して高頻度で質問文に出現するフレーズがキーフレーズであるとしてdetectorを学習させる。例えば「日本脳炎」が解答である場合「項部硬直」などがキーフレーズとなる。
+Conditional Variational Autoencoder (CVAE)
+キーフレーズは維持しつつ、それ以外のフレーズを生成モデルCVAEによって言い換える。これによって答が同じな新たな質問文が作られる。</p>
+<p>&nbsp;</p>
+<p><img class="alignnone size-full wp-image-427" src="https://pythonoum.files.wordpress.com/2018/12/393E4E28-4B67-4C25-A11B-BE7CA70BB9AC.png" alt="393E4E28-4B67-4C25-A11B-BE7CA70BB9AC" width="2055" height="880" /></p>
+<p>データ
+中国医師国家試験18,798問
+中国のWikipedia風医療サイト (http://xywy.com/)
+医学辞書19冊
+医学論文2,130,128本
+医学専門書518冊</p>
+<p>実験結果
+アルゴリズムによる評価、人間による評価ともにベースラインを上回った。</p>
+<p>読んだ感想
+生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="utf-8" />
+        <title>大阪大学医学部Python会 - github</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">大阪大学医学部Python会 </a></h1>
+                <nav><ul>
+                    <li><a href="/category/atcoder.html">atcoder</a></li>
+                    <li><a href="/category/bioinformatics.html">bioinformatics</a></li>
+                    <li><a href="/category/deeplearning.html">deeplearning</a></li>
+                    <li class="active"><a href="/category/github.html">github</a></li>
+                    <li><a href="/category/kaggle.html">kaggle</a></li>
+                    <li><a href="/category/paper.html">paper</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/shell.html">shell</a></li>
+                    <li><a href="/category/statistics.html">statistics</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/github_desktop.html">github desktopアプリの使い方</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-04-14T00:00:00+09:00">
+                Published: Sun 14 April 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/an-shui.html">安水</a>
+        </address>
+<p>In <a href="/category/github.html">github</a>.</p>
+<p>tags: <a href="/tag/github.html">github</a> </p>
+</footer><!-- /.post-info --><p>githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は<a href="https://desktop.github.com/">github desktop</a>についてです。</p>
+<h3>レポジトリの読み込み（プロジェクト開始時の一回のみ。）</h3>
+<p><img class="alignnone size-full wp-image-284" src="https://pythonoum.files.wordpress.com/2018/10/1.png" alt="1" width="550" height="202" /></p>
+<ul>
+<li>github上のレポジトリとLocal pathを指定。</li>
+</ul>
+<p><img class="alignnone size-full wp-image-285" src="https://pythonoum.files.wordpress.com/2018/10/2.png" alt="2" width="900" height="968" /></p>
+<p>これでうまくcloneされていたらOK</p>
+<hr>
+<h3>毎回の流れ(基本編)</h3>
+<ul>
+<li>一日の作業の初めにFetchしてきて、最新の状態に同期する。</li>
+</ul>
+<p><img class="alignnone size-full wp-image-286" src="https://pythonoum.files.wordpress.com/2018/10/3.png" alt="3" width="928" height="398" /></p>
+<p>ファイルを変更、加筆すると自動的にアプリに反映される</p>
+<p><img class="alignnone size-full wp-image-287" src="https://pythonoum.files.wordpress.com/2018/10/4.png" alt="4" width="2144" height="1544" /></p>
+<ul>
+<li>作業の区切りがついたら左下のSummeryに適当にコメントを付け、commit to master。
+コメントはもうちょっと丁寧に付けましょう。。。</li>
+</ul>
+<p><img class="alignnone size-full wp-image-288" src="https://pythonoum.files.wordpress.com/2018/10/5.png" alt="5" width="620" height="518" /></p>
+<p><img class="alignnone size-full wp-image-289" src="https://pythonoum.files.wordpress.com/2018/10/6.png" alt="6" width="2144" height="1544" /></p>
+<ul>
+<li>pushして変更を反映させる。</li>
+</ul>
+<p>まとめると、<strong>fetch(pull) -&gt; commit -&gt; push</strong> のライフライクルです。</p>
+<h3>CLIでの操作</h3>
+<p>デスクトップアプリはwin,macではあるが、Ubuntuでは無いらしいので、同じ作業をCLIでやる必要がある。ただし、基本は同じで</p>
+<div class="highlight"><pre><span></span>$ git pull origin master
+$ git add --all
+$ git commit -m <span class="s2">&quot;コメント&quot;</span>
+$ git push origin master
+</pre></div>
+
+
+<p>って感じでやればOK。branchやmerge、プルリクエストについては触れていません。</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
