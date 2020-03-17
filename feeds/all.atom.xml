@@ -118,398 +118,307 @@
 第二十一条　未決勾こう留の日数は、その全部又は一部を本刑に算入することができる。
 第三章　期間計算
 （期間の計算）
-第二十二条　月又は年によって期間を定めたときは、暦に従って計算する。&lt;/p&gt;</content><category term="news"></category><category term="news"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="http://oumpy.github.io%5Carticles/2019/04/animalshogi.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2 id="toc_1"&gt;はじめに&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%86%E3%81%B6%E3%81%A4%E3%81%97%E3%82%87%E3%81%86%E3%81%8E"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;/p&gt;
-&lt;p&gt;駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;/p&gt;
-&lt;p&gt;駒に描かれているイラストも、大変、かわいいです。&lt;/p&gt;
+第二十二条　月又は年によって期間を定めたときは、暦に従って計算する。&lt;/p&gt;</content><category term="news"></category><category term="news"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="http://oumpy.github.io%5Carticles/2019/04/animalshogi.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
+駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
+駒に描かれているイラストも、大変、かわいいです。  &lt;/p&gt;
 &lt;p&gt;ゲーム空間の規模がそこそこ小さいため、すでに随分前に&lt;a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/"&gt;完全解析もされています&lt;/a&gt;。
 双方最善を尽くすと78手まで後手勝ち、だそうです。&lt;/p&gt;
-&lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo &lt;/a&gt;(&lt;a href="https://www.nature.com/articles/nature24270"&gt;Zero&lt;/a&gt;)を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt;を作ってみました。&lt;/p&gt;
-&lt;p&gt;ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。&lt;/p&gt;
-&lt;p&gt;今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。 （たぶん。）
-&lt;h2 id="toc_2"&gt;つくりかた概要&lt;/h2&gt;
-「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。&lt;/p&gt;
-&lt;p&gt;この部分を、深層ニューラルネットワーク「だけ」で作ります。&lt;/p&gt;
+&lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo&lt;/a&gt;
+(&lt;a href="https://www.nature.com/articles/nature24270"&gt;Zero&lt;/a&gt;)
+を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt;を作ってみました。&lt;br&gt;
+ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。&lt;/p&gt;
+&lt;p&gt;今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）&lt;/p&gt;
+&lt;h2&gt;つくりかた概要&lt;/h2&gt;
+&lt;p&gt;「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。&lt;br&gt;
+この部分を、深層ニューラルネットワーク「だけ」で作ります。  &lt;/p&gt;
 &lt;p&gt;実はこれ、&lt;strong&gt;画像カテゴリ認識と殆ど同じ&lt;/strong&gt;です。
-例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。&lt;/p&gt;
-&lt;p&gt;入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。
-&lt;h2 id="toc_3"&gt;ネットワーク構成&lt;/h2&gt;
-&lt;h3 id="toc_4"&gt;入力：盤面と持駒の表現&lt;/h3&gt;
-どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
-（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）&lt;/p&gt;
-&lt;p&gt;なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
+例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。&lt;br&gt;
+入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。&lt;/p&gt;
+&lt;h2&gt;ネットワーク構成&lt;/h2&gt;
+&lt;h3&gt;入力：盤面と持駒の表現&lt;/h3&gt;
+&lt;p&gt;どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
+（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）&lt;br&gt;
+なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
 各マスで11チャネルのうち1つだけが1、残りは0をとるようにします。&lt;/p&gt;
-&lt;p&gt;次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。&lt;/p&gt;
-&lt;p&gt;こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。&lt;/p&gt;
-&lt;p&gt;入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。
-&lt;h3 id="toc_5"&gt;出力：可能な指し手を網羅する&lt;/h3&gt;
-どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。&lt;/p&gt;
-&lt;p&gt;これらは任意の局面に対して、&lt;/p&gt;
-&lt;p&gt;(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」&lt;/p&gt;
-&lt;p&gt;(2)「打つ駒の種類」「打つ位置」&lt;/p&gt;
-&lt;p&gt;を与えると一意に決められます。&lt;/p&gt;
-&lt;p&gt;一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。&lt;/p&gt;
-&lt;p&gt;合わせて&lt;strong&gt;合法手の可能性は97通り&lt;/strong&gt;です。
-ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt;ことになります。
-&lt;h3 id="toc_6"&gt;今回使ったネットワーク&lt;/h3&gt;
-入力と出力が決まったので、あとは工夫しだい。
-今回は適当に、こんなネットワークでやってみます。
-&lt;div&gt;
-&lt;pre&gt;&lt;code class="language-none"&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;__
-Layer (type)                     Output Shape          Param #     Connected to                   &lt;br&gt;
-====================================================================================================
-input_1 (InputLayer)             (None, 3, 4, 11)      0                                            &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;input_2 (InputLayer)            (None, 2, 3, 2)       0                                            &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                &lt;br&gt;
-                                                                   flatten_2[0][0]                 &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   &lt;/p&gt;
-&lt;hr&gt;
-&lt;h1&gt;dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]&lt;/h1&gt;
-&lt;p&gt;Total params: 113,633
-Trainable params: 113,633
-Non-trainable params: 0
-&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;_&lt;/em&gt;&lt;/strong&gt;__&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。&lt;/p&gt;
-&lt;p&gt;盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。
-&lt;h2 id="toc_7"&gt;強化学習：自己対戦と指し手評価&lt;/h2&gt;
-さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。&lt;/p&gt;
+&lt;p&gt;次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。&lt;br&gt;
+こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。&lt;/p&gt;
+&lt;p&gt;入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。&lt;/p&gt;
+&lt;h3&gt;出力：可能な指し手を網羅する&lt;/h3&gt;
+&lt;p&gt;どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。&lt;br&gt;
+これらは任意の局面に対して、&lt;br&gt;
+(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」&lt;br&gt;
+(2)「打つ駒の種類」「打つ位置」&lt;br&gt;
+を与えると一意に決められます。&lt;br&gt;
+一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。&lt;br&gt;
+合わせて&lt;strong&gt;合法手の可能性は97通り&lt;/strong&gt;です。
+ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt;ことになります。&lt;/p&gt;
+&lt;h3&gt;今回使ったネットワーク&lt;/h3&gt;
+&lt;p&gt;入力と出力が決まったので、あとは工夫しだい。
+今回は適当に、こんなネットワークでやってみます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;Layer (type)                     Output Shape          Param #     Connected to                     &lt;/span&gt;
+&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
+&lt;span class="err"&gt;input_1 (InputLayer)             (None, 3, 4, 11)      0                                            &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;input_2 (InputLayer)            (None, 2, 3, 2)       0                                            &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  &lt;/span&gt;
+&lt;span class="err"&gt;                                                                   flatten_2[0][0]                 &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
+&lt;span class="err"&gt;Total params: 113,633&lt;/span&gt;
+&lt;span class="err"&gt;Trainable params: 113,633&lt;/span&gt;
+&lt;span class="err"&gt;Non-trainable params: 0&lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。&lt;br&gt;
+盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。&lt;/p&gt;
+&lt;h2&gt;強化学習：自己対戦と指し手評価&lt;/h2&gt;
+&lt;p&gt;さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。&lt;/p&gt;
 &lt;p&gt;そのためには、&lt;strong&gt;審判・履歴機能付きのどうぶつしょうぎ盤セット&lt;/strong&gt;をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。&lt;/p&gt;
-&lt;p&gt;自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。
+&lt;p&gt;自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。&lt;/li&gt;
-    &lt;li&gt;出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。&lt;/li&gt;
-    &lt;li&gt;自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。&lt;/li&gt;
-    &lt;li&gt;敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。（褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）&lt;/li&gt;
+&lt;li&gt;初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。&lt;/li&gt;
+&lt;li&gt;出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。&lt;/li&gt;
+&lt;li&gt;自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。&lt;/li&gt;
+&lt;li&gt;敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。&lt;br&gt;
+  （褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）&lt;/li&gt;
 &lt;/ul&gt;
-今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。&lt;/p&gt;
-&lt;p&gt;計算は全てノートPC上で行い、計算時間は45分程度でした。
-&lt;h2 id="toc_8"&gt;学習結果&lt;/h2&gt;
-&lt;h3 id="toc_9"&gt;ルールの習得&lt;/h3&gt;
-まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。&lt;/p&gt;
-&lt;p&gt;ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに&lt;strong&gt;合法手が98.7%&lt;/strong&gt;となりました。1.3%の指し手が反則です。&lt;/p&gt;
-&lt;p&gt;これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。&lt;/p&gt;
-&lt;p&gt;ルールについてはかなり良く習得してきていることがわかります。
-&lt;h3 id="toc_10"&gt;どれくらい強い？&lt;/h3&gt;
-自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。&lt;/p&gt;
+&lt;p&gt;今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。&lt;br&gt;
+計算は全てノートPC上で行い、計算時間は45分程度でした。&lt;/p&gt;
+&lt;h2&gt;学習結果&lt;/h2&gt;
+&lt;h3&gt;ルールの習得&lt;/h3&gt;
+&lt;p&gt;まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。&lt;br&gt;
+ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに&lt;strong&gt;合法手が98.7%&lt;/strong&gt;となりました。1.3%の指し手が反則です。&lt;br&gt;
+これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。&lt;br&gt;
+ルールについてはかなり良く習得してきていることがわかります。&lt;/p&gt;
+&lt;h3&gt;どれくらい強い？&lt;/h3&gt;
+&lt;p&gt;自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。  &lt;/p&gt;
 &lt;p&gt;結果は、、、&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;勝率 53% !!!!!!&lt;/strong&gt; (´･ω･`)&lt;/p&gt;
-&lt;p&gt;んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。&lt;/p&gt;
-&lt;p&gt;ランダムに指すのと比べて、確実に強いです。&lt;/p&gt;
-&lt;p&gt;しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。&lt;/p&gt;
-&lt;p&gt;原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。&lt;/p&gt;
-&lt;p&gt;強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。&lt;/p&gt;
-&lt;p&gt;例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。&lt;/p&gt;
-&lt;p&gt;そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。&lt;/p&gt;
+&lt;p&gt;んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。&lt;br&gt;
+ランダムに指すのと比べて、確実に強いです。&lt;br&gt;
+しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。&lt;/p&gt;
+&lt;p&gt;原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。&lt;br&gt;
+強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。  &lt;/p&gt;
+&lt;p&gt;例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。&lt;br&gt;
+そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。&lt;/p&gt;
 &lt;p&gt;今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
 自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。&lt;/p&gt;
-&lt;p&gt;ひとまず今回はここまで。おしまい。
-&lt;h3 id="toc_11"&gt;追記1&lt;/h3&gt;
-強化学習をさらに2倍、総計2^18局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。
-&lt;h3 id="toc_12"&gt;追記2&lt;/h3&gt;
-強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;/p&gt;
-&lt;p&gt;今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;/p&gt;
-&lt;p&gt;最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="http://oumpy.github.io%5Carticles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;section class="pdf_page" aria-label="Page 1"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、&lt;/div&gt;
-&lt;div&gt;よく分からないままやってみました。その概要と雑感です。&lt;/div&gt;
-&lt;h2&gt;・AtCoderとは？&lt;/h2&gt;
-&lt;div&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(https://atcoder.jp/?lang=ja)。&lt;/div&gt;
-&lt;div&gt;定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として)&lt;/div&gt;
-&lt;div&gt;コンテストが開かれることもあります。&lt;/div&gt;
-&lt;div&gt;コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/div&gt;
-&lt;h2&gt;・AtCoder Beginners Selectionを解こう！&lt;/h2&gt;
-&lt;div&gt;チュートリアルを読むと、「何をすれば良いか分からない人は、AtCoder Beginners Selection&lt;/div&gt;
-&lt;div&gt;から、まずいくつかの問題を解いてみましょう。」と書いてあります。ページに飛んでみると、さらに、「このコンテストは、『AtCoderに登録したけど何をしていいか分からない・・・！』という人に向けて作られた初心者向け問題集です。」とも書いてます。&lt;/div&gt;
-&lt;div&gt;何も分かってない子羊ちゃんは素直に優しい言葉に付いて行くのでした。&lt;/div&gt;
-&lt;div&gt;以下いくつかの問題をピックアップしてみます。&lt;/div&gt;
-&lt;h3&gt;・問題０：はじめてのあっとこーだー&lt;/h3&gt;
-&lt;div&gt;わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。&amp;lt;/
-&lt;div&gt;問題文&lt;/div&gt;
-&lt;div&gt;高橋君はデータの加工が行いたいです。&lt;/div&gt;
-&lt;div&gt;整数 a,b,cと、文字列 s が与えられます。&lt;/div&gt;
-&lt;div&gt;整数 a+b+c と、文字列 s を並べて表示しなさい。&lt;/div&gt;
-&lt;div&gt;入力&lt;/div&gt;
-&lt;div&gt;入力は次の形式で与えられる。&lt;/div&gt;
-&lt;div&gt;a&lt;/div&gt;
-&lt;div&gt;b c&lt;/div&gt;
-&lt;div&gt;　s&lt;/div&gt;
-&lt;div&gt;1 行目は、整数 a (1≦a≦1,000) が与えられる。&lt;/div&gt;
-&lt;div&gt;2 行目は、整数 b,c (1≦b,c≦1,000) が与えられる。&lt;/div&gt;
-&lt;div&gt;3 行目は、文字列 s が与えられる。この文字列の長さは 1文字以上&lt;/div&gt;
-&lt;div&gt;100文字以下であ&lt;/div&gt;
-&lt;div&gt;る。&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
+&lt;p&gt;ひとまず今回はここまで。おしまい。&lt;/p&gt;
+&lt;h3&gt;追記1&lt;/h3&gt;
+&lt;p&gt;強化学習をさらに2倍、総計2^18局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。&lt;/p&gt;
+&lt;h3&gt;追記2&lt;/h3&gt;
+&lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
+今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
+最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="http://oumpy.github.io%5Carticles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+&lt;h2&gt;AtCoderとは？&lt;/h2&gt;
+&lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。&lt;br&gt;
+定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として)コンテストが開かれることもあります。&lt;/p&gt;
+&lt;p&gt;コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/p&gt;
+&lt;h2&gt;AtCoder Beginners Selectionを解こう！&lt;/h2&gt;
+&lt;p&gt;チュートリアルを読むと、「何をすれば良いか分からない人は、AtCoder Beginners Selectionから、まずいくつかの問題を解いてみましょう。」と書いてあります。ページに飛んでみると、さらに、「このコンテストは、『AtCoderに登録したけど何をしていいか分からない・・・！』という人に向けて作られた初心者向け問題集です。」とも書いてます。&lt;br&gt;
+何も分かってない子羊ちゃんは素直に優しい言葉に付いて行くのでした。&lt;br&gt;
+以下いくつかの問題をピックアップしてみます。&lt;/p&gt;
+&lt;h3&gt;問題０：はじめてのあっとこーだー&lt;/h3&gt;
+&lt;p&gt;わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;問題文&lt;/span&gt;
+&lt;span class="err"&gt;高橋君はデータの加工が行いたいです。&lt;/span&gt;
+&lt;span class="err"&gt;整数 a,b,cと、文字列 s が与えられます。&lt;/span&gt;
+&lt;span class="err"&gt;整数 a+b+c と、文字列 s を並べて表示しなさい。&lt;/span&gt;
+&lt;span class="err"&gt;入力&lt;/span&gt;
+&lt;span class="err"&gt;入力は次の形式で与えられる。&lt;/span&gt;
+&lt;span class="err"&gt;a&lt;/span&gt;
+&lt;span class="err"&gt;b c&lt;/span&gt;
+&lt;span class="err"&gt;s&lt;/span&gt;
+&lt;span class="err"&gt;1行目は、整数 a (1≦a≦1,000) が与えられる。&lt;/span&gt;
+&lt;span class="err"&gt;2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。&lt;/span&gt;
+&lt;span class="err"&gt;3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;section class="pdf_page" aria-label="Page 2"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;ん？&lt;/div&gt;
-&lt;div&gt;入力ってなんだ？(競プロ初心者並感)&lt;/div&gt;
-&lt;div&gt;いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)&lt;/div&gt;
-&lt;div&gt;そもそも複数行の入力ってどうするんだ？(プログラミング初心者並感)&lt;/div&gt;
-&lt;div&gt;......(思考停止)&lt;/div&gt;
-&lt;div&gt;数問解いた後の話ですが、気付きました。&lt;/div&gt;
-&lt;div&gt;ああこれが競技プログラミングなのか。&lt;/div&gt;
-&lt;div&gt;あれです、初心者あるあるの「思ってたのと違う」ってやつです。今回のは悪い意味ではないので&lt;/div&gt;
-&lt;div&gt;すが。&lt;/div&gt;
-&lt;div&gt;言語つながりで、例えば英語の問題なら、文法や読解、和文英訳など受験でさんざんやった形式&lt;/div&gt;
-&lt;div&gt;のものが思い浮かびます。てっきりそういう類いの問題が出るのかなと思っていたら、完全に実&lt;/div&gt;
-&lt;div&gt;践形式の問題で驚きました。英語始めたばっかりで、いきなり英会話しようと言われたら誰だっ&lt;/div&gt;
-&lt;div&gt;てそうなるでしょう。&lt;/div&gt;
-&lt;div&gt;このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独&lt;/div&gt;
-&lt;div&gt;自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表&lt;/div&gt;
-&lt;div&gt;記の仕方がたくさんあって、まるで方言のようです。&lt;/div&gt;
-&lt;div&gt;まとめっぽくなりましたが問題に戻ります。&lt;/div&gt;
-&lt;div&gt;考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。&lt;/div&gt;
-&lt;div&gt;いまさらですが言語はPython3です。&lt;/div&gt;
-&lt;div&gt;なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input&lt;/div&gt;
-&lt;div&gt;１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入&lt;/div&gt;
-&lt;div&gt;力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番&lt;/div&gt;
-&lt;div&gt;印象に残った事です。&lt;/div&gt;
-&lt;div&gt;map&lt;/div&gt;
-&lt;div&gt;とかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな&lt;/div&gt;
-&lt;div&gt;状態です。&lt;/div&gt;
-&lt;div&gt;1.&lt;/div&gt;
-&lt;div&gt;a = int(input())&lt;/div&gt;
-&lt;div&gt;2.&lt;/div&gt;
-&lt;div&gt;b, c = map(int, input().split())&lt;/div&gt;
-&lt;div&gt;3.&lt;/div&gt;
-&lt;div&gt;s = input()&lt;/div&gt;
-&lt;div&gt;4.&lt;/div&gt;
-&lt;div&gt;print(“{} {}”.format(a+b+c, s))&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
 
-&lt;section class="pdf_page" aria-label="Page 3"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;・問題４：Coins&lt;/div&gt;
-&lt;div&gt;コンピューターっぽくて印象的な問題です。&lt;/div&gt;
-&lt;div&gt;よくみる整数問題ですね。これは簡単に解けると思いきや...？&lt;/div&gt;
-&lt;div&gt;こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは&lt;/div&gt;
-&lt;div&gt;面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がな&lt;/div&gt;
-&lt;div&gt;されるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ&lt;/div&gt;
-&lt;div&gt;てかなり面倒です。&lt;/div&gt;
-&lt;div&gt;(&lt;/div&gt;
-&lt;div&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/div&gt;
-&lt;div&gt;　より引用)&lt;/div&gt;
-&lt;div&gt;問題文&lt;/div&gt;
-&lt;div&gt;あなたは、500円玉をA枚、100円玉をB枚、50円玉をC枚持っています。これらの硬貨&lt;/div&gt;
-&lt;div&gt;の中から何枚かを選び、合計金額をちょうどX&lt;/div&gt;
-&lt;div&gt;円にする方法は何通りありますか。&lt;/div&gt;
-&lt;div&gt;同じ種類の硬貨同士は区別できません。２通りの硬貨の選び方は、ある種類の硬貨につ&lt;/div&gt;
-&lt;div&gt;いてその硬貨を選ぶ枚数が異なるとき区別されます。&lt;/div&gt;
-&lt;div&gt;制約&lt;/div&gt;
-&lt;div&gt;0&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;A,B,C&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;50&lt;/div&gt;
-&lt;div&gt;A+B+C&lt;/div&gt;
-&lt;div&gt;≥&lt;/div&gt;
-&lt;div&gt;1&lt;/div&gt;
-&lt;div&gt;50&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;X&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;20,000&lt;/div&gt;
-&lt;div&gt;A,B,C は整数である&lt;/div&gt;
-&lt;div&gt;Xは50の倍数である&lt;/div&gt;
-&lt;div&gt;入力&lt;/div&gt;
-&lt;div&gt;入力は以下の形式で標準入力から与えられる。&lt;/div&gt;
-&lt;div&gt;　A&lt;/div&gt;
-&lt;div&gt;　B&lt;/div&gt;
-&lt;div&gt;　C&lt;/div&gt;
-&lt;div&gt;　X&lt;/div&gt;
-&lt;div&gt;出力&lt;/div&gt;
-&lt;div&gt;硬貨を選ぶ方法の個数を出力せよ。&lt;/div&gt;
-&lt;div&gt;1.&lt;/div&gt;
-&lt;div&gt;a, b, c, x = map(int, [input() for i in range(4)])&lt;/div&gt;
-&lt;div&gt;2.&lt;/div&gt;
-&lt;div&gt;ans = 0&lt;/div&gt;
-&lt;div&gt;3.&lt;/div&gt;
-&lt;div&gt;for i in range(a+1):&lt;/div&gt;
-&lt;div&gt;4.&lt;/div&gt;
-&lt;div&gt;for j in range(b+1):&lt;/div&gt;
-&lt;div&gt;5.&lt;/div&gt;
-&lt;div&gt;for k in range(c+1):&lt;/div&gt;
-&lt;div&gt;6.&lt;/div&gt;
-&lt;div&gt;if i * 500 + j * 100 + k * 50 == x:&lt;/div&gt;
-&lt;div&gt;7.&lt;/div&gt;
-&lt;div&gt;ans += 1&lt;/div&gt;
-&lt;div&gt;8.&lt;/div&gt;
-&lt;div&gt;print&lt;/div&gt;
-&lt;div&gt;(ans)&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
+&lt;p&gt;ん？&lt;br&gt;
+入力ってなんだ？(競プロ初心者並感)&lt;br&gt;
+いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)&lt;br&gt;
+そもそも複数行の入力ってどうするんだ？(プログラミング初心者並感)&lt;br&gt;
+......(思考停止)&lt;br&gt;
+数問解いた後の話ですが、気付きました。&lt;br&gt;
+ああこれが競技プログラミングなのか。&lt;br&gt;
+あれです、初心者あるあるの「思ってたのと違う」ってやつです。今回のは悪い意味ではないのですが。&lt;/p&gt;
+&lt;p&gt;言語つながりで、例えば英語の問題なら、文法や読解、和文英訳など受験でさんざんやった形式のものが思い浮かびます。てっきりそういう類いの問題が出るのかなと思っていたら、完全に実践形式の問題で驚きました。英語始めたばっかりで、いきなり英会話しようと言われたら誰だっ
+てそうなるでしょう。&lt;/p&gt;
+&lt;p&gt;このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。&lt;/p&gt;
+&lt;p&gt;まとめっぽくなりましたが問題に戻ります。&lt;br&gt;
+考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。&lt;br&gt;
+いまさらですが言語はPython3です。&lt;br&gt;
+なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番
+印象に残った事です。&lt;/p&gt;
+&lt;p&gt;mapとかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;1. a = int(input())&lt;/span&gt;
+&lt;span class="err"&gt;2. b, c = map(int, input().split())&lt;/span&gt;
+&lt;span class="err"&gt;3. s = input()&lt;/span&gt;
+&lt;span class="err"&gt;4. print(“{} {}”.format(a+b+c, s))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;section class="pdf_page" aria-label="Page 4"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABS&lt;/div&gt;
-&lt;div&gt;は有名らしく色んな人&lt;/div&gt;
-&lt;div&gt;が色んな言語で解答をあげています。&lt;/div&gt;
-&lt;div&gt;このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。&lt;/div&gt;
-&lt;div&gt;なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっ&lt;/div&gt;
-&lt;div&gt;としました。&lt;/div&gt;
-&lt;div&gt;・問題７：Kagami Mochi&lt;/div&gt;
-&lt;div&gt;：普通の解法&lt;/div&gt;
-&lt;div&gt;(&lt;/div&gt;
-&lt;div&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/div&gt;
-&lt;div&gt;　より引用)&lt;/div&gt;
-&lt;div&gt;入力をリストにしてからセットにして要素数を数える。当然ですね。&lt;/div&gt;
-&lt;div&gt;僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/div&gt;
-&lt;div&gt;問題文&lt;/div&gt;
-&lt;div&gt;X段重ねの鏡餅(X&lt;/div&gt;
-&lt;div&gt;≥&lt;/div&gt;
-&lt;div&gt;1) とはX枚の円形の餅を縦に積み重ねたものであって、どの餅もそ&lt;/div&gt;
-&lt;div&gt;の真下の餅より直径が小さい（一番下の餅を除く）もののことです。例えば、直径10、&lt;/div&gt;
-&lt;div&gt;8、6センチメートルの餅をこの順に下から積み重ねると 3 段重ねの鏡餅になり、餅を&lt;/div&gt;
-&lt;div&gt;一枚だけ置くと 1 段重ねの鏡餅になります。&lt;/div&gt;
-&lt;div&gt;ダックスフンドのルンルンはN枚の円形の餅を持っていて、そのうち i 枚目の餅の直径は&lt;/div&gt;
-&lt;div&gt;diセンチメートルです。これらの餅のうち一部または全部を使って鏡餅を作るとき、最&lt;/div&gt;
-&lt;div&gt;大で何段重ねの鏡餅を作ることができるでしょうか。&lt;/div&gt;
-&lt;div&gt;制約&lt;/div&gt;
-&lt;div&gt;1&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;N&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;100&lt;/div&gt;
-&lt;div&gt;1&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;di&lt;/div&gt;
-&lt;div&gt;≤&lt;/div&gt;
-&lt;div&gt;100&lt;/div&gt;
-&lt;div&gt;入力値は全て整数である。&lt;/div&gt;
-&lt;div&gt;入力&lt;/div&gt;
-&lt;div&gt;入力は以下の形式で標準入力から与えられる。&lt;/div&gt;
-&lt;div&gt;　N&lt;/div&gt;
-&lt;div&gt;d1&lt;/div&gt;
-&lt;div&gt;　：&lt;/div&gt;
-&lt;div&gt;dN&lt;/div&gt;
-&lt;div&gt;出力&lt;/div&gt;
-&lt;div&gt;作ることのできる鏡餅の最大の段数を出力せよ。&lt;/div&gt;
-&lt;div&gt;1.&lt;/div&gt;
-&lt;div&gt;n = int(input())&lt;/div&gt;
-&lt;div&gt;2.&lt;/div&gt;
-&lt;div&gt;print(len(set(map(int, [input() for i in range(n)]))))&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
 
-&lt;section class="pdf_page" aria-label="Page 5"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;：僕の解法&lt;/div&gt;
-&lt;div&gt;ソートしてからリストのままでなんとか数えあげました。&lt;/div&gt;
-&lt;div&gt;明らかに汚いですね。長いですし、n=1&lt;/div&gt;
-&lt;div&gt;で場合分けしてますし。こんな初心者じみた答えでも合っ&lt;/div&gt;
-&lt;div&gt;てたらいいんです。&lt;/div&gt;
-&lt;div&gt;・問題９：Daydream&lt;/div&gt;
-&lt;div&gt;問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。が、&lt;/div&gt;
-&lt;div&gt;わざわざerase&lt;/div&gt;
-&lt;div&gt;という単語を選んできたということは、こういうことでしょう。&lt;/div&gt;
-&lt;div&gt;僕の解法：&lt;/div&gt;
-&lt;div&gt;1.&lt;/div&gt;
-&lt;div&gt;n = int(input())&lt;/div&gt;
-&lt;div&gt;2.&lt;/div&gt;
-&lt;div&gt;a = sorted(list(map(int, [input() for i in range(n)])))&lt;/div&gt;
-&lt;div&gt;3.&lt;/div&gt;
-&lt;div&gt;ans = 1&lt;/div&gt;
-&lt;div&gt;4.&lt;/div&gt;
-&lt;div&gt;if n != 1:&lt;/div&gt;
-&lt;div&gt;5.&lt;/div&gt;
-&lt;div&gt;for i in range(n-1):&lt;/div&gt;
-&lt;div&gt;6.&lt;/div&gt;
-&lt;div&gt;if a[i] &amp;lt; a[i+1]:&lt;/div&gt;
-&lt;div&gt;7.&lt;/div&gt;
-&lt;div&gt;ans += 1&lt;/div&gt;
-&lt;div&gt;8.&lt;/div&gt;
-&lt;div&gt;print(ans)&lt;/div&gt;
-&lt;div&gt;問題文&lt;/div&gt;
-&lt;div&gt;英小文字からなる文字列 S が与えられます。 Tが空文字列である状態から始め、以下の&lt;/div&gt;
-&lt;div&gt;操作を好きな回数繰り返すことで S=T とすることができるか判定してください。&lt;/div&gt;
-&lt;div&gt;Tの末尾にdream dreamer erase eraser のいずれかを追加する。&lt;/div&gt;
-&lt;div&gt;制約&lt;/div&gt;
-&lt;div&gt;1≦|S|≦105&lt;/div&gt;
-&lt;div&gt;Sは英小文字からなる。&lt;/div&gt;
-&lt;div&gt;入力&lt;/div&gt;
-&lt;div&gt;入力は以下の形式で標準入力から与えられる。&lt;/div&gt;
-&lt;div&gt;S&lt;/div&gt;
-&lt;div&gt;出力&lt;/div&gt;
-&lt;div&gt;S&lt;/div&gt;
-&lt;div&gt;=Tとすることができる場合YESを、そうでない場合NOを出力せよ。&lt;/div&gt;
-&lt;div&gt;1.&lt;/div&gt;
-&lt;div&gt;s = input()&lt;/div&gt;
-&lt;div&gt;2.&lt;/div&gt;
-&lt;div&gt;a=s.replace("eraser"," ")&lt;/div&gt;
-&lt;div&gt;3.&lt;/div&gt;
-&lt;div&gt;b=a.replace("erase"," ")&lt;/div&gt;
-&lt;div&gt;4.&lt;/div&gt;
-&lt;div&gt;c=b.replace("dreamer"," ")&lt;/div&gt;
-&lt;div&gt;5.&lt;/div&gt;
-&lt;div&gt;d=c.replace("dream"," ")&lt;/div&gt;
-&lt;div&gt;6.&lt;/div&gt;
-&lt;div&gt;if d.strip() == "":&lt;/div&gt;
-&lt;div&gt;7.&lt;/div&gt;
-&lt;div&gt;print("YES")&lt;/div&gt;
-&lt;div&gt;8.&lt;/div&gt;
-&lt;div&gt;else:&lt;/div&gt;
-&lt;div&gt;9.&lt;/div&gt;
-&lt;div&gt;print("NO")&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
+&lt;h3&gt;問題４：Coins&lt;/h3&gt;
+&lt;p&gt;コンピューターっぽくて印象的な問題です。&lt;br&gt;
+よくみる整数問題ですね。これは簡単に解けると思いきや...？&lt;br&gt;
+こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
+てかなり面倒です。&lt;br&gt;
+(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;問題文&lt;/span&gt;
+&lt;span class="err"&gt;あなたは、&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="err"&gt;円玉を&lt;/span&gt;&lt;span class="n"&gt;A枚&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="err"&gt;円玉を&lt;/span&gt;&lt;span class="n"&gt;B枚&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="err"&gt;円玉を&lt;/span&gt;&lt;span class="n"&gt;C枚持っています&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="err"&gt;これらの硬貨の中から何枚かを選び、合計金額をちょうど&lt;/span&gt;&lt;span class="n"&gt;X円にする方法は何通りありますか&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="err"&gt;同じ種類の硬貨同士は区別できません。&lt;/span&gt;
+&lt;span class="err"&gt;２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。&lt;/span&gt;
 
-&lt;section class="pdf_page" aria-label="Page 6"&gt;
-&lt;div class="textlayer"&gt;
-&lt;div&gt;文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないは&lt;/div&gt;
-&lt;div&gt;ずです。&lt;/div&gt;
-&lt;div&gt;変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。&lt;/div&gt;
-&lt;div&gt;別解答：&lt;/div&gt;
-&lt;div&gt;(&lt;/div&gt;
-&lt;div&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/div&gt;
-&lt;div&gt;　より引用)&lt;/div&gt;
-&lt;div&gt;通ればなんでもいいはずなんですが、これはどうでしょう。&lt;/div&gt;
-&lt;div&gt;この解答例だと、”d erase r erase e erase a erase m” という文字列(スペースは抜いてくださ&lt;/div&gt;
-&lt;div&gt;い)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。&lt;/div&gt;
-&lt;div&gt;(嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)&lt;/div&gt;
-&lt;div&gt;・初学者にとっての競技プログラミング&lt;/div&gt;
-&lt;div&gt;解いてみた感想ですが、やはり考えるのは楽しいです。久々に数学的な頭の使い方をして懐かしさ&lt;/div&gt;
-&lt;div&gt;も覚えました。&lt;/div&gt;
-&lt;div&gt;また、何より、競技プログラミングは初学者にかなり便利なものだと感じました。&lt;/div&gt;
-&lt;div&gt;ほんとに基礎的な部分しか学習してなくても解けるというのは取り組みやすいですし、結果がだ&lt;/div&gt;
-&lt;div&gt;せることは嬉しいです。過去問ならネット上にたくさん解説があるのでつまってもなんとかなりま&lt;/div&gt;
-&lt;div&gt;す。&lt;/div&gt;
-&lt;div&gt;他の人のコードを見ることができ、考え方の幅も広がります。上手く書けなかったコードを見直&lt;/div&gt;
-&lt;div&gt;したり、異なった方針で書かれたコードを見るのはいい刺激になります。&lt;/div&gt;
-&lt;div&gt;特に基礎の文法に慣れるという点では一番だと思います。基礎を洗練させることは必ずこの先モ&lt;/div&gt;
-&lt;div&gt;ジュールやパッケージを使っていくにしても、理解して扱えることができ役に立つことでしょう。&lt;/div&gt;
-&lt;div&gt;もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏って&lt;/div&gt;
-&lt;div&gt;いるらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;/div&gt;
-&lt;div&gt;でも少なくともPython&lt;/div&gt;
-&lt;div&gt;会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラ&lt;/div&gt;
-&lt;div&gt;ミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だ&lt;/div&gt;
-&lt;div&gt;と思います。&lt;/div&gt;
-&lt;div&gt;簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。&lt;/div&gt;
-&lt;div&gt;もし興味があれば皆さんも是非試してみてください。&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;</content><category term="tech_archive"></category><category term="atcoder"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="http://oumpy.github.io%5Carticles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+&lt;span class="err"&gt;制約&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="err"&gt;≥&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;000&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt; &lt;span class="err"&gt;は整数である&lt;/span&gt;
+&lt;span class="n"&gt;Xは50の倍数である&lt;/span&gt;
+
+&lt;span class="err"&gt;入力&lt;/span&gt;
+&lt;span class="err"&gt;入力は以下の形式で標準入力から与えられる。&lt;/span&gt;
+　&lt;span class="n"&gt;A&lt;/span&gt;
+　&lt;span class="n"&gt;B&lt;/span&gt;
+　&lt;span class="k"&gt;C&lt;/span&gt;
+　&lt;span class="n"&gt;X&lt;/span&gt;
+
+&lt;span class="err"&gt;出力&lt;/span&gt;
+&lt;span class="err"&gt;硬貨を選ぶ方法の個数を出力せよ。&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;                 &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。&lt;br&gt;
+このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。&lt;br&gt;
+なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。  &lt;/p&gt;
+&lt;h3&gt;問題７：Kagami Mochi&lt;/h3&gt;
+&lt;p&gt;：普通の解法&lt;br&gt;
+(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
+入力をリストにしてからセットにして要素数を数える。当然ですね。&lt;br&gt;
+僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;問題文&lt;/span&gt;
+&lt;span class="n"&gt;X段重ねの鏡餅&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="err"&gt;≥&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;とは&lt;/span&gt;&lt;span class="n"&gt;X枚の円形の餅を縦に積み重ねたものであって&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;
+&lt;span class="err"&gt;どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。&lt;/span&gt;
+&lt;span class="err"&gt;例えば、直径&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="err"&gt;センチメートルの餅をこの順に下から積み重ねると&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="err"&gt;段重ねの鏡餅になり、&lt;/span&gt;
+&lt;span class="err"&gt;餅を一枚だけ置くと&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;段重ねの鏡餅になります。&lt;/span&gt;
+&lt;span class="err"&gt;ダックスフンドのルンルンは&lt;/span&gt;&lt;span class="n"&gt;N枚の円形の餅を持っていて&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;
+&lt;span class="err"&gt;そのうち&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="err"&gt;枚目の餅の直径は&lt;/span&gt;&lt;span class="n"&gt;diセンチメートルです&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+&lt;span class="err"&gt;これらの餅のうち一部または全部を使って鏡餅を作るとき、&lt;/span&gt;
+&lt;span class="err"&gt;最大で何段重ねの鏡餅を作ることができるでしょうか。&lt;/span&gt;
+
+&lt;span class="err"&gt;制約&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="n"&gt;di&lt;/span&gt; &lt;span class="err"&gt;≤&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;span class="err"&gt;入力値は全て整数である。&lt;/span&gt;
+
+&lt;span class="err"&gt;入力&lt;/span&gt;
+&lt;span class="err"&gt;入力は以下の形式で標準入力から与えられる。&lt;/span&gt;
+　&lt;span class="n"&gt;N&lt;/span&gt;
+&lt;span class="n"&gt;d1&lt;/span&gt;
+　&lt;span class="err"&gt;：&lt;/span&gt;
+&lt;span class="n"&gt;dN&lt;/span&gt;
+
+&lt;span class="err"&gt;出力&lt;/span&gt;
+&lt;span class="err"&gt;作ることのできる鏡餅の最大の段数を出力せよ。&lt;/span&gt;
+
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)]))))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;：僕の解法&lt;br&gt;
+ソートしてからリストのままでなんとか数えあげました。&lt;br&gt;
+明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input() for i in range(n)&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;3.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;4.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;5.&lt;/span&gt;&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;6.&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i+1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;7.&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;8.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;問題９：Daydream&lt;/h3&gt;
+&lt;p&gt;問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。&lt;br&gt;
+が、わざわざeraseという単語を選んできたということは、こういうことでしょう。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;問題文&lt;/span&gt;
+&lt;span class="err"&gt;英小文字からなる文字列&lt;/span&gt; &lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="err"&gt;が与えられます。&lt;/span&gt; &lt;span class="n"&gt;Tが空文字列である状態から始め&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;
+&lt;span class="err"&gt;以下の操作を好きな回数繰り返すことで&lt;/span&gt; &lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="err"&gt;とすることができるか判定してください。&lt;/span&gt;
+&lt;span class="n"&gt;Tの末尾にdream&lt;/span&gt; &lt;span class="n"&gt;dreamer&lt;/span&gt; &lt;span class="n"&gt;erase&lt;/span&gt; &lt;span class="n"&gt;eraser&lt;/span&gt; &lt;span class="err"&gt;のいずれかを追加する。&lt;/span&gt;
+&lt;span class="err"&gt;制約&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="mi"&gt;105&lt;/span&gt;
+&lt;span class="n"&gt;Sは英小文字からなる&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+
+&lt;span class="err"&gt;入力&lt;/span&gt;
+&lt;span class="err"&gt;入力は以下の形式で標準入力から与えられる。&lt;/span&gt;
+&lt;span class="n"&gt;S&lt;/span&gt;
+
+&lt;span class="err"&gt;出力&lt;/span&gt;
+&lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Tとすることができる場合YESを&lt;/span&gt;&lt;span class="err"&gt;、そうでない場合&lt;/span&gt;&lt;span class="n"&gt;NOを出力せよ&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;
+
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;     &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;YES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;     &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;NO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。&lt;br&gt;
+変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。&lt;br&gt;
+別解答：(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
+通ればなんでもいいはずなんですが、これはどうでしょう。&lt;br&gt;
+この解答例だと、”d erase r erase e erase a erase m” という文字列(スペースは抜いてください)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。&lt;br&gt;
+(嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)  &lt;/p&gt;
+&lt;h2&gt;初学者にとっての競技プログラミング&lt;/h2&gt;
+&lt;p&gt;解いてみた感想ですが、やはり考えるのは楽しいです。久々に数学的な頭の使い方をして懐かしさも覚えました。&lt;br&gt;
+また、何より、競技プログラミングは初学者にかなり便利なものだと感じました。&lt;br&gt;
+ほんとに基礎的な部分しか学習してなくても解けるというのは取り組みやすいですし、結果がだせることは嬉しいです。過去問ならネット上にたくさん解説があるのでつまってもなんとかなります。&lt;br&gt;
+他の人のコードを見ることができ、考え方の幅も広がります。上手く書けなかったコードを見直したり、異なった方針で書かれたコードを見るのはいい刺激になります。&lt;br&gt;
+特に基礎の文法に慣れるという点では一番だと思います。基礎を洗練させることは必ずこの先モジュールやパッケージを使っていくにしても、理解して扱えることができ役に立つことでしょう。&lt;br&gt;
+もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;br&gt;
+でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。&lt;br&gt;
+簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。&lt;br&gt;
+もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;</content><category term="tech_archive"></category><category term="atcoder"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="http://oumpy.github.io%5Carticles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
 pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
 まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
 読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
@@ -908,145 +817,169 @@ GSEA には様々なGSEAがあります。単に注目する遺伝子のリス�
 
 &lt;p&gt;パラメータx以外に運動量のパラメータpを用意します。以下の更新式に従ってパラメータを更新します。
 &lt;img class="aligncenter size-medium wp-image-168" src="https://pythonoum.files.wordpress.com/2018/09/texclip20180929003048.png?w=600" alt="texclip20180929003048" width="300" height="81" /&gt;
-ここでx_tは時刻tにおける解、p_tは時刻tにおける運動量、kは運動エネルギー関数、fは最小化したい関数（位置エネルギー関数）です2回微分が必要ですが、運動エネルギー関数k(p)を解析的に微分可能にしておけば、∇k(p)を定義すれば微分は1回でokです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="http://oumpy.github.io%5Carticles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;組み込みでDeep Learningにつかえるハードについて&lt;/h1&gt;
-
-&lt;p&gt;2018/08/01　リレー投稿再掲　安水良明
-&lt;h2&gt;Rasberry pi&lt;/h2&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。
+ここでx_tは時刻tにおける解、p_tは時刻tにおける運動量、kは運動エネルギー関数、fは最小化したい関数（位置エネルギー関数）です2回微分が必要ですが、運動エネルギー関数k(p)を解析的に微分可能にしておけば、∇k(p)を定義すれば微分は1回でokです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="http://oumpy.github.io%5Carticles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
+&lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1"&gt;Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1"&gt;Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;スマホ&lt;/h2&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。
+&lt;h2&gt;スマホ&lt;/h2&gt;
+&lt;p&gt;やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;&lt;a href="https://www.sejuku.net/blog/55188"&gt;侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sejuku.net/blog/55188"&gt;侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;GPU&lt;/h2&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。
-&lt;h2&gt;FPGA&lt;/h2&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。
+&lt;h2&gt;GPU&lt;/h2&gt;
+&lt;p&gt;おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。&lt;/p&gt;
+&lt;h2&gt;FPGA&lt;/h2&gt;
+&lt;p&gt;Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9"&gt;Qiita : そろそろプログラマーもFPGAを触ってみよう！&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="http://science.sciencemag.org/content/360/6394/1246.full"&gt;Science : Gohst Cytometry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9"&gt;Qiita : そろそろプログラマーもFPGAを触ってみよう！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://science.sciencemag.org/content/360/6394/1246.full"&gt;Science : Gohst Cytometry&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;jetson&lt;/h2&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。
+&lt;h2&gt;jetson&lt;/h2&gt;
+&lt;p&gt;NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="http://oumpy.github.io%5Carticles/2019/04/julia_python_competition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していて&lt;a href="https://julialang.org"&gt;julia&lt;/a&gt;が話題になったことがあったので、少しだけ調べて試して
-みた話。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Juliaってなに?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。
-&lt;del&gt;ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;AtCoderでのJulia&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;ご多分に漏れず、実行速度に惹かれました。半年ほど前から参加している競技プログラミングサイト&lt;a href="https://atcoder.jp" target="_blank" rel="noopener noreferrer"&gt;AtCoder&lt;/a&gt; で、常用しているPython(← Python会だからね!)で実行時間切れ、C/C++に
-書き換えると正答、という経験を何度かしてきたので。
-そういうわけで、ここでは最近の第121回 &lt;a href="https://atcoder.jp/contests/abc121/" target="_blank" rel="noopener noreferrer"&gt;AtCoder Beginner Contest (ABC121)&lt;/a&gt;
-の問題で、Juliaのパフォーマンスを実際に見てみます。
-(言語知識0から数十分調べて書いたコードのため、動きはするが思わぬところで非効率、ということはあるかもしれません。)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;AtCoder Beginner Contest 121 問題A "White Cells"&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;(問題は&lt;a href="https://atcoder.jp/contests/abc121/tasks/abc121_a" target="_blank" rel="noopener noreferrer"&gt;こちら&lt;/a&gt;)
-入力値4個を読み込んで簡単な演算結果を返すだけの問題です。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# ABC121-A "White Cells" in Julia
-inpl() = map(parse,split(readline()))
-(H,W) = inpl()
-(h,w) = inpl()
-println((H-h)*(W-w))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="http://oumpy.github.io%5Carticles/2019/04/julia_python_competition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
+&lt;h2&gt;Juliaってなに？&lt;/h2&gt;
+&lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。&lt;br&gt;
+~~ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。~~&lt;/p&gt;
+&lt;h2&gt;AtCoderでのJulia&lt;/h2&gt;
+&lt;p&gt;ご多分に漏れず、実行速度に惹かれました。半年ほど前から参加している競技プログラミングサイト&lt;strong&gt;AtCoder&lt;/strong&gt; (&lt;a href="https://atcoder.jp"&gt;https://atcoder.jp&lt;/a&gt;)で、常用しているPython（← Python会だからね！）で実行時間切れ、C/C++に書き換えると正答、という経験を何度かしてきたので。&lt;/p&gt;
+&lt;p&gt;そういうわけで、ここでは最近の&lt;strong&gt;第121回 AtCoder Beginner Contest (ABC121)&lt;/strong&gt; (&lt;a href="https://atcoder.jp/contests/abc121/"&gt;https://atcoder.jp/contests/abc121/&lt;/a&gt;)の問題で、Juliaのパフォーマンスを実際に見てみます。&lt;br&gt;
+（言語知識0から数十分調べて書いたコードのため、動きはするが思わぬところで非効率、ということはあるかもしれません。）&lt;/p&gt;
+&lt;h3&gt;AtCoder Beginner Contest 121 問題A "White Cells"&lt;/h3&gt;
+&lt;p&gt;（問題はこちら → &lt;a href="https://atcoder.jp/contests/abc121/tasks/abc121_a"&gt;https://atcoder.jp/contests/abc121/tasks/abc121_a&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;入力値4個を読み込んで簡単な演算結果を返すだけの問題です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;# ABC121-A &amp;quot;White Cells&amp;quot; in Julia&lt;/span&gt;
+&lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;W&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;所要時間が入力にほぼ依存しない問題ですが、、各言語でのAtCoder上実行結果。&lt;/p&gt;
 &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;言語&lt;/th&gt;
+&lt;th align="right"&gt;実行時間&lt;/th&gt;
+&lt;th align="right"&gt;消費メモリ&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;言語&lt;/td&gt;
-&lt;td&gt;実行時間&lt;/td&gt;
-&lt;td&gt;消費メモリ&lt;/td&gt;
+&lt;td align="center"&gt;&lt;strong&gt;Julia&lt;/strong&gt;&lt;/td&gt;
+&lt;td align="right"&gt;&lt;strong&gt;360 ms&lt;/strong&gt;&lt;/td&gt;
+&lt;td align="right"&gt;&lt;strong&gt;110 MB&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;Julia&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;360ms&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;110MB&lt;/strong&gt;&lt;/td&gt;
+&lt;td align="center"&gt;PyPy3&lt;/td&gt;
+&lt;td align="right"&gt;180 ms&lt;/td&gt;
+&lt;td align="right"&gt;40 MB&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;PyPy3&lt;/td&gt;
-&lt;td&gt;180ms&lt;/td&gt;
-&lt;td&gt;40MB&lt;/td&gt;
+&lt;td align="center"&gt;Python3&lt;/td&gt;
+&lt;td align="right"&gt;17 ms&lt;/td&gt;
+&lt;td align="right"&gt;3 MB&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Python3&lt;/td&gt;
-&lt;td&gt;17ms&lt;/td&gt;
-&lt;td&gt;3MB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;C++&lt;/td&gt;
-&lt;td&gt;1ms&lt;/td&gt;
-&lt;td&gt;256kB&lt;/td&gt;
+&lt;td align="center"&gt;C++&lt;/td&gt;
+&lt;td align="right"&gt;1 ms&lt;/td&gt;
+&lt;td align="right"&gt;256 kB&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;C++にもPythonにも、実行時間と消費メモリ双方で惨敗。
-おそらくですが、&lt;strong&gt;実行ごとにまずコンパイルを行う&lt;/strong&gt;ので、簡単な問題だとそれが相対的に巨大なオーバーヘッドになってしまうようです。
+&lt;p&gt;C++にもPythonにも、実行時間と消費メモリ双方で惨敗。 &lt;br&gt;
+おそらくですが、&lt;strong&gt;実行ごとにまずコンパイルを行う&lt;/strong&gt;ので、簡単な問題だとそれが相対的に巨大なオーバーヘッドになってしまうようです。&lt;br&gt;
 Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でした。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;AtCoder Beginner Contest 121 問題C "Energy Drink Collector"&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;(問題は&lt;a href="https://atcoder.jp/contests/abc121/tasks/abc121_c" target="_blank" rel="noopener noreferrer"&gt;こちら&lt;/a&gt;)&lt;/p&gt;
+&lt;!---
+
+### AtCoder Beginner Contest 121-B
+
+問題はこちら → &lt;https://atcoder.jp/contests/abc121/tasks/abc121_b&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;# ABC121-B by Julia&lt;/span&gt;
+&lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kt"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;}(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
+    &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+---&gt;
+
+&lt;h3&gt;AtCoder Beginner Contest 121 問題C "Energy Drink Collector"&lt;/h3&gt;
+&lt;p&gt;（問題はこちら → &lt;a href="https://atcoder.jp/contests/abc121/tasks/abc121_c"&gt;https://atcoder.jp/contests/abc121/tasks/abc121_c&lt;/a&gt;）&lt;/p&gt;
 &lt;p&gt;読み込んだ値の列をソートして、条件判定をしながら順番に足し上げていく問題。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# ABC121-C "Energy Drink Collector" in Julia
-inpl() = map(parse,split(readline()))
-(N,M) = inpl()
-A = Array{Int}(N,2)
-for i in 1:N
-  A[i,:] = inpl()
-end
-A = sortrows(A, by=x-&amp;gt;x[1])
-ans = 0
-for i in 1:N
-  if A[i,2] &amp;gt;= M
-    ans += M*A[i,1]
-    break
-  else
-    M -= A[i,2]
-    ans += A[i,1]*A[i,2]
-  end
-end
-println(ans) &lt;/code&gt;&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c"&gt;# ABC121-C &amp;quot;Energy Drink Collector&amp;quot; in Julia&lt;/span&gt;
+&lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kt"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;}(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
+  &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sortrows&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="o"&gt;-=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;なんと、テスト16個中15個でタイムアウト(2000ms以上)。。。
-Pythonのコードはこちら:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; # ABC121-C "Energy Drink Collector" in Python3
-inpl = lambda: list(map(int,input().split()))
-N,M = inpl()
-A = []
-for i in range(N):
-  A.append(inpl())
-A.sort(key=lambda x: x[0])
-ans = 0
-for i in range(N):
-  if A[i][1] &amp;gt;= M:
-    ans += A[i][0]*M
-    break
-  else:
-    M -= A[i][1]
-    ans += A[i][0]*A[i][1]
-print(ans) &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;こちらは最大466msでクリア(同一コードのPyPy3では733ms)。ここで134msのテストもJuliaではタイムアウト。悲しい。
-今回Juliaでタイムアウトになったのは、言語の特性や正しいコーディングの仕方を知らないから、という可能性は高いです。ただ実際にこの問題でJuliaを使って提出されている答案は、最速クリアのものでも1724ms(そもそもJuliaでの提出数自体が少ないですが)。やはり上の安直なPythonコードが圧勝しています。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Juliaは競技プログラミングに向かない?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Juliaの実行速度が速いこと自体は(今回検証していませんが、きっと)本当なんだと思います。しかしそれは時間のかかる複雑・大規模な処理の場合であって、競技プログラミングのような高々2-3秒の計算にはコンパイルのオーバーヘッドがやはり大きいのかな、という印象です。
-AtCoderなどでは、C++などのあからさまなコンパイル型言語はコンパイル時間が実行時間に算入されず、一方でJuliaに対しては算入されます。やや理不尽な感じはしなくもないけれど、このルール下でJuliaの高速性能を生かすことは(あくまでAtCoderのような短時間型競技プログラミングの話ですが)なかなか難しそう。残念ながら、普通にやるとPythonよりもずっと遅い。
-なので、当面の競技プログラミング用言語はやっぱりPython(とC/C++)、と個人的には結論づけたところです。おしまい。&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="http://oumpy.github.io%5Carticles/2019/04/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;!!!!!!!!!!! 
+&lt;p&gt;なんと、テスト16個中15個でタイムアウト（2000ms以上）。。。&lt;/p&gt;
+&lt;p&gt;Pythonのコードはこちら：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# ABC121-C &amp;quot;Energy Drink Collector&amp;quot; in Python3&lt;/span&gt;
+&lt;span class="n"&gt;inpl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; 
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="o"&gt;-=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;こちらは最大466msでクリア（同一コードのPyPy3では733ms）。ここで134msのテストもJuliaではタイムアウト。悲しい。&lt;/p&gt;
+&lt;p&gt;今回Juliaでタイムアウトになったのは、言語の特性や正しいコーディングの仕方を知らないから、という可能性は高いです。ただ実際にこの問題でJuliaを使って提出されている答案は、最速クリアのものでも1724ms（そもそもJuliaでの提出数自体が少ないですが）。やはり上の安直なPythonコードが圧勝しています。&lt;/p&gt;
+&lt;h2&gt;Juliaは競技プログラミングに向かない？&lt;/h2&gt;
+&lt;p&gt;Juliaの実行速度が速いこと自体は（今回検証していませんが、きっと）本当なんだと思います。しかしそれは時間のかかる複雑・大規模な処理の場合であって、競技プログラミングのような高々2-3秒の計算にはコンパイルのオーバーヘッドがやはり大きいのかな、という印象です。  &lt;/p&gt;
+&lt;p&gt;AtCoderなどでは、C++などのあからさまなコンパイル型言語はコンパイル時間が実行時間に算入されず、一方でJuliaに対しては算入されます。やや理不尽な感じはしなくもないけれど、このルール下でJuliaの高速性能を生かすことは（あくまでAtCoderのような短時間型競技プログラミングの話ですが）なかなか難しそう。残念ながら、普通にやるとPythonよりもずっと遅い。  &lt;/p&gt;
+&lt;p&gt;なので、当面の競技プログラミング用言語は&lt;strong&gt;やっぱりPython&lt;/strong&gt;（とC/C++）、と個人的には結論づけたところです。おしまい。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;lt; History &amp;gt;&lt;/strong&gt;&lt;br&gt;
+2019.03.21 ver1.0&lt;br&gt;
+2019.03.21 ver1.1 微修正、PyPy3の成績を追記&lt;br&gt;
+2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="http://oumpy.github.io%5Carticles/2019/04/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;!!!!!!!!!!! 
 今回はKallistoを用いたRNA-seq解析パイプラインを紹介しま
 す。&lt;a href="https://pythonoum.wordpress.com/2018/10/16/linux%E3%81%A7%E3%81%AEbioinformatics%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89_01/"&gt;LinuxでのBioinformatics環境構築_01&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;リファレンスのダウンロード&lt;/em&gt;&lt;/strong&gt;
@@ -3185,44 +3118,40 @@ print("Failed. : %d"% res.status_code)&lt;/td&gt;
 
 &lt;p&gt;&lt;img class="alignnone size-full wp-image-458" src="https://pythonoum.files.wordpress.com/2019/01/picture1.png" alt="picture1" width="939" height="527" /&gt;&lt;/p&gt;
 &lt;p&gt;成功です。語尾は適当です。&lt;/p&gt;
-&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="http://oumpy.github.io%5Carticles/2019/04/umap.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/umap.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;超高速次元圧縮アルゴリズムUMAP&lt;/h1&gt;
-
-&lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;tsneのパラメータについて&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;そこで今回紹介するのはUMAP。 arxivで今月publishされたばかりのアルゴリズムです(記事執筆時 2018年2月時点)。 試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。&lt;/p&gt;
+&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="http://oumpy.github.io%5Carticles/2019/04/umap.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/umap.html</id><summary type="html"></summary><content type="html">&lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。
+tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。https://deepage.net/machine_learning/2017/03/08/tsne.html）&lt;/p&gt;
+&lt;p&gt;そこで今回紹介するのはUMAP。
+arxivで今月publishされたばかりのアルゴリズムです(2018年2月時点)。
+試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。&lt;/p&gt;
 &lt;p&gt;tSNEではちょうど1時間30分でしたが、UMAPではたったの1分でした。&lt;/p&gt;
-&lt;p&gt;詳細はこちら。 https://github.com/lmcinnes/umap&lt;/p&gt;
-&lt;p&gt;インストールは $ pip install umap&lt;/p&gt;
+&lt;p&gt;詳細はこちら。
+https://github.com/lmcinnes/umap&lt;/p&gt;
+&lt;p&gt;インストールは
+&lt;code&gt;$ pip install umap&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;こちらが今回のソースコード。&lt;/p&gt;
-&lt;table&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;from sklearn import datasets
-import matplotlib.pyplot as plt
-%matplotlib inline
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
 
-digits = datasets.fetch_mldata('MNIST original')
+&lt;span class="n"&gt;digits&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fetch_mldata&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MNIST original&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-print(digits['data'].shape)
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-import umap
-embedding = umap.UMAP().fit_transform(digits.data)
-plt.figure(figsize=(12,8))
-plt.scatter(embedding[:,0],embedding[:,1],c=digits.target, s=0.1)
-plt.title('UMAP')
-plt.savefig('umap.png')
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;umap&lt;/span&gt;
+&lt;span class="n"&gt;embedding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;umap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UMAP&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;embedding&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;embedding&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;UMAP&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;umap.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-from sklearn.manifold import TSNE
-model = TSNE(n_components=2)
-tsne_result = model.fit_transform(digits.data)
-plt.figure(figsize=(12,8))
-plt.scatter(tsne_result[:,0],tsne_result[:,1],c=digits.target, s=0.1)
-plt.title('tSNE')
-plt.savefig('tsne.png')&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;img title="" src="https://pythonoum.files.wordpress.com/2018/09/null1.png" alt="" width="334" height="222" /&gt;&lt;img title="" src="https://pythonoum.files.wordpress.com/2018/09/null.png" alt="" width="333" height="221" /&gt;&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>VELOCYTO</title><link href="http://oumpy.github.io%5Carticles/2019/04/velocyto.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Velocyto は、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.manifold&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TSNE&lt;/span&gt;
+&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TSNE&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_components&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;tsne_result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tsne_result&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;tsne_result&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tSNE&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tsne.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>VELOCYTO</title><link href="http://oumpy.github.io%5Carticles/2019/04/velocyto.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:oumpy.github.io\articles,2019-04-14:/2019/04/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Velocyto は、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を
 算出するという解析手法です。&lt;/p&gt;
 &lt;h3&gt;RNAseq でイントロン??&lt;/h3&gt;
 
