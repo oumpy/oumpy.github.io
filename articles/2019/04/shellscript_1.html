@@ -133,23 +133,23 @@
 僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
 その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
 圧縮ファイルの時は、解凍する前にzcatでつないで試します。</p>
-<div class="highlight"><pre><span></span><code><span class="err">cat hogehoge.txt | sed 1d（試したいコマンド）| head</span>
-<span class="err">zcat hoge.gz | cut –f1（試したいコマンド）| head</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">hogehoge</span><span class="p">.</span><span class="n">txt</span> <span class="o">|</span> <span class="n">sed</span> <span class="mi">1</span><span class="n">d</span><span class="err">（試したいコマンド）</span><span class="o">|</span> <span class="n">head</span>
+<span class="n">zcat</span> <span class="n">hoge</span><span class="p">.</span><span class="n">gz</span> <span class="o">|</span> <span class="n">cut</span> <span class="err">–</span><span class="n">f1</span><span class="err">（試したいコマンド）</span><span class="o">|</span> <span class="n">head</span>
+</pre></div>
 
 
 <p>一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
 別画面で折り返しなしで見ることができます。</p>
-<div class="highlight"><pre><span></span><code><span class="err">cat hogehoge | sed 1d（試したいコマンド）| head | less -S</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">hogehoge</span> <span class="o">|</span> <span class="n">sed</span> <span class="mi">1</span><span class="n">d</span><span class="err">（試したいコマンド）</span><span class="o">|</span> <span class="n">head</span> <span class="o">|</span> <span class="k">less</span> <span class="o">-</span><span class="n">S</span>
+</pre></div>
 
 
 <h2>2) scriptを書く</h2>
 <p>うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
 結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。</p>
-<div class="highlight"><pre><span></span><code><span class="err">touch test.sh # ファイルつくって、</span>
-<span class="err">emacs test.sh # emacsで開く。</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">touch</span> <span class="n">test</span><span class="p">.</span><span class="n">sh</span> <span class="o">#</span> <span class="err">ファイルつくって、</span>
+<span class="n">emacs</span> <span class="n">test</span><span class="p">.</span><span class="n">sh</span> <span class="o">#</span> <span class="n">emacsで開く</span><span class="err">。</span>
+</pre></div>
 
 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -157,34 +157,34 @@
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">#!/bin/bash # おまじない。</span>
-<span class="err">$1=filename # ファイルはいつも外から入れれるようにしてます。</span>
-<span class="err">rm –r ./folder # 一発で上手くいくことはないので、やり直しやすいように消去コマンド。</span>
-<span class="err">mkdir ./folder # 散らからないように専用フォルダを作成。</span>
-<span class="err">dir1=&quot;./folder&quot; # フォルダ名をいつでも変えやすいようにパスを変数にいれる。</span>
-<span class="err">cat &quot;$filename&quot; | sed 1d &gt; &quot;$dir1&quot;/hogehoge2.txt #目的のコマンドで処理して保存。</span>
-</code></pre></div>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">#!/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">#</span> <span class="err">おまじない。</span>
+<span class="err">$</span><span class="mi">1</span><span class="o">=</span><span class="n">filename</span> <span class="o">#</span> <span class="err">ファイルはいつも外から入れれるようにしてます。</span>
+<span class="n">rm</span> <span class="err">–</span><span class="n">r</span> <span class="p">.</span><span class="o">/</span><span class="n">folder</span> <span class="o">#</span> <span class="err">一発で上手くいくことはないので、やり直しやすいように消去コマンド。</span>
+<span class="n">mkdir</span> <span class="p">.</span><span class="o">/</span><span class="n">folder</span> <span class="o">#</span> <span class="err">散らからないように専用フォルダを作成。</span>
+<span class="n">dir1</span><span class="o">=</span><span class="ss">&quot;./folder&quot;</span> <span class="o">#</span> <span class="err">フォルダ名をいつでも変えやすいようにパスを変数にいれる。</span>
+<span class="n">cat</span> <span class="ss">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="mi">1</span><span class="n">d</span> <span class="o">&gt;</span> <span class="ss">&quot;$dir1&quot;</span><span class="o">/</span><span class="n">hogehoge2</span><span class="p">.</span><span class="n">txt</span> <span class="o">#</span><span class="err">目的のコマンドで処理して保存。</span>
+</pre></div>
 </td></tr></table>
 
 <h2>3) 実行</h2>
 <p>書けたら、処理したいファイルを渡して実行してみます。
 &amp;はバックグラウンド実行です。</p>
-<div class="highlight"><pre><span></span><code><span class="err">bash ./test.sh ./hogehoge.txt &amp;</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">bash</span> <span class="p">.</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="n">sh</span> <span class="p">.</span><span class="o">/</span><span class="n">hogehoge</span><span class="p">.</span><span class="n">txt</span> <span class="o">&amp;</span>
+</pre></div>
 
 
 <p>時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
 screenを使うこともあります。</p>
-<div class="highlight"><pre><span></span><code><span class="err">nohup bash ./test.sh ./hogehoge.txt &amp;</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">nohup</span> <span class="n">bash</span> <span class="p">.</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="n">sh</span> <span class="p">.</span><span class="o">/</span><span class="n">hogehoge</span><span class="p">.</span><span class="n">txt</span> <span class="o">&amp;</span>
+</pre></div>
 
 
 <p>4)　修正</p>
 <p>scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
 そうすれば、後でやり直しやすいです。</p>
-<div class="highlight"><pre><span></span><code><span class="err"># cat &quot;$filename&quot; | sed 1d &gt; &quot;$dir1&quot;/hogehoge2.txt # コメントアウトして置いておく。</span>
-<span class="err">cat &quot;$filename&quot; | grep &quot;blahblah&quot; &gt; &quot;$dir1&quot;/hogehoge2.txt # 新しい文。</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">cat</span> <span class="ss">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="mi">1</span><span class="n">d</span> <span class="o">&gt;</span> <span class="ss">&quot;$dir1&quot;</span><span class="o">/</span><span class="n">hogehoge2</span><span class="p">.</span><span class="n">txt</span> <span class="o">#</span> <span class="err">コメントアウトして置いておく。</span>
+<span class="n">cat</span> <span class="ss">&quot;$filename&quot;</span> <span class="o">|</span> <span class="n">grep</span> <span class="ss">&quot;blahblah&quot;</span> <span class="o">&gt;</span> <span class="ss">&quot;$dir1&quot;</span><span class="o">/</span><span class="n">hogehoge2</span><span class="p">.</span><span class="n">txt</span> <span class="o">#</span> <span class="err">新しい文。</span>
+</pre></div>
 
 
 <p>どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。</p>
@@ -344,6 +344,9 @@ screenを使うこともあります。</p>
       </a>
       <a href="../../../tag/paper.html">
         <i class="fa fa-tag fa-fw fa-lg"></i>paper
+      </a>
+      <a href="../../../tag/tong-ji.html">
+        <i class="fa fa-tag fa-fw fa-lg"></i>統計
       </a>
 </p>
 <h4><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</h4>
