@@ -130,17 +130,17 @@
 Rを呼び出さずに完結できたりします。</p>
 <p>要は、<code>$ mat_i_j=i行j列目の要素</code>で変数を格納していきます。</p>
 <p>対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。</p>
-<div class="highlight"><pre><span></span><code><span class="err">a    b    c</span>
-<span class="err">1    2    3</span>
-<span class="err">d    e    f</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">a</span>    <span class="n">b</span>    <span class="k">c</span>
+<span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>
+<span class="n">d</span>    <span class="n">e</span>    <span class="n">f</span>
+</pre></div>
 
 
 <p>これの各要素を、<code>$mat_i_j</code> に格納していきます。
 一例として、以下のスクリプトでできます。
 配列つかったりしてもっといいスクリプトもきっとあります。</p>
 <p>bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nv">row</span><span class="o">=</span><span class="m">0</span> <span class="c1">## 行番号に使う変数の設定。</span>
 <span class="k">while</span> <span class="nb">read</span> x1 x2 x3 <span class="c1">## 解説①</span>
 <span class="k">do</span>
@@ -152,15 +152,15 @@ Rを呼び出さずに完結できたりします。</p>
 <span class="k">done</span><span class="p">&amp;</span>lt<span class="p">;</span>table.txt
 
 <span class="c1">### 変数mat_$i_$j を使った処理が続く。</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>時間のある人用に解説です。
 少し小技があります。</p>
 <h3>1) while readの使い方</h3>
 <p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
-<div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
-</code></pre></div>
+<div class="highlight"><pre><span></span>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
+</pre></div>
 
 
 <p>ファイルを一行ずつ読んで、各列の要素を<code>read</code>の後ろに置いた変数名<code>（x1,x2,x3）</code>に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
@@ -169,8 +169,8 @@ Rを呼び出さずに完結できたりします。</p>
 <code>do</code>~<code>done</code>の中で変数操作をしても、<code>done</code>の後では、その中身が空っぽになっちゃいます。</p>
 <p>これを回避するためには、パイプを使わないということで、リダイレクトで、
 <code>done</code>の後ろに</p>
-<div class="highlight"><pre><span></span><code><span class="k">done</span>&lt;table.txt
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">done</span>&lt;table.txt
+</pre></div>
 
 
 <p>を書きます。
@@ -186,8 +186,8 @@ Rを呼び出さずに完結できたりします。</p>
 （ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）</p>
 <p>変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
 <code>col=1</code>として、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
+</pre></div>
 
 
 <p>と書けば、まず、<code>eval</code>が<code>$col</code>の中身を出してからスクリプトとして評価するので、
@@ -203,31 +203,31 @@ xの$にかかってた\は、<code>eval</code>での評価で消費されて、
 そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。</p>
 <p>アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
 なので、</p>
-<div class="highlight"><pre><span></span><code><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$k</span><span class="sb">`</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$k</span><span class="sb">`</span>
+</pre></div>
 
 
 <p>とすれば、<code>$k</code>の中身が出力されて、<code>test</code>に格納されます。
 <code>row</code>に1ずつ足していくとこでも使ってます。よく見る方法です。
 <code>for</code>文使わなくていいので、見た目がすっきりします。</p>
 <p>では、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
-</code></pre></div>
+<div class="highlight"><pre><span></span>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
+</pre></div>
 
 
 <p>と書けば、<code>mat_2_3</code>に<code>$x1</code>の中身が代入されるはず！
 となるのですが、不完全です。</p>
 <p>アクサングラーブでの評価で、<code>\</code>が一個消費されてしまうので、実行する<code>eval echo</code>の文が、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="nb">echo</span> <span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
+</pre></div>
 
 
 <p>となるので、<code>eval</code>での評価時に<code>$x</code>の中身（設定してないので空っぽ）と<code>$col</code>が出されてしまって、
 <code>echo (空)1</code>
 となって、最終的に、<code>mat_2_3</code>には<code>$x1</code>ではなく、<code>$col</code>の中身である1が代入されてしまいます。</p>
 <p>なので、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
-</code></pre></div>
+<div class="highlight"><pre><span></span>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
+</pre></div>
 
 
 <p>と、\を一個増やして書けば、目的達成です。
@@ -309,6 +309,8 @@ xの$にかかってた\は、<code>eval</code>での評価で消費されて、
       </a>
       <a href="../../../tag/paper.html">paper
       </a>
+      <a href="../../../tag/tong-ji.html">統計
+      </a>
 </p>
 </div>
 <div class="sidebar_box">
@@ -320,6 +322,13 @@ xの$にかかってた\は、<code>eval</code>での評価で消費されて、
     <li><a href="http://oumpy.github.io/feeds/all.rss.xml"
 		   type="application/rss+xml" rel="alternate">&#x2022; RSS feed</a></li>
 </ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=720 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 </div>        </div><!--/sidebar -->
       </div><!--/row-->

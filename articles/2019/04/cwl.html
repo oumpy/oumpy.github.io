@@ -146,14 +146,14 @@
 <p>Communityで管理されている<a href="https://github.com/common-workflow-language/workflows">CWL Tools &amp; Workflows</a>があります。ほかにもDBCLS太田さんの管理されている<a href="https://github.com/pitagora-galaxy/cwl">Pitagora Workflows in CWL</a>もいろいろ揃っています。</p>
 <h3>cwltoolの安定感がすごい</h3>
 <p>出来たcwlファイルをCLI環境で使うにはcwltoolを使います。感動したのはヘルプが自動で生成されるところ。しかも、pythonで書かれていてpythonに組み込むことも出来ます。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cwltool.factory</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cwltool.factory</span>
 <span class="n">fac</span> <span class="o">=</span> <span class="n">cwltool</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">Factory</span><span class="p">()</span>
 
 <span class="n">echo</span> <span class="o">=</span> <span class="n">fac</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;echo.cwl&quot;</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">echo</span><span class="p">(</span><span class="n">inp</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
 
 <span class="c1"># result[&quot;out&quot;] == &quot;foo&quot;</span>
-</code></pre></div>
+</pre></div>
 
 
 <h3>日本人contributerが多い</h3>
@@ -261,6 +261,8 @@
       </a>
       <a href="../../../tag/paper.html">paper
       </a>
+      <a href="../../../tag/tong-ji.html">統計
+      </a>
 </p>
 </div>
 <div class="sidebar_box">
@@ -272,6 +274,13 @@
     <li><a href="http://oumpy.github.io/feeds/all.rss.xml"
 		   type="application/rss+xml" rel="alternate">&#x2022; RSS feed</a></li>
 </ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=720 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 </div>        </div><!--/sidebar -->
       </div><!--/row-->

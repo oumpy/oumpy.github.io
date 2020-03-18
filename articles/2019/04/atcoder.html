@@ -132,19 +132,19 @@
 以下いくつかの問題をピックアップしてみます。</p>
 <h3>問題０：はじめてのあっとこーだー</h3>
 <p>わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。</p>
-<div class="highlight"><pre><span></span><code><span class="err">問題文</span>
+<div class="highlight"><pre><span></span><span class="err">問題文</span>
 <span class="err">高橋君はデータの加工が行いたいです。</span>
-<span class="err">整数 a,b,cと、文字列 s が与えられます。</span>
-<span class="err">整数 a+b+c と、文字列 s を並べて表示しなさい。</span>
+<span class="err">整数</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">cと</span><span class="err">、文字列</span> <span class="n">s</span> <span class="err">が与えられます。</span>
+<span class="err">整数</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="k">c</span> <span class="err">と、文字列</span> <span class="n">s</span> <span class="err">を並べて表示しなさい。</span>
 <span class="err">入力</span>
 <span class="err">入力は次の形式で与えられる。</span>
-<span class="err">a</span>
-<span class="err">b c</span>
-<span class="err">s</span>
-<span class="err">1行目は、整数 a (1≦a≦1,000) が与えられる。</span>
-<span class="err">2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。</span>
-<span class="err">3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。</span>
-</code></pre></div>
+<span class="n">a</span>
+<span class="n">b</span> <span class="k">c</span>
+<span class="n">s</span>
+<span class="mi">1</span><span class="err">行目は、整数</span> <span class="n">a</span> <span class="p">(</span><span class="mi">1</span><span class="err">≦</span><span class="n">a</span><span class="err">≦</span><span class="mi">1</span><span class="p">,</span><span class="mi">000</span><span class="p">)</span> <span class="err">が与えられる。</span>
+<span class="mi">2</span><span class="err">行目は、整数</span> <span class="n">b</span><span class="p">,</span><span class="k">c</span> <span class="p">(</span><span class="mi">1</span><span class="err">≦</span><span class="n">b</span><span class="p">,</span><span class="k">c</span><span class="err">≦</span><span class="mi">1</span><span class="p">,</span><span class="mi">000</span><span class="p">)</span> <span class="err">が与えられる。</span>
+<span class="mi">3</span><span class="err">行目は、文字列</span> <span class="n">s</span> <span class="err">が与えられる。この文字列の長さは</span> <span class="mi">1</span><span class="err">文字以上</span><span class="mi">100</span><span class="err">文字以下である。</span>
+</pre></div>
 
 
 <p>ん？<br>
@@ -164,11 +164,11 @@
 なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番
 印象に残った事です。</p>
 <p>mapとかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。</p>
-<div class="highlight"><pre><span></span><code><span class="err">1. a = int(input())</span>
-<span class="err">2. b, c = map(int, input().split())</span>
-<span class="err">3. s = input()</span>
-<span class="err">4. print(“{} {}”.format(a+b+c, s))</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">.</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="k">input</span><span class="p">())</span>
+<span class="mi">2</span><span class="p">.</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span> <span class="o">=</span> <span class="k">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="mi">3</span><span class="p">.</span> <span class="n">s</span> <span class="o">=</span> <span class="k">input</span><span class="p">()</span>
+<span class="mi">4</span><span class="p">.</span> <span class="n">print</span><span class="p">(</span><span class="err">“{}</span> <span class="err">{}”</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="k">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+</pre></div>
 
 
 <h3>問題４：Coins</h3>
@@ -177,37 +177,37 @@
 こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
 てかなり面倒です。<br>
 (<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)</p>
-<div class="highlight"><pre><span></span><code><span class="err">問題文</span>
-<span class="err">あなたは、</span><span class="mi">500</span><span class="err">円玉を</span><span class="n">A枚</span><span class="err">、</span><span class="mi">100</span><span class="err">円玉を</span><span class="n">B枚</span><span class="err">、</span><span class="mi">50</span><span class="err">円玉を</span><span class="n">C枚持っています</span><span class="err">。</span>
-<span class="err">これらの硬貨の中から何枚かを選び、合計金額をちょうど</span><span class="n">X円にする方法は何通りありますか</span><span class="err">。</span>
-<span class="err">同じ種類の硬貨同士は区別できません。</span>
-<span class="err">２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。</span>
+<div class="highlight"><pre><span></span>問題文
+あなたは、<span class="mi">500</span>円玉を<span class="nv">A</span>枚、<span class="mi">100</span>円玉を<span class="nv">B</span>枚、<span class="mi">50</span>円玉を<span class="nv">C</span>枚持っています。
+これらの硬貨の中から何枚かを選び、合計金額をちょうど<span class="nv">X</span>円にする方法は何通りありますか。
+同じ種類の硬貨同士は区別できません。
+２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
 
-<span class="err">制約</span>
-<span class="mi">0</span> <span class="err">≤</span> <span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="k">C</span> <span class="err">≤</span> <span class="mi">50</span>
-<span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="o">+</span><span class="k">C</span> <span class="err">≥</span> <span class="mi">1</span>
-<span class="mi">50</span> <span class="err">≤</span> <span class="n">X</span> <span class="err">≤</span> <span class="mi">20</span><span class="p">,</span><span class="mi">000</span>
-<span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="k">C</span> <span class="err">は整数である</span>
-<span class="n">Xは50の倍数である</span>
+制約
+<span class="mi">0</span> ≤ <span class="nv">A</span>,<span class="nv">B</span>,<span class="nv">C</span> ≤ <span class="mi">50</span>
+<span class="nv">A</span><span class="o">+</span><span class="nv">B</span><span class="o">+</span><span class="nv">C</span> ≥ <span class="mi">1</span>
+<span class="mi">50</span> ≤ <span class="nv">X</span> ≤ <span class="mi">20</span>,<span class="mi">000</span>
+<span class="nv">A</span>,<span class="nv">B</span>,<span class="nv">C</span> は整数である
+<span class="nv">X</span>は<span class="mi">50</span>の倍数である
 
-<span class="err">入力</span>
-<span class="err">入力は以下の形式で標準入力から与えられる。</span>
-　<span class="n">A</span>
-　<span class="n">B</span>
-　<span class="k">C</span>
-　<span class="n">X</span>
+入力
+入力は以下の形式で標準入力から与えられる。
+　<span class="nv">A</span>
+　<span class="nv">B</span>
+　<span class="nv">C</span>
+　<span class="nv">X</span>
 
-<span class="err">出力</span>
-<span class="err">硬貨を選ぶ方法の個数を出力せよ。</span>
-<span class="mi">1</span><span class="p">.</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="k">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="k">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="mi">3</span><span class="p">.</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-<span class="mi">4</span><span class="p">.</span>     <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-<span class="mi">5</span><span class="p">.</span>         <span class="k">for</span> <span class="n">k</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="k">c</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-<span class="mi">6</span><span class="p">.</span>             <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">500</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
-<span class="mi">7</span><span class="p">.</span>                 <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="mi">8</span><span class="p">.</span> <span class="n">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+出力
+硬貨を選ぶ方法の個数を出力せよ。
+<span class="mi">1</span>. <span class="nv">a</span>, <span class="nv">b</span>, <span class="nv">c</span>, <span class="nv">x</span> <span class="o">=</span> <span class="nv">map</span><span class="ss">(</span><span class="nv">int</span>, [<span class="nv">input</span><span class="ss">()</span> <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="mi">4</span><span class="ss">)</span>]<span class="ss">)</span>
+<span class="mi">2</span>. <span class="nv">ans</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="mi">3</span>. <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">a</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>:
+<span class="mi">4</span>.     <span class="k">for</span> <span class="nv">j</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">b</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>:
+<span class="mi">5</span>.         <span class="k">for</span> <span class="nv">k</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">c</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>:
+<span class="mi">6</span>.             <span class="k">if</span> <span class="nv">i</span> <span class="o">*</span> <span class="mi">500</span> <span class="o">+</span> <span class="nv">j</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="nv">k</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">==</span> <span class="nv">x</span>:
+<span class="mi">7</span>.                 <span class="nv">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="mi">8</span>. <span class="nv">print</span><span class="ss">(</span><span class="nv">ans</span><span class="ss">)</span>
+</pre></div>
 
 
 <p>しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。<br>
@@ -218,78 +218,78 @@
 (<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
 入力をリストにしてからセットにして要素数を数える。当然ですね。<br>
 僕はセットの存在を思い出せなかったので、次のようにしました。</p>
-<div class="highlight"><pre><span></span><code><span class="err">問題文</span>
-<span class="n">X段重ねの鏡餅</span><span class="p">(</span><span class="n">X</span><span class="err">≥</span><span class="mi">1</span><span class="p">)</span> <span class="err">とは</span><span class="n">X枚の円形の餅を縦に積み重ねたものであって</span><span class="err">、</span>
-<span class="err">どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。</span>
-<span class="err">例えば、直径</span><span class="mi">10</span><span class="err">、</span><span class="mi">8</span><span class="err">、</span><span class="mi">6</span><span class="err">センチメートルの餅をこの順に下から積み重ねると</span><span class="mi">3</span><span class="err">段重ねの鏡餅になり、</span>
-<span class="err">餅を一枚だけ置くと</span><span class="mi">1</span><span class="err">段重ねの鏡餅になります。</span>
-<span class="err">ダックスフンドのルンルンは</span><span class="n">N枚の円形の餅を持っていて</span><span class="err">、</span>
-<span class="err">そのうち</span> <span class="n">i</span> <span class="err">枚目の餅の直径は</span><span class="n">diセンチメートルです</span><span class="err">。</span>
-<span class="err">これらの餅のうち一部または全部を使って鏡餅を作るとき、</span>
-<span class="err">最大で何段重ねの鏡餅を作ることができるでしょうか。</span>
+<div class="highlight"><pre><span></span>問題文
+<span class="nv">X</span>段重ねの鏡餅<span class="ss">(</span><span class="nv">X</span>≥<span class="mi">1</span><span class="ss">)</span> とは<span class="nv">X</span>枚の円形の餅を縦に積み重ねたものであって、
+どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
+例えば、直径<span class="mi">10</span>、<span class="mi">8</span>、<span class="mi">6</span>センチメートルの餅をこの順に下から積み重ねると<span class="mi">3</span>段重ねの鏡餅になり、
+餅を一枚だけ置くと<span class="mi">1</span>段重ねの鏡餅になります。
+ダックスフンドのルンルンは<span class="nv">N</span>枚の円形の餅を持っていて、
+そのうち <span class="nv">i</span> 枚目の餅の直径は<span class="nv">di</span>センチメートルです。
+これらの餅のうち一部または全部を使って鏡餅を作るとき、
+最大で何段重ねの鏡餅を作ることができるでしょうか。
 
-<span class="err">制約</span>
-<span class="mi">1</span> <span class="err">≤</span> <span class="n">N</span> <span class="err">≤</span> <span class="mi">100</span>
-<span class="mi">1</span> <span class="err">≤</span> <span class="n">di</span> <span class="err">≤</span> <span class="mi">100</span>
-<span class="err">入力値は全て整数である。</span>
+制約
+<span class="mi">1</span> ≤ <span class="nv">N</span> ≤ <span class="mi">100</span>
+<span class="mi">1</span> ≤ <span class="nv">di</span> ≤ <span class="mi">100</span>
+入力値は全て整数である。
 
-<span class="err">入力</span>
-<span class="err">入力は以下の形式で標準入力から与えられる。</span>
-　<span class="n">N</span>
-<span class="n">d1</span>
-　<span class="err">：</span>
-<span class="n">dN</span>
+入力
+入力は以下の形式で標準入力から与えられる。
+　<span class="nv">N</span>
+<span class="nv">d1</span>
+　：
+<span class="nv">dN</span>
 
-<span class="err">出力</span>
-<span class="err">作ることのできる鏡餅の最大の段数を出力せよ。</span>
+出力
+作ることのできる鏡餅の最大の段数を出力せよ。
 
-<span class="mi">1</span><span class="p">.</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="k">input</span><span class="p">())</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">print</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="k">set</span><span class="p">(</span><span class="k">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="k">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
-</code></pre></div>
+<span class="mi">1</span>. <span class="nv">n</span> <span class="o">=</span> <span class="nv">int</span><span class="ss">(</span><span class="nv">input</span><span class="ss">())</span>
+<span class="mi">2</span>. <span class="nv">print</span><span class="ss">(</span><span class="nv">len</span><span class="ss">(</span><span class="nv">set</span><span class="ss">(</span><span class="nv">map</span><span class="ss">(</span><span class="nv">int</span>, [<span class="nv">input</span><span class="ss">()</span> <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span>]<span class="ss">))))</span>
+</pre></div>
 
 
 <p>：僕の解法<br>
 ソートしてからリストのままでなんとか数えあげました。<br>
 明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。</p>
-<div class="highlight"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="k">input</span><span class="p">())</span><span class="w"></span>
-<span class="mf">2.</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sorted</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="k">map</span><span class="p">(</span><span class="nc">int</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">input() for i in range(n)</span><span class="o">]</span><span class="p">)))</span><span class="w"></span>
-<span class="mf">3.</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="mf">4.</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
-<span class="mf">5.</span><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="mf">6.</span><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i+1</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
-<span class="mf">7.</span><span class="w">             </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="mf">8.</span><span class="w"> </span><span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="mi">1</span>. <span class="nv">n</span> <span class="o">=</span> <span class="nv">int</span><span class="ss">(</span><span class="nv">input</span><span class="ss">())</span>
+<span class="mi">2</span>. <span class="nv">a</span> <span class="o">=</span> <span class="nv">sorted</span><span class="ss">(</span><span class="nv">list</span><span class="ss">(</span><span class="nv">map</span><span class="ss">(</span><span class="nv">int</span>, [<span class="nv">input</span><span class="ss">()</span> <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span>]<span class="ss">)))</span>
+<span class="mi">3</span>. <span class="nv">ans</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="mi">4</span>. <span class="k">if</span> <span class="nv">n</span> <span class="o">!=</span> <span class="mi">1</span>:
+<span class="mi">5</span>.     <span class="k">for</span> <span class="nv">i</span> <span class="nv">in</span> <span class="nv">range</span><span class="ss">(</span><span class="nv">n</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span>:
+<span class="mi">6</span>.         <span class="k">if</span> <span class="nv">a</span>[<span class="nv">i</span>] <span class="o">&lt;</span> <span class="nv">a</span>[<span class="nv">i</span><span class="o">+</span><span class="mi">1</span>]:
+<span class="mi">7</span>.             <span class="nv">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="mi">8</span>. <span class="nv">print</span><span class="ss">(</span><span class="nv">ans</span><span class="ss">)</span>
+</pre></div>
 
 
 <h3>問題９：Daydream</h3>
 <p>問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。<br>
 が、わざわざeraseという単語を選んできたということは、こういうことでしょう。  </p>
-<div class="highlight"><pre><span></span><code><span class="err">問題文</span>
-<span class="err">英小文字からなる文字列</span> <span class="n">S</span> <span class="err">が与えられます。</span> <span class="n">Tが空文字列である状態から始め</span><span class="err">、</span>
-<span class="err">以下の操作を好きな回数繰り返すことで</span> <span class="n">S</span><span class="o">=</span><span class="n">T</span> <span class="err">とすることができるか判定してください。</span>
-<span class="n">Tの末尾にdream</span> <span class="n">dreamer</span> <span class="n">erase</span> <span class="n">eraser</span> <span class="err">のいずれかを追加する。</span>
-<span class="err">制約</span>
-<span class="mi">1</span><span class="err">≦</span><span class="o">|</span><span class="n">S</span><span class="o">|</span><span class="err">≦</span><span class="mi">105</span>
-<span class="n">Sは英小文字からなる</span><span class="err">。</span>
+<div class="highlight"><pre><span></span>問題文
+英小文字からなる文字列 <span class="nv">S</span> が与えられます。 <span class="nv">T</span>が空文字列である状態から始め、
+以下の操作を好きな回数繰り返すことで <span class="nv">S</span><span class="o">=</span><span class="nv">T</span> とすることができるか判定してください。
+<span class="nv">T</span>の末尾に<span class="nv">dream</span> <span class="nv">dreamer</span> <span class="nv">erase</span> <span class="nv">eraser</span> のいずれかを追加する。
+制約
+<span class="mi">1</span>≦<span class="o">|</span><span class="nv">S</span><span class="o">|</span>≦<span class="mi">105</span>
+<span class="nv">S</span>は英小文字からなる。
 
-<span class="err">入力</span>
-<span class="err">入力は以下の形式で標準入力から与えられる。</span>
-<span class="n">S</span>
+入力
+入力は以下の形式で標準入力から与えられる。
+<span class="nv">S</span>
 
-<span class="err">出力</span>
-<span class="n">S</span><span class="o">=</span><span class="n">Tとすることができる場合YESを</span><span class="err">、そうでない場合</span><span class="n">NOを出力せよ</span><span class="err">。</span>
+出力
+<span class="nv">S</span><span class="o">=</span><span class="nv">T</span>とすることができる場合<span class="nv">YES</span>を、そうでない場合<span class="nv">NO</span>を出力せよ。
 
-<span class="mi">1</span><span class="p">.</span> <span class="n">s</span> <span class="o">=</span> <span class="k">input</span><span class="p">()</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">a</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="ss">&quot;eraser&quot;</span><span class="p">,</span><span class="ss">&quot; &quot;</span><span class="p">)</span>
-<span class="mi">3</span><span class="p">.</span> <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="ss">&quot;erase&quot;</span><span class="p">,</span><span class="ss">&quot; &quot;</span><span class="p">)</span>
-<span class="mi">4</span><span class="p">.</span> <span class="k">c</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="ss">&quot;dreamer&quot;</span><span class="p">,</span><span class="ss">&quot; &quot;</span><span class="p">)</span>
-<span class="mi">5</span><span class="p">.</span> <span class="n">d</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="ss">&quot;dream&quot;</span><span class="p">,</span><span class="ss">&quot; &quot;</span><span class="p">)</span>
-<span class="mi">6</span><span class="p">.</span> <span class="k">if</span> <span class="n">d</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="ss">&quot;&quot;</span><span class="p">:</span>
-<span class="mi">7</span><span class="p">.</span>     <span class="n">print</span><span class="p">(</span><span class="ss">&quot;YES&quot;</span><span class="p">)</span>
-<span class="mi">8</span><span class="p">.</span> <span class="k">else</span><span class="p">:</span>
-<span class="mi">9</span><span class="p">.</span>     <span class="n">print</span><span class="p">(</span><span class="ss">&quot;NO&quot;</span><span class="p">)</span>
-</code></pre></div>
+<span class="mi">1</span>. <span class="nv">s</span> <span class="o">=</span> <span class="nv">input</span><span class="ss">()</span>
+<span class="mi">2</span>. <span class="nv">a</span><span class="o">=</span><span class="nv">s</span>.<span class="nv">replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">eraser</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="mi">3</span>. <span class="nv">b</span><span class="o">=</span><span class="nv">a</span>.<span class="nv">replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">erase</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="mi">4</span>. <span class="nv">c</span><span class="o">=</span><span class="nv">b</span>.<span class="nv">replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">dreamer</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="mi">5</span>. <span class="nv">d</span><span class="o">=</span><span class="nv">c</span>.<span class="nv">replace</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">dream</span><span class="s2">&quot;</span>,<span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="mi">6</span>. <span class="k">if</span> <span class="nv">d</span>.<span class="nv">strip</span><span class="ss">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>:
+<span class="mi">7</span>.     <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span><span class="ss">)</span>
+<span class="mi">8</span>. <span class="k">else</span>:
+<span class="mi">9</span>.     <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span><span class="ss">)</span>
+</pre></div>
 
 
 <p>文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。<br>
@@ -384,6 +384,8 @@
       </a>
       <a href="../../../tag/paper.html">paper
       </a>
+      <a href="../../../tag/tong-ji.html">統計
+      </a>
 </p>
 </div>
 <div class="sidebar_box">
@@ -395,6 +397,13 @@
     <li><a href="http://oumpy.github.io/feeds/all.rss.xml"
 		   type="application/rss+xml" rel="alternate">&#x2022; RSS feed</a></li>
 </ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=720 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 </div>        </div><!--/sidebar -->
       </div><!--/row-->
