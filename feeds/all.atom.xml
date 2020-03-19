@@ -1,124 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="http://oumpy.github.io/" rel="alternate"></link><link href="http://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>http://oumpy.github.io/</id><updated>2020-03-21T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="http://oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-21T00:00:00+09:00</published><updated>2020-03-21T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-21:/articles/2020/03/website_renewal.html</id><summary type="html">&lt;p&gt;Python会のWebサイトと技術ブログがリニューアルしました。&lt;/p&gt;
-&lt;p&gt;第一編　総則
-第一章　通則
-（国内犯）
-第一条　この法律は、日本国内において罪を犯したすべての者に適用する。
-２　日本国外にある日本船舶又は日本航空機内において罪を犯した者についても、前項と同様とする。
-（すべての者の国外犯）
-第二条　この法律は、日本国外において次に掲げる罪を犯したすべての者に適用する。
-一　削除
-二　第七十七条から第七十九条まで（内乱、予備及び陰謀、内乱等幇助）の罪
-三　第八十一条（外患誘致）、第八十二条（外患援助）、第八十七条（未遂罪）及び第八十八条（予備及び陰謀）の罪
-四　第百四十八条（通貨偽造及び行使等）の罪及びその未遂罪
-五　第百五十四条（詔書偽造等）、第百五十五条（公文書偽造等）、第百五十七条（公正証書原本不実記載等）、第百五十八条（偽造公文書行使等）及び公務所又は公務員によって作られるべき電磁的記録に係る第百六十一条の二（電磁的記録不正作出及び供用）の罪 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Python会のWebサイトと技術ブログがリニューアルしました。&lt;/p&gt;
-&lt;p&gt;第一編　総則
-第一章　通則
-（国内犯）
-第一条　この法律は、日本国内において罪を犯したすべての者に適用する。
-２　日本国外にある日本船舶又は日本航空機内において罪を犯した者についても、前項と同様とする。
-（すべての者の国外犯）
-第二条　この法律は、日本国外において次に掲げる罪を犯したすべての者に適用する。
-一　削除
-二　第七十七条から第七十九条まで（内乱、予備及び陰謀、内乱等幇助）の罪
-三　第八十一条（外患誘致）、第八十二条（外患援助）、第八十七条（未遂罪）及び第八十八条（予備及び陰謀）の罪
-四　第百四十八条（通貨偽造及び行使等）の罪及びその未遂罪
-五　第百五十四条（詔書偽造等）、第百五十五条（公文書偽造等）、第百五十七条（公正証書原本不実記載等）、第百五十八条（偽造公文書行使等）及び公務所又は公務員によって作られるべき電磁的記録に係る第百六十一条の二（電磁的記録不正作出及び供用）の罪
-六　第百六十二条（有価証券偽造等）及び第百六十三条（偽造有価証券行使等）の罪
-七　第百六十三条の二から第百六十三条の五まで（支払用カード電磁的記録不正作出等、不正電磁的記録カード所持、支払用カード電磁的記録不正作出準備、未遂罪）の罪
-八　第百六十四条から第百六十六条まで（御璽偽造及び不正使用等、公印偽造及び不正使用等、公記号偽造及び不正使用等）の罪並びに第百六十四条第二項、第百六十五条第二項及び第百六十六条第二項の罪の未遂罪
-（国民の国外犯）
-第三条　この法律は、日本国外において次に掲げる罪を犯した日本国民に適用する。
-一　第百八条（現住建造物等放火）及び第百九条第一項（非現住建造物等放火）の罪、これらの規定の例により処断すべき罪並びにこれらの罪の未遂罪
-二　第百十九条（現住建造物等浸害）の罪
-三　第百五十九条から第百六十一条まで（私文書偽造等、虚偽診断書等作成、偽造私文書等行使）及び前条第五号に規定する電磁的記録以外の電磁的記録に係る第百六十一条の二の罪
-四　第百六十七条（私印偽造及び不正使用等）の罪及び同条第二項の罪の未遂罪
-五　第百七十六条から第百八十一条まで（強制わいせつ、強制性交等、準強制わいせつ及び準強制性交等、監護者わいせつ及び監護者性交等、未遂罪、強制わいせつ等致死傷）及び第百八十四条（重婚）の罪
-六　第百九十八条（贈賄）の罪
-七　第百九十九条（殺人）の罪及びその未遂罪
-八　第二百四条（傷害）及び第二百五条（傷害致死）の罪
-九　第二百十四条から第二百十六条まで（業務上堕胎及び同致死傷、不同意堕胎、不同意堕胎致死傷）の罪
-十　第二百十八条（保護責任者遺棄等）の罪及び同条の罪に係る第二百十九条（遺棄等致死傷）の罪
-十一　第二百二十条（逮捕及び監禁）及び第二百二十一条（逮捕等致死傷）の罪
-十二　第二百二十四条から第二百二十八条まで（未成年者略取及び誘拐、営利目的等略取及び誘拐、身の代金目的略取等、所在国外移送目的略取及び誘拐、人身売買、被略取者等所在国外移送、被略取者引渡し等、未遂罪）の罪
-十三　第二百三十条（名誉毀損）の罪
-十四　第二百三十五条から第二百三十六条まで（窃盗、不動産侵奪、強盗）、第二百三十八条から第二百四十条まで（事後強盗、昏こん酔強盗、強盗致死傷）、第二百四十一条第一項及び第三項（強盗・強制性交等及び同致死）並びに第二百四十三条（未遂罪）の罪
-十五　第二百四十六条から第二百五十条まで（詐欺、電子計算機使用詐欺、背任、準詐欺、恐喝、未遂罪）の罪
-十六　第二百五十三条（業務上横領）の罪
-十七　第二百五十六条第二項（盗品譲受け等）の罪
-（国民以外の者の国外犯）
-第三条の二　この法律は、日本国外において日本国民に対して次に掲げる罪を犯した日本国民以外の者に適用する。
-一　第百七十六条から第百八十一条まで（強制わいせつ、強制性交等、準強制わいせつ及び準強制性交等、監護者わいせつ及び監護者性交等、未遂罪、強制わいせつ等致死傷）の罪
-二　第百九十九条（殺人）の罪及びその未遂罪
-三　第二百四条（傷害）及び第二百五条（傷害致死）の罪
-四　第二百二十条（逮捕及び監禁）及び第二百二十一条（逮捕等致死傷）の罪
-五　第二百二十四条から第二百二十八条まで（未成年者略取及び誘拐、営利目的等略取及び誘拐、身の代金目的略取等、所在国外移送目的略取及び誘拐、人身売買、被略取者等所在国外移送、被略取者引渡し等、未遂罪）の罪
-六　第二百三十六条（強盗）、第二百三十八条から第二百四十条まで（事後強盗、昏酔強盗、強盗致死傷）並びに第二百四十一条第一項及び第三項（強盗・強制性交等及び同致死）の罪並びにこれらの罪（同条第一項の罪を除く。）の未遂罪
-（公務員の国外犯）
-第四条　この法律は、日本国外において次に掲げる罪を犯した日本国の公務員に適用する。
-一　第百一条（看守者等による逃走援助）の罪及びその未遂罪
-二　第百五十六条（虚偽公文書作成等）の罪
-三　第百九十三条（公務員職権濫用）、第百九十五条第二項（特別公務員暴行陵虐）及び第百九十七条から第百九十七条の四まで（収賄、受託収賄及び事前収賄、第三者供賄、加重収賄及び事後収賄、あっせん収賄）の罪並びに第百九十五条第二項の罪に係る第百九十六条（特別公務員職権濫用等致死傷）の罪
-（条約による国外犯）
-第四条の二　第二条から前条までに規定するもののほか、この法律は、日本国外において、第二編の罪であって条約により日本国外において犯したときであっても罰すべきものとされているものを犯したすべての者に適用する。
-（外国判決の効力）
-第五条　外国において確定裁判を受けた者であっても、同一の行為について更に処罰することを妨げない。ただし、犯人が既に外国において言い渡された刑の全部又は一部の執行を受けたときは、刑の執行を減軽し、又は免除する。
-（刑の変更）
-第六条　犯罪後の法律によって刑の変更があったときは、その軽いものによる。
-（定義）
-第七条　この法律において「公務員」とは、国又は地方公共団体の職員その他法令により公務に従事する議員、委員その他の職員をいう。
-２　この法律において「公務所」とは、官公庁その他公務員が職務を行う所をいう。
-第七条の二　この法律において「電磁的記録」とは、電子的方式、磁気的方式その他人の知覚によっては認識することができない方式で作られる記録であって、電子計算機による情報処理の用に供されるものをいう。
-（他の法令の罪に対する適用）
-第八条　この編の規定は、他の法令の罪についても、適用する。ただし、その法令に特別の規定があるときは、この限りでない。
-第二章　刑
-（刑の種類）
-第九条　死刑、懲役、禁錮こ、罰金、拘留及び科料を主刑とし、没収を付加刑とする。
-（刑の軽重）
-第十条　主刑の軽重は、前条に規定する順序による。ただし、無期の禁錮と有期の懲役とでは禁錮を重い刑とし、有期の禁錮の長期が有期の懲役の長期の二倍を超えるときも、禁錮を重い刑とする。
-２　同種の刑は、長期の長いもの又は多額の多いものを重い刑とし、長期又は多額が同じであるときは、短期の長いもの又は寡額の多いものを重い刑とする。
-３　二個以上の死刑又は長期若しくは多額及び短期若しくは寡額が同じである同種の刑は、犯情によってその軽重を定める。
-（死刑）
-第十一条　死刑は、刑事施設内において、絞首して執行する。
-２　死刑の言渡しを受けた者は、その執行に至るまで刑事施設に拘置する。
-（懲役）
-第十二条　懲役は、無期及び有期とし、有期懲役は、一月以上二十年以下とする。
-２　懲役は、刑事施設に拘置して所定の作業を行わせる。
-（禁錮）
-第十三条　禁錮は、無期及び有期とし、有期禁錮は、一月以上二十年以下とする。
-２　禁錮は、刑事施設に拘置する。
-（有期の懲役及び禁錮の加減の限度）
-第十四条　死刑又は無期の懲役若しくは禁錮を減軽して有期の懲役又は禁錮とする場合においては、その長期を三十年とする。
-２　有期の懲役又は禁錮を加重する場合においては三十年にまで上げることができ、これを減軽する場合においては一月未満に下げることができる。
-（罰金）
-第十五条　罰金は、一万円以上とする。ただし、これを減軽する場合においては、一万円未満に下げることができる。
-（拘留）
-第十六条　拘留は、一日以上三十日未満とし、刑事施設に拘置する。
-（科料）
-第十七条　科料は、千円以上一万円未満とする。
-（労役場留置）
-第十八条　罰金を完納することができない者は、一日以上二年以下の期間、労役場に留置する。
-２　科料を完納することができない者は、一日以上三十日以下の期間、労役場に留置する。
-３　罰金を併科した場合又は罰金と科料とを併科した場合における留置の期間は、三年を超えることができない。科料を併科した場合における留置の期間は、六十日を超えることができない。
-４　罰金又は科料の言渡しをするときは、その言渡しとともに、罰金又は科料を完納することができない場合における留置の期間を定めて言い渡さなければならない。
-５　罰金については裁判が確定した後三十日以内、科料については裁判が確定した後十日以内は、本人の承諾がなければ留置の執行をすることができない。
-６　罰金又は科料の一部を納付した者についての留置の日数は、その残額を留置一日の割合に相当する金額で除して得た日数（その日数に一日未満の端数を生じるときは、これを一日とする。）とする。
-（没収）
-第十九条　次に掲げる物は、没収することができる。
-一　犯罪行為を組成した物
-二　犯罪行為の用に供し、又は供しようとした物
-三　犯罪行為によって生じ、若しくはこれによって得た物又は犯罪行為の報酬として得た物
-四　前号に掲げる物の対価として得た物
-２　没収は、犯人以外の者に属しない物に限り、これをすることができる。ただし、犯人以外の者に属する物であっても、犯罪の後にその者が情を知って取得したものであるときは、これを没収することができる。
-（追徴）
-第十九条の二　前条第一項第三号又は第四号に掲げる物の全部又は一部を没収することができないときは、その価額を追徴することができる。
-（没収の制限）
-第二十条　拘留又は科料のみに当たる罪については、特別の規定がなければ、没収を科することができない。ただし、第十九条第一項第一号に掲げる物の没収については、この限りでない。
-（未決勾こう留日数の本刑算入）
-第二十一条　未決勾こう留の日数は、その全部又は一部を本刑に算入することができる。
-第三章　期間計算
-（期間の計算）
-第二十二条　月又は年によって期間を定めたときは、暦に従って計算する。&lt;/p&gt;</content><category term="news"></category><category term="news"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="http://oumpy.github.io/articles/2019/04/animalshogi.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-21T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-21T00:00:00+09:00</published><updated>2020-03-21T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-21:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の[Webサイト]&lt;a href="https://oumpy.github.io"&gt;https://oumpy.github.io&lt;/a&gt;と[技術ブログ]&lt;a href="https://oumedpython.hatenablog.com"&gt;https://oumedpython.hatenablog.com&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="news"></category><category term="news"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="oumpy.github.io/articles/2019/04/animalshogi.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
 &lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
@@ -232,7 +113,7 @@
 &lt;h3&gt;追記2&lt;/h3&gt;
 &lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
 今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
-最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="http://oumpy.github.io/articles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
 &lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。&lt;br&gt;
 定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として)コンテストが開かれることもあります。&lt;/p&gt;
@@ -243,18 +124,18 @@
 以下いくつかの問題をピックアップしてみます。&lt;/p&gt;
 &lt;h3&gt;問題０：はじめてのあっとこーだー&lt;/h3&gt;
 &lt;p&gt;わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;問題文&lt;/span&gt;
-&lt;span class="err"&gt;高橋君はデータの加工が行いたいです。&lt;/span&gt;
-&lt;span class="err"&gt;整数&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cと&lt;/span&gt;&lt;span class="err"&gt;、文字列&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;が与えられます。&lt;/span&gt;
-&lt;span class="err"&gt;整数&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="err"&gt;と、文字列&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;を並べて表示しなさい。&lt;/span&gt;
-&lt;span class="err"&gt;入力&lt;/span&gt;
-&lt;span class="err"&gt;入力は次の形式で与えられる。&lt;/span&gt;
-&lt;span class="n"&gt;a&lt;/span&gt;
-&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt;
-&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;行目は、整数&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;が与えられる。&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="err"&gt;行目は、整数&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="err"&gt;≦&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;が与えられる。&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="err"&gt;行目は、文字列&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;が与えられる。この文字列の長さは&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="err"&gt;文字以上&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="err"&gt;文字以下である。&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;問題文
+高橋君はデータの加工が行いたいです。
+整数 a,b,cと、文字列 s が与えられます。
+整数 a+b+c と、文字列 s を並べて表示しなさい。
+入力
+入力は次の形式で与えられる。
+a
+b c
+s
+1行目は、整数 a (1≦a≦1,000) が与えられる。
+2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。
+3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -270,106 +151,111 @@
 てそうなるでしょう。&lt;/p&gt;
 &lt;p&gt;このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。&lt;/p&gt;
 &lt;p&gt;まとめっぽくなりましたが問題に戻ります。&lt;br&gt;
-考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。&lt;br&gt;
-いまさらですが言語はPython3です。&lt;br&gt;
-なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番
-印象に残った事です。&lt;/p&gt;
-&lt;p&gt;mapとかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“{}&lt;/span&gt; &lt;span class="err"&gt;{}”&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{} {}&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;いまさらですが言語はPython3です。&lt;br&gt;
+なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番
+印象に残った事です。&lt;/p&gt;
+&lt;p&gt;mapとかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。&lt;/p&gt;
 &lt;h3&gt;問題４：Coins&lt;/h3&gt;
 &lt;p&gt;コンピューターっぽくて印象的な問題です。&lt;br&gt;
 よくみる整数問題ですね。これは簡単に解けると思いきや...？&lt;br&gt;
 こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
-てかなり面倒です。&lt;br&gt;
-(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;/p&gt;
+てかなり面倒です。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;問題文
-あなたは、&lt;span class="mi"&gt;500&lt;/span&gt;円玉を&lt;span class="nv"&gt;A&lt;/span&gt;枚、&lt;span class="mi"&gt;100&lt;/span&gt;円玉を&lt;span class="nv"&gt;B&lt;/span&gt;枚、&lt;span class="mi"&gt;50&lt;/span&gt;円玉を&lt;span class="nv"&gt;C&lt;/span&gt;枚持っています。
-これらの硬貨の中から何枚かを選び、合計金額をちょうど&lt;span class="nv"&gt;X&lt;/span&gt;円にする方法は何通りありますか。
+あなたは、500円玉をA枚、100円玉をB枚、50円玉をC枚持っています。
+これらの硬貨の中から何枚かを選び、合計金額をちょうどX円にする方法は何通りありますか。
 同じ種類の硬貨同士は区別できません。
 ２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
 
 制約
-&lt;span class="mi"&gt;0&lt;/span&gt; ≤ &lt;span class="nv"&gt;A&lt;/span&gt;,&lt;span class="nv"&gt;B&lt;/span&gt;,&lt;span class="nv"&gt;C&lt;/span&gt; ≤ &lt;span class="mi"&gt;50&lt;/span&gt;
-&lt;span class="nv"&gt;A&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;B&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;C&lt;/span&gt; ≥ &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;50&lt;/span&gt; ≤ &lt;span class="nv"&gt;X&lt;/span&gt; ≤ &lt;span class="mi"&gt;20&lt;/span&gt;,&lt;span class="mi"&gt;000&lt;/span&gt;
-&lt;span class="nv"&gt;A&lt;/span&gt;,&lt;span class="nv"&gt;B&lt;/span&gt;,&lt;span class="nv"&gt;C&lt;/span&gt; は整数である
-&lt;span class="nv"&gt;X&lt;/span&gt;は&lt;span class="mi"&gt;50&lt;/span&gt;の倍数である
+0 ≤ A,B,C ≤ 50
+A+B+C ≥ 1
+≤ X ≤ 20,000
+A,B,C は整数である
+Xは50の倍数である
 
 入力
 入力は以下の形式で標準入力から与えられる。
-　&lt;span class="nv"&gt;A&lt;/span&gt;
-　&lt;span class="nv"&gt;B&lt;/span&gt;
-　&lt;span class="nv"&gt;C&lt;/span&gt;
-　&lt;span class="nv"&gt;X&lt;/span&gt;
+　A
+　B
+　C
+　X
 
 出力
 硬貨を選ぶ方法の個数を出力せよ。
-&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;a&lt;/span&gt;, &lt;span class="nv"&gt;b&lt;/span&gt;, &lt;span class="nv"&gt;c&lt;/span&gt;, &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt;, [&lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;. &lt;span class="nv"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;. &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
-&lt;span class="mi"&gt;4&lt;/span&gt;.     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
-&lt;span class="mi"&gt;5&lt;/span&gt;.         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;k&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;c&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
-&lt;span class="mi"&gt;6&lt;/span&gt;.             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;k&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt;:
-&lt;span class="mi"&gt;7&lt;/span&gt;.                 &lt;span class="nv"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;8&lt;/span&gt;. &lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ans&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;/p&gt;
 &lt;p&gt;しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。&lt;br&gt;
 このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。&lt;br&gt;
 なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。  &lt;/p&gt;
 &lt;h3&gt;問題７：Kagami Mochi&lt;/h3&gt;
-&lt;p&gt;：普通の解法&lt;br&gt;
-(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
-入力をリストにしてからセットにして要素数を数える。当然ですね。&lt;br&gt;
-僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;問題文
-&lt;span class="nv"&gt;X&lt;/span&gt;段重ねの鏡餅&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;X&lt;/span&gt;≥&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; とは&lt;span class="nv"&gt;X&lt;/span&gt;枚の円形の餅を縦に積み重ねたものであって、
+X段重ねの鏡餅(X≥1) とはX枚の円形の餅を縦に積み重ねたものであって、
 どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
-例えば、直径&lt;span class="mi"&gt;10&lt;/span&gt;、&lt;span class="mi"&gt;8&lt;/span&gt;、&lt;span class="mi"&gt;6&lt;/span&gt;センチメートルの餅をこの順に下から積み重ねると&lt;span class="mi"&gt;3&lt;/span&gt;段重ねの鏡餅になり、
-餅を一枚だけ置くと&lt;span class="mi"&gt;1&lt;/span&gt;段重ねの鏡餅になります。
-ダックスフンドのルンルンは&lt;span class="nv"&gt;N&lt;/span&gt;枚の円形の餅を持っていて、
-そのうち &lt;span class="nv"&gt;i&lt;/span&gt; 枚目の餅の直径は&lt;span class="nv"&gt;di&lt;/span&gt;センチメートルです。
+例えば、直径10、8、6センチメートルの餅をこの順に下から積み重ねると3段重ねの鏡餅になり、
+餅を一枚だけ置くと1段重ねの鏡餅になります。
+ダックスフンドのルンルンはN枚の円形の餅を持っていて、
+そのうち i 枚目の餅の直径はdiセンチメートルです。
 これらの餅のうち一部または全部を使って鏡餅を作るとき、
 最大で何段重ねの鏡餅を作ることができるでしょうか。
 
 制約
-&lt;span class="mi"&gt;1&lt;/span&gt; ≤ &lt;span class="nv"&gt;N&lt;/span&gt; ≤ &lt;span class="mi"&gt;100&lt;/span&gt;
-&lt;span class="mi"&gt;1&lt;/span&gt; ≤ &lt;span class="nv"&gt;di&lt;/span&gt; ≤ &lt;span class="mi"&gt;100&lt;/span&gt;
+1 ≤ N ≤ 100
+1 ≤ di ≤ 100
 入力値は全て整数である。
 
 入力
 入力は以下の形式で標準入力から与えられる。
-　&lt;span class="nv"&gt;N&lt;/span&gt;
-&lt;span class="nv"&gt;d1&lt;/span&gt;
+　N
+d1
 　：
-&lt;span class="nv"&gt;dN&lt;/span&gt;
+dN
 
 出力
 作ることのできる鏡餅の最大の段数を出力せよ。
-
-&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;. &lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;len&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt;, [&lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;]&lt;span class="ss"&gt;))))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;：僕の解法&lt;br&gt;
-ソートしてからリストのままでなんとか数えあげました。&lt;br&gt;
+&lt;h4&gt;普通の解法&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)]))))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
+入力をリストにしてからセットにして要素数を数える。当然ですね。&lt;br&gt;
+僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/p&gt;
+&lt;h4&gt;僕の解法&lt;/h4&gt;
+&lt;p&gt;ソートしてからリストのままでなんとか数えあげました。&lt;br&gt;
 明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;. &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;sorted&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;map&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt;, [&lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;]&lt;span class="ss"&gt;)))&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;. &lt;span class="nv"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;4&lt;/span&gt;. &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;:
-&lt;span class="mi"&gt;5&lt;/span&gt;.     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;range&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
-&lt;span class="mi"&gt;6&lt;/span&gt;.         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;] &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;]:
-&lt;span class="mi"&gt;7&lt;/span&gt;.             &lt;span class="nv"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="mi"&gt;8&lt;/span&gt;. &lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ans&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)])))&lt;/span&gt;
+&lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+            &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -377,35 +263,47 @@
 &lt;p&gt;問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。&lt;br&gt;
 が、わざわざeraseという単語を選んできたということは、こういうことでしょう。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;問題文
-英小文字からなる文字列 &lt;span class="nv"&gt;S&lt;/span&gt; が与えられます。 &lt;span class="nv"&gt;T&lt;/span&gt;が空文字列である状態から始め、
-以下の操作を好きな回数繰り返すことで &lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt; とすることができるか判定してください。
-&lt;span class="nv"&gt;T&lt;/span&gt;の末尾に&lt;span class="nv"&gt;dream&lt;/span&gt; &lt;span class="nv"&gt;dreamer&lt;/span&gt; &lt;span class="nv"&gt;erase&lt;/span&gt; &lt;span class="nv"&gt;eraser&lt;/span&gt; のいずれかを追加する。
+英小文字からなる文字列 S が与えられます。 Tが空文字列である状態から始め、
+以下の操作を好きな回数繰り返すことで S=T とすることができるか判定してください。
+Tの末尾にdream dreamer erase eraser のいずれかを追加する。
 制約
-&lt;span class="mi"&gt;1&lt;/span&gt;≦&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;≦&lt;span class="mi"&gt;105&lt;/span&gt;
-&lt;span class="nv"&gt;S&lt;/span&gt;は英小文字からなる。
+1≦|S|≦105
+Sは英小文字からなる。
 
 入力
 入力は以下の形式で標準入力から与えられる。
-&lt;span class="nv"&gt;S&lt;/span&gt;
+S
 
 出力
-&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;T&lt;/span&gt;とすることができる場合&lt;span class="nv"&gt;YES&lt;/span&gt;を、そうでない場合&lt;span class="nv"&gt;NO&lt;/span&gt;を出力せよ。
+S=Tとすることができる場合YESを、そうでない場合NOを出力せよ。
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="mi"&gt;1&lt;/span&gt;. &lt;span class="nv"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
-&lt;span class="mi"&gt;2&lt;/span&gt;. &lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt;.&lt;span class="nv"&gt;replace&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;eraser&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;3&lt;/span&gt;. &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;.&lt;span class="nv"&gt;replace&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;erase&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;4&lt;/span&gt;. &lt;span class="nv"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;b&lt;/span&gt;.&lt;span class="nv"&gt;replace&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;dreamer&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5&lt;/span&gt;. &lt;span class="nv"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;c&lt;/span&gt;.&lt;span class="nv"&gt;replace&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;dream&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;6&lt;/span&gt;. &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;d&lt;/span&gt;.&lt;span class="nv"&gt;strip&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;:
-&lt;span class="mi"&gt;7&lt;/span&gt;.     &lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;YES&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;8&lt;/span&gt;. &lt;span class="k"&gt;else&lt;/span&gt;:
-&lt;span class="mi"&gt;9&lt;/span&gt;.     &lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;NO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+
+&lt;h4&gt;僕の解法&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;YES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。&lt;br&gt;
-変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。&lt;br&gt;
-別解答：(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
+変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。  &lt;/p&gt;
+&lt;h4&gt;別解答&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;YES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
 通ればなんでもいいはずなんですが、これはどうでしょう。&lt;br&gt;
 この解答例だと、”d erase r erase e erase a erase m” という文字列(スペースは抜いてください)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。&lt;br&gt;
 (嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)  &lt;/p&gt;
@@ -418,7 +316,7 @@
 もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;br&gt;
 でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。&lt;br&gt;
 簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。&lt;br&gt;
-もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;</content><category term="tech_archive"></category><category term="atcoder"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="http://oumpy.github.io/articles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;</content><category term="tech_archive"></category><category term="atcoder"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="oumpy.github.io/articles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
 pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
 まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
 読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
@@ -445,43 +343,42 @@ ipynbの公開方法はhtmlやpdfにexportしたり、いろいろあります�
 少し凝った方法で公開してみました。
 githubのgistという機能を用いて、公開し、それをnbviewerに渡してみました。
 スマホでもみれていいですね。
-&lt;a href="http://kasoutuuka.org/jupyter-notebook"&gt;参考HP&lt;/a&gt;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="http://oumpy.github.io/articles/2019/04/breast_cancer_detection.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/breast_cancer_detection.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="http://arxiv.org/abs/1808.08273"&gt;Improving Breast Cancer Detection using Symmetry Information with Deep Learning&lt;/a&gt;
-放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCNNモデルを提案
-arxiv 2018.08
-MICCAI (医療画像解析のトップ会議) 2018 採択
+&lt;a href="http://kasoutuuka.org/jupyter-notebook"&gt;参考HP&lt;/a&gt;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>(論文まとめ)Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="oumpy.github.io/articles/2019/04/breast_cancer_detection.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/breast_cancer_detection.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="http://arxiv.org/abs/1808.08273"&gt;Improving Breast Cancer Detection using Symmetry Information with Deep Learning&lt;/a&gt;&lt;br&gt;
+放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCNNモデルを提案&lt;br&gt;
+arxiv 2018.08&lt;br&gt;
+MICCAI (医療画像解析のトップ会議) 2018 採択&lt;br&gt;
 1st authorは放射線科医&lt;/p&gt;
-&lt;p&gt;データセット
-マンモグラフィー7k症例, 正常4k, 悪性腫瘍3k
-放射線専門医により腫瘍領域マスクをアノテーションした
-正常乳房は2年フォローして乳がん発症が無かったことを確認
-乳がん乳房は腫瘍領域を生検し悪性腫瘍であるとすべて診断されている
+&lt;p&gt;データセット&lt;br&gt;
+マンモグラフィー7k症例, 正常4k, 悪性腫瘍3k&lt;br&gt;
+放射線専門医により腫瘍領域マスクをアノテーションした&lt;br&gt;
+正常乳房は2年フォローして乳がん発症が無かったことを確認&lt;br&gt;
+乳がん乳房は腫瘍領域を生検し悪性腫瘍であるとすべて診断されている&lt;br&gt;
 非公開データ&lt;/p&gt;
-&lt;p&gt;前処理
-従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)
-候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)
-左右差を比較するために反対側の領域を切り出し (Fig.1, 青枠)
-切り出した領域に腫瘍のマスク領域が含まれていれば悪性腫瘍のラベルを割り当てる&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-153" src="https://pythonoum.files.wordpress.com/2018/09/2352f582-60c8-486b-a9ec-c247787510f7.png" alt="2352f582-60c8-486b-a9ec-c247787510f7" width="857" height="567" /&gt;&lt;/p&gt;
+&lt;p&gt;前処理&lt;br&gt;
+従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)&lt;br&gt;
+候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)&lt;br&gt;
+左右差を比較するために反対側の領域を切り出し (Fig.1, 青枠)&lt;br&gt;
+切り出した領域に腫瘍のマスク領域が含まれていれば悪性腫瘍のラベルを割り当てる  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 1" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"&gt;&lt;/p&gt;
 &lt;p&gt;Fig. 1&lt;/p&gt;
-&lt;p&gt;モデル
-baseline model: 標準的なCNN (VGG like)
-symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-152" src="https://pythonoum.files.wordpress.com/2018/09/67ac70b1-0afe-478b-b046-a2bacb1450f8.png" alt="67ac70b1-0afe-478b-b046-a2bacb1450f8" width="1487" height="470" /&gt;&lt;/p&gt;
+&lt;p&gt;モデル&lt;br&gt;
+baseline model: 標準的なCNN (VGG like)&lt;br&gt;
+symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 2" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"&gt;&lt;/p&gt;
 &lt;p&gt;結果&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-155" src="https://pythonoum.files.wordpress.com/2018/09/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png" alt="スクリーンショット 2018-09-25 17.28.58" width="1516" height="296" /&gt;
-AUCがわずかに改善 (有意差なし)&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-151" src="https://pythonoum.files.wordpress.com/2018/09/6aaac880-7ac2-4425-8be3-4d78367088e2.png" alt="6aaac880-7ac2-4425-8be3-4d78367088e2" width="671" height="484" /&gt;&lt;/p&gt;
-&lt;p&gt;Fig.3a
+&lt;p&gt;&lt;img alt="AUC table" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"&gt;&lt;/p&gt;
+&lt;p&gt;AUCがわずかに改善 (有意差なし)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 3a" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"&gt;&lt;/p&gt;
+&lt;p&gt;Fig. 3a&lt;br&gt;
 FROC曲線(偽陽性率を横軸, 感受性を縦軸) で比較すると有意に提案手法がよかった&lt;/p&gt;
 &lt;p&gt;考察&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-154" src="https://pythonoum.files.wordpress.com/2018/09/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png" alt="ef07a0c8-ed1e-4127-b747-f9103aa6095e" width="960" height="360" /&gt;&lt;/p&gt;
-&lt;p&gt;Fig. 4
-a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)
-b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)
+&lt;p&gt;&lt;img alt="Fig. 4" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"&gt;&lt;/p&gt;
+&lt;p&gt;Fig. 4&lt;br&gt;
+a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;br&gt;
+b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;br&gt;
 暗めの悪性腫瘍, 明るい正常像は誤判定しやすいがsymmetry modelは左右の比較によって正しく判定していることが読み取れる&lt;/p&gt;
-&lt;p&gt;読んだ感想
-性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>クラスター分析</title><link href="http://oumpy.github.io/articles/2019/04/cluster_analysis.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/cluster_analysis.html</id><summary type="html"></summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
+&lt;p&gt;読んだ感想&lt;br&gt;
+性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>クラスター分析</title><link href="oumpy.github.io/articles/2019/04/cluster_analysis.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/cluster_analysis.html</id><summary type="html"></summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
 勉強し始めて数時間ですが、少しまとめてみたいと思います。&lt;/p&gt;
 &lt;p&gt;簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
 あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。&lt;/p&gt;
@@ -514,7 +411,7 @@ setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分け�
 https://business.nikkeibp.co.jp/atclbdt/15/258678/071500002/?ST=print&lt;/p&gt;
 &lt;p&gt;クラスタリングの注意点が書かれてました。
 http://www.kamishima.net/jp/clustering/&lt;/p&gt;
-&lt;p&gt;Pythonではじめる機械学習 オライリー社&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>Common Workflow Language入門</title><link href="http://oumpy.github.io/articles/2019/04/cwl.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/cwl.html</id><summary type="html"></summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
+&lt;p&gt;Pythonではじめる機械学習 オライリー社&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>Common Workflow Language入門</title><link href="oumpy.github.io/articles/2019/04/cwl.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/cwl.html</id><summary type="html"></summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
 &lt;h2&gt;CWLって？&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="cwl" src="https://github.com/common-workflow-language/cwl-website/blob/master/site/CWL-Logo-Header.png?raw=true"&gt;&lt;/p&gt;
 &lt;p&gt;一言で言うと、bioinformatics処理の自動化です。どういうことかもうちょっと詳しく見てみましょう。&lt;/p&gt;
@@ -577,29 +474,28 @@ http://www.kamishima.net/jp/clustering/&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.commonwl.org/"&gt;CWL公式ページ&lt;/a&gt; : リンク集がついている。&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt; : 二階堂研石井さんのスライド。わかりやすいです。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>(論文まとめ)医師国家試験問題自動生成AI</title><link href="http://oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;On the Generation of Medical Question-Answer Pairs.
-Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. arXiv. 2018.
-http://arxiv.org/abs/1811.00681&lt;/p&gt;
-&lt;p&gt;上記論文を軽く紹介。
-Tensent Mediacal AI lab Internからの論文。
+&lt;/ul&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>(論文まとめ)医師国家試験問題自動生成AI</title><link href="oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;On the Generation of Medical Question-Answer Pairs.&lt;br&gt;
+Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. arXiv. 2018.&lt;br&gt;
+http://arxiv.org/abs/1811.00681  &lt;/p&gt;
+&lt;p&gt;上記論文を軽く紹介。&lt;br&gt;
+Tensent Mediacal AI lab Internからの論文。&lt;br&gt;
 Deep learning技術により質問文に対して回答するAI (question answering, QA)が発展している。しかし、QAを医療に応用するためにはAIを学習させるためのデータが不足している。そこで質問文と解答のペアを自動生成するモデルを提案した。&lt;/p&gt;
-&lt;p&gt;手法
-Key Phrase Detector
+&lt;p&gt;手法&lt;br&gt;
+Key Phrase Detector&lt;br&gt;
 質問文の各フレーズが解答の決め手となるキーフレーズであるかを評価する。キーフレーズであるかどうかは特定の解答に対して高頻度で質問文に出現するフレーズがキーフレーズであるとしてdetectorを学習させる。例えば「日本脳炎」が解答である場合「項部硬直」などがキーフレーズとなる。
-Conditional Variational Autoencoder (CVAE)
+Conditional Variational Autoencoder (CVAE)&lt;br&gt;
 キーフレーズは維持しつつ、それ以外のフレーズを生成モデルCVAEによって言い換える。これによって答が同じな新たな質問文が作られる。&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-427" src="https://pythonoum.files.wordpress.com/2018/12/393E4E28-4B67-4C25-A11B-BE7CA70BB9AC.png" alt="393E4E28-4B67-4C25-A11B-BE7CA70BB9AC" width="2055" height="880" /&gt;&lt;/p&gt;
-&lt;p&gt;データ
-中国医師国家試験18,798問
-中国のWikipedia風医療サイト (http://xywy.com/)
-医学辞書19冊
-医学論文2,130,128本
-医学専門書518冊&lt;/p&gt;
-&lt;p&gt;実験結果
+&lt;p&gt;&lt;img alt="Overview of the proposed framework" src="oumpy.github.io/articles/2019/04/images/doctor_exam_ai_figs/doctor_exam_ai.png"&gt;&lt;/p&gt;
+&lt;p&gt;データ&lt;br&gt;
+中国医師国家試験18,798問&lt;br&gt;
+中国のWikipedia風医療サイト (http://xywy.com/)&lt;br&gt;
+医学辞書19冊&lt;br&gt;
+医学論文2,130,128本&lt;br&gt;
+医学専門書518冊  &lt;/p&gt;
+&lt;p&gt;実験結果&lt;br&gt;
 アルゴリズムによる評価、人間による評価ともにベースラインを上回った。&lt;/p&gt;
-&lt;p&gt;読んだ感想
-生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>LinuxでのBioinformatics環境構築_01</title><link href="http://oumpy.github.io/articles/2019/04/environment_bioinformatics.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;お疲れ様です。ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
+&lt;p&gt;読んだ感想&lt;br&gt;
+生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>LinuxでのBioinformatics環境構築_01</title><link href="oumpy.github.io/articles/2019/04/environment_bioinformatics.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;お疲れ様です。ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
 &lt;p&gt;今回は&lt;strong&gt;＜&lt;em&gt;Kallisto&lt;/em&gt;を用いた&lt;em&gt;RNA-seq&lt;/em&gt;解析パイプライン＞&lt;/strong&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、&lt;a href="https://pythonoum.wordpress.com/2018/10/16/kallisto%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Frna-seq%E8%A7%A3%E6%9E%90%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;に進むことができます。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ubuntuではpython2.7がデフォルト&lt;/strong&gt;となっているので、python3をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
 &lt;p&gt;[code lang="text"]&lt;/p&gt;
@@ -676,28 +572,28 @@ biocLite("DESeq2")
 &lt;/blockquote&gt;
 &lt;p&gt;参照：
 https://bioconductor.org/packages/release/bioc/html/tximport.html
-https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>github desktopアプリの使い方</title><link href="http://oumpy.github.io/articles/2019/04/github_desktop.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/github_desktop.html</id><summary type="html"></summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
+https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>github desktopアプリの使い方</title><link href="oumpy.github.io/articles/2019/04/github_desktop.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/github_desktop.html</id><summary type="html"></summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
 &lt;h3&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/h3&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-284" src="https://pythonoum.files.wordpress.com/2018/10/1.png" alt="1" width="550" height="202" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;github上のレポジトリとLocal pathを指定。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-285" src="https://pythonoum.files.wordpress.com/2018/10/2.png" alt="2" width="900" height="968" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_2.png"&gt;&lt;/p&gt;
 &lt;p&gt;これでうまくcloneされていたらOK&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;毎回の流れ(基本編)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;一日の作業の初めにFetchしてきて、最新の状態に同期する。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-286" src="https://pythonoum.files.wordpress.com/2018/10/3.png" alt="3" width="928" height="398" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_3.png"&gt;&lt;/p&gt;
 &lt;p&gt;ファイルを変更、加筆すると自動的にアプリに反映される&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-287" src="https://pythonoum.files.wordpress.com/2018/10/4.png" alt="4" width="2144" height="1544" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_4.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;作業の区切りがついたら左下のSummeryに適当にコメントを付け、commit to master。
 コメントはもうちょっと丁寧に付けましょう。。。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-288" src="https://pythonoum.files.wordpress.com/2018/10/5.png" alt="5" width="620" height="518" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-289" src="https://pythonoum.files.wordpress.com/2018/10/6.png" alt="6" width="2144" height="1544" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_6.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pushして変更を反映させる。&lt;/li&gt;
 &lt;/ul&gt;
@@ -711,37 +607,42 @@ $ git push origin master
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="tech_archive"></category><category term="github"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="http://oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
+&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="tech_archive"></category><category term="github"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
 &lt;p&gt;動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。&lt;/p&gt;
-&lt;p&gt;(あと、PCがクソザコなので、クラウドがいいかなーと思いました)
-&lt;h1&gt;対象&lt;/h1&gt;
-初学者に非常に向いています。&lt;/p&gt;
-&lt;p&gt;pythonの勉強会や趣味レベルまで対応している神環境だと思います。
-&lt;h1&gt;特徴&lt;/h1&gt;
-一言でいうと：コードの共有に向いています。
-&lt;blockquote&gt;・無料
-・install不要
-・ブラウザさえ使えればどこでもできる
-・google driveとの連携が便利
-・githubとの連携が簡単(コピーする、というボタンだけでuploadできる)
-・しかもGPU使える(TPUも)&lt;/blockquote&gt;
-&lt;h1&gt;使用&lt;/h1&gt;
-登録：&lt;a href="https://colab.research.google.com/" target="_blank" rel="noopener"&gt;https://colab.research.google.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(あと、PCがクソザコなので、クラウドがいいかなーと思いました)&lt;/p&gt;
+&lt;h2&gt;対象&lt;/h2&gt;
+&lt;p&gt;初学者に非常に向いています。&lt;/p&gt;
+&lt;p&gt;pythonの勉強会や趣味レベルまで対応している神環境だと思います。&lt;/p&gt;
+&lt;h2&gt;特徴&lt;/h2&gt;
+&lt;p&gt;一言でいうと：コードの共有に向いています。  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;無料&lt;/li&gt;
+&lt;li&gt;install不要&lt;/li&gt;
+&lt;li&gt;ブラウザさえ使えればどこでもできる&lt;/li&gt;
+&lt;li&gt;google driveとの連携が便利&lt;/li&gt;
+&lt;li&gt;githubとの連携が簡単(コピーする、というボタンだけでuploadできる)&lt;/li&gt;
+&lt;li&gt;しかもGPU使える(TPUも)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;使用&lt;/h2&gt;
+&lt;p&gt;登録：&lt;a href="https://colab.research.google.com"&gt;https://colab.research.google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;標準では書いたノートブックはGoogle Driveに保存されるようになっています。&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-196" src="https://pythonoum.files.wordpress.com/2018/10/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-10-08-12-18-55.png" alt="スクリーンショット 2018-10-08 12.18.55" width="2836" height="1606" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="スクリーンショット" src="oumpy.github.io/articles/2019/04/images/google_colaboratory_figs/2018-10-08-12-18-55.png"&gt;&lt;/p&gt;
 &lt;p&gt;右上の共有コマンドから、Google Documentと同じようにリンクを作ったり、他の人と共有できます。&lt;/p&gt;
-&lt;p&gt;ファイルの選択から、Google DriveやGitHubと連携ができます(すごい)。
-&lt;h1&gt;感想&lt;/h1&gt;
-全部クラウドでできるので良い。&lt;/p&gt;
-&lt;p&gt;notebookがGoogle用にチューニングされていて更に使いやすい。&lt;/p&gt;
-&lt;p&gt;初学の時はpycharm使ってましたが、今から始めるなら間違いなくこれを使います。
-&lt;h1&gt;参考&lt;/h1&gt;
-https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4&lt;/p&gt;
-&lt;p&gt;https://karaage.hatenadiary.jp/entry/2018/03/21/073000&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Gene Set Enrichment Analysis (GSEA)入門</title><link href="http://oumpy.github.io/articles/2019/04/gsea.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>西田</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/gsea.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;GSEAとは&lt;/h1&gt;
-
-&lt;p&gt;GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。
-&lt;h1&gt;clusterProfilerでGSEA入門&lt;/h1&gt;
-GSEA には様々なGSEAがあります。単に注目する遺伝子のリストをGSEAへの入力とするもの、発現プロファイルを入力とするもの、機能のデータベースやGSEA手法を複数組み合わせたりするもの (EGSEA) など様々です。[余談ですがGeneを代謝物(Metabolite)に置き換えたMSEAもあります。]&lt;/p&gt;
+&lt;p&gt;ファイルの選択から、Google DriveやGitHubと連携ができます(すごい)。&lt;/p&gt;
+&lt;h2&gt;感想&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;全部クラウドでできるので良い。&lt;/li&gt;
+&lt;li&gt;notebookがGoogle用にチューニングされていて更に使いやすい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;初学の時はpycharm使ってましたが、今から始めるなら間違いなくこれを使います。&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4"&gt;https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://karaage.hatenadiary.jp/entry/2018/03/21/073000"&gt;https://karaage.hatenadiary.jp/entry/2018/03/21/073000&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Gene Set Enrichment Analysis (GSEA)入門</title><link href="oumpy.github.io/articles/2019/04/gsea.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>西田</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/gsea.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;GSEAとは&lt;/h2&gt;
+&lt;p&gt;GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。&lt;/p&gt;
+&lt;h2&gt;clusterProfilerでGSEA入門&lt;/h2&gt;
+&lt;p&gt;GSEA には様々なGSEAがあります。単に注目する遺伝子のリストをGSEAへの入力とするもの、発現プロファイルを入力とするもの、機能のデータベースやGSEA手法を複数組み合わせたりするもの (EGSEA) など様々です。[余談ですがGeneを代謝物(Metabolite)に置き換えたMSEAもあります。]&lt;/p&gt;
 &lt;p&gt;ここでは前述したものの内、最初の「単に注目する遺伝子のリストをGSEAへの入力とするもの」をbioconductorのパッケージ clusterProfiler を用いて体験してみましょう。&lt;/p&gt;
 &lt;p&gt;(clusterProfilerのインストールについては省略します。)&lt;/p&gt;
 &lt;p&gt;まず注目する遺伝子のリストを下記で用意します。&lt;/p&gt;
@@ -792,32 +693,99 @@ GSEA には様々なGSEAがあります。単に注目する遺伝子のリス�
 &lt;p&gt;&lt;code&gt;head(kk)&lt;/code&gt; でGSEAの結果を上から確からしいもの順にトップ5を出力しています。&lt;/p&gt;
 &lt;p&gt;もし遺伝子リスト&lt;code&gt;gene&lt;/code&gt;が発現差異解析の結果であるなら、コントロールとターゲット間で&lt;code&gt;Cell cycle&lt;/code&gt;等に異変が起きているだろう、とこの結果から推測できるということになります。&lt;/p&gt;
 &lt;p&gt;次に&lt;code&gt;kk&lt;/code&gt;の各列名の意味ですが&lt;/p&gt;
-&lt;p&gt;IDはKEGG pathwayのID&lt;/p&gt;
-&lt;p&gt;DescriptionはKEGG pathwayの名前&lt;/p&gt;
-&lt;p&gt;GeneRatioは入力&lt;code&gt;gene&lt;/code&gt;の遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか&lt;/p&gt;
-&lt;p&gt;BgRatioは全KEGG pathwayにマップされる遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか&lt;/p&gt;
-&lt;p&gt;p.adjust, qvalueは多重検定に伴う補正後のpvalueになり小さいほど確からしいことを示します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IDはKEGG pathwayのID&lt;/li&gt;
+&lt;li&gt;DescriptionはKEGG pathwayの名前&lt;/li&gt;
+&lt;li&gt;GeneRatioは入力&lt;code&gt;gene&lt;/code&gt;の遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか&lt;/li&gt;
+&lt;li&gt;BgRatioは全KEGG pathwayにマップされる遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか&lt;/li&gt;
+&lt;li&gt;p.adjust, qvalueは多重検定に伴う補正後のpvalueになり小さいほど確からしいことを示します。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;入力&lt;code&gt;gene&lt;/code&gt;に含まれる遺伝子がKEGG pathway上のどのgene productにmapされるかを可視化するには下記を実行します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;browseKEGG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kk&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hsa04110&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img title="" src="https://pythonoum.files.wordpress.com/2018/11/null9.png" alt="" width="624" height="481" /&gt;
-&lt;h1&gt;終わりに&lt;/h1&gt;
-最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
-&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Hamiltonian Descent Methodの要点</title><link href="http://oumpy.github.io/articles/2019/04/hamiltonian_descent_method.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/hamiltonian_descent_method.html</id><summary type="html"></summary><content type="html">&lt;p&gt;解説自体は&lt;a href="https://omedstu.jimdo.com/2018/09/26/hamiltonian-descent-methods%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E8%A7%A3%E8%AA%AC/" target="_blank" rel="noopener"&gt;Hamiltonian Descent Methodsの実装についての解説&lt;/a&gt;に書いたのですが、こちらには要点だけまとめておきます。&lt;/p&gt;
-&lt;h3&gt;要点のまとめ&lt;/h3&gt;
-
-&lt;p&gt;&lt;img class="aligncenter size-full wp-image-170" src="https://pythonoum.files.wordpress.com/2018/09/1537941381.jpg" alt="1537941381" width="800" height="269" /&gt;
+&lt;p&gt;&lt;img alt="" src="oumpy.github.io/articles/2019/04/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
+&lt;h2&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
+&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Hamiltonian Descent Methodの要点</title><link href="oumpy.github.io/articles/2019/04/hamiltonian_descent_method.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/hamiltonian_descent_method.html</id><summary type="html"></summary><content type="html">&lt;p&gt;解説自体は&lt;a href="" title="https://omedstu.jimdo.com/2018/09/26/hamiltonian-descent-methods%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E8%A7%A3%E8%AA%AC/"&gt;Hamiltonian Descent Methodsの実装についての解説&lt;/a&gt;に書いたのですが、こちらには要点だけまとめておきます。&lt;/p&gt;
+&lt;h2&gt;要点のまとめ&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="1537941381" src="oumpy.github.io/articles/2019/04/images/hamiltonian_descent_method_figs/1537941381.jpg"&gt;
 - Hamiltonian Descent法を用いると凸関数最適化が高速かつ高精度で行える。
 - 超収束(Super-Convergence, &lt;a href="https://arxiv.org/pdf/1708.07120.pdf"&gt;arxiv&lt;/a&gt;)とは関係ある？論文読んだ限りはなさそう。
 - ニューラルネットワークの最適化に応用するには運動エネルギー関数の研究が必要。
 - なぜ高速に学習できるのか、なぜSGDと比べてニューラルネットワークの学習が不能なのか不明。でも学習できるならもっと実装あるよなと思っています。&lt;/p&gt;
-&lt;h3&gt;アルゴリズム（1つ目の陽解法）&lt;/h3&gt;
+&lt;h2&gt;アルゴリズム（1つ目の陽解法）&lt;/h2&gt;
+&lt;p&gt;パラメータ&lt;span class="math"&gt;\(x\)&lt;/span&gt;以外に運動量のパラメータ&lt;span class="math"&gt;\(p\)&lt;/span&gt;を用意します。以下の更新式に従ってパラメータを更新します。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+p_{i+1} = \delta p_i - \epsilon\delta\nabla f(x_i)\\
+x_{i+1} = \delta x_i + \epsilon\nabla k(p_{i+1})
+$$&lt;/div&gt;
+&lt;p&gt;
+ここで&lt;span class="math"&gt;\(x_t\)&lt;/span&gt;は時刻&lt;span class="math"&gt;\(t\)&lt;/span&gt;における解、&lt;span class="math"&gt;\(p_t\)&lt;/span&gt;は時刻tにおける運動量、&lt;span class="math"&gt;\(k\)&lt;/span&gt;は運動エネルギー関数、&lt;span class="math"&gt;\(f\)&lt;/span&gt;は最小化したい関数（位置エネルギー関数）です2回微分が必要ですが、運動エネルギー関数&lt;span class="math"&gt;\(k(p)\)&lt;/span&gt;を解析的に微分可能にしておけば、&lt;span class="math"&gt;\(\nabla k(p)\)&lt;/span&gt;を定義すれば微分は1回でokです。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
 
-&lt;p&gt;パラメータx以外に運動量のパラメータpを用意します。以下の更新式に従ってパラメータを更新します。
-&lt;img class="aligncenter size-medium wp-image-168" src="https://pythonoum.files.wordpress.com/2018/09/texclip20180929003048.png?w=600" alt="texclip20180929003048" width="300" height="81" /&gt;
-ここでx_tは時刻tにおける解、p_tは時刻tにおける運動量、kは運動エネルギー関数、fは最小化したい関数（位置エネルギー関数）です2回微分が必要ですが、運動エネルギー関数k(p)を解析的に微分可能にしておけば、∇k(p)を定義すれば微分は1回でokです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="http://oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
 &lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
@@ -841,7 +809,7 @@ GSEA には様々なGSEAがあります。単に注目する遺伝子のリス�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="http://oumpy.github.io/articles/2019/04/julia_python_competition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
+&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="oumpy.github.io/articles/2019/04/julia_python_competition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
 &lt;h2&gt;Juliaってなに？&lt;/h2&gt;
 &lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。&lt;br&gt;
 ~~ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。~~&lt;/p&gt;
@@ -979,7 +947,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;p&gt;&lt;strong&gt;&amp;lt; History &amp;gt;&lt;/strong&gt;&lt;br&gt;
 2019.03.21 ver1.0&lt;br&gt;
 2019.03.21 ver1.1 微修正、PyPy3の成績を追記&lt;br&gt;
-2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="http://oumpy.github.io/articles/2019/04/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;!!!!!!!!!!! 
+2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="oumpy.github.io/articles/2019/04/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;!!!!!!!!!!! 
 今回はKallistoを用いたRNA-seq解析パイプラインを紹介しま
 す。&lt;a href="https://pythonoum.wordpress.com/2018/10/16/linux%E3%81%A7%E3%81%AEbioinformatics%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89_01/"&gt;LinuxでのBioinformatics環境構築_01&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;リファレンスのダウンロード&lt;/em&gt;&lt;/strong&gt;
@@ -1006,10 +974,10 @@ DDBJの&lt;a href="https://ddbj.nig.ac.jp/DRASearch/"&gt;DRA search&lt;/a&gt;か
 &lt;h1&gt;download sra files.&lt;/h1&gt;
 &lt;p&gt;mkdir sra-fastq
 id=(ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351)
-for item in ${id[@]}
+for item in &lt;span class="math" item&gt;\({id[@]}
 do
 echo start download ${item}.sra
-wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/${item}/${item}.sra
+wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/\)&lt;/span&gt;/${item}.sra
 pfastq-dump -s ${item} -t 8 -O sra-fastq
 done
 [/code]&lt;/p&gt;
@@ -1039,11 +1007,11 @@ fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wik
 &lt;h1&gt;!/bin/bash&lt;/h1&gt;
 &lt;p&gt;id=(ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351)
 mkdir fastqc
-for item in ${id[@]}
+for item in &lt;span class="math" item&gt;\({id[@]}
 do
 echo start quality check ${item}
-mkdir fastqc/fastqc_${item}
-fastqc -t 8 -o fastqc/fastqc_${item} sra-fastq/${item}.fastq -f fastq
+mkdir fastqc/fastqc_\)&lt;/span&gt;
+fastqc -t 8 -o fastqc/fastqc_&lt;span class="math" item&gt;\({item} sra-fastq/\)&lt;/span&gt;.fastq -f fastq
 done&lt;/p&gt;
 &lt;p&gt;[/code]&lt;/p&gt;
 &lt;p&gt;sra-fastq/${item}.fastqがインプットファイル。
@@ -1117,11 +1085,11 @@ ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に&lt;/p&gt;
 &lt;p&gt;[code lang="text"]&lt;/p&gt;
 &lt;h1&gt;!/bin/bash&lt;/h1&gt;
 &lt;p&gt;id=(ERR266335 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347)
-for item in ${id[@]}
+for item in &lt;span class="math" item&gt;\({id[@]}
 do
 echo start mapping ${item} with Kallisto
-result_dir=${item}_exp_kallisto
-kallisto/kallisto quant -i hsGRCh38_kallisto -o ${item} --single -l 200 -s 20 -b 100 sra_fastqc/${item}.fastq
+result_dir=\)&lt;/span&gt;_exp_kallisto
+kallisto/kallisto quant -i hsGRCh38_kallisto -o &lt;span class="math" item&gt;\({item} --single -l 200 -s 20 -b 100 sra_fastqc/\)&lt;/span&gt;.fastq
 done
 [/code]&lt;/p&gt;
 &lt;p&gt;abundance.tsv, target_id, length, eff_length, est_counts, tpm&lt;/p&gt;
@@ -1159,7 +1127,69 @@ https://scilifelab.github.io/courses/rnaseq/labs/kallisto&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Tximport, DESeq2を用いた解析はコメントをいただき、ただ今編集中となっております。少々お待ちください。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="http://oumpy.github.io/articles/2019/04/kaplan_meier_curve.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/kaplan_meier_curve.html</id><summary type="html"></summary><content type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="oumpy.github.io/articles/2019/04/kaplan_meier_curve.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/kaplan_meier_curve.html</id><summary type="html"></summary><content type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1725,7 +1755,7 @@ pythonを用いて割と簡単に統計解析ができた。
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="http://oumpy.github.io/articles/2019/04/macs2_deeptools.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/macs2_deeptools.html</id><summary type="html"></summary><content type="html">&lt;h3&gt;ChIP-seqとは&lt;/h3&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="oumpy.github.io/articles/2019/04/macs2_deeptools.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/macs2_deeptools.html</id><summary type="html"></summary><content type="html">&lt;h3&gt;ChIP-seqとは&lt;/h3&gt;
 &lt;p&gt;全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピジェネティクスが挙げられ、DNAメチル化やクロマチン修飾などが知られている。ChIP-seq (chromatin immunoprecipitation sequence) は特異的クロマチン修飾を受けている領域を、抗体を用いて沈降、濃縮させ、どの細胞のどの領域でどういう修飾を受けているのかを調べるために用いられる。&lt;/p&gt;
 &lt;h3&gt;今回のきっかけ&lt;/h3&gt;
 &lt;p&gt;ChIP-seqの解析をする時に便利なフォーマットにbigwigがある。igvで表示したり、coverageを計算したり、様々な用途で使える。詳しくはdrbonobon（第一版）のp118に記載されている。ChIP-seqの解析には&lt;a href="https://github.com/taoliu/MACS"&gt;MACS2&lt;/a&gt;というソフトが良く使われ、bigwigの生成も可能だが、&lt;a href="https://deeptools.readthedocs.io/en/develop/index.html"&gt;deepTools&lt;/a&gt;でも&lt;code&gt;​bamCoverage&lt;/code&gt;や​&lt;code&gt;​bamComapre&lt;/code&gt;機能を使ってbigwigを作ることができる。挙動や使い所の違いを比較しようというのが今回の目的。&lt;/p&gt;
@@ -1862,7 +1892,7 @@ samtools index data/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt
 
 
 &lt;p&gt;こっちのほうが簡単。outputDirに指定してやって下さい。
-この例だとpfastq-dumpでは~/ncbi/public/sra/${s}.sraが/outputDir/sra/${s}.sraになりますね。&lt;/p&gt;
+この例だとpfastq-dumpでは~/ncbi/public/sra/&lt;span class="math" s&gt;\({s}.sraが/outputDir/sra/\)&lt;/span&gt;.sraになりますね。&lt;/p&gt;
 &lt;h3&gt;MACS2によるピークコール&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Zhang, Y. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol. 9, R137 (2008).&lt;/p&gt;
@@ -1977,13 +2007,75 @@ colormapは&lt;a href="https://matplotlib.org/examples/color/colormaps_reference
 &lt;li&gt;TregとTconvのデータを用意した割にはTreg-specific peaksを見るところまでは手が回らなかった。（論文読めば書いてあるが。)特異的ピーク検出をするなら&lt;a href="http://homer.ucsd.edu/homer/ngs/index.html"&gt;HOMER&lt;/a&gt;が安定感があって良さそうな。&lt;/li&gt;
 &lt;li&gt;ChIP-seq解析のいい練習になりました。&lt;/li&gt;
 &lt;li&gt;multi-omics人材になるぞ！&lt;/li&gt;
-&lt;/ul&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Bioinformatics春合宿@三島</title><link href="http://oumpy.github.io/articles/2019/04/mishima.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水　平岡</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/mishima.html</id><summary type="html"></summary><content type="html">&lt;p&gt;平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある&lt;a href="https://dbcls.rois.ac.jp/"&gt;DBCLS&lt;/a&gt;にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。&lt;/p&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Bioinformatics春合宿@三島</title><link href="oumpy.github.io/articles/2019/04/mishima.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水　平岡</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/mishima.html</id><summary type="html"></summary><content type="html">&lt;p&gt;平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある&lt;a href="https://dbcls.rois.ac.jp/"&gt;DBCLS&lt;/a&gt;にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。&lt;/p&gt;
 &lt;p&gt;平岡
 &lt;a href="https://github.com/yuna06/mishima2019/blob/master/README.md"&gt;mishima2019&lt;/a&gt;
  &lt;/p&gt;
 &lt;p&gt;安水
 &lt;a href="https://github.com/yyoshiaki/mishima_gassyuku/blob/master/README.md"&gt;三島合宿日誌&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;最後に、合宿を快諾いただいた坊農さんはじめ、仲里さん、内藤さん、小野さん、大田さんには心よりお礼申し上げます。生涯忘れることない、大切な経験になりました。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="http://oumpy.github.io/articles/2019/04/mockinbird_parclip.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/mockinbird_parclip.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Mockinbirdを用いたPAR-CLIP解析&lt;/em&gt;&lt;/strong&gt;
+&lt;p&gt;最後に、合宿を快諾いただいた坊農さんはじめ、仲里さん、内藤さん、小野さん、大田さんには心よりお礼申し上げます。生涯忘れることない、大切な経験になりました。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="oumpy.github.io/articles/2019/04/mockinbird_parclip.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/mockinbird_parclip.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Mockinbirdを用いたPAR-CLIP解析&lt;/em&gt;&lt;/strong&gt;
 ５年　平岡　悠&lt;/p&gt;
 &lt;p&gt;今回はPAR-CLIP解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html)”"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;PAR-CLIP&lt;/strong&gt;って何？
@@ -2049,7 +2141,7 @@ MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた�
 &lt;p&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/hKqjVPmLLGnF0bhn637a_19_gZZ6KJBDceofpi8TVC_NfnhM1rZiZVb8MiBz-TmVv0FtStVpck_3IdL_CmYS52kpQqm0uzGbDWK5xyw1InCRVyLE8ne99FQIuAFm4VkuvpEkEtC-"&gt;&lt;/p&gt;
 &lt;p&gt;これによって、Mock Experimentの&lt;code&gt;.mpileupファイル&lt;/code&gt;と&lt;code&gt;_stat.jsonファイル&lt;/code&gt;を受け取りつつ、最終的なCLIP-seqのテーブルを作ることができ、preprocessは終了となります。下記のようなテーブルが出力され、これをもとにpostprocessに進んでいくことになります。
 &lt;img alt="" src="https://lh3.googleusercontent.com/yb1p70EaelwH-dEGIRhTLnjUoDLgKHSNzqD6dpG9IT9y5fM0LApdvtHKNgmKA73G6HgfflmWkEnoFvm_HEjpIxf4T6Uk15uG4ovIJsG2ILHRGGpXELLQ381BWMkFU6k8AxtSgocl"&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/3bwU07uRrmxRkOJxVPU8N-S11uYBRU3NrRFFrkoDyz_RlXjHgClXH2aDfJ2IU10yV-kURjSGBOR5nsdyaUBrh6C2lkMW3u8C128ktZXIWXniOzjGyIoD68ArK3awsfazmT4bRr2Z"&gt;&lt;/p&gt;
-&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="http://oumpy.github.io/articles/2019/04/n_number.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/n_number.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;実験計画(シングルセル解析)を考えるときに、臨床研究だとどうだったかなと思うことがあります。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="oumpy.github.io/articles/2019/04/n_number.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/n_number.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;実験計画(シングルセル解析)を考えるときに、臨床研究だとどうだったかなと思うことがあります。&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;〈シングルセル解析〉group Aの1000細胞　と　group Bの1000細胞をサブタイピング&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;〈臨床研究〉介入Aの結果、心血管イベントありの1000人　と　心血管イベントなしの1000人&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;細胞はヒトの数ほど多彩であり、それを分類するのがシングルセル解析であり、(勿論、データ量の桁が異なりますし、結果を見ているのか背景を見ているのかという違いはありますが)臨床研究のデータ解析の考え方を活かせるように思います。今回はサンプル調整に必要な細胞数(n)の決定に関して、臨床研究での症例数(n)の決定と比較してみました。&lt;/span&gt;
@@ -2083,7 +2175,7 @@ MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた�
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;【参考文献】&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;今日から使える医療統計　(新谷歩, 2015年, 医学書院)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;Tutorial: guidelines for the experimental design of single-cell RNA sequencing studies　(Atefeh Lafzi et el., Nature Protocols volume 13, pages2742–2757 (2018))&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="http://oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>菅波 西田 大森 安水 小川 山田 川島 川崎 平岡 廣瀬 柳澤 淡田 中村 依藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>菅波 西田 大森 安水 小川 山田 川島 川崎 平岡 廣瀬 柳澤 淡田 中村 依藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/yyoshiaki/auto_counttable_maker"&gt;https://github.com/yyoshiaki/auto_counttable_maker&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;特徴&lt;/h2&gt;
 &lt;p&gt;今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。&lt;/p&gt;
@@ -2158,7 +2250,7 @@ MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた�
 &lt;p&gt;今回、githubを用いてチーム開発を行いました。githubはエンジニアの間では当たり前のツールで、チームでのソフト開発によく用いられます。bioinformatics界隈でチーム開発を経験できることは意外に少なく、非常にいい経験になりました。&lt;img src="https://pythonoum.files.wordpress.com/2019/03/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2019-03-16-17.53.58.png" class="alignnone size-full wp-image-490" alt="スクリーンショット 2019-03-16 17.53.58.png" width="1436" height="874"&gt;&lt;/p&gt;
 &lt;p&gt;雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。
 Enjoy bioinformatics life!&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://pythonoum.files.wordpress.com/2019/03/ios-e381aee794bbe5838f.jpg" class="alignnone size-full wp-image-492" alt="iOS の画像.jpg" width="3088" height="2316"&gt;&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="http://oumpy.github.io/articles/2019/04/pandas_pivot_table.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/pandas_pivot_table.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;pandasのpivot_tableを用いた高速データ処理&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://pythonoum.files.wordpress.com/2019/03/ios-e381aee794bbe5838f.jpg" class="alignnone size-full wp-image-492" alt="iOS の画像.jpg" width="3088" height="2316"&gt;&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="oumpy.github.io/articles/2019/04/pandas_pivot_table.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/pandas_pivot_table.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;pandasのpivot_tableを用いた高速データ処理&lt;/h1&gt;
 
 &lt;h2&gt;概要&lt;/h2&gt;
 
@@ -2175,18 +2267,16 @@ Enjoy bioinformatics life!&lt;/p&gt;
 上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、&lt;/p&gt;
 &lt;p&gt;愚直なコード(1時間以上)→groupbyでの処理(2分半)→pivot_table(4秒)&lt;/p&gt;
 &lt;p&gt;という感じで早くなりました。
- &lt;/p&gt;</content><category term="tech_archive"></category><category term="kaggle"></category></entry><entry><title>Parameter Tuning</title><link href="http://oumpy.github.io/articles/2019/04/parametaer_tuning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/parametaer_tuning.html</id><summary type="html"></summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。
+ &lt;/p&gt;</content><category term="tech_archive"></category><category term="kaggle"></category></entry><entry><title>Parameter Tuning</title><link href="oumpy.github.io/articles/2019/04/parametaer_tuning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/parametaer_tuning.html</id><summary type="html"></summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。&lt;br&gt;
 今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。&lt;a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html"&gt;こちら&lt;/a&gt;の資料がわかりやすかったです。(図もこちらのものを引用しました)&lt;/p&gt;
 &lt;h2&gt;Bayesian Optimization&lt;/h2&gt;
-
 &lt;p&gt;&lt;strong&gt;Bayesian Optimization&lt;/strong&gt;はパラメーターを&lt;strong&gt;x&lt;/strong&gt;、評価値(精度とか)をyとして&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki0.png?raw=true" alt="suushiki0" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="suushiki0" src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki0.png?raw=true"&gt;&lt;/p&gt;
 &lt;p&gt;という関数を指定します(ブラックボックス関数)。中身は良くわかりませんが、この関数を最適化するパラメーターを見つけたいと思います。そこでBaysian Optimizationはこの関数が&lt;a href="http://www.yasuhisay.info/entry/20091011/1255189429"&gt;ガウス過程&lt;/a&gt;に従うと仮定します。&lt;/p&gt;
 &lt;p&gt;下の図ではパラメーターの組み合わせをそれぞれ2,3個とって来て、その評価値を計算して結果をプロットしたグラフです。青い曲線はこの二点から導かれる関数の事後分布で、青い部分はこの分布の95%信頼区間です。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://neupy.com/_images/gaussian-process-example.png" alt="Baysian Optimization" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Baysian Optimization" src="http://neupy.com/_images/gaussian-process-example.png"&gt;&lt;/p&gt;
 &lt;p&gt;このグラフを見ると、観測点から離れた部分は信頼区間の幅が広い(=σが大きい)ことがわかります。&lt;/p&gt;
 &lt;h3&gt;獲得関数(Acquisition Function)&lt;/h3&gt;
-
 &lt;p&gt;獲得関数は、次にどこの点を観測するか決める関数です。これにはいろいろな関数がありますが、よく使われるのが&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki2.png?raw=True" alt="suushiki2" /&gt;&lt;/p&gt;
 &lt;p&gt;という&lt;strong&gt;Expected Improvement&lt;/strong&gt;[Mockus,1978]であったり、
@@ -2201,57 +2291,70 @@ Enjoy bioinformatics life!&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://neupy.com/_images/expected-improvement-example.png" alt="acquisition function" /&gt;&lt;/p&gt;
 &lt;p&gt;実装には&lt;a href="https://github.com/fmfn/BayesianOptimization"&gt;Bayesian Optimization&lt;/a&gt;を使いました。&lt;/p&gt;
 &lt;p&gt;使用するデータはkaggleの&lt;a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation"&gt;Otto Group Product Classification Challenge&lt;/a&gt;のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;pip install bayesian-optimization&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-import pandas as pd
-import xgboost as xgb
-from sklearn.preprocessing import LabelEncoder
-from bayes_opt import BayesianOptimization
-[/code]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install bayesian-optimization
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;xgboost&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;xgb&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LabelEncoder&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bayes_opt&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BayesianOptimization&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;調整したいパラメーターを引数にとる評価関数の指定、クロスバリデーション。bayesian-optimizationには評価関数の最大化のライブラリしかないので、小さい値ほどいいloglossは返り値に-1をかけます。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-def xgb_evaluate(min_child_weight,
-colsample_bytree,
-max_depth,
-subsample,
-gamma,
-alpha):&lt;/p&gt;
-&lt;p&gt;params[&amp;#039;min_child_weight&amp;#039;] = int(min_child_weight)
-params[&amp;#039;cosample_bytree&amp;#039;] = max(min(colsample_bytree, 1), 0)
-params[&amp;#039;max_depth&amp;#039;] = int(max_depth)
-params[&amp;#039;subsample&amp;#039;] = max(min(subsample, 1), 0)
-params[&amp;#039;gamma&amp;#039;] = max(gamma, 0)
-params[&amp;#039;alpha&amp;#039;] = max(alpha, 0)&lt;/p&gt;
-&lt;p&gt;cv_result = xgb.cv(params, xgtrain, num_boost_round=num_rounds, nfold=5,
-seed=random_state,
-callbacks=[xgb.callback.early_stop(50)])&lt;/p&gt;
-&lt;p&gt;return -cv_result[&amp;#039;test-mlogloss-mean&amp;#039;].values[-1]
-[/code]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;xgb_evaluate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;colsample_bytree&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cosample_bytree&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colsample_bytree&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;cv_result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xgb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xgtrain&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;num_boost_round&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;num_rounds&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nfold&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;callbacks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;xgb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;early_stop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cv_result&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mlogloss&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;いよいよ最適化！&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-if &lt;strong&gt;name&lt;/strong&gt; == &amp;#039;&lt;strong&gt;main&lt;/strong&gt;&amp;#039;:
-xgtrain = prepare_data()&lt;/p&gt;
-&lt;p&gt;num_rounds = 3000
-random_state = 2016
-num_iter = 25
-init_points = 5
-params = {
-&amp;#039;eta&amp;#039;: 0.1,
-&amp;#039;silent&amp;#039;: 1,
-&amp;#039;eval_metric&amp;#039;: &amp;#039;mlogloss&amp;#039;,
-&amp;#039;verbose_eval&amp;#039;: True,
-&amp;#039;seed&amp;#039;: random_state,
-&amp;#039;num_class&amp;#039;:9
-}&lt;/p&gt;
-&lt;p&gt;xgbBO = BayesianOptimization(xgb_evaluate, {&amp;#039;min_child_weight&amp;#039;: (1, 20),
-&amp;#039;colsample_bytree&amp;#039;: (0.1, 1),
-&amp;#039;max_depth&amp;#039;: (5, 15),
-&amp;#039;subsample&amp;#039;: (0.5, 1),
-&amp;#039;gamma&amp;#039;: (0, 10),
-&amp;#039;alpha&amp;#039;: (0, 10),
-})&lt;/p&gt;
-&lt;p&gt;xgbBO.maximize(init_points=init_points, n_iter=num_iter)
-[/code]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;xgtrain&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;prepare_data&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;num_rounds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3000&lt;/span&gt;
+    &lt;span class="n"&gt;random_state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;
+    &lt;span class="n"&gt;num_iter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;
+    &lt;span class="n"&gt;init_points&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+    &lt;span class="n"&gt;params&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;eta&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;silent&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;eval_metric&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;mlogloss&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;verbose_eval&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;num_class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="n"&gt;xgbBO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BayesianOptimization&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xgb_evaluate&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;colsample_bytree&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;})&lt;/span&gt;
+
+    &lt;span class="n"&gt;xgbBO&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;maximize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;init_points&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;init_points&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_iter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;num_iter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;結果です&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/result.png?raw=true" alt="result" /&gt;
 &lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/result2.png?raw=true" alt="result2" /&gt;&lt;/p&gt;
@@ -2262,10 +2365,8 @@ params = {
 &lt;li&gt;偶然性に左右されたり、再現性が取れないことがある&lt;/li&gt;
 &lt;li&gt;バラメーターが増えてきたら時間かかる&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;みたいなことになるらしいです。&lt;/p&gt;
 &lt;h2&gt;Tree-structured Parzen Estimator(TPE)&lt;/h2&gt;
-
 &lt;p&gt;このような弱点を修正したのがTPEという最適化手法です。ベイズとコンセプトは似ていますが、手法は全く異なります。一般的な方法として、まずRandom Searchを用いていくつか点をとってきます。プロットすると下の図のようになりました。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://neupy.com/_images/tpe-observation-groups.png" alt="TPE" /&gt;&lt;/p&gt;
 &lt;p&gt;次に精度が良かったもの(図では上位20%)とそうでなかったものに分けます。この2群の尤度関数を求めます。あまり尤度と言っても馴染みのない人が多いと思いますが、サンプリングされたデータは様々な確率分布のうち、どの分布から得られたものとするのが一番尤もらしいかを決めようとするものです。これにより2群の確率分布が出来上がります。&lt;/p&gt;
@@ -2275,47 +2376,58 @@ params = {
 &lt;p&gt;&lt;img src="http://neupy.com/_images/tpe-sampled-candidates.png" alt="prob dist" /&gt;
 &lt;img src="http://neupy.com/_images/tpe-expected-improvement.png" alt="acq" /&gt;&lt;/p&gt;
 &lt;p&gt;こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;pip install hyperopt&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-import hyperopt
-from hyperopt import hp, tpe, Trials, fmin
-[/code]&lt;/p&gt;
-&lt;p&gt;最適化するパラメータはbayesian optimizationと同じやつにしてみました。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-hyperopt_parameters = {&amp;#039;min_child_weight&amp;#039;: hp.uniform(&amp;#039;min_child_weight&amp;#039;,1,20),
-&amp;#039;colsample_bytree&amp;#039;: hp.uniform(&amp;#039;colsample_bytree&amp;#039;,0.1, 1),
-&amp;#039;max_depth&amp;#039;: hp.choice(&amp;#039;max_depth&amp;#039;,np.arange(5, 15)),
-&amp;#039;subsample&amp;#039;: hp.uniform(&amp;#039;subsample&amp;#039;,0.5, 1),
-&amp;#039;gamma&amp;#039;: hp.uniform(&amp;#039;gamma&amp;#039;,0, 10),
-&amp;#039;alpha&amp;#039;: hp.uniform(&amp;#039;alpha&amp;#039;,0, 10),
-}
-[/code]&lt;/p&gt;
-&lt;p&gt;最適化する関数の指定&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-def objective(args):
-classifier = xgb.XGBClassifier(**args)
-stratifiedkfold = StratifiedKFold(n_splits=5)
-result = cross_val_score(classifier, train.drop([&amp;#039;id&amp;#039;,&amp;#039;target&amp;#039;],axis = 1), train.target, cv=stratifiedkfold,scoring=&amp;#039;neg_log_loss&amp;#039;)
-return -result.mean()
-[/code]&lt;/p&gt;
-&lt;p&gt;実行！&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-max_evals = 50
-trials = Trials() # 実行結果を格納するインスタンス&lt;/p&gt;
-&lt;p&gt;best = fmin(
-objective,
-hyperopt_parameters,
-algo = tpe.suggest,
-max_evals =max_evals,
-trials = trials,
-verbose = 1)
-[/code]&lt;/p&gt;
-&lt;h3&gt;結果&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;hyperopt&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;hyperopt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;hyperopt&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tpe&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Trials&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fmin&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最適化するパラメータはbayesian optimizationと同じやつにしてみました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;hyperopt_parameters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min_child_weight&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;colsample_bytree&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colsample_bytree&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_depth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    &lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;subsample&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;hp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最適化する関数の指定&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;objective&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;classifier&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;xgb&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XGBClassifier&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;stratifiedkfold&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StratifiedKFold&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_splits&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cross_val_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;classifier&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+        &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;stratifiedkfold&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;scoring&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;neg_log_loss&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;実行！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;max_evals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="n"&gt;trials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Trials&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 実行結果を格納するインスタンス&lt;/span&gt;
+
+&lt;span class="n"&gt;best&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;objective&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;hyperopt_parameters&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;algo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tpe&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;suggest&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;max_evals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;max_evals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;trials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;trials&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;結果&lt;/h3&gt;
 &lt;p&gt;&lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/loss.jpg?raw=true" alt="loss" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/jun-sato/parameter_tuning/blob/master/best_param.png?raw=true" alt="best_param" /&gt;&lt;/p&gt;
 &lt;p&gt;logloss最小値は0.4749でした。あれ、bayesian optimizaationより悪い、、、bayesianではmax_depthを整数に限定しなかったからかも、、
-でも自分で手動でやった時は0.6とかだったんで、パラメーターチューニングの時にはこれからこれ使っていこうと思います。あとこのxgboost動かすのに8コアCPU使ってそれぞれ半日くらい回しました。GPU使ってたらもうちょい早かったと思うのですが、きちんとbuildとmakeしてもうまくいきませんでした。また挑戦します。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>particle filter</title><link href="http://oumpy.github.io/articles/2019/04/particle_filter.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/particle_filter.html</id><summary type="html"></summary><content type="html">&lt;p&gt;こんばんは。
+でも自分で手動でやった時は0.6とかだったんで、パラメーターチューニングの時にはこれからこれ使っていこうと思います。あとこのxgboost動かすのに8コアCPU使ってそれぞれ半日くらい回しました。GPU使ってたらもうちょい早かったと思うのですが、きちんとbuildとmakeしてもうまくいきませんでした。また挑戦します。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>particle filter</title><link href="oumpy.github.io/articles/2019/04/particle_filter.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/particle_filter.html</id><summary type="html"></summary><content type="html">&lt;p&gt;こんばんは。
 今回はパーティクルフィルターの紹介をしたいと思います。
 といってもやり始めたばっかなので、間違っていたらご指摘お願いします。
 （画像は&lt;a href="https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E5%85%88%E7%AB%AF%E3%82%AC%E3%82%A4%E3%83%891-CVIM%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%80%89%E7%88%AA-%E4%BA%AE/dp/4915851346"&gt;コンピュータビジョン最先端ガイド&lt;/a&gt;って有名な本の図から、イメージはこんな感じ）&lt;/p&gt;
@@ -2418,7 +2530,7 @@ pynew = np.array(random.choices(population=py,weights=lt,k=Np)) + np.random.rand
 &lt;p&gt;pnew_index = np.array(random.choices(population=index,weights=lt,k=Np))
 pxnew = px[pnew_index] + np.random.randint(-15,15,Np)
 pynew = py[pnew_index] + np.random.randint(-15,15,Np)&lt;/p&gt;
-&lt;p&gt;ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>Pythonの変数と代入について</title><link href="http://oumpy.github.io/articles/2019/04/python_value.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/python_value.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。&lt;/p&gt;
+&lt;p&gt;ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>Pythonの変数と代入について</title><link href="oumpy.github.io/articles/2019/04/python_value.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/python_value.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。&lt;/p&gt;
 &lt;p&gt;実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうです。&lt;/p&gt;
 &lt;h2&gt;変数は参照である&lt;/h2&gt;
 &lt;p&gt;一言でいえば表題の通り。
@@ -2525,7 +2637,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;p&gt;以上見てきたように、Pythonの変数は全て参照、関数引数は全て参照渡しです。これらが組み合わさると、結果的に全てを値渡しにした場合（C/C++）と殆ど違いが見えなくなり、あまり意識することなくプログラムを書けるようになっています。&lt;/p&gt;
 &lt;p&gt;しかし、リストや配列（や、もっと複雑なクラスオブジェクトなど）のように部分的に書き換え可能なものを扱う場合などには、この違いはかなり重要になってきます。怪しいと思ったら、各変数が何を参照しているか、互いに同じか違うかなどを、その都度考えてみてください。&lt;/p&gt;
 &lt;p&gt;ひとまず今回はここまで。おしまい。
-※画像は&lt;a href="https://www.python.org/"&gt;公式&lt;/a&gt;のものです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Pythonで可視化入門</title><link href="http://oumpy.github.io/articles/2019/04/python_visualization.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/python_visualization.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！&lt;/p&gt;
+※画像は&lt;a href="https://www.python.org/"&gt;公式&lt;/a&gt;のものです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Pythonで可視化入門</title><link href="oumpy.github.io/articles/2019/04/python_visualization.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/python_visualization.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！&lt;/p&gt;
 &lt;p&gt;これを読めばそんなあなたも簡単にいい感じのグラフがかける！&lt;/p&gt;
 &lt;p&gt;この記事では、Pythonのライブラリーである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、複数グラフ表示が簡単にできるラッパーであるholoviewsの簡単な解説をします。&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;
@@ -2550,7 +2662,7 @@ Pythonの可視化ツールはHoloViewsが標準になるかもしれない(&lt;
 holoview最強説(plotlyも使えるラッパーなので)&lt;/p&gt;
 &lt;p&gt;楽にしたいならpandasのplot、動かしたければplotly！&lt;/p&gt;
 &lt;p&gt;keywordでググると詳しい記事がたくさん出てきます。&lt;/p&gt;
-&lt;p&gt;上記以外の可視化手法や面白いものあれば教えてください！&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>pythonで使える正規表現まとめ</title><link href="http://oumpy.github.io/articles/2019/04/regular_expression.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/regular_expression.html</id><summary type="html"></summary><content type="html">&lt;p&gt;O'REILLYの著書で「正規表現」について記載されているところをまとめたノートです。
+&lt;p&gt;上記以外の可視化手法や面白いものあれば教えてください！&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>pythonで使える正規表現まとめ</title><link href="oumpy.github.io/articles/2019/04/regular_expression.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/regular_expression.html</id><summary type="html"></summary><content type="html">&lt;p&gt;O'REILLYの著書で「正規表現」について記載されているところをまとめたノートです。
 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。&lt;/p&gt;
 &lt;p&gt;要点
 ・?は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）
@@ -2764,7 +2876,7 @@ Out[39]:
 &lt;p&gt;&lt;a href="https://docs.python.jp/3/library/re.html"&gt;6.2. re — 正規表現操作 — Python 3.6.3 ドキュメント&lt;/a&gt;
 6.2.1. 正規表現のシンタックス ¶ (原文) 正規表現 (すなわち RE) は、表現にマッチ (match) する文字列の集合を表しています。このモジュールの関数を使えば、ある文字列が指定の正規表現にマッチするか (または指定の正規表現がある文字列にマッチするか、つまりは同じことですが) を検査できます。 正規表現を連結すると新しい正規表現を作れます。 A と B がともに正規表現であれば AB も正規表現です。一般的に、文字列 p が A とマッチし、別の文字列 q が B とマッチすれば、文字列 pq は AB にマッチします。ただし、この状況が成り立つのは、 A と B との間に境界条件がある場合や、番号付けされたグループ参照のような、優先度の低い演算を A や B が含まない場合だけです。かくして、ここで述べるような、より簡単でプリミティブな正規表現から、複雑な正規表現を容易に構築できます。正規表現に関する理論と実装の詳細については上記の Friedl 本か、コンパイラの構築に関する教科書を調べて下さい。 以下で正規表現の形式に関する簡単な説明をしておきます。より詳細な...&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://qiita.com/dongri/items/2a0a18e253eb5bf9edba"&gt;よく使う正規表現はもうググりたくない！ - Qiita&lt;/a&gt;
-タイトル通りによく使う正規表現を毎回ググるのが効率悪いのでまとめてみました。各言語で正規表現のサンプルを書いてみました。 # 正規表現式 * Emailアドレス `^\w+([-+.]\w+)&lt;em&gt;@\w+([-.]\w+)&lt;/em&gt;.\w...&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="http://oumpy.github.io/articles/2019/04/shellscript_1.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
+タイトル通りによく使う正規表現を毎回ググるのが効率悪いのでまとめてみました。各言語で正規表現のサンプルを書いてみました。 # 正規表現式 * Emailアドレス `^\w+([-+.]\w+)&lt;em&gt;@\w+([-.]\w+)&lt;/em&gt;.\w...&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="oumpy.github.io/articles/2019/04/shellscript_1.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
 &lt;p&gt;データ整形の流れって、教わる機会なくないですか？
 つまらないものですが、僕のやり方を紹介してみます。
 始めたばかりの人は参考にしてください。
@@ -2884,7 +2996,7 @@ screenを使うこともあります。&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="tech_archive"></category><category term="shell"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="http://oumpy.github.io/articles/2019/04/shellscript_2.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
+&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="tech_archive"></category><category term="shell"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="oumpy.github.io/articles/2019/04/shellscript_2.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
 &lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
 が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
 ってことないでしょうか。&lt;/p&gt;
@@ -2954,10 +3066,10 @@ Rを呼び出さずに完結できたりします。&lt;/p&gt;
 
 
 &lt;p&gt;と書けば、まず、&lt;code&gt;eval&lt;/code&gt;が&lt;code&gt;$col&lt;/code&gt;の中身を出してからスクリプトとして評価するので、
-（xの$には\がかかってるので無視されます）
+（xの&lt;span class="math"&gt;\(には\がかかってるので無視されます）
 &lt;code&gt;echo $x1&lt;/code&gt;
 と書いていることになり、通常の&lt;code&gt;echo&lt;/code&gt;で書いたように、&lt;code&gt;$x1&lt;/code&gt;の中身が出力されます。
-xの$にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費されて、&lt;code&gt;echo&lt;/code&gt;内にはなくなります。ここ重要。&lt;/p&gt;
+xの\)&lt;/span&gt;にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費されて、&lt;code&gt;echo&lt;/code&gt;内にはなくなります。ここ重要。&lt;/p&gt;
 &lt;p&gt;やりたいことは、&lt;code&gt;eval echo&lt;/code&gt;で出してきた値を、変数を使った変数名に格納することです。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;の&lt;code&gt;aaa&lt;/code&gt;部分に&lt;code&gt;eval echo&lt;/code&gt;を直接もってきても、機能しません。
@@ -2995,7 +3107,69 @@ xの$にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費
 
 &lt;p&gt;と、\を一個増やして書けば、目的達成です。
 めでたしめでたし。&lt;/p&gt;
-&lt;p&gt;※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。&lt;/p&gt;</content><category term="tech_archive"></category><category term="shell"></category></entry><entry><title>5年次海外実習</title><link href="http://oumpy.github.io/articles/2019/04/study_abroad.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎　佐藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="tech_archive"></category><category term="shell"></category></entry><entry><title>5年次海外実習</title><link href="oumpy.github.io/articles/2019/04/study_abroad.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎　佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った先輩の資料をもらいました。&lt;/p&gt;
 &lt;p&gt;[slideshare id=135802981&amp;amp;doc=rlfhhaarhsceewdyrtxz-signature-e54772a31b57df6de43cc9594331c021bf0f3832af3fbc67ab36dc5b03a0726b-poli-190312064228]&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;海外での生活は旅行も含めて初めてだったので本当に不安でしたが、寮の友達が親切に接してくれて本当に助かりました。ここでその暮らしぶりを少し書かせてもらおうと思います。&lt;/span&gt;&lt;/p&gt;
@@ -3020,7 +3194,7 @@ xの$にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;海外での生活は予想よりもはるかに楽しかったです。これは寮の友達によるところが大きかったです。毎日誰かが寮のどこかでボードゲームなどで遊んでおり、それを見ているだけでも楽しく、また一緒にやろうぜと気軽に誘ってくれました。休日はみんなで出かけ、それぞれの故郷の料理を交互に食べ、文化について語り合う。考え方は人それぞれなのはもちろん、国や宗教に大きく影響を受けていることを知りました。&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span style="font-weight:400;"&gt;海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;[gallery ids="523,522" type="rectangular"]&lt;/p&gt;</content><category term="tech_archive"></category><category term="paper"></category></entry><entry><title>寿司打タイピング自動化</title><link href="http://oumpy.github.io/articles/2019/04/sushi_typing.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;[youtube https://www.youtube.com/watch?v=SqOO9I1tFjk&amp;amp;w=560&amp;amp;h=315]&lt;/p&gt;
+&lt;p&gt;[gallery ids="523,522" type="rectangular"]&lt;/p&gt;</content><category term="tech_archive"></category><category term="paper"></category></entry><entry><title>寿司打タイピング自動化</title><link href="oumpy.github.io/articles/2019/04/sushi_typing.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;[youtube https://www.youtube.com/watch?v=SqOO9I1tFjk&amp;amp;w=560&amp;amp;h=315]&lt;/p&gt;
 &lt;p&gt;寿司打の自動化についてです。上の動画のようになりました。寿司打は結構昔からあるタイピング練習サイトです。寿司打は&lt;a href="http://typing.sakura.ne.jp/sushida/"&gt;こちら&lt;/a&gt;です。
 1万円コースで1万円超えない人はタイピング遅いので特訓しましょう。&lt;/p&gt;
 &lt;p&gt;自動化の流れとしては
@@ -3033,7 +3207,7 @@ xの$にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費
 一晩中自動でゲームを繰り返してスコアをメモし続けるように書き直したので、少し冗長なコードになっています。
 ところで、ランキングをチェックすると、抜かれていたので、だれかリベンジしてください。&lt;/p&gt;
 &lt;p&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Twitter自動投稿あれこれ</title><link href="http://oumpy.github.io/articles/2019/04/twitter_automation.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/twitter_automation.html</id><summary type="html"></summary><content type="html">&lt;p&gt;突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>Twitter自動投稿あれこれ</title><link href="oumpy.github.io/articles/2019/04/twitter_automation.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/twitter_automation.html</id><summary type="html"></summary><content type="html">&lt;p&gt;突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。&lt;/p&gt;
 &lt;h2&gt;☆きっかけ&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -3118,7 +3292,7 @@ print("Failed. : %d"% res.status_code)&lt;/td&gt;
 
 &lt;p&gt;&lt;img class="alignnone size-full wp-image-458" src="https://pythonoum.files.wordpress.com/2019/01/picture1.png" alt="picture1" width="939" height="527" /&gt;&lt;/p&gt;
 &lt;p&gt;成功です。語尾は適当です。&lt;/p&gt;
-&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="http://oumpy.github.io/articles/2019/04/umap.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/umap.html</id><summary type="html"></summary><content type="html">&lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。
+&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="tech_archive"></category><category term="python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="oumpy.github.io/articles/2019/04/umap.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/umap.html</id><summary type="html"></summary><content type="html">&lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。
 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。https://deepage.net/machine_learning/2017/03/08/tsne.html）&lt;/p&gt;
 &lt;p&gt;そこで今回紹介するのはUMAP。
 arxivで今月publishされたばかりのアルゴリズムです(2018年2月時点)。
@@ -3151,7 +3325,7 @@ https://github.com/lmcinnes/umap&lt;/p&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tsne_result&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;tsne_result&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;digits&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tSNE&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tsne.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>VELOCYTO</title><link href="http://oumpy.github.io/articles/2019/04/velocyto.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Velocyto は、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を
+&lt;/pre&gt;&lt;/div&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>VELOCYTO</title><link href="oumpy.github.io/articles/2019/04/velocyto.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Velocyto は、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を
 算出するという解析手法です。&lt;/p&gt;
 &lt;h3&gt;RNAseq でイントロン??&lt;/h3&gt;
 
@@ -3236,17 +3410,18 @@ scv.pl.velocity_embedding(adata)
 &lt;p&gt;https://www.nature.com/articles/s41586-018-0414-6
 http://velocyto.org/velocyto.py/index.html
 catway.jp/bioinformatics/qc/rmrepeat.html
-https://github.com/theislab/scvelo&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="http://oumpy.github.io/articles/2019/04/voice_recognition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-04-14:/articles/2019/04/voice_recognition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp" target="_blank" rel="noopener noreferrer"&gt;signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
-&lt;p&gt;[slideshare id=138387330&amp;amp;doc=nttsignate-190327050047]&lt;/p&gt;
+https://github.com/theislab/scvelo&lt;/p&gt;</content><category term="tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="oumpy.github.io/articles/2019/04/voice_recognition.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/voice_recognition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp"&gt;signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
+&lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="http://oumpy.github.io/articles/2019/03/article_reading.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2019-03-25:/articles/2019/03/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;論文抄読で便利なサイト&lt;/h1&gt;
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="tech_archive"></category><category term="deeplearning"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="oumpy.github.io/articles/2019/03/article_reading.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;論文抄読で便利なサイト&lt;/h1&gt;
 &lt;p&gt;英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…ということで、いつも論文を読む時にどんなサイトを使っているかを一度書き起こしてみました。とりあえずハードルを下げることメインなので、「普通に読めるやろ」みたいな人はスルーでお願いします笑。5年の免疫内科の実習で論文の効率的な読み方を習って、もっと早く知ってればなあと思ったので、もし先生に「〇〇に関する論文読んできてねー」みたいなことを言われた時とかに参考にしてみてください。 &lt;a href="http://www.imed3.med.osaka-u.ac.jp/education/education01.html"&gt;大阪大学免疫内科のホームページ&lt;/a&gt;と被っていることも多いです。こちらも是非見てみてください。&lt;/p&gt;
 &lt;h2&gt;論文を（ざっと）読む&lt;/h2&gt;
 &lt;p&gt;とりあえずわからない単語が多すぎて全然読み進められない、いちいち単語を調べているとテンポが悪く全然頭に入らないみたいな時は、是非ライフサイエンス辞書の&lt;a href="https://lsd-project.jp/ja/service/etoj_v/index.html"&gt;EtoJ Vocabulary&lt;/a&gt;を使ってみてください。論文の英語の文章を丸ごと一本コピー&amp;amp;ペーストして青くなっている単語をクリックすると下にその単語の日本語訳がでます。オプション設定で「ライフサイエンス辞書 + ejdic」にして使うことが多いです。論文一本読むか迷うような場合はとりあえずアブストだけe to jに入れて読むと数分でなんとなく何が書いてあるのかわかるのでおすすめ。なんか変に訳されていることもおおいので、そういう時はガシガシググりまくってます。ググると日本語ページなんかもあったりして大抵なんとかなります。よく英語の構造がわかんない時は&lt;a href="https://translate.google.co.jp/?hl=ja"&gt;google 翻訳&lt;/a&gt;に文章ごと突っ込んで雰囲気を理解します。略語に関しては、正式名称が論文のどこにも見当たらない時は&lt;a href="http://allie.dbcls.jp/ja"&gt;略語検索Allie&lt;/a&gt;っていうサイトを使います（かなり便利）。成句がわからない時もググるのですが、アルク社の英辞郎の方がweblioよりうまくいく気がします。あと免内のHPにも書いてありますが&lt;a href="https://www.ncbi.nlm.nih.gov"&gt;NCBI&lt;/a&gt;では遺伝子とかタンパクのデータを調べるとバックグラウンドが理解でき、今読んでいる論文がどんなことをしたいかがよくわかることが多いです。（余談ですが予算が減らされたらしくNCBIのサイトのアップデートできないみたいな話を聞いたんですがどうなったんだろう） https://www.ononavi1717.jp/translation 個人的にはアブストを読んだ後、イントロを読もうとして途中で心が折れることが多いのでイントロは飛ばしてResultsに行くようにしてます。とりあえずResultsの題名だけ読んでFigureをみて全体像を掴む→よくわからんところがあったら本文を見ていくって感じにすると意外と早く大体の内容が把握できます。&lt;/p&gt;
 &lt;h2&gt;論文と（とりあえず）身近になる&lt;/h2&gt;
 &lt;p&gt;有名な雑誌（Impact Factorの高い雑誌）に関しては免内のサイトをみてください。 日本語でいいから論文に触れる。を目標にして行きたい。 Nature とNEJMは題名とアブストを日本語で読める。興味のある記事が一目でわかります。Natureには日本語のご利用ガイドまで。ありがたいです。 AASJはほぼ毎日日本語で面白い論文を解説してくれています。&lt;a href="http://aasj.jp/watch.html"&gt;AASJ&lt;/a&gt;おすすめ あと&lt;a href="http://first.lifesciencedb.jp"&gt;ライフサイエンス新着論文レビュー&lt;/a&gt;, &lt;a href="http://leading.lifesciencedb.jp"&gt;領域融合レビュー&lt;/a&gt;もお世話になってます。論文執筆者がその論文について解説してくれていたり、その領域について概説してくれています。（DBCLSのサービスの一つなのですが、他にも前述のAllie含め色々なサービスがあります。うまく使いこなせるようになりたい。使いこなしてるって人は教えてください。サイトは→ http://dbcls.rois.ac.jp/services ）&lt;/p&gt;
 &lt;h2&gt;（有名どころの）論文を探す&lt;/h2&gt;
-&lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ 　ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。。論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="paper"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="http://oumpy.github.io/articles/2019/03/lorenzcurve.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>yuna06</name></author><id>tag:oumpy.github.io,2019-03-25:/articles/2019/03/lorenzcurve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ 　ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。。論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="tech_archive"></category><category term="paper"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="oumpy.github.io/articles/2019/03/lorenzcurve.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>yuna06</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/lorenzcurve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5357,4 +5532,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="tech_archive"></category><category term="統計"></category></entry></feed>
+</content><category term="tech_archive"></category><category term="statistics"></category></entry></feed>
