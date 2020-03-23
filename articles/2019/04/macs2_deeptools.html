@@ -64,25 +64,22 @@
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
         <ul class="nav navbar-nav">
               <li>
-                <a href="../../../achievements.html">実績</a>
+                <a href="../../../index.html">Python会について</a>
               </li>
               <li>
                 <a href="../../../activities.html">活動内容</a>
               </li>
               <li>
+                <a href="../../../achievements.html">実績</a>
+              </li>
+              <li>
                 <a href="../../../blog.html">技術ブログ</a>
-              </li>
-              <li>
-                <a href="../../../contact.html">Contact</a>
-              </li>
-              <li>
-                <a href="../../../index.html">Python会について</a>
               </li>
               <li>
                 <a href="../../../recruit.html">会員募集</a>
               </li>
               <li>
-                <a href="../../../test.html"></a>
+                <a href="../../../contact.html">Contact</a>
               </li>
             <li class="divider"></li>
             <li class="">
@@ -110,7 +107,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(日)
+  2019-04-14(Sun)
 </abbr> <h1>
   <a href="../../../articles/2019/04/macs2_deeptools.html" rel="bookmark"
      title="Permalink to MACS2とdeepToolsのbigwigファイルの比較">
@@ -132,7 +129,7 @@
 <p>ChIP-seqの解析をする時に便利なフォーマットにbigwigがある。igvで表示したり、coverageを計算したり、様々な用途で使える。詳しくはdrbonobon（第一版）のp118に記載されている。ChIP-seqの解析には<a href="https://github.com/taoliu/MACS">MACS2</a>というソフトが良く使われ、bigwigの生成も可能だが、<a href="https://deeptools.readthedocs.io/en/develop/index.html">deepTools</a>でも<code>​bamCoverage</code>や​<code>​bamComapre</code>機能を使ってbigwigを作ることができる。挙動や使い所の違いを比較しようというのが今回の目的。</p>
 <p>ちなみに、通常のChIP-seq解析ならMACS2,HOMERなどを使ってやるのが無難かと思います。今回はdeeptToolsと戯れたかった。</p>
 <h3>Install</h3>
-<div class="highlight"><pre><span></span>$ conda install -c bioconda deeptools
+<div class="highlight"><pre><span></span><code>$ conda install -c bioconda deeptools
 
 $ conda create -n py27_macs2 <span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7.5
 $ conda activate py27_macs2
@@ -140,7 +137,7 @@ $ conda install -c bioconda macs2
 $ conda install -c bioconda bedtools
 $ conda install -c bioconda ucsc-bedgraphtobigwig
 $ conda install -c bioconda ucsc-bedclip
-</pre></div>
+</code></pre></div>
 
 
 <p>condaでmacs2を入れようとするとxonshとdependency conflictしてしまった。諦めて仮想環境を作る。condaは入ってる前提。MACS2はいまだにpython2な時点で腰が引けるが、先に進む。</p>
@@ -188,7 +185,7 @@ $ conda install -c bioconda ucsc-bedclip
 </tbody>
 </table>
 <p>これらをお馴染みpfastq-dumpをつかって落としてきます。今回はSingle-endなのでsplitはいりません。</p>
-<div class="highlight"><pre><span></span>$ mkdir data
+<div class="highlight"><pre><span></span><code>$ mkdir data
 $ prefetch SRR5385260 SRR5385344 SRR5385345 SRR5385346 SRR5385347
 $ bash pfd.sh
 $ fastqc -t <span class="m">22</span> -o data data/*.fastq
@@ -196,22 +193,22 @@ $ multiqc -n multiqc_report_raw.html ./data
 $ bash make_bam.sh
 $ fastqc -t <span class="m">22</span> -o data data/*.trimmed.fastq
 $ multiqc -n multiqc_report_trimmed.html ./data
-</pre></div>
+</code></pre></div>
 
 
 <p>pdf.shは</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nv">sras</span><span class="o">=(</span><span class="s2">&quot;SRR5385260&quot;</span> <span class="s2">&quot;SRR5385344&quot;</span> <span class="s2">&quot;SRR5385345&quot;</span> <span class="s2">&quot;SRR5385346&quot;</span> <span class="s2">&quot;SRR5385347&quot;</span><span class="o">)</span>
 <span class="k">for</span> s in <span class="si">${</span><span class="nv">sras</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span>
 <span class="k">do</span>
 pfastq-dump --threads <span class="m">22</span> --outdir data ~/ncbi/public/sra/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.sra
 <span class="k">done</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>make_bam.sh</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nv">sras</span><span class="o">=(</span><span class="s2">&quot;SRR5385260&quot;</span> <span class="s2">&quot;SRR5385344&quot;</span> <span class="s2">&quot;SRR5385345&quot;</span> <span class="s2">&quot;SRR5385346&quot;</span> <span class="s2">&quot;SRR5385347&quot;</span><span class="o">)</span>
 <span class="k">for</span> s in <span class="si">${</span><span class="nv">sras</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span>
@@ -231,22 +228,22 @@ bowtie2 -p <span class="m">22</span> -x ~/ref_sequence/bowtie2_indexes/mm10 -U d
 samtools sort -O bam -o data/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.trimmed.bam data/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.trimmed.sam
 samtools index data/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.trimmed.bam data/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.trimmed.bai
 <span class="k">done</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>改行とコメントがうまく共存できなかったので、以下に注釈付きを示す。より詳しいことはおなじみ<a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html">biopnpyrus</a>を参照。</p>
-<div class="highlight"><pre><span></span><span class="nv">trimmomatic</span> \
-    <span class="nv">SE</span>                  \  # <span class="nv">single</span><span class="o">-</span><span class="k">end</span>
-    <span class="o">-</span><span class="nv">threads</span> <span class="mi">22</span>         \  # スレッド数
-    <span class="o">-</span><span class="nv">phred33</span>            \  # <span class="nv">phred33</span> または <span class="o">-</span><span class="nv">phred64</span> を指定
-    <span class="o">-</span><span class="nv">trimlog</span> <span class="nv">log</span>.${<span class="nv">s</span>}.<span class="nv">txt</span>    \  # 実行ログの保存先
-    <span class="nv">data</span><span class="o">/</span>${<span class="nv">s</span>}.<span class="nv">fastq</span>            \  # 入力 <span class="nv">FASTQ</span>
-    <span class="nv">data</span><span class="o">/</span>${<span class="nv">s</span>}.<span class="nv">trimmed</span>.<span class="nv">fastq</span>          \  # 出力 <span class="nv">FASTQ</span>
-    <span class="nv">ILLUMINACLIP</span>:<span class="nv">adapters</span>.<span class="nv">fa</span>:<span class="mi">2</span>:<span class="mi">10</span>:<span class="mi">10</span>  \ # アダプター除去条件の指定
-    <span class="nv">LEADING</span>:<span class="mi">20</span> \
-    <span class="nv">TRAILING</span>:<span class="mi">20</span> \
-    <span class="nv">MINLEN</span>: <span class="mi">30</span>   # <span class="mi">30</span><span class="nv">bp</span> を満たさないリードを除去
-</pre></div>
+<div class="highlight"><pre><span></span><code>trimmomatic \
+    SE                  \  # single-end
+    -threads 22         \  # スレッド数
+    -phred33            \  # phred33 または -phred64 を指定
+    -trimlog log.<span class="cp">${</span><span class="n">s</span><span class="cp">}</span>.txt    \  # 実行ログの保存先
+    data/<span class="cp">${</span><span class="n">s</span><span class="cp">}</span>.fastq            \  # 入力 FASTQ
+    data/<span class="cp">${</span><span class="n">s</span><span class="cp">}</span>.trimmed.fastq          \  # 出力 FASTQ
+    ILLUMINACLIP:adapters.fa:2:10:10  \ # アダプター除去条件の指定
+    LEADING:20 \
+    TRAILING:20 \
+    MINLEN: 30   # 30bp を満たさないリードを除去
+</code></pre></div>
 
 
 <p>これでbamファイルが出来ているはず。</p>
@@ -258,8 +255,8 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 <a href="https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration">Toolkit-Configuration</a>をいじる方法。
 公式にはこちらが推奨らしいが操作が面倒。</p>
 <p>2)</p>
-<div class="highlight"><pre><span></span><span class="n">echo</span> <span class="err">‘</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="k">public</span><span class="o">/</span><span class="n">root</span> <span class="o">=</span> <span class="err">“</span><span class="o">/</span><span class="n">outputDir</span><span class="err">”‘</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="o">~/</span><span class="p">.</span><span class="n">ncbi</span><span class="o">/</span><span class="k">user</span><span class="o">-</span><span class="n">settings</span><span class="p">.</span><span class="n">mkfg</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">echo ‘/repository/user/main/public/root = “/outputDir”‘ &amp;gt; ~/.ncbi/user-settings.mkfg</span>
+</code></pre></div>
 
 
 <p>こっちのほうが簡単。outputDirに指定してやって下さい。
@@ -270,14 +267,14 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 </blockquote>
 <p>ChIP-seq解析の定番ツールであるMACS2を使う。説明は<a href="https://github.com/taoliu/MACS/wiki">公式wiki</a>が詳しい。bigwigはpeakcallの副産物的な扱いで、メインはChIP-seqのピーク情報。bigwigは少し回りくどい作り方が必要。詳しくは<a href="https://github.com/taoliu/MACS/wiki/Build-Signal-Track">こちら</a>。</p>
 <p>まずはbdg2bwを用意する。<code>~/Programs</code>はpathの通ったディレクトリとする。</p>
-<div class="highlight"><pre><span></span>$ vim ~/Programs/bdg2bw <span class="c1"># emacsでも。中身は以下。</span>
+<div class="highlight"><pre><span></span><code>$ vim ~/Programs/bdg2bw <span class="c1"># emacsでも。中身は以下。</span>
 $ chmod <span class="m">755</span> ~/Programs/bdg2bw
 $ wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
-</pre></div>
+</code></pre></div>
 
 
 <p>bdg2bwの中身は以下。</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># check commands: slopBed, bedGraphToBigWig and bedClip</span>
 
@@ -302,18 +299,18 @@ bedtools slop -i <span class="si">${</span><span class="nv">F</span><span class=
 bedGraphToBigWig <span class="si">${</span><span class="nv">F</span><span class="si">}</span>.sort.clip <span class="si">${</span><span class="nv">G</span><span class="si">}</span> <span class="si">${</span><span class="nv">F</span><span class="p">/bdg/bw</span><span class="si">}</span>
 
 rm -f <span class="si">${</span><span class="nv">F</span><span class="si">}</span>.clip <span class="si">${</span><span class="nv">F</span><span class="si">}</span>.sort.clip
-</pre></div>
+</code></pre></div>
 
 
 <p>これで実行準備が整った。</p>
-<div class="highlight"><pre><span></span>$ conda activate py27_macs2
+<div class="highlight"><pre><span></span><code>$ conda activate py27_macs2
 $ mkdir macs2 <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">cd</span> macs2
 $ macs2 callpeak -t ../data/SRR5385344.trimmed.bam -c ../data/SRR5385260.trimmed.bam -g mm -n Treg_H3K27ac_1 -p 1e-5 -f BAM -B --nomodel <span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span> macs.SRR5385344.out <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> bdg2bw Treg_H3K27ac_1_treat_pileup.bdg ../chromInfo.txt
 $ macs2 callpeak -t ../data/SRR5385345.trimmed.bam -c ../data/SRR5385260.trimmed.bam -g mm -n Treg_H3K27ac_2 -p 1e-5 -f BAM -B --nomodel <span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span> macs.SRR5385345.out <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> bdg2bw Treg_H3K27ac_2_treat_pileup.bdg ../chromInfo.txt
 $ macs2 callpeak -t ../data/SRR5385346.trimmed.bam -c ../data/SRR5385260.trimmed.bam -g mm -n Tconv_H3K27ac_1 -p 1e-5 -f BAM -B --nomodel <span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span> macs.SRR5385346.out <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> bdg2bw Tconv_H3K27ac_1_treat_pileup.bdg ../chromInfo.txt
 $ macs2 callpeak -t ../data/SRR5385347.trimmed.bam -c ../data/SRR5385260.trimmed.bam -g mm -n Tconv_H3K27ac_2 -p 1e-5 -f BAM -B --nomodel <span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span> macs.SRR5385347.out <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> bdg2bw Tconv_H3K27ac_2_treat_pileup.bdg ../chromInfo.txt
 $ <span class="nb">cd</span> ..
-</pre></div>
+</code></pre></div>
 
 
 <p><code>-B</code>でbdgというbedgraphファイルを保存するかどうか。
@@ -332,7 +329,7 @@ $ <span class="nb">cd</span> ..
 <li>operation(defaultはlog2ratio)</li>
 </ol>
 <p>を行う。binはdefaultで50bp。log2ratioの代わりにlog2, ratio, subtract, add, mean, reciprocal_ratio, first, secondを取得することもできる。今回はsubtract(差分)も合わせて取得してみる。macs2と違ってmultiprocessも動くが、bamのindexが先に必要。macs2に比べるととてもsimpleでよい。</p>
-<div class="highlight"><pre><span></span>$ mkdir deepTools    
+<div class="highlight"><pre><span></span><code>$ mkdir deepTools    
 $ bamCompare -p <span class="m">22</span> -b1 ./data/SRR5385344.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Treg_H3K27ac_1_log2ratio.bw
 $ bamCompare -p <span class="m">22</span> -b1 ./data/SRR5385345.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Treg_H3K27ac_2_log2ratio.bw
 $ bamCompare -p <span class="m">22</span> -b1 ./data/SRR5385346.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Tconv_H3K27ac_1_log2ratio.bw
@@ -342,7 +339,7 @@ $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR538
 $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR5385345.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Treg_H3K27ac_2_subtract.bw
 $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR5385346.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Tconv_H3K27ac_1_subtract.bw
 $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR5385347.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Tconv_H3K27ac_2_subtract.bw
-</pre></div>
+</code></pre></div>
 
 
 <p>※ 181107 subtractのoutput fileが間違えていたので修正しました。（Yoshiharaさんより）</p>
@@ -353,7 +350,7 @@ $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR538
 <p>deepToolsが少しギザギザしているように見えるが、binを変えると細かくできる。</p>
 <h3>おまけ：deepToolsによる可視化</h3>
 <p>最後に、deepToolsの豊富な可視化機能の一部を試してみる。まず、<a href="http://genome.ucsc.edu/cgi-bin/hgTables">UCSC</a>よりmm10の遺伝子のbedを取得する。bigwigを用いた可視化は<code>computeMatrix</code>した後<code>plotHeatmap</code>などである。log2 fold changeのbigwigを用いて全遺伝子についてH3K27acのheatmapを書き、クラスタリングも同時にしてみる。全遺伝子についてなので<code>computeMatrix</code>がとても重たくなってしまった。Tconvについては今回は省略。</p>
-<div class="highlight"><pre><span></span>$ computeMatrix scale-regions <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>$ computeMatrix scale-regions <span class="se">\</span>
 -S Treg_H3K27ac_1_log2ratio.bw Treg_H3K27ac_2_log2ratio.bw <span class="se">\</span>
 -R mm10.genes.bed <span class="se">\</span>
 --beforeRegionStartLength <span class="m">3000</span> <span class="se">\</span>
@@ -364,7 +361,7 @@ $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR538
 $ plotHeatmap -m matrix.mat.Treg.gz -out Heatmap.png <span class="se">\</span>
 --colorMap RdYlBu_r --zMin -3 --zMax <span class="m">3</span> <span class="se">\</span>
 --kmeans <span class="m">4</span> --samplesLabel Treg_H3K27ac_1  Treg_H3K27ac_2
-</pre></div>
+</code></pre></div>
 
 
 <p><img src="https://pythonoum.files.wordpress.com/2018/10/heatmap-3.png" alt="Heatmap.3.png" width="777" height="2288" class="alignnone size-full wp-image-304" /></p>
