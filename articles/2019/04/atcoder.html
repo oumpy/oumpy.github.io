@@ -107,7 +107,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2019-04-14(日)
 </abbr> <h1>
   <a href="../../../articles/2019/04/atcoder.html" rel="bookmark"
      title="Permalink to AtCoder Beginners Selection 雑感">
@@ -134,7 +134,7 @@
 以下いくつかの問題をピックアップしてみます。</p>
 <h3>問題０：はじめてのあっとこーだー</h3>
 <p>わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。</p>
-<div class="highlight"><pre><span></span><code>問題文
+<div class="highlight"><pre><span></span>問題文
 高橋君はデータの加工が行いたいです。
 整数 a,b,cと、文字列 s が与えられます。
 整数 a+b+c と、文字列 s を並べて表示しなさい。
@@ -146,7 +146,7 @@ s
 1行目は、整数 a (1≦a≦1,000) が与えられる。
 2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。
 3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。
-</code></pre></div>
+</pre></div>
 
 
 <p>ん？<br>
@@ -162,11 +162,11 @@ s
 <p>このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。</p>
 <p>まとめっぽくなりましたが問題に戻ります。<br>
 考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。  </p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+</pre></div>
 
 
 <p>いまさらですが言語はPython3です。<br>
@@ -178,7 +178,7 @@ s
 よくみる整数問題ですね。これは簡単に解けると思いきや...？<br>
 こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
 てかなり面倒です。  </p>
-<div class="highlight"><pre><span></span><code>問題文
+<div class="highlight"><pre><span></span>問題文
 あなたは、500円玉をA枚、100円玉をB枚、50円玉をC枚持っています。
 これらの硬貨の中から何枚かを選び、合計金額をちょうどX円にする方法は何通りありますか。
 同じ種類の硬貨同士は区別できません。
@@ -200,18 +200,18 @@ Xは50の倍数である
 
 出力
 硬貨を選ぶ方法の個数を出力せよ。
-</code></pre></div>
+</pre></div>
 
 
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">500</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
                 <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)</p>
@@ -219,7 +219,7 @@ Xは50の倍数である
 このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。<br>
 なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。  </p>
 <h3>問題７：Kagami Mochi</h3>
-<div class="highlight"><pre><span></span><code>問題文
+<div class="highlight"><pre><span></span>問題文
 X段重ねの鏡餅(X≥1) とはX枚の円形の餅を縦に積み重ねたものであって、
 どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
 例えば、直径10、8、6センチメートルの餅をこの順に下から積み重ねると3段重ねの鏡餅になり、
@@ -243,13 +243,13 @@ dN
 
 出力
 作ることのできる鏡餅の最大の段数を出力せよ。
-</code></pre></div>
+</pre></div>
 
 
 <h4>普通の解法</h4>
-<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
@@ -258,21 +258,21 @@ dN
 <h4>僕の解法</h4>
 <p>ソートしてからリストのままでなんとか数えあげました。<br>
 明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。</p>
-<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])))</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
 
 
 <h3>問題９：Daydream</h3>
 <p>問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。<br>
 が、わざわざeraseという単語を選んできたということは、こういうことでしょう。  </p>
-<div class="highlight"><pre><span></span><code>問題文
+<div class="highlight"><pre><span></span>問題文
 英小文字からなる文字列 S が与えられます。 Tが空文字列である状態から始め、
 以下の操作を好きな回数繰り返すことで S=T とすることができるか判定してください。
 Tの末尾にdream dreamer erase eraser のいずれかを追加する。
@@ -286,31 +286,31 @@ S
 
 出力
 S=Tとすることができる場合YESを、そうでない場合NOを出力せよ。
-</code></pre></div>
+</pre></div>
 
 
 <h4>僕の解法</h4>
-<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="n">a</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">c</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">d</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
-</code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <p>文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。<br>
 変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。  </p>
 <h4>別解答</h4>
-<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">s</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
-</code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>

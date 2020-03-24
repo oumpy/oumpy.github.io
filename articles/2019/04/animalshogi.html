@@ -107,7 +107,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2019-04-14(日)
 </abbr> <h1>
   <a href="../../../articles/2019/04/animalshogi.html" rel="bookmark"
      title="Permalink to PythonとKerasでどうぶつしょうぎ">
@@ -162,39 +162,39 @@
 <h3>今回使ったネットワーク</h3>
 <p>入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。</p>
-<div class="highlight"><pre><span></span><code><span class="err">____________________________________________________________________________________________________</span>
-<span class="err">Layer (type)                     Output Shape          Param #     Connected to                     </span>
-<span class="err">====================================================================================================</span>
-<span class="err">input_1 (InputLayer)             (None, 3, 4, 11)      0                                            </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">input_2 (InputLayer)            (None, 2, 3, 2)       0                                            </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  </span>
-<span class="err">                                                                   flatten_2[0][0]                 </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   </span>
-<span class="err">____________________________________________________________________________________________________</span>
-<span class="err">dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   </span>
-<span class="err">====================================================================================================</span>
-<span class="err">Total params: 113,633</span>
-<span class="err">Trainable params: 113,633</span>
-<span class="err">Non-trainable params: 0</span>
-<span class="err">____________________________________________________________________________________________________</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">____________________________________________________________________________________________________</span>
+<span class="n">Layer</span> <span class="p">(</span><span class="k">type</span><span class="p">)</span>                     <span class="k">Output</span> <span class="n">Shape</span>          <span class="n">Param</span> <span class="o">#</span>     <span class="n">Connected</span> <span class="k">to</span>                     
+<span class="o">====================================================================================================</span>
+<span class="n">input_1</span> <span class="p">(</span><span class="n">InputLayer</span><span class="p">)</span>             <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>      <span class="mi">0</span>                                            
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">input_2</span> <span class="p">(</span><span class="n">InputLayer</span><span class="p">)</span>            <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>       <span class="mi">0</span>                                            
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">flatten_1</span> <span class="p">(</span><span class="n">Flatten</span><span class="p">)</span>              <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">132</span><span class="p">)</span>           <span class="mi">0</span>           <span class="n">input_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                    
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">flatten_2</span> <span class="p">(</span><span class="n">Flatten</span><span class="p">)</span>             <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>            <span class="mi">0</span>           <span class="n">input_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">concatenate_1</span> <span class="p">(</span><span class="n">Concatenate</span><span class="p">)</span>      <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">144</span><span class="p">)</span>           <span class="mi">0</span>           <span class="n">flatten_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                  
+                                                                   <span class="n">flatten_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                 
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_1</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">18560</span>       <span class="n">concatenate_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>              
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_2</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">16512</span>       <span class="n">dense_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_3</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">16512</span>       <span class="n">dense_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_4</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">16512</span>       <span class="n">dense_3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_5</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">16512</span>       <span class="n">dense_4</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_6</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>           <span class="mi">16512</span>       <span class="n">dense_5</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="n">____________________________________________________________________________________________________</span>
+<span class="n">dense_7</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>                 <span class="p">(</span><span class="k">None</span><span class="p">,</span> <span class="mi">97</span><span class="p">)</span>            <span class="mi">12513</span>       <span class="n">dense_6</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                   
+<span class="o">====================================================================================================</span>
+<span class="n">Total</span> <span class="n">params</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span><span class="mi">633</span>
+<span class="n">Trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span><span class="mi">633</span>
+<span class="n">Non</span><span class="o">-</span><span class="n">trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">____________________________________________________________________________________________________</span>
+</pre></div>
 
 
 <p>input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。<br>

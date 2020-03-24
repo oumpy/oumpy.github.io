@@ -107,7 +107,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2019-04-14(日)
 </abbr> <h1>
   <a href="../../../articles/2019/04/original_rnaseq_pipeline.html" rel="bookmark"
      title="Permalink to 阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース">
@@ -165,18 +165,18 @@
 </table>
 <p>のような形式で、前3列が必須です。簡単ですね！データの集め方は、論文についているaccession number等をたどるのでもいいし、新しくなって爆速になった<a href="http://sra.dbcls.jp/">DDBJ Search</a>もおすすめ。</p>
 <p>コマンドはオプションが指定でき、リード数を100000に絞ったテストモードやマルチプロセスにも対応。</p>
-<div class="highlight"><pre><span></span><code><span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="n">MakeCountTable_Illumina_trimgalore_SRR</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">experiment_table</span><span class="p">.</span><span class="n">csv</span><span class="w"> </span><span class="n">spiece</span><span class="w"> </span><span class="o">[</span><span class="n">--test, --help, --without-docker, --udocker</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">--threads [VALUE</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
-<span class="n">args</span><span class="w"></span>
-<span class="mf">1.</span><span class="n">experiment</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="n">csv</span><span class="p">)</span><span class="w"></span>
-<span class="mf">2.</span><span class="n">reference</span><span class="p">(</span><span class="n">human</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mouse</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="nv">Usage</span>: <span class="nv">bash</span> <span class="nv">MakeCountTable_Illumina_trimgalore_SRR</span>.<span class="nv">sh</span> <span class="nv">experiment_table</span>.<span class="nv">csv</span> <span class="nv">spiece</span> [<span class="o">--</span><span class="nv">test</span>, <span class="o">--</span><span class="nv">help</span>, <span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">docker</span>, <span class="o">--</span><span class="nv">udocker</span>] [<span class="o">--</span><span class="nv">threads</span> [<span class="nv">VALUE</span>]]
+<span class="nv">args</span>
+<span class="mi">1</span>.<span class="nv">experiment</span> <span class="nv">matrix</span><span class="ss">(</span><span class="nv">csv</span><span class="ss">)</span>
+<span class="mi">2</span>.<span class="nv">reference</span><span class="ss">(</span><span class="nv">human</span> <span class="nv">or</span> <span class="nv">mouse</span><span class="ss">)</span>
 
-<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
-<span class="c1">--test test mode(MAX_SPOT_ID=100000).(dafault : False)</span>
-<span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="c1">--udocker</span>
-<span class="o">-</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="c1">--without-docker</span>
-<span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="c1">--threads</span>
-<span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="c1">--help Show usage.</span>
-</code></pre></div>
+<span class="nv">Options</span>:
+<span class="o">--</span><span class="nv">test</span> <span class="nv">test</span> <span class="nv">mode</span><span class="ss">(</span><span class="nv">MAX_SPOT_ID</span><span class="o">=</span><span class="mi">100000</span><span class="ss">)</span>.<span class="ss">(</span><span class="nv">dafault</span> : <span class="nv">False</span><span class="ss">)</span>
+<span class="o">-</span><span class="nv">u</span>, <span class="o">--</span><span class="nv">udocker</span>
+<span class="o">-</span><span class="nv">w</span>, <span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">docker</span>
+<span class="o">-</span><span class="nv">t</span>, <span class="o">--</span><span class="nv">threads</span>
+<span class="o">-</span><span class="nv">h</span>, <span class="o">--</span><span class="nv">help</span> <span class="k">Show</span> <span class="nv">usage</span>.
+</pre></div>
 
 
 <p>なお、自前のfastq filesからの実行はv1.1で載せようと思っています。また、出力はscaled TPMを採用。(Soneson, C., Love, M. I. &amp; Robinson, M. D. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research 4, 1521 (2015).)。</p>
