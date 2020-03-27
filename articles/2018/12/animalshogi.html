@@ -12,8 +12,6 @@
     <meta property="og:url" content="../../../articles/2018/12/animalshogi.html"/>
       <meta property="article:section" content="Tech_archive"/>
         <meta property="article:tag" content="Machine Learning"/>
-        <meta property="article:tag" content="Python"/>
-        <meta property="article:tag" content="強化学習"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -133,7 +131,7 @@
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2>はじめに</h2>
-<p><strong>「どうぶつしょうぎ」</strong>というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ">wikipediaの解説</a>）</p>
+<p><strong>「どうぶつしょうぎ」</strong> というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ">wikipediaの解説</a>）</p>
 <p>普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。<br>
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。<br>
 駒に描かれているイラストも、大変、かわいいです。  </p>
@@ -142,13 +140,13 @@
 双方最善を尽くすと78手まで後手勝ち、だそうです。</p>
 <p>今回は、<a href="https://www.nature.com/articles/nature16961">AlphaGo</a>
 (<a href="https://www.nature.com/articles/nature24270">Zero</a>)
-を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、<strong>どうぶつしょうぎをプレイするプログラム</strong>を作ってみました。<br>
+を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、<strong>どうぶつしょうぎをプレイするプログラム</strong> を作ってみました。<br>
 ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。</p>
 <p>今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）</p>
 <h2>つくりかた概要</h2>
 <p>「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。<br>
 この部分を、深層ニューラルネットワーク「だけ」で作ります。  </p>
-<p>実はこれ、<strong>画像カテゴリ認識と殆ど同じ</strong>です。
+<p>実はこれ、<strong>画像カテゴリ認識と殆ど同じ</strong> です。
 例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。<br>
 入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。</p>
 <h2>ネットワーク構成</h2>
@@ -168,7 +166,7 @@
 を与えると一意に決められます。<br>
 一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。<br>
 合わせて<strong>合法手の可能性は97通り</strong>です。
-ですからネットワークは、<strong>97ノードのソフトマックスを出力とすればよい</strong>ことになります。</p>
+ですからネットワークは、<strong>97ノードのソフトマックスを出力とすればよい</strong> ことになります。</p>
 <h3>今回使ったネットワーク</h3>
 <p>入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。</p>
@@ -211,7 +209,7 @@
 盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。</p>
 <h2>強化学習：自己対戦と指し手評価</h2>
 <p>さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。</p>
-<p>そのためには、<strong>審判・履歴機能付きのどうぶつしょうぎ盤セット</strong>をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。</p>
+<p>そのためには、<strong>審判・履歴機能付きのどうぶつしょうぎ盤セット</strong> をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。</p>
 <p>自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。</p>
 <ul>
 <li>初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。</li>
@@ -225,7 +223,7 @@
 <h2>学習結果</h2>
 <h3>ルールの習得</h3>
 <p>まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。<br>
-ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに<strong>合法手が98.7%</strong>となりました。1.3%の指し手が反則です。<br>
+ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに <strong>合法手が98.7%</strong> となりました。1.3%の指し手が反則です。<br>
 これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。<br>
 ルールについてはかなり良く習得してきていることがわかります。</p>
 <h3>どれくらい強い？</h3>
@@ -253,8 +251,6 @@
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
 	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
-	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
-	<a href="../../../tag/qiang-hua-xue-xi.html"><i class="fa fa-tag"></i>強化学習</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -309,15 +305,13 @@
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
       <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
-      <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
       <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
-      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
-      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/statistics.html">&#x2022; Statistics</a></li>
       <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
       <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
       <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>

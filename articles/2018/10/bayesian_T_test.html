@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="LinuxでのBioinformatics環境構築_01"/>
-    <meta property="og:url" content="../../../articles/2019/04/environment_bioinformatics.html"/>
+    <meta property="og:title" content="ベイズ流T検定 -BEST-"/>
+    <meta property="og:url" content="../../../articles/2018/10/bayesian_T_test.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="bioinformatics"/>
+        <meta property="article:tag" content="Statistics"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="LinuxでのBioinformatics環境構築_01">
+    <meta name="twitter:title" content="ベイズ流T検定 -BEST-">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>LinuxでのBioinformatics環境構築_01 - 大阪大学医学部 Python会</title>
+    <title>ベイズ流T検定 -BEST- - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-10-01(Mon)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/environment_bioinformatics.html" rel="bookmark"
-     title="Permalink to LinuxでのBioinformatics環境構築_01">
-    LinuxでのBioinformatics環境構築_01
+  <a href="../../../articles/2018/10/bayesian_T_test.html" rel="bookmark"
+     title="Permalink to ベイズ流T検定 -BEST-">
+    ベイズ流T検定 -BEST-
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/ping-gang.html">平岡</a>
+      Posted by <a href="../../../author/an-shui.html">安水</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,89 +130,34 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>お疲れ様です。ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。</p>
-<p>今回は<strong>＜<em>Kallisto</em>を用いた<em>RNA-seq</em>解析パイプライン＞</strong>で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、<a href="https://pythonoum.wordpress.com/2018/10/16/kallisto%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Frna-seq%E8%A7%A3%E6%9E%90%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/">Kallistoを用いたRNA-seq解析パイプライン</a>に進むことができます。</p>
-<p><strong>Ubuntuではpython2.7がデフォルト</strong>となっているので、python3をダウンロードし、デフォルトに設定しよう。</p>
-<p>[code lang="text"]</p>
-<h1>check the version of python.</h1>
-<p>$ python --version</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Python 2.7.15rc1
-[/code]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><a href="https://www.anaconda.com/download/#macos">Anaconda</a>のインストーラーをダウンロードします。</p>
-<div class="highlight"><pre><span></span><code>$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
-$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=/home/user/anaconda3/bin:$PATH&#39;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> ~/.bashrc
-$ conda -V
-</code></pre></div>
-
-
-<p>[code lang="text"]
-$ python --version</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>Python 3.6.6+
-[/code]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
-Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。</p>
-<p>[code lang="text"]</p>
-<h1>Download a Miniconda package for linux python3</h1>
-<p>$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-$ bash Miniconda3-latest-Linux-x86_64.sh
-[/code]</p>
-<p>EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。</p>
-<p>[code lang="text"]</p>
-<h1>condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）</h1>
-<p>$ conda -h
-[/code]</p>
-<p>biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。</p>
-<p>[code lang="text"]
-$ conda config --add channels conda-forge
-$ conda config --add channels defaults
-$ conda config --add channels r
-$ conda config --add channels bioconda
-[/code]</p>
-<p>それでは早速ツールをインストールしていきましょう。基本 conda install ???でインストールが完了し正常に動作していきます。非常に便利ですね。</p>
-<p>[code lang="text"]
-$ conda install parallel-fastq-dump
-$ conda install fastqc
-$ conda install multiqc
-$ conda install trimmomatic
-$ conda install kallisto
-[/code]</p>
-<p>参照：http://imamachi-n.hatenablog.com/entry/2017/01/14/212719</p>
-<p><strong><em>R</em>ツールのインストール</strong>
-Rのコンソールを開いて、Rのツールをインストールしていきます。
-Tximportのインストール</p>
-<p>[code lang="text"]</p>
-<blockquote>
-<p>source("https://bioconductor.org/biocLite.R")
-biocLite("tximport")
-[/code]</p>
-</blockquote>
-<p>DESeq2のインストール</p>
-<p>[code lang="text"]</p>
-<blockquote>
-<p>source("https://bioconductor.org/biocLite.R")
-biocLite("DESeq2")
-[/code]</p>
-</blockquote>
-<p>参照：
-https://bioconductor.org/packages/release/bioc/html/tximport.html
-https://bioconductor.org/packages/release/bioc/html/DESeq2.html</p>
+	<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
+まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
+読み切った記念に一個面白そうなものがあったのでまとめました。</p>
+<p>2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
+当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
+分散については立山さんのノートを参考にどうぞ。
+当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
+余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
+その仮定が怪しいときはノンパラメトリックな検定を選びます。
+まあこのへんは誰かがコード付きでまとめてくれると信じてます。</p>
+<p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
+<strong>BEST</strong>(Bayesian estimation supersedes the t-test)
+というかっこいい名前です。</p>
+<p>2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
+を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。</p>
+<p>ベイズ推論とか統計モデリングってこんなんなんやっていうのもなんとなくわかると思うので、
+とりあえず下のnotebookを開いてみてください。</p>
+<p>https://nbviewer.jupyter.org/gist/yyoshiaki/255d392ae32d258cfdf19cfad855b8fb</p>
+<p>余談に余談を重ねますが、
+ipynbの公開方法はhtmlやpdfにexportしたり、いろいろありますが、少し凝った方法で公開してみました。
+githubのgistという機能を用いて、公開し、それをnbviewerに渡してみました。スマホでもみれていいですね。</p>
+<p><a href="http://kasoutuuka.org/jupyter-notebook">参考HP</a></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>bioinformatics</a>&nbsp;
+	<a href="../../../tag/statistics.html"><i class="fa fa-tag"></i>Statistics</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -226,7 +171,7 @@ https://bioconductor.org/packages/release/bioc/html/DESeq2.html</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/environment_bioinformatics.html" 
+        data-href="../../../articles/2018/10/bayesian_T_test.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -267,15 +212,13 @@ https://bioconductor.org/packages/release/bioc/html/DESeq2.html</p>
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
       <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
-      <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
       <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
-      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
-      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/statistics.html">&#x2022; Statistics</a></li>
       <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
       <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
       <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>

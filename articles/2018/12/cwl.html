@@ -9,9 +9,9 @@
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Common Workflow Language入門"/>
-    <meta property="og:url" content="../../../articles/2019/04/cwl.html"/>
+    <meta property="og:url" content="../../../articles/2018/12/cwl.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="bioinformatics"/>
+        <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -114,9 +114,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-12-07(Fri)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/cwl.html" rel="bookmark"
+  <a href="../../../articles/2018/12/cwl.html" rel="bookmark"
      title="Permalink to Common Workflow Language入門">
     Common Workflow Language入門
   </a>
@@ -169,23 +169,26 @@
 <p>困ったときに助けてくれるやさしいcontributerの方々が日本に何人かいます。また、日本語ドキュメントも多くてとても助かります。更に、開発者の<a href="https://twitter.com/biocrusoe">Michael R. Crusoe</a>は来日しており、<a href="https://twitter.com/hashtag/CommonWLjp?src=hash">#CommonWLjp</a>などでCWLの輪を広げています。</p>
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">On my way to the 11th <a href="https://twitter.com/NBDC_info?ref_src=twsrc%5Etfw">@NBDC_info</a> / <a href="https://twitter.com/dbcls?ref_src=twsrc%5Etfw">@dbcls</a> <a href="https://twitter.com/hashtag/biohack18?src=hash&amp;ref_src=twsrc%5Etfw">#biohack18</a> (with a week long stop in Tokyo for <a href="https://twitter.com/hashtag/usegalaxyjp?src=hash&amp;ref_src=twsrc%5Etfw">#usegalaxyjp</a> meeting and other <a href="https://twitter.com/hashtag/CommonWL?src=hash&amp;ref_src=twsrc%5Etfw">#CommonWL</a> presentations and a bilingual workshop) <a href="https://t.co/W4gsO9bnA1">pic.twitter.com/W4gsO9bnA1</a></p>&mdash; Michael R. Crusoe (@biocrusoe) <a href="https://twitter.com/biocrusoe/status/1069104245100748801?ref_src=twsrc%5Etfw">2018年12月2日</a></blockquote>
 
-<p><a href="https://platform.twitter.com/widgets.js">https://platform.twitter.com/widgets.js</a></p>
 <h2>kallistoをCWL + Rabix Composerで試してみる</h2>
 <p>まずは実際の作業工程を見てみましょう。</p>
 <p><img alt="gif" src="https://github.com/yyoshiaki/cwl_user_guide/blob/master/kallisto/kallisto.gif?raw=true"></p>
 <p>ちゃんとkallistoのoutputが生成されていますね！データは<a href="https://github.com/yyoshiaki/cwl_user_guide/tree/master/kallisto">github</a>にまとめておきました。テスト用のシーケンスデータも付けてあるので、クローンして遊んでみてください。<code>kallisto-index.cwl</code>と<code>kallisto-quant.cwl</code>は公式の<a href="https://github.com/common-workflow-language/workflows">CWL Tools &amp; Workflows</a>から取ってきました。もちろんこれらはdocker imageを使っています。新しいworkflowを作ってみましょう。動画のように直感的にできると思います。</p>
-<p>今回、errorが出て進まなかった場所があったのですが、石井さん、西田さんの応援や、cwlの作者のMichaelやRabixの作者のKaushikがerrorに対処してくれました。<a href="https://github.com/rabix/composer/issues/418#issuecomment-444257454">issue : kallisto workflow is incompatible with Rabix composer #418</a>この対応のフレンドリーさはbioinformaticsならではですね。</p>
+<p>今回、errorが出て進まなかった場所があったのですが、石井さん、西田さんの応援や、cwlの作者のMichaelやRabixの作者のKaushikがerrorに対処してくれました。</p>
+<blockquote>
+<p><a href="https://github.com/rabix/composer/issues/418#issuecomment-444257454">issue : kallisto workflow is incompatible with Rabix composer #418</a></p>
+</blockquote>
+<p>この対応のフレンドリーさはbioinformaticsならではですね。</p>
 <h2>workflow業界のあれこれ</h2>
 <p>ここで一旦workflowについて広く見てみましょう。ハーバードを始めとする海外の研究所ではサーバーを研究所ごとに管理するのに変えて、クラウドの利用が盛んになってきています。そういう時代感もあり、workflowやコンテナなど、reproducibleな環境の整備というのはますます重要視されてきています。workflow業界ではcwlの他に古き良き<a href="http://wiki.pitagora-galaxy.org/wiki/index.php/Workflows">Galaxy</a>、Broad Instituteが開発している<a href="https://software.broadinstitute.org/wdl/">WDL</a>や<a href="https://www.nextflow.io/">nextflow</a>、Pythonで書かれている<a href="https://snakemake.readthedocs.io/en/stable/">Snakemake</a>など、さまざまな選択肢があります。どのworkflowが好きか、Cambridgeの<a href="https://twitter.com/@AlbertVilella">@AlbertVilella</a>が世界中のbioinformaticianにアンケートをとっていました。</p>
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">90 responses in <a href="https://t.co/hbaY7ShocR">https://t.co/hbaY7ShocR</a> <a href="https://twitter.com/nextflowio?ref_src=twsrc%5Etfw">@nextflowio</a> <a href="https://twitter.com/SBGenomics?ref_src=twsrc%5Etfw">@SBGenomics</a> <a href="https://twitter.com/commonwl?ref_src=twsrc%5Etfw">@commonwl</a> Snamemake <a href="https://t.co/1kc1DaXdBa">pic.twitter.com/1kc1DaXdBa</a></p>&mdash; Albert Vilella (@AlbertVilella) <a href="https://twitter.com/AlbertVilella/status/1070219898306084865?ref_src=twsrc%5Etfw">2018年12月5日</a></blockquote>
 
-<p><a href="https://platform.twitter.com/widgets.js">https://platform.twitter.com/widgets.js</a></p>
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">No votes so far for <a href="https://twitter.com/ensembl?ref_src=twsrc%5Etfw">@ensembl</a> Hive, Apache Taverna or <a href="https://twitter.com/arvados?ref_src=twsrc%5Etfw">@arvados</a> , even though we know they have plenty of users <a href="https://t.co/Db2el8vPDt">https://t.co/Db2el8vPDt</a> <a href="https://twitter.com/hashtag/Bioinformatics?src=hash&amp;ref_src=twsrc%5Etfw">#Bioinformatics</a> <a href="https://twitter.com/hashtag/Workflows?src=hash&amp;ref_src=twsrc%5Etfw">#Workflows</a> <a href="https://t.co/hbaY7ShocR">https://t.co/hbaY7ShocR</a></p>&mdash; Albert Vilella (@AlbertVilella) <a href="https://twitter.com/AlbertVilella/status/1070579264192462849?ref_src=twsrc%5Etfw">2018年12月6日</a></blockquote>
 
-<p><a href="https://platform.twitter.com/widgets.js">https://platform.twitter.com/widgets.js</a></p>
 <p>どうやら一番twitter界隈のbioinformaticianはnextflowが好きなようです。ただ、下のspreadsheetを見ると、githubではGalaxy,bcbioについで三番目に盛んなようです。</p>
 <p>他にも、cwlやnextflowを取り上げたgenome解析の論文も出ていたりします。</p>
-<p>&gt;<a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2446-1">Baichoo, S. et al. Developing reproducible bioinformatics analysis workflows for heterogeneous computing environments to support African genomics. BMC Bioinformatics 19, 457 (2018).</a></p>
+<blockquote>
+<p><a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2446-1">Baichoo, S. et al. Developing reproducible bioinformatics analysis workflows for heterogeneous computing environments to support African genomics. BMC Bioinformatics 19, 457 (2018).</a></p>
+</blockquote>
 <h2>結論　みんなでCWLを使おう！</h2>
 <p>医学部生にできるだけわかりやすく書いてみました。みんなでcwlを使ってどんどん解析を楽にしましょう！</p>
 <p>国試も自動化できたらなあ。。。</p>
@@ -198,7 +201,7 @@
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>bioinformatics</a>&nbsp;
+	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -212,7 +215,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/cwl.html" 
+        data-href="../../../articles/2018/12/cwl.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -253,15 +256,13 @@
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
       <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
-      <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
       <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
-      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
-      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/statistics.html">&#x2022; Statistics</a></li>
       <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
       <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
       <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="news"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="news"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/06/atcoder.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-06-24:oumpy.github.io/articles/2019/06/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
-&lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。&lt;br&gt;
-定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として)コンテストが開かれることもあります。&lt;/p&gt;
-&lt;p&gt;コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/p&gt;
+&lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。  &lt;/p&gt;
+&lt;p&gt;定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として) コンテストが開かれることもあります。コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/p&gt;
 &lt;h2&gt;AtCoder Beginners Selectionを解こう！&lt;/h2&gt;
-&lt;p&gt;チュートリアルを読むと、「何をすれば良いか分からない人は、AtCoder Beginners Selectionから、まずいくつかの問題を解いてみましょう。」と書いてあります。ページに飛んでみると、さらに、「このコンテストは、『AtCoderに登録したけど何をしていいか分からない・・・！』という人に向けて作られた初心者向け問題集です。」とも書いてます。&lt;br&gt;
-何も分かってない子羊ちゃんは素直に優しい言葉に付いて行くのでした。&lt;br&gt;
-以下いくつかの問題をピックアップしてみます。&lt;/p&gt;
+&lt;p&gt;チュートリアルを読むと、「何をすれば良いか分からない人は、&lt;a href="https://atcoder.jp/contests/abs"&gt;AtCoder Beginners Selection&lt;/a&gt;から、まずいくつかの問題を解いてみましょう。」と書いてあります。ページに飛んでみると、さらに、「このコンテストは、『AtCoderに登録したけど何をしていいか分からない・・・！』という人に向けて作られた初心者向け問題集です。」とも書いてます。&lt;/p&gt;
+&lt;p&gt;何も分かってない子羊ちゃんは素直に優しい言葉に付いて行くのでした。 以下いくつかの問題をピックアップしてみます。&lt;/p&gt;
 &lt;h3&gt;問題０：はじめてのあっとこーだー&lt;/h3&gt;
 &lt;p&gt;わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h4&gt;問題文&lt;/h4&gt;
 &lt;p&gt;高橋君はデータの加工が行いたいです。
-整数 &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; が与えられます。
-整数 &lt;span class="math"&gt;\(a+b+c\)&lt;/span&gt; と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; を並べて表示しなさい。&lt;/p&gt;
+整数 &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; が与えられます。整数 &lt;span class="math"&gt;\(a+b+c\)&lt;/span&gt; の計算結果と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; を並べて表示しなさい。&lt;/p&gt;
+&lt;h4&gt;制約&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1\leq a, b, c \leq 1,000\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1\leq | s | \leq 100\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4&gt;入力&lt;/h4&gt;
 &lt;p&gt;入力は次の形式で与えられる。
 &lt;/p&gt;
@@ -26,23 +28,17 @@
 &amp;amp;s
 \end{align*}
 $$&lt;/div&gt;
-&lt;p&gt;1行目は、整数 a (1≦a≦1,000) が与えられる。
-2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。
-3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。
-&lt;hr&gt;&lt;/p&gt;
-&lt;p&gt;ん？&lt;br&gt;
-入力ってなんだ？(競プロ初心者並感)&lt;br&gt;
-いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)&lt;br&gt;
-そもそも複数行の入力ってどうするんだ？(プログラミング初心者並感)&lt;br&gt;
-......(思考停止)&lt;br&gt;
-数問解いた後の話ですが、気付きました。&lt;br&gt;
-ああこれが競技プログラミングなのか。&lt;br&gt;
-あれです、初心者あるあるの「思ってたのと違う」ってやつです。今回のは悪い意味ではないのですが。&lt;/p&gt;
-&lt;p&gt;言語つながりで、例えば英語の問題なら、文法や読解、和文英訳など受験でさんざんやった形式のものが思い浮かびます。てっきりそういう類いの問題が出るのかなと思っていたら、完全に実践形式の問題で驚きました。英語始めたばっかりで、いきなり英会話しようと言われたら誰だっ
-てそうなるでしょう。&lt;/p&gt;
+&lt;h4&gt;出力&lt;/h4&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(a+b+c\)&lt;/span&gt;と&lt;span class="math"&gt;\(s\)&lt;/span&gt;を空白区切りで1行に出力せよ。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;ん？入力ってなんだ？(競プロ初心者並感)
+いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)&lt;/p&gt;
+&lt;p&gt;そもそも複数行の入力ってどうするんだ？(プログラミング初心者並感)&lt;/p&gt;
+&lt;p&gt;......(思考停止)&lt;/p&gt;
+&lt;p&gt;数問解いた後の話ですが、気付きました。 ああこれが競技プログラミングなのか。 あれです、初心者あるあるの「思ってたのと違う」ってやつです。今回のは悪い意味ではないのですが。言語つながりで、例えば英語の問題なら、文法や読解、和文英訳など受験でさんざんやった形式のものが思い浮かびます。てっきりそういう類いの問題が出るのかなと思っていたら、完全に実践形式の問題で驚きました。英語始めたばっかりで、いきなり英会話しようと言われたら誰だってそうなるでしょう。&lt;/p&gt;
 &lt;p&gt;このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。&lt;/p&gt;
-&lt;p&gt;まとめっぽくなりましたが問題に戻ります。&lt;br&gt;
-考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。  &lt;/p&gt;
+&lt;p&gt;まとめっぽくなりましたが問題に戻ります。考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="c1"&gt;# 整数の入力&lt;/span&gt;
 &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
@@ -55,34 +51,34 @@ $$&lt;/div&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;いまさらですが言語はPython3です。&lt;br&gt;
-なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番
-印象に残った事です。&lt;/p&gt;
-&lt;p&gt;mapとかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。&lt;/p&gt;
+&lt;p&gt;いまさらですが言語はPython3です。 なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番印象に残った事です。&lt;/p&gt;
+&lt;p&gt;map とかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。&lt;/p&gt;
 &lt;h3&gt;問題４：Coins&lt;/h3&gt;
-&lt;p&gt;コンピューターっぽくて印象的な問題です。&lt;br&gt;
-よくみる整数問題ですね。これは簡単に解けると思いきや...？&lt;br&gt;
-こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
-てかなり面倒です。  &lt;/p&gt;
+&lt;p&gt;コンピューターっぽくて印象的な問題です。よくみる整数問題ですね。これは簡単に解けると思いきや...？こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言ってかなり面倒です。&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h4&gt;問題文&lt;/h4&gt;
-&lt;p&gt;あなたは、500円玉を&lt;span class="math"&gt;\(A\)&lt;/span&gt;枚、100円玉を&lt;span class="math"&gt;\(B\)&lt;/span&gt;枚、50円玉を&lt;span class="math"&gt;\(C\)&lt;/span&gt;枚持っています。
-これらの硬貨の中から何枚かを選び、合計金額をちょうど&lt;span class="math"&gt;\(X\)&lt;/span&gt;円にする方法は何通りありますか。
-同じ種類の硬貨同士は区別できません。
-２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。&lt;/p&gt;
+&lt;p&gt;あなたは、500円玉を&lt;span class="math"&gt;\(A\)&lt;/span&gt;枚、100円玉を&lt;span class="math"&gt;\(B\)&lt;/span&gt;枚、50円玉を&lt;span class="math"&gt;\(C\)&lt;/span&gt;枚持っています。これらの硬貨の中から何枚かを選び、合計金額をちょうど&lt;span class="math"&gt;\(X\)&lt;/span&gt;円にする方法は何通りありますか。
+同じ種類の硬貨同士は区別できません。２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。&lt;/p&gt;
 &lt;h4&gt;制約&lt;/h4&gt;
-&lt;p&gt;0 ≤ A,B,C ≤ 50
-A+B+C ≥ 1
-≤ X ≤ 20,000
-A,B,C は整数である
-Xは50の倍数である&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(0 \leq A, B, C \leq 50\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(A+B+C \geq 1\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(50 \leq X \leq 20,000\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(A,B,C\)&lt;/span&gt; は整数である&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(X\)&lt;/span&gt;は50の倍数である&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4&gt;入力&lt;/h4&gt;
 &lt;p&gt;入力は以下の形式で標準入力から与えられる。
-　A
-　B
-　C
-　X&lt;/p&gt;
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align*}
+　&amp;amp;A\\
+　&amp;amp;B\\
+　&amp;amp;C\\
+　&amp;amp;X
+\end{align*}
+$$&lt;/div&gt;
 &lt;h4&gt;出力&lt;/h4&gt;
 &lt;p&gt;硬貨を選ぶ方法の個数を出力せよ。
 &lt;hr&gt;&lt;/p&gt;
@@ -98,36 +94,37 @@ Xは50の倍数である&lt;/p&gt;
 
 
 &lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;/p&gt;
-&lt;p&gt;しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。&lt;br&gt;
-このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。&lt;br&gt;
-なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。  &lt;/p&gt;
+&lt;p&gt;しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。
+このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。&lt;/p&gt;
 &lt;h3&gt;問題７：Kagami Mochi&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;問題文
-X段重ねの鏡餅(X≥1) とはX枚の円形の餅を縦に積み重ねたものであって、
-どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
+&lt;hr&gt;
+
+&lt;h4&gt;問題文&lt;/h4&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(X\)&lt;/span&gt;段重ねの鏡餅(&lt;span class="math"&gt;\(X\geq 1\)&lt;/span&gt;) とは&lt;span class="math"&gt;\(X\)&lt;/span&gt;枚の円形の餅を縦に積み重ねたものであって、どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
 例えば、直径10、8、6センチメートルの餅をこの順に下から積み重ねると3段重ねの鏡餅になり、
 餅を一枚だけ置くと1段重ねの鏡餅になります。
-ダックスフンドのルンルンはN枚の円形の餅を持っていて、
-そのうち i 枚目の餅の直径はdiセンチメートルです。
-これらの餅のうち一部または全部を使って鏡餅を作るとき、
-最大で何段重ねの鏡餅を作ることができるでしょうか。
-
-制約
-1 ≤ N ≤ 100
-1 ≤ di ≤ 100
-入力値は全て整数である。
-
-入力
-入力は以下の形式で標準入力から与えられる。
-　N
-d1
-　：
-dN
-
-出力
-作ることのできる鏡餅の最大の段数を出力せよ。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+ダックスフンドのルンルンは&lt;span class="math"&gt;\(N\)&lt;/span&gt;枚の円形の餅を持っていて、そのうち&lt;span class="math"&gt;\(i\)&lt;/span&gt; 枚目の餅の直径は&lt;span class="math"&gt;\(d_i\)&lt;/span&gt;センチメートルです。これらの餅のうち一部または全部を使って鏡餅を作るとき、
+最大で何段重ねの鏡餅を作ることができるでしょうか。&lt;/p&gt;
+&lt;h4&gt;制約&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1 \leq N \leq 100\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1 \leq d_i \leq 100\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;入力値は全て整数である。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;入力&lt;/h4&gt;
+&lt;p&gt;入力は以下の形式で標準入力から与えられる。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align*}
+&amp;amp;N\\
+&amp;amp;d_1\\
+&amp;amp;：\\
+&amp;amp;d_N
+\end{align*}
+$$&lt;/div&gt;
+&lt;h4&gt;出力&lt;/h4&gt;
+&lt;p&gt;作ることのできる鏡餅の最大の段数を出力せよ。&lt;/p&gt;
+&lt;hr&gt;
 
 &lt;h4&gt;普通の解法&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
@@ -136,11 +133,9 @@ dN
 
 
 &lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
-入力をリストにしてからセットにして要素数を数える。当然ですね。&lt;br&gt;
-僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/p&gt;
+入力をリストにしてからセットにして要素数を数える。当然ですね。僕はセットの存在を思い出せなかったので、次のようにしました。&lt;/p&gt;
 &lt;h4&gt;僕の解法&lt;/h4&gt;
-&lt;p&gt;ソートしてからリストのままでなんとか数えあげました。&lt;br&gt;
-明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。&lt;/p&gt;
+&lt;p&gt;ソートしてからリストのままでなんとか数えあげました。明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)])))&lt;/span&gt;
 &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
@@ -153,31 +148,33 @@ dN
 
 
 &lt;h3&gt;問題９：Daydream&lt;/h3&gt;
-&lt;p&gt;問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。&lt;br&gt;
-が、わざわざeraseという単語を選んできたということは、こういうことでしょう。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;問題文
-英小文字からなる文字列 S が与えられます。 Tが空文字列である状態から始め、
-以下の操作を好きな回数繰り返すことで S=T とすることができるか判定してください。
-Tの末尾にdream dreamer erase eraser のいずれかを追加する。
-制約
-1≦|S|≦105
-Sは英小文字からなる。
+&lt;p&gt;問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。が、わざわざeraseという単語を選んできたということは、こういうことでしょう。&lt;/p&gt;
+&lt;hr&gt;
 
-入力
-入力は以下の形式で標準入力から与えられる。
-S
-
-出力
-S=Tとすることができる場合YESを、そうでない場合NOを出力せよ。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;h4&gt;問題文&lt;/h4&gt;
+&lt;p&gt;英小文字からなる文字列&lt;span class="math"&gt;\(S\)&lt;/span&gt; が与えられます。 &lt;span class="math"&gt;\(T\)&lt;/span&gt;が空文字列である状態から始め、
+以下の操作を好きな回数繰り返すことで &lt;span class="math"&gt;\(S=T\)&lt;/span&gt; とすることができるか判定してください。
+- &lt;span class="math"&gt;\(T\)&lt;/span&gt;の末尾に&lt;code&gt;dream dreamer erase eraser&lt;/code&gt; のいずれかを追加する。&lt;/p&gt;
+&lt;h4&gt;制約&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1\leq |S|\leq 10^5\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(S\)&lt;/span&gt;は英小文字からなる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;入力&lt;/h4&gt;
+&lt;p&gt;入力は以下の形式で標準入力から与えられる。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$S$$&lt;/div&gt;
+&lt;h4&gt;出力&lt;/h4&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(S=T\)&lt;/span&gt;とすることができる場合&lt;code&gt;'YES'&lt;/code&gt;を、そうでない場合&lt;code&gt;'NO'&lt;/code&gt;を出力せよ。&lt;/p&gt;
+&lt;hr&gt;
 
 &lt;h4&gt;僕の解法&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;YES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -188,8 +185,8 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
 &lt;p&gt;文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。&lt;br&gt;
 変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。  &lt;/p&gt;
 &lt;h4&gt;別解答&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;eraser&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;erase&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dreamer&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;dream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NO&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;YES&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -197,19 +194,13 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
 
 
 &lt;p&gt;(&lt;a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555"&gt;http://delta114514.hatenablog.jp/entry/2018/03/15/014555&lt;/a&gt; より引用)&lt;br&gt;
-通ればなんでもいいはずなんですが、これはどうでしょう。&lt;br&gt;
-この解答例だと、”d erase r erase e erase a erase m” という文字列(スペースは抜いてください)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。&lt;br&gt;
-(嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)  &lt;/p&gt;
+通ればなんでもいいはずなんですが、これはどうでしょう。この解答例だと、&lt;code&gt;'d erase r erase e erase a erase m'&lt;/code&gt; という文字列(スペースは抜いてください)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。(嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)&lt;/p&gt;
 &lt;h2&gt;初学者にとっての競技プログラミング&lt;/h2&gt;
-&lt;p&gt;解いてみた感想ですが、やはり考えるのは楽しいです。久々に数学的な頭の使い方をして懐かしさも覚えました。&lt;br&gt;
-また、何より、競技プログラミングは初学者にかなり便利なものだと感じました。&lt;br&gt;
-ほんとに基礎的な部分しか学習してなくても解けるというのは取り組みやすいですし、結果がだせることは嬉しいです。過去問ならネット上にたくさん解説があるのでつまってもなんとかなります。&lt;br&gt;
-他の人のコードを見ることができ、考え方の幅も広がります。上手く書けなかったコードを見直したり、異なった方針で書かれたコードを見るのはいい刺激になります。&lt;br&gt;
-特に基礎の文法に慣れるという点では一番だと思います。基礎を洗練させることは必ずこの先モジュールやパッケージを使っていくにしても、理解して扱えることができ役に立つことでしょう。&lt;br&gt;
-もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;br&gt;
-でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。&lt;br&gt;
-簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。&lt;br&gt;
-もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;
+&lt;p&gt;解いてみた感想ですが、やはり考えるのは楽しいです。久々に数学的な頭の使い方をして懐かしさも覚えました。 また、何より、競技プログラミングは初学者にかなり便利なものだと感じました。ほんとに基礎的な部分しか学習してなくても解けるというのは取り組みやすいですし、結果がだせることは嬉しいです。過去問ならネット上にたくさん解説があるのでつまってもなんとかなります。&lt;/p&gt;
+&lt;p&gt;他の人のコードを見ることができ、考え方の幅も広がります。上手く書けなかったコードを見直したり、異なった方針で書かれたコードを見るのはいい刺激になります。 特に基礎の文法に慣れるという点では一番だと思います。基礎を洗練させることは必ずこの先モジュールやパッケージを使っていくにしても、理解して扱えることができ役に立つことでしょう。&lt;/p&gt;
+&lt;p&gt;もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;/p&gt;
+&lt;p&gt;でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。&lt;/p&gt;
+&lt;p&gt;簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -271,263 +262,32 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="Tech_archive"></category><category term="競技プログラミング"></category><category term="Atcoder"></category><category term="Python"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="oumpy.github.io/articles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
-pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
-まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
-読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
-&lt;p&gt;2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
-当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
-分散については立山さんのノートを参考にどうぞ。
-当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
-余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
-その仮定が怪しいときはノンパラメトリックな検定を選びます。
-まあこのへんは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
-&lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
-BEST(Bayesian estimation supersedes the t-test)
-というかっこいい名前です。
-2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
-を推論します。つまり、6つのパラメーターを推論します。
-ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。
-ベイズ推論とか統計モデリングってこんなんなんやっていうのもなんとなくわかると思うので、
-とりあえず下のnotebookを開いてみてください。&lt;/p&gt;
-&lt;p&gt;ipynbはこちら
-↓↓↓↓↓
-http://nbviewer.jupyter.org/gist/yyoshiaki/255d392ae32d258cfdf19cfad855b8fb
-余談に余談を重ねますが、
-ipynbの公開方法はhtmlやpdfにexportしたり、いろいろありますが、
-少し凝った方法で公開してみました。
-githubのgistという機能を用いて、公開し、それをnbviewerに渡してみました。
-スマホでもみれていいですね。
-&lt;a href="http://kasoutuuka.org/jupyter-notebook"&gt;参考HP&lt;/a&gt;&lt;/p&gt;</content><category term="Tech_archive"></category><category term="statistics"></category></entry><entry><title>(論文まとめ)Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="oumpy.github.io/articles/2019/04/breast_cancer_detection.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/breast_cancer_detection.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="http://arxiv.org/abs/1808.08273"&gt;Improving Breast Cancer Detection using Symmetry Information with Deep Learning&lt;/a&gt;&lt;br&gt;
-放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCNNモデルを提案&lt;br&gt;
-arxiv 2018.08&lt;br&gt;
-MICCAI (医療画像解析のトップ会議) 2018 採択&lt;br&gt;
-1st authorは放射線科医&lt;/p&gt;
-&lt;p&gt;データセット&lt;br&gt;
-マンモグラフィー7k症例, 正常4k, 悪性腫瘍3k&lt;br&gt;
-放射線専門医により腫瘍領域マスクをアノテーションした&lt;br&gt;
-正常乳房は2年フォローして乳がん発症が無かったことを確認&lt;br&gt;
-乳がん乳房は腫瘍領域を生検し悪性腫瘍であるとすべて診断されている&lt;br&gt;
-非公開データ&lt;/p&gt;
-&lt;p&gt;前処理&lt;br&gt;
-従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)&lt;br&gt;
-候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)&lt;br&gt;
-左右差を比較するために反対側の領域を切り出し (Fig.1, 青枠)&lt;br&gt;
-切り出した領域に腫瘍のマスク領域が含まれていれば悪性腫瘍のラベルを割り当てる  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Fig. 1" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"&gt;&lt;/p&gt;
-&lt;p&gt;Fig. 1&lt;/p&gt;
-&lt;p&gt;モデル&lt;br&gt;
-baseline model: 標準的なCNN (VGG like)&lt;br&gt;
-symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Fig. 2" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"&gt;&lt;/p&gt;
-&lt;p&gt;結果&lt;/p&gt;
-&lt;p&gt;&lt;img alt="AUC table" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"&gt;&lt;/p&gt;
-&lt;p&gt;AUCがわずかに改善 (有意差なし)&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Fig. 3a" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"&gt;&lt;/p&gt;
-&lt;p&gt;Fig. 3a&lt;br&gt;
-FROC曲線(偽陽性率を横軸, 感受性を縦軸) で比較すると有意に提案手法がよかった&lt;/p&gt;
-&lt;p&gt;考察&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Fig. 4" src="oumpy.github.io/articles/2019/04/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"&gt;&lt;/p&gt;
-&lt;p&gt;Fig. 4&lt;br&gt;
-a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;br&gt;
-b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;br&gt;
-暗めの悪性腫瘍, 明るい正常像は誤判定しやすいがsymmetry modelは左右の比較によって正しく判定していることが読み取れる&lt;/p&gt;
-&lt;p&gt;読んだ感想&lt;br&gt;
-性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>クラスター分析</title><link href="oumpy.github.io/articles/2019/04/cluster_analysis.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/cluster_analysis.html</id><summary type="html"></summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
-勉強し始めて数時間ですが、少しまとめてみたいと思います。&lt;/p&gt;
-&lt;p&gt;簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
-あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。&lt;/p&gt;
-&lt;p&gt;グループ分けの対象
- サンプルを分類するのか、変数を分類するのか
-分類の形式（種類、生成）
- 階層的方法か非階層的方法か
-分類に用いる対象間の距離（類似度）
- ユークリッド距離、マハラノビス距離、コサイン距離 ・・・
-クラスターの合併方法（クラスター間の距離の測定方法）
- ウォード法、群平均法、最短距離法、最長距離法・・・&lt;/p&gt;
-&lt;p&gt;クラスター分類するにはここら辺を決めなくてはいけません。
-特に後ろ二つが馴染みがなく難しい。。。&lt;/p&gt;
-&lt;p&gt;階層的クラスタリングを可視化する代表的な方法にデンドログラムがあります。
-Scikit-learnのirisデータセットで試しにやってみます。
-調べたところ、scikit-learnでデンドログラム描写はできないみたいだったので、
-Scipyからimportして使います。
-（Scipyのクラスタリングアルゴリズムはscikit-learnのアルゴリズムを若干違うみたいです。）
-上で書いた後ろ２つを以下で指定しています。
-linkage_result = linkage(iris_df, method='ward', metric='euclidean')
- ：ウォード法 x ユークリッド距離&lt;/p&gt;
-&lt;p&gt;縦軸がクラスタ間距離です。
-setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。&lt;/p&gt;
-&lt;p&gt;イメージング画像でクラスタリングしたいなあとか思っているんですが、
-なかなかサンプル数とか特徴量の問題で難しそう。&lt;/p&gt;
-&lt;p&gt;うまく特徴がつかめるような解析がしたいなあ。&lt;/p&gt;
-&lt;p&gt;頑張って勉強してみます。
-何かいいサイトや参考資料があったら教えてください。&lt;/p&gt;
-&lt;p&gt;参考資料
-https://business.nikkeibp.co.jp/atclbdt/15/258678/071500002/?ST=print&lt;/p&gt;
-&lt;p&gt;クラスタリングの注意点が書かれてました。
-http://www.kamishima.net/jp/clustering/&lt;/p&gt;
-&lt;p&gt;Pythonではじめる機械学習 オライリー社&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>Common Workflow Language入門</title><link href="oumpy.github.io/articles/2019/04/cwl.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/cwl.html</id><summary type="html"></summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
-&lt;h2&gt;CWLって？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="cwl" src="https://github.com/common-workflow-language/cwl-website/blob/master/site/CWL-Logo-Header.png?raw=true"&gt;&lt;/p&gt;
-&lt;p&gt;一言で言うと、bioinformatics処理の自動化です。どういうことかもうちょっと詳しく見てみましょう。&lt;/p&gt;
-&lt;p&gt;&amp;gt;ソフトウェアを組み合わせて構成される一連の作業手順 (ワークフロー) を記述するための仕組みや言語、GUI ソフトウェアは既に多く存在します。しかし、それらは特定の実行環境 (ハードウェア、ソフトウェア) に依存したものであり、異なる環境の間でワークフローを共有、再実行することは困難です。この問題を解決するために、異なるワークフロー実行ソフトウェア (実行エンジン) の間で共通してインポート/エクスポートできるフォーマットを目指して、Common Workflow Language (CWL) の開発が始まりました。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/pitagora-galaxy/cwl/wiki/CWL-Start-Guide-JP"&gt;素晴らしい日本語ドキュメント&lt;/a&gt;から取ってきました。要はbioinformaticsなど、複数のソフトの連携が必要な処理を自動化、共有がスムーズになるような仕組みです。ローカルでテストして、サーバーやクラウドに持っていくのも簡単です。最近はSangerやBroad Institute(ハーバードとMITの共同研究施設)などでも使われているとのことです。&lt;/p&gt;
-&lt;p&gt;まずは&lt;strong&gt;&lt;a href="https://www.youtube.com/embed/86eY8xs-Vo8?cc_load_policy=1&amp;amp;cc_lang_pref=ja&amp;amp;autoplay=1"&gt;60秒でわかるCWL - youtube&lt;/a&gt;&lt;/strong&gt;をみてください。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;.cwl&lt;/code&gt;で記述できるのはtoolとworkflowの二種類です。toolは例えばSTARやkallistoなど一つのツールを一つのcwlファイルに記述します。workflowはそれらのtoolをbindして実際のworkflowにします。更に、workflowをnestして新しいworkflowを作ったりも出来ます。&lt;/p&gt;
-&lt;h2&gt;始め方&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href="https://github.com/pitagora-galaxy/cwl/wiki/CWL-Start-Guide-JP"&gt;素晴らしい日本語ドキュメント&lt;/a&gt;を読みましょう。10分もあれば読めると思います。&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt;をやってみましょう。1時間ほどです。&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.commonwl.org/user_guide/"&gt;user guide&lt;/a&gt;をやりましょう。3時間ほどで終わるように設計されています。(理論値)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;CWLのここがすごい&lt;/h2&gt;
-&lt;p&gt;入門は各サイトにお任せするとして、今回は私がCWLをさわってみてすごいと思ったところをまとめてみます。素人目線です。&lt;/p&gt;
-&lt;h3&gt;rabix composerのGUIがきれいすぎる&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="rabix gif" src="https://github.com/rabix/composer/raw/master/doc/images/workflows.gif"&gt;&lt;/p&gt;
-&lt;p&gt;画像はbioinformaticsでお馴染みのSTARをrabix composerで操っているところです。&lt;a href="http://rabix.io/"&gt;rabix composer&lt;/a&gt;を使えば、GUIで直感的にCWLが触れます。更に出来たworkflowをクラウドやサーバーにそのまま持っていってCLI越しに使うことが出来ます。&lt;/p&gt;
-&lt;h3&gt;dockerをベースにして完全にreproducibleにできる&lt;/h3&gt;
-&lt;p&gt;いかにも今どきなのですが、toolの記述はすべてdockerのコンテナを使って記述することが出来ます。つまり、環境が変わってインストールし直す手間がまったく無いということです。すばらしいですね。さらに&lt;code&gt;--user-space-docker-cmd=udocker&lt;/code&gt;というオプション一つで、udockerというUser権限しか無い環境でも使えるdockerを使って動かすことができるようです。&lt;/p&gt;
-&lt;h3&gt;すでにいろいろなソフトのcwlが出来ている&lt;/h3&gt;
-&lt;p&gt;Communityで管理されている&lt;a href="https://github.com/common-workflow-language/workflows"&gt;CWL Tools &amp;amp; Workflows&lt;/a&gt;があります。ほかにもDBCLS太田さんの管理されている&lt;a href="https://github.com/pitagora-galaxy/cwl"&gt;Pitagora Workflows in CWL&lt;/a&gt;もいろいろ揃っています。&lt;/p&gt;
-&lt;h3&gt;cwltoolの安定感がすごい&lt;/h3&gt;
-&lt;p&gt;出来たcwlファイルをCLI環境で使うにはcwltoolを使います。感動したのはヘルプが自動で生成されるところ。しかも、pythonで書かれていてpythonに組み込むことも出来ます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cwltool.factory&lt;/span&gt;
-&lt;span class="n"&gt;fac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cwltool&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;factory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Factory&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fac&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;echo.cwl&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# result[&amp;quot;out&amp;quot;] == &amp;quot;foo&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;日本人contributerが多い&lt;/h3&gt;
-&lt;p&gt;困ったときに助けてくれるやさしいcontributerの方々が日本に何人かいます。また、日本語ドキュメントも多くてとても助かります。更に、開発者の&lt;a href="https://twitter.com/biocrusoe"&gt;Michael R. Crusoe&lt;/a&gt;は来日しており、&lt;a href="https://twitter.com/hashtag/CommonWLjp?src=hash"&gt;#CommonWLjp&lt;/a&gt;などでCWLの輪を広げています。&lt;/p&gt;
-&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;On my way to the 11th &lt;a href="https://twitter.com/NBDC_info?ref_src=twsrc%5Etfw"&gt;@NBDC_info&lt;/a&gt; / &lt;a href="https://twitter.com/dbcls?ref_src=twsrc%5Etfw"&gt;@dbcls&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/biohack18?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#biohack18&lt;/a&gt; (with a week long stop in Tokyo for &lt;a href="https://twitter.com/hashtag/usegalaxyjp?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#usegalaxyjp&lt;/a&gt; meeting and other &lt;a href="https://twitter.com/hashtag/CommonWL?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#CommonWL&lt;/a&gt; presentations and a bilingual workshop) &lt;a href="https://t.co/W4gsO9bnA1"&gt;pic.twitter.com/W4gsO9bnA1&lt;/a&gt;&lt;/p&gt;&amp;mdash; Michael R. Crusoe (@biocrusoe) &lt;a href="https://twitter.com/biocrusoe/status/1069104245100748801?ref_src=twsrc%5Etfw"&gt;2018年12月2日&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href="https://platform.twitter.com/widgets.js"&gt;https://platform.twitter.com/widgets.js&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;kallistoをCWL + Rabix Composerで試してみる&lt;/h2&gt;
-&lt;p&gt;まずは実際の作業工程を見てみましょう。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="gif" src="https://github.com/yyoshiaki/cwl_user_guide/blob/master/kallisto/kallisto.gif?raw=true"&gt;&lt;/p&gt;
-&lt;p&gt;ちゃんとkallistoのoutputが生成されていますね！データは&lt;a href="https://github.com/yyoshiaki/cwl_user_guide/tree/master/kallisto"&gt;github&lt;/a&gt;にまとめておきました。テスト用のシーケンスデータも付けてあるので、クローンして遊んでみてください。&lt;code&gt;kallisto-index.cwl&lt;/code&gt;と&lt;code&gt;kallisto-quant.cwl&lt;/code&gt;は公式の&lt;a href="https://github.com/common-workflow-language/workflows"&gt;CWL Tools &amp;amp; Workflows&lt;/a&gt;から取ってきました。もちろんこれらはdocker imageを使っています。新しいworkflowを作ってみましょう。動画のように直感的にできると思います。&lt;/p&gt;
-&lt;p&gt;今回、errorが出て進まなかった場所があったのですが、石井さん、西田さんの応援や、cwlの作者のMichaelやRabixの作者のKaushikがerrorに対処してくれました。&lt;a href="https://github.com/rabix/composer/issues/418#issuecomment-444257454"&gt;issue : kallisto workflow is incompatible with Rabix composer #418&lt;/a&gt;この対応のフレンドリーさはbioinformaticsならではですね。&lt;/p&gt;
-&lt;h2&gt;workflow業界のあれこれ&lt;/h2&gt;
-&lt;p&gt;ここで一旦workflowについて広く見てみましょう。ハーバードを始めとする海外の研究所ではサーバーを研究所ごとに管理するのに変えて、クラウドの利用が盛んになってきています。そういう時代感もあり、workflowやコンテナなど、reproducibleな環境の整備というのはますます重要視されてきています。workflow業界ではcwlの他に古き良き&lt;a href="http://wiki.pitagora-galaxy.org/wiki/index.php/Workflows"&gt;Galaxy&lt;/a&gt;、Broad Instituteが開発している&lt;a href="https://software.broadinstitute.org/wdl/"&gt;WDL&lt;/a&gt;や&lt;a href="https://www.nextflow.io/"&gt;nextflow&lt;/a&gt;、Pythonで書かれている&lt;a href="https://snakemake.readthedocs.io/en/stable/"&gt;Snakemake&lt;/a&gt;など、さまざまな選択肢があります。どのworkflowが好きか、Cambridgeの&lt;a href="https://twitter.com/@AlbertVilella"&gt;@AlbertVilella&lt;/a&gt;が世界中のbioinformaticianにアンケートをとっていました。&lt;/p&gt;
-&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;90 responses in &lt;a href="https://t.co/hbaY7ShocR"&gt;https://t.co/hbaY7ShocR&lt;/a&gt; &lt;a href="https://twitter.com/nextflowio?ref_src=twsrc%5Etfw"&gt;@nextflowio&lt;/a&gt; &lt;a href="https://twitter.com/SBGenomics?ref_src=twsrc%5Etfw"&gt;@SBGenomics&lt;/a&gt; &lt;a href="https://twitter.com/commonwl?ref_src=twsrc%5Etfw"&gt;@commonwl&lt;/a&gt; Snamemake &lt;a href="https://t.co/1kc1DaXdBa"&gt;pic.twitter.com/1kc1DaXdBa&lt;/a&gt;&lt;/p&gt;&amp;mdash; Albert Vilella (@AlbertVilella) &lt;a href="https://twitter.com/AlbertVilella/status/1070219898306084865?ref_src=twsrc%5Etfw"&gt;2018年12月5日&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href="https://platform.twitter.com/widgets.js"&gt;https://platform.twitter.com/widgets.js&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;No votes so far for &lt;a href="https://twitter.com/ensembl?ref_src=twsrc%5Etfw"&gt;@ensembl&lt;/a&gt; Hive, Apache Taverna or &lt;a href="https://twitter.com/arvados?ref_src=twsrc%5Etfw"&gt;@arvados&lt;/a&gt; , even though we know they have plenty of users &lt;a href="https://t.co/Db2el8vPDt"&gt;https://t.co/Db2el8vPDt&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/Bioinformatics?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Bioinformatics&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/Workflows?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Workflows&lt;/a&gt; &lt;a href="https://t.co/hbaY7ShocR"&gt;https://t.co/hbaY7ShocR&lt;/a&gt;&lt;/p&gt;&amp;mdash; Albert Vilella (@AlbertVilella) &lt;a href="https://twitter.com/AlbertVilella/status/1070579264192462849?ref_src=twsrc%5Etfw"&gt;2018年12月6日&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href="https://platform.twitter.com/widgets.js"&gt;https://platform.twitter.com/widgets.js&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;どうやら一番twitter界隈のbioinformaticianはnextflowが好きなようです。ただ、下のspreadsheetを見ると、githubではGalaxy,bcbioについで三番目に盛んなようです。&lt;/p&gt;
-&lt;p&gt;他にも、cwlやnextflowを取り上げたgenome解析の論文も出ていたりします。&lt;/p&gt;
-&lt;p&gt;&amp;gt;&lt;a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2446-1"&gt;Baichoo, S. et al. Developing reproducible bioinformatics analysis workflows for heterogeneous computing environments to support African genomics. BMC Bioinformatics 19, 457 (2018).&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;結論　みんなでCWLを使おう！&lt;/h2&gt;
-&lt;p&gt;医学部生にできるだけわかりやすく書いてみました。みんなでcwlを使ってどんどん解析を楽にしましょう！&lt;/p&gt;
-&lt;p&gt;国試も自動化できたらなあ。。。&lt;/p&gt;
-&lt;h2&gt;参考資料&lt;/h2&gt;
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="競技プログラミング"></category></entry><entry><title>医師国家試験問題自動生成AI</title><link href="oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al.  On the Generation of Medical Question-Answer Pairs. &lt;em&gt;arXiv&lt;/em&gt;. 2018.
+&lt;a href="http://arxiv.org/abs/1811.00681"&gt;http://arxiv.org/abs/1811.00681&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;Tensent Mediacal AI lab Internからの論文。&lt;br&gt;
+Deep learning技術により質問文に対して回答するAI (&lt;strong&gt;question answering, QA&lt;/strong&gt;)が発展している。しかし、QAを医療に応用するためにはAIを学習させるためのデータが不足している。そこで質問文と解答のペアを自動生成するモデルを提案した。&lt;/p&gt;
+&lt;h2&gt;手法&lt;/h2&gt;
+&lt;h3&gt;Key Phrase Detector&lt;/h3&gt;
+&lt;p&gt;質問文の各フレーズが解答の決め手となるキーフレーズであるかを評価する。キーフレーズであるかどうかは特定の解答に対して高頻度で質問文に出現するフレーズがキーフレーズであるとしてdetectorを学習させる。例えば「日本脳炎」が解答である場合「項部硬直」などがキーフレーズとなる。&lt;/p&gt;
+&lt;h3&gt;Conditional Variational Autoencoder (CVAE)&lt;/h3&gt;
+&lt;p&gt;キーフレーズは維持しつつ、それ以外のフレーズを生成モデルCVAEによって言い換える。これによって答が同じな新たな質問文が作られる。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2019/04/images/doctor_exam_ai_figs/doctor_exam_ai.png"&gt;&lt;/p&gt;
+&lt;h2&gt;データ&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.commonwl.org/"&gt;CWL公式ページ&lt;/a&gt; : リンク集がついている。&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt; : 二階堂研石井さんのスライド。わかりやすいです。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>(論文まとめ)医師国家試験問題自動生成AI</title><link href="oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;On the Generation of Medical Question-Answer Pairs.&lt;br&gt;
-Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. arXiv. 2018.&lt;br&gt;
-http://arxiv.org/abs/1811.00681  &lt;/p&gt;
-&lt;p&gt;上記論文を軽く紹介。&lt;br&gt;
-Tensent Mediacal AI lab Internからの論文。&lt;br&gt;
-Deep learning技術により質問文に対して回答するAI (question answering, QA)が発展している。しかし、QAを医療に応用するためにはAIを学習させるためのデータが不足している。そこで質問文と解答のペアを自動生成するモデルを提案した。&lt;/p&gt;
-&lt;p&gt;手法&lt;br&gt;
-Key Phrase Detector&lt;br&gt;
-質問文の各フレーズが解答の決め手となるキーフレーズであるかを評価する。キーフレーズであるかどうかは特定の解答に対して高頻度で質問文に出現するフレーズがキーフレーズであるとしてdetectorを学習させる。例えば「日本脳炎」が解答である場合「項部硬直」などがキーフレーズとなる。
-Conditional Variational Autoencoder (CVAE)&lt;br&gt;
-キーフレーズは維持しつつ、それ以外のフレーズを生成モデルCVAEによって言い換える。これによって答が同じな新たな質問文が作られる。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Overview of the proposed framework" src="oumpy.github.io/articles/2019/04/images/doctor_exam_ai_figs/doctor_exam_ai.png"&gt;&lt;/p&gt;
-&lt;p&gt;データ&lt;br&gt;
-中国医師国家試験18,798問&lt;br&gt;
-中国のWikipedia風医療サイト (http://xywy.com/)&lt;br&gt;
-医学辞書19冊&lt;br&gt;
-医学論文2,130,128本&lt;br&gt;
-医学専門書518冊  &lt;/p&gt;
-&lt;p&gt;実験結果&lt;br&gt;
-アルゴリズムによる評価、人間による評価ともにベースラインを上回った。&lt;/p&gt;
-&lt;p&gt;読んだ感想&lt;br&gt;
-生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>LinuxでのBioinformatics環境構築_01</title><link href="oumpy.github.io/articles/2019/04/environment_bioinformatics.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;お疲れ様です。ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
-&lt;p&gt;今回は&lt;strong&gt;＜&lt;em&gt;Kallisto&lt;/em&gt;を用いた&lt;em&gt;RNA-seq&lt;/em&gt;解析パイプライン＞&lt;/strong&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、&lt;a href="https://pythonoum.wordpress.com/2018/10/16/kallisto%E3%82%92%E7%94%A8%E3%81%84%E3%81%9Frna-seq%E8%A7%A3%E6%9E%90%E3%83%91%E3%82%A4%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3/"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;に進むことができます。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ubuntuではpython2.7がデフォルト&lt;/strong&gt;となっているので、python3をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;check the version of python.&lt;/h1&gt;
-&lt;p&gt;$ python --version&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Python 2.7.15rc1
-[/code]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href="https://www.anaconda.com/download/#macos"&gt;Anaconda&lt;/a&gt;のインストーラーをダウンロードします。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
-$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;export PATH=/home/user/anaconda3/bin:$PATH&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; ~/.bashrc
-$ conda -V
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;[code lang="text"]
-$ python --version&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Python 3.6.6+
-[/code]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
-Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;Download a Miniconda package for linux python3&lt;/h1&gt;
-&lt;p&gt;$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-$ bash Miniconda3-latest-Linux-x86_64.sh
-[/code]&lt;/p&gt;
-&lt;p&gt;EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）&lt;/h1&gt;
-&lt;p&gt;$ conda -h
-[/code]&lt;/p&gt;
-&lt;p&gt;biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ conda config --add channels conda-forge
-$ conda config --add channels defaults
-$ conda config --add channels r
-$ conda config --add channels bioconda
-[/code]&lt;/p&gt;
-&lt;p&gt;それでは早速ツールをインストールしていきましょう。基本 conda install ???でインストールが完了し正常に動作していきます。非常に便利ですね。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ conda install parallel-fastq-dump
-$ conda install fastqc
-$ conda install multiqc
-$ conda install trimmomatic
-$ conda install kallisto
-[/code]&lt;/p&gt;
-&lt;p&gt;参照：http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;R&lt;/em&gt;ツールのインストール&lt;/strong&gt;
-Rのコンソールを開いて、Rのツールをインストールしていきます。
-Tximportのインストール&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;source("https://bioconductor.org/biocLite.R")
-biocLite("tximport")
-[/code]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;DESeq2のインストール&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;source("https://bioconductor.org/biocLite.R")
-biocLite("DESeq2")
-[/code]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;参照：
-https://bioconductor.org/packages/release/bioc/html/tximport.html
-https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
+&lt;li&gt;中国医師国家試験18,798問&lt;/li&gt;
+&lt;li&gt;中国のWikipedia風医療サイト ([http://xywy.com/])&lt;/li&gt;
+&lt;li&gt;医学辞書19冊&lt;/li&gt;
+&lt;li&gt;医学論文2,130,128本&lt;/li&gt;
+&lt;li&gt;医学専門書518冊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;実験結果&lt;/h2&gt;
+&lt;p&gt;アルゴリズムによる評価、人間による評価ともにベースラインを上回った。&lt;/p&gt;
+&lt;h2&gt;読んだ感想&lt;/h2&gt;
+&lt;p&gt;生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
 &lt;p&gt;動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。&lt;/p&gt;
 &lt;p&gt;(あと、PCがクソザコなので、クラウドがいいかなーと思いました)&lt;/p&gt;
 &lt;h2&gt;対象&lt;/h2&gt;
@@ -628,84 +388,7 @@ https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</conte
 &lt;p&gt;&lt;img alt="" src="oumpy.github.io/articles/2019/04/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
 &lt;h2&gt;終わりに&lt;/h2&gt;
 &lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
-&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>Hamiltonian Descent Methodの要点</title><link href="oumpy.github.io/articles/2019/04/hamiltonian_descent_method.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/hamiltonian_descent_method.html</id><summary type="html"></summary><content type="html">&lt;p&gt;解説自体は&lt;a href="" title="https://omedstu.jimdo.com/2018/09/26/hamiltonian-descent-methods%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E8%A7%A3%E8%AA%AC/"&gt;Hamiltonian Descent Methodsの実装についての解説&lt;/a&gt;に書いたのですが、こちらには要点だけまとめておきます。&lt;/p&gt;
-&lt;h2&gt;要点のまとめ&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="1537941381" src="oumpy.github.io/articles/2019/04/images/hamiltonian_descent_method_figs/1537941381.jpg"&gt;
-- Hamiltonian Descent法を用いると凸関数最適化が高速かつ高精度で行える。
-- 超収束(Super-Convergence, &lt;a href="https://arxiv.org/pdf/1708.07120.pdf"&gt;arxiv&lt;/a&gt;)とは関係ある？論文読んだ限りはなさそう。
-- ニューラルネットワークの最適化に応用するには運動エネルギー関数の研究が必要。
-- なぜ高速に学習できるのか、なぜSGDと比べてニューラルネットワークの学習が不能なのか不明。でも学習できるならもっと実装あるよなと思っています。&lt;/p&gt;
-&lt;h2&gt;アルゴリズム（1つ目の陽解法）&lt;/h2&gt;
-&lt;p&gt;パラメータ&lt;span class="math"&gt;\(x\)&lt;/span&gt;以外に運動量のパラメータ&lt;span class="math"&gt;\(p\)&lt;/span&gt;を用意します。以下の更新式に従ってパラメータを更新します。
-&lt;/p&gt;
-&lt;div class="math"&gt;$$
-p_{i+1} = \delta p_i - \epsilon\delta\nabla f(x_i)\\
-x_{i+1} = \delta x_i + \epsilon\nabla k(p_{i+1})
-$$&lt;/div&gt;
-&lt;p&gt;
-ここで&lt;span class="math"&gt;\(x_t\)&lt;/span&gt;は時刻&lt;span class="math"&gt;\(t\)&lt;/span&gt;における解、&lt;span class="math"&gt;\(p_t\)&lt;/span&gt;は時刻tにおける運動量、&lt;span class="math"&gt;\(k\)&lt;/span&gt;は運動エネルギー関数、&lt;span class="math"&gt;\(f\)&lt;/span&gt;は最小化したい関数（位置エネルギー関数）です。2回微分が必要ですが、運動エネルギー関数&lt;span class="math"&gt;\(k(p)\)&lt;/span&gt;を解析的に微分可能にしておけば、&lt;span class="math"&gt;\(\nabla k(p)\)&lt;/span&gt;を定義すれば微分は1回でokです。&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
+&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
 &lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
@@ -1109,573 +792,7 @@ https://scilifelab.github.io/courses/rnaseq/labs/kallisto&lt;/p&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="oumpy.github.io/articles/2019/04/kaplan_meier_curve.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/kaplan_meier_curve.html</id><summary type="html"></summary><content type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="はじめに"&gt;はじめに&lt;a class="anchor-link" href="#はじめに"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="書こうと思ったきっかけ"&gt;書こうと思ったきっかけ&lt;a class="anchor-link" href="#書こうと思ったきっかけ"&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
-だいたいKaplan-Meier曲線が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Kaplan-Meier-曲線とは"&gt;Kaplan-Meier 曲線とは&lt;a class="anchor-link" href="#Kaplan-Meier-曲線とは"&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。
-ただ、実際には問題がいくつかあって
-&lt;ul&gt;
-    &lt;li&gt;観察期間は限られている(患者さんを何年もフォローすることはできない)&lt;/li&gt;
-    &lt;li&gt;観察不能になることがある(病院移った、他の要因で死亡したなど)&lt;/li&gt;
-    &lt;li&gt;患者さんによって観察開始時間は様々(みんな一緒に罹患したり治療を開始するわけではない)&lt;/li&gt;
-&lt;/ul&gt;
-そういった問題をうまく対処してくれるのがKaplan-Meier曲線。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-Kaplan-Meier曲線の縦軸は累積生存率で、
-
-&lt;img class="alignnone  wp-image-383" src="https://pythonoum.files.wordpress.com/2018/11/latex_d0d85f9c2273fc8543f95f5a06327b6d.png" alt="latex_d0d85f9c2273fc8543f95f5a06327b6d" width="264" height="51" /&gt;
-で表されます。
-ここで  &lt;img class="alignnone  wp-image-381" src="https://pythonoum.files.wordpress.com/2018/11/latex_20e446658086133d641a66355d77e99a.png" alt="latex_20e446658086133d641a66355d77e99a" width="18" height="21" /&gt;  は時間jにおける死亡者数で  &lt;img class="alignnone  wp-image-380" src="https://pythonoum.files.wordpress.com/2018/11/latex_9d756a5b30d4e9ae460c9c2cdedc8280.png" alt="latex_9d756a5b30d4e9ae460c9c2cdedc8280" width="20" height="17" /&gt;  は時間jにおける生存者数です。
-
-pythonのコードでKaplan-Meier曲線を書いていこうと思います。
-pythonのライブラリにlifelinesという便利なライブラリがあるのでそれを使っていこうと思います。
-
-&lt;code&gt;pip install lifelines&lt;/code&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="データの準備"&gt;データの準備&lt;a class="anchor-link" href="#データの準備"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
-ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [256]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines.plotting&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exponential&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;matplotlib&lt;/span&gt; inline
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;config&lt;/span&gt; InlineBackend.figure_format = 'retina'
-
-&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
-&lt;span class="n"&gt;current_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;48&lt;/span&gt;
-&lt;span class="n"&gt;birth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;actual_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exponential&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exponential&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
-&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;minimum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;actual_lifetimes&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;current_time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;observed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;actual_lifetimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;current_time&lt;/span&gt;
-
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyles&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'--'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'red'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"time"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Births and deaths of our population, at $t=48$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;birthtimes&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Observed lifetimes at time &lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;current_time&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;&lt;img src="http://pythonoum.files.wordpress.com/2018/11/e382abe38397e383a9e383b3e3839ee382a4e383a4e383bce69bb2e7b79ae381abe381a4e38184e381a611.png" width="552" height="455" /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Observed lifetimes at time 48:
- [48 47 27 48 48 40 34  3 46 41 40 48 30 48 40 46 48 34 48 48 15 36 38 31
- 46 22 44 16 42 48 45 19 46 44 31 16 33  9 32 42 11 36 48 48 44 48 14 39
- 37 45]
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-赤線では期間内(t=48)に患者さんが死亡したケース、青線は観測不能になったケースです(観察期間終わったからそれ以上追えない)。
-
-簡単のため、観測不能になったケースは観測期間が終わった場合のみとします。観察期間の長さでソートすると、下の図のようになります。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [237]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'time'&lt;/span&gt;
-&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;result_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
-
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c1"&gt;#plt.vlines(22, 0, 30, lw=2, linestyles='--',colors='red')&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"time"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Births and deaths of our population, at $t=22$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result_lifetimes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;&lt;img src="http://pythonoum.files.wordpress.com/2018/11/e382abe38397e383a9e383b3e3839ee382a4e383a4e383bce69bb2e7b79ae381abe381a4e38184e381a621.png" width="552" height="455" /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="実際の計算"&gt;実際の計算&lt;a class="anchor-link" href="#実際の計算"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [238]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[238]:&lt;/div&gt;
-&lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
-&lt;div&gt;
-&lt;table class="dataframe" border="1"&gt;
-&lt;thead&gt;
-&lt;tr style="text-align:right;"&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;time&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;True&lt;/th&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th&gt;False&lt;/th&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-Trueが患者さんが死亡したのを観測できた事例、Falseが観察期間終了により観測できなかった事例です。観察期間の短い順に見ていくと、
-
-t=1のとき、50人のうち2人が死亡,1人が打ち切り。
-
-t=2のとき、死亡者、打ち切りなし。
-t=3の時は４７人のうち１人が死亡。
-
-t=4の時は46人のうち２人が死亡、２人が打ち切り。
-
-t=5の時は42人中１人死亡、３人が打ち切り。
-よって  &lt;img class="alignnone  wp-image-379" src="https://pythonoum.files.wordpress.com/2018/11/latex_1c2bcee94b7caf339ec07fd8bd6b2e53.png" alt="latex_1c2bcee94b7caf339ec07fd8bd6b2e53" width="29" height="17" /&gt;  は
-&lt;img class="alignnone size-full wp-image-382" src="https://pythonoum.files.wordpress.com/2018/11/latex_a5574b96513bc29d4f475ee3dd106ce1.png" alt="latex_a5574b96513bc29d4f475ee3dd106ce1" width="2574" height="101" /&gt;
-となります。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="結果のプロット"&gt;結果のプロット&lt;a class="anchor-link" href="#結果のプロット"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-ここら辺の計算と描画はライブラリに任せます。
-
-やってることは各期間の点における累積生存率をプロットして線を横に伸ばすだけです。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [233]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="n"&gt;kmf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result_lifetimes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Survival function of political regimes'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;&lt;img src="http://pythonoum.files.wordpress.com/2018/11/e382abe38397e383a9e383b3e3839ee382a4e383a4e383bce69bb2e7b79ae381abe381a4e38184e381a631.png" width="549" height="454" /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="乳がんデータセットを用いて解析を行った例"&gt;乳がんデータセットを用いて解析を行った例&lt;a class="anchor-link" href="#乳がんデータセットを用いて解析を行った例"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。
-
-ここから使われる統計手法はLog-rank検定、一般化wilcoxon検定など様々ですが、ここではcox比例ハザードを使った回帰分析を例にして解析を進めていきます。
-
-cox比例ハザードモデルに関する説明は&lt;a href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/Cox.pdf"&gt;ここ&lt;/a&gt;がわかりやすかった。
-
-lifelinesライブラリに乳がんの予後のデータセットがあるのでそれを用います。
-
-乳がんの治療でどのような因子が予後のに影響を及ぼすのか調べてみます。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [263]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="c1"&gt;# hormone therapyの有無で2群に分けKaplan-Meier曲線を描いた例&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines.datasets&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;load_gbsg2&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_gbsg2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'horTh'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="n"&gt;kmf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'cens'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-            &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'hormone therapy ='&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="c1"&gt;# 描画する Axes を指定。None を渡すとエラーになるので場合分け&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Kaplan-Meier Curve'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;&lt;img src="http://pythonoum.files.wordpress.com/2018/11/e382abe38397e383a9e383b3e3839ee382a4e383a4e383bce69bb2e7b79ae381abe381a4e38184e381a641.png" width="549" height="454" /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [264]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;CoxPHFitter&lt;/span&gt;
-&lt;span class="n"&gt;cph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;CoxPHFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_dummies&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'horTh'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;'menostat'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;drop_first&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'tgrade'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;inplace&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;duration_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'cens'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show_progress&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;Out[264]:&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Iteration 1: norm_delta = 0.63685, step_size = 0.95000, ll = -1788.10474, seconds_since_start = 0.0
-Iteration 2: norm_delta = 0.28516, step_size = 0.95000, ll = -1781.26562, seconds_since_start = 0.0
-Iteration 3: norm_delta = 0.09501, step_size = 0.95000, ll = -1745.22376, seconds_since_start = 0.1
-Iteration 4: norm_delta = 0.02423, step_size = 0.95000, ll = -1740.89966, seconds_since_start = 0.1
-Iteration 5: norm_delta = 0.00263, step_size = 0.95000, ll = -1740.66192, seconds_since_start = 0.1
-Iteration 6: norm_delta = 0.00015, step_size = 0.95000, ll = -1740.65941, seconds_since_start = 0.1
-Iteration 7: norm_delta = 0.00001, step_size = 0.95000, ll = -1740.65940, seconds_since_start = 0.1
-Convergence completed after 7 iterations.&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [265]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print_summary&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;Out[265]:&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;n=686, number of events=299
-
-                coef  exp(coef)  se(coef)       z      p  lower 0.95  upper 0.95     
-age          -0.0105     0.9896    0.0093 -1.1296 0.2587     -0.0287      0.0077     
-tsize         0.0084     1.0084    0.0039  2.1173 0.0342      0.0006      0.0161    *
-pnodes        0.0498     1.0511    0.0074  6.7329 0.0000      0.0353      0.0643  ***
-progrec      -0.0026     0.9974    0.0006 -4.4522 0.0000     -0.0037     -0.0015  ***
-estrec        0.0002     1.0002    0.0005  0.3843 0.7008     -0.0007      0.0011     
-horTh_yes    -0.3643     0.6947    0.1284 -2.8371 0.0046     -0.6159     -0.1126   **
-menostat_Pre -0.2767     0.7583    0.1822 -1.5191 0.1287     -0.6338      0.0803     
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Concordance = 0.687
-Likelihood ratio test = 94.891 on 7 df, p=0.00000
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [266]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;
-&lt;pre&gt;&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[266]:&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;&lt;img src="http://pythonoum.files.wordpress.com/2018/11/e382abe38397e383a9e383b3e3839ee382a4e383a4e383bce69bb2e7b79ae381abe381a4e38184e381a651.png" width="623" height="434" /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="まとめ"&gt;まとめ&lt;a class="anchor-link" href="#まとめ"&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-
-Kaplan-Meier曲線がどのように作られているか分かった。
-
-pythonを用いて割と簡単に統計解析ができた。
-
-統計モデルについても定義からもう少し詳しく説明できたらよかったが、latex使うのめんどくさくて諦めた。リンク参考にしてください。
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;h3 class="text_cell_render border-box-sizing rendered_html"&gt;参考HP&lt;a class="anchor-link" href="#参考文献"&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;a href="https://lifelines.readthedocs.io/en/latest/index.html"&gt;lifelines公式HP&lt;/a&gt;
-&lt;a href="https://istat.co.jp/sk_commentary/kaplan_meier"&gt;相関、検定の手法別解説&lt;/a&gt;
-&lt;a href="http://www.emalliance.org/%E6%9C%AA%E5%88%86%E9%A1%9E/%E7%AC%AC%EF%BC%97%E5%9B%9Eema-jc%E3%80%80%E8%A7%A3%E8%AA%AC%E3%80%80%E3%82%AB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%9E%E3%82%A4%E3%83%A4%E3%83%BC%E7%94%9F%E5%AD%98%E6%9B%B2%E7%B7%9A"&gt;EM Aliance&lt;/a&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="Tech_archive"></category><category term="statistics"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="oumpy.github.io/articles/2019/04/macs2_deeptools.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/macs2_deeptools.html</id><summary type="html"></summary><content type="html">&lt;h3&gt;ChIP-seqとは&lt;/h3&gt;
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="oumpy.github.io/articles/2019/04/macs2_deeptools.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/macs2_deeptools.html</id><summary type="html"></summary><content type="html">&lt;h3&gt;ChIP-seqとは&lt;/h3&gt;
 &lt;p&gt;全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピジェネティクスが挙げられ、DNAメチル化やクロマチン修飾などが知られている。ChIP-seq (chromatin immunoprecipitation sequence) は特異的クロマチン修飾を受けている領域を、抗体を用いて沈降、濃縮させ、どの細胞のどの領域でどういう修飾を受けているのかを調べるために用いられる。&lt;/p&gt;
 &lt;h3&gt;今回のきっかけ&lt;/h3&gt;
 &lt;p&gt;ChIP-seqの解析をする時に便利なフォーマットにbigwigがある。igvで表示したり、coverageを計算したり、様々な用途で使える。詳しくはdrbonobon（第一版）のp118に記載されている。ChIP-seqの解析には&lt;a href="https://github.com/taoliu/MACS"&gt;MACS2&lt;/a&gt;というソフトが良く使われ、bigwigの生成も可能だが、&lt;a href="https://deeptools.readthedocs.io/en/develop/index.html"&gt;deepTools&lt;/a&gt;でも&lt;code&gt;​bamCoverage&lt;/code&gt;や​&lt;code&gt;​bamComapre&lt;/code&gt;機能を使ってbigwigを作ることができる。挙動や使い所の違いを比較しようというのが今回の目的。&lt;/p&gt;
@@ -2061,41 +1178,7 @@ MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた�
 &lt;p&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/hKqjVPmLLGnF0bhn637a_19_gZZ6KJBDceofpi8TVC_NfnhM1rZiZVb8MiBz-TmVv0FtStVpck_3IdL_CmYS52kpQqm0uzGbDWK5xyw1InCRVyLE8ne99FQIuAFm4VkuvpEkEtC-"&gt;&lt;/p&gt;
 &lt;p&gt;これによって、Mock Experimentの&lt;code&gt;.mpileupファイル&lt;/code&gt;と&lt;code&gt;_stat.jsonファイル&lt;/code&gt;を受け取りつつ、最終的なCLIP-seqのテーブルを作ることができ、preprocessは終了となります。下記のようなテーブルが出力され、これをもとにpostprocessに進んでいくことになります。
 &lt;img alt="" src="https://lh3.googleusercontent.com/yb1p70EaelwH-dEGIRhTLnjUoDLgKHSNzqD6dpG9IT9y5fM0LApdvtHKNgmKA73G6HgfflmWkEnoFvm_HEjpIxf4T6Uk15uG4ovIJsG2ILHRGGpXELLQ381BWMkFU6k8AxtSgocl"&gt;&lt;img alt="" src="https://lh4.googleusercontent.com/3bwU07uRrmxRkOJxVPU8N-S11uYBRU3NrRFFrkoDyz_RlXjHgClXH2aDfJ2IU10yV-kURjSGBOR5nsdyaUBrh6C2lkMW3u8C128ktZXIWXniOzjGyIoD68ArK3awsfazmT4bRr2Z"&gt;&lt;/p&gt;
-&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="oumpy.github.io/articles/2019/04/n_number.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/n_number.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;実験計画(シングルセル解析)を考えるときに、臨床研究だとどうだったかなと思うことがあります。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;〈シングルセル解析〉group Aの1000細胞　と　group Bの1000細胞をサブタイピング&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;b&gt;〈臨床研究〉介入Aの結果、心血管イベントありの1000人　と　心血管イベントなしの1000人&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;細胞はヒトの数ほど多彩であり、それを分類するのがシングルセル解析であり、(勿論、データ量の桁が異なりますし、結果を見ているのか背景を見ているのかという違いはありますが)臨床研究のデータ解析の考え方を活かせるように思います。今回はサンプル調整に必要な細胞数(n)の決定に関して、臨床研究での症例数(n)の決定と比較してみました。&lt;/span&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;span style="font-weight:400;"&gt;シングルセル解析での細胞数&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;span style="font-weight:400;"&gt;①実現可能性：金銭面、使用機器のスループットを考慮した細胞数&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;②検出力：統計学的検討により細胞種間の差が充分に検出される症例数であるか&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;③倫理面：ヒトサンプル、あるいはモデル動物サンプルの取り扱い&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;とくに②に関して：&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;分類するclusterに関して過去の文献から予測する。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;想定されるcluster数&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;1clusterあたりの最低細胞数&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;上記の見積もりができれば、&lt;a href="https://satijalab.org/howmanycells" target="_blank" rel="noopener noreferrer"&gt;ウェブサイト&lt;/a&gt;での計算が可能。&lt;/span&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;span style="font-weight:400;"&gt;臨床研究での症例数&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;span style="font-weight:400;"&gt;①実現可能性：それだけの症例数を集めることができるか&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;②検出力：統計学的検討によりoutcomeの差が充分に検出される症例数であるか&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;③倫理面：不必要に多くの被験者を研究に参加させるべきではない&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;とくに②に関して：&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;症例数の予測に必要なものを過去の文献やパイロット研究を行うことで予測する。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;　outcomeの差&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;　データのばらつき(標準偏差)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;上記の見積もりができれば、ソフトウェアでの計算が可能。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://biostat.mc.vanderbilt.edu/wiki/Main/PowerSampleSize" target="_blank" rel="noopener noreferrer"&gt;Power and Sample Size Calculation (PS)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;　シングルセル解析では、やはり値段や機器の問題が大きくなってくるでしょうか。特に細胞種がかなり希少な場合に、細胞数(n)をどんどん増やすしかないとなると、その点が一番気になります。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;　一方で臨床研究では、単施設で可能なのか、多施設共同でないと症例数(n)が集まらないのかという問題は切実です。そしてヒトを対象にする以上、症例数決定の明確な理由が必要です。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.consort-statement.org/media/default/downloads/consort%202010%20checklist.pdf"&gt;CONSORT2010 checklist&lt;/a&gt;&lt;span style="font-weight:400;"&gt;にも記載があります。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;いずれにせよ、事前の文献調査やプレ実験・パイロット研究によって着地点を明確にしておかないと、途中で頓挫してしまい、出るはずの結果がでない事態になりそうです。今後はシングルセル解析で前提となる統計手法に関しても勉強していこうと思っています。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;【参考文献】&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;今日から使える医療統計　(新谷歩, 2015年, 医学書院)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;Tutorial: guidelines for the experimental design of single-cell RNA sequencing studies　(Atefeh Lafzi et el., Nature Protocols volume 13, pages2742–2757 (2018))&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content><category term="Tech_archive"></category><category term="statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>菅波 西田 大森 安水 小川 山田 川島 川崎 平岡 廣瀬 柳澤 淡田 中村 依藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
+&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>菅波 西田 大森 安水 小川 山田 川島 川崎 平岡 廣瀬 柳澤 淡田 中村 依藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/yyoshiaki/auto_counttable_maker"&gt;https://github.com/yyoshiaki/auto_counttable_maker&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;特徴&lt;/h2&gt;
 &lt;p&gt;今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。&lt;/p&gt;
@@ -5159,8 +4242,104 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="Tech_archive"></category><category term="statistics"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="oumpy.github.io/articles/2018/12/animalshogi.html" rel="alternate"></link><published>2018-12-06T00:00:00+09:00</published><updated>2018-12-06T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2018-12-06:oumpy.github.io/articles/2018/12/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
+</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="oumpy.github.io/articles/2019/03/n_number.html" rel="alternate"></link><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:None,2019-03-22:oumpy.github.io/articles/2019/03/n_number.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シングルセル解析での細胞数&lt;/h2&gt;
+&lt;p&gt;① &lt;strong&gt;実現可能性&lt;/strong&gt;：金銭面、使用機器のスループットを考慮した細胞数&lt;br&gt;
+② &lt;strong&gt;検出力&lt;/strong&gt;：統計学的検討により細胞種間の差が充分に検出される症例数であるか&lt;br&gt;
+③ &lt;strong&gt;倫理面&lt;/strong&gt;：ヒトサンプル、あるいはモデル動物サンプルの取り扱い  &lt;/p&gt;
+&lt;p&gt;とくに②に関して：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分類するclusterに関して過去の文献から予測する。&lt;/li&gt;
+&lt;li&gt;想定されるcluster数&lt;/li&gt;
+&lt;li&gt;1clusterあたりの最低細胞数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記の見積もりができれば、ウェブサイトでの計算が可能。&lt;/p&gt;
+&lt;h2&gt;臨床研究での症例数&lt;/h2&gt;
+&lt;p&gt;① &lt;strong&gt;実現可能性&lt;/strong&gt;：それだけの症例数を集めることができるか&lt;br&gt;
+② &lt;strong&gt;検出力&lt;/strong&gt;：統計学的検討によりoutcomeの差が充分に検出される症例数であるか&lt;br&gt;
+③ &lt;strong&gt;倫理面&lt;/strong&gt;：不必要に多くの被験者を研究に参加させるべきではない  &lt;/p&gt;
+&lt;p&gt;とくに②に関して：&lt;/p&gt;
+&lt;p&gt;症例数の予測に必要なものを過去の文献やパイロット研究を行うことで予測する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;outcomeの差&lt;/li&gt;
+&lt;li&gt;データのばらつき(標準偏差)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記の見積もりができれば、ソフトウェアでの計算が可能。 (cf.) &lt;a href="http://biostat.mc.vanderbilt.edu/wiki/Main/PowerSampleSize"&gt;Power and Sample Size Calculation (PS)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;シングルセル解析では、やはり値段や機器の問題が大きくなってくるでしょうか。特に細胞種がかなり希少な場合に、細胞数(n)をどんどん増やすしかないとなると、その点が一番気になります。&lt;/p&gt;
+&lt;p&gt;一方で臨床研究では、単施設で可能なのか、多施設共同でないと症例数(n)が集まらないのかという問題は切実です。そしてヒトを対象にする以上、症例数決定の明確な理由が必要です。&lt;a href="http://www.consort-statement.org/media/default/downloads/consort%202010%20checklist.pdf"&gt;CONSORT2010 checklist&lt;/a&gt;にも記載があります。&lt;/p&gt;
+&lt;p&gt;いずれにせよ、事前の文献調査やプレ実験・パイロット研究によって着地点を明確にしておかないと、途中で頓挫してしまい、出るはずの結果がでない事態になりそうです。今後はシングルセル解析で前提となる統計手法に関しても勉強していこうと思っています。&lt;/p&gt;
+&lt;h2&gt;参考文献&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;今日から使える医療統計　(新谷歩, 2015年, 医学書院)&lt;/li&gt;
+&lt;li&gt;Tutorial: guidelines for the experimental design of single-cell RNA sequencing studies　(Atefeh Lafzi et el., Nature Protocols volume 13, pages2742–2757 (2018))&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>Common Workflow Language入門</title><link href="oumpy.github.io/articles/2018/12/cwl.html" rel="alternate"></link><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-12-07:oumpy.github.io/articles/2018/12/cwl.html</id><summary type="html"></summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
+&lt;h2&gt;CWLって？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="cwl" src="https://github.com/common-workflow-language/cwl-website/blob/master/site/CWL-Logo-Header.png?raw=true"&gt;&lt;/p&gt;
+&lt;p&gt;一言で言うと、bioinformatics処理の自動化です。どういうことかもうちょっと詳しく見てみましょう。&lt;/p&gt;
+&lt;p&gt;&amp;gt;ソフトウェアを組み合わせて構成される一連の作業手順 (ワークフロー) を記述するための仕組みや言語、GUI ソフトウェアは既に多く存在します。しかし、それらは特定の実行環境 (ハードウェア、ソフトウェア) に依存したものであり、異なる環境の間でワークフローを共有、再実行することは困難です。この問題を解決するために、異なるワークフロー実行ソフトウェア (実行エンジン) の間で共通してインポート/エクスポートできるフォーマットを目指して、Common Workflow Language (CWL) の開発が始まりました。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/pitagora-galaxy/cwl/wiki/CWL-Start-Guide-JP"&gt;素晴らしい日本語ドキュメント&lt;/a&gt;から取ってきました。要はbioinformaticsなど、複数のソフトの連携が必要な処理を自動化、共有がスムーズになるような仕組みです。ローカルでテストして、サーバーやクラウドに持っていくのも簡単です。最近はSangerやBroad Institute(ハーバードとMITの共同研究施設)などでも使われているとのことです。&lt;/p&gt;
+&lt;p&gt;まずは&lt;strong&gt;&lt;a href="https://www.youtube.com/embed/86eY8xs-Vo8?cc_load_policy=1&amp;amp;cc_lang_pref=ja&amp;amp;autoplay=1"&gt;60秒でわかるCWL - youtube&lt;/a&gt;&lt;/strong&gt;をみてください。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.cwl&lt;/code&gt;で記述できるのはtoolとworkflowの二種類です。toolは例えばSTARやkallistoなど一つのツールを一つのcwlファイルに記述します。workflowはそれらのtoolをbindして実際のworkflowにします。更に、workflowをnestして新しいworkflowを作ったりも出来ます。&lt;/p&gt;
+&lt;h2&gt;始め方&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/pitagora-galaxy/cwl/wiki/CWL-Start-Guide-JP"&gt;素晴らしい日本語ドキュメント&lt;/a&gt;を読みましょう。10分もあれば読めると思います。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt;をやってみましょう。1時間ほどです。&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.commonwl.org/user_guide/"&gt;user guide&lt;/a&gt;をやりましょう。3時間ほどで終わるように設計されています。(理論値)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;CWLのここがすごい&lt;/h2&gt;
+&lt;p&gt;入門は各サイトにお任せするとして、今回は私がCWLをさわってみてすごいと思ったところをまとめてみます。素人目線です。&lt;/p&gt;
+&lt;h3&gt;rabix composerのGUIがきれいすぎる&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="rabix gif" src="https://github.com/rabix/composer/raw/master/doc/images/workflows.gif"&gt;&lt;/p&gt;
+&lt;p&gt;画像はbioinformaticsでお馴染みのSTARをrabix composerで操っているところです。&lt;a href="http://rabix.io/"&gt;rabix composer&lt;/a&gt;を使えば、GUIで直感的にCWLが触れます。更に出来たworkflowをクラウドやサーバーにそのまま持っていってCLI越しに使うことが出来ます。&lt;/p&gt;
+&lt;h3&gt;dockerをベースにして完全にreproducibleにできる&lt;/h3&gt;
+&lt;p&gt;いかにも今どきなのですが、toolの記述はすべてdockerのコンテナを使って記述することが出来ます。つまり、環境が変わってインストールし直す手間がまったく無いということです。すばらしいですね。さらに&lt;code&gt;--user-space-docker-cmd=udocker&lt;/code&gt;というオプション一つで、udockerというUser権限しか無い環境でも使えるdockerを使って動かすことができるようです。&lt;/p&gt;
+&lt;h3&gt;すでにいろいろなソフトのcwlが出来ている&lt;/h3&gt;
+&lt;p&gt;Communityで管理されている&lt;a href="https://github.com/common-workflow-language/workflows"&gt;CWL Tools &amp;amp; Workflows&lt;/a&gt;があります。ほかにもDBCLS太田さんの管理されている&lt;a href="https://github.com/pitagora-galaxy/cwl"&gt;Pitagora Workflows in CWL&lt;/a&gt;もいろいろ揃っています。&lt;/p&gt;
+&lt;h3&gt;cwltoolの安定感がすごい&lt;/h3&gt;
+&lt;p&gt;出来たcwlファイルをCLI環境で使うにはcwltoolを使います。感動したのはヘルプが自動で生成されるところ。しかも、pythonで書かれていてpythonに組み込むことも出来ます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cwltool.factory&lt;/span&gt;
+&lt;span class="n"&gt;fac&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cwltool&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;factory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Factory&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fac&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;echo.cwl&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;echo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# result[&amp;quot;out&amp;quot;] == &amp;quot;foo&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;日本人contributerが多い&lt;/h3&gt;
+&lt;p&gt;困ったときに助けてくれるやさしいcontributerの方々が日本に何人かいます。また、日本語ドキュメントも多くてとても助かります。更に、開発者の&lt;a href="https://twitter.com/biocrusoe"&gt;Michael R. Crusoe&lt;/a&gt;は来日しており、&lt;a href="https://twitter.com/hashtag/CommonWLjp?src=hash"&gt;#CommonWLjp&lt;/a&gt;などでCWLの輪を広げています。&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;On my way to the 11th &lt;a href="https://twitter.com/NBDC_info?ref_src=twsrc%5Etfw"&gt;@NBDC_info&lt;/a&gt; / &lt;a href="https://twitter.com/dbcls?ref_src=twsrc%5Etfw"&gt;@dbcls&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/biohack18?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#biohack18&lt;/a&gt; (with a week long stop in Tokyo for &lt;a href="https://twitter.com/hashtag/usegalaxyjp?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#usegalaxyjp&lt;/a&gt; meeting and other &lt;a href="https://twitter.com/hashtag/CommonWL?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#CommonWL&lt;/a&gt; presentations and a bilingual workshop) &lt;a href="https://t.co/W4gsO9bnA1"&gt;pic.twitter.com/W4gsO9bnA1&lt;/a&gt;&lt;/p&gt;&amp;mdash; Michael R. Crusoe (@biocrusoe) &lt;a href="https://twitter.com/biocrusoe/status/1069104245100748801?ref_src=twsrc%5Etfw"&gt;2018年12月2日&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;kallistoをCWL + Rabix Composerで試してみる&lt;/h2&gt;
+&lt;p&gt;まずは実際の作業工程を見てみましょう。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gif" src="https://github.com/yyoshiaki/cwl_user_guide/blob/master/kallisto/kallisto.gif?raw=true"&gt;&lt;/p&gt;
+&lt;p&gt;ちゃんとkallistoのoutputが生成されていますね！データは&lt;a href="https://github.com/yyoshiaki/cwl_user_guide/tree/master/kallisto"&gt;github&lt;/a&gt;にまとめておきました。テスト用のシーケンスデータも付けてあるので、クローンして遊んでみてください。&lt;code&gt;kallisto-index.cwl&lt;/code&gt;と&lt;code&gt;kallisto-quant.cwl&lt;/code&gt;は公式の&lt;a href="https://github.com/common-workflow-language/workflows"&gt;CWL Tools &amp;amp; Workflows&lt;/a&gt;から取ってきました。もちろんこれらはdocker imageを使っています。新しいworkflowを作ってみましょう。動画のように直感的にできると思います。&lt;/p&gt;
+&lt;p&gt;今回、errorが出て進まなかった場所があったのですが、石井さん、西田さんの応援や、cwlの作者のMichaelやRabixの作者のKaushikがerrorに対処してくれました。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://github.com/rabix/composer/issues/418#issuecomment-444257454"&gt;issue : kallisto workflow is incompatible with Rabix composer #418&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;この対応のフレンドリーさはbioinformaticsならではですね。&lt;/p&gt;
+&lt;h2&gt;workflow業界のあれこれ&lt;/h2&gt;
+&lt;p&gt;ここで一旦workflowについて広く見てみましょう。ハーバードを始めとする海外の研究所ではサーバーを研究所ごとに管理するのに変えて、クラウドの利用が盛んになってきています。そういう時代感もあり、workflowやコンテナなど、reproducibleな環境の整備というのはますます重要視されてきています。workflow業界ではcwlの他に古き良き&lt;a href="http://wiki.pitagora-galaxy.org/wiki/index.php/Workflows"&gt;Galaxy&lt;/a&gt;、Broad Instituteが開発している&lt;a href="https://software.broadinstitute.org/wdl/"&gt;WDL&lt;/a&gt;や&lt;a href="https://www.nextflow.io/"&gt;nextflow&lt;/a&gt;、Pythonで書かれている&lt;a href="https://snakemake.readthedocs.io/en/stable/"&gt;Snakemake&lt;/a&gt;など、さまざまな選択肢があります。どのworkflowが好きか、Cambridgeの&lt;a href="https://twitter.com/@AlbertVilella"&gt;@AlbertVilella&lt;/a&gt;が世界中のbioinformaticianにアンケートをとっていました。&lt;/p&gt;
+&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;90 responses in &lt;a href="https://t.co/hbaY7ShocR"&gt;https://t.co/hbaY7ShocR&lt;/a&gt; &lt;a href="https://twitter.com/nextflowio?ref_src=twsrc%5Etfw"&gt;@nextflowio&lt;/a&gt; &lt;a href="https://twitter.com/SBGenomics?ref_src=twsrc%5Etfw"&gt;@SBGenomics&lt;/a&gt; &lt;a href="https://twitter.com/commonwl?ref_src=twsrc%5Etfw"&gt;@commonwl&lt;/a&gt; Snamemake &lt;a href="https://t.co/1kc1DaXdBa"&gt;pic.twitter.com/1kc1DaXdBa&lt;/a&gt;&lt;/p&gt;&amp;mdash; Albert Vilella (@AlbertVilella) &lt;a href="https://twitter.com/AlbertVilella/status/1070219898306084865?ref_src=twsrc%5Etfw"&gt;2018年12月5日&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="en" dir="ltr"&gt;No votes so far for &lt;a href="https://twitter.com/ensembl?ref_src=twsrc%5Etfw"&gt;@ensembl&lt;/a&gt; Hive, Apache Taverna or &lt;a href="https://twitter.com/arvados?ref_src=twsrc%5Etfw"&gt;@arvados&lt;/a&gt; , even though we know they have plenty of users &lt;a href="https://t.co/Db2el8vPDt"&gt;https://t.co/Db2el8vPDt&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/Bioinformatics?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Bioinformatics&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/Workflows?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Workflows&lt;/a&gt; &lt;a href="https://t.co/hbaY7ShocR"&gt;https://t.co/hbaY7ShocR&lt;/a&gt;&lt;/p&gt;&amp;mdash; Albert Vilella (@AlbertVilella) &lt;a href="https://twitter.com/AlbertVilella/status/1070579264192462849?ref_src=twsrc%5Etfw"&gt;2018年12月6日&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;どうやら一番twitter界隈のbioinformaticianはnextflowが好きなようです。ただ、下のspreadsheetを見ると、githubではGalaxy,bcbioについで三番目に盛んなようです。&lt;/p&gt;
+&lt;p&gt;他にも、cwlやnextflowを取り上げたgenome解析の論文も出ていたりします。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-018-2446-1"&gt;Baichoo, S. et al. Developing reproducible bioinformatics analysis workflows for heterogeneous computing environments to support African genomics. BMC Bioinformatics 19, 457 (2018).&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;結論　みんなでCWLを使おう！&lt;/h2&gt;
+&lt;p&gt;医学部生にできるだけわかりやすく書いてみました。みんなでcwlを使ってどんどん解析を楽にしましょう！&lt;/p&gt;
+&lt;p&gt;国試も自動化できたらなあ。。。&lt;/p&gt;
+&lt;h2&gt;参考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.commonwl.org/"&gt;CWL公式ページ&lt;/a&gt; : リンク集がついている。&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt; : 二階堂研石井さんのスライド。わかりやすいです。&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="oumpy.github.io/articles/2018/12/animalshogi.html" rel="alternate"></link><published>2018-12-06T00:00:00+09:00</published><updated>2018-12-06T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2018-12-06:oumpy.github.io/articles/2018/12/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt; というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
 &lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
 駒に描かれているイラストも、大変、かわいいです。  &lt;/p&gt;
@@ -5169,13 +4348,13 @@ h6:hover .anchor-link {
 双方最善を尽くすと78手まで後手勝ち、だそうです。&lt;/p&gt;
 &lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo&lt;/a&gt;
 (&lt;a href="https://www.nature.com/articles/nature24270"&gt;Zero&lt;/a&gt;)
-を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt;を作ってみました。&lt;br&gt;
+を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt; を作ってみました。&lt;br&gt;
 ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。&lt;/p&gt;
 &lt;p&gt;今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）&lt;/p&gt;
 &lt;h2&gt;つくりかた概要&lt;/h2&gt;
 &lt;p&gt;「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。&lt;br&gt;
 この部分を、深層ニューラルネットワーク「だけ」で作ります。  &lt;/p&gt;
-&lt;p&gt;実はこれ、&lt;strong&gt;画像カテゴリ認識と殆ど同じ&lt;/strong&gt;です。
+&lt;p&gt;実はこれ、&lt;strong&gt;画像カテゴリ認識と殆ど同じ&lt;/strong&gt; です。
 例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。&lt;br&gt;
 入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。&lt;/p&gt;
 &lt;h2&gt;ネットワーク構成&lt;/h2&gt;
@@ -5195,7 +4374,7 @@ h6:hover .anchor-link {
 を与えると一意に決められます。&lt;br&gt;
 一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。&lt;br&gt;
 合わせて&lt;strong&gt;合法手の可能性は97通り&lt;/strong&gt;です。
-ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt;ことになります。&lt;/p&gt;
+ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt; ことになります。&lt;/p&gt;
 &lt;h3&gt;今回使ったネットワーク&lt;/h3&gt;
 &lt;p&gt;入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。&lt;/p&gt;
@@ -5238,7 +4417,7 @@ h6:hover .anchor-link {
 盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。&lt;/p&gt;
 &lt;h2&gt;強化学習：自己対戦と指し手評価&lt;/h2&gt;
 &lt;p&gt;さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。&lt;/p&gt;
-&lt;p&gt;そのためには、&lt;strong&gt;審判・履歴機能付きのどうぶつしょうぎ盤セット&lt;/strong&gt;をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。&lt;/p&gt;
+&lt;p&gt;そのためには、&lt;strong&gt;審判・履歴機能付きのどうぶつしょうぎ盤セット&lt;/strong&gt; をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。&lt;/p&gt;
 &lt;p&gt;自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。&lt;/li&gt;
@@ -5252,7 +4431,7 @@ h6:hover .anchor-link {
 &lt;h2&gt;学習結果&lt;/h2&gt;
 &lt;h3&gt;ルールの習得&lt;/h3&gt;
 &lt;p&gt;まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。&lt;br&gt;
-ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに&lt;strong&gt;合法手が98.7%&lt;/strong&gt;となりました。1.3%の指し手が反則です。&lt;br&gt;
+ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに &lt;strong&gt;合法手が98.7%&lt;/strong&gt; となりました。1.3%の指し手が反則です。&lt;br&gt;
 これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。&lt;br&gt;
 ルールについてはかなり良く習得してきていることがわかります。&lt;/p&gt;
 &lt;h3&gt;どれくらい強い？&lt;/h3&gt;
@@ -5274,7 +4453,313 @@ h6:hover .anchor-link {
 &lt;h3&gt;追記2&lt;/h3&gt;
 &lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
 今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
-最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category><category term="Python"></category><category term="強化学習"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="oumpy.github.io/articles/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-16:oumpy.github.io/articles/2018/11/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
+最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="oumpy.github.io/articles/2018/11/kaplan_meier_curve.html" rel="alternate"></link><published>2018-11-20T00:00:00+09:00</published><updated>2018-11-20T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2018-11-20:oumpy.github.io/articles/2018/11/kaplan_meier_curve.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+&lt;h3&gt;書こうと思ったきっかけ&lt;/h3&gt;
+&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
+だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。&lt;/p&gt;
+&lt;h3&gt;Kaplan-Meier 曲線とは&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;観察期間は限られている(患者さんを何年もフォローすることはできない)&lt;/li&gt;
+&lt;li&gt;観察不能になることがある(病院移った、他の要因で死亡したなど)&lt;/li&gt;
+&lt;li&gt;患者さんによって観察開始時間は様々(みんな一緒に罹患したり治療を開始するわけではない)
+そういった問題をうまく対処してくれるのがKaplan-Meier曲線。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kaplan-Meier曲線の縦軸は累積生存率で、&lt;/p&gt;
+&lt;div class="math"&gt;$$
+S(t)=\prod_j^t  \left(1-\frac{d_j}{n_j}\right)
+$$&lt;/div&gt;
+&lt;p&gt;で表されます。ここで&lt;span class="math"&gt;\(d_j\)&lt;/span&gt;は時間&lt;span class="math"&gt;\(j\)&lt;/span&gt;における死亡者数で、&lt;span class="math"&gt;\(n_j\)&lt;/span&gt;は時間&lt;span class="math"&gt;\(j\)&lt;/span&gt;における生存者数です。&lt;/p&gt;
+&lt;p&gt;今回はpythonのコードでKaplan-Meier曲線を書いていこうと思います。
+pythonのライブラリにlifelinesという便利なライブラリがあるのでそれを使っていこうと思います。installはpipでできます：&lt;code&gt;pip install lifelines&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;データの準備&lt;/h2&gt;
+&lt;p&gt;ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
+ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines.plotting&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exponential&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;InlineBackend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;retina&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="n"&gt;current_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;48&lt;/span&gt;
+&lt;span class="n"&gt;birth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;45&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;actual_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exponential&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;exponential&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;minimum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;actual_lifetimes&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;current_time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;observed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;actual_lifetimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;current_time&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyles&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Births and deaths of our population, at $t=48$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;birthtimes&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Observed lifetimes at time &lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;current_time&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2018/11/images/kaplan_meier_curve_figs/001.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Observed lifetimes at time 48:&lt;/span&gt;
+&lt;span class="err"&gt; [48 47 27 48 48 40 34  3 46 41 40 48 30 48 40 46 48 34 48 48 15 36 38 31&lt;/span&gt;
+&lt;span class="err"&gt; 46 22 44 16 42 48 45 19 46 44 31 16 33  9 32 42 11 36 48 48 44 48 14 39&lt;/span&gt;
+&lt;span class="err"&gt; 37 45]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;赤線では期間内(t=48)に患者さんが死亡したケース、青線は観測不能になったケースです(観察期間終わったからそれ以上追えない)。&lt;/p&gt;
+&lt;p&gt;簡単のため、観測不能になったケースは観測期間が終わった場合のみとします。観察期間の長さでソートすると、下の図のようになります。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;observed_lifetimes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;birth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;result_lifetimes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#plt.vlines(22, 0, 30, lw=2, linestyles=&amp;#39;--&amp;#39;,colors=&amp;#39;red&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Births and deaths of our population, at $t=22$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plot_lifetimes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result_lifetimes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2018/11/images/kaplan_meier_curve_figs/002.png"&gt;&lt;/p&gt;
+&lt;h2&gt;実際の計算&lt;/h2&gt;
+&lt;p&gt;さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align="center"&gt;&amp;nbsp;&amp;nbsp;time &amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;True&lt;/td&gt;
+&lt;td align="center"&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;False&lt;/td&gt;
+&lt;td align="center"&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;rueが患者さんが死亡したのを観測できた事例、Falseが観察期間終了により観測できなかった事例です。観察期間の短い順に見ていくと、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;t=1のとき、50人のうち2人が死亡,1人が打ち切り。&lt;/li&gt;
+&lt;li&gt;t=2のとき、死亡者、打ち切りなし。&lt;/li&gt;
+&lt;li&gt;t=3の時は４７人のうち１人が死亡。&lt;/li&gt;
+&lt;li&gt;t=4の時は46人のうち２人が死亡、２人が打ち切り。&lt;/li&gt;
+&lt;li&gt;t=5の時は42人中１人死亡、３人が打ち切り。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;よって&lt;span class="math"&gt;\( S(5)\)&lt;/span&gt;は&lt;/p&gt;
+&lt;div class="math"&gt;$$
+S(5)=\left(1-\frac{1}{50}\right)\left(1-\frac{0}{47}\right)\left(1-\frac{1}{47}\right)\left(1-\frac{2}{46}\right) \left(1-\frac{1}{42}\right) \simeq 0.896
+$$&lt;/div&gt;
+&lt;p&gt;となります。&lt;/p&gt;
+&lt;h2&gt;結果のプロット&lt;/h2&gt;
+&lt;p&gt;ここら辺の計算と描画はライブラリに任せます。&lt;/p&gt;
+&lt;p&gt;やってることは各期間の点における累積生存率をプロットして線を横に伸ばすだけです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;kmf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result_lifetimes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;observed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Survival function of political regimes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2018/11/images/kaplan_meier_curve_figs/003.png"&gt;&lt;/p&gt;
+&lt;h2&gt;乳がんデータセットを用いて解析を行った例&lt;/h2&gt;
+&lt;p&gt;一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。&lt;/p&gt;
+&lt;p&gt;ここから使われる統計手法はLog-rank検定、一般化wilcoxon検定など様々ですが、ここではcox比例ハザードを使った回帰分析を例にして解析を進めていきます。&lt;/p&gt;
+&lt;p&gt;cox比例ハザードモデルに関する説明は&lt;a href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/Cox.pdf"&gt;このpdf&lt;/a&gt;がわかりやすかった。&lt;/p&gt;
+&lt;p&gt;lifelinesライブラリに乳がんの予後のデータセットがあるのでそれを用います。&lt;/p&gt;
+&lt;p&gt;乳がんの治療でどのような因子が予後のに影響を及ぼすのか調べてみます。&lt;/p&gt;
+&lt;h4&gt;hormone therapyの有無で2群に分けKaplan-Meier曲線を描いた例&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines.datasets&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;load_gbsg2&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_gbsg2&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;horTh&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;kmf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KaplanMeierFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;event_observed&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cens&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hormone therapy =&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="c1"&gt;# 描画する Axes を指定。None を渡すとエラーになるので場合分け&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;kmf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Kaplan-Meier Curve&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2018/11/images/kaplan_meier_curve_figs/004.png"&gt;&lt;/p&gt;
+&lt;h4&gt;Cox比例ハザードモデル(CoxPH model)のfitting&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lifelines&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;CoxPHFitter&lt;/span&gt;
+&lt;span class="n"&gt;cph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;CoxPHFitter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_dummies&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;horTh&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;menostat&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;drop_first&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tgrade&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;inplace&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;duration_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;event_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cens&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show_progress&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Iteration 1: norm_delta = 0.63685, step_size = 0.95000, ll = -1788.10474, seconds_since_start = 0.0&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 2: norm_delta = 0.28516, step_size = 0.95000, ll = -1781.26562, seconds_since_start = 0.0&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 3: norm_delta = 0.09501, step_size = 0.95000, ll = -1745.22376, seconds_since_start = 0.1&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 4: norm_delta = 0.02423, step_size = 0.95000, ll = -1740.89966, seconds_since_start = 0.1&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 5: norm_delta = 0.00263, step_size = 0.95000, ll = -1740.66192, seconds_since_start = 0.1&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 6: norm_delta = 0.00015, step_size = 0.95000, ll = -1740.65941, seconds_since_start = 0.1&lt;/span&gt;
+&lt;span class="err"&gt;Iteration 7: norm_delta = 0.00001, step_size = 0.95000, ll = -1740.65940, seconds_since_start = 0.1&lt;/span&gt;
+&lt;span class="err"&gt;Convergence completed after 7 iterations.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;CoxPH回帰の結果のsummary&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;print_summary&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;686&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;events&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;299&lt;/span&gt;
+
+                &lt;span class="n"&gt;coef&lt;/span&gt;  &lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coef&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="n"&gt;se&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;coef&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="n"&gt;z&lt;/span&gt;      &lt;span class="n"&gt;p&lt;/span&gt;  &lt;span class="k"&gt;lower&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;95&lt;/span&gt;  &lt;span class="k"&gt;upper&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;95&lt;/span&gt;     
+&lt;span class="n"&gt;age&lt;/span&gt;          &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0105&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;9896&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0093&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1296&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2587&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0287&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0077&lt;/span&gt;     
+&lt;span class="n"&gt;tsize&lt;/span&gt;         &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0084&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0084&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0039&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1173&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0342&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0006&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0161&lt;/span&gt;    &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="n"&gt;pnodes&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0498&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0511&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0074&lt;/span&gt;  &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7329&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0000&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0353&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0643&lt;/span&gt;  &lt;span class="o"&gt;***&lt;/span&gt;
+&lt;span class="n"&gt;progrec&lt;/span&gt;      &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0026&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;9974&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0006&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;4522&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0000&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0037&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0015&lt;/span&gt;  &lt;span class="o"&gt;***&lt;/span&gt;
+&lt;span class="n"&gt;estrec&lt;/span&gt;        &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0002&lt;/span&gt;     &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0002&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0005&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3843&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7008&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0007&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0011&lt;/span&gt;     
+&lt;span class="n"&gt;horTh_yes&lt;/span&gt;    &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3643&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6947&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1284&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8371&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0046&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6159&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1126&lt;/span&gt;   &lt;span class="o"&gt;**&lt;/span&gt;
+&lt;span class="n"&gt;menostat_Pre&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;2767&lt;/span&gt;     &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7583&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1822&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5191&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1287&lt;/span&gt;     &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6338&lt;/span&gt;      &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0803&lt;/span&gt;     
+&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;Signif&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;codes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;***&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;001&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;**&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;*&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;05&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.&amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="n"&gt;Concordance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;687&lt;/span&gt;
+&lt;span class="n"&gt;Likelihood&lt;/span&gt; &lt;span class="n"&gt;ratio&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;94&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;891&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;00000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;CoxPH回帰の結果のplot&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2018/11/images/kaplan_meier_curve_figs/005.png"&gt;&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Kaplan-Meier曲線がどのように作られているか分かった。&lt;/li&gt;
+&lt;li&gt;pythonを用いて割と簡単に統計解析ができた。&lt;/li&gt;
+&lt;li&gt;統計モデルについても定義からもう少し詳しく説明できたらよかったが、latex使うのめんどくさくて諦めた。リンク参考にしてください。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参考HP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://lifelines.readthedocs.io/en/latest/index.html"&gt;lifelines公式HP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://istat.co.jp/sk_commentary/kaplan_meier"&gt;相関、検定の手法別解説&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.emalliance.org/%E6%9C%AA%E5%88%86%E9%A1%9E/%E7%AC%AC%EF%BC%97%E5%9B%9Eema-jc%E3%80%80%E8%A7%A3%E8%AA%AC%E3%80%80%E3%82%AB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%9E%E3%82%A4%E3%83%A4%E3%83%BC%E7%94%9F%E5%AD%98%E6%9B%B2%E7%B7%9A"&gt;EM Aliance&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="oumpy.github.io/articles/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-16:oumpy.github.io/articles/2018/11/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
 &lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
 が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
 ってことないでしょうか。&lt;/p&gt;
@@ -5589,7 +5074,218 @@ $ git push origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="GitHub"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="oumpy.github.io/articles/2018/09/article_reading.html" rel="alternate"></link><published>2018-09-09T23:00:00+09:00</published><updated>2018-09-09T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2018-09-09:oumpy.github.io/articles/2018/09/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;論文抄読で便利なサイト&lt;/h2&gt;
+&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="GitHub"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="oumpy.github.io/articles/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:oumpy.github.io/articles/2018/10/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
+&lt;p&gt;今回は&lt;em&gt;Kallisto&lt;/em&gt;を用いた&lt;em&gt;RNA-seq&lt;/em&gt;解析パイプラインで使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
+&lt;h2&gt;Pythonのインストール&lt;/h2&gt;
+&lt;p&gt;Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# check the version of python.&lt;/span&gt;
+$ python --version
+&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;2&lt;/span&gt;.7.15rc1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Biocondaのインストール&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.anaconda.com/download/#macos"&gt;Anaconda&lt;/a&gt;のインストーラーをダウンロードします。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;export PATH=/home/user/anaconda3/bin:$PATH&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; ~/.bashrc
+$ conda -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python --version
+&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;3&lt;/span&gt;.6.6+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
+Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Download a Miniconda package for linux python3&lt;/span&gt;
+$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）&lt;/span&gt;
+$ conda -h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda config --add channels conda-forge
+$ conda config --add channels defaults
+$ conda config --add channels r
+$ conda config --add channels bioconda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;それでは早速ツールをインストールしていきましょう。基本 &lt;code&gt;conda install ???&lt;/code&gt;でインストールが完了し正常に動作していきます。非常に便利ですね。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda install parallel-fastq-dump
+$ conda install fastqc
+$ conda install multiqc
+$ conda install trimmomatic
+$ conda install kallisto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Rツールのインストール&lt;/h2&gt;
+&lt;p&gt;Rのコンソールを開いて、Rのツールをインストールしていきます。
+Tximportのインストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tximport&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;DESeq2のインストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DESeq2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bioconductor.org/packages/release/bioc/html/tximport.html&lt;/li&gt;
+&lt;li&gt;https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="oumpy.github.io/articles/2018/10/bayesian_T_test.html" rel="alternate"></link><published>2018-10-01T00:00:00+09:00</published><updated>2018-10-01T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-01:oumpy.github.io/articles/2018/10/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
+まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
+読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
+&lt;p&gt;2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
+当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
+分散については立山さんのノートを参考にどうぞ。
+当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
+余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
+その仮定が怪しいときはノンパラメトリックな検定を選びます。
+まあこのへんは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
+&lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
+&lt;strong&gt;BEST&lt;/strong&gt;(Bayesian estimation supersedes the t-test)
+というかっこいい名前です。&lt;/p&gt;
+&lt;p&gt;2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
+を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。&lt;/p&gt;
+&lt;p&gt;ベイズ推論とか統計モデリングってこんなんなんやっていうのもなんとなくわかると思うので、
+とりあえず下のnotebookを開いてみてください。&lt;/p&gt;
+&lt;p&gt;https://nbviewer.jupyter.org/gist/yyoshiaki/255d392ae32d258cfdf19cfad855b8fb&lt;/p&gt;
+&lt;p&gt;余談に余談を重ねますが、
+ipynbの公開方法はhtmlやpdfにexportしたり、いろいろありますが、少し凝った方法で公開してみました。
+githubのgistという機能を用いて、公開し、それをnbviewerに渡してみました。スマホでもみれていいですね。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kasoutuuka.org/jupyter-notebook"&gt;参考HP&lt;/a&gt;&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="oumpy.github.io/articles/2018/09/breast_cancer_detection.html" rel="alternate"></link><published>2018-09-25T00:00:00+09:00</published><updated>2018-09-25T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2018-09-25:oumpy.github.io/articles/2018/09/breast_cancer_detection.html</id><summary type="html"></summary><content type="html">&lt;blockquote&gt;
+&lt;p&gt;Improving Breast Cancer Detection using Symmetry Information with Deep Learning.
+http://arxiv.org/abs/1808.08273&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;概要&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCNNモデルを提案&lt;/li&gt;
+&lt;li&gt;MICCAI (医療画像解析のトップ会議) 2018 採択&lt;/li&gt;
+&lt;li&gt;1st authorは放射線科医&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;データセット&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;マンモグラフィー7k症例, 正常4k, 悪性腫瘍3k&lt;/li&gt;
+&lt;li&gt;放射線専門医により腫瘍領域マスクをアノテーションした&lt;/li&gt;
+&lt;li&gt;正常乳房は2年フォローして乳がん発症が無かったことを確認&lt;/li&gt;
+&lt;li&gt;乳がん乳房は腫瘍領域を生検し悪性腫瘍であるとすべて診断されている&lt;/li&gt;
+&lt;li&gt;非公開データ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;前処理&lt;/h2&gt;
+&lt;h4&gt;Fig. 1&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Fig. 1" src="oumpy.github.io/articles/2018/09/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)&lt;/li&gt;
+&lt;li&gt;候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)&lt;/li&gt;
+&lt;li&gt;左右差を比較するために反対側の領域を切り出し (Fig.1, 青枠)&lt;/li&gt;
+&lt;li&gt;切り出した領域に腫瘍のマスク領域が含まれていれば悪性腫瘍のラベルを割り当てる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;モデル&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;baseline model: 標準的なCNN (VGG like)&lt;/li&gt;
+&lt;li&gt;symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Fig.2&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Fig. 2" src="oumpy.github.io/articles/2018/09/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"&gt;&lt;/p&gt;
+&lt;h2&gt;結果&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="AUC table" src="oumpy.github.io/articles/2018/09/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"&gt;&lt;/p&gt;
+&lt;p&gt;AUCがわずかに改善 (有意差なし)&lt;/p&gt;
+&lt;h4&gt;Fig.3a&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Fig. 3a" src="oumpy.github.io/articles/2018/09/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"&gt;&lt;/p&gt;
+&lt;p&gt;FROC曲線(偽陽性率を横軸, 感受性を縦軸) で比較すると有意に提案手法がよかった&lt;/p&gt;
+&lt;h2&gt;考察&lt;/h2&gt;
+&lt;h4&gt;Fig. 4&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Fig. 4" src="oumpy.github.io/articles/2018/09/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;/li&gt;
+&lt;li&gt;b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;暗めの悪性腫瘍, 明るい正常像は誤判定しやすいがsymmetry modelは左右の比較によって正しく判定していることが読み取れる&lt;/p&gt;
+&lt;h2&gt;読んだ感想&lt;/h2&gt;
+&lt;p&gt;性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>クラスター分析</title><link href="oumpy.github.io/articles/2018/09/cluster_analysis.html" rel="alternate"></link><published>2018-09-24T00:00:00+09:00</published><updated>2018-09-24T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2018-09-24:oumpy.github.io/articles/2018/09/cluster_analysis.html</id><summary type="html"></summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
+勉強し始めて数時間ですが、少しまとめてみたいと思います。&lt;/p&gt;
+&lt;h2&gt;クラスター分析とは&lt;/h2&gt;
+&lt;p&gt;簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
+あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。&lt;/p&gt;
+&lt;h4&gt;グループ分けの対象&lt;/h4&gt;
+&lt;p&gt;サンプルを分類するのか、変数を分類するのか&lt;/p&gt;
+&lt;h4&gt;分類の形式（種類、生成）&lt;/h4&gt;
+&lt;p&gt;階層的方法か非階層的方法か&lt;/p&gt;
+&lt;h4&gt;分類に用いる対象間の距離（類似度）&lt;/h4&gt;
+&lt;p&gt;ユークリッド距離、マハラノビス距離、コサイン距離 ・・・&lt;/p&gt;
+&lt;h4&gt;クラスターの合併方法（クラスター間の距離の測定方法）&lt;/h4&gt;
+&lt;p&gt;ウォード法、群平均法、最短距離法、最長距離法・・・&lt;/p&gt;
+&lt;p&gt;クラスター分類するにはここら辺を決めなくてはいけません。
+特に後ろ二つが馴染みがなく難しい。。。&lt;/p&gt;
+&lt;h2&gt;デンドログラム&lt;/h2&gt;
+&lt;p&gt;階層的クラスタリングを可視化する代表的な方法にデンドログラムがあります。Scikit-learnのirisデータセットで試しにやってみます。調べたところ、scikit-learnでデンドログラム描写はできないみたいだったので、Scipyからimportして使います。
+（Scipyのクラスタリングアルゴリズムはscikit-learnのアルゴリズムを若干違うみたいです。）
+上で書いた後ろ２つを以下で指定しています。&lt;/p&gt;
+&lt;h3&gt;実装&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scipy.cluster.hierarchy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dendrogram&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linkage&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_iris&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# data load&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feature_names&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ウォード法 &amp;amp; ユークリッド距離&lt;/span&gt;
+&lt;span class="n"&gt;linkage_result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;linkage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;metric&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;euclidean&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;fig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;dn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dendrogram&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linkage_result&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt;
+                              &lt;span class="n"&gt;above_threshold_color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;grey&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 各ラベルに色を割り当て&lt;/span&gt;
+&lt;span class="n"&gt;label_colors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;setosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;versicolor&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;virginica&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gca&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;xlbls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_xmajorticklabels&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;lbl&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;xlbls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lbl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_color&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;label_colors&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;lbl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_text&lt;/span&gt;&lt;span class="p"&gt;()])&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Dendrogram of Iris dataset &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Distance&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;結果&lt;/h3&gt;
+&lt;p&gt;縦軸がクラスタ間距離です。横軸のラベルでは、setosaをシアン、versicolorをマゼンタ、virginicaを黄色としました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2018/09/images/cluster_analysis_figs/dendrogram.png"&gt;&lt;/p&gt;
+&lt;p&gt;setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。&lt;/p&gt;
+&lt;p&gt;イメージング画像でクラスタリングしたいなあとか思っているんですが、
+なかなかサンプル数とか特徴量の問題で難しそう。&lt;/p&gt;
+&lt;p&gt;うまく特徴がつかめるような解析がしたいなあ。&lt;/p&gt;
+&lt;p&gt;頑張って勉強してみます。
+何かいいサイトや参考資料があったら教えてください。&lt;/p&gt;
+&lt;h2&gt;参考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[http://www.kamishima.net/jp/clustering/]&lt;/li&gt;
+&lt;li&gt;[http://datanongrata.com/2019/04/27/67/]&lt;/li&gt;
+&lt;li&gt;[https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours]&lt;/li&gt;
+&lt;li&gt;Pythonではじめる機械学習 オライリー社&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="oumpy.github.io/articles/2018/09/article_reading.html" rel="alternate"></link><published>2018-09-09T23:00:00+09:00</published><updated>2018-09-09T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2018-09-09:oumpy.github.io/articles/2018/09/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;論文抄読で便利なサイト&lt;/h2&gt;
 &lt;p&gt;英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…ということで、いつも論文を読む時にどんなサイトを使っているかを一度書き起こしてみました。&lt;br&gt;
 とりあえずハードルを下げることメインなので、「普通に読めるやろ」みたいな人はスルーでお願いします笑。5年の免疫内科の実習で論文の効率的な読み方を習って、もっと早く知ってればなあと思ったので、もし先生に「〇〇に関する論文読んできてねー」みたいなことを言われた時とかに参考にしてみてください。 &lt;a href="http://www.imed3.med.osaka-u.ac.jp/education/education01.html"&gt;大阪大学免疫内科のホームページ&lt;/a&gt;と被っていることも多いです。こちらも是非見てみてください。&lt;/p&gt;
 &lt;h2&gt;論文を（ざっと）読む&lt;/h2&gt;

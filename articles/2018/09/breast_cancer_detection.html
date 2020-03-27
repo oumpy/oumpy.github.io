@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="ベイズ流T検定 BEST"/>
-    <meta property="og:url" content="../../../articles/2019/04/bayesian_T_test.html"/>
+    <meta property="og:title" content="Improving Breast Cancer Detection using Symmetry Information with Deep Learning"/>
+    <meta property="og:url" content="../../../articles/2018/09/breast_cancer_detection.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="statistics"/>
+        <meta property="article:tag" content="Machine Learning"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="ベイズ流T検定 BEST">
+    <meta name="twitter:title" content="Improving Breast Cancer Detection using Symmetry Information with Deep Learning">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>ベイズ流T検定 BEST - 大阪大学医学部 Python会</title>
+    <title>Improving Breast Cancer Detection using Symmetry Information with Deep Learning - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-09-25(Tue)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/bayesian_T_test.html" rel="bookmark"
-     title="Permalink to ベイズ流T検定 BEST">
-    ベイズ流T検定 BEST
+  <a href="../../../articles/2018/09/breast_cancer_detection.html" rel="bookmark"
+     title="Permalink to Improving Breast Cancer Detection using Symmetry Information with Deep Learning">
+    Improving Breast Cancer Detection using Symmetry Information with Deep Learning
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/an-shui.html">安水</a>
+      Posted by <a href="../../../author/qiu-shan.html">秋山</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,39 +130,61 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています。
-pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
-まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
-読み切った記念に一個面白そうなものがあったのでまとめました。</p>
-<p>2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
-当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
-分散については立山さんのノートを参考にどうぞ。
-当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
-余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
-その仮定が怪しいときはノンパラメトリックな検定を選びます。
-まあこのへんは誰かがコード付きでまとめてくれると信じてます。</p>
-<p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
-BEST(Bayesian estimation supersedes the t-test)
-というかっこいい名前です。
-2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
-を推論します。つまり、6つのパラメーターを推論します。
-ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。
-ベイズ推論とか統計モデリングってこんなんなんやっていうのもなんとなくわかると思うので、
-とりあえず下のnotebookを開いてみてください。</p>
-<p>ipynbはこちら
-↓↓↓↓↓
-http://nbviewer.jupyter.org/gist/yyoshiaki/255d392ae32d258cfdf19cfad855b8fb
-余談に余談を重ねますが、
-ipynbの公開方法はhtmlやpdfにexportしたり、いろいろありますが、
-少し凝った方法で公開してみました。
-githubのgistという機能を用いて、公開し、それをnbviewerに渡してみました。
-スマホでもみれていいですね。
-<a href="http://kasoutuuka.org/jupyter-notebook">参考HP</a></p>
+	<blockquote>
+<p>Improving Breast Cancer Detection using Symmetry Information with Deep Learning.
+http://arxiv.org/abs/1808.08273</p>
+</blockquote>
+<h2>概要</h2>
+<ul>
+<li>放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCNNモデルを提案</li>
+<li>MICCAI (医療画像解析のトップ会議) 2018 採択</li>
+<li>1st authorは放射線科医</li>
+</ul>
+<h2>データセット</h2>
+<ul>
+<li>マンモグラフィー7k症例, 正常4k, 悪性腫瘍3k</li>
+<li>放射線専門医により腫瘍領域マスクをアノテーションした</li>
+<li>正常乳房は2年フォローして乳がん発症が無かったことを確認</li>
+<li>乳がん乳房は腫瘍領域を生検し悪性腫瘍であるとすべて診断されている</li>
+<li>非公開データ</li>
+</ul>
+<h2>前処理</h2>
+<h4>Fig. 1</h4>
+<p><img alt="Fig. 1" src="../../../articles/2018/09/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"></p>
+<ul>
+<li>従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)</li>
+<li>候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)</li>
+<li>左右差を比較するために反対側の領域を切り出し (Fig.1, 青枠)</li>
+<li>切り出した領域に腫瘍のマスク領域が含まれていれば悪性腫瘍のラベルを割り当てる</li>
+</ul>
+<h2>モデル</h2>
+<ul>
+<li>baseline model: 標準的なCNN (VGG like)</li>
+<li>symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN</li>
+</ul>
+<h4>Fig.2</h4>
+<p><img alt="Fig. 2" src="../../../articles/2018/09/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"></p>
+<h2>結果</h2>
+<p><img alt="AUC table" src="../../../articles/2018/09/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"></p>
+<p>AUCがわずかに改善 (有意差なし)</p>
+<h4>Fig.3a</h4>
+<p><img alt="Fig. 3a" src="../../../articles/2018/09/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"></p>
+<p>FROC曲線(偽陽性率を横軸, 感受性を縦軸) で比較すると有意に提案手法がよかった</p>
+<h2>考察</h2>
+<h4>Fig. 4</h4>
+<p><img alt="Fig. 4" src="../../../articles/2018/09/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"></p>
+<ul>
+<li>a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)</li>
+<li>b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)</li>
+</ul>
+<p>暗めの悪性腫瘍, 明るい正常像は誤判定しやすいがsymmetry modelは左右の比較によって正しく判定していることが読み取れる</p>
+<h2>読んだ感想</h2>
+<p>性能差がちょっと微妙だけど考察の納得感はある</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/statistics.html"><i class="fa fa-tag"></i>statistics</a>&nbsp;
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -176,7 +198,7 @@ githubのgistという機能を用いて、公開し、それをnbviewerに渡�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/bayesian_T_test.html" 
+        data-href="../../../articles/2018/09/breast_cancer_detection.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -217,15 +239,13 @@ githubのgistという機能を用いて、公開し、それをnbviewerに渡�
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
       <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
-      <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
       <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
-      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
-      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/statistics.html">&#x2022; Statistics</a></li>
       <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
       <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
       <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>

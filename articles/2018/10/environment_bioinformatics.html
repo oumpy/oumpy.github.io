@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="クラスター分析"/>
-    <meta property="og:url" content="../../../articles/2019/04/cluster_analysis.html"/>
+    <meta property="og:title" content="LinuxでのBioinformatics環境構築"/>
+    <meta property="og:url" content="../../../articles/2018/10/environment_bioinformatics.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="deeplearning"/>
+        <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="クラスター分析">
+    <meta name="twitter:title" content="LinuxでのBioinformatics環境構築">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>クラスター分析 - 大阪大学医学部 Python会</title>
+    <title>LinuxでのBioinformatics環境構築 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-10-16(Tue)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/cluster_analysis.html" rel="bookmark"
-     title="Permalink to クラスター分析">
-    クラスター分析
+  <a href="../../../articles/2018/10/environment_bioinformatics.html" rel="bookmark"
+     title="Permalink to LinuxでのBioinformatics環境構築">
+    LinuxでのBioinformatics環境構築
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/liu-ze.html">柳澤</a>
+      Posted by <a href="../../../author/ping-gang.html">平岡</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,45 +130,88 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>現在、クラスター分析の勉強をしています。
-勉強し始めて数時間ですが、少しまとめてみたいと思います。</p>
-<p>簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
-あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。</p>
-<p>グループ分けの対象
- サンプルを分類するのか、変数を分類するのか
-分類の形式（種類、生成）
- 階層的方法か非階層的方法か
-分類に用いる対象間の距離（類似度）
- ユークリッド距離、マハラノビス距離、コサイン距離 ・・・
-クラスターの合併方法（クラスター間の距離の測定方法）
- ウォード法、群平均法、最短距離法、最長距離法・・・</p>
-<p>クラスター分類するにはここら辺を決めなくてはいけません。
-特に後ろ二つが馴染みがなく難しい。。。</p>
-<p>階層的クラスタリングを可視化する代表的な方法にデンドログラムがあります。
-Scikit-learnのirisデータセットで試しにやってみます。
-調べたところ、scikit-learnでデンドログラム描写はできないみたいだったので、
-Scipyからimportして使います。
-（Scipyのクラスタリングアルゴリズムはscikit-learnのアルゴリズムを若干違うみたいです。）
-上で書いた後ろ２つを以下で指定しています。
-linkage_result = linkage(iris_df, method='ward', metric='euclidean')
- ：ウォード法 x ユークリッド距離</p>
-<p>縦軸がクラスタ間距離です。
-setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。</p>
-<p>イメージング画像でクラスタリングしたいなあとか思っているんですが、
-なかなかサンプル数とか特徴量の問題で難しそう。</p>
-<p>うまく特徴がつかめるような解析がしたいなあ。</p>
-<p>頑張って勉強してみます。
-何かいいサイトや参考資料があったら教えてください。</p>
-<p>参考資料
-https://business.nikkeibp.co.jp/atclbdt/15/258678/071500002/?ST=print</p>
-<p>クラスタリングの注意点が書かれてました。
-http://www.kamishima.net/jp/clustering/</p>
-<p>Pythonではじめる機械学習 オライリー社</p>
+	<p>ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。</p>
+<p>今回は<em>Kallisto</em>を用いた<em>RNA-seq</em>解析パイプラインで使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。</p>
+<h2>Pythonのインストール</h2>
+<p>Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># check the version of python.</span>
+$ python --version
+&gt;&gt;&gt; Python <span class="m">2</span>.7.15rc1
+</code></pre></div>
+
+
+<h2>Biocondaのインストール</h2>
+<p><a href="https://www.anaconda.com/download/#macos">Anaconda</a>のインストーラーをダウンロードします。</p>
+<div class="highlight"><pre><span></span><code>$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
+$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=/home/user/anaconda3/bin:$PATH&#39;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> ~/.bashrc
+$ conda -V
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code>$ python --version
+&gt;&gt;&gt; Python <span class="m">3</span>.6.6+
+</code></pre></div>
+
+
+<p>バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
+Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download a Miniconda package for linux python3</span>
+$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
+</code></pre></div>
+
+
+<p>EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）</span>
+$ conda -h
+</code></pre></div>
+
+
+<p>biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。</p>
+<div class="highlight"><pre><span></span><code>$ conda config --add channels conda-forge
+$ conda config --add channels defaults
+$ conda config --add channels r
+$ conda config --add channels bioconda
+</code></pre></div>
+
+
+<p>それでは早速ツールをインストールしていきましょう。基本 <code>conda install ???</code>でインストールが完了し正常に動作していきます。非常に便利ですね。</p>
+<div class="highlight"><pre><span></span><code>$ conda install parallel-fastq-dump
+$ conda install fastqc
+$ conda install multiqc
+$ conda install trimmomatic
+$ conda install kallisto
+</code></pre></div>
+
+
+<h3>参照</h3>
+<ul>
+<li>http://imamachi-n.hatenablog.com/entry/2017/01/14/212719</li>
+</ul>
+<h2>Rツールのインストール</h2>
+<p>Rのコンソールを開いて、Rのツールをインストールしていきます。
+Tximportのインストール</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;tximport&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>DESeq2のインストール</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;DESeq2&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3>参照</h3>
+<ul>
+<li>https://bioconductor.org/packages/release/bioc/html/tximport.html</li>
+<li>https://bioconductor.org/packages/release/bioc/html/DESeq2.html</li>
+</ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/deeplearning.html"><i class="fa fa-tag"></i>deeplearning</a>&nbsp;
+	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -182,7 +225,7 @@ http://www.kamishima.net/jp/clustering/</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/cluster_analysis.html" 
+        data-href="../../../articles/2018/10/environment_bioinformatics.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -223,15 +266,13 @@ http://www.kamishima.net/jp/clustering/</p>
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
       <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
-      <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
       <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
-      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
-      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/statistics.html">&#x2022; Statistics</a></li>
       <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
       <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
       <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>
