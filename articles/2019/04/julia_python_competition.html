@@ -114,7 +114,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(日)
+  2019-04-14(Sun)
 </abbr> <h1>
   <a href="../../../articles/2019/04/julia_python_competition.html" rel="bookmark"
      title="Permalink to JuliaとPythonと競技プログラミング">
@@ -141,12 +141,12 @@
 <h3>AtCoder Beginner Contest 121 問題A "White Cells"</h3>
 <p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_a">https://atcoder.jp/contests/abc121/tasks/abc121_a</a>）</p>
 <p>入力値4個を読み込んで簡単な演算結果を返すだけの問題です。</p>
-<div class="highlight"><pre><span></span><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span>
 <span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
 <span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="n">println</span><span class="p">((</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">-</span><span class="n">w</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>所要時間が入力にほぼ依存しない問題ですが、、各言語でのAtCoder上実行結果。</p>
@@ -191,7 +191,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 問題はこちら → <https://atcoder.jp/contests/abc121/tasks/abc121_b>
 
 
-<div class="highlight"><pre><span></span><span class="c"># ABC121-B by Julia</span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-B by Julia</span>
 <span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
 <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">input</span><span class="p">()</span>
@@ -207,7 +207,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
   <span class="k">end</span>
 <span class="k">end</span>
 <span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 
@@ -216,7 +216,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <h3>AtCoder Beginner Contest 121 問題C "Energy Drink Collector"</h3>
 <p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_c">https://atcoder.jp/contests/abc121/tasks/abc121_c</a>）</p>
 <p>読み込んだ値の列をソートして、条件判定をしながら順番に足し上げていく問題。</p>
-<div class="highlight"><pre><span></span><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span>
 <span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
 <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -235,12 +235,12 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
   <span class="k">end</span>
 <span class="k">end</span>
 <span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>なんと、テスト16個中15個でタイムアウト（2000ms以上）。。。</p>
 <p>Pythonのコードはこちら：</p>
-<div class="highlight"><pre><span></span><span class="c1"># ABC121-C &quot;Energy Drink Collector&quot; in Python3</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># ABC121-C &quot;Energy Drink Collector&quot; in Python3</span>
 <span class="n">inpl</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 <span class="n">N</span><span class="p">,</span><span class="n">M</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
@@ -255,8 +255,8 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
   <span class="k">else</span><span class="p">:</span>
     <span class="n">M</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>こちらは最大466msでクリア（同一コードのPyPy3では733ms）。ここで134msのテストもJuliaではタイムアウト。悲しい。</p>
@@ -324,28 +324,18 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
-<p class="tag-cloud">
-      <a href="../../../tag/news.html">news
-      </a>
-      <a href="../../../tag/deeplearning.html">deeplearning
-      </a>
-      <a href="../../../tag/atcoder.html">atcoder
-      </a>
-      <a href="../../../tag/statistics.html">statistics
-      </a>
-      <a href="../../../tag/bioinformatics.html">bioinformatics
-      </a>
-      <a href="../../../tag/github.html">github
-      </a>
-      <a href="../../../tag/python.html">python
-      </a>
-      <a href="../../../tag/kaggle.html">kaggle
-      </a>
-      <a href="../../../tag/shell.html">shell
-      </a>
-      <a href="../../../tag/paper.html">paper
-      </a>
-</p>
+<ul class="tag-cloud">
+      <li><a href="../../../tag/news.html">news</a></li>
+      <li><a href="../../../tag/deeplearning.html">deeplearning</a></li>
+      <li><a href="../../../tag/atcoder.html">atcoder</a></li>
+      <li><a href="../../../tag/statistics.html">statistics</a></li>
+      <li><a href="../../../tag/bioinformatics.html">bioinformatics</a></li>
+      <li><a href="../../../tag/github.html">github</a></li>
+      <li><a href="../../../tag/python.html">python</a></li>
+      <li><a href="../../../tag/kaggle.html">kaggle</a></li>
+      <li><a href="../../../tag/shell.html">shell</a></li>
+      <li><a href="../../../tag/paper.html">paper</a></li>
+</ul>
 </div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</div>

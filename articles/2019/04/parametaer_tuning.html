@@ -114,7 +114,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(日)
+  2019-04-14(Sun)
 </abbr> <h1>
   <a href="../../../articles/2019/04/parametaer_tuning.html" rel="bookmark"
      title="Permalink to Parameter Tuning">
@@ -154,19 +154,19 @@
 <p><img src="http://neupy.com/_images/expected-improvement-example.png" alt="acquisition function" /></p>
 <p>実装には<a href="https://github.com/fmfn/BayesianOptimization">Bayesian Optimization</a>を使いました。</p>
 <p>使用するデータはkaggleの<a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation">Otto Group Product Classification Challenge</a>のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。</p>
-<div class="highlight"><pre><span></span>pip install bayesian-optimization
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip install bayesian-optimization
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">xgboost</span> <span class="kn">as</span> <span class="nn">xgb</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 <span class="kn">from</span> <span class="nn">bayes_opt</span> <span class="kn">import</span> <span class="n">BayesianOptimization</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>調整したいパラメーターを引数にとる評価関数の指定、クロスバリデーション。bayesian-optimizationには評価関数の最大化のライブラリしかないので、小さい値ほどいいloglossは返り値に-1をかけます。</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xgb_evaluate</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xgb_evaluate</span><span class="p">(</span>
     <span class="n">min_child_weight</span><span class="p">,</span>
     <span class="n">colsample_bytree</span><span class="p">,</span>
     <span class="n">max_depth</span><span class="p">,</span>
@@ -185,11 +185,11 @@
         <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">xgb</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">early_stop</span><span class="p">(</span><span class="mi">50</span><span class="p">)])</span>
 
     <span class="k">return</span> <span class="o">-</span><span class="n">cv_result</span><span class="p">[</span><span class="n">test</span><span class="o">-</span><span class="n">mlogloss</span><span class="o">-</span><span class="n">mean</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>いよいよ最適化！</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="n">__main__</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="n">__main__</span><span class="p">:</span>
     <span class="n">xgtrain</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">()</span>
 
     <span class="n">num_rounds</span> <span class="o">=</span> <span class="mi">3000</span>
@@ -200,7 +200,7 @@
         <span class="n">eta</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
         <span class="n">silent</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">eval_metric</span><span class="p">:</span> <span class="n">mlogloss</span><span class="p">,</span>
-        <span class="n">verbose_eval</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="n">verbose_eval</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">seed</span><span class="p">:</span> <span class="n">random_state</span><span class="p">,</span>
         <span class="n">num_class</span><span class="p">:</span><span class="mi">9</span>
     <span class="p">}</span>
@@ -215,7 +215,7 @@
     <span class="p">})</span>
 
     <span class="n">xgbBO</span><span class="o">.</span><span class="n">maximize</span><span class="p">(</span><span class="n">init_points</span><span class="o">=</span><span class="n">init_points</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">num_iter</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>結果です</p>
@@ -239,17 +239,17 @@
 <p><img src="http://neupy.com/_images/tpe-sampled-candidates.png" alt="prob dist" />
 <img src="http://neupy.com/_images/tpe-expected-improvement.png" alt="acq" /></p>
 <p>こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります。</p>
-<div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">hyperopt</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">pip install hyperopt</span>
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hyperopt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hyperopt</span>
 <span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">hp</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">Trials</span><span class="p">,</span> <span class="n">fmin</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>最適化するパラメータはbayesian optimizationと同じやつにしてみました。</p>
-<div class="highlight"><pre><span></span><span class="n">hyperopt_parameters</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="n">hyperopt_parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">min_child_weight</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
     <span class="n">colsample_bytree</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
     <span class="n">max_depth</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)),</span>
@@ -257,11 +257,11 @@
     <span class="n">gamma</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
     <span class="n">alpha</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>最適化する関数の指定</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="n">classifier</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
     <span class="n">stratifiedkfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
@@ -269,11 +269,11 @@
         <span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> 
         <span class="n">cv</span><span class="o">=</span><span class="n">stratifiedkfold</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">neg_log_loss</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">result</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>実行！</p>
-<div class="highlight"><pre><span></span><span class="n">max_evals</span> <span class="o">=</span> <span class="mi">50</span>
+<div class="highlight"><pre><span></span><code><span class="n">max_evals</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">trials</span> <span class="o">=</span> <span class="n">Trials</span><span class="p">()</span> <span class="c1"># 実行結果を格納するインスタンス</span>
 
 <span class="n">best</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span>
@@ -283,7 +283,7 @@
     <span class="n">max_evals</span> <span class="o">=</span><span class="n">max_evals</span><span class="p">,</span>
     <span class="n">trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">,</span>
     <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>結果</h3>
@@ -346,28 +346,18 @@
 
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
-<p class="tag-cloud">
-      <a href="../../../tag/news.html">news
-      </a>
-      <a href="../../../tag/deeplearning.html">deeplearning
-      </a>
-      <a href="../../../tag/atcoder.html">atcoder
-      </a>
-      <a href="../../../tag/statistics.html">statistics
-      </a>
-      <a href="../../../tag/bioinformatics.html">bioinformatics
-      </a>
-      <a href="../../../tag/github.html">github
-      </a>
-      <a href="../../../tag/python.html">python
-      </a>
-      <a href="../../../tag/kaggle.html">kaggle
-      </a>
-      <a href="../../../tag/shell.html">shell
-      </a>
-      <a href="../../../tag/paper.html">paper
-      </a>
-</p>
+<ul class="tag-cloud">
+      <li><a href="../../../tag/news.html">news</a></li>
+      <li><a href="../../../tag/deeplearning.html">deeplearning</a></li>
+      <li><a href="../../../tag/atcoder.html">atcoder</a></li>
+      <li><a href="../../../tag/statistics.html">statistics</a></li>
+      <li><a href="../../../tag/bioinformatics.html">bioinformatics</a></li>
+      <li><a href="../../../tag/github.html">github</a></li>
+      <li><a href="../../../tag/python.html">python</a></li>
+      <li><a href="../../../tag/kaggle.html">kaggle</a></li>
+      <li><a href="../../../tag/shell.html">shell</a></li>
+      <li><a href="../../../tag/paper.html">paper</a></li>
+</ul>
 </div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</div>

@@ -114,7 +114,7 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(日)
+  2019-04-14(Sun)
 </abbr> <h1>
   <a href="../../../articles/2019/04/mockinbird_parclip.html" rel="bookmark"
      title="Permalink to Mockinbirdを用いたPAR-CLIP解析">
@@ -159,12 +159,12 @@ PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprec
 <p>とディレクトリを進めていくと、<code>preprocess.yaml</code>, <code>postprocess.yaml</code>というファイルがあります。基本はこの二つのYAMLファイルを調整していくことになります。terminalでコマンドを出すときも <code>mockinbird/mockinbird/data</code>ディレクトリで実行するのが個人的にはおすすめです（ファイルの構成が綺麗になる。パスの調整も楽）。</p>
 <p><a href="//wwwuser.gwdg.de/~compbiol/mockinbird/mockinbird_tutorial_nomock.tar.gz”">Tutorialデータ</a>がドキュメントの方に書かれていましたが、私が見たときはリンクがNotFoundになっていました。ので、私は<a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”">公式ドキュメント</a>、<a href="//github.com/soedinglab/mockinbird)”">GitHub</a>を参考にYAMLファイルの調整などを行いました。</p>
 <p><code>preprocess</code>, <code>postprocess</code>の実行のコードは以下のようになっています。</p>
-<div class="highlight"><pre><span></span><span class="err">#</span><span class="w"> </span><span class="n">mockinbird</span><span class="w"> </span><span class="n">preprocess</span><span class="w"> </span><span class="o">[</span><span class="n">parclip_fastq</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">output_dir</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">prefix</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">config_file</span><span class="o">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">mockinbird</span><span class="w"> </span><span class="n">preprocess</span><span class="w"> </span><span class="o">[</span><span class="n">parclip_fastq</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">output_dir</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">prefix</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">config_file</span><span class="o">]</span><span class="w"></span>
 <span class="err">$</span><span class="w"> </span><span class="n">mockinbird</span><span class="w"> </span><span class="n">preprocess</span><span class="w"> </span><span class="n">nrd1</span><span class="p">.</span><span class="n">fastq</span><span class="w"> </span><span class="n">nrd1</span><span class="w"> </span><span class="n">nrd1</span><span class="w"> </span><span class="n">preprocess</span><span class="p">.</span><span class="n">yaml</span><span class="w"></span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">mockinbird</span><span class="w"> </span><span class="n">postprocess</span><span class="w"> </span><span class="err">{{</span><span class="n">genomefasta</span><span class="err">}}</span><span class="w"> </span><span class="err">{{</span><span class="n">output_dir</span><span class="err">}}</span><span class="w"> </span><span class="err">{{</span><span class="n">output_dir</span><span class="err">}}</span><span class="w"> </span><span class="err">{{</span><span class="n">script_dir</span><span class="err">}}</span><span class="w"></span>
 <span class="err">$</span><span class="w"> </span><span class="n">mockinbird</span><span class="w"> </span><span class="n">postprocess</span><span class="w"> </span><span class="n">nrd1</span><span class="w"> </span><span class="n">nrd1_pp</span><span class="w"> </span><span class="n">postprocess</span><span class="p">.</span><span class="n">yaml</span><span class="w"></span>
-</pre></div>
+</code></pre></div>
 
 
 <p>ですが、コードの実行はYAMLの設定ができてからになります。ということでYAMLの中身について説明していきます。</p>
@@ -252,28 +252,18 @@ MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた�
 
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
-<p class="tag-cloud">
-      <a href="../../../tag/news.html">news
-      </a>
-      <a href="../../../tag/deeplearning.html">deeplearning
-      </a>
-      <a href="../../../tag/atcoder.html">atcoder
-      </a>
-      <a href="../../../tag/statistics.html">statistics
-      </a>
-      <a href="../../../tag/bioinformatics.html">bioinformatics
-      </a>
-      <a href="../../../tag/github.html">github
-      </a>
-      <a href="../../../tag/python.html">python
-      </a>
-      <a href="../../../tag/kaggle.html">kaggle
-      </a>
-      <a href="../../../tag/shell.html">shell
-      </a>
-      <a href="../../../tag/paper.html">paper
-      </a>
-</p>
+<ul class="tag-cloud">
+      <li><a href="../../../tag/news.html">news</a></li>
+      <li><a href="../../../tag/deeplearning.html">deeplearning</a></li>
+      <li><a href="../../../tag/atcoder.html">atcoder</a></li>
+      <li><a href="../../../tag/statistics.html">statistics</a></li>
+      <li><a href="../../../tag/bioinformatics.html">bioinformatics</a></li>
+      <li><a href="../../../tag/github.html">github</a></li>
+      <li><a href="../../../tag/python.html">python</a></li>
+      <li><a href="../../../tag/kaggle.html">kaggle</a></li>
+      <li><a href="../../../tag/shell.html">shell</a></li>
+      <li><a href="../../../tag/paper.html">paper</a></li>
+</ul>
 </div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</div>
