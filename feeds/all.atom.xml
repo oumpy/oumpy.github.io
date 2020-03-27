@@ -1,119 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="news"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="oumpy.github.io/articles/2019/04/animalshogi.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
-駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
-駒に描かれているイラストも、大変、かわいいです。  &lt;/p&gt;
-&lt;p&gt;ゲーム空間の規模がそこそこ小さいため、すでに随分前に&lt;a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/"&gt;完全解析もされています&lt;/a&gt;。
-双方最善を尽くすと78手まで後手勝ち、だそうです。&lt;/p&gt;
-&lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo&lt;/a&gt;
-(&lt;a href="https://www.nature.com/articles/nature24270"&gt;Zero&lt;/a&gt;)
-を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt;を作ってみました。&lt;br&gt;
-ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。&lt;/p&gt;
-&lt;p&gt;今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）&lt;/p&gt;
-&lt;h2&gt;つくりかた概要&lt;/h2&gt;
-&lt;p&gt;「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。&lt;br&gt;
-この部分を、深層ニューラルネットワーク「だけ」で作ります。  &lt;/p&gt;
-&lt;p&gt;実はこれ、&lt;strong&gt;画像カテゴリ認識と殆ど同じ&lt;/strong&gt;です。
-例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。&lt;br&gt;
-入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。&lt;/p&gt;
-&lt;h2&gt;ネットワーク構成&lt;/h2&gt;
-&lt;h3&gt;入力：盤面と持駒の表現&lt;/h3&gt;
-&lt;p&gt;どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
-（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）&lt;br&gt;
-なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
-各マスで11チャネルのうち1つだけが1、残りは0をとるようにします。&lt;/p&gt;
-&lt;p&gt;次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。&lt;br&gt;
-こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。&lt;/p&gt;
-&lt;p&gt;入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。&lt;/p&gt;
-&lt;h3&gt;出力：可能な指し手を網羅する&lt;/h3&gt;
-&lt;p&gt;どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。&lt;br&gt;
-これらは任意の局面に対して、&lt;br&gt;
-(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」&lt;br&gt;
-(2)「打つ駒の種類」「打つ位置」&lt;br&gt;
-を与えると一意に決められます。&lt;br&gt;
-一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。&lt;br&gt;
-合わせて&lt;strong&gt;合法手の可能性は97通り&lt;/strong&gt;です。
-ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt;ことになります。&lt;/p&gt;
-&lt;h3&gt;今回使ったネットワーク&lt;/h3&gt;
-&lt;p&gt;入力と出力が決まったので、あとは工夫しだい。
-今回は適当に、こんなネットワークでやってみます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;Layer (type)                     Output Shape          Param #     Connected to                     &lt;/span&gt;
-&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
-&lt;span class="err"&gt;input_1 (InputLayer)             (None, 3, 4, 11)      0                                            &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;input_2 (InputLayer)            (None, 2, 3, 2)       0                                            &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  &lt;/span&gt;
-&lt;span class="err"&gt;                                                                   flatten_2[0][0]                 &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
-&lt;span class="err"&gt;Total params: 113,633&lt;/span&gt;
-&lt;span class="err"&gt;Trainable params: 113,633&lt;/span&gt;
-&lt;span class="err"&gt;Non-trainable params: 0&lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。&lt;br&gt;
-盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。&lt;/p&gt;
-&lt;h2&gt;強化学習：自己対戦と指し手評価&lt;/h2&gt;
-&lt;p&gt;さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。&lt;/p&gt;
-&lt;p&gt;そのためには、&lt;strong&gt;審判・履歴機能付きのどうぶつしょうぎ盤セット&lt;/strong&gt;をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。&lt;/p&gt;
-&lt;p&gt;自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。&lt;/li&gt;
-&lt;li&gt;出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。&lt;/li&gt;
-&lt;li&gt;自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。&lt;/li&gt;
-&lt;li&gt;敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。&lt;br&gt;
-  （褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。&lt;br&gt;
-計算は全てノートPC上で行い、計算時間は45分程度でした。&lt;/p&gt;
-&lt;h2&gt;学習結果&lt;/h2&gt;
-&lt;h3&gt;ルールの習得&lt;/h3&gt;
-&lt;p&gt;まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。&lt;br&gt;
-ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに&lt;strong&gt;合法手が98.7%&lt;/strong&gt;となりました。1.3%の指し手が反則です。&lt;br&gt;
-これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。&lt;br&gt;
-ルールについてはかなり良く習得してきていることがわかります。&lt;/p&gt;
-&lt;h3&gt;どれくらい強い？&lt;/h3&gt;
-&lt;p&gt;自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。  &lt;/p&gt;
-&lt;p&gt;結果は、、、&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;勝率 53% !!!!!!&lt;/strong&gt; (´･ω･`)&lt;/p&gt;
-&lt;p&gt;んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。&lt;br&gt;
-ランダムに指すのと比べて、確実に強いです。&lt;br&gt;
-しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。&lt;/p&gt;
-&lt;p&gt;原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。&lt;br&gt;
-強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。  &lt;/p&gt;
-&lt;p&gt;例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。&lt;br&gt;
-そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。&lt;/p&gt;
-&lt;p&gt;今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
-自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。&lt;/p&gt;
-&lt;p&gt;ひとまず今回はここまで。おしまい。&lt;/p&gt;
-&lt;h3&gt;追記1&lt;/h3&gt;
-&lt;p&gt;強化学習をさらに2倍、総計2^18局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。&lt;/p&gt;
-&lt;h3&gt;追記2&lt;/h3&gt;
-&lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
-今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
-最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="news"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/04/atcoder.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
 &lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。&lt;br&gt;
 定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として)コンテストが開かれることもあります。&lt;/p&gt;
@@ -124,21 +10,26 @@
 以下いくつかの問題をピックアップしてみます。&lt;/p&gt;
 &lt;h3&gt;問題０：はじめてのあっとこーだー&lt;/h3&gt;
 &lt;p&gt;わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;問題文
-高橋君はデータの加工が行いたいです。
-整数 a,b,cと、文字列 s が与えられます。
-整数 a+b+c と、文字列 s を並べて表示しなさい。
-入力
-入力は次の形式で与えられる。
-a
-b c
-s
-1行目は、整数 a (1≦a≦1,000) が与えられる。
+&lt;hr&gt;
+
+&lt;h4&gt;問題文&lt;/h4&gt;
+&lt;p&gt;高橋君はデータの加工が行いたいです。
+整数 &lt;span class="math"&gt;\(a,b,c\)&lt;/span&gt;と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; が与えられます。
+整数 &lt;span class="math"&gt;\(a+b+c\)&lt;/span&gt; と、文字列 &lt;span class="math"&gt;\(s\)&lt;/span&gt; を並べて表示しなさい。&lt;/p&gt;
+&lt;h4&gt;入力&lt;/h4&gt;
+&lt;p&gt;入力は次の形式で与えられる。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\begin{align*}
+&amp;amp;a\\
+&amp;amp;b\quad c\\
+&amp;amp;s
+\end{align*}
+$$&lt;/div&gt;
+&lt;p&gt;1行目は、整数 a (1≦a≦1,000) が与えられる。
 2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。
 3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;hr&gt;&lt;/p&gt;
 &lt;p&gt;ん？&lt;br&gt;
 入力ってなんだ？(競プロ初心者並感)&lt;br&gt;
 いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)&lt;br&gt;
@@ -152,9 +43,14 @@ s
 &lt;p&gt;このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。&lt;/p&gt;
 &lt;p&gt;まとめっぽくなりましたが問題に戻ります。&lt;br&gt;
 考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="c1"&gt;# 整数の入力&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="c1"&gt;# スペース区切りの整数の入力&lt;/span&gt;
 &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="c1"&gt;# 文字列の入力&lt;/span&gt;
 &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# 出力&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -168,31 +64,28 @@ s
 よくみる整数問題ですね。これは簡単に解けると思いきや...？&lt;br&gt;
 こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
 てかなり面倒です。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;問題文
-あなたは、500円玉をA枚、100円玉をB枚、50円玉をC枚持っています。
-これらの硬貨の中から何枚かを選び、合計金額をちょうどX円にする方法は何通りありますか。
-同じ種類の硬貨同士は区別できません。
-２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
+&lt;hr&gt;
 
-制約
-0 ≤ A,B,C ≤ 50
+&lt;h4&gt;問題文&lt;/h4&gt;
+&lt;p&gt;あなたは、500円玉を&lt;span class="math"&gt;\(A\)&lt;/span&gt;枚、100円玉を&lt;span class="math"&gt;\(B\)&lt;/span&gt;枚、50円玉を&lt;span class="math"&gt;\(C\)&lt;/span&gt;枚持っています。
+これらの硬貨の中から何枚かを選び、合計金額をちょうど&lt;span class="math"&gt;\(X\)&lt;/span&gt;円にする方法は何通りありますか。
+同じ種類の硬貨同士は区別できません。
+２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。&lt;/p&gt;
+&lt;h4&gt;制約&lt;/h4&gt;
+&lt;p&gt;0 ≤ A,B,C ≤ 50
 A+B+C ≥ 1
 ≤ X ≤ 20,000
 A,B,C は整数である
-Xは50の倍数である
-
-入力
-入力は以下の形式で標準入力から与えられる。
+Xは50の倍数である&lt;/p&gt;
+&lt;h4&gt;入力&lt;/h4&gt;
+&lt;p&gt;入力は以下の形式で標準入力から与えられる。
 　A
 　B
 　C
-　X
-
-出力
-硬貨を選ぶ方法の個数を出力せよ。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
+　X&lt;/p&gt;
+&lt;h4&gt;出力&lt;/h4&gt;
+&lt;p&gt;硬貨を選ぶ方法の個数を出力せよ。
+&lt;hr&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
 &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -316,7 +209,69 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
 もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。&lt;br&gt;
 でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。&lt;br&gt;
 簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。&lt;br&gt;
-もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="atcoder"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="oumpy.github.io/articles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+もし興味があれば皆さんも是非試してみてください。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="競技プログラミング"></category><category term="Atcoder"></category><category term="Python"></category></entry><entry><title>ベイズ流T検定 BEST</title><link href="oumpy.github.io/articles/2019/04/bayesian_T_test.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
 pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
 まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
 読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
@@ -572,42 +527,7 @@ biocLite("DESeq2")
 &lt;/blockquote&gt;
 &lt;p&gt;参照：
 https://bioconductor.org/packages/release/bioc/html/tximport.html
-https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>github desktopアプリの使い方</title><link href="oumpy.github.io/articles/2019/04/github_desktop.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/github_desktop.html</id><summary type="html"></summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
-&lt;h3&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;github上のレポジトリとLocal pathを指定。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_2.png"&gt;&lt;/p&gt;
-&lt;p&gt;これでうまくcloneされていたらOK&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3&gt;毎回の流れ(基本編)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;一日の作業の初めにFetchしてきて、最新の状態に同期する。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_3.png"&gt;&lt;/p&gt;
-&lt;p&gt;ファイルを変更、加筆すると自動的にアプリに反映される&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_4.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;作業の区切りがついたら左下のSummeryに適当にコメントを付け、commit to master。
-コメントはもうちょっと丁寧に付けましょう。。。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_5.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="6" src="oumpy.github.io/articles/2019/04/images/github_desktop_figs/2018_10_6.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;pushして変更を反映させる。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;まとめると、&lt;strong&gt;fetch(pull) -&amp;gt; commit -&amp;gt; push&lt;/strong&gt; のライフライクルです。&lt;/p&gt;
-&lt;h3&gt;CLIでの操作&lt;/h3&gt;
-&lt;p&gt;デスクトップアプリはwin,macではあるが、Ubuntuでは無いらしいので、同じ作業をCLIでやる必要がある。ただし、基本は同じで&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git pull origin master
-$ git add --all
-$ git commit -m &lt;span class="s2"&gt;&amp;quot;コメント&amp;quot;&lt;/span&gt;
-$ git push origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="github"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
+https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/p&gt;</content><category term="Tech_archive"></category><category term="bioinformatics"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="oumpy.github.io/articles/2019/04/google_colaboratory.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。&lt;/p&gt;
 &lt;p&gt;動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。&lt;/p&gt;
 &lt;p&gt;(あと、PCがクソザコなので、クラウドがいいかなーと思いました)&lt;/p&gt;
 &lt;h2&gt;対象&lt;/h2&gt;
@@ -2876,325 +2796,39 @@ Out[39]:
 &lt;p&gt;&lt;a href="https://docs.python.jp/3/library/re.html"&gt;6.2. re — 正規表現操作 — Python 3.6.3 ドキュメント&lt;/a&gt;
 6.2.1. 正規表現のシンタックス ¶ (原文) 正規表現 (すなわち RE) は、表現にマッチ (match) する文字列の集合を表しています。このモジュールの関数を使えば、ある文字列が指定の正規表現にマッチするか (または指定の正規表現がある文字列にマッチするか、つまりは同じことですが) を検査できます。 正規表現を連結すると新しい正規表現を作れます。 A と B がともに正規表現であれば AB も正規表現です。一般的に、文字列 p が A とマッチし、別の文字列 q が B とマッチすれば、文字列 pq は AB にマッチします。ただし、この状況が成り立つのは、 A と B との間に境界条件がある場合や、番号付けされたグループ参照のような、優先度の低い演算を A や B が含まない場合だけです。かくして、ここで述べるような、より簡単でプリミティブな正規表現から、複雑な正規表現を容易に構築できます。正規表現に関する理論と実装の詳細については上記の Friedl 本か、コンパイラの構築に関する教科書を調べて下さい。 以下で正規表現の形式に関する簡単な説明をしておきます。より詳細な...&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://qiita.com/dongri/items/2a0a18e253eb5bf9edba"&gt;よく使う正規表現はもうググりたくない！ - Qiita&lt;/a&gt;
-タイトル通りによく使う正規表現を毎回ググるのが効率悪いのでまとめてみました。各言語で正規表現のサンプルを書いてみました。 # 正規表現式 * Emailアドレス `^\w+([-+.]\w+)&lt;em&gt;@\w+([-.]\w+)&lt;/em&gt;.\w...&lt;/p&gt;</content><category term="Tech_archive"></category><category term="python"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="oumpy.github.io/articles/2019/04/shellscript_1.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
-&lt;p&gt;データ整形の流れって、教わる機会なくないですか？
-つまらないものですが、僕のやり方を紹介してみます。
-始めたばかりの人は参考にしてください。
-経験者の方、変なとこあったらどしどし突っ込みください！
-そして皆さんの自己流も教えてもらえると嬉しいです。&lt;/p&gt;
-&lt;h2&gt;1) scriptに起こす前&lt;/h2&gt;
-&lt;p&gt;shell scriptに書き起こす前に、プロンプト画面（Mac,Ubuntuならterminal）でテストします。
-僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
-その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
-圧縮ファイルの時は、解凍する前にzcatでつないで試します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cat hogehoge.txt | sed 1d（試したいコマンド）| head&lt;/span&gt;
-&lt;span class="err"&gt;zcat hoge.gz | cut –f1（試したいコマンド）| head&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+タイトル通りによく使う正規表現を毎回ググるのが効率悪いのでまとめてみました。各言語で正規表現のサンプルを書いてみました。 # 正規表現式 * Emailアドレス `^\w+([-+.]\w+)&lt;em&gt;@\w+([-.]\w+)&lt;/em&gt;.\w...&lt;/p&gt;</content><category term="Tech_archive"></category><category term="python"></category></entry><entry><title>5年次海外実習</title><link href="oumpy.github.io/articles/2019/04/study_abroad.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>佐藤, 宮崎</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_01.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をもらいました。&lt;/p&gt;
+&lt;iframe src="//www.slideshare.net/slideshow/embed_code/key/f3e0fxEFp9OQAq" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
 
+&lt;div style="margin-bottom:5px"&gt;
 
-&lt;p&gt;一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
-別画面で折り返しなしで見ることができます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;cat hogehoge | sed 1d（試したいコマンド）| head | less -S&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;2) scriptを書く&lt;/h2&gt;
-&lt;p&gt;うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
-結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;touch test.sh # ファイルつくって、&lt;/span&gt;
-&lt;span class="err"&gt;emacs test.sh # emacsで開く。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;#!/bin/bash # おまじない。&lt;/span&gt;
-&lt;span class="err"&gt;$1=filename # ファイルはいつも外から入れれるようにしてます。&lt;/span&gt;
-&lt;span class="err"&gt;rm –r ./folder # 一発で上手くいくことはないので、やり直しやすいように消去コマンド。&lt;/span&gt;
-&lt;span class="err"&gt;mkdir ./folder # 散らからないように専用フォルダを作成。&lt;/span&gt;
-&lt;span class="err"&gt;dir1=&amp;quot;./folder&amp;quot; # フォルダ名をいつでも変えやすいようにパスを変数にいれる。&lt;/span&gt;
-&lt;span class="err"&gt;cat &amp;quot;$filename&amp;quot; | sed 1d &amp;gt; &amp;quot;$dir1&amp;quot;/hogehoge2.txt #目的のコマンドで処理して保存。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
-&lt;h2&gt;3) 実行&lt;/h2&gt;
-&lt;p&gt;書けたら、処理したいファイルを渡して実行してみます。
-&amp;amp;はバックグラウンド実行です。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;bash ./test.sh ./hogehoge.txt &amp;amp;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
-screenを使うこともあります。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nohup bash ./test.sh ./hogehoge.txt &amp;amp;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;4)　修正&lt;/p&gt;
-&lt;p&gt;scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
-そうすれば、後でやり直しやすいです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;# cat &amp;quot;$filename&amp;quot; | sed 1d &amp;gt; &amp;quot;$dir1&amp;quot;/hogehoge2.txt # コメントアウトして置いておく。&lt;/span&gt;
-&lt;span class="err"&gt;cat &amp;quot;$filename&amp;quot; | grep &amp;quot;blahblah&amp;quot; &amp;gt; &amp;quot;$dir1&amp;quot;/hogehoge2.txt # 新しい文。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。&lt;/p&gt;
-&lt;h2&gt;5) 応用編&lt;/h2&gt;
-&lt;p&gt;あとはひたすらコマンドを駆使して書き上げていきます。
-以下の基本コマンドでだいたいのことはできるかと。
-特にawkはたくさんのことができます。joinも重宝します。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;command&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cat&lt;/td&gt;
-&lt;td&gt;ファイルを縦につなぐ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;paste&lt;/td&gt;
-&lt;td&gt;ファイルを横につなぐ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sed&lt;/td&gt;
-&lt;td&gt;指定行抜き出すor削除or文字置換&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cut&lt;/td&gt;
-&lt;td&gt;指定列抜き出すor削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;awk&lt;/td&gt;
-&lt;td&gt;抜き出し方をいろいろカスタマイズ&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tr&lt;/td&gt;
-&lt;td&gt;文字置換&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sort&lt;/td&gt;
-&lt;td&gt;整列&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;uniq&lt;/td&gt;
-&lt;td&gt;重複行を削除or抜き出す&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;join&lt;/td&gt;
-&lt;td&gt;2つのファイルを同じ項目で合わせる&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;grep&lt;/td&gt;
-&lt;td&gt;特定の文字が入った行を出す&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="shell"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="oumpy.github.io/articles/2019/04/shellscript_2.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
-&lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
-が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
-ってことないでしょうか。&lt;/p&gt;
-&lt;p&gt;Rの機能を代替するのは無理ですが、せめてほんの少し、
-例えば、テーブル中の値をそれぞれbashの変数に入れれたら、
-Rを呼び出さずに完結できたりします。&lt;/p&gt;
-&lt;p&gt;要は、&lt;code&gt;$ mat_i_j=i行j列目の要素&lt;/code&gt;で変数を格納していきます。&lt;/p&gt;
-&lt;p&gt;対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;a    b    c&lt;/span&gt;
-&lt;span class="err"&gt;1    2    3&lt;/span&gt;
-&lt;span class="err"&gt;d    e    f&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;これの各要素を、&lt;code&gt;$mat_i_j&lt;/code&gt; に格納していきます。
-一例として、以下のスクリプトでできます。
-配列つかったりしてもっといいスクリプトもきっとあります。&lt;/p&gt;
-&lt;p&gt;bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;## 行番号に使う変数の設定。&lt;/span&gt;
-&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3 &lt;span class="c1"&gt;## 解説①&lt;/span&gt;
-&lt;span class="k"&gt;do&lt;/span&gt;
-    &lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;expr &lt;span class="nv"&gt;$row&lt;/span&gt; + &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 1行ずつ読んでくので、1ずつ足していく。&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; col in &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 今読んでる行での列番号をfor文で回す。&lt;/span&gt;
-    &lt;span class="k"&gt;do&lt;/span&gt;
-        &lt;span class="nb"&gt;eval&lt;/span&gt; mat_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 解説②&lt;/span&gt;
-    &lt;span class="k"&gt;done&lt;/span&gt;
-&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;table.txt
-
-&lt;span class="c1"&gt;### 変数mat_$i_$j を使った処理が続く。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;時間のある人用に解説です。
-少し小技があります。&lt;/p&gt;
-&lt;h3&gt;1) while readの使い方&lt;/h3&gt;
-&lt;p&gt;よく見かけるのは、&lt;code&gt;cat&lt;/code&gt;からパイプで&lt;code&gt;while read&lt;/code&gt;につなぐやつです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat table.txt &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ファイルを一行ずつ読んで、各列の要素を&lt;code&gt;read&lt;/code&gt;の後ろに置いた変数名&lt;code&gt;（x1,x2,x3）&lt;/code&gt;に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
-各行ごとに、&lt;code&gt;do&lt;/code&gt;～&lt;code&gt;done&lt;/code&gt;の間で、&lt;code&gt;$x1&lt;/code&gt;,&lt;code&gt;$x2&lt;/code&gt;,&lt;code&gt;$x3&lt;/code&gt;が使えるようになります。&lt;/p&gt;
-&lt;p&gt;が、しかし、パイプで&lt;code&gt;while&lt;/code&gt;に入ってしまうと、パイプ内はパイプ内で完結するため、
-&lt;code&gt;do&lt;/code&gt;~&lt;code&gt;done&lt;/code&gt;の中で変数操作をしても、&lt;code&gt;done&lt;/code&gt;の後では、その中身が空っぽになっちゃいます。&lt;/p&gt;
-&lt;p&gt;これを回避するためには、パイプを使わないということで、リダイレクトで、
-&lt;code&gt;done&lt;/code&gt;の後ろに&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;done&lt;/span&gt;&amp;lt;table.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;を書きます。
-読みにくいですよねー。&lt;/p&gt;
-&lt;h3&gt;2) evalの使い方&lt;/h3&gt;
-&lt;p&gt;今回の&lt;code&gt;mat_$i_$j&lt;/code&gt;のように、変数名に変数&lt;code&gt;($i,$j)&lt;/code&gt;を使って値を格納する時には、&lt;code&gt;eval&lt;/code&gt;を使います。
-&lt;code&gt;eval&lt;/code&gt;は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。&lt;/p&gt;
-&lt;p&gt;なので、&lt;code&gt;i=2, j=3&lt;/code&gt; として、&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;は、
-&lt;code&gt;mat_2_3=aaa&lt;/code&gt; をスクリプトとして評価しろ、ということになり、
-&lt;code&gt;mat_2_3&lt;/code&gt;という変数名に、&lt;code&gt;aaa&lt;/code&gt;が入ります。
-（ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）&lt;/p&gt;
-&lt;p&gt;変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
-&lt;code&gt;col=1&lt;/code&gt;として、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\$&lt;/span&gt;x&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;と書けば、まず、&lt;code&gt;eval&lt;/code&gt;が&lt;code&gt;$col&lt;/code&gt;の中身を出してからスクリプトとして評価するので、
-（xの&lt;span class="math"&gt;\(には\がかかってるので無視されます）
-&lt;code&gt;echo $x1&lt;/code&gt;
-と書いていることになり、通常の&lt;code&gt;echo&lt;/code&gt;で書いたように、&lt;code&gt;$x1&lt;/code&gt;の中身が出力されます。
-xの\)&lt;/span&gt;にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費されて、&lt;code&gt;echo&lt;/code&gt;内にはなくなります。ここ重要。&lt;/p&gt;
-&lt;p&gt;やりたいことは、&lt;code&gt;eval echo&lt;/code&gt;で出してきた値を、変数を使った変数名に格納することです。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;の&lt;code&gt;aaa&lt;/code&gt;部分に&lt;code&gt;eval echo&lt;/code&gt;を直接もってきても、機能しません。
-&lt;code&gt;eval echo&lt;/code&gt;のままでは、まだ値ではなくスクリプトだからです。&lt;/p&gt;
-&lt;p&gt;なので、そのスクリプトを実行させて値を出力させたものを、&lt;code&gt;aaa&lt;/code&gt;の部分に書きます。
-そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。&lt;/p&gt;
-&lt;p&gt;アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
-なので、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$k&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;とすれば、&lt;code&gt;$k&lt;/code&gt;の中身が出力されて、&lt;code&gt;test&lt;/code&gt;に格納されます。
-&lt;code&gt;row&lt;/code&gt;に1ずつ足していくとこでも使ってます。よく見る方法です。
-&lt;code&gt;for&lt;/code&gt;文使わなくていいので、見た目がすっきりします。&lt;/p&gt;
-&lt;p&gt;では、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;と書けば、&lt;code&gt;mat_2_3&lt;/code&gt;に&lt;code&gt;$x1&lt;/code&gt;の中身が代入されるはず！
-となるのですが、不完全です。&lt;/p&gt;
-&lt;p&gt;アクサングラーブでの評価で、&lt;code&gt;\&lt;/code&gt;が一個消費されてしまうので、実行する&lt;code&gt;eval echo&lt;/code&gt;の文が、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;となるので、&lt;code&gt;eval&lt;/code&gt;での評価時に&lt;code&gt;$x&lt;/code&gt;の中身（設定してないので空っぽ）と&lt;code&gt;$col&lt;/code&gt;が出されてしまって、
-&lt;code&gt;echo (空)1&lt;/code&gt;
-となって、最終的に、&lt;code&gt;mat_2_3&lt;/code&gt;には&lt;code&gt;$x1&lt;/code&gt;ではなく、&lt;code&gt;$col&lt;/code&gt;の中身である1が代入されてしまいます。&lt;/p&gt;
-&lt;p&gt;なので、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \\&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;と、\を一個増やして書けば、目的達成です。
-めでたしめでたし。&lt;/p&gt;
-&lt;p&gt;※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</content><category term="Tech_archive"></category><category term="shell"></category></entry><entry><title>5年次海外実習</title><link href="oumpy.github.io/articles/2019/04/study_abroad.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>宮崎　佐藤</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span style="font-weight:400;"&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った先輩の資料をもらいました。&lt;/p&gt;
-&lt;p&gt;[slideshare id=135802981&amp;amp;doc=rlfhhaarhsceewdyrtxz-signature-e54772a31b57df6de43cc9594331c021bf0f3832af3fbc67ab36dc5b03a0726b-poli-190312064228]&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;海外での生活は旅行も含めて初めてだったので本当に不安でしたが、寮の友達が親切に接してくれて本当に助かりました。ここでその暮らしぶりを少し書かせてもらおうと思います。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;英語について&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;僕を含めて多くの人が海外留学する際に懸念していることかもしれません。IELTSはギリギリ6.0でかつ直前まで英語の勉強をサボっていたので非常に心配でした。なんとかなるかなーと割と楽観的だったのですが、空港でコーヒー頼む時に全然通じなくて絶望しました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;ただ、僕が滞在していた寮は留学生が多く住んでいる寮で英語を母国語としている人はそこまで多くなかったので助かりました。それでも最初は聞き取れませんでしたが、周りの人が割と根気強く伝えようとしてくれたのでありがたかったです。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;日本に帰ってからもちゃんと英語勉強します。。。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;寮生活について&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;今回僕は大学内にある寮的なところに滞在しました。朝晩食事付きで週34000円くらいです。オーストラリアにしてはだいぶ良心的ですが、それでも１ヶ月半いるとなるとばかにならないし、行かせてくれた親には超感謝してます。朝晩バイキング形式で食べるので、必然的に他の住人と話すことになるわけですが、結果的にこれがよかったです。用事を作らずとも自然に人と話す機会があるし、色々な人の色々な人生が聞けてすごく楽しいです。ここでたくさんの友達ができました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;部屋も結構快適で落ち着きます。風呂とトイレは共同と聞いていて結構ビビってたんですが、全然不快な感じはなかったです。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;寮というものに住んだことがなかったので、とても新鮮でした。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;[gallery ids="518,519" type="rectangular"]&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;メルボルンという町について&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;ぶっちゃけ日本より住みやすい気がします。気温の年較差は小さく(冬でも10度前後)、日較差は大きいです(今は夏ですが、最低気温18度くらい)。昼間はラボに行っているので、外に出る時は5月くらいの気候で超気持ちいいです。日差しは強いのでオーストラリア来る時は日焼け止め必須です。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;メルボルンはアートとスポーツの町です。そこらかしこに美術館や記念館があり、とても全部は行けないほどです。古い建築物が多く残っており、伝統的な西洋建築が立ち並ぶかと思いきや、流線形のドーム状の病院や路地裏にはストリートアート的なものがそこら中に描かれ、それらがいい意味で混じり合い独特の景観を形成しています。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;先日全豪オープンが開かれたのもこの町です。ちょうど中之島のように中心地のすぐ近くにヤラ川という川が流れており、ボート競技も盛んに行われていました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;オーストラリアは移民の国で、色々な人種の人たちがいます。だいたい３割がアジア系(中国が最多)、アフリカ系の人も結構います。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;[gallery ids="520,521" type="rectangular"]&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;海外の留学生について&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;アジア系の人たちが結構多かったです。特に中国はチャイナタウンもあるからなのか、非常に多くの学生が来ています。話を聞いていると、中国の学生の20%くらいの人が海外で修士、あるいは博士を取るらしく、英語は使えて当然のような雰囲気が伺えました。日本は自国の大学や研究機関以外の選択肢があまりないというか、海外に行く人が(少なくとも僕の周りには)少ないので驚きました。当然、speakingやlisteningの能力も程度の差こそあれ、日本人は劣っていると思います。カナダ人から「日本人ってシャイだしあんまり英語も喋れないよねー」って言われて、確かに、、、と納得してしまいました。海外に渡り、技術や知識を取り入れるのがスタンダードになろうとしている他のアジア諸国の人たちを見ていると、日本の将来を考えずにはいられませんでした。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;まとめ&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;海外での生活は予想よりもはるかに楽しかったです。これは寮の友達によるところが大きかったです。毎日誰かが寮のどこかでボードゲームなどで遊んでおり、それを見ているだけでも楽しく、また一緒にやろうぜと気軽に誘ってくれました。休日はみんなで出かけ、それぞれの故郷の料理を交互に食べ、文化について語り合う。考え方は人それぞれなのはもちろん、国や宗教に大きく影響を受けていることを知りました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span style="font-weight:400;"&gt;海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;[gallery ids="523,522" type="rectangular"]&lt;/p&gt;</content><category term="Tech_archive"></category><category term="paper"></category></entry><entry><title>寿司打タイピング自動化</title><link href="oumpy.github.io/articles/2019/04/sushi_typing.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;[youtube https://www.youtube.com/watch?v=SqOO9I1tFjk&amp;amp;w=560&amp;amp;h=315]&lt;/p&gt;
+&lt;p&gt;海外での生活は旅行も含めて初めてだったので本当に不安でしたが、寮の友達が親切に接してくれて本当に助かりました。ここでその暮らしぶりを少し書かせてもらおうと思います。&lt;/p&gt;
+&lt;h2&gt;英語について&lt;/h2&gt;
+&lt;p&gt;僕を含めて多くの人が海外留学する際に懸念していることかもしれません。IELTSはギリギリ6.0でかつ直前まで英語の勉強をサボっていたので非常に心配でした。なんとかなるかなーと割と楽観的だったのですが、空港でコーヒー頼む時に全然通じなくて絶望しました。&lt;/p&gt;
+&lt;p&gt;ただ、僕が滞在していた寮は留学生が多く住んでいる寮で英語を母国語としている人はそこまで多くなかったので助かりました。それでも最初は聞き取れませんでしたが、周りの人が割と根気強く伝えようとしてくれたのでありがたかったです。&lt;/p&gt;
+&lt;p&gt;日本に帰ってからもちゃんと英語勉強します。。。&lt;/p&gt;
+&lt;h2&gt;寮生活について&lt;/h2&gt;
+&lt;p&gt;今回僕は大学内にある寮的なところに滞在しました。朝晩食事付きで週34000円くらいです。オーストラリアにしてはだいぶ良心的ですが、それでも１ヶ月半いるとなるとばかにならないし、行かせてくれた親には超感謝してます。朝晩バイキング形式で食べるので、必然的に他の住人と話すことになるわけですが、結果的にこれがよかったです。用事を作らずとも自然に人と話す機会があるし、色々な人の色々な人生が聞けてすごく楽しいです。ここでたくさんの友達ができました。&lt;/p&gt;
+&lt;p&gt;部屋も結構快適で落ち着きます。風呂とトイレは共同と聞いていて結構ビビってたんですが、全然不快な感じはなかったです。&lt;/p&gt;
+&lt;p&gt;寮というものに住んだことがなかったので、とても新鮮でした。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_02.jpg"&gt;
+&lt;img alt="3" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_03.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;メルボルンという町について&lt;/h2&gt;
+&lt;p&gt;ぶっちゃけ日本より住みやすい気がします。気温の年較差は小さく(冬でも10度前後)、日較差は大きいです(今は夏ですが、最低気温18度くらい)。昼間はラボに行っているので、外に出る時は5月くらいの気候で超気持ちいいです。日差しは強いのでオーストラリア来る時は日焼け止め必須です。&lt;/p&gt;
+&lt;p&gt;メルボルンはアートとスポーツの町です。そこらかしこに美術館や記念館があり、とても全部は行けないほどです。古い建築物が多く残っており、伝統的な西洋建築が立ち並ぶかと思いきや、流線形のドーム状の病院や路地裏にはストリートアート的なものがそこら中に描かれ、それらがいい意味で混じり合い独特の景観を形成しています。&lt;/p&gt;
+&lt;p&gt;先日全豪オープンが開かれたのもこの町です。ちょうど中之島のように中心地のすぐ近くにヤラ川という川が流れており、ボート競技も盛んに行われていました。&lt;/p&gt;
+&lt;p&gt;オーストラリアは移民の国で、色々な人種の人たちがいます。だいたい３割がアジア系(中国が最多)、アフリカ系の人も結構います。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_04.jpg"&gt;
+&lt;img alt="5" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_05.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;海外の留学生について&lt;/h2&gt;
+&lt;p&gt;アジア系の人たちが結構多かったです。特に中国はチャイナタウンもあるからなのか、非常に多くの学生が来ています。話を聞いていると、中国の学生の20%くらいの人が海外で修士、あるいは博士を取るらしく、英語は使えて当然のような雰囲気が伺えました。日本は自国の大学や研究機関以外の選択肢があまりないというか、海外に行く人が(少なくとも僕の周りには)少ないので驚きました。当然、speakingやlisteningの能力も程度の差こそあれ、日本人は劣っていると思います。カナダ人から「日本人ってシャイだしあんまり英語も喋れないよねー」って言われて、確かに、、、と納得してしまいました。海外に渡り、技術や知識を取り入れるのがスタンダードになろうとしている他のアジア諸国の人たちを見ていると、日本の将来を考えずにはいられませんでした。&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;海外での生活は予想よりもはるかに楽しかったです。これは寮の友達によるところが大きかったです。毎日誰かが寮のどこかでボードゲームなどで遊んでおり、それを見ているだけでも楽しく、また一緒にやろうぜと気軽に誘ってくれました。休日はみんなで出かけ、それぞれの故郷の料理を交互に食べ、文化について語り合う。考え方は人それぞれなのはもちろん、国や宗教に大きく影響を受けていることを知りました。&lt;/p&gt;
+&lt;p&gt;旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。&lt;/p&gt;
+&lt;p&gt;海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_06.jpg"&gt;
+&lt;img alt="7" src="oumpy.github.io/articles/2019/04/images/study_abroad_figs/img_07.jpg"&gt;&lt;/p&gt;</content><category term="Tech_archive"></category><category term="海外留学"></category></entry><entry><title>寿司打タイピング自動化</title><link href="oumpy.github.io/articles/2019/04/sushi_typing.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;[youtube https://www.youtube.com/watch?v=SqOO9I1tFjk&amp;amp;w=560&amp;amp;h=315]&lt;/p&gt;
 &lt;p&gt;寿司打の自動化についてです。上の動画のようになりました。寿司打は結構昔からあるタイピング練習サイトです。寿司打は&lt;a href="http://typing.sakura.ne.jp/sushida/"&gt;こちら&lt;/a&gt;です。
 1万円コースで1万円超えない人はタイピング遅いので特訓しましょう。&lt;/p&gt;
 &lt;p&gt;自動化の流れとしては
@@ -3414,11 +3048,445 @@ https://github.com/theislab/scvelo&lt;/p&gt;</content><category term="Tech_archi
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="oumpy.github.io/articles/2019/03/article_reading.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h1&gt;論文抄読で便利なサイト&lt;/h1&gt;
-&lt;p&gt;英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…ということで、いつも論文を読む時にどんなサイトを使っているかを一度書き起こしてみました。とりあえずハードルを下げることメインなので、「普通に読めるやろ」みたいな人はスルーでお願いします笑。5年の免疫内科の実習で論文の効率的な読み方を習って、もっと早く知ってればなあと思ったので、もし先生に「〇〇に関する論文読んできてねー」みたいなことを言われた時とかに参考にしてみてください。 &lt;a href="http://www.imed3.med.osaka-u.ac.jp/education/education01.html"&gt;大阪大学免疫内科のホームページ&lt;/a&gt;と被っていることも多いです。こちらも是非見てみてください。&lt;/p&gt;
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="deeplearning"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="oumpy.github.io/articles/2018/12/animalshogi.html" rel="alternate"></link><published>2018-12-06T00:00:00+09:00</published><updated>2018-12-06T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2018-12-06:oumpy.github.io/articles/2018/12/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt;というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
+駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
+駒に描かれているイラストも、大変、かわいいです。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2018/12/images/animalshogi_figs/1024px-doubutsu-shogi.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;ゲーム空間の規模がそこそこ小さいため、すでに随分前に&lt;a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/"&gt;完全解析もされています&lt;/a&gt;。
+双方最善を尽くすと78手まで後手勝ち、だそうです。&lt;/p&gt;
+&lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo&lt;/a&gt;
+(&lt;a href="https://www.nature.com/articles/nature24270"&gt;Zero&lt;/a&gt;)
+を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、&lt;strong&gt;どうぶつしょうぎをプレイするプログラム&lt;/strong&gt;を作ってみました。&lt;br&gt;
+ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。&lt;/p&gt;
+&lt;p&gt;今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）&lt;/p&gt;
+&lt;h2&gt;つくりかた概要&lt;/h2&gt;
+&lt;p&gt;「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。&lt;br&gt;
+この部分を、深層ニューラルネットワーク「だけ」で作ります。  &lt;/p&gt;
+&lt;p&gt;実はこれ、&lt;strong&gt;画像カテゴリ認識と殆ど同じ&lt;/strong&gt;です。
+例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。&lt;br&gt;
+入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。&lt;/p&gt;
+&lt;h2&gt;ネットワーク構成&lt;/h2&gt;
+&lt;h3&gt;入力：盤面と持駒の表現&lt;/h3&gt;
+&lt;p&gt;どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
+（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）&lt;br&gt;
+なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
+各マスで11チャネルのうち1つだけが1、残りは0をとるようにします。&lt;/p&gt;
+&lt;p&gt;次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。&lt;br&gt;
+こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。&lt;/p&gt;
+&lt;p&gt;入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。&lt;/p&gt;
+&lt;h3&gt;出力：可能な指し手を網羅する&lt;/h3&gt;
+&lt;p&gt;どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。&lt;br&gt;
+これらは任意の局面に対して、&lt;br&gt;
+(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」&lt;br&gt;
+(2)「打つ駒の種類」「打つ位置」&lt;br&gt;
+を与えると一意に決められます。&lt;br&gt;
+一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。&lt;br&gt;
+合わせて&lt;strong&gt;合法手の可能性は97通り&lt;/strong&gt;です。
+ですからネットワークは、&lt;strong&gt;97ノードのソフトマックスを出力とすればよい&lt;/strong&gt;ことになります。&lt;/p&gt;
+&lt;h3&gt;今回使ったネットワーク&lt;/h3&gt;
+&lt;p&gt;入力と出力が決まったので、あとは工夫しだい。
+今回は適当に、こんなネットワークでやってみます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;Layer (type)                     Output Shape          Param #     Connected to                     &lt;/span&gt;
+&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
+&lt;span class="err"&gt;input_1 (InputLayer)             (None, 3, 4, 11)      0                                            &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;input_2 (InputLayer)            (None, 2, 3, 2)       0                                            &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  &lt;/span&gt;
+&lt;span class="err"&gt;                                                                   flatten_2[0][0]                 &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;span class="err"&gt;dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   &lt;/span&gt;
+&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
+&lt;span class="err"&gt;Total params: 113,633&lt;/span&gt;
+&lt;span class="err"&gt;Trainable params: 113,633&lt;/span&gt;
+&lt;span class="err"&gt;Non-trainable params: 0&lt;/span&gt;
+&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。&lt;br&gt;
+盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。&lt;/p&gt;
+&lt;h2&gt;強化学習：自己対戦と指し手評価&lt;/h2&gt;
+&lt;p&gt;さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。&lt;/p&gt;
+&lt;p&gt;そのためには、&lt;strong&gt;審判・履歴機能付きのどうぶつしょうぎ盤セット&lt;/strong&gt;をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。&lt;/p&gt;
+&lt;p&gt;自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。&lt;/li&gt;
+&lt;li&gt;出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。&lt;/li&gt;
+&lt;li&gt;自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。&lt;/li&gt;
+&lt;li&gt;敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。&lt;br&gt;
+  （褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。&lt;br&gt;
+計算は全てノートPC上で行い、計算時間は45分程度でした。&lt;/p&gt;
+&lt;h2&gt;学習結果&lt;/h2&gt;
+&lt;h3&gt;ルールの習得&lt;/h3&gt;
+&lt;p&gt;まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。&lt;br&gt;
+ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに&lt;strong&gt;合法手が98.7%&lt;/strong&gt;となりました。1.3%の指し手が反則です。&lt;br&gt;
+これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。&lt;br&gt;
+ルールについてはかなり良く習得してきていることがわかります。&lt;/p&gt;
+&lt;h3&gt;どれくらい強い？&lt;/h3&gt;
+&lt;p&gt;自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。  &lt;/p&gt;
+&lt;p&gt;結果は、、、&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;勝率 53% !!!!!!&lt;/strong&gt; (´･ω･`)&lt;/p&gt;
+&lt;p&gt;んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。&lt;br&gt;
+ランダムに指すのと比べて、確実に強いです。&lt;br&gt;
+しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。&lt;/p&gt;
+&lt;p&gt;原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。&lt;br&gt;
+強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。  &lt;/p&gt;
+&lt;p&gt;例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。&lt;br&gt;
+そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。&lt;/p&gt;
+&lt;p&gt;今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
+自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。&lt;/p&gt;
+&lt;p&gt;ひとまず今回はここまで。おしまい。&lt;/p&gt;
+&lt;h3&gt;追記1&lt;/h3&gt;
+&lt;p&gt;強化学習をさらに2倍、総計2&lt;sup&gt;18&lt;/sup&gt;局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。&lt;/p&gt;
+&lt;h3&gt;追記2&lt;/h3&gt;
+&lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
+今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
+最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category><category term="Python"></category><category term="強化学習"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="oumpy.github.io/articles/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-16:oumpy.github.io/articles/2018/11/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
+&lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
+が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
+ってことないでしょうか。&lt;/p&gt;
+&lt;p&gt;Rの機能を代替するのは無理ですが、せめてほんの少し、
+例えば、テーブル中の値をそれぞれbashの変数に入れれたら、
+Rを呼び出さずに完結できたりします。&lt;/p&gt;
+&lt;p&gt;要は、&lt;code&gt;$ mat_i_j=i行j列目の要素&lt;/code&gt;で変数を格納していきます。&lt;/p&gt;
+&lt;p&gt;対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;a    b    c&lt;/span&gt;
+&lt;span class="err"&gt;1    2    3&lt;/span&gt;
+&lt;span class="err"&gt;d    e    f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;これの各要素を、&lt;code&gt;$mat_i_j&lt;/code&gt; に格納していきます。
+一例として、以下のスクリプトでできます。
+配列つかったりしてもっといいスクリプトもきっとあります。&lt;/p&gt;
+&lt;p&gt;bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;## 行番号に使う変数の設定。&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3 &lt;span class="c1"&gt;## 解説①&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;expr &lt;span class="nv"&gt;$row&lt;/span&gt; + &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 1行ずつ読んでくので、1ずつ足していく。&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; col in &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 今読んでる行での列番号をfor文で回す。&lt;/span&gt;
+    &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="nb"&gt;eval&lt;/span&gt; mat_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 解説②&lt;/span&gt;
+    &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;table.txt
+
+&lt;span class="c1"&gt;### 変数mat_$i_$j を使った処理が続く。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;時間のある人用に解説です。
+少し小技があります。&lt;/p&gt;
+&lt;h2&gt;1) while readの使い方&lt;/h2&gt;
+&lt;p&gt;よく見かけるのは、&lt;code&gt;cat&lt;/code&gt;からパイプで&lt;code&gt;while read&lt;/code&gt;につなぐやつです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat table.txt &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ファイルを一行ずつ読んで、各列の要素を&lt;code&gt;read&lt;/code&gt;の後ろに置いた変数名&lt;code&gt;（x1,x2,x3）&lt;/code&gt;に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
+各行ごとに、&lt;code&gt;do&lt;/code&gt;～&lt;code&gt;done&lt;/code&gt;の間で、&lt;code&gt;$x1&lt;/code&gt;,&lt;code&gt;$x2&lt;/code&gt;,&lt;code&gt;$x3&lt;/code&gt;が使えるようになります。&lt;/p&gt;
+&lt;p&gt;が、しかし、パイプで&lt;code&gt;while&lt;/code&gt;に入ってしまうと、パイプ内はパイプ内で完結するため、
+&lt;code&gt;do&lt;/code&gt;~&lt;code&gt;done&lt;/code&gt;の中で変数操作をしても、&lt;code&gt;done&lt;/code&gt;の後では、その中身が空っぽになっちゃいます。&lt;/p&gt;
+&lt;p&gt;これを回避するためには、パイプを使わないということで、リダイレクトで、
+&lt;code&gt;done&lt;/code&gt;の後ろに&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;done&lt;/span&gt;&amp;lt;table.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;を書きます。
+読みにくいですよねー。&lt;/p&gt;
+&lt;h2&gt;2) evalの使い方&lt;/h2&gt;
+&lt;p&gt;今回の&lt;code&gt;mat_$i_$j&lt;/code&gt;のように、変数名に変数&lt;code&gt;($i,$j)&lt;/code&gt;を使って値を格納する時には、&lt;code&gt;eval&lt;/code&gt;を使います。
+&lt;code&gt;eval&lt;/code&gt;は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。&lt;/p&gt;
+&lt;p&gt;なので、&lt;code&gt;i=2, j=3&lt;/code&gt; として、&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;は、
+&lt;code&gt;mat_2_3=aaa&lt;/code&gt; をスクリプトとして評価しろ、ということになり、
+&lt;code&gt;mat_2_3&lt;/code&gt;という変数名に、&lt;code&gt;aaa&lt;/code&gt;が入ります。
+（ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）&lt;/p&gt;
+&lt;p&gt;変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
+&lt;code&gt;col=1&lt;/code&gt;として、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\$&lt;/span&gt;x&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と書けば、まず、&lt;code&gt;eval&lt;/code&gt;が&lt;code&gt;$col&lt;/code&gt;の中身を出してからスクリプトとして評価するので、
+（xの&lt;span class="math"&gt;\(には\がかかってるので無視されます）
+&lt;code&gt;echo $x1&lt;/code&gt;
+と書いていることになり、通常の&lt;code&gt;echo&lt;/code&gt;で書いたように、&lt;code&gt;$x1&lt;/code&gt;の中身が出力されます。
+xの\)&lt;/span&gt;にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費されて、&lt;code&gt;echo&lt;/code&gt;内にはなくなります。ここ重要。&lt;/p&gt;
+&lt;p&gt;やりたいことは、&lt;code&gt;eval echo&lt;/code&gt; で出してきた値を、変数を使った変数名に格納することです。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;の&lt;code&gt;aaa&lt;/code&gt;部分に&lt;code&gt;eval echo&lt;/code&gt;を直接もってきても、機能しません。
+&lt;code&gt;eval echo&lt;/code&gt;のままでは、まだ値ではなくスクリプトだからです。&lt;/p&gt;
+&lt;p&gt;なので、そのスクリプトを実行させて値を出力させたものを、&lt;code&gt;aaa&lt;/code&gt;の部分に書きます。
+そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。&lt;/p&gt;
+&lt;p&gt;アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
+なので、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$k&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;とすれば、&lt;code&gt;$k&lt;/code&gt;の中身が出力されて、&lt;code&gt;test&lt;/code&gt;に格納されます。
+&lt;code&gt;row&lt;/code&gt;に1ずつ足していくとこでも使ってます。よく見る方法です。
+&lt;code&gt;for&lt;/code&gt;文使わなくていいので、見た目がすっきりします。&lt;/p&gt;
+&lt;p&gt;では、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と書けば、&lt;code&gt;mat_2_3&lt;/code&gt;に&lt;code&gt;$x1&lt;/code&gt;の中身が代入されるはず！
+となるのですが、不完全です。&lt;/p&gt;
+&lt;p&gt;アクサングラーブでの評価で、&lt;code&gt;\&lt;/code&gt;が一個消費されてしまうので、実行する&lt;code&gt;eval echo&lt;/code&gt;の文が、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;となるので、&lt;code&gt;eval&lt;/code&gt;での評価時に&lt;code&gt;$x&lt;/code&gt;の中身（設定してないので空っぽ）と&lt;code&gt;$col&lt;/code&gt;が出されてしまって、
+&lt;code&gt;echo (空)1&lt;/code&gt;
+となって、最終的に、&lt;code&gt;mat_2_3&lt;/code&gt;には&lt;code&gt;$x1&lt;/code&gt;ではなく、&lt;code&gt;$col&lt;/code&gt;の中身である1が代入されてしまいます。&lt;/p&gt;
+&lt;p&gt;なので、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \\&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と、\を一個増やして書けば、目的達成です。
+めでたしめでたし。&lt;/p&gt;
+&lt;p&gt;※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="Shell script"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="oumpy.github.io/articles/2018/11/shellscript_1.html" rel="alternate"></link><published>2018-11-01T00:00:00+09:00</published><updated>2018-11-01T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-01:oumpy.github.io/articles/2018/11/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
+&lt;p&gt;データ整形の流れって、教わる機会なくないですか？
+つまらないものですが、僕のやり方を紹介してみます。
+始めたばかりの人は参考にしてください。
+経験者の方、変なとこあったらどしどし突っ込みください！
+そして皆さんの自己流も教えてもらえると嬉しいです。&lt;/p&gt;
+&lt;h2&gt;1) scriptに起こす前&lt;/h2&gt;
+&lt;p&gt;shell scriptに書き起こす前に、プロンプト画面（Mac,Ubuntuならterminal）でテストします。
+僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
+その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
+圧縮ファイルの時は、解凍する前にzcatでつないで試します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat hogehoge.txt &lt;span class="p"&gt;|&lt;/span&gt; sed 1d（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head
+zcat hoge.gz &lt;span class="p"&gt;|&lt;/span&gt; cut –f1（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
+別画面で折り返しなしで見ることができます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat hogehoge &lt;span class="p"&gt;|&lt;/span&gt; sed 1d（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head &lt;span class="p"&gt;|&lt;/span&gt; less -S
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;2) scriptを書く&lt;/h2&gt;
+&lt;p&gt;うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
+結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;touch test.sh &lt;span class="c1"&gt;# ファイルつくって、&lt;/span&gt;
+emacs test.sh &lt;span class="c1"&gt;# emacsで開く。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash # おまじない。&lt;/span&gt;
+&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;filename &lt;span class="c1"&gt;# ファイルはいつも外から入れれるようにしてます。&lt;/span&gt;
+rm –r ./folder &lt;span class="c1"&gt;# 一発で上手くいくことはないので、やり直しやすいように消去コマンド。&lt;/span&gt;
+mkdir ./folder &lt;span class="c1"&gt;# 散らからないように専用フォルダを作成。&lt;/span&gt;
+&lt;span class="nv"&gt;dir1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./folder&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;# フォルダ名をいつでも変えやすいようにパスを変数にいれる。&lt;/span&gt;
+cat &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$filename&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed 1d &amp;gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$dir1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;/hogehoge2.txt &lt;span class="c1"&gt;#目的のコマンドで処理して保存。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;3) 実行&lt;/h2&gt;
+&lt;p&gt;書けたら、処理したいファイルを渡して実行してみます。
+&lt;code&gt;&amp;amp;&lt;/code&gt;はバックグラウンド実行です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bash ./test.sh ./hogehoge.txt &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
+screenを使うこともあります。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nohup bash ./test.sh ./hogehoge.txt &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4)　修正&lt;/p&gt;
+&lt;p&gt;scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
+そうすれば、後でやり直しやすいです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# cat &amp;quot;$filename&amp;quot; | sed 1d &amp;gt; &amp;quot;$dir1&amp;quot;/hogehoge2.txt # コメントアウトして置いておく。&lt;/span&gt;
+cat &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$filename&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;blahblah&amp;quot;&lt;/span&gt; &amp;gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$dir1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;/hogehoge2.txt &lt;span class="c1"&gt;# 新しい文。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。&lt;/p&gt;
+&lt;h2&gt;5) 応用編&lt;/h2&gt;
+&lt;p&gt;あとはひたすらコマンドを駆使して書き上げていきます。
+以下の基本コマンドでだいたいのことはできるかと。
+特にawkはたくさんのことができます。joinも重宝します。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cat&lt;/td&gt;
+&lt;td&gt;ファイルを縦につなぐ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;paste&lt;/td&gt;
+&lt;td&gt;ファイルを横につなぐ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sed&lt;/td&gt;
+&lt;td&gt;指定行抜き出すor削除or文字置換&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cut&lt;/td&gt;
+&lt;td&gt;指定列抜き出すor削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;awk&lt;/td&gt;
+&lt;td&gt;抜き出し方をいろいろカスタマイズ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tr&lt;/td&gt;
+&lt;td&gt;文字置換&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sort&lt;/td&gt;
+&lt;td&gt;整列&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uniq&lt;/td&gt;
+&lt;td&gt;重複行を削除or抜き出す&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;join&lt;/td&gt;
+&lt;td&gt;2つのファイルを同じ項目で合わせる&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;grep&lt;/td&gt;
+&lt;td&gt;特定の文字が入った行を出す&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Shell script"></category></entry><entry><title>GitHub desktopアプリの使い方</title><link href="oumpy.github.io/articles/2018/10/github_desktop.html" rel="alternate"></link><published>2018-10-28T00:00:00+09:00</published><updated>2018-10-28T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-28:oumpy.github.io/articles/2018/10/github_desktop.html</id><summary type="html"></summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
+&lt;h2&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;github上のレポジトリとLocal pathを指定。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_2.png"&gt;&lt;/p&gt;
+&lt;p&gt;これでうまくcloneされていたらOK&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;毎回の流れ(基本編)&lt;/h2&gt;
+&lt;p&gt;一日の作業の初めにFetchしてきて、最新の状態に同期する。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_3.png"&gt;&lt;/p&gt;
+&lt;p&gt;ファイルを変更、加筆すると自動的にアプリに反映される&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_4.png"&gt;&lt;/p&gt;
+&lt;p&gt;作業の区切りがついたら左下のSummeryに適当にコメントを付け、commit to master。
+コメントはもうちょっと丁寧に付けましょう。。。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_5.png"&gt;&lt;/p&gt;
+&lt;p&gt;pushして変更を反映させる。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="oumpy.github.io/articles/2018/10/images/github_desktop_figs/2018_10_6.png"&gt;&lt;/p&gt;
+&lt;p&gt;まとめると、&lt;strong&gt;fetch(pull) -&amp;gt; commit -&amp;gt; push&lt;/strong&gt; のライフライクルです。&lt;/p&gt;
+&lt;h2&gt;CLIでの操作&lt;/h2&gt;
+&lt;p&gt;デスクトップアプリはwin,macではあるが、Ubuntuでは無いらしいので、同じ作業をCLIでやる必要がある。ただし、基本は同じで&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git pull origin master
+$ git add --all
+$ git commit -m &lt;span class="s2"&gt;&amp;quot;コメント&amp;quot;&lt;/span&gt;
+$ git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="GitHub"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="oumpy.github.io/articles/2018/09/article_reading.html" rel="alternate"></link><published>2018-09-09T23:00:00+09:00</published><updated>2018-09-09T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:None,2018-09-09:oumpy.github.io/articles/2018/09/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;論文抄読で便利なサイト&lt;/h2&gt;
+&lt;p&gt;英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…ということで、いつも論文を読む時にどんなサイトを使っているかを一度書き起こしてみました。&lt;br&gt;
+とりあえずハードルを下げることメインなので、「普通に読めるやろ」みたいな人はスルーでお願いします笑。5年の免疫内科の実習で論文の効率的な読み方を習って、もっと早く知ってればなあと思ったので、もし先生に「〇〇に関する論文読んできてねー」みたいなことを言われた時とかに参考にしてみてください。 &lt;a href="http://www.imed3.med.osaka-u.ac.jp/education/education01.html"&gt;大阪大学免疫内科のホームページ&lt;/a&gt;と被っていることも多いです。こちらも是非見てみてください。&lt;/p&gt;
 &lt;h2&gt;論文を（ざっと）読む&lt;/h2&gt;
-&lt;p&gt;とりあえずわからない単語が多すぎて全然読み進められない、いちいち単語を調べているとテンポが悪く全然頭に入らないみたいな時は、是非ライフサイエンス辞書の&lt;a href="https://lsd-project.jp/ja/service/etoj_v/index.html"&gt;EtoJ Vocabulary&lt;/a&gt;を使ってみてください。論文の英語の文章を丸ごと一本コピー&amp;amp;ペーストして青くなっている単語をクリックすると下にその単語の日本語訳がでます。オプション設定で「ライフサイエンス辞書 + ejdic」にして使うことが多いです。論文一本読むか迷うような場合はとりあえずアブストだけe to jに入れて読むと数分でなんとなく何が書いてあるのかわかるのでおすすめ。なんか変に訳されていることもおおいので、そういう時はガシガシググりまくってます。ググると日本語ページなんかもあったりして大抵なんとかなります。よく英語の構造がわかんない時は&lt;a href="https://translate.google.co.jp/?hl=ja"&gt;google 翻訳&lt;/a&gt;に文章ごと突っ込んで雰囲気を理解します。略語に関しては、正式名称が論文のどこにも見当たらない時は&lt;a href="http://allie.dbcls.jp/ja"&gt;略語検索Allie&lt;/a&gt;っていうサイトを使います（かなり便利）。成句がわからない時もググるのですが、アルク社の英辞郎の方がweblioよりうまくいく気がします。あと免内のHPにも書いてありますが&lt;a href="https://www.ncbi.nlm.nih.gov"&gt;NCBI&lt;/a&gt;では遺伝子とかタンパクのデータを調べるとバックグラウンドが理解でき、今読んでいる論文がどんなことをしたいかがよくわかることが多いです。（余談ですが予算が減らされたらしくNCBIのサイトのアップデートできないみたいな話を聞いたんですがどうなったんだろう） https://www.ononavi1717.jp/translation 個人的にはアブストを読んだ後、イントロを読もうとして途中で心が折れることが多いのでイントロは飛ばしてResultsに行くようにしてます。とりあえずResultsの題名だけ読んでFigureをみて全体像を掴む→よくわからんところがあったら本文を見ていくって感じにすると意外と早く大体の内容が把握できます。&lt;/p&gt;
+&lt;p&gt;とりあえずわからない単語が多すぎて全然読み進められない、いちいち単語を調べているとテンポが悪く全然頭に入らないみたいな時は、是非ライフサイエンス辞書の&lt;a href="https://lsd-project.jp/ja/service/etoj_v/index.html"&gt;EtoJ Vocabulary&lt;/a&gt;を使ってみてください。
+論文の英語の文章を丸ごと一本コピー&amp;amp;ペーストして青くなっている単語をクリックすると下にその単語の日本語訳がでます。オプション設定で「ライフサイエンス辞書 + ejdic」にして使うことが多いです。論文一本読むか迷うような場合はとりあえずアブストだけe to jに入れて読むと数分でなんとなく何が書いてあるのかわかるのでおすすめ。なんか変に訳されていることもおおいので、そういう時はガシガシググりまくってます。ググると日本語ページなんかもあったりして大抵なんとかなります。よく英語の構造がわかんない時は&lt;a href="https://translate.google.co.jp/?hl=ja"&gt;google 翻訳&lt;/a&gt;に文章ごと突っ込んで雰囲気を理解します。略語に関しては、正式名称が論文のどこにも見当たらない時は&lt;a href="http://allie.dbcls.jp/ja"&gt;略語検索Allie&lt;/a&gt;っていうサイトを使います（かなり便利）。成句がわからない時もググるのですが、アルク社の英辞郎の方がweblioよりうまくいく気がします。あと免内のHPにも書いてありますが&lt;a href="https://www.ncbi.nlm.nih.gov"&gt;NCBI&lt;/a&gt;では遺伝子とかタンパクのデータを調べるとバックグラウンドが理解でき、今読んでいる論文がどんなことをしたいかがよくわかることが多いです。（余談ですが予算が減らされたらしくNCBIのサイトのアップデートできないみたいな話を聞いたんですがどうなったんだろう)。&lt;br&gt;
+個人的にはアブストを読んだ後、イントロを読もうとして途中で心が折れることが多いのでイントロは飛ばしてResultsに行くようにしてます。とりあえずResultsの題名だけ読んでFigureをみて全体像を掴む→よくわからんところがあったら本文を見ていくって感じにすると意外と早く大体の内容が把握できます。&lt;/p&gt;
 &lt;h2&gt;論文と（とりあえず）身近になる&lt;/h2&gt;
-&lt;p&gt;有名な雑誌（Impact Factorの高い雑誌）に関しては免内のサイトをみてください。 日本語でいいから論文に触れる。を目標にして行きたい。 Nature とNEJMは題名とアブストを日本語で読める。興味のある記事が一目でわかります。Natureには日本語のご利用ガイドまで。ありがたいです。 AASJはほぼ毎日日本語で面白い論文を解説してくれています。&lt;a href="http://aasj.jp/watch.html"&gt;AASJ&lt;/a&gt;おすすめ あと&lt;a href="http://first.lifesciencedb.jp"&gt;ライフサイエンス新着論文レビュー&lt;/a&gt;, &lt;a href="http://leading.lifesciencedb.jp"&gt;領域融合レビュー&lt;/a&gt;もお世話になってます。論文執筆者がその論文について解説してくれていたり、その領域について概説してくれています。（DBCLSのサービスの一つなのですが、他にも前述のAllie含め色々なサービスがあります。うまく使いこなせるようになりたい。使いこなしてるって人は教えてください。サイトは→ http://dbcls.rois.ac.jp/services ）&lt;/p&gt;
+&lt;p&gt;有名な雑誌（Impact Factorの高い雑誌）に関しては免内のサイトをみてください。 日本語でいいから論文に触れる。を目標にして行きたい。 Nature とNEJMは題名とアブストを日本語で読める。興味のある記事が一目でわかります。Natureには日本語のご利用ガイドまで。ありがたいです。 AASJはほぼ毎日日本語で面白い論文を解説してくれています。&lt;a href="http://aasj.jp/watch.html"&gt;AASJ&lt;/a&gt;おすすめ あと&lt;a href="http://first.lifesciencedb.jp"&gt;ライフサイエンス新着論文レビュー&lt;/a&gt;, &lt;a href="http://leading.lifesciencedb.jp"&gt;領域融合レビュー&lt;/a&gt;もお世話になってます。論文執筆者がその論文について解説してくれていたり、その領域について概説してくれています。（DBCLSのサービスの一つなのですが、他にも前述のAllie含め色々なサービスがあります。うまく使いこなせるようになりたい。使いこなしてるって人は教えてください。サイトは→ &lt;a href="http://dbcls.rois.ac.jp/services"&gt;DBCLS&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;（有名どころの）論文を探す&lt;/h2&gt;
-&lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ 　ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。。論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="paper"></category></entry></feed>
+&lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。&lt;br&gt;
+論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="論文関連"></category></entry></feed>

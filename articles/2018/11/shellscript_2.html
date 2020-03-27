@@ -9,9 +9,9 @@
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="シェルスクリプト入門(2)"/>
-    <meta property="og:url" content="../../../articles/2019/04/shellscript_2.html"/>
+    <meta property="og:url" content="../../../articles/2018/11/shellscript_2.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="shell"/>
+        <meta property="article:tag" content="Shell script"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -114,9 +114,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-11-16(Fri)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/shellscript_2.html" rel="bookmark"
+  <a href="../../../articles/2018/11/shellscript_2.html" rel="bookmark"
      title="Permalink to シェルスクリプト入門(2)">
     シェルスクリプト入門(2)
   </a>
@@ -166,7 +166,7 @@ Rを呼び出さずに完結できたりします。</p>
 
 <p>時間のある人用に解説です。
 少し小技があります。</p>
-<h3>1) while readの使い方</h3>
+<h2>1) while readの使い方</h2>
 <p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
 <div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
 </code></pre></div>
@@ -184,7 +184,7 @@ Rを呼び出さずに完結できたりします。</p>
 
 <p>を書きます。
 読みにくいですよねー。</p>
-<h3>2) evalの使い方</h3>
+<h2>2) evalの使い方</h2>
 <p>今回の<code>mat_$i_$j</code>のように、変数名に変数<code>($i,$j)</code>を使って値を格納する時には、<code>eval</code>を使います。
 <code>eval</code>は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。</p>
 <p>なので、<code>i=2, j=3</code> として、</p>
@@ -204,7 +204,7 @@ Rを呼び出さずに完結できたりします。</p>
 <code>echo $x1</code>
 と書いていることになり、通常の<code>echo</code>で書いたように、<code>$x1</code>の中身が出力されます。
 xの\)</span>にかかってた\は、<code>eval</code>での評価で消費されて、<code>echo</code>内にはなくなります。ここ重要。</p>
-<p>やりたいことは、<code>eval echo</code>で出してきた値を、変数を使った変数名に格納することです。</p>
+<p>やりたいことは、<code>eval echo</code> で出してきた値を、変数を使った変数名に格納することです。</p>
 <p><code>eval mat_${i}_${j}=aaa</code></p>
 <p>の<code>aaa</code>部分に<code>eval echo</code>を直接もってきても、機能しません。
 <code>eval echo</code>のままでは、まだ値ではなくスクリプトだからです。</p>
@@ -308,7 +308,7 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/shell.html"><i class="fa fa-tag"></i>shell</a>&nbsp;
+	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -322,7 +322,7 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/shellscript_2.html" 
+        data-href="../../../articles/2018/11/shellscript_2.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -362,15 +362,19 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <div class="box-contents">
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; atcoder</a></li>
+      <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
+      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
       <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
-      <li><a href="../../../tag/github.html">&#x2022; github</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
-      <li><a href="../../../tag/shell.html">&#x2022; shell</a></li>
-      <li><a href="../../../tag/paper.html">&#x2022; paper</a></li>
+      <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
+      <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
+      <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>
 </ul>
 </div>
 </div>

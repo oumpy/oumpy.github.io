@@ -11,7 +11,9 @@
     <meta property="og:title" content="AtCoder Beginners Selection 雑感"/>
     <meta property="og:url" content="../../../articles/2019/04/atcoder.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="atcoder"/>
+        <meta property="article:tag" content="競技プログラミング"/>
+        <meta property="article:tag" content="Atcoder"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -141,21 +143,26 @@
 以下いくつかの問題をピックアップしてみます。</p>
 <h3>問題０：はじめてのあっとこーだー</h3>
 <p>わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。</p>
-<div class="highlight"><pre><span></span><code>問題文
-高橋君はデータの加工が行いたいです。
-整数 a,b,cと、文字列 s が与えられます。
-整数 a+b+c と、文字列 s を並べて表示しなさい。
-入力
-入力は次の形式で与えられる。
-a
-b c
-s
-1行目は、整数 a (1≦a≦1,000) が与えられる。
+<hr>
+
+<h4>問題文</h4>
+<p>高橋君はデータの加工が行いたいです。
+整数 <span class="math">\(a,b,c\)</span>と、文字列 <span class="math">\(s\)</span> が与えられます。
+整数 <span class="math">\(a+b+c\)</span> と、文字列 <span class="math">\(s\)</span> を並べて表示しなさい。</p>
+<h4>入力</h4>
+<p>入力は次の形式で与えられる。
+</p>
+<div class="math">$$
+\begin{align*}
+&amp;a\\
+&amp;b\quad c\\
+&amp;s
+\end{align*}
+$$</div>
+<p>1行目は、整数 a (1≦a≦1,000) が与えられる。
 2行目は、整数 b,c (1≦b,c≦1,000) が与えられる。
 3行目は、文字列 s が与えられる。この文字列の長さは 1文字以上100文字以下である。
-</code></pre></div>
-
-
+<hr></p>
 <p>ん？<br>
 入力ってなんだ？(競プロ初心者並感)<br>
 いや入力はinputを使えばいい、でも「b c」はどうやって入力するんだ？(Python初心者並感)<br>
@@ -169,9 +176,14 @@ s
 <p>このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。</p>
 <p>まとめっぽくなりましたが問題に戻ります。<br>
 考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。  </p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># 整数の入力</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="c1"># スペース区切りの整数の入力</span>
 <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="c1"># 文字列の入力</span>
 <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="c1"># 出力</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
 </code></pre></div>
 
@@ -185,31 +197,28 @@ s
 よくみる整数問題ですね。これは簡単に解けると思いきや...？<br>
 こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言っ
 てかなり面倒です。  </p>
-<div class="highlight"><pre><span></span><code>問題文
-あなたは、500円玉をA枚、100円玉をB枚、50円玉をC枚持っています。
-これらの硬貨の中から何枚かを選び、合計金額をちょうどX円にする方法は何通りありますか。
-同じ種類の硬貨同士は区別できません。
-２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。
+<hr>
 
-制約
-0 ≤ A,B,C ≤ 50
+<h4>問題文</h4>
+<p>あなたは、500円玉を<span class="math">\(A\)</span>枚、100円玉を<span class="math">\(B\)</span>枚、50円玉を<span class="math">\(C\)</span>枚持っています。
+これらの硬貨の中から何枚かを選び、合計金額をちょうど<span class="math">\(X\)</span>円にする方法は何通りありますか。
+同じ種類の硬貨同士は区別できません。
+２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。</p>
+<h4>制約</h4>
+<p>0 ≤ A,B,C ≤ 50
 A+B+C ≥ 1
 ≤ X ≤ 20,000
 A,B,C は整数である
-Xは50の倍数である
-
-入力
-入力は以下の形式で標準入力から与えられる。
+Xは50の倍数である</p>
+<h4>入力</h4>
+<p>入力は以下の形式で標準入力から与えられる。
 　A
 　B
 　C
-　X
-
-出力
-硬貨を選ぶ方法の個数を出力せよ。
-</code></pre></div>
-
-
+　X</p>
+<h4>出力</h4>
+<p>硬貨を選ぶ方法の個数を出力せよ。
+<hr></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
@@ -334,11 +343,75 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
 でも少なくともPython会に入ってる初心者の人は、ソフト開発のような能力ではなく、プログラミングをツールとして扱える能力を求めている人がほとんどでしょうから、うってつけの教材だと思います。<br>
 簡単なブロック崩しのゲームを作ったことがありますが、今回の方がよっぽど練習になりました。<br>
 もし興味があれば皆さんも是非試してみてください。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/atcoder.html"><i class="fa fa-tag"></i>atcoder</a>&nbsp;
+	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
+	<a href="../../../tag/atcoder.html"><i class="fa fa-tag"></i>Atcoder</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -392,15 +465,19 @@ S=Tとすることができる場合YESを、そうでない場合NOを出力せ
 <div class="box-contents">
 <ul class="list-unstyled tag-cloud">
       <li><a href="../../../tag/news.html">&#x2022; news</a></li>
-      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
-      <li><a href="../../../tag/atcoder.html">&#x2022; atcoder</a></li>
+      <li><a href="../../../tag/jing-ji-puroguramingu.html">&#x2022; 競技プログラミング</a></li>
+      <li><a href="../../../tag/atcoder.html">&#x2022; Atcoder</a></li>
+      <li><a href="../../../tag/python.html">&#x2022; Python</a></li>
       <li><a href="../../../tag/statistics.html">&#x2022; statistics</a></li>
+      <li><a href="../../../tag/deeplearning.html">&#x2022; deeplearning</a></li>
       <li><a href="../../../tag/bioinformatics.html">&#x2022; bioinformatics</a></li>
-      <li><a href="../../../tag/github.html">&#x2022; github</a></li>
-      <li><a href="../../../tag/python.html">&#x2022; python</a></li>
       <li><a href="../../../tag/kaggle.html">&#x2022; kaggle</a></li>
-      <li><a href="../../../tag/shell.html">&#x2022; shell</a></li>
-      <li><a href="../../../tag/paper.html">&#x2022; paper</a></li>
+      <li><a href="../../../tag/hai-wai-liu-xue.html">&#x2022; 海外留学</a></li>
+      <li><a href="../../../tag/machine-learning.html">&#x2022; Machine Learning</a></li>
+      <li><a href="../../../tag/qiang-hua-xue-xi.html">&#x2022; 強化学習</a></li>
+      <li><a href="../../../tag/shell-script.html">&#x2022; Shell script</a></li>
+      <li><a href="../../../tag/github.html">&#x2022; GitHub</a></li>
+      <li><a href="../../../tag/lun-wen-guan-lian.html">&#x2022; 論文関連</a></li>
 </ul>
 </div>
 </div>
