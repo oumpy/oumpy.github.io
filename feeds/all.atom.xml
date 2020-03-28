@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="oumpy.github.io/articles/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2020-02-26:oumpy.github.io/articles/2020/02/shellscript_tutorial.html</id><summary type="html"></summary><content type="html">&lt;h3&gt;シェルって？　コマンドってなに？&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Webサイトをリニューアルしました！</title><link href="oumpy.github.io/articles/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-24T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:oumpy.github.io/articles/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と&lt;a href="https://oumedpython.hatenablog.com"&gt;技術ブログ&lt;/a&gt;がリニューアルしました。&lt;/p&gt;</content><category term="News"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="oumpy.github.io/articles/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2020-02-26:oumpy.github.io/articles/2020/02/shellscript_tutorial.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
 &lt;p&gt;詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
 - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
 - シェル：命令をコンピュータに伝えるプログラムのこと  &lt;/p&gt;
@@ -12,14 +12,14 @@
 &lt;li&gt;&lt;a href="https://eng-entrance.com/linux-what-is-command"&gt;【初心者用】Linuxのコマンドとは？とコマンドラインの表示方法&lt;/a&gt;  &lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.sejuku.net/blog/5465"&gt;ブクマ必至！Linuxコマンド一覧表【全33種】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト&lt;/a&gt;  &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;シェルコマンドを学ぶ上でのポイント&lt;/h3&gt;
+&lt;h2&gt;シェルコマンドを学ぶ上でのポイント&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;ムリにおぼえようとしない&lt;/li&gt;
 &lt;li&gt;日頃使っていたら自然と覚えていく&lt;/li&gt;
 &lt;li&gt;コマンドの名前は英語の省略かも？&lt;/li&gt;
 &lt;li&gt;忘れたら、すぐググればよし&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;シェルコマンドってどういう風に書くの？&lt;/h3&gt;
+&lt;h2&gt;シェルコマンドってどういう風に書くの？&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt;
 $ ls
 $ emacs
@@ -27,12 +27,12 @@ $ emacs
 
 
 &lt;p&gt;などのように、黒い画面（terminal、cmd）上にて、一つ一つの処理ごとに命令を書いてEnterキーで実行していきます。  &lt;/p&gt;
-&lt;h3&gt;ランク別よく使うシェルコマンド&lt;/h3&gt;
+&lt;h2&gt;ランク別よく使うシェルコマンド&lt;/h2&gt;
 &lt;p&gt;筆者の独断と偏見による、日頃よく使うコマンドを3段階にわけてまとめてみました。&lt;br&gt;
 詳しい使い方は各自調べてもらいたいので、ここでは「何ができるか」だけ簡単に書いておきます。(&lt;strong&gt;自分で調べていく力&lt;/strong&gt;がプログラミングには大事ですよ！)&lt;br&gt;
 ランク1、2あたりはググらずに使えるようになるといいと思います。&lt;br&gt;
 もちろんこの他にも様々なコマンドがありますが、最初の1歩として学んでみて下さい。&lt;/p&gt;
-&lt;h4&gt;ランク1&lt;/h4&gt;
+&lt;h3&gt;ランク1&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -95,7 +95,7 @@ $ emacs
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4&gt;ランク2&lt;/h4&gt;
+&lt;h3&gt;ランク2&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -126,7 +126,7 @@ $ emacs
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4&gt;ランク3&lt;/h4&gt;
+&lt;h3&gt;ランク3&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -150,7 +150,7 @@ $ emacs
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;何度も使ってみておぼえていきましょう！&lt;/p&gt;
-&lt;h3&gt;おまけ&lt;/h3&gt;
+&lt;h2&gt;おまけ&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;シェル芸&lt;br&gt;
 気になる方は下の記事でも読んでみて下さい。  &lt;/li&gt;
@@ -163,14 +163,14 @@ $ emacs
 よく使うコマンドを登録しておくと便利！&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;コマンドの次へ&lt;/h3&gt;
+&lt;h2&gt;コマンドの次へ&lt;/h2&gt;
 &lt;p&gt;上の文にもいくつかでてきているのですが、コマンドに入門した次に勉強するおすすめとして、以下の単語を調べてみましょう。&lt;br&gt;
 それぞれ今度何度も目にする単語なので、早めに知っておいて損はないと思います。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;パスとは？&lt;br&gt;
-    キーワード：相対/絶対パス&lt;/li&gt;
+キーワード：相対/絶対パス&lt;/li&gt;
 &lt;li&gt;エディタとは？&lt;br&gt;
-    emacs/vim/atom/vscode...&lt;/li&gt;
+emacs/vim/atom/vscode...&lt;/li&gt;
 &lt;/ol&gt;</content><category term="Tech_archive"></category><category term="Shell script"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/06/atcoder.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-06-24:oumpy.github.io/articles/2019/06/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
 &lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。  &lt;/p&gt;
@@ -434,7 +434,186 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="Tech_archive"></category><category term="競技プログラミング"></category></entry><entry><title>医師国家試験問題自動生成AI</title><link href="oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
+&lt;/script&gt;</content><category term="Tech_archive"></category><category term="競技プログラミング"></category></entry><entry><title>Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</title><link href="oumpy.github.io/articles/2019/06/DABEST_tutorial.html" rel="alternate"></link><published>2019-06-23T00:00:00+09:00</published><updated>2019-06-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2019-06-23:oumpy.github.io/articles/2019/06/DABEST_tutorial.html</id><summary type="html"></summary><content type="html">&lt;p&gt;データを可視化する手法としては、棒グラフ(&lt;strong&gt;Barplot&lt;/strong&gt;), 箱ひげ図(&lt;strong&gt;Boxplot&lt;/strong&gt;), &lt;strong&gt;Jitter plot&lt;/strong&gt;, &lt;strong&gt;Violin plot&lt;/strong&gt; などがよく用いられます。しかし、これらの可視化手法は &lt;strong&gt;有意差検定(null hypothesis significance testing; NHST)&lt;/strong&gt; の結果を表示するためのものです。有意差検定は様々な分野の研究において広く用いられていますが、統計検定の結果の評価に&lt;strong&gt;p値&lt;/strong&gt;を用いることは二分的な評価に繋がっています(例えばp&amp;lt;0.05ならOKでp&amp;gt;0.05ならダメ、という判断)。一方で、&lt;strong&gt;Estimation Statistics&lt;/strong&gt;はp値ではなく &lt;strong&gt;効果量(effect size)&lt;/strong&gt; に重きを置きます。つまり、効果がある/なしではなく、どのくらい効果があるか、を重視するということです。&lt;/p&gt;
+&lt;p&gt;今回紹介する &lt;strong&gt;DABEST&lt;/strong&gt; (&lt;strong&gt;D&lt;/strong&gt;ata &lt;strong&gt;A&lt;/strong&gt;nalysis using &lt;strong&gt;B&lt;/strong&gt;ootstrap-coupled &lt;strong&gt;EST&lt;/strong&gt;imation)はEstimation Statisticsに基づいたデータの可視化を行うためのライブラリ（パッケージ）です。 &lt;strong&gt;Python, R, Matlab&lt;/strong&gt; に対応しています。以下はDABESTについての論文です。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;J. Ho, T. Tumkaya, S. Aryal, H. Choi, A. Claridge-Chang. &lt;strong&gt;Moving beyond P values: Everyday data analysis with estimation plots&lt;/strong&gt;. &lt;em&gt;Nature Methods&lt;/em&gt;. (2019), 1548-7105. 10.1038/s41592-019-0470-3. (&lt;a href="https://www.nature.com/articles/s41592-019-0470-3"&gt;Nature Methods&lt;/a&gt;, &lt;a href="https://www.biorxiv.org/content/10.1101/377978v2"&gt;bioRxiv&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;ライブラリ&lt;/h3&gt;
+&lt;p&gt;DABESTにはPython(&lt;a href="https://github.com/ACCLAB/DABEST-python"&gt;DABEST-Python&lt;/a&gt;)とR(&lt;a href="https://github.com/ACCLAB/dabestr"&gt;dabestr&lt;/a&gt;), Matlab(&lt;a href="https://github.com/ACCLAB/DABEST-Matlab"&gt;DABEST-Matlab&lt;/a&gt;)での実装があります。&lt;strong&gt;この記事ではPythonのライブラリを使用します&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3&gt;Estimation Stats&lt;/h3&gt;
+&lt;p&gt;このDABESTには著者らによる優れたHP(&lt;a href="https://www.estimationstats.com/#/"&gt;Estimation Stats&lt;/a&gt;)が存在します。このHPには&lt;a href="https://www.estimationstats.com/#/background"&gt;Estimation statisticsとDABESTで用いられる手法の解説&lt;/a&gt;があり、さらに&lt;strong&gt;csvファイルをアップロードするだけ&lt;/strong&gt;でEstimation statisticsに基づいたデータの可視化ができるページもあります。コードを書く必要はなく、効果量としてどの指標を用いるか(Mean difference, Median difference, Cohen's d, hedges' g, Cliff's deltaなど)も選択できます。&lt;/p&gt;
+&lt;h2&gt;DABESTチュートリアル&lt;/h2&gt;
+&lt;p&gt;DABESTのチュートリアルは既に用意されています(&lt;a href="https://acclab.github.io/DABEST-python-docs/tutorial.html"&gt;Tutorial-dabest 0.2.4 documentation&lt;/a&gt;)。以下ではインストールの方法と簡単な使い方の紹介をします。&lt;/p&gt;
+&lt;h3&gt;インストール&lt;/h3&gt;
+&lt;p&gt;DABEST(0.24)は次のライブラリに依存しています(括弧内はバージョン)： numpy(1.15), scipy(1.2), matplotlib(3.0), seaborn(0.9), pandas(0.24)。基本的なライブラリですが、必要に応じてバージョンアップ(またはダウン)しましょう。DABESTのインストールは次のコマンドによりpipで行うことができます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install dabest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Quickstart&lt;/h3&gt;
+&lt;p&gt;インストールしたら、とりあえずコードが動くか確認してみましょう。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dabest&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Load the iris dataset. Requires internet access.&lt;/span&gt;
+&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;https://github.com/mwaskom/seaborn-data/raw/master/iris.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Load the above data into `dabest`.&lt;/span&gt;
+&lt;span class="n"&gt;iris_dabest&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;species&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;petal_width&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                          &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;setosa&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;versicolor&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;virginica&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Produce a Cumming estimation plot and save plot.&lt;/span&gt;
+&lt;span class="n"&gt;iris_dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean_diff&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;quick_start.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以下のようなグラフが出力されれば成功です。&lt;br&gt;
+&lt;img alt="" src="oumpy.github.io/articles/2019/06/images/DABEST_tutorial_figs/quick_start.png"&gt;&lt;/p&gt;
+&lt;p&gt;このグラフは &lt;strong&gt;Cumming plot&lt;/strong&gt; という可視化の方法です。Estimation statisticsにおける可視化の方法としてはもう1つ &lt;strong&gt;Gardner-Altman plot&lt;/strong&gt; というものがあります。以下ではこの2つの可視化方法の見方とコードについて紹介します。&lt;/p&gt;
+&lt;h3&gt;Gardner-Altman plot&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Gardner-Altman plot&lt;/strong&gt; はM. GardnerとD. Altmanによって提案された描画法です。以下はGardner-Altman plotの例です。図の左側では両方の群のすべての観測値をJitter plotにより表示しています。右側にあるのは効果量の軸で、効果量の点推定(黒丸)と信頼区間(縦の黒棒)を表示しています。この効果量の信頼区間ですが、これは &lt;strong&gt;Bootstrap法&lt;/strong&gt; を用いて算出しています。なお、Bootstrap法に関しては後で詳しく述べます。&lt;br&gt;
+&lt;img alt="" src="oumpy.github.io/articles/2019/06/images/DABEST_tutorial_figs/ga1.png"&gt;&lt;/p&gt;
+&lt;p&gt;コードは次のようになっています。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;dabest&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20190623&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Generate toy dataset&lt;/span&gt;
+&lt;span class="n"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Control&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Load the above data into `dabest`.&lt;/span&gt;
+&lt;span class="n"&gt;df_dabest&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Control&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;df_dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean_diff&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;#df_dabest.cohens_d.plot(fig_size=(5,4))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ga1.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tight&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gardner-Altman plotには &lt;strong&gt;対応のある2群(paired)&lt;/strong&gt; のためのバージョンもあります。&lt;br&gt;
+&lt;img alt="" src="oumpy.github.io/articles/2019/06/images/DABEST_tutorial_figs/ga2.png"&gt;&lt;/p&gt;
+&lt;p&gt;ここでは効果量として &lt;strong&gt;Cohen's d&lt;/strong&gt; を用いています。コードは次のようになります(ライブラリのインポートは省略)。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Generate toy dataset&lt;/span&gt;
+&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;idx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;idx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Control&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Load the above data into `dabest`.&lt;/span&gt;
+&lt;span class="n"&gt;df_dabest&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Control&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                        &lt;span class="n"&gt;paired&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;id_col&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;idx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;df_dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cohens_d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;#df_dabest.mean_diff.plot(fig_size=(4,4))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ga2.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tight&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Cumming plot&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Cumming plot&lt;/strong&gt; はG. Cummingによって提案された描画法です。複数の群に対して2つ以上の効果量およびそれらの信頼区間を、今度は観測データの下に描画しています。&lt;br&gt;
+&lt;img alt="" src="oumpy.github.io/articles/2019/06/images/DABEST_tutorial_figs/cumming.png"&gt;&lt;/p&gt;
+&lt;p&gt;ここでは効果量として &lt;strong&gt;hedges' g&lt;/strong&gt; を用いています。コードは次のようになります(ライブラリのインポートは省略)。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Generate toy dataset&lt;/span&gt;
+&lt;span class="n"&gt;size1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;size2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;
+
+&lt;span class="n"&gt;xc1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xt1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;55&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xc2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;xt2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;xc1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xt1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xc2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;xt2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Control1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Test1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Control2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Test2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Load the above data into `dabest`.&lt;/span&gt;
+&lt;span class="n"&gt;df_dabest&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Control1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Test1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Control2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+
+&lt;span class="c1"&gt;#df_dabest.cohens_d.plot(fig_size=(5,5))&lt;/span&gt;
+&lt;span class="c1"&gt;#df_dabest.mean_diff.plot(fig_size=(5,5))&lt;/span&gt;
+&lt;span class="n"&gt;df_dabest&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hedges_g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fig_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cumming.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bbox_inches&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tight&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Bootstrap Confidence Intervalについて&lt;/h2&gt;
+&lt;p&gt;Bootstrap法で算出する信頼区間を &lt;strong&gt;Bootstrap Confidence Interval&lt;/strong&gt; といいます。信頼区間を出すためには多数のサンプルが必要ですが、Bootstrap法により疑似的に実験を繰り返し、2群間での効果量を算出することで多数の効果量のサンプルを得ることで解決します。  &lt;/p&gt;
+&lt;p&gt;DABESTによる実装を用いずに効果量の信頼区間を描画してみます。正規分布に従う2つの群(N(50, 20&lt;sup&gt;2&lt;/sup&gt;), N(60, 20&lt;sup&gt;2&lt;/sup&gt;))からそれぞれ50サンプルを得たとします。効果量を平均の差として、5000回ブートストラップを行い、効果量のサンプルを5000個得ます。この場合のコードは以下のようになります。描画のためのコードが多いですが、&lt;code&gt;np.random.choice(x, size, replace=True)&lt;/code&gt;を用いればよい、というのが大事な部分です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;seaborn&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sns&lt;/span&gt;
+
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20190623&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# generate observation (toy data)&lt;/span&gt;
+&lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="c1"&gt;# sample size&lt;/span&gt;
+&lt;span class="n"&gt;sigma&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="n"&gt;mu1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;
+&lt;span class="n"&gt;mu2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;
+&lt;span class="n"&gt;diff_mu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mu2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;mu1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;x1_obs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mu1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sigma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x2_obs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;mu2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scale&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sigma&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;num_bootstrap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;
+&lt;span class="n"&gt;alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.025&lt;/span&gt;
+
+&lt;span class="n"&gt;es_bootstrap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# array to save bootstrapped effect size&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;# bootstrapping&lt;/span&gt;
+    &lt;span class="n"&gt;x1_resampling&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x1_obs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;x2_resampling&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x2_obs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# calculate effect size (mean difference) and save.&lt;/span&gt;
+    &lt;span class="n"&gt;mu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x2_resampling&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x1_resampling&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;es_bootstrap&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;mu&lt;/span&gt;
+
+&lt;span class="c1"&gt;# plot&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;kdeplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shade&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;data_x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data_y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_data&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;data_y&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;k&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dashed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;diff_mu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;data_y&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;linestyle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;dashed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;ymin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;data_y&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;es_bootstrap_sorted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# to plot 95% CI&lt;/span&gt;
+&lt;span class="n"&gt;idx_alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap_sorted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
+&lt;span class="n"&gt;idx_one_m_alpha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data_x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap_sorted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;))]))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap_sorted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;)],&lt;/span&gt; &lt;span class="n"&gt;ymin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;data_y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx_alpha&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vlines&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;es_bootstrap_sorted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num_bootstrap&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="p"&gt;))],&lt;/span&gt; &lt;span class="n"&gt;ymin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ymax&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;data_y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;idx_one_m_alpha&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Mean difference&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Density&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#plt.show()&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;bootstrap_ci.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;結果は次のようになります。&lt;br&gt;
+&lt;img alt="" src="oumpy.github.io/articles/2019/06/images/DABEST_tutorial_figs/bootstrap_ci.png"&gt;&lt;/p&gt;
+&lt;p&gt;横軸が平均の差、縦軸が密度です。黒破線は0, 赤破線は真の分布の平均の差(今回であれば10)、緑実線は効果量の点推定(要は平均値)です。黒実線は第1, 3四分位数で、この間を95%信頼区間と近似しています(この信頼区間の算出手法を &lt;strong&gt;パーセンタイル法&lt;/strong&gt; といいます)。これは簡易な手法ですが、他にも算出方法はあります。&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;p値と共に&lt;strong&gt;効果量も報告&lt;/strong&gt;しよう。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;効果量も図の中に表示&lt;/strong&gt;しよう。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DABEST&lt;/strong&gt; を用いれば簡単に効果量とその精度(信頼区間)を表示できる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参考文献&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https://en.wikipedia.org/wiki/Estimation_statistics&lt;/li&gt;
+&lt;li&gt;https://en.wikipedia.org/wiki/Bootstrapping_(statistics)&lt;/li&gt;
+&lt;li&gt;統計学の時間（&lt;a href="https://bellcurve.jp/statistics/course/12752.html"&gt;効果量1&lt;/a&gt;, &lt;a href="https://bellcurve.jp/statistics/course/12765.html"&gt;効果量2&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;岡田謙介. &lt;strong&gt;心理学における効果量をめぐる最近の話題&lt;/strong&gt;. (&lt;a href="http://www3.psy.senshu-u.ac.jp/~ken/DevPsy2015_okada.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;汪金芳. &lt;strong&gt;ブートストラップ法入門&lt;/strong&gt;. (&lt;a href="http://www.math.s.chiba-u.ac.jp/~wang/bootstrap.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>医師国家試験問題自動生成AI</title><link href="oumpy.github.io/articles/2019/04/doctor_exam_ai.html" rel="alternate"></link><published>2019-04-14T00:00:00+09:00</published><updated>2019-04-14T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2019-04-14:oumpy.github.io/articles/2019/04/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al.  On the Generation of Medical Question-Answer Pairs. &lt;em&gt;arXiv&lt;/em&gt;. 2018.
 &lt;a href="http://arxiv.org/abs/1811.00681"&gt;http://arxiv.org/abs/1811.00681&lt;/a&gt;&lt;/p&gt;
@@ -2303,7 +2482,7 @@ https://github.com/theislab/scvelo&lt;/p&gt;</content><category term="Tech_archi
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="oumpy.github.io/articles/2019/03/lorenzcurve.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>yuna06</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/lorenzcurve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="oumpy.github.io/articles/2019/03/lorenzcurve.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/lorenzcurve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
