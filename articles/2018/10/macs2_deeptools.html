@@ -203,7 +203,7 @@ $ multiqc -n multiqc_report_trimmed.html ./data
 </code></pre></div>
 
 
-<p>pdf.shは</p>
+<h3>pdf.sh</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nv">sras</span><span class="o">=(</span><span class="s2">&quot;SRR5385260&quot;</span> <span class="s2">&quot;SRR5385344&quot;</span> <span class="s2">&quot;SRR5385345&quot;</span> <span class="s2">&quot;SRR5385346&quot;</span> <span class="s2">&quot;SRR5385347&quot;</span><span class="o">)</span>
@@ -214,7 +214,7 @@ pfastq-dump --threads <span class="m">22</span> --outdir data ~/ncbi/public/sra/
 </code></pre></div>
 
 
-<p>make_bam.sh</p>
+<h3>make_bam.sh</h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="nv">sras</span><span class="o">=(</span><span class="s2">&quot;SRR5385260&quot;</span> <span class="s2">&quot;SRR5385344&quot;</span> <span class="s2">&quot;SRR5385345&quot;</span> <span class="s2">&quot;SRR5385346&quot;</span> <span class="s2">&quot;SRR5385347&quot;</span><span class="o">)</span>
@@ -262,12 +262,12 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 <p><a href="https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration">Toolkit-Configuration</a>をいじる方法。
 公式にはこちらが推奨らしいが操作が面倒。</p>
 <h4>2)</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> ‘/repository/user/main/public/root <span class="o">=</span> “/outputDir”‘ <span class="p">&amp;</span>gt<span class="p">;</span> ~/.ncbi/user-settings.mkfg
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> ‘/repository/user/main/public/root <span class="o">=</span> “/outputDir”‘ &gt; ~/.ncbi/user-settings.mkfg
 </code></pre></div>
 
 
 <p>こっちのほうが簡単。outputDirに指定してやって下さい。
-この例だとpfastq-dumpでは~/ncbi/public/sra/<span class="math" s>\({s}.sraが/outputDir/sra/\)</span>.sraになりますね。</p>
+この例だとpfastq-dumpでは<code>~/ncbi/public/sra/${s}.sra</code> が <code>/outputDir/sra/${s}.sra</code>になりますね。</p>
 <h2>MACS2によるピークコール</h2>
 <blockquote>
 <p>Zhang, Y. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol. 9, R137 (2008).</p>
@@ -280,7 +280,7 @@ $ wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
 </code></pre></div>
 
 
-<p>bdg2bwの中身は以下。</p>
+<p><code>bdg2bw</code>の中身は以下。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># check commands: slopBed, bedGraphToBigWig and bedClip</span>
@@ -383,68 +383,6 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <li>ChIP-seq解析のいい練習になりました。</li>
 <li>multi-omics人材になるぞ！</li>
 </ul>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
   </div>
   
 <div class="article-tag-list">
@@ -501,15 +439,15 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
-      <a href="../../../tag/machine-learning.html">Machine Learning</a>
-      <a href="../../../tag/python.html">Python</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
       <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
+      <a href="../../../tag/python.html">Python</a>
+      <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>

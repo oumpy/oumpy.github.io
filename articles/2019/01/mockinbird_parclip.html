@@ -9,7 +9,7 @@
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Mockinbirdを用いたPAR-CLIP解析"/>
-    <meta property="og:url" content="../../../articles/2019/04/mockinbird_parclip.html"/>
+    <meta property="og:url" content="../../../articles/2019/01/mockinbird_parclip.html"/>
       <meta property="article:section" content="Tech_archive"/>
         <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
@@ -114,9 +114,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2019-01-18(Fri)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/mockinbird_parclip.html" rel="bookmark"
+  <a href="../../../articles/2019/01/mockinbird_parclip.html" rel="bookmark"
      title="Permalink to Mockinbirdを用いたPAR-CLIP解析">
     Mockinbirdを用いたPAR-CLIP解析
   </a>
@@ -135,13 +135,13 @@
 <p>PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。</p>
 <p>実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。</p>
 <p>サンプルRNAを逆転写するときに、4SUがシトシン( C )に置換されます(misread)。そのため、リードがピークを形成し、かつT -&gt; C置換が入っていた場合、RBPと結合していた可能性が高いということになります。これによりあるタンパクが、RNAのどの領域に結合するのか？結合領域間でどのような相互作用があるのかを知ることができます。特に一塩基という高い解像度での解析ができることが特徴です。</p>
-<p><img alt="1" src="../../../articles/2019/04/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
+<p><img alt="1" src="../../../articles/2019/01/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
 <h2>Mockinbirdとは？</h2>
 <p><a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”">公式ドキュメント</a>、<a href="//github.com/soedinglab/mockinbird)”">GitHub</a>に詳細は記載されていますが、日本語での情報が少ない、というか全くない。のでまとめていきたいと思います。</p>
 <p>PAR-CLIPの解析は生のFASTQデータから、Quality Check -&gt; Trimming -&gt; Mapping -&gt; Downstream Analysisという流れで行いますが、それらすべての解析をMockinbirdでは一気に行ってくれます。また、MockinbirdModule（詳細は後述）を使うことでmock PAR-CLIP experimentを考慮に入れた解析を行うことができるのも大きな特徴です。</p>
 <p>このソフトでは、２つにパイプラインが分かれており、preprocessing phaseとpostprocessing phaseと呼ばれています。タンパク結合サイトの情報が書かれたテーブルを出力するまでが、preprocessing phaseでそれ以降のDownstream解析をpostprocessing phaseと呼んでいます。それぞれにYAMLファイルが用意されており、ユーザーはYAMLファイルで解析したいサンプルデータ、使いたいリファレンスデータ、使いたいモジュール（Mappingの時にSTARやBowtieを選べたりする。）閾値などのパラメータを指定します。最後にコマンドを一行実行するだけで、解析がすべて自動で流れていきます。あるモジュールで出力されたファイルのパスが次のモジュールに自動で設定されていくシステムになっているので、慣れると非常に便利です。</p>
 <p>ただ、ドキュメントでも、既存の解析手法に完全に取って代わるものではなく、PAR-CLIP実験のコンディションのトラブルシューティングを再現可能性が高い状態で行なったり、研究の最初の仮説づくりを短時間で行うために使ってもらうことが目的と書かれていました。</p>
-<p><img alt="2" src="../../../articles/2019/04/images/mockinbird_parclip_figs/library.png"></p>
+<p><img alt="2" src="../../../articles/2019/01/images/mockinbird_parclip_figs/library.png"></p>
 <h2>環境構築</h2>
 <p>前置きが長くなりましたが、実際に環境構築から進めていきます。</p>
 <div class="highlight"><pre><span></span><code>conda create -n mockinbird -c bioconda -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 mockinbird
@@ -185,7 +185,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
 
 <p>ですが、コードの実行はYAMLの設定ができてからになります。ということでYAMLの中身について説明していきます。</p>
-<h4>preprocess.yaml</h4>
+<h3>preprocess.yaml</h3>
 <p>preprocess.yamlの４つの区画から構成されています。</p>
 <ul>
 <li>① 変数設定。</li>
@@ -328,7 +328,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/mockinbird_parclip.html" 
+        data-href="../../../articles/2019/01/mockinbird_parclip.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -366,15 +366,15 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
-      <a href="../../../tag/machine-learning.html">Machine Learning</a>
-      <a href="../../../tag/python.html">Python</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
       <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
+      <a href="../../../tag/python.html">Python</a>
+      <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>

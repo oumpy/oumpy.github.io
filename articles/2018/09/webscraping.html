@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース"/>
-    <meta property="og:url" content="../../../articles/2019/04/original_rnaseq_pipeline.html"/>
+    <meta property="og:title" content="食べログのWebScraping"/>
+    <meta property="og:url" content="../../../articles/2018/09/webscraping.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="Bioinformatics"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース">
+    <meta name="twitter:title" content="食べログのWebScraping">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース - 大阪大学医学部 Python会</title>
+    <title>食べログのWebScraping - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-09-09(Sun)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/original_rnaseq_pipeline.html" rel="bookmark"
-     title="Permalink to 阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース">
-    阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース
+  <a href="../../../articles/2018/09/webscraping.html" rel="bookmark"
+     title="Permalink to 食べログのWebScraping">
+    食べログのWebScraping
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/jian-bo-xi-tian-da-sen-an-shui-xiao-chuan-shan-tian-chuan-dao-chuan-qi-ping-gang-guang-lai-liu-ze-dan-tian-zhong-cun-yi-teng.html">菅波 西田 大森 安水 小川 山田 川島 川崎 平岡 廣瀬 柳澤 淡田 中村 依藤</a>
+      Posted by <a href="../../../author/ping-gang.html">平岡</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,90 +130,15 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。</p>
-<p><strong><a href="https://github.com/yyoshiaki/auto_counttable_maker">https://github.com/yyoshiaki/auto_counttable_maker</a></strong></p>
-<p>なお、以下のイラストはikraのアイコンとなっています。</p>
-<p><img alt="1" src="../../../articles/2019/04/images/original_rnaseq_pipeline_figs/ikra.png"></p>
-<h2>特徴</h2>
-<p>今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。</p>
-<ol>
-<li>準備するのは簡単なCSVファイル（テーブルだけ）で、極力パラメーターを減らした。</li>
-<li>すべてdocker上で動くため、ツールを各々インストールする必要がないし、バージョンに苦しむこともない。</li>
-<li>udockerにも対応しているため、ユーザー権限しかないサーバー上でも実行可能。</li>
-<li>outputは<a href="http://bioinformatics.sdstate.edu/idep/">idep</a>に対応。</li>
-<li>もちろんマルチスレッド対応。</li>
-</ol>
-<h2>使い方</h2>
-<p>必要なテーブルは</p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>SRR or fastq</th>
-<th>Layout</th>
-<th>condition1</th>
-<th>...</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Treg_LN_1</td>
-<td>SRR5385247</td>
-<td>SE</td>
-<td>Treg</td>
-<td>...</td>
-</tr>
-<tr>
-<td>Treg_LN_2</td>
-<td>SRR5385248</td>
-<td>SE</td>
-<td>Treg</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<p>のような形式で、前3列が必須です。簡単ですね！データの集め方は、論文についているaccession number等をたどるのでもいいし、新しくなって爆速になった<a href="http://sra.dbcls.jp/">DDBJ Search</a>もおすすめ。</p>
-<p>コマンドはオプションが指定でき、リード数を100000に絞ったテストモードやマルチプロセスにも対応。</p>
-<div class="highlight"><pre><span></span><code><span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="n">MakeCountTable_Illumina_trimgalore_SRR</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">experiment_table</span><span class="p">.</span><span class="n">csv</span><span class="w"> </span><span class="n">spiece</span><span class="w"> </span><span class="o">[</span><span class="n">--test, --help, --without-docker, --udocker</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">--threads [VALUE</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
-<span class="n">args</span><span class="w"></span>
-<span class="mf">1.</span><span class="n">experiment</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="n">csv</span><span class="p">)</span><span class="w"></span>
-<span class="mf">2.</span><span class="n">reference</span><span class="p">(</span><span class="n">human</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mouse</span><span class="p">)</span><span class="w"></span>
-
-<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
-<span class="c1">--test test mode(MAX_SPOT_ID=100000).(dafault : False)</span>
-<span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="c1">--udocker</span>
-<span class="o">-</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="c1">--without-docker</span>
-<span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="c1">--threads</span>
-<span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="c1">--help Show usage.</span>
-</code></pre></div>
-
-
-<p>なお、自前のfastq filesからの実行はv1.1で載せようと思っています。また、出力はscaled TPMを採用。(Soneson, C., Love, M. I. &amp; Robinson, M. D. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research 4, 1521 (2015).)。</p>
-<h2>pipelineの構成</h2>
-<ol>
-<li>fasterq-dump : シーケンスデータの取得</li>
-<li>fastqc : QC</li>
-<li>trim-galore : トリミング</li>
-<li>salmon : RNA定量</li>
-<li>multiqc : QCログの回収、可視化</li>
-<li>tximport : 遺伝子テーブルの生成</li>
-</ol>
-<p>となっています。各ツールの説明は省きますが、今時のツールの選定になっていると思います。</p>
-<h2>idep</h2>
-<p>本ツールは<a href="http://bioinformatics.sdstate.edu/idep/">idep</a>を意識した設計になっています。idepはRNA-seqの解析をinteractiveに行えるプラットフォームで、Differential expressed genes(DEGs)の検出だけではなく、遺伝子、サンプルのクラスタリング、パスウェイ解析、可視化などが行えます。idepについては以下がとても参考になります。</p>
-<p><a href="http://kazumaxneo.hatenablog.com/entry/2018/12/29/153838">macでインフォマティクス : インタラクティブなRNA seq解析webアプリケーション iDEP</a></p>
-<p><img alt="2" src="../../../articles/2019/04/images/original_rnaseq_pipeline_figs/screenshot-from-2019-03-19-23-14-31.png"></p>
-<h2>githubを用いたチーム開発</h2>
-<p>今回、githubを用いてチーム開発を行いました。githubはエンジニアの間では当たり前のツールで、チームでのソフト開発によく用いられます。bioinformatics界隈でチーム開発を経験できることは意外に少なく、非常にいい経験になりました。</p>
-<p><img alt="3" src="../../../articles/2019/04/images/original_rnaseq_pipeline_figs/ikra_git.png"></p>
-<p>雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。</p>
-<p><em>Enjoy bioinformatics life!</em></p>
-<p><img alt="4" src="../../../articles/2019/04/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"></p>
+	<p>安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。</p>
+<p><img alt="1" src="../../../articles/2018/09/images/webscraping_figs/1.jpg">
+<img alt="2" src="../../../articles/2018/09/images/webscraping_figs/2.jpg">
+<img alt="3" src="../../../articles/2018/09/images/webscraping_figs/3.jpg"></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -227,7 +152,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/original_rnaseq_pipeline.html" 
+        data-href="../../../articles/2018/09/webscraping.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -265,15 +190,15 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
-      <a href="../../../tag/machine-learning.html">Machine Learning</a>
-      <a href="../../../tag/python.html">Python</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
       <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
+      <a href="../../../tag/python.html">Python</a>
+      <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>
