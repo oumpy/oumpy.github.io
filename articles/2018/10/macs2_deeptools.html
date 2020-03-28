@@ -9,7 +9,7 @@
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="MACS2とdeepToolsのbigwigファイルの比較"/>
-    <meta property="og:url" content="../../../articles/2019/04/macs2_deeptools.html"/>
+    <meta property="og:url" content="../../../articles/2018/10/macs2_deeptools.html"/>
       <meta property="article:section" content="Tech_archive"/>
         <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
@@ -114,9 +114,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-10-29(Mon)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/macs2_deeptools.html" rel="bookmark"
+  <a href="../../../articles/2018/10/macs2_deeptools.html" rel="bookmark"
      title="Permalink to MACS2とdeepToolsのbigwigファイルの比較">
     MACS2とdeepToolsのbigwigファイルの比較
   </a>
@@ -130,12 +130,12 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h3>ChIP-seqとは</h3>
+	<h2>ChIP-seqとは</h2>
 <p>全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピジェネティクスが挙げられ、DNAメチル化やクロマチン修飾などが知られている。ChIP-seq (chromatin immunoprecipitation sequence) は特異的クロマチン修飾を受けている領域を、抗体を用いて沈降、濃縮させ、どの細胞のどの領域でどういう修飾を受けているのかを調べるために用いられる。</p>
-<h3>今回のきっかけ</h3>
+<h2>今回のきっかけ</h2>
 <p>ChIP-seqの解析をする時に便利なフォーマットにbigwigがある。igvで表示したり、coverageを計算したり、様々な用途で使える。詳しくはdrbonobon（第一版）のp118に記載されている。ChIP-seqの解析には<a href="https://github.com/taoliu/MACS">MACS2</a>というソフトが良く使われ、bigwigの生成も可能だが、<a href="https://deeptools.readthedocs.io/en/develop/index.html">deepTools</a>でも<code>​bamCoverage</code>や​<code>​bamComapre</code>機能を使ってbigwigを作ることができる。挙動や使い所の違いを比較しようというのが今回の目的。</p>
 <p>ちなみに、通常のChIP-seq解析ならMACS2,HOMERなどを使ってやるのが無難かと思います。今回はdeeptToolsと戯れたかった。</p>
-<h3>Install</h3>
+<h2>Install</h2>
 <div class="highlight"><pre><span></span><code>$ conda install -c bioconda deeptools
 
 $ conda create -n py27_macs2 <span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7.5
@@ -149,7 +149,7 @@ $ conda install -c bioconda ucsc-bedclip
 
 <p>condaでmacs2を入れようとするとxonshとdependency conflictしてしまった。諦めて仮想環境を作る。condaは入ってる前提。MACS2はいまだにpython2な時点で腰が引けるが、先に進む。</p>
 <p>※ python2.7.4以前だとエラーを吐くらしいので、python2.7.5にしてある。今考えると2.7.15でも良かったかもしれない。</p>
-<h3>今回使うsample</h3>
+<h2>今回使うsample</h2>
 <p>うちのラボの論文のデータを使ってみます。</p>
 <blockquote>
 <p>Kitagawa, Y. et al. Guidance of regulatory T cell development by Satb1-dependent super-enhancer establishment. Nat. Immunol. 18, (2016).</p>
@@ -255,20 +255,20 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 
 <p>これでbamファイルが出来ているはず。</p>
 <p>igvで表示してみるとこんな感じ。
-<img src="https://pythonoum.files.wordpress.com/2018/10/screenshot-from-2018-10-28-20-04-52.png" alt="Screenshot from 2018-10-28 20-04-52.png" width="2015" height="965" class="alignnone size-full wp-image-291" /></p>
-<h4>補足 prefetchのoutputを変更する方法（Yoshiharaさんより）</h4>
+<img alt="1" src="../../../articles/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"></p>
+<h3>補足 prefetchのoutputを変更する方法（Yoshiharaさんより）</h3>
 <p>デフォルトではプロジェクトのディレクトリの外にsraファイルを保存してしまう。また、データ用のストレージを分けている際もそちらに書き出してやりたい。そこでprefetchのoutputを変更したいという話になるわけだが、やり方は2つ。</p>
-<p>1)
-<a href="https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration">Toolkit-Configuration</a>をいじる方法。
+<h4>1)</h4>
+<p><a href="https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration">Toolkit-Configuration</a>をいじる方法。
 公式にはこちらが推奨らしいが操作が面倒。</p>
-<p>2)</p>
-<div class="highlight"><pre><span></span><code><span class="err">echo ‘/repository/user/main/public/root = “/outputDir”‘ &amp;gt; ~/.ncbi/user-settings.mkfg</span>
+<h4>2)</h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> ‘/repository/user/main/public/root <span class="o">=</span> “/outputDir”‘ <span class="p">&amp;</span>gt<span class="p">;</span> ~/.ncbi/user-settings.mkfg
 </code></pre></div>
 
 
 <p>こっちのほうが簡単。outputDirに指定してやって下さい。
 この例だとpfastq-dumpでは~/ncbi/public/sra/<span class="math" s>\({s}.sraが/outputDir/sra/\)</span>.sraになりますね。</p>
-<h3>MACS2によるピークコール</h3>
+<h2>MACS2によるピークコール</h2>
 <blockquote>
 <p>Zhang, Y. et al. Model-based Analysis of ChIP-Seq (MACS). Genome Biol. 9, R137 (2008).</p>
 </blockquote>
@@ -323,8 +323,8 @@ $ <span class="nb">cd</span> ..
 <p><code>-B</code>でbdgというbedgraphファイルを保存するかどうか。
 <code>--nomodel</code>はshifting modelを作るかどうか。defaultでshiftは100。
 実際はigvにはbdgファイルも読み込めてしまうので、特にbigwigにする必要はなかった。</p>
-<h3>deepToolsによるbwファイルの生成</h3>
-<p><img src="https://pythonoum.files.wordpress.com/2018/10/start_workflow1.png" alt="start_workflow1" width="1852" height="645" class="alignnone size-full wp-image-259" /></p>
+<h2>deepToolsによるbwファイルの生成</h2>
+<p><img alt="1" src="../../../articles/2018/10/images/macs2_deeptools_figs/start_workflow1.png"></p>
 <blockquote>
 <p>Ramírez, F. et al. deepTools2: a next generation web server for deep-sequencing data analysis. Nucleic Acids Res. 44, W160–W165 (2016).</p>
 </blockquote>
@@ -350,12 +350,12 @@ $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR538
 
 
 <p>※ 181107 subtractのoutput fileが間違えていたので修正しました。（Yoshiharaさんより）</p>
-<h3>igvによる比較</h3>
-<p><img src="https://pythonoum.files.wordpress.com/2018/10/screenshot-from-2018-10-28-20-36-19.png" alt="Screenshot from 2018-10-28 20-36-19.png" width="2009" height="957" class="alignnone size-full wp-image-294" /></p>
+<h2>igvによる比較</h2>
+<p><img alt="1" src="../../../articles/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"></p>
 <p>上からmacs2, deepTools subtract, deepTools log2 fold changeになっている。macs2の結果はdeepToolsのsubtractに近いことがわかる。</p>
 <p>macs2のsummits.bedとnarrowPeakも表示してみた（下2つ）。これはこれで取り回しが効いて良い。narrowPeakはp valueに応じて色が変わっている。</p>
 <p>deepToolsが少しギザギザしているように見えるが、binを変えると細かくできる。</p>
-<h3>おまけ：deepToolsによる可視化</h3>
+<h2>おまけ：deepToolsによる可視化</h2>
 <p>最後に、deepToolsの豊富な可視化機能の一部を試してみる。まず、<a href="http://genome.ucsc.edu/cgi-bin/hgTables">UCSC</a>よりmm10の遺伝子のbedを取得する。bigwigを用いた可視化は<code>computeMatrix</code>した後<code>plotHeatmap</code>などである。log2 fold changeのbigwigを用いて全遺伝子についてH3K27acのheatmapを書き、クラスタリングも同時にしてみる。全遺伝子についてなので<code>computeMatrix</code>がとても重たくなってしまった。Tconvについては今回は省略。</p>
 <div class="highlight"><pre><span></span><code>$ computeMatrix scale-regions <span class="se">\</span>
 -S Treg_H3K27ac_1_log2ratio.bw Treg_H3K27ac_2_log2ratio.bw <span class="se">\</span>
@@ -371,11 +371,11 @@ $ plotHeatmap -m matrix.mat.Treg.gz -out Heatmap.png <span class="se">\</span>
 </code></pre></div>
 
 
-<p><img src="https://pythonoum.files.wordpress.com/2018/10/heatmap-3.png" alt="Heatmap.3.png" width="777" height="2288" class="alignnone size-full wp-image-304" /></p>
+<p><img alt="1" src="../../../articles/2018/10/images/macs2_deeptools_figs/heatmap-3.png"></p>
 <p>plotHeatmapのクラスタリングは複数のサンプルがある時は１つ目のサンプルでクラスタリングするみたい。せっかく他のサンプルもあるのだから、いろいろ混ぜてクラスタリングできたらいいな。
 colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.html">matplotlibでおなじみのもの</a>である。fontsizeは変更する方法は見つからなかった。これは結構困りどころ。強いて言うならissueで自分で書いてみてねとの<a href="https://github.com/deeptools/deepTools/issues/444">回答</a>があった。</p>
 <p>deepToolsに関して、いつもお世話になっている<a href="http://kazumaxneo.hatenablog.com/entry/2018/06/25/210934">macでインフォマティクス</a>さんにも記事があった。とても詳しい。他にもいろいろな機能があったので是非。</p>
-<h3>感想</h3>
+<h2>感想</h2>
 <ul>
 <li>macs2はpeakcallを目的にしていて、副産物としてbigwigやbdgが出力される。deepToolsは複数のChIP-seqデータなどを扱うのに長けている。逆にdeepToolsはpeak call機能がない。</li>
 <li>deepToolsはIHECのQCに使われていたり、bw作成後のdownstream解析もできたり、<a href="https://www.nature.com/articles/s41467-018-02866-0">RamDA-seq</a>の解析に使われていたりと、頼れるツールの様なので、早いうちにマスターしようと思う。</li>
@@ -463,7 +463,7 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/macs2_deeptools.html" 
+        data-href="../../../articles/2018/10/macs2_deeptools.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -503,13 +503,13 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <p class="tag-cloud">
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/python.html">Python</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
-      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
+      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>

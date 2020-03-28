@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="pandasのpivot_tableを用いた高速データ処理"/>
-    <meta property="og:url" content="../../../articles/2019/04/pandas_pivot_table.html"/>
+    <meta property="og:title" content="いまさらGoogle Colaboratory入門"/>
+    <meta property="og:url" content="../../../articles/2018/10/google_colaboratory.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="Data Science Competition"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="pandasのpivot_tableを用いた高速データ処理">
+    <meta name="twitter:title" content="いまさらGoogle Colaboratory入門">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>pandasのpivot_tableを用いた高速データ処理 - 大阪大学医学部 Python会</title>
+    <title>いまさらGoogle Colaboratory入門 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-10-08(Mon)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/pandas_pivot_table.html" rel="bookmark"
-     title="Permalink to pandasのpivot_tableを用いた高速データ処理">
-    pandasのpivot_tableを用いた高速データ処理
+  <a href="../../../articles/2018/10/google_colaboratory.html" rel="bookmark"
+     title="Permalink to いまさらGoogle Colaboratory入門">
+    いまさらGoogle Colaboratory入門
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/jin-zi.html">金子</a>
+      Posted by <a href="../../../author/gong-qi.html">宮崎</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,29 +130,42 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h1>pandasのpivot_tableを用いた高速データ処理</h1>
-
-<h2>概要</h2>
-
-<p>pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。</p>
-<p>pivot_tableを使った計算で個人的によく使う処理をまとめたものをkaggle の<strong><a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table">kernel</a></strong>で公開しました。</p>
-<p>このkernelでは簡単なダミーデータでpivot_tableに対する計算の仕方をまとめた後、実例として<a href="https://www.kaggle.com/c/PLAsTiCC-2018">PLAsTiCC コンペ</a>の<a href="https://www.kaggle.com/michaelapers/the-plasticc-astronomy-starter-kit">Starter Kit</a>にあった特徴量の計算をpandasのpivot_tableを用いて高速化しました。
-<h2>どんなことができるようになるの？</h2>
+	<p>いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。</p>
+<p>(あと、PCがクソザコなので、クラウドがいいかなーと思いました)</p>
+<h2>対象</h2>
+<p>初学者に非常に向いています。pythonの勉強会や趣味レベルまで対応している神環境だと思います。</p>
+<h2>特徴</h2>
+<p>一言でいうと：コードの共有に向いています。  </p>
 <ul>
-    <li>カテゴリごとに組み込みの集計関数より高度な関数を適用できる</li>
-    <li>カテゴリごとの移動平均をかけるようになる</li>
-    <li>未来のデータを含まないmean_encodingがかける</li>
+<li>無料</li>
+<li>install不要</li>
+<li>ブラウザさえ使えればどこでもできる</li>
+<li>google driveとの連携が便利</li>
+<li>githubとの連携が簡単(コピーする、というボタンだけでuploadできる)</li>
+<li>しかもGPU使える(TPUも)</li>
 </ul>
-<h2>どれくらい早くなるの？</h2>
-上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、</p>
-<p>愚直なコード(1時間以上)→groupbyでの処理(2分半)→pivot_table(4秒)</p>
-<p>という感じで早くなりました。
- </p>
+<h2>使用</h2>
+<p>登録：<a href="https://colab.research.google.com">https://colab.research.google.com</a></p>
+<p>標準では書いたノートブックはGoogle Driveに保存されるようになっています。</p>
+<p><img alt="スクリーンショット" src="../../../articles/2018/10/images/google_colaboratory_figs/2018-10-08-12-18-55.png"></p>
+<p>右上の共有コマンドから、Google Documentと同じようにリンクを作ったり、他の人と共有できます。</p>
+<p>ファイルの選択から、Google DriveやGitHubと連携ができます(すごい)。</p>
+<h2>感想</h2>
+<ul>
+<li>全部クラウドでできるので良い。</li>
+<li>notebookがGoogle用にチューニングされていて更に使いやすい。</li>
+</ul>
+<p>初学の時はpycharm使ってましたが、今から始めるなら間違いなくこれを使います。</p>
+<h2>参考</h2>
+<ul>
+<li><a href="https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4">https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4</a></li>
+<li><a href="https://karaage.hatenadiary.jp/entry/2018/03/21/073000">https://karaage.hatenadiary.jp/entry/2018/03/21/073000</a></li>
+</ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/data-science-competition.html"><i class="fa fa-tag"></i>Data Science Competition</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -166,7 +179,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/pandas_pivot_table.html" 
+        data-href="../../../articles/2018/10/google_colaboratory.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -206,13 +219,13 @@
 <p class="tag-cloud">
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/python.html">Python</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
-      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
+      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>

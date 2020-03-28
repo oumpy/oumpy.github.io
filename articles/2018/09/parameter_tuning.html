@@ -9,7 +9,7 @@
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Parameter Tuning"/>
-    <meta property="og:url" content="../../../articles/2019/04/parametaer_tuning.html"/>
+    <meta property="og:url" content="../../../articles/2018/09/parameter_tuning.html"/>
       <meta property="article:section" content="Tech_archive"/>
         <meta property="article:tag" content="Machine Learning"/>
       <meta property="article:author"
@@ -114,9 +114,9 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2018-09-09(Sun)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/parametaer_tuning.html" rel="bookmark"
+  <a href="../../../articles/2018/09/parameter_tuning.html" rel="bookmark"
      title="Permalink to Parameter Tuning">
     Parameter Tuning
   </a>
@@ -130,34 +130,39 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>機械学習を行う際に大事なのがパラメーターの調整です。<br>
-今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。<a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html">こちら</a>の資料がわかりやすかったです。(図もこちらのものを引用しました)</p>
+	<p>機械学習を行う際に大事なのがパラメーターの調整です。
+今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。以下の資料がわかりやすかったです。(図もこちらのものを引用しました)</p>
+<p><a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html">http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html</a></p>
 <h2>Bayesian Optimization</h2>
-<p><strong>Bayesian Optimization</strong>はパラメーターを<strong>x</strong>、評価値(精度とか)をyとして</p>
-<p><img alt="suushiki0" src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki0.png?raw=true"></p>
-<p>という関数を指定します(ブラックボックス関数)。中身は良くわかりませんが、この関数を最適化するパラメーターを見つけたいと思います。そこでBaysian Optimizationはこの関数が<a href="http://www.yasuhisay.info/entry/20091011/1255189429">ガウス過程</a>に従うと仮定します。</p>
+<p><strong>Bayesian Optimization</strong> はパラメーターを<span class="math">\(\boldsymbol{x}\)</span>、評価値(精度とか)を<span class="math">\(y\)</span>として
+</p>
+<div class="math">$$
+y=f(\boldsymbol{x})
+$$</div>
+<p>
+という関数を指定します(ブラックボックス関数)。中身は良くわかりませんが、この関数を最適化するパラメーターを見つけたいと思います。そこでBaysian Optimizationはこの関数が<a href="http://www.yasuhisay.info/entry/20091011/1255189429">ガウス過程</a>に従うと仮定します。</p>
 <p>下の図ではパラメーターの組み合わせをそれぞれ2,3個とって来て、その評価値を計算して結果をプロットしたグラフです。青い曲線はこの二点から導かれる関数の事後分布で、青い部分はこの分布の95%信頼区間です。</p>
-<p><img alt="Baysian Optimization" src="http://neupy.com/_images/gaussian-process-example.png"></p>
-<p>このグラフを見ると、観測点から離れた部分は信頼区間の幅が広い(=σが大きい)ことがわかります。</p>
+<p><img alt="1" src="../../../articles/2018/09/images/parameter_tuning_figs/gaussian-process-example.png"></p>
+<p>このグラフを見ると、観測点から離れた部分は信頼区間の幅が広い(=<span class="math">\(\sigma\)</span>が大きい)ことがわかります。</p>
 <h3>獲得関数(Acquisition Function)</h3>
-<p>獲得関数は、次にどこの点を観測するか決める関数です。これにはいろいろな関数がありますが、よく使われるのが</p>
-<p><img src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki2.png?raw=True" alt="suushiki2" /></p>
-<p>という<strong>Expected Improvement</strong>[Mockus,1978]であったり、
-<img src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki1.png?raw=True" alt="suushiki1" /></p>
-<p>のような<strong>Mutual Information</strong>[Contal+2014]がよく使われます。後者は特に直感的にわかりやすいと思うのですが、私たちも次にどの点を選ぶかというときに</p>
+<p>獲得関数は、次にどこの点を観測するか決める関数です。これにはいろいろな関数がありますが、よく使われるのが  </p>
+<div class="math">$$
+g_\max (x)=\max(0,\ y_{\text{highest expected}}-y_{\max})
+$$</div>
+<p>という <strong>Expected Improvement</strong> [Mockus,1978]であったり、  </p>
+<div class="math">$$
+g_\max (x)=\mu(x)+\sigma(x)
+$$</div>
+<p>のような <strong>Mutual Information</strong> [Contal+2014]がよく使われます。後者は特に直感的にわかりやすいと思うのですが、私たちも次にどの点を選ぶかというときに</p>
 <ul>
-<li>観測した点から推測して精度が良さそうな点を選びたい(μが大きい)</li>
-<li>まだ観測していない場所から選びたい(σが大きい)</li>
+<li>観測した点から推測して精度が良さそうな点を選びたい(<span class="math">\(\mu\)</span>が大きい)  </li>
+<li>まだ観測していない場所から選びたい( <span class="math">\(\sigma\)</span> が大きい)</li>
 </ul>
-
 <p>ということを考えて選びそうなものです。よくできてますね。</p>
-<p><img src="http://neupy.com/_images/expected-improvement-example.png" alt="acquisition function" /></p>
+<p><img alt="2" src="../../../articles/2018/09/images/parameter_tuning_figs/expected-improvement-example.png"></p>
+<h3>実装</h3>
 <p>実装には<a href="https://github.com/fmfn/BayesianOptimization">Bayesian Optimization</a>を使いました。</p>
-<p>使用するデータはkaggleの<a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation">Otto Group Product Classification Challenge</a>のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。</p>
-<div class="highlight"><pre><span></span><code>pip install bayesian-optimization
-</code></pre></div>
-
-
+<p>使用するデータはkaggleの<a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation">Otto Group Product Classification Challenge</a>のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。installはpipで入ります：<code>pip install bayesian-optimization</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
@@ -166,97 +171,86 @@
 
 
 <p>調整したいパラメーターを引数にとる評価関数の指定、クロスバリデーション。bayesian-optimizationには評価関数の最大化のライブラリしかないので、小さい値ほどいいloglossは返り値に-1をかけます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xgb_evaluate</span><span class="p">(</span>
-    <span class="n">min_child_weight</span><span class="p">,</span>
-    <span class="n">colsample_bytree</span><span class="p">,</span>
-    <span class="n">max_depth</span><span class="p">,</span>
-    <span class="n">subsample</span><span class="p">,</span>
-    <span class="n">gamma</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="p">):</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">min_child_weight</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">)</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">cosample_bytree</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">max_depth</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_depth</span><span class="p">)</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">subsample</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">subsample</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">gamma</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">params</span><span class="p">[</span><span class="n">alpha</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xgb_evaluate</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="p">,</span>
+                 <span class="n">max_depth</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;cosample_bytree&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_depth</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;subsample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">subsample</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="n">cv_result</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">cv</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">xgtrain</span><span class="p">,</span> <span class="n">num_boost_round</span><span class="o">=</span><span class="n">num_rounds</span><span class="p">,</span> <span class="n">nfold</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-        <span class="n">seed</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
-        <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">xgb</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">early_stop</span><span class="p">(</span><span class="mi">50</span><span class="p">)])</span>
+                       <span class="n">seed</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+                       <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">xgb</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">early_stop</span><span class="p">(</span><span class="mi">50</span><span class="p">)])</span>
 
-    <span class="k">return</span> <span class="o">-</span><span class="n">cv_result</span><span class="p">[</span><span class="n">test</span><span class="o">-</span><span class="n">mlogloss</span><span class="o">-</span><span class="n">mean</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">cv_result</span><span class="p">[</span><span class="s1">&#39;test-mlogloss-mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
 
 <p>いよいよ最適化！</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="n">__main__</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">xgtrain</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">()</span>
 
     <span class="n">num_rounds</span> <span class="o">=</span> <span class="mi">3000</span>
     <span class="n">random_state</span> <span class="o">=</span> <span class="mi">2016</span>
     <span class="n">num_iter</span> <span class="o">=</span> <span class="mi">25</span>
     <span class="n">init_points</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">eta</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-        <span class="n">silent</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="n">eval_metric</span><span class="p">:</span> <span class="n">mlogloss</span><span class="p">,</span>
-        <span class="n">verbose_eval</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">seed</span><span class="p">:</span> <span class="n">random_state</span><span class="p">,</span>
-        <span class="n">num_class</span><span class="p">:</span><span class="mi">9</span>
-    <span class="p">}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+              <span class="s1">&#39;silent&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s1">&#39;eval_metric&#39;</span><span class="p">:</span> <span class="s1">&#39;mlogloss&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;verbose_eval&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+              <span class="s1">&#39;seed&#39;</span><span class="p">:</span> <span class="n">random_state</span><span class="p">,</span>
+              <span class="s1">&#39;num_class&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>
 
-    <span class="n">xgbBO</span> <span class="o">=</span> <span class="n">BayesianOptimization</span><span class="p">(</span><span class="n">xgb_evaluate</span><span class="p">,</span> <span class="p">{</span>
-        <span class="n">min_child_weight</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-        <span class="n">colsample_bytree</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">max_depth</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-        <span class="n">subsample</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">gamma</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="n">alpha</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="p">})</span>
+    <span class="n">xgbBO</span> <span class="o">=</span> <span class="n">BayesianOptimization</span><span class="p">(</span><span class="n">xgb_evaluate</span><span class="p">,</span>
+                                 <span class="p">{</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+                                  <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                                  <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+                                  <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                                  <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                                  <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),})</span>
 
     <span class="n">xgbBO</span><span class="o">.</span><span class="n">maximize</span><span class="p">(</span><span class="n">init_points</span><span class="o">=</span><span class="n">init_points</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">num_iter</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>結果です</p>
-<p><img src="https://github.com/jun-sato/parameter_tuning/blob/master/result.png?raw=true" alt="result" />
-<img src="https://github.com/jun-sato/parameter_tuning/blob/master/result2.png?raw=true" alt="result2" /></p>
+<h3>結果</h3>
+<p><img alt="3" src="../../../articles/2018/09/images/parameter_tuning_figs/result.png">
+<img alt="4" src="../../../articles/2018/09/images/parameter_tuning_figs/result2.png"></p>
 <p>だいたい15回くらいの試行でloglossが0.46136まで下がりました。やってから気づいたんですが、max_depthとかって整数の値しかとらないですね、、、</p>
 <p>ただし、ベイズ最適化には弱点もいくつかあって、</p>
 <ul>
-<li>カテゴリー変数の場合にうまくいかない。</li>
-<li>偶然性に左右されたり、再現性が取れないことがある</li>
-<li>バラメーターが増えてきたら時間かかる</li>
+<li>カテゴリー変数の場合にうまくいかない。  </li>
+<li>偶然性に左右されたり、再現性が取れないことがある  </li>
+<li>パラメータが増えてきたら時間かかる</li>
 </ul>
 <p>みたいなことになるらしいです。</p>
 <h2>Tree-structured Parzen Estimator(TPE)</h2>
 <p>このような弱点を修正したのがTPEという最適化手法です。ベイズとコンセプトは似ていますが、手法は全く異なります。一般的な方法として、まずRandom Searchを用いていくつか点をとってきます。プロットすると下の図のようになりました。</p>
-<p><img src="http://neupy.com/_images/tpe-observation-groups.png" alt="TPE" /></p>
+<p><img alt="5" src="../../../articles/2018/09/images/parameter_tuning_figs/tpe-observation-groups.png"></p>
 <p>次に精度が良かったもの(図では上位20%)とそうでなかったものに分けます。この2群の尤度関数を求めます。あまり尤度と言っても馴染みのない人が多いと思いますが、サンプリングされたデータは様々な確率分布のうち、どの分布から得られたものとするのが一番尤もらしいかを決めようとするものです。これにより2群の確率分布が出来上がります。</p>
-<p>TPEでもExpected Improvement関数の下のように定義します。精度良かったものをl,そうではなかったものをgとして、</p>
-<p><img src="https://github.com/jun-sato/parameter_tuning/blob/master/suushiki3.png?raw=True" alt="suushiki3" />
-これをそれぞれの観測点に対して適用し、最もEIの値が大きかった場所が次の観測点になります。</p>
-<p><img src="http://neupy.com/_images/tpe-sampled-candidates.png" alt="prob dist" />
-<img src="http://neupy.com/_images/tpe-expected-improvement.png" alt="acq" /></p>
-<p>こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります。</p>
-<div class="highlight"><pre><span></span><code><span class="err">pip install hyperopt</span>
-</code></pre></div>
-
-
+<p>TPEでもExpected Improvement関数の下のように定義します。精度良かったものを<span class="math">\(l\)</span>,そうではなかったものを<span class="math">\(g\)</span>として、</p>
+<div class="math">$$
+EI(x)=\frac{l(x)}{g(x)}
+$$</div>
+<p>これをそれぞれの観測点に対して適用し、最もEIの値が大きかった場所が次の観測点になります。</p>
+<p><img alt="6" src="../../../articles/2018/09/images/parameter_tuning_figs/tpe-sampled-candidates.png">
+<img alt="7" src="../../../articles/2018/09/images/parameter_tuning_figs/tpe-expected-improvement.png"></p>
+<h3>実装</h3>
+<p>こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります：<code>pip install hyperopt</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hyperopt</span>
 <span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">hp</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">Trials</span><span class="p">,</span> <span class="n">fmin</span>
 </code></pre></div>
 
 
 <p>最適化するパラメータはbayesian optimizationと同じやつにしてみました。</p>
-<div class="highlight"><pre><span></span><code><span class="n">hyperopt_parameters</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">min_child_weight</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
-    <span class="n">colsample_bytree</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">max_depth</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)),</span>
-    <span class="n">subsample</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">subsample</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">gamma</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="n">alpha</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">hyperopt_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+                       <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;colsample_bytree&#39;</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                       <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s1">&#39;max_depth&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)),</span>
+                       <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;subsample&#39;</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                       <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                       <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),}</span>
 </code></pre></div>
 
 
@@ -264,10 +258,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="n">classifier</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
     <span class="n">stratifiedkfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
-        <span class="n">classifier</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span><span class="n">target</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span>
-        <span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
-        <span class="n">cv</span><span class="o">=</span><span class="n">stratifiedkfold</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">neg_log_loss</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;target&#39;</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">stratifiedkfold</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_log_loss&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">result</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div>
 
@@ -276,21 +267,82 @@
 <div class="highlight"><pre><span></span><code><span class="n">max_evals</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">trials</span> <span class="o">=</span> <span class="n">Trials</span><span class="p">()</span> <span class="c1"># 実行結果を格納するインスタンス</span>
 
-<span class="n">best</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span>
-    <span class="n">objective</span><span class="p">,</span>
-    <span class="n">hyperopt_parameters</span><span class="p">,</span>
-    <span class="n">algo</span> <span class="o">=</span> <span class="n">tpe</span><span class="o">.</span><span class="n">suggest</span><span class="p">,</span>
-    <span class="n">max_evals</span> <span class="o">=</span><span class="n">max_evals</span><span class="p">,</span>
-    <span class="n">trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">,</span>
-    <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">best</span> <span class="o">=</span> <span class="n">fmin</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span>
+            <span class="n">hyperopt_parameters</span><span class="p">,</span>
+            <span class="n">algo</span> <span class="o">=</span> <span class="n">tpe</span><span class="o">.</span><span class="n">suggest</span><span class="p">,</span>
+            <span class="n">max_evals</span> <span class="o">=</span><span class="n">max_evals</span><span class="p">,</span>
+            <span class="n">trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">,</span>
+            <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
 
 <h3>結果</h3>
-<p><img src="https://github.com/jun-sato/parameter_tuning/blob/master/loss.jpg?raw=true" alt="loss" /></p>
-<p><img src="https://github.com/jun-sato/parameter_tuning/blob/master/best_param.png?raw=true" alt="best_param" /></p>
+<p><img alt="8" src="../../../articles/2018/09/images/parameter_tuning_figs/loss.jpg">
+<img alt="9" src="../../../articles/2018/09/images/parameter_tuning_figs/best_param.png"></p>
 <p>logloss最小値は0.4749でした。あれ、bayesian optimizaationより悪い、、、bayesianではmax_depthを整数に限定しなかったからかも、、
 でも自分で手動でやった時は0.6とかだったんで、パラメーターチューニングの時にはこれからこれ使っていこうと思います。あとこのxgboost動かすのに8コアCPU使ってそれぞれ半日くらい回しました。GPU使ってたらもうちょい早かったと思うのですが、きちんとbuildとmakeしてもうまくいきませんでした。また挑戦します。</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   
 <div class="article-tag-list">
@@ -309,7 +361,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/parametaer_tuning.html" 
+        data-href="../../../articles/2018/09/parameter_tuning.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -349,13 +401,13 @@
 <p class="tag-cloud">
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/python.html">Python</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
-      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
+      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>

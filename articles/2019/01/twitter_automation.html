@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Bioinformatics春合宿@三島"/>
-    <meta property="og:url" content="../../../articles/2019/04/mishima.html"/>
+    <meta property="og:title" content="Twitter自動投稿あれこれ"/>
+    <meta property="og:url" content="../../../articles/2019/01/twitter_automation.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="Bioinformatics"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Bioinformatics春合宿@三島">
+    <meta name="twitter:title" content="Twitter自動投稿あれこれ">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>Bioinformatics春合宿@三島 - 大阪大学医学部 Python会</title>
+    <title>Twitter自動投稿あれこれ - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2019-01-18(Fri)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/mishima.html" rel="bookmark"
-     title="Permalink to Bioinformatics春合宿@三島">
-    Bioinformatics春合宿@三島
+  <a href="../../../articles/2019/01/twitter_automation.html" rel="bookmark"
+     title="Permalink to Twitter自動投稿あれこれ">
+    Twitter自動投稿あれこれ
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/an-shui-ping-gang.html">安水　平岡</a>
+      Posted by <a href="../../../author/chuan-qi.html">川崎</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,18 +130,88 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある<a href="https://dbcls.rois.ac.jp/">DBCLS</a>にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。</p>
-<p>平岡
-<a href="https://github.com/yuna06/mishima2019/blob/master/README.md">mishima2019</a>
- </p>
-<p>安水
-<a href="https://github.com/yyoshiaki/mishima_gassyuku/blob/master/README.md">三島合宿日誌</a></p>
-<p>最後に、合宿を快諾いただいた坊農さんはじめ、仲里さん、内藤さん、小野さん、大田さんには心よりお礼申し上げます。生涯忘れることない、大切な経験になりました。</p>
+	<p>突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。</p>
+<h2>きっかけ</h2>
+<ul>
+<li>講義棟の音出し禁止時間を毎日6時に通知してくれるBOTが欲しい。</li>
+<li>幸い音出し禁止時間はネット上に記載されているので、毎日取得して呟くだけなら実装は簡単そう。</li>
+<li>何よりPython会の記事のネタになる。</li>
+</ul>
+<h2>Twitter APIの取得</h2>
+<p>Botを作るにはAPI （アプリケーション・プログラミング・インタフェイス）が必要です。</p>
+<p>まあアカウント作ったら一発やろーと高を括っていたのですが、最近Twitter APIの使用申請が厳格化されたらしくなんだか不安。</p>
+<p><a href="https://developer.twitter.com/">https://developer.twitter.com/</a></p>
+<p>とりあえずここにアクセスし、利用登録を進めていきます。</p>
+<p>慣れない英語を読みすすめるとどうやら必要なのが</p>
+<ul>
+<li>使用用途を英語で入力(400字程度)</li>
+</ul>
+<p>大学入試以来の英作文です。</p>
+<p>しかしそんな英語力は無いので適当に文章作ってGoogle翻訳(https://translate.google.co.jp/?hl=ja)にぶち込みます。小学生並みの文章が出来上がりました。</p>
+<blockquote>
+<p>1.I decided to use the Twitter API to study programming.In order to know what many people are interested in, I would like to learn what kind of program to write. 2....</p>
+</blockquote>
+<p>若干嘘が混じっている気もしますが気にしません。早速フォームに入力して送信しました。</p>
+<p>なお事前に調べた情報ではここでTwitter社からなかなか返信が返って来ず断念するケースが多いみたいです。緊張します。</p>
+<p>しかしドキドキする間もなく一瞬で申請が通りました。どうしてでしょうか。</p>
+<p>実は「chat bot」など自動化に関する単語が含まれていると検閲に引っかかりやすいらしく、婉曲表現を用いて危険なワードを巧みに回避していたのでした。下調べは大切ですね。</p>
+<p>晴れて使用権限を得たので早速使っていきます。BOT作成に必要な値は次の4つです。ログインすれば見ることができます。</p>
+<div class="highlight"><pre><span></span><code><span class="err">CONSUMER_KEY = &quot;***********************************************&quot;</span>
+<span class="err">CONSUMER_SECRET = &quot;********************************************&quot;</span>
+<span class="err">ACCESS_TOKEN = &quot;**********************************************&quot;</span>
+<span class="err">ACCESS_TOKEN_SECRET = &quot;******************************************&quot;</span>
+</code></pre></div>
+
+
+<p>上のようにしてconfig.pyとしてまとめておくと後々楽です。</p>
+<h2>書く</h2>
+<p>事前に<code>pip install requests</code>と<code>pip install requests_oauthlib</code>しておきます。</p>
+<p>先ほど取得した4つのKeyはconfig.pyとして同じ階層に忘れずに置いておきます。</p>
+<p>内容は1.取ってきて 2.整形して 3.ツイートする という流れです。シンプルですね。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>　<span class="c1">#スクレイピング</span>
+<span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">config</span> <span class="c1">#jsonモジュールとconfig.pyの読み込み</span>
+<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1Session</span> <span class="c1">#OAuthのライブラリの読み込みURL = &quot;hoge&quot;</span>
+<span class="n">UserAgent</span> <span class="o">=</span> <span class="s2">&quot;huga&quot;</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">UserAgent</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#HTML取得</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># (中略)(HTMLから整形する作業)</span>
+
+<span class="n">CK</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">CONSUMER_KEY</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">CONSUMER_SECRET</span>
+<span class="n">AT</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCESS_TOKEN</span>
+<span class="n">ATS</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ACCESS_TOKEN_SECRET</span>
+<span class="n">twitter</span> <span class="o">=</span> <span class="n">OAuth1Session</span><span class="p">(</span><span class="n">CK</span><span class="p">,</span> <span class="n">CS</span><span class="p">,</span> <span class="n">AT</span><span class="p">,</span> <span class="n">ATS</span><span class="p">)</span> <span class="c1">#認証処理</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.twitter.com/1.1/statuses/update.json&quot;</span>
+
+<span class="n">tweet</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;おはようッピ！</span><span class="se">\n</span><span class="si">{}</span><span class="s2">月</span><span class="si">{}</span><span class="s2">日(</span><span class="si">{}</span><span class="s2">)の音出し禁止時間をお知らせするッピ！</span><span class="se">\n\n</span><span class="s2">『</span><span class="si">{}</span><span class="s2">』</span><span class="se">\n\n</span><span class="s2">今日も一日がんばるッピ！！&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">notify</span><span class="p">)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span> <span class="p">:</span> <span class="n">tweet</span><span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="p">)</span> <span class="c1">#post送信</span>
+<span class="c1">#print(tweet) #テスト表示</span>
+
+<span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span> <span class="c1">#成功した場合</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed. : </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2>実行結果</h2>
+<p><img alt="1" src="../../../articles/2019/01/images/twitter_automation_figs/picture1.png"></p>
+<p>成功です。語尾は適当です。</p>
+<p>(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -155,7 +225,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/mishima.html" 
+        data-href="../../../articles/2019/01/twitter_automation.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -195,13 +265,13 @@
 <p class="tag-cloud">
       <a href="../../../tag/news.html">News</a>
       <a href="../../../tag/shell-script.html">Shell script</a>
+      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
       <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
       <a href="../../../tag/statistics.html">Statistics</a>
       <a href="../../../tag/machine-learning.html">Machine Learning</a>
       <a href="../../../tag/python.html">Python</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
-      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
+      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
       <a href="../../../tag/github.html">GitHub</a>
       <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
 </p>
