@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="超高速次元圧縮アルゴリズムUMAP"/>
-    <meta property="og:url" content="../../../articles/2019/04/umap.html"/>
+    <meta property="og:title" content="シェルコマンドに触れてみよう"/>
+    <meta property="og:url" content="../../../articles/2020/02/shellscript_tutorial.html"/>
       <meta property="article:section" content="Tech_archive"/>
-        <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="Shell script"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="超高速次元圧縮アルゴリズムUMAP">
+    <meta name="twitter:title" content="シェルコマンドに触れてみよう">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>超高速次元圧縮アルゴリズムUMAP - 大阪大学医学部 Python会</title>
+    <title>シェルコマンドに触れてみよう - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -114,15 +114,15 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-14(Sun)
+  2020-02-26(Wed)
 </abbr> <h1>
-  <a href="../../../articles/2019/04/umap.html" rel="bookmark"
-     title="Permalink to 超高速次元圧縮アルゴリズムUMAP">
-    超高速次元圧縮アルゴリズムUMAP
+  <a href="../../../articles/2020/02/shellscript_tutorial.html" rel="bookmark"
+     title="Permalink to シェルコマンドに触れてみよう">
+    シェルコマンドに触れてみよう
   </a>
 </h1><div class="article-header-info">
   <p>
-      Posted by <a href="../../../author/an-shui.html">安水</a>
+      Posted by <a href="../../../author/shan-tian.html">山田</a>
     in 
     <a href="../../../category/tech_archive.html">
       Tech_archive</a>
@@ -130,45 +130,184 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。
-tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。https://deepage.net/machine_learning/2017/03/08/tsne.html）</p>
-<p>そこで今回紹介するのはUMAP。
-arxivで今月publishされたばかりのアルゴリズムです(2018年2月時点)。
-試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。</p>
-<p>tSNEではちょうど1時間30分でしたが、UMAPではたったの1分でした。</p>
-<p>詳細はこちら。
-https://github.com/lmcinnes/umap</p>
-<p>インストールは
-<code>$ pip install umap</code></p>
-<p>こちらが今回のソースコード。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_mldata</span><span class="p">(</span><span class="s1">&#39;MNIST original&#39;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">umap</span>
-<span class="n">embedding</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">embedding</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">embedding</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;UMAP&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;umap.png&#39;</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">tsne_result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tsne_result</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">tsne_result</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;tSNE&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;tsne.png&#39;</span><span class="p">)</span>
+	<h3>シェルって？　コマンドってなに？</h3>
+<p>詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
+- コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
+- シェル：命令をコンピュータに伝えるプログラムのこと  </p>
+<p>つまるところ、Pythonに限らず<strong>プログラミングをやりたければ必須の内容</strong>というわけです！<br>
+これができないと、極論プログラミングを始めることもできないかもしれません。  （installすらできないかも...）<br>
+ですが、複雑なものではないので、下を読んでさくっと学んでしまいましょう！</p>
+<ul>
+<li>コマンドについてもっと知りたい方へ  </li>
+<li><a href="https://qiita.com/lrf141/items/6c01d2f7afff79cd7286">Linux初心者のシェルスクリプト入門 - Qiita</a>  </li>
+<li><a href="https://eng-entrance.com/linux-what-is-command">【初心者用】Linuxのコマンドとは？とコマンドラインの表示方法</a>  </li>
+<li><a href="https://www.sejuku.net/blog/5465">ブクマ必至！Linuxコマンド一覧表【全33種】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト</a>  </li>
+</ul>
+<h3>シェルコマンドを学ぶ上でのポイント</h3>
+<ol>
+<li>ムリにおぼえようとしない</li>
+<li>日頃使っていたら自然と覚えていく</li>
+<li>コマンドの名前は英語の省略かも？</li>
+<li>忘れたら、すぐググればよし</li>
+</ol>
+<h3>シェルコマンドってどういう風に書くの？</h3>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span>
+$ ls
+$ emacs
 </code></pre></div>
+
+
+<p>などのように、黒い画面（terminal、cmd）上にて、一つ一つの処理ごとに命令を書いてEnterキーで実行していきます。  </p>
+<h3>ランク別よく使うシェルコマンド</h3>
+<p>筆者の独断と偏見による、日頃よく使うコマンドを3段階にわけてまとめてみました。<br>
+詳しい使い方は各自調べてもらいたいので、ここでは「何ができるか」だけ簡単に書いておきます。(<strong>自分で調べていく力</strong>がプログラミングには大事ですよ！)<br>
+ランク1、2あたりはググらずに使えるようになるといいと思います。<br>
+もちろんこの他にも様々なコマンドがありますが、最初の1歩として学んでみて下さい。</p>
+<h4>ランク1</h4>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>ディレクトリ移動</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>カレントディレクトリを表示</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>フォルダの内容をリスト形式で表示する</td>
+</tr>
+<tr>
+<td>ファイル操作編</td>
+<td></td>
+</tr>
+<tr>
+<td>mv</td>
+<td>ファイルを移動<br>ファイルの名前を編集</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>ファイルやフォルダをコピーする</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>ファイルやフォルダを削除</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>フォルダを作成</td>
+</tr>
+<tr>
+<td>rmdir</td>
+<td>フォルダを削除</td>
+</tr>
+<tr>
+<td>less</td>
+<td>テキストファイルを閲覧</td>
+</tr>
+<tr>
+<td>more</td>
+<td>ファイルの中身を表示<br>（lessがおすすめ）</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>ファイルの内容を表示</td>
+</tr>
+<tr>
+<td>grep</td>
+<td>指定した文字列がテキスト内に存在した場合その行を抽出</td>
+</tr>
+</tbody>
+</table>
+<h4>ランク2</h4>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chmod</td>
+<td>ファイルやフォルダのアクセス権限を変更</td>
+</tr>
+<tr>
+<td>touch</td>
+<td>空のファイルを作成</td>
+</tr>
+<tr>
+<td>emacs<br>vim<br>など</td>
+<td>（それぞれのエディタで）ファイルを新規作成</td>
+</tr>
+<tr>
+<td>echo</td>
+<td>画面に文字列や数値、変数を表示</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Finderを開く</td>
+</tr>
+</tbody>
+</table>
+<h4>ランク3</h4>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ps</td>
+<td>現在動作しているプロセスを表示する</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>リモートマシンにSSHでログイン</td>
+</tr>
+<tr>
+<td>zip<br>tar<br>gzip/gunzip</td>
+<td>ファイル・ディレクトリの解凍、圧縮</td>
+</tr>
+</tbody>
+</table>
+<p>何度も使ってみておぼえていきましょう！</p>
+<h3>おまけ</h3>
+<ol>
+<li>シェル芸<br>
+気になる方は下の記事でも読んでみて下さい。  </li>
+<li><a href="https://qiita.com/t_nakayama0714/items/bfe4852e0535858ee662">【シェル芸人への道】シェル芸人の第一歩 - Qiita</a></li>
+<li>
+<p><a href="https://qiita.com/_-_-_-_-_/items/214d537aae2c1488692c">【危険シェル芸】禁じられた闇の魔術とその防衛術💥 - Qiita</a></p>
+</li>
+<li>
+<p>Clipyなどのクリップボードを活用する<br>
+よく使うコマンドを登録しておくと便利！</p>
+</li>
+</ol>
+<h3>コマンドの次へ</h3>
+<p>上の文にもいくつかでてきているのですが、コマンドに入門した次に勉強するおすすめとして、以下の単語を調べてみましょう。<br>
+それぞれ今度何度も目にする単語なので、早めに知っておいて損はないと思います。</p>
+<ol>
+<li>パスとは？<br>
+    キーワード：相対/絶対パス</li>
+<li>エディタとは？<br>
+    emacs/vim/atom/vscode...</li>
+</ol>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -182,7 +321,7 @@ https://github.com/lmcinnes/umap</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../articles/2019/04/umap.html" 
+        data-href="../../../articles/2020/02/shellscript_tutorial.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
