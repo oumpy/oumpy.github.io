@@ -1,534 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-06-21T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>がんゲノム変異シグネチャー解析</title><link href="oumpy.github.io/articles/2020/06/cancer_signature.html" rel="alternate"></link><published>2020-06-21T00:00:00+09:00</published><updated>2020-06-21T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2020-06-21:oumpy.github.io/articles/2020/06/cancer_signature.html</id><summary type="html"></summary><content type="html">&lt;p&gt;がんゲノムの変異シグネチャーの推定にチャレンジしてみました。&lt;/p&gt;
-&lt;p&gt;&lt;img src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/1.png" width="400px"&gt;&lt;/p&gt;
-&lt;h2&gt;きっかけ&lt;/h2&gt;
-&lt;p&gt;先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。&lt;/p&gt;
-&lt;p&gt;講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦記録です。&lt;/p&gt;
-&lt;h2&gt;がんゲノムの変異シグネチャーとは？？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/2.png"&gt;&lt;/p&gt;
-&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
-&lt;h2&gt;トピックモデルとは？？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/3.png"&gt;&lt;/p&gt;
-&lt;p&gt;（&lt;a href="https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model"&gt;https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model&lt;/a&gt;より）&lt;/p&gt;
-&lt;h3&gt;がんゲノムの場合のトピックは？？&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/4.png"&gt;&lt;/p&gt;
-&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
-&lt;p&gt;一塩基ごとの変異情報がまとめられたテキストがDocumentsとして、がんの原因となる要素を一つ一つの「topic」、変異シグネチャーとして、トピックモデルを用いて推定します。&lt;/p&gt;
-&lt;h2&gt;解析の方法&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/5.png"&gt;&lt;/p&gt;
-&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
-&lt;p&gt;データベースにある変異データには、&lt;br&gt;
-ゲノムの位置、その位置における変異前の塩基配列、変異後の配列&lt;br&gt;
-の情報が書かれています。&lt;/p&gt;
-&lt;p&gt;そこから変異の情報を、C&amp;gt;T_AGのような形でテキストファイルにIDごとに記録していきます。&lt;br&gt;
-鋳型鎖と相補鎖の関係より、&lt;strong&gt;変異前がCかTの側のみ&lt;/strong&gt; を集計します。（＊注1）&lt;/p&gt;
-&lt;p&gt;その後、各IDごとに変異データのテキストファイルを集め、変異情報をDocumentsとして、トピック、変異シグネチャーを推定していきます。&lt;/p&gt;
-&lt;h2&gt;使用したツール&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;pandas  &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;matplotlib&lt;br&gt;
-Pythonでおなじみのツールですね。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;biopython&lt;br&gt;
-Python 用の計算機分子生物学パッケージです。&lt;br&gt;
-核酸やアミノ酸の配列情報を扱うためのFASTAファイルの処理が簡単になります。&lt;br&gt;
-（ドキュメントは読み切れていないので、いずれ読みたいです…）&lt;br&gt;
-公式：&lt;a href="https://biopython.org/"&gt;https://biopython.org/&lt;/a&gt;&lt;br&gt;
-参考：&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qiita.com/sato32ha6/items/6b762b0d0314a5db7dc3"&gt;https://qiita.com/sato32ha6/items/6b762b0d0314a5db7dc3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://bi.biopapyrus.jp/python/biopython/seq.html"&gt;https://bi.biopapyrus.jp/python/biopython/seq.html&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;gensim（topicmodel）&lt;br&gt;
-今回の核となるトピックモデルについてはこちらを使います。&lt;br&gt;
-gensimは、様々なトピックモデルを実装したPythonライブラリです。&lt;br&gt;
-"&lt;em&gt;topic modeling for humans&lt;/em&gt;"とあるように、実装が大変なトピックモデルを簡単に使うことができます。&lt;br&gt;
-今回はその中でも、LDA（Latent Dirichlet Allocation）を用います。&lt;br&gt;
-参考：&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.sejuku.net/blog/67863"&gt;https://www.sejuku.net/blog/67863&lt;/a&gt;&lt;br&gt;
-gensimの使い方についてはこれが一番わかりやすかったです）　　　&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/"&gt;https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;wordcloud&lt;br&gt;
-matplotlib を利用して Word Cloud を作成できる Python ライブラリです。&lt;br&gt;
-wordcloud自体は、文章中で出現頻度が高い単語を複数選び出し、その頻度に応じた大きさで図示する手法です。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;実践　〜解析〜&lt;/h2&gt;
-&lt;h3&gt;COSMICとは？&lt;/h3&gt;
-&lt;p&gt;（HP：https://cancer.sanger.ac.uk/cosmic/）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;COSMIC, the Catalogue Of Somatic Mutations In Cancer, is the world’s largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;（公式サイトより）&lt;/p&gt;
-&lt;p&gt;がんと関連する体細胞変異の情報を集積したデータベースです。&lt;/p&gt;
-&lt;p&gt;今回はこちらにある変異データを解析の対象としています。&lt;/p&gt;
-&lt;p&gt;参考：統合TV　&lt;a href="https://togotv.dbcls.jp/20180127.html"&gt;https://togotv.dbcls.jp/20180127.html&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;データのダウンロード&lt;/h3&gt;
-&lt;p&gt;がんゲノムの変異データをCOSMCのサイトからダウンロードします。
-- &lt;a href="https://cancer.sanger.ac.uk/cosmic/download"&gt;https://cancer.sanger.ac.uk/cosmic/download&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;データを無料でダウンロードするには、学生としての登録が必要でした。
-今回は様々なデータの中でも、Non coding variantsのものを使いました。
-&lt;img alt="6" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/6.png"&gt;&lt;/p&gt;
-&lt;h3&gt;リファレンス配列の入手&lt;/h3&gt;
-&lt;p&gt;今回はUCSCからhg38をダウンロードしました。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;こちらのフォーマットはfastaで、&lt;/p&gt;
-&lt;p&gt;&lt;img alt="7" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/7.png"&gt;&lt;/p&gt;
-&lt;p&gt;のような感じで並んでいます。&lt;/p&gt;
-&lt;p&gt;配列にAやaなど、大文字と小文字が並んでいるのは、大文字の A, C, G, T はコード領域、小文字の a, c, g, t はコード領域以外を表します。&lt;/p&gt;
-&lt;h3&gt;変異データを覗いてみる&lt;/h3&gt;
-&lt;p&gt;COSMICから入手したデータがどんなフォーマットなのか見てみました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="8" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/8.png"&gt;&lt;/p&gt;
-&lt;p&gt;ここからサンプルID、ゲノムのposition、元の配列、変異後の配列、という形で抽出し手確認しました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="9" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/9.png"&gt;&lt;/p&gt;
-&lt;p&gt;公式サイトによると、変異データのフォーマットは以下のようになっているようです。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;[column number:label] Heading&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;[1:A] Sample name,Sample id,Tumour id&lt;/strong&gt; – A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual. A sample id is used to identify a sample within the COSMIC database. There can be multiple ids, if the same sample has been entered into the database multiple times from different papers.&lt;br&gt;
-&lt;strong&gt;[4:D] Primary Site&lt;/strong&gt; – The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from &lt;a href="https://cancer.sanger.ac.uk/cell_lines/classification"&gt;here&lt;/a&gt;. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.&lt;br&gt;
-&lt;strong&gt;[5:E] Site Subtype 1&lt;/strong&gt; – Further sub classification (level 1) of the samples tissue of origin.&lt;br&gt;
-&lt;strong&gt;[6:F] Site Subtype 2&lt;/strong&gt; – Further sub classification (level 2) of the samples tissue of origin.&lt;br&gt;
-&lt;strong&gt;[7:G] Site Subtype 3&lt;/strong&gt; – Further sub classification (level 3) of the samples tissue of origin.&lt;br&gt;
-&lt;strong&gt;[8:H] Primary Histology&lt;/strong&gt; – The histological classification of the sample.&lt;br&gt;
-&lt;strong&gt;[9:I] Histology Subtype 1&lt;/strong&gt; – Further histological classification (level 1) of the sample.&lt;br&gt;
-&lt;strong&gt;[10:J] Histology Subtype 2&lt;/strong&gt; – Further histological classification (level 2) of the sample.&lt;br&gt;
-&lt;strong&gt;[11:K] Histology Subtype 3&lt;/strong&gt; – Further histological classification (level 3) of the sample.&lt;br&gt;
-&lt;strong&gt;[12:L] Mutation Id&lt;/strong&gt; – unique mutation identifier.&lt;br&gt;
-&lt;strong&gt;[13:M] Zygosity&lt;/strong&gt; – Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.&lt;br&gt;
-&lt;strong&gt;[14:N] GRCh&lt;/strong&gt; – The coordinate system used –&lt;br&gt;
-38 = GRCh38/Hg38&lt;br&gt;
-37 = GRCh37/Hg19&lt;br&gt;
-&lt;strong&gt;[15:O] Genome position&lt;/strong&gt; – The genomic cooridnate of the mutation.&lt;br&gt;
-&lt;strong&gt;[16:P] Mutation somatic status&lt;/strong&gt; – Information on whether the sample was reported to be Confirmed Somatic, Previously Reported or Variant of unknown origin –&lt;br&gt;
-Confirmed Somatic = if the mutation has been confimed to be somatic in the experiment by sequencing both the tumour and a matched normal from the same patient.&lt;br&gt;
-variant of unknown origin = when the mutation is known to be somatic but the tumour was sequenced without a matched normal.&lt;br&gt;
-Previously observed = when the mutation has been reported as somatic previously but not in current paper.&lt;br&gt;
-&lt;strong&gt;[17:Q] WT SEQ&lt;/strong&gt; – wild type sequence.&lt;br&gt;
-&lt;strong&gt;[18:R] MUT SEQ&lt;/strong&gt; – Mutated sequence.&lt;br&gt;
-&lt;strong&gt;[19:S] SNP&lt;/strong&gt; – All the known SNPs are flagged as ‘y’ defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.&lt;br&gt;
-&lt;strong&gt;[20:T] FATHMM_MKL_NON_CODING_SCORE&lt;/strong&gt; – FATHMM-MKL non-coding score. A p-value ranging from 0 to 1 where &amp;gt;= 0.7 is functionally significant.&lt;br&gt;
-&lt;strong&gt;[21:U] FATHMM_MKL_NON_CODING_GROUPS&lt;/strong&gt; – FATHMM-MKL group classification. More details from &lt;a href="https://cancer.sanger.ac.uk/cosmic/analyses"&gt;here&lt;/a&gt;.&lt;br&gt;
-&lt;strong&gt;[22:V] FATHMM_MKL_CODING_SCORE&lt;/strong&gt; – FATHMM-MKL coding score (p-value ranging from 0 to 1).&lt;br&gt;
-&lt;strong&gt;[23:W] FATHMM_MKL_CODING_GROUPS&lt;/strong&gt; – FATHMM-MKL group classification (coding). More details from &lt;a href="https://cancer.sanger.ac.uk/cosmic/analyses"&gt;here&lt;/a&gt;.&lt;br&gt;
-&lt;strong&gt;[24:X] Whole Genome Reseq&lt;/strong&gt; – if the enitre genome is sequenced.&lt;br&gt;
-&lt;strong&gt;[25:Y] Whole_Exome&lt;/strong&gt; – if the enitre exome is sequenced.&lt;br&gt;
-&lt;strong&gt;[26:Z] Id Study&lt;/strong&gt; – Lists the unique Ids of studies that have involved this non coding mutation.&lt;br&gt;
-&lt;strong&gt;[27:AA] Pubmed_PMID&lt;/strong&gt; – The PUBMED ID for the paper that the sample was noted in.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;変異ファイルの処理&lt;/h3&gt;
-&lt;p&gt;ここが一番苦労しました。。。&lt;/p&gt;
-&lt;h4&gt;簡単な流れ&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;変異データをpandasで読み込む&lt;/li&gt;
-&lt;li&gt;MUT_SEQについて、genome_positionからリファレンス配列を参照して、変異配列の前後の配列を探し出す&lt;/li&gt;
-&lt;li&gt;DataFrameの新しいcolumnとして配列を追加していく&lt;/li&gt;
-&lt;li&gt;ID_tumorごとに、配列の変異をテキストファイルに書き出していく。&lt;/li&gt;
-&lt;li&gt;tumorごとの変異についてのテキストファイルをもとに、トピックモデルをgensimを使って作成する。&lt;/li&gt;
-&lt;li&gt;可視化する。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;以下実際のコードです。&lt;/p&gt;
-&lt;h4&gt;ライブラリのimport&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Bio&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SeqIO&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;COSMICの変異データをpandasでDataFrameとして読み込みます。&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;mut_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;CosmicNCV.tsv&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;ref_fasta&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;hg38.fa&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;df_cosmic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_table&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mut_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cosmic&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_SAMPLE&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
-&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="10" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/10.png"&gt;&lt;/p&gt;
-&lt;p&gt;上記のようにDataFrameとしてきれいに読み込めました。&lt;/p&gt;
-&lt;h4&gt;リファレンス配列の読み込み&lt;/h4&gt;
-&lt;p&gt;ここではbiopythonを使って簡単に配列部分を取り出します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#リファレンスファイルについて&lt;/span&gt;
-&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="c1"&gt;#biopythonを用いて、idやdesc、seqを抽出&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;SeqIO&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ref_fasta&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;fasta&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;span class="n"&gt;id_part&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
-&lt;span class="n"&gt;desc_part&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;
-&lt;span class="n"&gt;seq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;
-
-&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id_part&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;desc_part&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;塩基配列はlist_seqに入っています。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="11" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/11.png"&gt;&lt;/p&gt;
-&lt;p&gt;全てリスト形式なので、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="mi"&gt;19829559&lt;/span&gt;
-
-&lt;span class="n"&gt;chr3&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;のように各染色体ごとに見るこができます。&lt;/p&gt;
-&lt;h4&gt;COSMICのdf（DataFrame）の操作&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;df_cutのgenome_positionについて、染色体番号とゲノムの位置に分割して新しいカラムとして追加します。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#chr、genome position用の空のリストを作成&lt;/span&gt;
-
-&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;[:-]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]))[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;[:-]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]))[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-&lt;span class="c1"&gt;#df_cutに新しいカラムとして追加。&lt;/span&gt;
-
-&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="12" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/12.png"&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;MUT_SEQの欠損値、chr23、24、25を除く。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#mutのdfからchr23、24、MUT_SEQのnanを除く&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;23&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;24&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;25&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;subset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;inplace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;#indexを振り直す&lt;/span&gt;
-
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;なぜかCOSMICのデータにchr22以上のものが含まれていたので、除きました。&lt;/p&gt;
-&lt;h4&gt;リファレンス配列から、MUT_SEQの前後の配列を抽出&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#refから変異位置の前後の配列を抽出&lt;/span&gt;
-&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])][&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])][&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;COSMICのdfと合わせていく。&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;変異の前後の配列について、dfに追加し、大文字に直す&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;#大文字に変更&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;ol&gt;
-&lt;li&gt;前、変異、後の3つの配列を新しいカラムの中に追加する
-（以下のようなややこしいカラムを作っているのは（＊注1）のためです）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#3文字の配列にする（seq_forwardが鋳型）&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;#鋳型鎖の順番を逆にしたもの（相補鎖を作るため）&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward_r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ここまでで以下のようになります。（dfの右側だけ）&lt;/p&gt;
-&lt;p&gt;&lt;img alt="13" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/13.png"&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;3つの配列について、相補鎖を作ります&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#辞書型で相補鎖に変換&lt;/span&gt;
-&lt;span class="n"&gt;dict_base&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;T&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;G&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;G&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;T&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="n"&gt;list_wt_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
-&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward_r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;translate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;maketrans&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_base&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="c1"&gt;#次のために、変異の配列も変換しておきます。 list_wt_seq_reverse.append((str(df_cut_chr_i[&amp;#39;WT_SEQ&amp;#39;][i])).translate(str.maketrans(dict_base)))&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_wt_seq_reverse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;変異の情報をテキストファイルに書き出す&lt;/h4&gt;
-&lt;p&gt;いよいよ最後のステップです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#ID_tumorのカウント&lt;/span&gt;
-&lt;span class="n"&gt;dict_tumor_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="n"&gt;list_tumor_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_tumor_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;まずはIDをリストに格納します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="14" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/14.png"&gt;&lt;/p&gt;
-&lt;p&gt;（上はテストファイルで行ったため、実際の数値とは異なります。）&lt;/p&gt;
-&lt;p&gt;いろいろな試行錯誤したコードで、テキストファイルに書き出していきます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_tumor_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)]:&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isnull&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;continue&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text_2/&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;.txt&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;T&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
-&lt;span class="s1"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
-&lt;span class="s1"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;continue&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;（特に速度のことは考えずに直感的にforで回したので、かなり時間がかかります。）
-ここまでで変異のデータをIDごとに抽出することができました！&lt;/p&gt;
-&lt;p&gt;上のスクリプトをサーバーにでも投げてしばらく待ちます。&lt;/p&gt;
-&lt;h3&gt;トピックモデルを使ってみる&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="15" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/15.png"&gt;&lt;/p&gt;
-&lt;p&gt;4までの操作で各IDごとの上のように、変異データが得られました。&lt;/p&gt;
-&lt;p&gt;これをトピックモデルを使って解析していきます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gensim&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;wordcloud&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;WordCloud&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;ディレクトリ内のファイルリストを取得する&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;glob&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/Users/***/test/cancer_genome&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./text_2/*&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;変異データを一つのリスト内に格納する&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="k"&gt;continue&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;())[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;トピックモデル&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#辞書を作成&lt;/span&gt;
-&lt;span class="n"&gt;dictionary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gensim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;corpora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dictionary&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;corpus&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dictionary&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;doc2bow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;#トピックモデルの学習&lt;/span&gt;
-&lt;span class="n"&gt;num_topics&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
-
-&lt;span class="n"&gt;lda&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gensim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ldamodel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LdaModel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-&lt;span class="n"&gt;corpus&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;corpus&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-&lt;span class="n"&gt;id2word&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dictionary&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;トピック数（num_topics）については後述します。&lt;/p&gt;
-&lt;p&gt;これでトピックモデルの学習ができました。ここは実行時間はそこまで長くありません。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="16" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/16.png"&gt;&lt;/p&gt;
-&lt;p&gt;結果を見てみると、各トピックごとに、各変異がどれほどの割合を占めているのか、というのがわかります。&lt;/p&gt;
-&lt;h4&gt;可視化&lt;/h4&gt;
-&lt;p&gt;おなじみmatplotlibを使ってグラフにしてみます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt;
-
-&lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;orange&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;orange&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;green&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;green&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;salmon&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;salmon&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-&lt;span class="n"&gt;rvb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mcolors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LinearSegmentedColormap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
-&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;center&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rvb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="17" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/17.png"&gt;&lt;/p&gt;
-&lt;p&gt;リストで色を指定することで、このように変異の種類（T&amp;gt;C、T&amp;gt;A、C&amp;gt;Gなど）ごとに色づけすることができました。
-- 参考：&lt;a href="https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap"&gt;https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;これをトピックごとにグラフを作成し、画像として保存します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aqua&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aqua&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;gray&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;gray&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;lime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;lime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pink&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pink&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-&lt;span class="n"&gt;rvb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mcolors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LinearSegmentedColormap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="c1"&gt;#plt.subplot(lda.num_topics,2,i+1)&lt;/span&gt;
-&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
-&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;topic #&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;center&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rvb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;topic_pdf/topicmodel_ms_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;.pdf&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;（色はCOSMICのグラフのものと揃えました）&lt;/p&gt;
-&lt;p&gt;&lt;img alt="18" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/18.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="19" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/19.png"&gt;&lt;/p&gt;
-&lt;h3&gt;データベースのシグネチャと比較&lt;/h3&gt;
-&lt;p&gt;COSMICには、今までに推定されてきたがんゲノムの変異シグネチャーが多数登録されています。
-- &lt;a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/"&gt;https://cancer.sanger.ac.uk/cosmic/signatures/SBS/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="20" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/20.png"&gt;&lt;/p&gt;
-&lt;p&gt;シグネチャーのグラフと、関連するがんの原因が示されています。&lt;/p&gt;
-&lt;h4&gt;推定&lt;/h4&gt;
-&lt;p&gt;今回の課題は、「&lt;strong&gt;たばこ/紫外線のシグネチャーを見つけることができたか&lt;/strong&gt;」でした。&lt;/p&gt;
-&lt;p&gt;データベースにあるグラフとどれほど一致しているか見ていきます。&lt;/p&gt;
-&lt;p&gt;COSMICに掲載されているシグネチャーSBS1〜SBS85までのうち、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;たばこ&lt;/strong&gt;（tobacco）が原因とされるもの→SBS4、5、29&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;紫外線&lt;/strong&gt;（ultraviolet light）が原因とされるもの→SBS7a〜d、38&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="21" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/21.png"&gt;&lt;/p&gt;
-&lt;p&gt;であるとわかりました。&lt;/p&gt;
-&lt;h4&gt;推定結果&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;-たばこ-&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;①SBS4&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="22" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/22.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="23" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/23.png"&gt;&lt;/p&gt;
-&lt;p&gt;②SBS5&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="24" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/24.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="25" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/25.png"&gt;&lt;/p&gt;
-&lt;p&gt;③SBS29&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="26" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/26.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="27" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/27.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;-紫外線-&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;①SBS7a
-- COSMIC&lt;/p&gt;
-&lt;p&gt;&lt;img alt="28" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/28.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="29" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/29.png"&gt;&lt;/p&gt;
-&lt;p&gt;②SBS7b&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="30" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/30.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="31" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/31.png"&gt;&lt;/p&gt;
-&lt;p&gt;③SBS7c&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="32" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/32.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
-&lt;p&gt;④SBS7d&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="33" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/33.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
-&lt;p&gt;⑤SBS38&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;COSMIC&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="34" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/34.png"&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
-&lt;p&gt;どれも完全に一致しているとは言えないのですが、近いものはそれなりに類似しているグラフが作れたのではないかと思います。&lt;/p&gt;
-&lt;p&gt;シグネチャーを見るだけでも、「たばこを原因とするがんは、変異の種類が多い」、「紫外線を原因とするがんは、変異の種類が少ない」という傾向も見て取れます。&lt;/p&gt;
-&lt;h2&gt;おまけ -WordCloudによる可視化-&lt;/h2&gt;
-&lt;p&gt;トピックモデルで単語を扱う際によく同時にやられているものとして、WordCloudがあったため、変異データでもやってみました。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;im&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WordCloud&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;generate_from_frequencies&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;im&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;off&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Topic #&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="35" src="oumpy.github.io/articles/2020/06/images/cancer_signature_figs/35.png"&gt;&lt;/p&gt;
-&lt;h2&gt;今後やってみたいこと&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;がんゲノムの変異シグネチャーは、最初に発表された論文ではNon- negative Matrix Factorization(NMF)(非負値行列因子分解)を使って推定された。2019年になって「トピックモデル」を使って変異 シグネチャを推定する論文が二報発表された。&lt;br&gt;
-1. Funnell, T. et al. Integrated structural variation and point mutation signatures in cancer genomes using correlated topic models. PLOS Computational Biology 15, e1006799 (2019).
-2. Matsutani, T., Ueno, Y., Fukunaga, T. &amp;amp; Hamada, M. Discovering novel mutation signatures by latent Dirichlet allocation with variational Bayes inference. Bioinformatics doi:10.1093/bioinformatics/btz266&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;このような背景があったため今回はトピックモデルを使ってみたのですが、NMFを用いた推定もやってみたいです。&lt;/p&gt;
-&lt;p&gt;変異シグネチャーの個数については、今回のセッティングが最適ではなく、丁寧にやるならhierarchical dirichlet process (HDP) を用いるか、perplexity、coherenceなどの評価指標を用いる必要があるのかと思いました。
-- 参考：&lt;a href="https://www.randpy.tokyo/entry/word2vec_skip_gram_model"&gt;https://www.randpy.tokyo/entry/word2vec_skip_gram_model&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;参考&lt;/h2&gt;
-&lt;p&gt;今回のコード、作成したグラフ等はGitHubにあります。
-- &lt;a href="https://github.com/ykohki/cancer_signature"&gt;https://github.com/ykohki/cancer_signature&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;トピックモデルを用いたがんゲノムの変異シグネチャー解析
-- &lt;a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&amp;amp;page_id=13&amp;amp;block_id=8&amp;amp;item_id=182433&amp;amp;item_no=1"&gt;https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&amp;amp;page_id=13&amp;amp;block_id=8&amp;amp;item_id=182433&amp;amp;item_no=1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;がんゲノムビッグデータから喫煙による遺伝子異常を同定
-- &lt;a href="https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html"&gt;https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html&lt;/a&gt;
-- &lt;a href="https://science.sciencemag.org/content/354/6312/618"&gt;https://science.sciencemag.org/content/354/6312/618&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;同じ変異シグネチャーについて調べていて、特にたばこについて見ている論文でした
-- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>ICA（独立成分分析）について</title><link href="oumpy.github.io/articles/2020/03/ica.html" rel="alternate"></link><published>2020-03-30T23:00:00+09:00</published><updated>2020-03-30T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:None,2020-03-30:oumpy.github.io/articles/2020/03/ica.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-03-29T23:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>ICA（独立成分分析）について</title><link href="oumpy.github.io/articles/2020/03/ica.html" rel="alternate"></link><published>2020-03-29T23:00:00+09:00</published><updated>2020-03-29T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:None,2020-03-29:oumpy.github.io/articles/2020/03/ica.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2598,7 +2069,7 @@ emacs/vim/atom/vscode...&lt;/li&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="" src="oumpy.github.io/articles/2019/10/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="KEGG map" src="oumpy.github.io/articles/2019/10/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
 &lt;h2&gt;終わりに&lt;/h2&gt;
 &lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
 &lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/articles/2019/06/atcoder.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-06-24:oumpy.github.io/articles/2019/06/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
@@ -3043,7 +2514,536 @@ $$&lt;/div&gt;
 &lt;li&gt;統計学の時間（&lt;a href="https://bellcurve.jp/statistics/course/12752.html"&gt;効果量1&lt;/a&gt;, &lt;a href="https://bellcurve.jp/statistics/course/12765.html"&gt;効果量2&lt;/a&gt;）&lt;/li&gt;
 &lt;li&gt;岡田謙介. &lt;strong&gt;心理学における効果量をめぐる最近の話題&lt;/strong&gt;. (&lt;a href="http://www3.psy.senshu-u.ac.jp/~ken/DevPsy2015_okada.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;汪金芳. &lt;strong&gt;ブートストラップ法入門&lt;/strong&gt;. (&lt;a href="http://www.math.s.chiba-u.ac.jp/~wang/bootstrap.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="oumpy.github.io/articles/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-03-29:oumpy.github.io/articles/2019/03/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Statistics"></category></entry><entry><title>がんゲノム変異シグネチャー解析</title><link href="oumpy.github.io/articles/2019/06/cancer_signature.html" rel="alternate"></link><published>2019-06-21T00:00:00+09:00</published><updated>2019-06-21T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2019-06-21:oumpy.github.io/articles/2019/06/cancer_signature.html</id><summary type="html"></summary><content type="html">&lt;p&gt;がんゲノムの変異シグネチャーの推定にチャレンジしてみました。&lt;/p&gt;
+&lt;p&gt;&lt;img src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/1.png" width="400px"&gt;&lt;/p&gt;
+&lt;h2&gt;きっかけ&lt;/h2&gt;
+&lt;p&gt;先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。&lt;/p&gt;
+&lt;p&gt;講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦記録です。&lt;/p&gt;
+&lt;h2&gt;がんゲノムの変異シグネチャーとは？？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
+&lt;h2&gt;トピックモデルとは？？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;（&lt;a href="https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model"&gt;https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model&lt;/a&gt;より）&lt;/p&gt;
+&lt;h3&gt;がんゲノムの場合のトピックは？？&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
+&lt;p&gt;一塩基ごとの変異情報がまとめられたテキストがDocumentsとして、がんの原因となる要素を一つ一つの「topic」、変異シグネチャーとして、トピックモデルを用いて推定します。&lt;/p&gt;
+&lt;h2&gt;解析の方法&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
+&lt;p&gt;データベースにある変異データには、&lt;br&gt;
+ゲノムの位置、その位置における変異前の塩基配列、変異後の配列&lt;br&gt;
+の情報が書かれています。&lt;/p&gt;
+&lt;p&gt;そこから変異の情報を、C&amp;gt;T_AGのような形でテキストファイルにIDごとに記録していきます。&lt;br&gt;
+鋳型鎖と相補鎖の関係より、&lt;strong&gt;変異前がCかTの側のみ&lt;/strong&gt; を集計します。（＊注1）&lt;/p&gt;
+&lt;p&gt;その後、各IDごとに変異データのテキストファイルを集め、変異情報をDocumentsとして、トピック、変異シグネチャーを推定していきます。&lt;/p&gt;
+&lt;h2&gt;使用したツール&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;pandas  &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;matplotlib&lt;br&gt;
+Pythonでおなじみのツールですね。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;biopython&lt;br&gt;
+Python 用の計算機分子生物学パッケージです。&lt;br&gt;
+核酸やアミノ酸の配列情報を扱うためのFASTAファイルの処理が簡単になります。&lt;br&gt;
+（ドキュメントは読み切れていないので、いずれ読みたいです…）&lt;br&gt;
+公式：&lt;a href="https://biopython.org/"&gt;https://biopython.org/&lt;/a&gt;&lt;br&gt;
+参考：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/sato32ha6/items/6b762b0d0314a5db7dc3"&gt;https://qiita.com/sato32ha6/items/6b762b0d0314a5db7dc3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://bi.biopapyrus.jp/python/biopython/seq.html"&gt;https://bi.biopapyrus.jp/python/biopython/seq.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gensim（topicmodel）&lt;br&gt;
+今回の核となるトピックモデルについてはこちらを使います。&lt;br&gt;
+gensimは、様々なトピックモデルを実装したPythonライブラリです。&lt;br&gt;
+"&lt;em&gt;topic modeling for humans&lt;/em&gt;"とあるように、実装が大変なトピックモデルを簡単に使うことができます。&lt;br&gt;
+今回はその中でも、LDA（Latent Dirichlet Allocation）を用います。&lt;br&gt;
+参考：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sejuku.net/blog/67863"&gt;https://www.sejuku.net/blog/67863&lt;/a&gt;&lt;br&gt;
+gensimの使い方についてはこれが一番わかりやすかったです）　　　&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/"&gt;https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wordcloud&lt;br&gt;
+matplotlib を利用して Word Cloud を作成できる Python ライブラリです。&lt;br&gt;
+wordcloud自体は、文章中で出現頻度が高い単語を複数選び出し、その頻度に応じた大きさで図示する手法です。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;実践　〜解析〜&lt;/h2&gt;
+&lt;h3&gt;COSMICとは？&lt;/h3&gt;
+&lt;p&gt;（HP：https://cancer.sanger.ac.uk/cosmic/）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;COSMIC, the Catalogue Of Somatic Mutations In Cancer, is the world’s largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;（公式サイトより）&lt;/p&gt;
+&lt;p&gt;がんと関連する体細胞変異の情報を集積したデータベースです。&lt;/p&gt;
+&lt;p&gt;今回はこちらにある変異データを解析の対象としています。&lt;/p&gt;
+&lt;p&gt;参考：統合TV　&lt;a href="https://togotv.dbcls.jp/20180127.html"&gt;https://togotv.dbcls.jp/20180127.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;データのダウンロード&lt;/h3&gt;
+&lt;p&gt;がんゲノムの変異データをCOSMCのサイトからダウンロードします。
+- &lt;a href="https://cancer.sanger.ac.uk/cosmic/download"&gt;https://cancer.sanger.ac.uk/cosmic/download&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;データを無料でダウンロードするには、学生としての登録が必要でした。
+今回は様々なデータの中でも、Non coding variantsのものを使いました。
+&lt;img alt="6" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/6.png"&gt;&lt;/p&gt;
+&lt;h3&gt;リファレンス配列の入手&lt;/h3&gt;
+&lt;p&gt;今回はUCSCからhg38をダウンロードしました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;こちらのフォーマットはfastaで、&lt;/p&gt;
+&lt;p&gt;&lt;img alt="7" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;のような感じで並んでいます。&lt;/p&gt;
+&lt;p&gt;配列にAやaなど、大文字と小文字が並んでいるのは、大文字の A, C, G, T はコード領域、小文字の a, c, g, t はコード領域以外を表します。&lt;/p&gt;
+&lt;h3&gt;変異データを覗いてみる&lt;/h3&gt;
+&lt;p&gt;COSMICから入手したデータがどんなフォーマットなのか見てみました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="8" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/8.png"&gt;&lt;/p&gt;
+&lt;p&gt;ここからサンプルID、ゲノムのposition、元の配列、変異後の配列、という形で抽出し手確認しました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="9" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/9.png"&gt;&lt;/p&gt;
+&lt;p&gt;公式サイトによると、変異データのフォーマットは以下のようになっているようです。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;[column number:label] Heading&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;[1:A] Sample name,Sample id,Tumour id&lt;/strong&gt; – A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual. A sample id is used to identify a sample within the COSMIC database. There can be multiple ids, if the same sample has been entered into the database multiple times from different papers.&lt;br&gt;
+&lt;strong&gt;[4:D] Primary Site&lt;/strong&gt; – The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from &lt;a href="https://cancer.sanger.ac.uk/cell_lines/classification"&gt;here&lt;/a&gt;. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.&lt;br&gt;
+&lt;strong&gt;[5:E] Site Subtype 1&lt;/strong&gt; – Further sub classification (level 1) of the samples tissue of origin.&lt;br&gt;
+&lt;strong&gt;[6:F] Site Subtype 2&lt;/strong&gt; – Further sub classification (level 2) of the samples tissue of origin.&lt;br&gt;
+&lt;strong&gt;[7:G] Site Subtype 3&lt;/strong&gt; – Further sub classification (level 3) of the samples tissue of origin.&lt;br&gt;
+&lt;strong&gt;[8:H] Primary Histology&lt;/strong&gt; – The histological classification of the sample.&lt;br&gt;
+&lt;strong&gt;[9:I] Histology Subtype 1&lt;/strong&gt; – Further histological classification (level 1) of the sample.&lt;br&gt;
+&lt;strong&gt;[10:J] Histology Subtype 2&lt;/strong&gt; – Further histological classification (level 2) of the sample.&lt;br&gt;
+&lt;strong&gt;[11:K] Histology Subtype 3&lt;/strong&gt; – Further histological classification (level 3) of the sample.&lt;br&gt;
+&lt;strong&gt;[12:L] Mutation Id&lt;/strong&gt; – unique mutation identifier.&lt;br&gt;
+&lt;strong&gt;[13:M] Zygosity&lt;/strong&gt; – Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.&lt;br&gt;
+&lt;strong&gt;[14:N] GRCh&lt;/strong&gt; – The coordinate system used –&lt;br&gt;
+38 = GRCh38/Hg38&lt;br&gt;
+37 = GRCh37/Hg19&lt;br&gt;
+&lt;strong&gt;[15:O] Genome position&lt;/strong&gt; – The genomic cooridnate of the mutation.&lt;br&gt;
+&lt;strong&gt;[16:P] Mutation somatic status&lt;/strong&gt; – Information on whether the sample was reported to be Confirmed Somatic, Previously Reported or Variant of unknown origin –&lt;br&gt;
+Confirmed Somatic = if the mutation has been confimed to be somatic in the experiment by sequencing both the tumour and a matched normal from the same patient.&lt;br&gt;
+variant of unknown origin = when the mutation is known to be somatic but the tumour was sequenced without a matched normal.&lt;br&gt;
+Previously observed = when the mutation has been reported as somatic previously but not in current paper.&lt;br&gt;
+&lt;strong&gt;[17:Q] WT SEQ&lt;/strong&gt; – wild type sequence.&lt;br&gt;
+&lt;strong&gt;[18:R] MUT SEQ&lt;/strong&gt; – Mutated sequence.&lt;br&gt;
+&lt;strong&gt;[19:S] SNP&lt;/strong&gt; – All the known SNPs are flagged as ‘y’ defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.&lt;br&gt;
+&lt;strong&gt;[20:T] FATHMM_MKL_NON_CODING_SCORE&lt;/strong&gt; – FATHMM-MKL non-coding score. A p-value ranging from 0 to 1 where &amp;gt;= 0.7 is functionally significant.&lt;br&gt;
+&lt;strong&gt;[21:U] FATHMM_MKL_NON_CODING_GROUPS&lt;/strong&gt; – FATHMM-MKL group classification. More details from &lt;a href="https://cancer.sanger.ac.uk/cosmic/analyses"&gt;here&lt;/a&gt;.&lt;br&gt;
+&lt;strong&gt;[22:V] FATHMM_MKL_CODING_SCORE&lt;/strong&gt; – FATHMM-MKL coding score (p-value ranging from 0 to 1).&lt;br&gt;
+&lt;strong&gt;[23:W] FATHMM_MKL_CODING_GROUPS&lt;/strong&gt; – FATHMM-MKL group classification (coding). More details from &lt;a href="https://cancer.sanger.ac.uk/cosmic/analyses"&gt;here&lt;/a&gt;.&lt;br&gt;
+&lt;strong&gt;[24:X] Whole Genome Reseq&lt;/strong&gt; – if the enitre genome is sequenced.&lt;br&gt;
+&lt;strong&gt;[25:Y] Whole_Exome&lt;/strong&gt; – if the enitre exome is sequenced.&lt;br&gt;
+&lt;strong&gt;[26:Z] Id Study&lt;/strong&gt; – Lists the unique Ids of studies that have involved this non coding mutation.&lt;br&gt;
+&lt;strong&gt;[27:AA] Pubmed_PMID&lt;/strong&gt; – The PUBMED ID for the paper that the sample was noted in.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;変異ファイルの処理&lt;/h3&gt;
+&lt;p&gt;ここが一番苦労しました。。。&lt;/p&gt;
+&lt;h4&gt;簡単な流れ&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;変異データをpandasで読み込む&lt;/li&gt;
+&lt;li&gt;MUT_SEQについて、genome_positionからリファレンス配列を参照して、変異配列の前後の配列を探し出す&lt;/li&gt;
+&lt;li&gt;DataFrameの新しいcolumnとして配列を追加していく&lt;/li&gt;
+&lt;li&gt;ID_tumorごとに、配列の変異をテキストファイルに書き出していく。&lt;/li&gt;
+&lt;li&gt;tumorごとの変異についてのテキストファイルをもとに、トピックモデルをgensimを使って作成する。&lt;/li&gt;
+&lt;li&gt;可視化する。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以下実際のコードです。&lt;/p&gt;
+&lt;h4&gt;ライブラリのimport&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;Bio&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SeqIO&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;COSMICの変異データをpandasでDataFrameとして読み込みます。&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;mut_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;CosmicNCV.tsv&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;ref_fasta&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;hg38.fa&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;df_cosmic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_table&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mut_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cosmic&lt;/span&gt;&lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_SAMPLE&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="10" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/10.png"&gt;&lt;/p&gt;
+&lt;p&gt;上記のようにDataFrameとしてきれいに読み込めました。&lt;/p&gt;
+&lt;h4&gt;リファレンス配列の読み込み&lt;/h4&gt;
+&lt;p&gt;ここではbiopythonを使って簡単に配列部分を取り出します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#リファレンスファイルについて&lt;/span&gt;
+&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="c1"&gt;#biopythonを用いて、idやdesc、seqを抽出&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;SeqIO&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ref_fasta&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;fasta&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="n"&gt;id_part&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
+&lt;span class="n"&gt;desc_part&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;
+&lt;span class="n"&gt;seq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;record&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;
+
+&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;id_part&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;desc_part&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;塩基配列はlist_seqに入っています。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="11" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/11.png"&gt;&lt;/p&gt;
+&lt;p&gt;全てリスト形式なので、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="mi"&gt;19829559&lt;/span&gt;
+
+&lt;span class="n"&gt;chr3&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;のように各染色体ごとに見るこができます。&lt;/p&gt;
+&lt;h4&gt;COSMICのdf（DataFrame）の操作&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;df_cutのgenome_positionについて、染色体番号とゲノムの位置に分割して新しいカラムとして追加します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#chr、genome position用の空のリストを作成&lt;/span&gt;
+
+&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;[:-]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]))[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;[:-]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;genome position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]))[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;#df_cutに新しいカラムとして追加。&lt;/span&gt;
+
+&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_cut_chr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_cut_pos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="12" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/12.png"&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;MUT_SEQの欠損値、chr23、24、25を除く。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#mutのdfからchr23、24、MUT_SEQのnanを除く&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;23&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;24&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;25&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;subset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;inplace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;#indexを振り直す&lt;/span&gt;
+
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;なぜかCOSMICのデータにchr22以上のものが含まれていたので、除きました。&lt;/p&gt;
+&lt;h4&gt;リファレンス配列から、MUT_SEQの前後の配列を抽出&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#refから変異位置の前後の配列を抽出&lt;/span&gt;
+&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])][&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;list_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;chr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])][&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;single position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;COSMICのdfと合わせていく。&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;変異の前後の配列について、dfに追加し、大文字に直す&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq_before&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seq_after&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;#大文字に変更&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;前、変異、後の3つの配列を新しいカラムの中に追加する
+（以下のようなややこしいカラムを作っているのは（＊注1）のためです）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#3文字の配列にする（seq_forwardが鋳型）&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;#鋳型鎖の順番を逆にしたもの（相補鎖を作るため）&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward_r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_after&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_before&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ここまでで以下のようになります。（dfの右側だけ）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="13" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/13.png"&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;3つの配列について、相補鎖を作ります&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#辞書型で相補鎖に変換&lt;/span&gt;
+&lt;span class="n"&gt;dict_base&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;T&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;G&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;G&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;T&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;list_wt_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward_r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;translate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;maketrans&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_base&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="c1"&gt;#次のために、変異の配列も変換しておきます。 list_wt_seq_reverse.append((str(df_cut_chr_i[&amp;#39;WT_SEQ&amp;#39;][i])).translate(str.maketrans(dict_base)))&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq_reverse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_wt_seq_reverse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;変異の情報をテキストファイルに書き出す&lt;/h4&gt;
+&lt;p&gt;いよいよ最後のステップです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#ID_tumorのカウント&lt;/span&gt;
+&lt;span class="n"&gt;dict_tumor_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="n"&gt;list_tumor_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_tumor_id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;まずはIDをリストに格納します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="14" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/14.png"&gt;&lt;/p&gt;
+&lt;p&gt;（上はテストファイルで行ったため、実際の数値とは異なります。）&lt;/p&gt;
+&lt;p&gt;いろいろな試行錯誤したコードで、テキストファイルに書き出していきます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_tumor_id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ID_tumour&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)]:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isnull&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;continue&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text_2/&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;.txt&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;T&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MUT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
+&lt;span class="s1"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_forward&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_SEQ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;WT_seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;amp;amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
+&lt;span class="s1"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df_cut_chr_i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)])[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;seq_reverse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;continue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;（特に速度のことは考えずに直感的にforで回したので、かなり時間がかかります。）
+ここまでで変異のデータをIDごとに抽出することができました！&lt;/p&gt;
+&lt;p&gt;上のスクリプトをサーバーにでも投げてしばらく待ちます。&lt;/p&gt;
+&lt;h3&gt;トピックモデルを使ってみる&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="15" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/15.png"&gt;&lt;/p&gt;
+&lt;p&gt;4までの操作で各IDごとの上のように、変異データが得られました。&lt;/p&gt;
+&lt;p&gt;これをトピックモデルを使って解析していきます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gensim&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Counter&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;wordcloud&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;WordCloud&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;ディレクトリ内のファイルリストを取得する&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;glob&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;chdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/Users/***/test/cancer_genome&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./text_2/*&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;変異データを一つのリスト内に格納する&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_file_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;continue&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;())[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;トピックモデル&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;#辞書を作成&lt;/span&gt;
+&lt;span class="n"&gt;dictionary&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gensim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;corpora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dictionary&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;corpus&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dictionary&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;doc2bow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_text&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="c1"&gt;#トピックモデルの学習&lt;/span&gt;
+&lt;span class="n"&gt;num_topics&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+
+&lt;span class="n"&gt;lda&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gensim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ldamodel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LdaModel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="n"&gt;corpus&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;corpus&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;id2word&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dictionary&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;トピック数（num_topics）については後述します。&lt;/p&gt;
+&lt;p&gt;これでトピックモデルの学習ができました。ここは実行時間はそこまで長くありません。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="16" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/16.png"&gt;&lt;/p&gt;
+&lt;p&gt;結果を見てみると、各トピックごとに、各変異がどれほどの割合を占めているのか、というのがわかります。&lt;/p&gt;
+&lt;h4&gt;可視化&lt;/h4&gt;
+&lt;p&gt;おなじみmatplotlibを使ってグラフにしてみます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt;
+
+&lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;orange&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;orange&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;green&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;green&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;salmon&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;salmon&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;rvb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mcolors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LinearSegmentedColormap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;center&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rvb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="17" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/17.png"&gt;&lt;/p&gt;
+&lt;p&gt;リストで色を指定することで、このように変異の種類（T&amp;gt;C、T&amp;gt;A、C&amp;gt;Gなど）ごとに色づけすることができました。
+- 参考：&lt;a href="https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap"&gt;https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;これをトピックごとにグラフを作成し、画像として保存します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aqua&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;aqua&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;black&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;48&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;red&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;gray&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;66&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;gray&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;67&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;lime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;83&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;lime&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;\
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pink&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pink&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;rvb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mcolors&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LinearSegmentedColormap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clist&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;#plt.subplot(lda.num_topics,2,i+1)&lt;/span&gt;
+&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;topic #&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;align&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;center&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rvb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xticks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict_topic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()),&lt;/span&gt; &lt;span class="n"&gt;rotation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;savefig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;topic_pdf/topicmodel_ms_&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;.pdf&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;（色はCOSMICのグラフのものと揃えました）&lt;/p&gt;
+&lt;p&gt;&lt;img alt="18" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/18.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="19" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/19.png"&gt;&lt;/p&gt;
+&lt;h3&gt;データベースのシグネチャと比較&lt;/h3&gt;
+&lt;p&gt;COSMICには、今までに推定されてきたがんゲノムの変異シグネチャーが多数登録されています。
+- &lt;a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/"&gt;https://cancer.sanger.ac.uk/cosmic/signatures/SBS/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/20.png"&gt;&lt;/p&gt;
+&lt;p&gt;シグネチャーのグラフと、関連するがんの原因が示されています。&lt;/p&gt;
+&lt;h4&gt;推定&lt;/h4&gt;
+&lt;p&gt;今回の課題は、「&lt;strong&gt;たばこ/紫外線のシグネチャーを見つけることができたか&lt;/strong&gt;」でした。&lt;/p&gt;
+&lt;p&gt;データベースにあるグラフとどれほど一致しているか見ていきます。&lt;/p&gt;
+&lt;p&gt;COSMICに掲載されているシグネチャーSBS1〜SBS85までのうち、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;たばこ&lt;/strong&gt;（tobacco）が原因とされるもの→SBS4、5、29&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;紫外線&lt;/strong&gt;（ultraviolet light）が原因とされるもの→SBS7a〜d、38&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="21" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/21.png"&gt;&lt;/p&gt;
+&lt;p&gt;であるとわかりました。&lt;/p&gt;
+&lt;h4&gt;推定結果&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;-たばこ-&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;①SBS4&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="22" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/22.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="23" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/23.png"&gt;&lt;/p&gt;
+&lt;p&gt;②SBS5&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="24" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/24.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="25" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/25.png"&gt;&lt;/p&gt;
+&lt;p&gt;③SBS29&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="26" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/26.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="27" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/27.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;-紫外線-&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;①SBS7a
+- COSMIC&lt;/p&gt;
+&lt;p&gt;&lt;img alt="28" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/28.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="29" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/29.png"&gt;&lt;/p&gt;
+&lt;p&gt;②SBS7b&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="30" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/30.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="31" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/31.png"&gt;&lt;/p&gt;
+&lt;p&gt;③SBS7c&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="32" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/32.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
+&lt;p&gt;④SBS7d&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="33" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/33.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
+&lt;p&gt;⑤SBS38&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;COSMIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="34" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/34.png"&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;推定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;類似しているシグネチャーは確認できませんでした。&lt;/p&gt;
+&lt;p&gt;どれも完全に一致しているとは言えないのですが、近いものはそれなりに類似しているグラフが作れたのではないかと思います。&lt;/p&gt;
+&lt;p&gt;シグネチャーを見るだけでも、「たばこを原因とするがんは、変異の種類が多い」、「紫外線を原因とするがんは、変異の種類が少ない」という傾向も見て取れます。&lt;/p&gt;
+&lt;h2&gt;おまけ -WordCloudによる可視化-&lt;/h2&gt;
+&lt;p&gt;トピックモデルで単語を扱う際によく同時にやられているものとして、WordCloudがあったため、変異データでもやってみました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;num_topics&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show_topic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;im&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;WordCloud&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;generate_from_frequencies&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;im&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;off&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Topic #&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="35" src="oumpy.github.io/articles/2019/06/images/cancer_signature_figs/35.png"&gt;&lt;/p&gt;
+&lt;h2&gt;今後やってみたいこと&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;がんゲノムの変異シグネチャーは、最初に発表された論文ではNon- negative Matrix Factorization(NMF)(非負値行列因子分解)を使って推定された。2019年になって「トピックモデル」を使って変異 シグネチャを推定する論文が二報発表された。&lt;br&gt;
+1. Funnell, T. et al. Integrated structural variation and point mutation signatures in cancer genomes using correlated topic models. PLOS Computational Biology 15, e1006799 (2019).
+2. Matsutani, T., Ueno, Y., Fukunaga, T. &amp;amp; Hamada, M. Discovering novel mutation signatures by latent Dirichlet allocation with variational Bayes inference. Bioinformatics doi:10.1093/bioinformatics/btz266&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;このような背景があったため今回はトピックモデルを使ってみたのですが、NMFを用いた推定もやってみたいです。&lt;/p&gt;
+&lt;p&gt;変異シグネチャーの個数については、今回のセッティングが最適ではなく、丁寧にやるならhierarchical dirichlet process (HDP) を用いるか、perplexity、coherenceなどの評価指標を用いる必要があるのかと思いました。
+- 参考：&lt;a href="https://www.randpy.tokyo/entry/word2vec_skip_gram_model"&gt;https://www.randpy.tokyo/entry/word2vec_skip_gram_model&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;今回のコード、作成したグラフ等はGitHubにあります。
+- &lt;a href="https://github.com/ykohki/cancer_signature"&gt;https://github.com/ykohki/cancer_signature&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;トピックモデルを用いたがんゲノムの変異シグネチャー解析
+- &lt;a href="https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&amp;amp;page_id=13&amp;amp;block_id=8&amp;amp;item_id=182433&amp;amp;item_no=1"&gt;https://ipsj.ixsq.nii.ac.jp/ej/index.php?active_action=repository_view_main_item_detail&amp;amp;page_id=13&amp;amp;block_id=8&amp;amp;item_id=182433&amp;amp;item_no=1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;がんゲノムビッグデータから喫煙による遺伝子異常を同定
+- &lt;a href="https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html"&gt;https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html&lt;/a&gt;
+- &lt;a href="https://science.sciencemag.org/content/354/6312/618"&gt;https://science.sciencemag.org/content/354/6312/618&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;同じ変異シグネチャーについて調べていて、特にたばこについて見ている論文でした
+- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="oumpy.github.io/articles/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-03-29:oumpy.github.io/articles/2019/03/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
 &lt;h2&gt;Juliaってなに？&lt;/h2&gt;
 &lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。&lt;br&gt;
 ~~ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。~~&lt;/p&gt;
