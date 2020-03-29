@@ -12425,17 +12425,17 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E5%85%88%E7%AB%AF%E3%82%AC%E3%82%A4%E3%83%891-CVIM%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%80%89%E7%88%AA-%E4%BA%AE/dp/4915851346"&gt;コンピュータビジョン最先端ガイド&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="oumpy.github.io/articles/2018/10/bayesian_T_test.html" rel="alternate"></link><published>2018-10-01T00:00:00+09:00</published><updated>2018-10-01T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-01:oumpy.github.io/articles/2018/10/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Machine Learning"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="oumpy.github.io/articles/2018/10/bayesian_T_test.html" rel="alternate"></link><published>2018-10-01T00:00:00+09:00</published><updated>2018-10-01T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-01:oumpy.github.io/articles/2018/10/bayesian_T_test.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。
 pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
 まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
 読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
-&lt;p&gt;2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
+&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。
 当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
 分散については立山さんのノートを参考にどうぞ。
 当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
 余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
 その仮定が怪しいときはノンパラメトリックな検定を選びます。
-まあこのへんは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
+この辺りは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
 &lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
 &lt;strong&gt;BEST&lt;/strong&gt;(Bayesian estimation supersedes the t-test)
 というかっこいい名前です。&lt;/p&gt;

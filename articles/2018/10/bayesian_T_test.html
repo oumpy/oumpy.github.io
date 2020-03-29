@@ -130,17 +130,17 @@
   </p>
 </div> <!-- /.article-header-info -->  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています。
+	<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。
 pymc3を扱った本(http://amzn.asia/1TWcfTI)が先週発売されて買ってしまったのですが、
 まだ前のpymc本(http://amzn.asia/8CPISDp)を読み切っていなかったので急いで読み切りました。
 読み切った記念に一個面白そうなものがあったのでまとめました。</p>
-<p>2群の平均値に差があるかどうか比べたいというありがちな問いに対しては一般にt検定が使われます。
+<p>2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。
 当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。
 分散については立山さんのノートを参考にどうぞ。
 当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。
 余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、
 その仮定が怪しいときはノンパラメトリックな検定を選びます。
-まあこのへんは誰かがコード付きでまとめてくれると信じてます。</p>
+この辺りは誰かがコード付きでまとめてくれると信じてます。</p>
 <p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
 <strong>BEST</strong>(Bayesian estimation supersedes the t-test)
 というかっこいい名前です。</p>
@@ -187,7 +187,6 @@ githubのgistという機能を用いて、公開し、それをnbviewerに渡�
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
 <ul class="list-unstyled social-links">
-    <li><a href="https://oumedpython.hatenablog.com/" target="_blank">&#x2022; 技術Blog (はてな)</a></li>
     <li><a href="https://twitter.com/oumed_python" target="_blank">&#x2022; Twitter</a></li>
     <li><a href="mailto:handai.python@gmail.com" target="_blank">&#x2022; E-mail</a></li>
     <li><a href="https://github.com/oumpy" target="_blank">&#x2022; GitHub</a></li>
