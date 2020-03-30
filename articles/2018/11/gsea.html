@@ -128,14 +128,7 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><div id="div0"></div>
-<script>
-var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
-if (check_ipynb.length > 0) {
-    var doc0= document.getElementById("div0");
-    doc0.innerHTML= "Google Colabで開く";
-}
-</script>  </header>
+</div> <!-- /.article-header-info --><div id="colablink"></div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2>GSEAとは</h2>
 <p>GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。</p>
@@ -238,6 +231,18 @@ if (check_ipynb.length > 0) {
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script><script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var url = location.href ;
+    var article_year = url.slice(33, 37);
+    var article_name = url.slice(41, -5) ;
+    var colab_url1 = "https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/"
+    var colab_url2 = "sy/Tech_archive/"
+    var colab_url = colab_url1 + article_year + colab_url2 + article_name + ".ipynb"
+    doc0.innerHTML= "<a href="+colab_url+"> Google Colabで開く</a>";
+}
 </script>
 </article>
         </div><!-- /content -->

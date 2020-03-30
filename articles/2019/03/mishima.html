@@ -128,14 +128,7 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><div id="div0"></div>
-<script>
-var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
-if (check_ipynb.length > 0) {
-    var doc0= document.getElementById("div0");
-    doc0.innerHTML= "Google Colabで開く";
-}
-</script>  </header>
+</div> <!-- /.article-header-info --><div id="colablink"></div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある<a href="https://dbcls.rois.ac.jp/">DBCLS</a>にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。</p>
 <h3>平岡</h3>
@@ -176,6 +169,18 @@ if (check_ipynb.length > 0) {
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script><script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var url = location.href ;
+    var article_year = url.slice(33, 37);
+    var article_name = url.slice(41, -5) ;
+    var colab_url1 = "https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/"
+    var colab_url2 = "sy/Tech_archive/"
+    var colab_url = colab_url1 + article_year + colab_url2 + article_name + ".ipynb"
+    doc0.innerHTML= "<a href="+colab_url+"> Google Colabで開く</a>";
+}
 </script>
 </article>
         </div><!-- /content -->

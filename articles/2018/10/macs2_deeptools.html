@@ -128,14 +128,7 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><div id="div0"></div>
-<script>
-var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
-if (check_ipynb.length > 0) {
-    var doc0= document.getElementById("div0");
-    doc0.innerHTML= "Google Colabで開く";
-}
-</script>  </header>
+</div> <!-- /.article-header-info --><div id="colablink"></div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2>ChIP-seqとは</h2>
 <p>全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピジェネティクスが挙げられ、DNAメチル化やクロマチン修飾などが知られている。ChIP-seq (chromatin immunoprecipitation sequence) は特異的クロマチン修飾を受けている領域を、抗体を用いて沈降、濃縮させ、どの細胞のどの領域でどういう修飾を受けているのかを調べるために用いられる。</p>
@@ -421,6 +414,18 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script><script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var url = location.href ;
+    var article_year = url.slice(33, 37);
+    var article_name = url.slice(41, -5) ;
+    var colab_url1 = "https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/"
+    var colab_url2 = "sy/Tech_archive/"
+    var colab_url = colab_url1 + article_year + colab_url2 + article_name + ".ipynb"
+    doc0.innerHTML= "<a href="+colab_url+"> Google Colabで開く</a>";
+}
 </script>
 </article>
         </div><!-- /content -->

@@ -128,14 +128,7 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><div id="div0"></div>
-<script>
-var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
-if (check_ipynb.length > 0) {
-    var doc0= document.getElementById("div0");
-    doc0.innerHTML= "Google Colabで開く";
-}
-</script>  </header>
+</div> <!-- /.article-header-info --><div id="colablink"></div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。</p>
 <p>今回は<a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html">Kallistoを用いたRNA-seq解析パイプライン</a>で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。</p>
@@ -245,6 +238,18 @@ Tximportのインストール</p>
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script><script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var url = location.href ;
+    var article_year = url.slice(33, 37);
+    var article_name = url.slice(41, -5) ;
+    var colab_url1 = "https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/"
+    var colab_url2 = "sy/Tech_archive/"
+    var colab_url = colab_url1 + article_year + colab_url2 + article_name + ".ipynb"
+    doc0.innerHTML= "<a href="+colab_url+"> Google Colabで開く</a>";
+}
 </script>
 </article>
         </div><!-- /content -->
