@@ -164,10 +164,12 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 </code></pre></div>
 
 
-<p>pfastq-dumpのオプション
-- <code>-s</code> : SRAファイルのID
-- <code>-t</code> : スレッド数
-- <code>-O</code> : 出力ファイル</p>
+<p>pfastq-dumpのオプション</p>
+<ul>
+<li><code>-s</code> : SRAファイルのID</li>
+<li><code>-t</code> : スレッド数</li>
+<li><code>-O</code> : 出力ファイル</li>
+</ul>
 <p>今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理をシェルスクリプトを使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。</p>
 <h3>SRAファイルとは？</h3>
 <p>Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。<a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration">INSDC</a>、<a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EBI</a>、<a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan">DDBJ</a>が共同で運営しているデータベース<a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive">SRA</a>に保存してある。</p>
@@ -193,14 +195,16 @@ fastqc -t <span class="m">8</span> -o fastqc/fastqc_<span class="si">${</span><s
 </code></pre></div>
 
 
-<p>sra-fastq/${item}.fastqがインプットファイル。
-fastqcのオプションについて
-- <code>-t</code> : スレッド数。
-- <code>-O</code> : 解析結果の保存先のディレクトリを指定する。今回はfastqcというディレクトリを作ってそこに入れている。
-- <code>-f</code> : インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。</p>
+<p><code>sra-fastq/${item}.fastq</code>がインプットファイル。
+fastqcのオプションについて</p>
+<ul>
+<li><code>-t</code> : スレッド数。</li>
+<li><code>-O</code> : 解析結果の保存先のディレクトリを指定する。今回はfastqcというディレクトリを作ってそこに入れている。</li>
+<li><code>-f</code> : インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。</li>
+</ul>
 <p>実行結果は下記のようになる。</p>
 <p><img alt="2" src="../../../articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"></p>
-<p>fastqcディレクトリをのぞいてみる。fastqcのなかにfastqc_${item}というディレクトリが自動生成されている。</p>
+<p>fastqcディレクトリをのぞいてみる。fastqcのなかに<code>fastqc_${item}</code>というディレクトリが自動生成されている。</p>
 <p><img alt="3" src="../../../articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"></p>
 <p>fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。</p>
 <p><img alt="4" src="../../../articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"></p>
@@ -236,8 +240,10 @@ $ open multiqc_report.html
 </code></pre></div>
 
 
-<p>SEオプションでsingle-end readを指定している。pair-end readでは、オプションでPEとかき、paired outputとunpaired outputの出力先２つを指定する必要がある。</p>
-<p>ILLUMINACLIP: 除去するアダプター配列をFASTA形式で与える。そのあとにミスマッチ許容数、palindrome clip threshold、simple clip thresholdの順に指定していく。</p>
+<p><code>SE</code>オプションでsingle-end readを指定している。pair-end readでは、オプションでPEとかき、paired outputとunpaired outputの出力先２つを指定する必要がある。</p>
+<ul>
+<li>ILLUMINACLIP : 除去するアダプター配列をFASTA形式で与える。そのあとにミスマッチ許容数、palindrome clip threshold、simple clip thresholdの順に指定していく。</li>
+</ul>
 <h3>参照</h3>
 <ul>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html">https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html</a></li>
@@ -255,12 +261,16 @@ $ <span class="nb">time</span> kallisto/kallisto quant -i hsGRCh38_kallisto sra_
 </code></pre></div>
 
 
-<p>kallisto quantにおいて、<strong>-iと-oのオプションは強制</strong> である。
-- <code>-i</code> :作成したインデックスの指定
-- <code>-o</code> :出力結果の保存先</p>
-<p><strong>デフォルトではペアエンドを読もうとする</strong> ので、シングルリードの場合は<code>--single</code>オプションをつける。シングルの時は
-- <code>-s</code> : Estimated standard deviation of fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの偏差
-- <code>-l</code> : Estimated average fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの平均</p>
+<p>kallisto quantにおいて、<strong>-iと-oのオプションは強制</strong> である。</p>
+<ul>
+<li><code>-i</code> :作成したインデックスの指定</li>
+<li><code>-o</code> :出力結果の保存先</li>
+</ul>
+<p><strong>デフォルトではペアエンドを読もうとする</strong> ので、シングルリードの場合は<code>--single</code>オプションをつける。シングルの時は</p>
+<ul>
+<li><code>-s</code> : Estimated standard deviation of fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの偏差</li>
+<li><code>-l</code> : Estimated average fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの平均</li>
+</ul>
 <p>のオプションを追加するのが必須となる。
 (kallistoはsraファイルを扱えないので、pfastq-dumpでfastqに変換する必要があった。)
 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に<code>kallisto_quant.sh</code>というシェルスクリプトを書き実行した。今回に限らず、時間がかかるかつ繰り返しの処理はシェルスクリプトを書くと良い（私もこれから練習します）。</p>
