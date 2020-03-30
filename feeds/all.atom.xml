@@ -11949,7 +11949,7 @@ $ git push origin master
 
 
 &lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="GitHub"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="oumpy.github.io/articles/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:oumpy.github.io/articles/2018/10/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
-&lt;p&gt;今回は&lt;em&gt;Kallisto&lt;/em&gt;を用いた&lt;em&gt;RNA-seq&lt;/em&gt;解析パイプラインで使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
+&lt;p&gt;今回は&lt;a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
 &lt;h2&gt;Pythonのインストール&lt;/h2&gt;
 &lt;p&gt;Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# check the version of python.&lt;/span&gt;
@@ -12004,7 +12004,7 @@ $ conda install kallisto
 
 &lt;h3&gt;参照&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://imamachi-n.hatenablog.com/entry/2017/01/14/212719"&gt;http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Rツールのインストール&lt;/h2&gt;
 &lt;p&gt;Rのコンソールを開いて、Rのツールをインストールしていきます。
@@ -12024,183 +12024,196 @@ Tximportのインストール&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/tximport.html"&gt;https://bioconductor.org/packages/release/bioc/html/tximport.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html"&gt;https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;!!!!!!!!!!!
-今回はKallistoを用いたRNA-seq解析パイプラインを紹介しま
-す。&lt;a href="https://pythonoum.wordpress.com/2018/10/16/linux%E3%81%A7%E3%81%AEbioinformatics%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89_01/"&gt;LinuxでのBioinformatics環境構築_01&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;リファレンスのダウンロード&lt;/em&gt;&lt;/strong&gt;
-kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は&lt;a href="https://www.gencodegenes.org/"&gt;GenCodeGenes&lt;/a&gt;のヒトtranscript sequencesのデータを用いました。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
-[/code]&lt;/p&gt;
-&lt;hr /&gt;
+&lt;/ul&gt;</content><category term="Tech_archive"></category><category term="Bioinformatics"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
+&lt;h2&gt;リファレンスのダウンロード&lt;/h2&gt;
+&lt;p&gt;kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は&lt;a href="https://www.gencodegenes.org/"&gt;GenCodeGenes&lt;/a&gt;のヒトtranscript sequencesのデータを用いました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;FASTQファイルをダウンロードする場合&lt;/em&gt;&lt;/strong&gt;
-&lt;a href="https://www.ebi.ac.uk/arrayexpress/"&gt;ArrayExpress&lt;/a&gt;からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
+
+&lt;h2&gt;FASTQファイルをダウンロードする場合&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.ebi.ac.uk/arrayexpress/"&gt;ArrayExpress&lt;/a&gt;からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
 $ gunzip ERR266335.fastq.gz
-[/code]&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;ERR266349 ERR266351 ERR266338 ERR266347についても同様に！&lt;/p&gt;
-&lt;p&gt;参照：次世代シークエンサーDRY解析教本 (細胞工学別冊)&lt;/p&gt;
-&lt;hr /&gt;
+&lt;h3&gt;参照：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;次世代シークエンサーDRY解析教本 (細胞工学別冊)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;SRAファイルをダウンロードする場合&lt;/h2&gt;
+&lt;p&gt;DDBJの&lt;a href="https://ddbj.nig.ac.jp/DRASearch/"&gt;DRA search&lt;/a&gt;からSRAファイルをダウンロード、SRAファイルをFASTQに変換する。pfast-dumpで .sraをペアエンド.fastqに変換。 (&lt;strong&gt;kallistoはsraファイルを扱えない&lt;/strong&gt; ので、pfastq-dumpでfastqに変換する必要がある。）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c1"&gt;# download sra files.&lt;/span&gt;
+mkdir sra-fastq
+&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; start download &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.sra
+wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.sra
+pfastq-dump -s &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -t &lt;span class="m"&gt;8&lt;/span&gt; -O sra-fastq
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;SRAファイルをダウンロードする場合&lt;/em&gt;&lt;/strong&gt;
-DDBJの&lt;a href="https://ddbj.nig.ac.jp/DRASearch/"&gt;DRA search&lt;/a&gt;からSRAファイルをダウンロード、SRAファイルをFASTQに変換する。pfast-dumpで .sraをペアエンド.fastqに変換。 (&lt;strong&gt;kallistoはsraファイルを扱えない&lt;/strong&gt;ので、pfastq-dumpでfastqに変換する必要がある。）&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;!/bin/bash&lt;/h1&gt;
-&lt;h1&gt;download sra files.&lt;/h1&gt;
-&lt;p&gt;mkdir sra-fastq
-id=(ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351)
-for item in &lt;span class="math" item&gt;\({id[@]}
-do
-echo start download ${item}.sra
-wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/\)&lt;/span&gt;/${item}.sra
-pfastq-dump -s ${item} -t 8 -O sra-fastq
-done
-[/code]&lt;/p&gt;
+
 &lt;p&gt;pfastq-dumpのオプション
--s: SRAファイルのID
--t: スレッド数
--O: 出力ファイル&lt;/p&gt;
-&lt;p&gt;今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理を&lt;a&gt;シェルスクリプト&lt;/a&gt;を使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;SRAファイルとは？&lt;/p&gt;
+- &lt;code&gt;-s&lt;/code&gt; : SRAファイルのID
+- &lt;code&gt;-t&lt;/code&gt; : スレッド数
+- &lt;code&gt;-O&lt;/code&gt; : 出力ファイル&lt;/p&gt;
+&lt;p&gt;今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理をシェルスクリプトを使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。&lt;/p&gt;
+&lt;h3&gt;SRAファイルとは？&lt;/h3&gt;
 &lt;p&gt;Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。&lt;a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration"&gt;INSDC&lt;/a&gt;、&lt;a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute"&gt;EBI&lt;/a&gt;、&lt;a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan"&gt;DDBJ&lt;/a&gt;が共同で運営しているデータベース&lt;a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive"&gt;SRA&lt;/a&gt;に保存してある。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ less ERR266335.sra
-[/code]&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ less ERR266335.sra
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
-&lt;img class="alignnone size-full wp-image-308" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-19-29-38.png" alt="Screen Shot 2018-10-31 at 19.29.38.png" width="488" height="250" /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;pfastq-dumpとは？
-fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。&lt;a href="https://github.com/inutanoOhta"&gt;Ohta&lt;/a&gt;さんが公開されている。&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Fastqc&lt;/em&gt;&lt;/strong&gt;
-クオリティチェック。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;!/bin/bash&lt;/h1&gt;
-&lt;p&gt;id=(ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351)
+&lt;img alt="1" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"&gt;&lt;/p&gt;
+&lt;h3&gt;pfastq-dumpとは？&lt;/h3&gt;
+&lt;p&gt;fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。&lt;a href="https://github.com/inutanoOhta"&gt;Ohta&lt;/a&gt;さんが公開されている。&lt;/p&gt;
+&lt;h2&gt;Fastqc&lt;/h2&gt;
+&lt;p&gt;クオリティチェック。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351&lt;span class="o"&gt;)&lt;/span&gt;
 mkdir fastqc
-for item in &lt;span class="math" item&gt;\({id[@]}
-do
-echo start quality check ${item}
-mkdir fastqc/fastqc_\)&lt;/span&gt;
-fastqc -t 8 -o fastqc/fastqc_&lt;span class="math" item&gt;\({item} sra-fastq/\)&lt;/span&gt;.fastq -f fastq
-done&lt;/p&gt;
-&lt;p&gt;[/code]&lt;/p&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; start quality check &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+mkdir fastqc/fastqc_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+fastqc -t &lt;span class="m"&gt;8&lt;/span&gt; -o fastqc/fastqc_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; sra-fastq/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.fastq -f fastq
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;sra-fastq/${item}.fastqがインプットファイル。
 fastqcのオプションについて
--t: スレッド数。
--O: 解析結果の保存先のディレクトリを指定する。今回はfastqcというディレクトリを作ってそこに入れている。
--f: インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。&lt;/p&gt;
-&lt;p&gt;実行結果は下記のようになる。
-&lt;img class="alignnone size-full wp-image-309" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-19-58-17.png" alt="Screen Shot 2018-10-31 at 19.58.17.png" width="355" height="253" /&gt;&lt;/p&gt;
+- &lt;code&gt;-t&lt;/code&gt; : スレッド数。
+- &lt;code&gt;-O&lt;/code&gt; : 解析結果の保存先のディレクトリを指定する。今回はfastqcというディレクトリを作ってそこに入れている。
+- &lt;code&gt;-f&lt;/code&gt; : インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。&lt;/p&gt;
+&lt;p&gt;実行結果は下記のようになる。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"&gt;&lt;/p&gt;
 &lt;p&gt;fastqcディレクトリをのぞいてみる。fastqcのなかにfastqc_${item}というディレクトリが自動生成されている。&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-310" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-20-05-02.png" alt="Screen Shot 2018-10-31 at 20.05.02.png" width="829" height="32" /&gt;&lt;/p&gt;
-&lt;p&gt;fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。
-&lt;img class="alignnone size-full wp-image-311" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-20-07-03.png" alt="Screen Shot 2018-10-31 at 20.07.03.png" width="358" height="25" /&gt;&lt;/p&gt;
-&lt;p&gt;htmlファイルをブラウザでいることができる。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ open ERR266335_fastqc.html
-[/code]&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone size-full wp-image-312" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-20-09-37.png" alt="Screen Shot 2018-10-31 at 20.09.37.png" width="1013" height="554" /&gt;&lt;/p&gt;
-&lt;p&gt;参照：次世代シークエンサーDRY解析教本&lt;/p&gt;
-&lt;hr /&gt;
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"&gt;&lt;/p&gt;
+&lt;p&gt;fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"&gt;&lt;/p&gt;
+&lt;p&gt;htmlファイルをブラウザで開くことができる。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ open ERR266335_fastqc.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Multiqc&lt;/em&gt;&lt;/strong&gt;
-クオリティチェックの結果、ログファイルなどをまとめていい感じにレポートにしてくれるツール。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;After analysis, run Multiqc by commands below. You can create report.&lt;/h1&gt;
-&lt;p&gt;$ multiqc .
+
+&lt;p&gt;&lt;img alt="5" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"&gt;&lt;/p&gt;
+&lt;h3&gt;参照：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;次世代シークエンサーDRY解析教本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Multiqc&lt;/h2&gt;
+&lt;p&gt;クオリティチェックの結果、ログファイルなどをまとめていい感じにレポートにしてくれるツール。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# After analysis, run Multiqc by commands below. You can create report.&lt;/span&gt;
+$ multiqc .
 $ open multiqc_report.html
-[/code]&lt;/p&gt;
-&lt;p&gt;multiqcの実行により、関連ファイルが下記のように自動生成される。
-&lt;img class="alignnone size-full wp-image-314" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-22-at-21-20-18.png" alt="Screen Shot 2018-10-22 at 21.20.18.png" width="627" height="138" /&gt;
-複数のリードのクオリティチェックの結果を同時に表示できる。
-&lt;img class="alignnone size-full wp-image-313" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-31-at-20-02-17.png" alt="Screen Shot 2018-10-31 at 20.02.17.png" width="1065" height="466" /&gt;
-参照：https://multiqc.info/&lt;/p&gt;
-&lt;hr /&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Trimmomatic&lt;/em&gt;&lt;/strong&gt;
-Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-[/code]&lt;/p&gt;
+
+&lt;p&gt;multiqcの実行により、関連ファイルが下記のように自動生成される。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"&gt;&lt;/p&gt;
+&lt;p&gt;複数のリードのクオリティチェックの結果を同時に表示できる。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="7" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"&gt;&lt;/p&gt;
+&lt;h3&gt;参照：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://multiqc.info/"&gt;https://multiqc.info/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trimmomatic&lt;/h2&gt;
+&lt;p&gt;Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;SEオプションでsingle-end readを指定している。pair-end readでは、オプションでPEとかき、paired outputとunpaired outputの出力先２つを指定する必要がある。&lt;/p&gt;
 &lt;p&gt;ILLUMINACLIP: 除去するアダプター配列をFASTA形式で与える。そのあとにミスマッチ許容数、palindrome clip threshold、simple clip thresholdの順に指定していく。&lt;/p&gt;
-&lt;p&gt;参照
-https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html
-http://www.usadellab.org/cms/?page=trimmomatic&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Coffee Break&lt;/em&gt;&lt;/strong&gt;
-&lt;strong&gt;Single-end&lt;/strong&gt;, &lt;strong&gt;Pair-end&lt;/strong&gt;ってなに？？
-&lt;img class="size-full wp-image-233" src="https://pythonoum.files.wordpress.com/2018/10/img_1051.jpg" width="638" height="479" /&gt;&lt;img class="size-full wp-image-232" src="https://pythonoum.files.wordpress.com/2018/10/img_1050.jpg" width="689" height="445" /&gt;
-シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Kallisto&lt;/em&gt;&lt;/strong&gt;
-RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。&lt;/p&gt;
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html"&gt;https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.usadellab.org/cms/?page=trimmomatic"&gt;http://www.usadellab.org/cms/?page=trimmomatic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Single-end, Pair-endってなに？？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="8" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="9" src="oumpy.github.io/articles/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。&lt;/p&gt;
+&lt;h2&gt;Kallisto&lt;/h2&gt;
+&lt;p&gt;RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。&lt;/p&gt;
 &lt;p&gt;kallisto や Salmon を利用して定量したデータを使って、edgeR や DESeq2 などで発現量の群間比較を行うことができる。この際に、Bioconductor の tximport パッケージを利用することで、簡単に kallisto/Salmon の定量結果を edgeR/DESEq2 に渡すことができる。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]
-$ time kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz&lt;/p&gt;
-&lt;p&gt;$ time kallisto/kallisto quant -i hsGRCh38_kallisto sra_fastqc/ERR266335.fastq -o ERR266335exp_kallisto
-[/code]&lt;/p&gt;
-&lt;p&gt;kallisto quantにおいて、&lt;strong&gt;-iと-oのオプションは強制&lt;/strong&gt;である。
--i:作成したインデックスの指定
--o:出力結果の保存先
-&lt;strong&gt;デフォルトではペアエンドを読もうとする&lt;/strong&gt;ので、シングルリードの場合は--singleオプションをつける。シングルの時は
--s:Estimated standard deviation of fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの偏差
--l:Estimated average fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの平均
-のオプションを追加するのが必須となる。
-(kallistoはsraファイルを扱えないので、pfastq-dumpでfastqに変換する必要があった。)
-ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に&lt;/p&gt;
-&lt;p&gt;kallisto_quant.shというシェルスクリプトを書き実行した。今回に限らず、時間がかかるかつ繰り返しの処理はシェルスクリプトを書くと良い（私もこれから練習します）。&lt;/p&gt;
-&lt;p&gt;[code lang="text"]&lt;/p&gt;
-&lt;h1&gt;!/bin/bash&lt;/h1&gt;
-&lt;p&gt;id=(ERR266335 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347)
-for item in &lt;span class="math" item&gt;\({id[@]}
-do
-echo start mapping ${item} with Kallisto
-result_dir=\)&lt;/span&gt;_exp_kallisto
-kallisto/kallisto quant -i hsGRCh38_kallisto -o &lt;span class="math" item&gt;\({item} --single -l 200 -s 20 -b 100 sra_fastqc/\)&lt;/span&gt;.fastq
-done
-[/code]&lt;/p&gt;
-&lt;p&gt;abundance.tsv, target_id, length, eff_length, est_counts, tpm&lt;/p&gt;
-&lt;p&gt;参照：
-https://scilifelab.github.io/courses/rnaseq/labs/kallisto
-https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html
-http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503
-https://scilifelab.github.io/courses/rnaseq/labs/kallisto&lt;/p&gt;
-&lt;hr /&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;time&lt;/span&gt; kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
+$ &lt;span class="nb"&gt;time&lt;/span&gt; kallisto/kallisto quant -i hsGRCh38_kallisto sra_fastqc/ERR266335.fastq -o ERR266335exp_kallisto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Coffee Break&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;FPKM&lt;/em&gt;,&lt;em&gt;RPKM&lt;/em&gt;,&lt;em&gt;TPM&lt;/em&gt;とは？
-転写産物にマッピングされるリードの数は、サンプル中の総リード数（sequence depth）と転写産物の長さに影響されるので、RNA-Seq データから得られたリードカウントデータは、そのまま転写産物（遺伝子）発現量を表すわけではない。そのため、RNA-Seq データから得られるリードカウントデータを転写産物発現量として利用するには、総リード数や転写産物長で補正する必要がある。&lt;/p&gt;
+
+&lt;p&gt;kallisto quantにおいて、&lt;strong&gt;-iと-oのオプションは強制&lt;/strong&gt; である。
+- &lt;code&gt;-i&lt;/code&gt; :作成したインデックスの指定
+- &lt;code&gt;-o&lt;/code&gt; :出力結果の保存先&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;デフォルトではペアエンドを読もうとする&lt;/strong&gt; ので、シングルリードの場合は&lt;code&gt;--single&lt;/code&gt;オプションをつける。シングルの時は
+- &lt;code&gt;-s&lt;/code&gt; : Estimated standard deviation of fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの偏差
+- &lt;code&gt;-l&lt;/code&gt; : Estimated average fragment lengthシーケンシング用のライブラリー中のフラグメントの長さの平均&lt;/p&gt;
+&lt;p&gt;のオプションを追加するのが必須となる。
+(kallistoはsraファイルを扱えないので、pfastq-dumpでfastqに変換する必要があった。)
+ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に&lt;code&gt;kallisto_quant.sh&lt;/code&gt;というシェルスクリプトを書き実行した。今回に限らず、時間がかかるかつ繰り返しの処理はシェルスクリプトを書くと良い（私もこれから練習します）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; start mapping &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; with Kallisto
+&lt;span class="nv"&gt;result_dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_exp_kallisto
+kallisto/kallisto quant -i hsGRCh38_kallisto -o &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; --single -l &lt;span class="m"&gt;200&lt;/span&gt; -s &lt;span class="m"&gt;20&lt;/span&gt; -b &lt;span class="m"&gt;100&lt;/span&gt; sra_fastqc/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.fastq
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;abundance.tsv, target_id, length, eff_length, est_counts, tpm&lt;/p&gt;
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto"&gt;https://scilifelab.github.io/courses/rnaseq/labs/kallisto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html"&gt;https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503"&gt;http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto"&gt;https://scilifelab.github.io/courses/rnaseq/labs/kallisto&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;FPKM, RPKM, TPMとは？&lt;/h2&gt;
+&lt;p&gt;転写産物にマッピングされるリードの数は、サンプル中の総リード数（sequence depth）と転写産物の長さに影響されるので、RNA-Seq データから得られたリードカウントデータは、そのまま転写産物（遺伝子）発現量を表すわけではない。そのため、RNA-Seq データから得られるリードカウントデータを転写産物発現量として利用するには、総リード数や転写産物長で補正する必要がある。&lt;/p&gt;
 &lt;p&gt;補正計算として、かつてはFPKM,RPKMが用いられてきたが、現在ではかわりにTPMが用いられている。TPMではサンプルごとの値の合計が同じになるので、比較する目的のためにはTPMの方が都合が良い。&lt;/p&gt;
-&lt;p&gt;FPKM/RPKM の計算&lt;/p&gt;
-&lt;p&gt;FPKM: Fragments Per Kilobase of exon per Killion reads Mapped&lt;/p&gt;
-&lt;p&gt;RPKM: Reads Per Kilobase of exon per Million mapped reads
-&lt;img class="alignnone size-full wp-image-265" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-23-at-0-40-05.png" alt="Screen Shot 2018-10-23 at 0.40.05.png" width="341" height="59" /&gt;&lt;/p&gt;
-&lt;p&gt;N: リファレンスにマッピングできた全リード数&lt;/p&gt;
-&lt;p&gt;Yi: そのうち転写産物 i の領域にマッピングされたリード数&lt;/p&gt;
-&lt;p&gt;Li: 転写産物 i の長さ&lt;/p&gt;
-&lt;p&gt;TPMの計算&lt;/p&gt;
-&lt;p&gt;TPMの計算&lt;/p&gt;
-&lt;p&gt;TPM: Transcripts Per Kilobase Million&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone  wp-image-297" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-28-at-21-48-15.png" alt="Screen Shot 2018-10-28 at 21.48.15.png" width="133" height="92" /&gt;&lt;/p&gt;
-&lt;p&gt;Yt : 転写産物 t にマッピングされたリードカウント&lt;/p&gt;
-&lt;p&gt;Lt:  転写産物 t の長さ&lt;/p&gt;
-&lt;p&gt;Tt: 転写産物 t の 1,000 bp あたりのリード数&lt;/p&gt;
-&lt;p&gt;&lt;img class="alignnone  wp-image-296" src="https://pythonoum.files.wordpress.com/2018/10/screen-shot-2018-10-28-at-21-48-28.png" alt="Screen Shot 2018-10-28 at 21.48.28.png" width="197" height="66" /&gt;&lt;/p&gt;
+&lt;h3&gt;FPKM/RPKM の計算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;FPKM : Fragments Per Kilobase of exon per Killion reads Mapped&lt;/li&gt;
+&lt;li&gt;RPKM : Reads Per Kilobase of exon per Million mapped reads
+&lt;div class="math"&gt;$$
+FPKM_i = Y_i \frac{10^3}{L_i}\frac{10^6}{N}=\frac{Y_i}{L_i N}10^9
+$$&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(N\)&lt;/span&gt;: リファレンスにマッピングできた全リード数&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(Y_i\)&lt;/span&gt;: そのうち転写産物 &lt;span class="math"&gt;\(i\)&lt;/span&gt; の領域にマッピングされたリード数&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(L_i\)&lt;/span&gt;: 転写産物 &lt;span class="math"&gt;\(i\)&lt;/span&gt; の長さ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;TPMの計算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;TPM : Transcripts Per Kilobase Million&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$
+T_t = \frac{Y_t}{L_t}10^3
+$$&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(Y_t\)&lt;/span&gt; : 転写産物 &lt;span class="math"&gt;\(t\)&lt;/span&gt; にマッピングされたリードカウント&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(L_t\)&lt;/span&gt;:  転写産物 &lt;span class="math"&gt;\(t\)&lt;/span&gt; の長さ&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(T_t\)&lt;/span&gt;: 転写産物 &lt;span class="math"&gt;\(t\)&lt;/span&gt; の 1,000 bp あたりのリード数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$
+TPM_t = T_t \frac{10^6}{\sum_t T_t}
+$$&lt;/div&gt;
 &lt;p&gt;転写産物長による補正後の総リードカウントが 100 万となるように補正&lt;/p&gt;
-&lt;p&gt;参照：
-&lt;a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/fpkm.html"&gt;bipapyrus fpkm&lt;/a&gt;
-&lt;a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/tpm.html"&gt;bipapyrus tpm&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/fpkm.html"&gt;bipapyrus fpkm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/tpm.html"&gt;bipapyrus tpm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Tximport, DESeq2を用いた解析はコメントをいただき、ただ今編集中となっております。少々お待ちください。&lt;/li&gt;
@@ -16659,7 +16672,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;code&gt;search()&lt;/code&gt;が最初に見つかった文字列を返すのに対し、&lt;code&gt;findall()&lt;/code&gt;は見つかったすべての文字列を返します。
+&lt;h3 id="findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;search()&lt;/code&gt;が最初に見つかった文字列を返すのに対し、&lt;code&gt;findall()&lt;/code&gt;は見つかったすべての文字列を返します。
 &lt;code&gt;findall()&lt;/code&gt;はタプルのリストを返すことに注意。&lt;/p&gt;
 
 &lt;/div&gt;
