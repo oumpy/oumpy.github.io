@@ -1244,7 +1244,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/bayesian_ttest.ipynb"><strong>Google Colabで開く</strong></a></p>
 <p>ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。</p>
 <h2 id="&#27010;&#35201;">&#27010;&#35201;<a class="anchor-link" href="#&#27010;&#35201;">&#182;</a></h2><p>2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。</p>
 <p>当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。</p>

@@ -1113,14 +1113,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2019sy/Tech_archive/ica.ipynb"&gt;&lt;strong&gt;Google Colabで開く&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。
 電源ノイズのように周波数が分かっていればフィルタでノイズを除去できますが、筋電やまばたきのような周波数が分からないものでは難しいです。
 そこで、計測信号を欲しい信号（例えば脳波信号）とノイズに分離するために、2000年前後から独立成分分析Independent Component Analysis(ICA)という方法が使われており、これが脳波計測に限らずけっこう便利なので、紹介します（音声認識分野での応用が盛んなようです）。&lt;/p&gt;
@@ -3152,7 +3144,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="oumpy.github.io/articles/2019/03/lorenzcurve.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/lorenzcurve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="Tech_archive"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="oumpy.github.io/articles/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-03-25:oumpy.github.io/articles/2019/03/lorenz.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4266,12 +4258,11 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/lorenz.ipynb"&gt;&lt;strong&gt;Google Colabで開く&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。&lt;/p&gt;
 &lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。&lt;/p&gt;
 &lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。&lt;/p&gt;
 &lt;p&gt;今回は日本人の年収に偏りがあるのかローレンツ曲線を使って見てみたいと思います。
-&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html"&gt;厚生労働省のHPから&lt;/a&gt;から、&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls"&gt;世帯別年収データ&lt;/a&gt;をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは &lt;a href="https://github.com/oumpy/hp_management/tree/master/content/articles/2018sy/Tech_archive/data"&gt;dataディレクトリ&lt;/a&gt;の中にあります。コードを動かす際にはデータをダウンロードして&lt;code&gt;data/income.csv&lt;/code&gt;のように配置してください。&lt;/p&gt;
+&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html"&gt;厚生労働省のHPから&lt;/a&gt;から、&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls"&gt;世帯別年収データ&lt;/a&gt;をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは &lt;a href="https://github.com/oumpy/hp_management/tree/master/content/articles/2019sy/Tech_archive/data"&gt;dataディレクトリ&lt;/a&gt;の中にあります。コードを動かす際にはデータをダウンロードして&lt;code&gt;data/income.csv&lt;/code&gt;のように配置してください。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7225,7 +7216,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/rdkit.ipynb"&gt;&lt;strong&gt;Google Colabで開く&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -8648,7 +8638,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/handai_math.ipynb"&gt;Google Colabで開く&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
 &lt;p&gt;コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。&lt;/p&gt;
 &lt;h2 id="&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。&lt;/p&gt;
@@ -10543,7 +10532,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/kaplan_meier_curve.ipynb"&gt;Google Colabで開く&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
 だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。&lt;/p&gt;
 &lt;h3 id="Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;Kaplan-Meier &amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
@@ -13407,7 +13395,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/bayesian_ttest.ipynb"&gt;&lt;strong&gt;Google Colabで開く&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
 &lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。&lt;/p&gt;
 &lt;p&gt;当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
@@ -15983,7 +15970,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2018sy/Tech_archive/regular_expression.ipynb"&gt;&lt;strong&gt;Google Colabで開く&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。&lt;/p&gt;
 &lt;p&gt;正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。&lt;/p&gt;
 

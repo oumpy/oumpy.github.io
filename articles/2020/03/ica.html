@@ -1244,14 +1244,6 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2019sy/Tech_archive/ica.ipynb"><strong>Google Colabで開く</strong></a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#27010;&#35201;">&#27010;&#35201;<a class="anchor-link" href="#&#27010;&#35201;">&#182;</a></h2><p>脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。
 電源ノイズのように周波数が分かっていればフィルタでノイズを除去できますが、筋電やまばたきのような周波数が分からないものでは難しいです。
 そこで、計測信号を欲しい信号（例えば脳波信号）とノイズに分離するために、2000年前後から独立成分分析Independent Component Analysis(ICA)という方法が使われており、これが脳波計測に限らずけっこう便利なので、紹介します（音声認識分野での応用が盛んなようです）。</p>
