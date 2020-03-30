@@ -128,12 +128,14 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><script>
-if($('.highlight hl-ipython3').length;){
-    $('p').text('ipynb test');
+</div> <!-- /.article-header-info --><div id="div0"></div>
+<script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0= document.getElementById("div0");
+    doc0.innerHTML= "Google Colabで開く";
 }
-</script>
-<p>テストです</p>  </header>
+</script>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。</p>
 <p><img alt="1" src="../../../articles/2018/09/images/webscraping_figs/1.jpg">

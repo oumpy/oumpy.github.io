@@ -128,12 +128,14 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><script>
-if($('.highlight hl-ipython3').length;){
-    $('p').text('ipynb test');
+</div> <!-- /.article-header-info --><div id="div0"></div>
+<script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0= document.getElementById("div0");
+    doc0.innerHTML= "Google Colabで開く";
 }
-</script>
-<p>テストです</p>  </header>
+</script>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。</p>
 <p>(あと、PCがクソザコなので、クラウドがいいかなーと思いました)</p>

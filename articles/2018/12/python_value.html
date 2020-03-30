@@ -128,12 +128,14 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><script>
-if($('.highlight hl-ipython3').length;){
-    $('p').text('ipynb test');
+</div> <!-- /.article-header-info --><div id="div0"></div>
+<script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0= document.getElementById("div0");
+    doc0.innerHTML= "Google Colabで開く";
 }
-</script>
-<p>テストです</p>  </header>
+</script>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。</p>
 <p>実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうです。</p>
