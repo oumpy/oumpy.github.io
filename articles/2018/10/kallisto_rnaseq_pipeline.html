@@ -128,7 +128,11 @@
       Tech_archive</a>
     &nbsp;&nbsp;
   </p>
-</div> <!-- /.article-header-info --><div id="colablink"></div>  </header>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <div class="toc">
+      </div>
+</div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
 <h2>リファレンスのダウンロード</h2>
@@ -439,12 +443,17 @@ if (check_ipynb.length > 0) {
     var url2 = "sy/Tech_archive/";
     var colab_url = url1_colab + article_year + url2 + article_name + ".ipynb";
     var github_url = url1_github + article_year + url2 + article_name + ".ipynb";
-    var colab_img = '<img class="notebook-badge-image" src="https://raw.githubusercontent.com/oumpy/hp_management/master/theme/voidy-bootstrap/templates/includes/custom/assets/colab.png" alt="Open In Colab" width="119px"></img>';
-    var github_img = '<img class="notebook-badge-image" src="https://raw.githubusercontent.com/oumpy/hp_management/master/theme/voidy-bootstrap/templates/includes/custom/assets/github.png" alt="Open In GitHub" width="124px"></img>';
+    var colab_img = '<img class="notebook-badge-image" src="https://raw.githubusercontent.com/oumpy/hp_management/master/theme/voidy-bootstrap/templates/includes/custom/assets/badges/colab.png" alt="Open In Colab" width="119px"></img>';
+    var github_img = '<img class="notebook-badge-image" src="https://raw.githubusercontent.com/oumpy/hp_management/master/theme/voidy-bootstrap/templates/includes/custom/assets/badges/github.png" alt="View On GitHub" width="124px"></img>';
     var button = '<a href='+github_url+'>'+github_img+'</a>'
                +'<a href='+colab_url+'>'+colab_img+'</a>';
     doc0.innerHTML= button;
 }
+</script><script src="https://raw.githubusercontent.com/oumpy/hp_management/master/theme/voidy-bootstrap/templates/includes/custom/assets/js/toc.min.js"></script>
+<script>
+  $('.toc').toc({
+    'selectors': 'h2, h3',
+  });
 </script>
 </article>
         </div><!-- /content -->
