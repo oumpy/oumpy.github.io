@@ -251,6 +251,9 @@ $(function(){
 </script>
 <script type="text/javascript">
     $("#toc").toc({headings: "h2,h3"});
+    if( $('#toc').is(':empty') ) {
+      $('.toc_box').remove();
+    }
 </script>
 </article>
         </div><!-- /content -->
