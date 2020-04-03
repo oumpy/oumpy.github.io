@@ -97,7 +97,9 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-
+    <meta name="page:slug" property="og:page:slug" content="activities">
+    <meta name="page:date" property="og:page:date" content="2020-03-15">
+    <meta name="page:modified" property="og:page:modified" content="2020-03-22">
     <div class="container" id="main-container">
       <div class="row">
         <div class="col-md-9" id="content">
@@ -295,5 +297,15 @@ $(document).ready(function() {
             crossorigin="anonymous"></script>
 
 
+<script type="text/javascript">
+    (function() {
+        var modified = document.getElementsByName('page:modified')[0].content;
+        //document.querySelector('[itemprop="name headline"]').
+        $('header').after(
+//            '<p class="modified-date", style="text-align: right">( ' + modified + ' 最終更新 )</p>'
+            '<p class="modified-date">( ' + modified + ' 最終更新 )</p>'
+        );
+    })();
+</script>
   </body>
 </html>
