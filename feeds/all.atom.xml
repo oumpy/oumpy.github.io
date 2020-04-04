@@ -2972,7 +2972,99 @@ Previously observed = when the mutation has been reported as somatic previously 
 - &lt;a href="https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html"&gt;https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html&lt;/a&gt;
 - &lt;a href="https://science.sciencemag.org/content/354/6312/618"&gt;https://science.sciencemag.org/content/354/6312/618&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;同じ変異シグネチャーについて調べていて、特にたばこについて見ている論文でした
-- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="Blog"></category><category term="Bioinformatics"></category></entry><entry><title>5年次海外実習</title><link href="oumpy.github.io/blog/2019/03/study_abroad.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤, 宮崎</name></author><id>tag:None,2019-03-29:oumpy.github.io/blog/2019/03/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
+- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="Blog"></category><category term="Bioinformatics"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="oumpy.github.io/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-27:oumpy.github.io/blog/2019/04/competition_input.html</id><summary type="html">&lt;p&gt;AtCoderのABCで、これさえ覚えれば大丈夫！な入力のパターンについて解説します。&lt;/p&gt;</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。&lt;br&gt;
+&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。
+最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;言語&lt;/strong&gt;は &lt;code&gt;Python3 (3.4.3)&lt;/code&gt; (または &lt;code&gt;PyPy3 (2.4.0)&lt;/code&gt;) を選択してね。&lt;/p&gt;
+&lt;h3&gt;文字列を入力&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;整数ひとつを入力&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;int()&lt;/code&gt; が、文字列を整数 (integer) に変換する&lt;strong&gt;呪文&lt;/strong&gt;です。&lt;/p&gt;
+&lt;h3&gt;整数2つ〜を一行（空白区切り）で入力&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;まず &lt;code&gt;split()&lt;/code&gt; で文字列を分割。
+次に &lt;code&gt;map()&lt;/code&gt; で &lt;code&gt;int()&lt;/code&gt; をそれぞれに適用しています。&lt;/p&gt;
+&lt;h3&gt;多数の整数を一行で入力&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;x&lt;/code&gt; は0番目から始まる配列になる。n番目は &lt;code&gt;x[n]&lt;/code&gt; で参照します。&lt;/p&gt;
+&lt;h2&gt;使用例&lt;/h2&gt;
+&lt;h3&gt;問題1&lt;/h3&gt;
+&lt;p&gt;整数A, Bが1行 (空白区切り) で&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;A B&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;のように与えられる。和 &lt;code&gt;A+B&lt;/code&gt; を出力せよ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解答例&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;問題2&lt;/h3&gt;
+&lt;p&gt;1行目に自然数 &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;K&lt;/code&gt; (&lt;code&gt;N&amp;gt;=K&lt;/code&gt;)、2行目にN個の整数 &lt;code&gt;x1,..,xN&lt;/code&gt; が、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;N K&lt;/span&gt;
+&lt;span class="err"&gt;x1 x2 x3 ... xN&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;のように与えられる。
+このうちK番目の整数xKを出力せよ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解答例&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;配列が0番目からであることに注意。
+&lt;code&gt;N&lt;/code&gt; は実は使わなくてよい。&lt;br&gt;
+ちょっと難しいパターンだが、B問題ではちょくちょく出てくる。&lt;/p&gt;
+&lt;h3&gt;問題3&lt;/h3&gt;
+&lt;p&gt;&lt;s&gt;(このパターンはたぶんC問題以降のみ。)&lt;/s&gt; B問題にも時々出ます。&lt;br&gt;
+1行目に自然数 &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;K&lt;/code&gt; (&lt;code&gt;N&amp;gt;=K&lt;/code&gt;)、2行目〜N+1行目に &lt;code&gt;N&lt;/code&gt;個の整数 &lt;code&gt;x1,..,xN&lt;/code&gt; が、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;N K&lt;/span&gt;
+&lt;span class="err"&gt;x1&lt;/span&gt;
+&lt;span class="err"&gt;x2&lt;/span&gt;
+&lt;span class="err"&gt;x3&lt;/span&gt;
+&lt;span class="err"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;xN&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;のように与えられる。
+このうち &lt;code&gt;K&lt;/code&gt; 番目の整数 &lt;code&gt;xK&lt;/code&gt; を出力せよ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解答例&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ループとの組み合わせ。&lt;s&gt;C問題&lt;/s&gt; B問題以降でときどき必要。&lt;/p&gt;
+&lt;p&gt;以上です。おしまい。&lt;/p&gt;</content><category term="Blog"></category><category term="競技プログラミング"></category></entry><entry><title>5年次海外実習</title><link href="oumpy.github.io/blog/2019/03/study_abroad.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤, 宮崎</name></author><id>tag:None,2019-03-29:oumpy.github.io/blog/2019/03/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="oumpy.github.io/blog/2019/03/images/study_abroad_figs/img_01.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をもらいました。&lt;/p&gt;
 &lt;iframe src="//www.slideshare.net/slideshow/embed_code/key/f3e0fxEFp9OQAq" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
