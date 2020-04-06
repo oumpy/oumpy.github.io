@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="はじめての競プロ：入力アンチョコメモ"/>
-    <meta property="og:url" content="../../../blog/2019/04/competition_input.html"/>
+    <meta property="og:title" content="機械学習のための最新GPU比較"/>
+    <meta property="og:url" content="../../../blog/2019/10/GPUs_for_ML.html"/>
       <meta property="article:section" content="Blog"/>
-        <meta property="article:tag" content="競技プログラミング"/>
+        <meta property="article:tag" content="Machine Learning"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="はじめての競プロ：入力アンチョコメモ">
+    <meta name="twitter:title" content="機械学習のための最新GPU比較">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>はじめての競プロ：入力アンチョコメモ - 大阪大学医学部 Python会</title>
+    <title>機械学習のための最新GPU比較 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -109,10 +109,10 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="competition_input">
+    <meta name="article:slug" property="og:article:slug" content="GPUs_for_ML">
     <meta name="article:category" property="og:article:category" content="Blog">
-    <meta name="article:date" property="og:article:date" content="2019-04-27">
-    <meta name="article:modified" property="og:article:modified" content="2019-04-29">
+    <meta name="article:date" property="og:article:date" content="2019-10-07">
+    <meta name="article:modified" property="og:article:modified" content="2019-10-07">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -120,11 +120,11 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2019-04-27(Sat)
+  2019-10-07(Mon)
 </abbr> <h1>
-  <a href="../../../blog/2019/04/competition_input.html" rel="bookmark"
-     title="Permalink to はじめての競プロ：入力アンチョコメモ">
-    はじめての競プロ：入力アンチョコメモ
+  <a href="../../../blog/2019/10/GPUs_for_ML.html" rel="bookmark"
+     title="Permalink to 機械学習のための最新GPU比較">
+    機械学習のための最新GPU比較
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -139,104 +139,103 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>入力のパターン</h2>
-<p><strong>Python会競プロ部（？）へようこそ！</strong></p>
-<p>はじめての方には<strong>入力</strong>が最初の鬼門だと思います。<br>
-<a href="https://atcoder.jp">AtCoder</a> のABCで、<strong>これさえ覚えれば大丈夫！</strong>な入力パターンは以下の通り。
-最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。</p>
-<p><strong>言語</strong>は <code>Python3 (3.4.3)</code> (または <code>PyPy3 (2.4.0)</code>) を選択してね。</p>
-<h3>文字列を入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-</code></pre></div>
-
-
-<h3>整数ひとつを入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-</code></pre></div>
-
-
-<p><code>int()</code> が、文字列を整数 (integer) に変換する<strong>呪文</strong>です。</p>
-<h3>整数2つ〜を一行（空白区切り）で入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-</code></pre></div>
-
-
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-</code></pre></div>
-
-
-<p>まず <code>split()</code> で文字列を分割。
-次に <code>map()</code> で <code>int()</code> をそれぞれに適用しています。</p>
-<h3>多数の整数を一行で入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-</code></pre></div>
-
-
-<p><code>x</code> は0番目から始まる配列になる。n番目は <code>x[n]</code> で参照します。</p>
-<h2>使用例</h2>
-<h3>問題1</h3>
-<p>整数A, Bが1行 (空白区切り) で</p>
-<div class="highlight"><pre><span></span><code><span class="err">A B</span>
-</code></pre></div>
-
-
-<p>のように与えられる。和 <code>A+B</code> を出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
-</code></pre></div>
-
-
-<h3>問題2</h3>
-<p>1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目にN個の整数 <code>x1,..,xN</code> が、</p>
-<div class="highlight"><pre><span></span><code><span class="err">N K</span>
-<span class="err">x1 x2 x3 ... xN</span>
-</code></pre></div>
-
-
-<p>のように与えられる。
-このうちK番目の整数xKを出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p>配列が0番目からであることに注意。
-<code>N</code> は実は使わなくてよい。<br>
-ちょっと難しいパターンだが、B問題ではちょくちょく出てくる。</p>
-<h3>問題3</h3>
-<p><s>(このパターンはたぶんC問題以降のみ。)</s> B問題にも時々出ます。<br>
-1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目〜N+1行目に <code>N</code>個の整数 <code>x1,..,xN</code> が、</p>
-<div class="highlight"><pre><span></span><code><span class="err">N K</span>
-<span class="err">x1</span>
-<span class="err">x2</span>
-<span class="err">x3</span>
-<span class="err">...</span>
-<span class="err">...</span>
-<span class="err">xN</span>
-</code></pre></div>
-
-
-<p>のように与えられる。
-このうち <code>K</code> 番目の整数 <code>xK</code> を出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p>ループとの組み合わせ。<s>C問題</s> B問題以降でときどき必要。</p>
-<p>以上です。おしまい。</p>
+	<p>某所でGPU調達の必要があって、いまどきの事情を調べました。
+ゲームのことは知りません。</p>
+<h2>主要GPU一覧</h2>
+<p>NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>コア</th>
+<th>VRAM</th>
+<th>最大精度</th>
+<th>TDP</th>
+<th>放熱</th>
+<th>価格(税込)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GeForce RTX 2080Ti</td>
+<td>Turing (TU102)</td>
+<td><em>11GB</em></td>
+<td>単精度</td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td>14万円〜</td>
+</tr>
+<tr>
+<td>Titan RTX</td>
+<td>Turing (TU102)</td>
+<td>24GB</td>
+<td>単精度</td>
+<td><em>280W</em></td>
+<td><em>内排気</em></td>
+<td>27.6万円〜※</td>
+</tr>
+<tr>
+<td>Quadro RTX 6000</td>
+<td>Turing (TU102)</td>
+<td>24GB</td>
+<td><strong>倍精度</strong></td>
+<td>260W</td>
+<td>外排気</td>
+<td><em>41.5万円〜</em>※</td>
+</tr>
+<tr>
+<td>Quadro RTX 8000</td>
+<td>Turing (TU102)</td>
+<td><strong>48GB</strong></td>
+<td><strong>倍精度</strong></td>
+<td>260W</td>
+<td>外排気</td>
+<td>60万円〜※</td>
+</tr>
+<tr>
+<td>Titan V</td>
+<td>Volta (V102?)</td>
+<td><em>12GB</em></td>
+<td><strong>倍精度</strong></td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td><em>40万円〜</em></td>
+</tr>
+<tr>
+<td>Tesla V100 32GB (参考)</td>
+<td>Volta (V100)</td>
+<td>32GB</td>
+<td><strong>倍精度</strong></td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td><em>99万円〜</em>※</td>
+</tr>
+</tbody>
+</table>
+<p>（<strong>すごい</strong>。<em>いまいち</em>。※はアカデミック価格。価格は2019年10月初頭調べ。）</p>
+<h2>ポイント</h2>
+<ul>
+<li>目を引くのはTuring世代ワークステーション用GPUの<strong>VRAM大容量化</strong>。</li>
+<li>Titan RTXでも24GB、Quadro RTX 8000に至っては<strong>泣く子も黙る48GB</strong>。
+サーバ用のTesla V100も凌ぐ。</li>
+<li>Titan RTXのみ内排気のため、多数枚の搭載には水冷システムが必要。</li>
+<li>Quadro 6000がやや割高なことを除けば、Turingコア製品の<strong>VRAM容量あたりの価格は概ね一定</strong>なのが面白い。</li>
+<li>大きなネットワークを学習したい時など、GPU1基のメモリ容量はしばしば演算性能以上に重要。
+例えばGPU予算が60万の場合、2080Tiを4枚かTitan RTXを2枚かQuadro 8000を1枚か、は用途次第。</li>
+<li>どれもTensorCore搭載。
+FP16を使うように調整してやらないと本来の性能は出ない。</li>
+<li>倍精度演算機能は、実際のところ物理シミュレーションでもしない限り、あっても使わないので関係ない。遅いし。 </li>
+</ul>
+<h2>まとめ</h2>
+<p>演算性能を妥協すれば、大容量VRAMの上位GPUにも実は手が出しやすくなっています。
+用途に合わせて選びましょう。
+選べる余地があるのはいいことですね。</p>
+<p>おしまい。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -250,7 +249,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/04/competition_input.html" 
+        data-href="../../../blog/2019/10/GPUs_for_ML.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
