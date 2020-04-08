@@ -2284,10 +2284,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="3ffa0c8a-7455-4826-b656-c88a07474abe"&gt;&lt;/div&gt;
+&lt;div id="4600bd75-d91a-4d81-a6c3-02934d388f50"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3ffa0c8a-7455-4826-b656-c88a07474abe');
+var element = $('#4600bd75-d91a-4d81-a6c3-02934d388f50');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -4544,7 +4544,7 @@ FP16を使うように調整してやらないと本来の性能は出ない。&
 &lt;p&gt;演算性能を妥協すれば、大容量VRAMの上位GPUにも実は手が出しやすくなっています。
 用途に合わせて選びましょう。
 選べる余地があるのはいいことですね。&lt;/p&gt;
-&lt;p&gt;おしまい。&lt;/p&gt;</content><category term="Blog"></category><category term="Machine Learning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/blog/2019/06/atcoder.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-06-24:oumpy.github.io/blog/2019/06/atcoder.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;</content><category term="Blog"></category><category term="Machine Learning"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:None,2019-06-24:oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
 &lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。  &lt;/p&gt;
 &lt;p&gt;定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として) コンテストが開かれることもあります。コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/p&gt;
