@@ -2423,10 +2423,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-<div id="b2b6d321-ab98-4b68-b5df-bf8efad7f10c"></div>
+<div id="f6774de2-5eda-4b15-b2a0-cddc95cfb0a0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#b2b6d321-ab98-4b68-b5df-bf8efad7f10c');
+var element = $('#f6774de2-5eda-4b15-b2a0-cddc95cfb0a0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2840,9 +2840,10 @@ if (check_ipynb.length > 0) {
     var colab_url = urlroot_colab + filepath;
     var github_url = urlroot_github + filepath;
     var site_url = document.getElementsByName('siteurl')[0].content;
-    var imagedir_url = site_url + '/theme/images'
-    var colab_img = '<img class="notebook-badge-image" src="'+imagedir_url+'/colab.png" alt="Open In Colab" width="119px"></img>';
-    var github_img = '<img class="notebook-badge-image" src="'+imagedir_url+'/github.png" alt="View On GitHub" width="124px"></img>';
+    var colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+    var github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+    var colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" width="119px"></img>';
+    var github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" width="124px"></img>';
     var button = '<a href='+github_url+'>'+github_img+'</a>'
                +'<a href='+colab_url+'>'+colab_img+'</a>';
     doc0.innerHTML= button;
