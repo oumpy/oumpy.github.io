@@ -50,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 Atom Feed" />
-        <link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 RSS Feed" />
+        <link href="oumpy.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 Atom Feed" />
+        <link href="oumpy.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 RSS Feed" />
   </head>
 
   <body>
@@ -95,7 +95,7 @@
               <a href="../../../archives.html">Archives</a>
             </li>
           <li class="divider"></li>
-            <li><a href="/feeds/all.atom.xml" 
+            <li><a href="oumpy.github.io/feeds/all.atom.xml" 
                    type="application/atom+xml" rel="alternate">
                 <i class="fa fa-rss fa-fw fa-lg"></i> </a></li>
         </ul> <!-- /nav -->
@@ -1647,64 +1647,15 @@ h6:hover .anchor-link {
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><script>
-var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
-if (check_ipynb.length > 0) {
-    var doc0 = document.getElementById("colablink");
-    var article_date = document.getElementsByName('article:date')[0].content;
-    var article_year = article_date.slice(0, 4);
-    var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
-    if (parseInt(article_month) <= 3) {
-      article_year = article_year - 1;
-    }
-    var article_name = document.getElementsByName('article:slug')[0].content;
-    var source_url = document.getElementsByName('source-repository')[0].content;
-    if (source_url.endsWith('.git')) {
-      source_url = source_url.slice(0, -4);
-    } else if (url_base.endsWith('/')) {
-      source_url = source_url.slice(0, -1);
-    }
-    var source_url_hierarchies = source_url.split('/');
-    var repname = source_url_hierarchies.pop();
-    var account = source_url_hierarchies.pop();
-    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
-    var urlroot_github = source_url + "/blob/master/content/articles/";
-    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
-    var colab_url = urlroot_colab + filepath;
-    var github_url = urlroot_github + filepath;
-    var site_url = document.getElementsByName('siteurl')[0].content;
-    var imagedir_url = site_url + '/theme/images'
-    var colab_img = '<img class="notebook-badge-image" src="'+imagedir_url+'/colab.png" alt="Open In Colab" width="119px"></img>';
-    var github_img = '<img class="notebook-badge-image" src="'+imagedir_url+'/github.png" alt="View On GitHub" width="124px"></img>';
-    var button = '<a href='+github_url+'>'+github_img+'</a>'
-               +'<a href='+colab_url+'>'+colab_img+'</a>';
-    doc0.innerHTML= button;
-}
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-!function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
-</script>
-<script>
-$(function(){
-  $('a[href*="#"]').on('click',function() {
-    var container = $('.container');
-    var add_move = container.height() + 50
-    var speed = 400;
-    var href= $(this).attr("href");
-    var target = $(href == "#" || href == "" ? 'html' : href);
-    var position = target.offset().top - add_move;
-    $('body,html').animate({scrollTop:position}, speed, 'swing');
-    return false;
-  });
-});
-</script>
-<script type="text/javascript">
-    $("#toc").toc({headings: "h2,h3"});
-    if( $('#toc').is(':empty') ) {
-      $('.toc_box').remove();
-    }
-</script>
+</script><div class="related-posts">
+    <h2>関連記事</h2>
+    <ul>
+        <li><a href="../../../blog/2019/06/DABEST_tutorial.html">Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</a></li>
+        <li><a href="../../../blog/2019/03/lorenz.html">ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</a></li>
+        <li><a href="../../../blog/2019/03/n_number.html">必要n数の決定～研究計画～</a></li>
+    </ul>
+</div>
+
 </article>
         </div><!-- /content -->
 
@@ -1735,26 +1686,81 @@ $(function(){
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-      <a href="../../../tag/machine-learning.html">Machine Learning</a>
-      <a href="../../../tag/statistics.html">Statistics</a>
-      <a href="../../../tag/news.html">News</a>
-      <a href="../../../tag/shell-script.html">Shell script</a>
-      <a href="../../../tag/bioinformatics.html">Bioinformatics</a>
-      <a href="../../../tag/jing-ji-puroguramingu.html">競技プログラミング</a>
-      <a href="../../../tag/hai-wai-liu-xue.html">海外留学</a>
-      <a href="../../../tag/data-science-competition.html">Data Science Competition</a>
-      <a href="../../../tag/python.html">Python</a>
-      <a href="../../../tag/github.html">GitHub</a>
-      <a href="../../../tag/lun-wen-guan-lian.html">論文関連</a>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <i class="fa fa-tag"></i>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <i class="fa fa-tag"></i>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <i class="fa fa-tag"></i>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <i class="fa fa-tag"></i>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <i class="fa fa-tag"></i>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <i class="fa fa-tag"></i>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <i class="fa fa-tag"></i>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <i class="fa fa-tag"></i>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <i class="fa fa-tag"></i>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <i class="fa fa-tag"></i>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/news.html">
+          <i class="fa fa-tag"></i>
+        News
+      </a>
+    </span>
 </p>
 </div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-rss fa-fw fa-lg"></i> Feeds</div>
 <div class="box-contents">
 <ul class="list-unstyled">
-    <li><a href="/feeds/all.atom.xml"
+    <li><a href="oumpy.github.io/feeds/all.atom.xml"
 		   type="application/atom+xml" rel="alternate">&#x2022; Atom Feed</a></li>
-    <li><a href="/feeds/all.rss.xml"
+    <li><a href="oumpy.github.io/feeds/all.rss.xml"
 		   type="application/rss+xml" rel="alternate">&#x2022; RSS feed</a></li>
 </ul>
 </div>
@@ -1770,26 +1776,6 @@ $(function(){
     </div><!--/.container /#main-container -->
 
     <footer id="site-footer">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<p class="pagetop"><a href="#wrap"></a></p>
-<script>
-$(document).ready(function() {
-    var pagetop = $('.pagetop');
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 600) {
-            pagetop.fadeIn();
-        } else {
-            pagetop.fadeOut();
-            }
-        });
-        pagetop.click(function () {
-            $('body, html').animate({ scrollTop: 0 }, 500);
-                return false;
-    });
-});
-</script>
-
 <!-- colophon  -->
 <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
 <address id="site-colophon" style="margin:0px;padding:5px">
@@ -1845,5 +1831,81 @@ $(document).ready(function() {
     po.src = 'https://apis.google.com/js/platform.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
+</script><script>
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category')[0].content; 
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (url_base.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var site_url = document.getElementsByName('siteurl')[0].content;
+    var colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+    var github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+    var colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" width="119px"></img>';
+    var github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" width="124px"></img>';
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+!function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
+</script>
+<script>
+$(function(){
+  $('a[href*="#"]').on('click',function() {
+    var container = $('.container');
+    var add_move = container.height() + 50
+    var speed = 400;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top - add_move;
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});
+</script>
+<script type="text/javascript">
+    $("#toc").toc({headings: "h2,h3"});
+    if( $('#toc').is(':empty') ) {
+      $('.toc_box').remove();
+    }
+</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<p class="pagetop"><a href="#wrap"></a></p>
+<script>
+$(document).ready(function() {
+    var pagetop = $('.pagetop');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+            }
+        });
+        pagetop.click(function () {
+            $('body, html').animate({ scrollTop: 0 }, 500);
+                return false;
+    });
+});
 </script>  </body>
 </html>
