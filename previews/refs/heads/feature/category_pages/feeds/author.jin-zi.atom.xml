@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ) - 金子</title><link href="/previews/refs/heads/feature/category_pages/" rel="alternate"></link><link href="/previews/refs/heads/feature/category_pages/feeds/author.jin-zi.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/category_pages/</id><updated>2018-11-17T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="/previews/refs/heads/feature/category_pages/blog/2018/11/pandas_pivot_table.html" rel="alternate"></link><published>2018-11-17T00:00:00+09:00</published><updated>2018-11-17T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:None,2018-11-17:/previews/refs/heads/feature/category_pages/blog/2018/11/pandas_pivot_table.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。&lt;/p&gt;
+&lt;p&gt;pivot_tableを使った計算で個人的によく使う処理をまとめたものを&lt;a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table"&gt;kaggle のkernel&lt;/a&gt;で公開しました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/feature/category_pages/blog/2018/11/images/pandas_pivot_table_figs/pandas_pivot_table.png"&gt;&lt;/p&gt;
+&lt;p&gt;このkernelでは簡単なダミーデータでpivot_tableに対する計算の仕方をまとめた後、実例として&lt;a href="https://www.kaggle.com/c/PLAsTiCC-2018"&gt;PLAsTiCC コンペ&lt;/a&gt;の&lt;a href="https://www.kaggle.com/michaelapers/the-plasticc-astronomy-starter-kit"&gt;Starter Kit&lt;/a&gt;にあった特徴量の計算をpandasのpivot_tableを用いて高速化しました。&lt;/p&gt;
+&lt;h2&gt;どんなことができるようになるの？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;カテゴリごとに組み込みの集計関数より高度な関数を適用できる&lt;/li&gt;
+&lt;li&gt;カテゴリごとの移動平均をかけるようになる&lt;/li&gt;
+&lt;li&gt;未来のデータを含まないmean_encodingがかける&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;どれくらい早くなるの？&lt;/h2&gt;
+&lt;p&gt;上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、&lt;/p&gt;
+&lt;p&gt;愚直なコード(1時間以上) → groupbyでの処理(2分半) → pivot_table(4秒)&lt;/p&gt;
+&lt;p&gt;という感じで早くなりました。&lt;/p&gt;</content><category term="Blog"></category><category term="Data Science Competition"></category></entry></feed>

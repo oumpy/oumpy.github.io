@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ) - 廣瀬</title><link href="/previews/refs/heads/feature/category_pages/" rel="alternate"></link><link href="/previews/refs/heads/feature/category_pages/feeds/author.guang-lai.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/category_pages/</id><updated>2019-03-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>VELOCYTO</title><link href="/previews/refs/heads/feature/category_pages/blog/2019/03/velocyto.html" rel="alternate"></link><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:None,2019-03-24:/previews/refs/heads/feature/category_pages/blog/2019/03/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;strong&gt;Velocyto&lt;/strong&gt; とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。&lt;/p&gt;
+&lt;h2&gt;RNAseq でイントロン??&lt;/h2&gt;
+&lt;p&gt;RNAseq においては totalRNA のうち 99%ともいわれる rRNA を除き mRNA のみを効率よくSequence する目的で、Poly(A)で成熟 mRNA を濃縮することがしばしば行われています。しかし、そのようなサンプルにおいても、実際の Sequence 結果ではイントロンにあたる配列が読まれてくることが指摘されており、この原因は Poly(A)類似モチーフの存在であると推察されています。&lt;/p&gt;
+&lt;h2&gt;結果の例&lt;/h2&gt;
+&lt;p&gt;概日時間の検討ではとてもきれいな結果が得られています。関連遺伝子のunspliced(u) とspliced(s)を観察していくと、circadian timeの経過とともにu がs に変化していきます。&lt;/p&gt;
+&lt;p&gt;また、未分化細胞からの分化の方向性を見積もることも可能と報告されています。マウスのオリゴデンドロサイト前駆体細胞がオリゴデンドロサイトへ分化する方向に Velocityを持っていることが示されました。&lt;/p&gt;
+&lt;h2&gt;実践編&lt;/h2&gt;
+&lt;p&gt;Developer の WEB(&lt;a href="http://velocyto.org/"&gt;http://velocyto.org/&lt;/a&gt;)の tutorial を参考に手持ちの BAM で挑戦します。R 用と Python 用とあるようですが、もちろん Python です。二部構成となっており、前半はCommand lineでBAMファイルから.loomファイルを作成、後半では作成した.loomファイルから解析を行うとのことです。&lt;/p&gt;
+&lt;h3&gt;準備&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda install numpy scipy cython numba matplotlib scikit-learn h5py click
+$ pip install velocyto
+$ pip install scanpy
+$ pip install -U scvelo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;※pysam は Windows 環境下では仮想環境下であってもインストールできないそうです。
+- &lt;a href="https://qiita.com/chaoi/items/6d7702cd70430610f844"&gt;https://qiita.com/chaoi/items/6d7702cd70430610f844&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;これに気付かず数日はまりました。。&lt;/p&gt;
+&lt;h3&gt;Genome annotation file のダウンロード&lt;/h3&gt;
+&lt;p&gt;GENCODE のサイトから GTF ファイルをダウンロードし、適当な場所に保存して
+gunzip。&lt;/p&gt;
+&lt;h3&gt;実行&lt;/h3&gt;
+&lt;p&gt;Sequence の手法ごとに Command を選べます。今回は smart-seq2 で行います。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ velocyto run-smartseq2 -e hogehoge /*.bam annotation.gtf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;オプション&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-o, --outputfolder&lt;/code&gt;：出力ディレクトリを作成・指定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-e, --sampleid&lt;/code&gt;：出力ファイル名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-m, --repmask&lt;/code&gt;：リピート配列をマスクする場合&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t, --dtype&lt;/code&gt;：出力ファイルのデータ型(default は unit32)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d, --dump&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v, --verbose&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;サンプルごとに BAM があることを想定して複数ファイルを*で受け付けてくれます。BAM と GTF ファイルは必須です。なお、BAM の代わりに SAM を入れてもエラーは吐かないようです。これにより、hogehoge.loom ファイルが得られました。この中には、各分子のスプライシング状態が格納されています。&lt;/p&gt;
+&lt;p&gt;※TOPHAT でアラインメントしたデータはそのままではうまく行かないようです。なので、TopHat-Recondition で unmap のデータを拾ってくればいけるかもしれません。今回はHISAT2 でアラインメントし直してから velocyto をかけ、改めてhogehoge.loom ファイルを得ました。&lt;/p&gt;
+&lt;h3&gt;描画&lt;/h3&gt;
+&lt;p&gt;Scanpy と組み合わせて使用するために scvelo を用いました。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;scanpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sc&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;scvelo&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;scv&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;データ読み込み&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;adata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;hogehoge.loom&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;次元圧縮&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pca&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;adata&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_comps&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;速度計算&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;scv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;moments&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;adata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;scv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;velocity&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;adata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;描画&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;scv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;velocity_embedding&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;adata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/velocyte_figs/picture1.png"&gt;&lt;/p&gt;
+&lt;p&gt;※それぞれの細胞における特定遺伝子の発現レベルを色で表したり、PCA 以外の次元圧縮法を用いることもできます。この場合は tSNE のほうがきれいに見えるようです。パラメータはたくさん用意されているので、各データセットで最適な条件を検討する必要があるでしょう。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/velocyte_figs/picture2.png"&gt;
+&lt;img alt="3" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/velocyte_figs/picture3.png"&gt;&lt;/p&gt;
+&lt;h2&gt;参考文献&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.nature.com/articles/s41586-018-0414-6"&gt;https://www.nature.com/articles/s41586-018-0414-6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://velocyto.org/velocyto.py/index.html"&gt;http://velocyto.org/velocyto.py/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://catway.jp/bioinformatics/qc/rmrepeat.html"&gt;http://catway.jp/bioinformatics/qc/rmrepeat.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/theislab/scvelo"&gt;https://github.com/theislab/scvelo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Blog"></category><category term="Bioinformatics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="/previews/refs/heads/feature/category_pages/blog/2019/03/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-03-19T00:00:00+09:00</published><updated>2019-03-19T00:00:00+09:00</updated><author><name>菅波</name></author><id>tag:None,2019-03-19:/previews/refs/heads/feature/category_pages/blog/2019/03/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/yyoshiaki/auto_counttable_maker"&gt;https://github.com/yyoshiaki/auto_counttable_maker&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;なお、以下のイラストはikraのアイコンとなっています。&lt;/p&gt;
+&lt;p&gt;&lt;img src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra.png" width="250px"&gt; &lt;/p&gt;
+&lt;h2&gt;特徴&lt;/h2&gt;
+&lt;p&gt;今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;準備するのは簡単なCSVファイル（テーブルだけ）で、極力パラメーターを減らした。&lt;/li&gt;
+&lt;li&gt;すべてdocker上で動くため、ツールを各々インストールする必要がないし、バージョンに苦しむこともない。&lt;/li&gt;
+&lt;li&gt;udockerにも対応しているため、ユーザー権限しかないサーバー上でも実行可能。&lt;/li&gt;
+&lt;li&gt;outputは&lt;a href="http://bioinformatics.sdstate.edu/idep/"&gt;idep&lt;/a&gt;に対応。&lt;/li&gt;
+&lt;li&gt;もちろんマルチスレッド対応。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;使い方&lt;/h2&gt;
+&lt;p&gt;必要なテーブルは&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;SRR or fastq&lt;/th&gt;
+&lt;th&gt;Layout&lt;/th&gt;
+&lt;th&gt;condition1&lt;/th&gt;
+&lt;th&gt;...&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Treg_LN_1&lt;/td&gt;
+&lt;td&gt;SRR5385247&lt;/td&gt;
+&lt;td&gt;SE&lt;/td&gt;
+&lt;td&gt;Treg&lt;/td&gt;
+&lt;td&gt;...&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Treg_LN_2&lt;/td&gt;
+&lt;td&gt;SRR5385248&lt;/td&gt;
+&lt;td&gt;SE&lt;/td&gt;
+&lt;td&gt;Treg&lt;/td&gt;
+&lt;td&gt;...&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;のような形式で、前3列が必須です。簡単ですね！データの集め方は、論文についているaccession number等をたどるのでもいいし、新しくなって爆速になった&lt;a href="http://sra.dbcls.jp/"&gt;DDBJ Search&lt;/a&gt;もおすすめ。&lt;/p&gt;
+&lt;p&gt;コマンドはオプションが指定でき、リード数を100000に絞ったテストモードやマルチプロセスにも対応。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;Usage&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;MakeCountTable_Illumina_trimgalore_SRR&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;experiment_table&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;spiece&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;--test, --help, --without-docker, --udocker&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;--threads [VALUE&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;experiment&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="nl"&gt;Options&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="c1"&gt;--test test mode(MAX_SPOT_ID=100000).(dafault : False)&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--udocker&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--without-docker&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--threads&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--help Show usage.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;なお、自前のfastq filesからの実行はv1.1で載せようと思っています。また、出力はscaled TPMを採用。(Soneson, C., Love, M. I. &amp;amp; Robinson, M. D. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research 4, 1521 (2015).)。&lt;/p&gt;
+&lt;h2&gt;pipelineの構成&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;fasterq-dump : シーケンスデータの取得&lt;/li&gt;
+&lt;li&gt;fastqc : QC&lt;/li&gt;
+&lt;li&gt;trim-galore : トリミング&lt;/li&gt;
+&lt;li&gt;salmon : RNA定量&lt;/li&gt;
+&lt;li&gt;multiqc : QCログの回収、可視化&lt;/li&gt;
+&lt;li&gt;tximport : 遺伝子テーブルの生成&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;となっています。各ツールの説明は省きますが、今時のツールの選定になっていると思います。&lt;/p&gt;
+&lt;h2&gt;idep&lt;/h2&gt;
+&lt;p&gt;本ツールは&lt;a href="http://bioinformatics.sdstate.edu/idep/"&gt;idep&lt;/a&gt;を意識した設計になっています。idepはRNA-seqの解析をinteractiveに行えるプラットフォームで、Differential expressed genes(DEGs)の検出だけではなく、遺伝子、サンプルのクラスタリング、パスウェイ解析、可視化などが行えます。idepについては以下がとても参考になります。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://kazumaxneo.hatenablog.com/entry/2018/12/29/153838"&gt;macでインフォマティクス : インタラクティブなRNA seq解析webアプリケーション iDEP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/original_rnaseq_pipeline_figs/screenshot-from-2019-03-19-23-14-31.png"&gt;&lt;/p&gt;
+&lt;h2&gt;githubを用いたチーム開発&lt;/h2&gt;
+&lt;p&gt;今回、githubを用いてチーム開発を行いました。githubはエンジニアの間では当たり前のツールで、チームでのソフト開発によく用いられます。bioinformatics界隈でチーム開発を経験できることは意外に少なく、非常にいい経験になりました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra_git.png"&gt;&lt;/p&gt;
+&lt;p&gt;雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Enjoy bioinformatics life!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/feature/category_pages/blog/2019/03/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"&gt;&lt;/p&gt;</content><category term="Blog"></category><category term="Bioinformatics"></category></entry></feed>

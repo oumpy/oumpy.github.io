@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ) - 水野</title><link href="/previews/refs/heads/feature/category_pages/" rel="alternate"></link><link href="/previews/refs/heads/feature/category_pages/feeds/author.shui-ye.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/category_pages/</id><updated>2018-11-16T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>シェルスクリプト入門(2)</title><link href="/previews/refs/heads/feature/category_pages/blog/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-16:/previews/refs/heads/feature/category_pages/blog/2018/11/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
+&lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
+が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
+ってことないでしょうか。&lt;/p&gt;
+&lt;p&gt;Rの機能を代替するのは無理ですが、せめてほんの少し、
+例えば、テーブル中の値をそれぞれbashの変数に入れれたら、
+Rを呼び出さずに完結できたりします。&lt;/p&gt;
+&lt;p&gt;要は、&lt;code&gt;$ mat_i_j=i行j列目の要素&lt;/code&gt;で変数を格納していきます。&lt;/p&gt;
+&lt;p&gt;対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;a    b    c&lt;/span&gt;
+&lt;span class="err"&gt;1    2    3&lt;/span&gt;
+&lt;span class="err"&gt;d    e    f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;これの各要素を、&lt;code&gt;$mat_i_j&lt;/code&gt; に格納していきます。
+一例として、以下のスクリプトでできます。
+配列つかったりしてもっといいスクリプトもきっとあります。&lt;/p&gt;
+&lt;p&gt;bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;## 行番号に使う変数の設定。&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3 &lt;span class="c1"&gt;## 解説①&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;expr &lt;span class="nv"&gt;$row&lt;/span&gt; + &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 1行ずつ読んでくので、1ずつ足していく。&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; col in &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 今読んでる行での列番号をfor文で回す。&lt;/span&gt;
+    &lt;span class="k"&gt;do&lt;/span&gt;
+        &lt;span class="nb"&gt;eval&lt;/span&gt; mat_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 解説②&lt;/span&gt;
+    &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;table.txt
+
+&lt;span class="c1"&gt;### 変数mat_$i_$j を使った処理が続く。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;時間のある人用に解説です。
+少し小技があります。&lt;/p&gt;
+&lt;h2&gt;1) while readの使い方&lt;/h2&gt;
+&lt;p&gt;よく見かけるのは、&lt;code&gt;cat&lt;/code&gt;からパイプで&lt;code&gt;while read&lt;/code&gt;につなぐやつです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat table.txt &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ファイルを一行ずつ読んで、各列の要素を&lt;code&gt;read&lt;/code&gt;の後ろに置いた変数名&lt;code&gt;（x1,x2,x3）&lt;/code&gt;に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
+各行ごとに、&lt;code&gt;do&lt;/code&gt;～&lt;code&gt;done&lt;/code&gt;の間で、&lt;code&gt;$x1&lt;/code&gt;,&lt;code&gt;$x2&lt;/code&gt;,&lt;code&gt;$x3&lt;/code&gt;が使えるようになります。&lt;/p&gt;
+&lt;p&gt;が、しかし、パイプで&lt;code&gt;while&lt;/code&gt;に入ってしまうと、パイプ内はパイプ内で完結するため、
+&lt;code&gt;do&lt;/code&gt;~&lt;code&gt;done&lt;/code&gt;の中で変数操作をしても、&lt;code&gt;done&lt;/code&gt;の後では、その中身が空っぽになっちゃいます。&lt;/p&gt;
+&lt;p&gt;これを回避するためには、パイプを使わないということで、リダイレクトで、
+&lt;code&gt;done&lt;/code&gt;の後ろに&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;done&lt;/span&gt;&amp;lt;table.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;を書きます。
+読みにくいですよねー。&lt;/p&gt;
+&lt;h2&gt;2) evalの使い方&lt;/h2&gt;
+&lt;p&gt;今回の&lt;code&gt;mat_$i_$j&lt;/code&gt;のように、変数名に変数&lt;code&gt;($i,$j)&lt;/code&gt;を使って値を格納する時には、&lt;code&gt;eval&lt;/code&gt;を使います。
+&lt;code&gt;eval&lt;/code&gt;は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。&lt;/p&gt;
+&lt;p&gt;なので、&lt;code&gt;i=2, j=3&lt;/code&gt; として、&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;は、
+&lt;code&gt;mat_2_3=aaa&lt;/code&gt; をスクリプトとして評価しろ、ということになり、
+&lt;code&gt;mat_2_3&lt;/code&gt;という変数名に、&lt;code&gt;aaa&lt;/code&gt;が入ります。
+（ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）&lt;/p&gt;
+&lt;p&gt;変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
+&lt;code&gt;col=1&lt;/code&gt;として、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\$&lt;/span&gt;x&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と書けば、まず、&lt;code&gt;eval&lt;/code&gt;が&lt;code&gt;$col&lt;/code&gt;の中身を出してからスクリプトとして評価するので、
+（xの&lt;span class="math"&gt;\(には\がかかってるので無視されます）
+&lt;code&gt;echo $x1&lt;/code&gt;
+と書いていることになり、通常の&lt;code&gt;echo&lt;/code&gt;で書いたように、&lt;code&gt;$x1&lt;/code&gt;の中身が出力されます。
+xの\)&lt;/span&gt;にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での評価で消費されて、&lt;code&gt;echo&lt;/code&gt;内にはなくなります。ここ重要。&lt;/p&gt;
+&lt;p&gt;やりたいことは、&lt;code&gt;eval echo&lt;/code&gt; で出してきた値を、変数を使った変数名に格納することです。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;eval mat_${i}_${j}=aaa&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;の&lt;code&gt;aaa&lt;/code&gt;部分に&lt;code&gt;eval echo&lt;/code&gt;を直接もってきても、機能しません。
+&lt;code&gt;eval echo&lt;/code&gt;のままでは、まだ値ではなくスクリプトだからです。&lt;/p&gt;
+&lt;p&gt;なので、そのスクリプトを実行させて値を出力させたものを、&lt;code&gt;aaa&lt;/code&gt;の部分に書きます。
+そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。&lt;/p&gt;
+&lt;p&gt;アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
+なので、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;test&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$k&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;とすれば、&lt;code&gt;$k&lt;/code&gt;の中身が出力されて、&lt;code&gt;test&lt;/code&gt;に格納されます。
+&lt;code&gt;row&lt;/code&gt;に1ずつ足していくとこでも使ってます。よく見る方法です。
+&lt;code&gt;for&lt;/code&gt;文使わなくていいので、見た目がすっきりします。&lt;/p&gt;
+&lt;p&gt;では、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と書けば、&lt;code&gt;mat_2_3&lt;/code&gt;に&lt;code&gt;$x1&lt;/code&gt;の中身が代入されるはず！
+となるのですが、不完全です。&lt;/p&gt;
+&lt;p&gt;アクサングラーブでの評価で、&lt;code&gt;\&lt;/code&gt;が一個消費されてしまうので、実行する&lt;code&gt;eval echo&lt;/code&gt;の文が、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;となるので、&lt;code&gt;eval&lt;/code&gt;での評価時に&lt;code&gt;$x&lt;/code&gt;の中身（設定してないので空っぽ）と&lt;code&gt;$col&lt;/code&gt;が出されてしまって、
+&lt;code&gt;echo (空)1&lt;/code&gt;
+となって、最終的に、&lt;code&gt;mat_2_3&lt;/code&gt;には&lt;code&gt;$x1&lt;/code&gt;ではなく、&lt;code&gt;$col&lt;/code&gt;の中身である1が代入されてしまいます。&lt;/p&gt;
+&lt;p&gt;なので、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;eval mat_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;_&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;=`eval echo \\&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;col&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と、\を一個増やして書けば、目的達成です。
+めでたしめでたし。&lt;/p&gt;
+&lt;p&gt;※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="Blog"></category><category term="Shell script"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="/previews/refs/heads/feature/category_pages/blog/2018/11/shellscript_1.html" rel="alternate"></link><published>2018-11-01T00:00:00+09:00</published><updated>2018-11-01T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:None,2018-11-01:/previews/refs/heads/feature/category_pages/blog/2018/11/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
+&lt;p&gt;データ整形の流れって、教わる機会なくないですか？
+つまらないものですが、僕のやり方を紹介してみます。
+始めたばかりの人は参考にしてください。
+経験者の方、変なとこあったらどしどし突っ込みください！
+そして皆さんの自己流も教えてもらえると嬉しいです。&lt;/p&gt;
+&lt;h2&gt;1) scriptに起こす前&lt;/h2&gt;
+&lt;p&gt;shell scriptに書き起こす前に、プロンプト画面（Mac,Ubuntuならterminal）でテストします。
+僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
+その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
+圧縮ファイルの時は、解凍する前にzcatでつないで試します。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat hogehoge.txt &lt;span class="p"&gt;|&lt;/span&gt; sed 1d（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head
+zcat hoge.gz &lt;span class="p"&gt;|&lt;/span&gt; cut –f1（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
+別画面で折り返しなしで見ることができます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;cat hogehoge &lt;span class="p"&gt;|&lt;/span&gt; sed 1d（試したいコマンド）&lt;span class="p"&gt;|&lt;/span&gt; head &lt;span class="p"&gt;|&lt;/span&gt; less -S
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;2) scriptを書く&lt;/h2&gt;
+&lt;p&gt;うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
+結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;touch test.sh &lt;span class="c1"&gt;# ファイルつくって、&lt;/span&gt;
+emacs test.sh &lt;span class="c1"&gt;# emacsで開く。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash # おまじない。&lt;/span&gt;
+&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;filename &lt;span class="c1"&gt;# ファイルはいつも外から入れれるようにしてます。&lt;/span&gt;
+rm –r ./folder &lt;span class="c1"&gt;# 一発で上手くいくことはないので、やり直しやすいように消去コマンド。&lt;/span&gt;
+mkdir ./folder &lt;span class="c1"&gt;# 散らからないように専用フォルダを作成。&lt;/span&gt;
+&lt;span class="nv"&gt;dir1&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;./folder&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;# フォルダ名をいつでも変えやすいようにパスを変数にいれる。&lt;/span&gt;
+cat &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$filename&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sed 1d &amp;gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$dir1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;/hogehoge2.txt &lt;span class="c1"&gt;#目的のコマンドで処理して保存。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;3) 実行&lt;/h2&gt;
+&lt;p&gt;書けたら、処理したいファイルを渡して実行してみます。
+&lt;code&gt;&amp;amp;&lt;/code&gt;はバックグラウンド実行です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bash ./test.sh ./hogehoge.txt &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
+screenを使うこともあります。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nohup bash ./test.sh ./hogehoge.txt &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;4)　修正&lt;/p&gt;
+&lt;p&gt;scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
+そうすれば、後でやり直しやすいです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# cat &amp;quot;$filename&amp;quot; | sed 1d &amp;gt; &amp;quot;$dir1&amp;quot;/hogehoge2.txt # コメントアウトして置いておく。&lt;/span&gt;
+cat &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$filename&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;blahblah&amp;quot;&lt;/span&gt; &amp;gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$dir1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;/hogehoge2.txt &lt;span class="c1"&gt;# 新しい文。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。&lt;/p&gt;
+&lt;h2&gt;5) 応用編&lt;/h2&gt;
+&lt;p&gt;あとはひたすらコマンドを駆使して書き上げていきます。
+以下の基本コマンドでだいたいのことはできるかと。
+特にawkはたくさんのことができます。joinも重宝します。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;command&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cat&lt;/td&gt;
+&lt;td&gt;ファイルを縦につなぐ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;paste&lt;/td&gt;
+&lt;td&gt;ファイルを横につなぐ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sed&lt;/td&gt;
+&lt;td&gt;指定行抜き出すor削除or文字置換&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cut&lt;/td&gt;
+&lt;td&gt;指定列抜き出すor削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;awk&lt;/td&gt;
+&lt;td&gt;抜き出し方をいろいろカスタマイズ&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tr&lt;/td&gt;
+&lt;td&gt;文字置換&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sort&lt;/td&gt;
+&lt;td&gt;整列&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uniq&lt;/td&gt;
+&lt;td&gt;重複行を削除or抜き出す&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;join&lt;/td&gt;
+&lt;td&gt;2つのファイルを同じ項目で合わせる&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;grep&lt;/td&gt;
+&lt;td&gt;特定の文字が入った行を出す&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="Blog"></category><category term="Shell script"></category></entry></feed>
