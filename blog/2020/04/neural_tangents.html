@@ -112,6 +112,7 @@
     <meta name="article:slug" property="og:article:slug" content="neural_tangents">
     <meta name="article:category" property="og:article:category" content="Blog">
     <meta name="article:date" property="og:article:date" content="2020-04-06">
+    <meta name="article:modified" property="og:article:modified" content="2020-04-14">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -1283,10 +1284,10 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;">NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;">&#182;</a></h3><p>NNを次のように定義します。ただし、入力を0層、出力を$L$層とします。</p>
 $$
-\begin{aligned}
+\begin{align*}
 z^{(l)}_i(\boldsymbol{x}) &amp;= \phi (a^{(l)}_i(\boldsymbol{x}))\\
 a^{(l+1)}_i (\boldsymbol{x}) &amp;= \sum_j w_{ij}^{(l+1)} z^{(l)}_i(\boldsymbol{x}) +  b_i^{(l+1)}
-\end{aligned}
+\end{align*}
 $$<p>ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)}$はそれぞれ重みとバイアスで$w_{ij}^{(l)} \sim\mathcal{N}\left(0,\frac{\sigma^2_w}{n_{l}}\right), b_i^{(l)}\sim\mathcal N\left(0, \sigma^2_b \right)$ とします。ここで$n_l$は$l$層目のユニット数を表し、 $\sigma^2_w, \sigma^2_b$ は定数です。重みの分散を$n_l$でスケーリングしているのは発散を防ぐために天下りに定義したものです。</p>
 
 </div>
@@ -1314,11 +1315,11 @@ $$<p>ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)}$は�
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="NNGP-kernel&#12398;&#35336;&#31639;">NNGP kernel&#12398;&#35336;&#31639;<a class="anchor-link" href="#NNGP-kernel&#12398;&#35336;&#31639;">&#182;</a></h3><p>$\mathcal{K}^{l}$の計算式を見てみましょう。以下では$x, x' \in \mathcal{X}, x\neq x' $であるとします。</p>
 $$
-\begin{align}
+\begin{align*}
 \mathcal{K}^{l}(x,x')&amp;:=\mathbb{E}[z_{i}^{l}(x)z_{i}^{l}(x')]\\
 &amp;=\sigma_{b}^{2}+\sigma_{w}^{2}\mathbb E_{z_{i}^{l-1}\sim\mathcal{GP}(0,\mathcal{K}^{l-1})}[\phi(z_{i}^{l-1}(x))\phi(z_{i}^{l-1}(x'))]\\
 &amp;=\sigma_{b}^{2}+\sigma_{w}^{2}F_{\phi}(\mathcal{K}^{l-1}(x,x'),\mathcal{K}^{l-1}(x,x),\mathcal{K}^{l-1}(x',x')) \tag{1}
-\end{align}
+\end{align*}
 $$<p>(1)式により、帰納的に$\mathcal{K}^{l-1}$から$\mathcal{K}^{l}$を求め、最終層の$\mathcal{K}^{L}=\mathcal{K}$を求めます。$F_\phi$の具体的な式であったり計算量を減らすための工夫に関しては省略します。</p>
 
 </div>
@@ -1329,10 +1330,10 @@ $$<p>(1)式により、帰納的に$\mathcal{K}^{l-1}$から$\mathcal{K}^{l}$を
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="NNGP&#12395;&#12424;&#12427;&#25512;&#35542;">NNGP&#12395;&#12424;&#12427;&#25512;&#35542;<a class="anchor-link" href="#NNGP&#12395;&#12424;&#12427;&#25512;&#35542;">&#182;</a></h3><p>ベイズ推論を行う場合は次のようにします。あるテストデータ$x^*$に対する予測$y^*$が従う分布は正規分布$\mathcal{N}(\mu(x^*), \sigma^2(x^*))$であり、スカラー値$\mu(x^*)$, $\sigma^2(x^*)$はそれぞれ、</p>
 $$
-\begin{align}
+\begin{align*}
 \mu(x^*)&amp;=\mathcal{K}(x^*, \mathcal{X})\ \mathcal{K}(\mathcal{X}, \mathcal{X})^{-1}\ \mathcal{Y}\\
 \sigma^2(x^*)&amp;=\mathcal{K}(x^*, x^*)-\mathcal{K}(x^*, \mathcal{X})\ \mathcal{K}(\mathcal{X}, \mathcal{X})^{-1}\ \mathcal{K}(\mathcal{X}, x^*)\\
-\end{align}
+\end{align*}
 $$<p>として求められます。</p>
 
 </div>
@@ -1356,11 +1357,11 @@ $$<p>として求められます。</p>
 <h3 id="NN&#12398;&#23450;&#32681;">NN&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12398;&#23450;&#32681;">&#182;</a></h3><p>全結合のNNを考えます。NNは入力(0層目)から出力($L$層目)まであるとし、$l$番目の層のユニット数を$n_l (l=0, \cdots, L)$とします。NNを構成するパラメータ $\theta\in \mathbb{R}^{P}$ は重み行列 $W^{(l)}\in \mathbb{R}^{n_l \times n_{l+1}}$, およびバイアス $b \in \mathbb{R}^{n_l}$をまとめたベクトルとします。ただし、$P$はパラメータ空間の次元で$P=\sum_{l=0}^L (n_l + 1)n_{l+1}$です。また、パラメータの初期化は$W^{(l)}, b^{(l)} \sim \mathcal{N}(0, 1)$とします。</p>
 <p>NNの中身が以下のようであるとします。
 $$
-\begin{aligned}
+\begin{align*}
 z^{(0)}(x) &amp;=x \\
 a^{(l+1)}(x) &amp;=\frac{1}{\sqrt{n_{l}}} W^{(l)} z^{(l)}(x)+\beta b^{(l)} \\
 z^{(l)}(x) &amp;=\phi\left(a^{(l)}(x)\right)
-\end{aligned}
+\end{align*}
 $$
 ただし、$x$は入力です。また、NNの関数を$f(\cdot\ ; {\theta})$とし、その関数空間を
 $$
@@ -1385,10 +1386,10 @@ $$
 \frac{\partial \theta}{\partial t}=-\eta\nabla_\theta \mathcal{L}(\theta(t))
 $$<p>となります (ここで $\theta = \theta(t)$です)。式変形をすると</p>
 $$
-\begin{align}
+\begin{align*}
 \frac{\partial \theta}{\partial t}&amp;=-\eta\nabla_\theta \mathcal{L}(\theta(t))\\
 &amp;=-\eta\nabla_{\theta} f_t(\mathcal{X})^T\ \nabla_{f_t(\mathcal{X})} \mathcal{L}
-\end{align}
+\end{align*}
 $$<p>となります。ここで、Jacobianを$J_t(\mathcal{X}; \theta):=\frac{\partial f_t(\mathcal{X})}{\partial \theta}= \nabla_\theta f_t(\mathcal{X})$とすると次式のように整理されます。</p>
 $$
 \frac{\partial \theta}{\partial t}=-\eta\ J_t(\mathcal{X}; \theta)^T\ \nabla_{f_t(\mathcal{X})} \mathcal{L} \tag{2}
@@ -1417,19 +1418,19 @@ $$
 f_t^{\text{lin}}(x; \theta_t)\approx f_0(x;\theta_0)+ \nabla_\theta f_0(x;\theta_0)^T (\theta_t-\theta_0) \tag{5}
 $$<p>$\omega_t:=\theta_t-\theta_0$とおき、時間微分します (式(2), (3)参照)。</p>
 $$
-\begin{aligned}
+\begin{align*}
 \frac{\partial \omega_t}{\partial t}&amp;=-\eta \nabla_{\theta} f_{0}(\mathcal{X})^{T} \nabla_{f_{t}^{\text {lin }}(\mathcal{X})} \mathcal{L}\\
 \frac{\partial {f}_{t}^{\operatorname{lin}}(x)}{\partial t}&amp;=-\eta \hat{\Theta}_{0}(x, \mathcal{X}) \nabla_{f_{t}^{\operatorname{lin}}(\mathcal{X})} \mathcal{L}
-\end{aligned}
+\end{align*}
 $$<p>ただし、</p>
 $$
 \hat{\Theta}_0(\mathcal{X}, \mathcal{X})=J_0(\mathcal{X}; \theta)J_0(\mathcal{X}; \theta)^{T}=\nabla_\theta f_0(\mathcal{X})\nabla_\theta f_0(\mathcal{X})^T
 $$<p>です。ここで、$\mathcal{L}$がMSEの場合は、$\nabla_{f_t^{\text{lin}}(\mathcal{X})} \mathcal{L}=f_t(\mathcal{X})-\mathcal{Y}$となるので、上式の微分方程式を解いて、</p>
 $$
-\begin{aligned}
+\begin{align*}
 &amp;\omega_{t}=-\nabla_{\theta} f_{0}(\mathcal{X})^{T} \hat{\Theta}_{0}^{-1}\left(I-e^{-\eta \hat{\Theta}_{0} t}\right)\left(f_{0}(\mathcal{X})-\mathcal{Y}\right)\\
 &amp;f_{t}^{\operatorname{lin}}(\mathcal{X})=\left(I-e^{-\eta \hat{\Theta}_{0} t}\right) \mathcal{Y}+e^{-\eta \hat{\Theta}_{0} t} f_{0}(\mathcal{X})
-\end{aligned}
+\end{align*}
 $$<p>となります。</p>
 <p>かなり飛躍するのですが、ここで次のような $\mathcal{K}$を用います。</p>
 $$
@@ -1437,11 +1438,11 @@ $$
 $$<p>ただし、$f_0(\mathcal{X})\sim \mathcal{N}(0, \mathcal{K})$です。$\mathcal{K}$は具体的にはNNGP kernelとなります。</p>
 <p>$\hat{\Theta}_0$はパラメータを固定せず、ユニット数$\to \infty$ となるときに決定論的に決まるKernel $\Theta=\Theta(\mathcal{X}, \mathcal{X})$に収束することが示されているので、テストデータ $x^* \in \mathcal{X}_T$に対する時刻$t$での予測分布が導出できます。</p>
 $$
-\begin{align}
+\begin{align*}
 \mu_t\left(\mathcal{X}_{T}\right)&amp;=\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right) \Theta^{-1}\left(I-e^{-\eta \Theta t}\right) \mathcal{Y} \tag{6}\\
 \Sigma_t\left(\mathcal{X}_{T}, \mathcal{X}_{T}\right)&amp;=\mathcal{K}\left(\mathcal{X}_{T}, \mathcal{X}_{T}\right)+\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right) \Theta^{-1}\left(I-e^{-\eta \Theta t}\right) \mathcal{K}\left(I-e^{-\eta \Theta t}\right) \Theta^{-1} \Theta\left(\mathcal{X}, \mathcal{X}_{T}\right)\\
 &amp;\qquad\qquad -\left(\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right) \Theta^{-1}\left(I-e^{-\eta \Theta t}\right) \mathcal{K}\left(\mathcal{X}, \mathcal{X}_{T}\right)+\text {h.c.}\right)\tag{7}
-\end{align}
+\end{align*}
 $$<p>ただし、$+\text {h.c.}$はHermitian conjugate (随伴行列)を加算することを意味します。例えば$A+B+C+\text{h.c.}$なら、$A+B+C+A^\dagger+B^\dagger+C^\dagger$となります (c.f. <a href="https://www.wikiwand.com/en/%2B_h.c.">+ h.c. - Wikiwand</a>)。</p>
 <p>式(6), (7)は$t$の関数であるので、勾配法による計算を逐次的に行わなくても$t$に任意の時刻を代入することで、関数空間での軌跡を求めることができます。</p>
 <p>それでは$t\to \infty$としてみましょう。この時、出力が従う分布は次のようになります。</p>
@@ -1449,11 +1450,11 @@ $$
 \lim_{t\to \infty} \lim_{n\to \infty} f_t^{\text{lin}}(\mathcal{X}_T) \sim \mathcal{N}(\mu_\infty (\mathcal{X}_T), \ \Sigma_\infty\left(\mathcal{X}_{T}, \mathcal{X}_{T}\right)) \tag{8}
 $$<p>ただし、</p>
 $$
-\begin{align}
+\begin{align*}
 \mu_\infty (\mathcal{X}_T)&amp;=\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right)\Theta^{-1} \mathcal{Y} \tag{9}\\ 
 \Sigma_\infty \left(\mathcal{X}_{T},\mathcal{X}_{T}\right)&amp;=\mathcal{K}\left(\mathcal{X}_{T}, \mathcal{X}_{T}\right)+\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right) \Theta^{-1} \mathcal{K} \Theta^{-1} \Theta\left(\mathcal{X}, \mathcal{X}_{T}\right)\\
 &amp;\qquad-\left(\Theta\left(\mathcal{X}_{T}, \mathcal{X}\right) \Theta^{-1} \mathcal{K}\left(\mathcal{X}, \mathcal{X}_{T}\right)+\text {h.c.}\right) \tag{10}
-\end{align}
+\end{align*}
 $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出力の収束先が行列計算で求められるということを意味します。</p>
 
 </div>
@@ -2423,10 +2424,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-<div id="d076d225-b475-40b9-ba9b-453113d03255"></div>
+<div id="c7ed000e-3af0-4a09-8200-21d1e9871dc4"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#d076d225-b475-40b9-ba9b-453113d03255');
+var element = $('#c7ed000e-3af0-4a09-8200-21d1e9871dc4');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2723,6 +2724,30 @@ var element = $('#d076d225-b475-40b9-ba9b-453113d03255');
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <i class="fa fa-tag"></i>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <i class="fa fa-tag"></i>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/news.html">
+          <i class="fa fa-tag"></i>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <i class="fa fa-tag"></i>
+        海外留学
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <i class="fa fa-tag"></i>
@@ -2733,24 +2758,6 @@ var element = $('#d076d225-b475-40b9-ba9b-453113d03255');
       <a href="../../../tag/bioinformatics.html">
           <i class="fa fa-tag"></i>
         Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
       </a>
     </span>
     <span class="tag-4">
@@ -2765,16 +2772,10 @@ var element = $('#d076d225-b475-40b9-ba9b-453113d03255');
         Statistics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
           <i class="fa fa-tag"></i>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
-        Data Science Competition
+        Python
       </a>
     </span>
     <span class="tag-2">
@@ -2783,10 +2784,10 @@ var element = $('#d076d225-b475-40b9-ba9b-453113d03255');
         競技プログラミング
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
           <i class="fa fa-tag"></i>
-        Shell script
+        Machine Learning
       </a>
     </span>
 </p>
