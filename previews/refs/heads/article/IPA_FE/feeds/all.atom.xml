@@ -2284,10 +2284,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="43c49747-4422-4ce3-8640-90b77f7d8185"&gt;&lt;/div&gt;
+&lt;div id="ddda06e4-8e8c-4082-9c57-eb6a48d947e9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#43c49747-4422-4ce3-8640-90b77f7d8185');
+var element = $('#ddda06e4-8e8c-4082-9c57-eb6a48d947e9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -5569,15 +5569,13 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 &lt;p&gt;何はともあれ、&lt;strong&gt;基本情報技術者&lt;/strong&gt;というよくわからない肩書き（&lt;strong&gt;国家資格&lt;/strong&gt;？）を手に入れました（たぶん）。
 おしまい。&lt;/p&gt;
 &lt;h2&gt;注記&lt;/h2&gt;
-&lt;h3&gt;注1&lt;/h3&gt;
+&lt;h3&gt;注1 : HEMS&lt;/h3&gt;
 &lt;p&gt;HEMS = Home Energy Management System.&lt;/p&gt;
-&lt;h3&gt;注2&lt;/h3&gt;
-&lt;p&gt;(2019.06)
-試験結果開示は午前80.00点、午後95.00点。
+&lt;h3&gt;注2 : 試験結果 (2019.06)&lt;/h3&gt;
+&lt;p&gt;試験結果開示は午前80.00点、午後95.00点。
 ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  &lt;/p&gt;
-&lt;h3&gt;注3&lt;/h3&gt;
-&lt;p&gt;(2019.11)
-2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。&lt;br&gt;
+&lt;h3&gt;注3 : Python導入 (2019.11)&lt;/h3&gt;
+&lt;p&gt;2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。&lt;br&gt;
 &lt;a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html"&gt;https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html&lt;/a&gt;&lt;/p&gt;</content><category term="Blog"></category><category term="検定試験"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="/previews/refs/heads/article/IPA_FE/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-04-27:/previews/refs/heads/article/IPA_FE/blog/2019/04/competition_input.html</id><summary type="html">&lt;p&gt;AtCoderのABCで、これさえ覚えれば大丈夫！な入力のパターンについて解説します。&lt;/p&gt;</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。&lt;br&gt;
