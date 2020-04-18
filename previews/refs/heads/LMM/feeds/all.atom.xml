@@ -22,7 +22,7 @@ $$&lt;/div&gt;
 &lt;div class="math"&gt;$$
 Y_{ij}=\beta_1+\beta_2 t_{ij}+b_{1i}+b_{2i}t_{ij}+\epsilon_{ij}\qquad (j=1, 2, \cdots, n_i)
 $$&lt;/div&gt;
-&lt;p&gt;以下ではモデルを図で表す。&lt;/p&gt;
+&lt;p&gt;ただし、&lt;span class="math"&gt;\(t_{ij}\)&lt;/span&gt;は&lt;span class="math"&gt;\(i\)&lt;/span&gt;番目の被験者の&lt;span class="math"&gt;\(j\)&lt;/span&gt;番目の(イベント)時点である。以下ではモデルを図で表す。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/LMM/blog/2020/04/images/linear_mixed_model_figs/001.JPG"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/LMM/blog/2020/04/images/linear_mixed_model_figs/002.JPG"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/LMM/blog/2020/04/images/linear_mixed_model_figs/003.JPG"&gt;&lt;/p&gt;
@@ -2394,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="054b0af4-c968-482a-ac5f-0bb16e7fd30e"&gt;&lt;/div&gt;
+&lt;div id="258a4b00-b5a7-4e4c-ba25-fdfa5d63ebf4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#054b0af4-c968-482a-ac5f-0bb16e7fd30e');
+var element = $('#258a4b00-b5a7-4e4c-ba25-fdfa5d63ebf4');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
