@@ -1,5 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-04-14T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-04-06:oumpy.github.io/blog/2020/04/neural_tangents.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="oumpy.github.io/" rel="alternate"></link><link href="oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>oumpy.github.io/</id><updated>2020-04-14T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>線形混合効果モデル</title><link href="oumpy.github.io/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:None,2020-04-08:oumpy.github.io/blog/2020/04/linear_mixed_model.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
+&lt;p&gt;複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。&lt;/p&gt;
+&lt;h3&gt;経時測定データ解析の特徴&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;個体間誤差だけでなく、個体内誤差も考慮する必要がある。&lt;/li&gt;
+&lt;li&gt;個体内の各観測値は独立ではない為、相関を考慮する必要がある。&lt;/li&gt;
+&lt;li&gt;ランダム化比較試験 (RCT) では個体毎の測定回数は同じであることが多いが、観察研究では個体毎に測定回数がバラバラであることが多い。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;線形混合効果モデル&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(N\)&lt;/span&gt;人 (&lt;span class="math"&gt;\(i=1, 2, \cdots, N\)&lt;/span&gt;)の被験者を対象とする。&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(i\)&lt;/span&gt; 番目の被験者は &lt;span class="math"&gt;\(n_i\)&lt;/span&gt; 回測定されるとする。&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(Y_{ij}\)&lt;/span&gt; は、&lt;span class="math"&gt;\(i\)&lt;/span&gt; 番目の被験者の、&lt;span class="math"&gt;\(j\)&lt;/span&gt; 番目 (&lt;span class="math"&gt;\(j=1, 2, \cdots, n_i\)&lt;/span&gt;) の時点における被説明変数とする。&lt;/li&gt;
+&lt;li&gt;この時、線形混合モデルはベクトル表記にて、以下のように表される。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$
+\boldsymbol{Y}_i = X_i \boldsymbol{\beta} + Z_i \boldsymbol{b}_i + \epsilon_i
+$$&lt;/div&gt;
+&lt;p&gt;ただし、&lt;span class="math"&gt;\(\boldsymbol{\beta}\)&lt;/span&gt;は固定効果、&lt;span class="math"&gt;\(\boldsymbol{b}_i\)&lt;/span&gt;はランダム効果（変量効果）を表すベクトルとした。また、&lt;span class="math"&gt;\(X_i, Z_i\)&lt;/span&gt;は計画行列である。&lt;/p&gt;
+&lt;p&gt;ベクトル表現を書き下し、&lt;span class="math"&gt;\(i\)&lt;/span&gt; 番目の被験者の &lt;span class="math"&gt;\(j\)&lt;/span&gt; 番目時点の被説明変数 &lt;span class="math"&gt;\(Y_{ij}\)&lt;/span&gt; を線形混合効果モデルにて表現すると、以下のようになる。&lt;/p&gt;
+&lt;div class="math"&gt;$$
+Y_{ij}=\beta_1+\beta_2 t_{ij}+b_{1i}+b_{2i}t_{ij}+\epsilon_{ij}\qquad (j=1, 2, \cdots, n_i)
+$$&lt;/div&gt;
+&lt;p&gt;ただし、&lt;span class="math"&gt;\(t_{ij}\)&lt;/span&gt;は&lt;span class="math"&gt;\(i\)&lt;/span&gt;番目の被験者の&lt;span class="math"&gt;\(j\)&lt;/span&gt;番目の(イベント)時点である。以下ではモデルを図で表す。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/001.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/002.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/003.JPG"&gt;&lt;/p&gt;
+&lt;h2&gt;固定効果とランダム効果&lt;/h2&gt;
+&lt;p&gt;線形混合効果モデルは、&lt;strong&gt;固定効果&lt;/strong&gt;（fixed effect）と &lt;strong&gt;ランダム効果&lt;/strong&gt;（random effect）から構成される。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;固定効果（fixed effect）: population characteristics shared by all individuals&lt;/li&gt;
+&lt;li&gt;ランダム効果（random effect）: specific effects that are unique to particular individual&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;非線形混合効果モデル&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;データが線形モデルで表せない際に用いる。&lt;/li&gt;
+&lt;li&gt;母集団薬物動態解析、動物の成長曲線等の解析で用いられる。&lt;/li&gt;
+&lt;li&gt;数式では、以下のように書ける。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$
+Y_{ij}=f(t_{ij}, \boldsymbol{\beta}, \boldsymbol{b_i})+\epsilon_{ij}
+$$&lt;/div&gt;
+&lt;p&gt;ここで&lt;span class="math"&gt;\(\boldsymbol{\beta}\)&lt;/span&gt;は 固定効果、&lt;span class="math"&gt;\(\boldsymbol{b_i}\)&lt;/span&gt;はランダム効果（変量効果）を表すベクトルとした。また、&lt;span class="math"&gt;\(f(\cdot)\)&lt;/span&gt;は非線形関数であり、データの性状に応じて適切な関数を当てはめる&lt;/p&gt;
+&lt;h2&gt;引用文献&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;船渡川伊久子、船渡川隆（2015）統計解析スタンダート　経時データ解析. 朝倉書店.&lt;/li&gt;
+&lt;li&gt;田中豊、森川敏彦、山中竹春、冨田誠（2008）一般化線形モデル入門（原著第2版）. 共立出版.&lt;/li&gt;
+&lt;li&gt;Scott L. Zeger, Kung-Yee Liang, Paul S. Albert. Models for longitudinal data: a generalized estimating equation approach. Biometrics 1988;44:1049-1060.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="Blog"></category><category term="Statistics"></category></entry><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-04-06:oumpy.github.io/blog/2020/04/neural_tangents.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2284,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="2727e474-102d-40d2-8e58-5099d66f5b33"&gt;&lt;/div&gt;
+&lt;div id="e09b132c-379f-40f4-8b1a-d8b6f003d8fe"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2727e474-102d-40d2-8e58-5099d66f5b33');
+var element = $('#e09b132c-379f-40f4-8b1a-d8b6f003d8fe');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}

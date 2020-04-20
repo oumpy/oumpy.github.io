@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="組み込みでDeep Learningにつかえるハードについて"/>
-    <meta property="og:url" content="../../../blog/2018/09/hardware_for_deeplearning.html"/>
+    <meta property="og:title" content="線形混合効果モデル"/>
+    <meta property="og:url" content="../../../blog/2020/04/linear_mixed_model.html"/>
       <meta property="article:section" content="Blog"/>
-        <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="Statistics"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="組み込みでDeep Learningにつかえるハードについて">
+    <meta name="twitter:title" content="線形混合効果モデル">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>組み込みでDeep Learningにつかえるハードについて - 大阪大学医学部 Python会</title>
+    <title>線形混合効果モデル - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -108,9 +108,9 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="hardware_for_deeplearning">
+    <meta name="article:slug" property="og:article:slug" content="linear_mixed_model">
     <meta name="article:category" property="og:article:category" content="Blog">
-    <meta name="article:date" property="og:article:date" content="2018-09-09">
+    <meta name="article:date" property="og:article:date" content="2020-04-08">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -118,16 +118,16 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <abbr class="article-header-date">
-  2018-09-09(Sun)
+  2020-04-08(Wed)
 </abbr> <h1>
-  <a href="../../../blog/2018/09/hardware_for_deeplearning.html" rel="bookmark"
-     title="Permalink to 組み込みでDeep Learningにつかえるハードについて">
-    組み込みでDeep Learningにつかえるハードについて
+  <a href="../../../blog/2020/04/linear_mixed_model.html" rel="bookmark"
+     title="Permalink to 線形混合効果モデル">
+    線形混合効果モデル
   </a>
 </h1><div class="article-header-info">
   <p>
       Posted by 
-<a href="../../../author/an-shui.html">安水</a>    in 
+<a href="../../../author/zhu-nei.html">竹内</a>    in 
     <a href="../../../blog.html">
       技術ブログ
     </a>
@@ -138,36 +138,122 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>Rasberry pi</h2>
-<p>シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。</p>
+	<h2>経時測定データ解析</h2>
+<p>複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、<strong>経時測定データ</strong>（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。</p>
+<h3>経時測定データ解析の特徴</h3>
 <ul>
-<li><a href="http://www.cenav.org/raspi2/">計算工学ナビ : RaspberryPiでスパコンを作ろう</a></li>
-<li><a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1">Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する</a></li>
+<li>個体間誤差だけでなく、個体内誤差も考慮する必要がある。</li>
+<li>個体内の各観測値は独立ではない為、相関を考慮する必要がある。</li>
+<li>ランダム化比較試験 (RCT) では個体毎の測定回数は同じであることが多いが、観察研究では個体毎に測定回数がバラバラであることが多い。</li>
 </ul>
-<h2>スマホ</h2>
-<p>やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。</p>
+<h2>線形混合効果モデル</h2>
 <ul>
-<li><a href="https://www.sejuku.net/blog/55188">侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？</a></li>
+<li><span class="math">\(N\)</span>人 (<span class="math">\(i=1, 2, \cdots, N\)</span>)の被験者を対象とする。</li>
+<li><span class="math">\(i\)</span> 番目の被験者は <span class="math">\(n_i\)</span> 回測定されるとする。</li>
+<li><span class="math">\(Y_{ij}\)</span> は、<span class="math">\(i\)</span> 番目の被験者の、<span class="math">\(j\)</span> 番目 (<span class="math">\(j=1, 2, \cdots, n_i\)</span>) の時点における被説明変数とする。</li>
+<li>この時、線形混合モデルはベクトル表記にて、以下のように表される。</li>
 </ul>
-<h2>GPU</h2>
-<p>おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。</p>
-<h2>FPGA</h2>
-<p>Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。</p>
+<div class="math">$$
+\boldsymbol{Y}_i = X_i \boldsymbol{\beta} + Z_i \boldsymbol{b}_i + \epsilon_i
+$$</div>
+<p>ただし、<span class="math">\(\boldsymbol{\beta}\)</span>は固定効果、<span class="math">\(\boldsymbol{b}_i\)</span>はランダム効果（変量効果）を表すベクトルとした。また、<span class="math">\(X_i, Z_i\)</span>は計画行列である。</p>
+<p>ベクトル表現を書き下し、<span class="math">\(i\)</span> 番目の被験者の <span class="math">\(j\)</span> 番目時点の被説明変数 <span class="math">\(Y_{ij}\)</span> を線形混合効果モデルにて表現すると、以下のようになる。</p>
+<div class="math">$$
+Y_{ij}=\beta_1+\beta_2 t_{ij}+b_{1i}+b_{2i}t_{ij}+\epsilon_{ij}\qquad (j=1, 2, \cdots, n_i)
+$$</div>
+<p>ただし、<span class="math">\(t_{ij}\)</span>は<span class="math">\(i\)</span>番目の被験者の<span class="math">\(j\)</span>番目の(イベント)時点である。以下ではモデルを図で表す。</p>
+<p><img alt="1" src="../../../blog/2020/04/images/linear_mixed_model_figs/001.JPG"></p>
+<p><img alt="2" src="../../../blog/2020/04/images/linear_mixed_model_figs/002.JPG"></p>
+<p><img alt="3" src="../../../blog/2020/04/images/linear_mixed_model_figs/003.JPG"></p>
+<h2>固定効果とランダム効果</h2>
+<p>線形混合効果モデルは、<strong>固定効果</strong>（fixed effect）と <strong>ランダム効果</strong>（random effect）から構成される。</p>
 <ul>
-<li><a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9">Qiita : そろそろプログラマーもFPGAを触ってみよう！</a></li>
-<li><a href="http://science.sciencemag.org/content/360/6394/1246.full">Science : Gohst Cytometry</a></li>
+<li>固定効果（fixed effect）: population characteristics shared by all individuals</li>
+<li>ランダム効果（random effect）: specific effects that are unique to particular individual</li>
 </ul>
-<h2>jetson</h2>
-<p>NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。</p>
+<h2>非線形混合効果モデル</h2>
 <ul>
-<li><a href="https://qiita.com/ababa893/items/57b43e788d684c380866">Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで</a></li>
+<li>データが線形モデルで表せない際に用いる。</li>
+<li>母集団薬物動態解析、動物の成長曲線等の解析で用いられる。</li>
+<li>数式では、以下のように書ける。</li>
 </ul>
-<p>ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。</p>
+<div class="math">$$
+Y_{ij}=f(t_{ij}, \boldsymbol{\beta}, \boldsymbol{b_i})+\epsilon_{ij}
+$$</div>
+<p>ここで<span class="math">\(\boldsymbol{\beta}\)</span>は 固定効果、<span class="math">\(\boldsymbol{b_i}\)</span>はランダム効果（変量効果）を表すベクトルとした。また、<span class="math">\(f(\cdot)\)</span>は非線形関数であり、データの性状に応じて適切な関数を当てはめる</p>
+<h2>引用文献</h2>
+<ul>
+<li>船渡川伊久子、船渡川隆（2015）統計解析スタンダート　経時データ解析. 朝倉書店.</li>
+<li>田中豊、森川敏彦、山中竹春、冨田誠（2008）一般化線形モデル入門（原著第2版）. 共立出版.</li>
+<li>Scott L. Zeger, Kung-Yee Liang, Paul S. Albert. Models for longitudinal data: a generalized estimating equation approach. Biometrics 1988;44:1049-1060.</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/statistics.html"><i class="fa fa-tag"></i>Statistics</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -181,7 +267,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/09/hardware_for_deeplearning.html" 
+        data-href="../../../blog/2020/04/linear_mixed_model.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -197,9 +283,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
-        <li><a href="../../../blog/2019/10/GPUs_for_ML.html">機械学習のための最新GPU比較</a></li>
-        <li><a href="../../../blog/2018/12/doctor_exam_ai.html">【論文まとめ】医師国家試験問題自動生成AI</a></li>
+        <li><a href="../../../blog/2020/03/ica.html">ICA（独立成分分析）について</a></li>
+        <li><a href="../../../blog/2019/06/DABEST_tutorial.html">Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</a></li>
+        <li><a href="../../../blog/2019/03/lorenz.html">ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</a></li>
     </ul>
 </div>
 
