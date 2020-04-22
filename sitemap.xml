@@ -4,700 +4,700 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>oumpy.github.io/</loc>
-<lastmod>2020-04-22T10:03:18-00:00</lastmod>
+<loc>https://oumpy.github.io/</loc>
+<lastmod>2020-04-22T10:14:29-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tags.html</loc>
-<lastmod>2020-04-22T10:03:18-00:00</lastmod>
+<loc>https://oumpy.github.io/tags.html</loc>
+<lastmod>2020-04-22T10:14:29-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/categories.html</loc>
-<lastmod>2020-04-22T10:03:18-00:00</lastmod>
+<loc>https://oumpy.github.io/categories.html</loc>
+<lastmod>2020-04-22T10:14:29-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/authors.html</loc>
-<lastmod>2020-04-22T10:03:18-00:00</lastmod>
+<loc>https://oumpy.github.io/authors.html</loc>
+<lastmod>2020-04-22T10:14:29-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/archives.html</loc>
-<lastmod>2020-04-22T10:03:18-00:00</lastmod>
+<loc>https://oumpy.github.io/archives.html</loc>
+<lastmod>2020-04-22T10:14:29-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/</loc>
+<loc>https://oumpy.github.io/</loc>
 <lastmod>2020-03-24T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/activities.html</loc>
+<loc>https://oumpy.github.io/activities.html</loc>
 <lastmod>2020-03-22T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/achievements.html</loc>
+<loc>https://oumpy.github.io/achievements.html</loc>
 <lastmod>2020-03-24T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/recruit.html</loc>
+<loc>https://oumpy.github.io/recruit.html</loc>
 <lastmod>2020-04-05T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/contact.html</loc>
+<loc>https://oumpy.github.io/contact.html</loc>
 <lastmod>2020-03-17T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2020/04/linear_mixed_model.html</loc>
+<loc>https://oumpy.github.io/blog/2020/04/linear_mixed_model.html</loc>
 <lastmod>2020-04-08T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2020/04/neural_tangents.html</loc>
+<loc>https://oumpy.github.io/blog/2020/04/neural_tangents.html</loc>
 <lastmod>2020-04-14T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2020/03/ica.html</loc>
+<loc>https://oumpy.github.io/blog/2020/03/ica.html</loc>
 <lastmod>2020-03-29T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/news/2020/03/website_integration.html</loc>
+<loc>https://oumpy.github.io/news/2020/03/website_integration.html</loc>
 <lastmod>2020-03-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/news/2020/03/website_renewal.html</loc>
+<loc>https://oumpy.github.io/news/2020/03/website_renewal.html</loc>
 <lastmod>2020-03-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2020/02/shellscript_tutorial.html</loc>
+<loc>https://oumpy.github.io/blog/2020/02/shellscript_tutorial.html</loc>
 <lastmod>2020-02-26T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html</loc>
+<loc>https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html</loc>
 <lastmod>2019-12-23T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/10/GPUs_for_ML.html</loc>
+<loc>https://oumpy.github.io/blog/2019/10/GPUs_for_ML.html</loc>
 <lastmod>2019-10-07T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html</loc>
+<loc>https://oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html</loc>
 <lastmod>2019-06-24T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/06/DABEST_tutorial.html</loc>
+<loc>https://oumpy.github.io/blog/2019/06/DABEST_tutorial.html</loc>
 <lastmod>2019-06-23T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/06/cancer_signature.html</loc>
+<loc>https://oumpy.github.io/blog/2019/06/cancer_signature.html</loc>
 <lastmod>2019-06-21T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/05/IPA_FE.html</loc>
+<loc>https://oumpy.github.io/blog/2019/05/IPA_FE.html</loc>
 <lastmod>2019-11-21T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/04/competition_input.html</loc>
+<loc>https://oumpy.github.io/blog/2019/04/competition_input.html</loc>
 <lastmod>2019-04-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/study_abroad.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/study_abroad.html</loc>
 <lastmod>2019-03-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/voice_recognition.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/voice_recognition.html</loc>
 <lastmod>2019-03-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/lorenz.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/lorenz.html</loc>
 <lastmod>2019-03-25T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/velocyto.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/velocyto.html</loc>
 <lastmod>2019-03-24T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/n_number.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/n_number.html</loc>
 <lastmod>2019-03-22T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/original_rnaseq_pipeline.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/original_rnaseq_pipeline.html</loc>
 <lastmod>2019-03-19T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/julia_python_competition.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/julia_python_competition.html</loc>
 <lastmod>2019-03-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/03/mishima.html</loc>
+<loc>https://oumpy.github.io/blog/2019/03/mishima.html</loc>
 <lastmod>2019-03-10T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/01/mockinbird_parclip.html</loc>
+<loc>https://oumpy.github.io/blog/2019/01/mockinbird_parclip.html</loc>
 <lastmod>2019-01-18T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/01/python_visualization.html</loc>
+<loc>https://oumpy.github.io/blog/2019/01/python_visualization.html</loc>
 <lastmod>2019-01-18T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2019/01/twitter_automation.html</loc>
+<loc>https://oumpy.github.io/blog/2019/01/twitter_automation.html</loc>
 <lastmod>2019-01-18T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/12/doctor_exam_ai.html</loc>
+<loc>https://oumpy.github.io/blog/2018/12/doctor_exam_ai.html</loc>
 <lastmod>2018-12-20T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/12/python_value.html</loc>
+<loc>https://oumpy.github.io/blog/2018/12/python_value.html</loc>
 <lastmod>2018-12-20T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/12/cwl.html</loc>
+<loc>https://oumpy.github.io/blog/2018/12/cwl.html</loc>
 <lastmod>2018-12-07T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/12/animalshogi.html</loc>
+<loc>https://oumpy.github.io/blog/2018/12/animalshogi.html</loc>
 <lastmod>2018-12-06T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/gsea.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/gsea.html</loc>
 <lastmod>2018-11-27T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/RDKit.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/RDKit.html</loc>
 <lastmod>2018-11-21T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/handai_math.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/handai_math.html</loc>
 <lastmod>2018-11-20T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/kaplan_meier_curve.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/kaplan_meier_curve.html</loc>
 <lastmod>2018-11-20T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/pandas_pivot_table.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/pandas_pivot_table.html</loc>
 <lastmod>2018-11-17T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/shellscript_2.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/shellscript_2.html</loc>
 <lastmod>2018-11-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/11/shellscript_1.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/shellscript_1.html</loc>
 <lastmod>2018-11-01T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/macs2_deeptools.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/macs2_deeptools.html</loc>
 <lastmod>2018-10-29T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/github_desktop.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/github_desktop.html</loc>
 <lastmod>2018-10-28T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/environment_bioinformatics.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/environment_bioinformatics.html</loc>
 <lastmod>2018-10-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/kallisto_rnaseq_pipeline.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/kallisto_rnaseq_pipeline.html</loc>
 <lastmod>2018-10-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/bayesian_ttest.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/bayesian_ttest.html</loc>
 <lastmod>2018-10-13T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/google_colaboratory.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/google_colaboratory.html</loc>
 <lastmod>2018-10-08T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/10/particle_filter.html</loc>
+<loc>https://oumpy.github.io/blog/2018/10/particle_filter.html</loc>
 <lastmod>2018-10-05T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/breast_cancer_detection.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/breast_cancer_detection.html</loc>
 <lastmod>2018-09-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/cluster_analysis.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/cluster_analysis.html</loc>
 <lastmod>2018-09-24T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/sushi_typing.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/sushi_typing.html</loc>
 <lastmod>2018-09-20T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/umap.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/umap.html</loc>
 <lastmod>2018-09-15T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/regular_expression.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/regular_expression.html</loc>
 <lastmod>2018-09-12T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/article_reading.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/article_reading.html</loc>
 <lastmod>2018-09-09T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/hardware_for_deeplearning.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/hardware_for_deeplearning.html</loc>
 <lastmod>2018-09-09T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/parameter_tuning.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/parameter_tuning.html</loc>
 <lastmod>2018-09-09T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog/2018/09/webscraping.html</loc>
+<loc>https://oumpy.github.io/blog/2018/09/webscraping.html</loc>
 <lastmod>2018-09-09T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/blog.html</loc>
+<loc>https://oumpy.github.io/blog.html</loc>
 <lastmod>2020-04-14T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/news.html</loc>
+<loc>https://oumpy.github.io/news.html</loc>
 <lastmod>2020-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/statistics.html</loc>
+<loc>https://oumpy.github.io/tag/statistics.html</loc>
 <lastmod>2020-04-08T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/machine-learning.html</loc>
+<loc>https://oumpy.github.io/tag/machine-learning.html</loc>
 <lastmod>2020-04-14T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/news.html</loc>
+<loc>https://oumpy.github.io/tag/news.html</loc>
 <lastmod>2020-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/shell-script.html</loc>
+<loc>https://oumpy.github.io/tag/shell-script.html</loc>
 <lastmod>2020-02-26T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/bioinformatics.html</loc>
+<loc>https://oumpy.github.io/tag/bioinformatics.html</loc>
 <lastmod>2019-12-23T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/jing-ji-puroguramingu.html</loc>
+<loc>https://oumpy.github.io/tag/jing-ji-puroguramingu.html</loc>
 <lastmod>2019-06-24T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/jian-ding-shi-yan.html</loc>
+<loc>https://oumpy.github.io/tag/jian-ding-shi-yan.html</loc>
 <lastmod>2019-11-21T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/hai-wai-liu-xue.html</loc>
+<loc>https://oumpy.github.io/tag/hai-wai-liu-xue.html</loc>
 <lastmod>2019-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/data-science-competition.html</loc>
+<loc>https://oumpy.github.io/tag/data-science-competition.html</loc>
 <lastmod>2019-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/python.html</loc>
+<loc>https://oumpy.github.io/tag/python.html</loc>
 <lastmod>2019-01-18T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/github.html</loc>
+<loc>https://oumpy.github.io/tag/github.html</loc>
 <lastmod>2018-10-28T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/tag/lun-wen-guan-lian.html</loc>
+<loc>https://oumpy.github.io/tag/lun-wen-guan-lian.html</loc>
 <lastmod>2018-09-09T23:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/an-shui.html</loc>
+<loc>https://oumpy.github.io/author/an-shui.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/ao-tian.html</loc>
+<loc>https://oumpy.github.io/author/ao-tian.html</loc>
 <lastmod>2020-03-29T23:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/chuan-dao.html</loc>
+<loc>https://oumpy.github.io/author/chuan-dao.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/chuan-qi.html</loc>
+<loc>https://oumpy.github.io/author/chuan-qi.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/da-sen.html</loc>
+<loc>https://oumpy.github.io/author/da-sen.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/dan-tian.html</loc>
+<loc>https://oumpy.github.io/author/dan-tian.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/gong-qi.html</loc>
+<loc>https://oumpy.github.io/author/gong-qi.html</loc>
 <lastmod>2019-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/guang-lai.html</loc>
+<loc>https://oumpy.github.io/author/guang-lai.html</loc>
 <lastmod>2019-03-24T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/jia-teng.html</loc>
+<loc>https://oumpy.github.io/author/jia-teng.html</loc>
 <lastmod>2019-06-24T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/jian-bo.html</loc>
+<loc>https://oumpy.github.io/author/jian-bo.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/jin-zi.html</loc>
+<loc>https://oumpy.github.io/author/jin-zi.html</loc>
 <lastmod>2018-11-17T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/liu-ze.html</loc>
+<loc>https://oumpy.github.io/author/liu-ze.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/ping-gang.html</loc>
+<loc>https://oumpy.github.io/author/ping-gang.html</loc>
 <lastmod>2019-03-25T23:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/pythonhui.html</loc>
+<loc>https://oumpy.github.io/author/pythonhui.html</loc>
 <lastmod>2020-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/qiu-shan.html</loc>
+<loc>https://oumpy.github.io/author/qiu-shan.html</loc>
 <lastmod>2018-12-20T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/shan-ben.html</loc>
+<loc>https://oumpy.github.io/author/shan-ben.html</loc>
 <lastmod>2020-04-14T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/shan-tian.html</loc>
+<loc>https://oumpy.github.io/author/shan-tian.html</loc>
 <lastmod>2020-02-26T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/shui-ye.html</loc>
+<loc>https://oumpy.github.io/author/shui-ye.html</loc>
 <lastmod>2018-11-16T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/xi-tian.html</loc>
+<loc>https://oumpy.github.io/author/xi-tian.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/xi-yuan.html</loc>
+<loc>https://oumpy.github.io/author/xi-yuan.html</loc>
 <lastmod>2018-09-12T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/xiao-chuan.html</loc>
+<loc>https://oumpy.github.io/author/xiao-chuan.html</loc>
 <lastmod>2019-12-23T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/yi-teng.html</loc>
+<loc>https://oumpy.github.io/author/yi-teng.html</loc>
 <lastmod>2019-03-22T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/zhong-cun.html</loc>
+<loc>https://oumpy.github.io/author/zhong-cun.html</loc>
 <lastmod>2019-03-19T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/zhu-nei.html</loc>
+<loc>https://oumpy.github.io/author/zhu-nei.html</loc>
 <lastmod>2020-04-08T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>oumpy.github.io/author/zuo-teng.html</loc>
+<loc>https://oumpy.github.io/author/zuo-teng.html</loc>
 <lastmod>2019-03-29T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
