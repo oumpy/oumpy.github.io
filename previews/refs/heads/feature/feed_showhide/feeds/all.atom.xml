@@ -2394,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="7b36681e-a4a3-4769-aa43-129c8be00eee"&gt;&lt;/div&gt;
+&lt;div id="6139d7e3-d3c9-4028-a82c-83a9a3c66b28"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7b36681e-a4a3-4769-aa43-129c8be00eee');
+var element = $('#6139d7e3-d3c9-4028-a82c-83a9a3c66b28');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
