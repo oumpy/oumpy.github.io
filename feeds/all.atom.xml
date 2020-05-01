@@ -2394,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="7373646b-e48f-4b26-a18d-65ba2d1600cb"&gt;&lt;/div&gt;
+&lt;div id="ededb62b-2f03-407b-b268-9f04c03ba4bd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7373646b-e48f-4b26-a18d-65ba2d1600cb');
+var element = $('#ededb62b-2f03-407b-b268-9f04c03ba4bd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -17612,13 +17612,7 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://datanongrata.com/2019/04/27/67/"&gt;http://datanongrata.com/2019/04/27/67/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours"&gt;https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Pythonではじめる機械学習 オライリー社&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>寿司打タイピング自動化</title><link href="https://oumpy.github.io/blog/2018/09/sushi_typing.html" rel="alternate"></link><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-20:/blog/2018/09/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;span class="videobox"&gt;
-                &lt;iframe width="640" height="390"
-                    src='https://www.youtube.com/embed/SqOO9I1tFjk'
-                    frameborder='0' webkitAllowFullScreen mozallowfullscreen
-                    allowFullScreen&gt;
-                &lt;/iframe&gt;
-            &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>寿司打タイピング自動化</title><link href="https://oumpy.github.io/blog/2018/09/sushi_typing.html" rel="alternate"></link><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-20:/blog/2018/09/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;{% youtube SqOO9I1tFjk %}&lt;/p&gt;
 &lt;p&gt;寿司打の自動化についてです。上の動画のようになりました。寿司打は結構昔からあるタイピング練習サイトです。寿司打は&lt;a href="http://typing.sakura.ne.jp/sushida/"&gt;こちら&lt;/a&gt;です。
 1万円コースで1万円超えない人はタイピング遅いので特訓しましょう。&lt;/p&gt;
 &lt;p&gt;自動化の流れとしては&lt;/p&gt;
