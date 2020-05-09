@@ -11,6 +11,7 @@
     <meta property="og:title" content="NTT corevoチャレンジ: 話者の性別・年代識別"/>
     <meta property="og:url" content="../../../blog/2019/03/voice_recognition.html"/>
       <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Machine Learning"/>
         <meta property="article:tag" content="Data Science Competition"/>
       <meta property="article:author"
             content="Python会"/>
@@ -128,7 +129,8 @@
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data Science Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition"></img></a>
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../../../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data Science Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
@@ -144,6 +146,7 @@
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
 	<a href="../../../tag/data-science-competition.html"><i class="fa fa-tag"></i>Data Science Competition</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
@@ -174,7 +177,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2018/11/pandas_pivot_table.html">pandasのpivot_tableを用いた高速データ処理</a></li>
+        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
+        <li><a href="../../../blog/2019/10/GPUs_for_ML.html">機械学習のための最新GPU比較</a></li>
+        <li><a href="../../../blog/2018/12/doctor_exam_ai.html">【論文まとめ】医師国家試験問題自動生成AI</a></li>
     </ul>
 </div>
 
@@ -183,7 +188,6 @@
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
-
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -200,6 +204,9 @@
   <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
     <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
   </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
   <li><a href="./feeds/all.atom.xml" target="_blank" title="Atom Feed">
     <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
   </a></li>
@@ -209,86 +216,130 @@
 </ul>
 </div>
 </div>
-
-
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">4/8</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/04/linear_mixed_model.html"><span class="recent-posts-title">線形混合効果モデル</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">4/6</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/04/neural_tangents.html"><span class="recent-posts-title">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/29</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/03/ica.html"><span class="recent-posts-title">ICA（独立成分分析）について</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/29</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/24</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">11</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">1</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         競技プログラミング
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">2</span>
+        News
+      </a>
+    </span>
 </p>
-</div>
-</div> <!-- col -->
+</div></div> <!-- col -->
 <div class="col-md-12 col-sm-8 col-xs-12">
 <div class="sidebar_box">
 <div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>

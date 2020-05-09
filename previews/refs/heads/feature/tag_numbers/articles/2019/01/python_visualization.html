@@ -128,7 +128,7 @@
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
@@ -139,15 +139,15 @@
 <p>これを読めばそんなあなたも簡単にいい感じのグラフがかける！</p>
 <p>この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、複数グラフ表示が簡単にできるラッパーであるholoviewsの簡単な解説をします。</p>
 <h2>Pythonの可視化ライブラリ</h2>
-<h3>matplotlib：<u><a href="https://seaborn.pydata.org/">https://matplotlib.org/</a></u>(公式)</h3></h3>
+<h3>matplotlib：<u><a href="https://seaborn.pydata.org/">https://matplotlib.org/</a></u>(公式)</h3>
 <p>定番のmatplotlibです。まずはギャラリー ( <u><a href="https://matplotlib.org/gallery/index.html">https://matplotlib.org/gallery/index.html</a></u>)でいろいろなグラフを見てみましょう。グラフがたくさん並んでいて楽しいですね！</p>
-<h3>seaborn：<u><a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></u>(公式)</h3></h3>
+<h3>seaborn：<u><a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></u>(公式)</h3>
 <p>matplotlibをベースにしたseabornです。こちらもギャラリー(<u><a href="https://seaborn.pydata.org/examples/index.html">https://seaborn.pydata.org/examples/index.htm</a><a href="https://seaborn.pydata.org/examples/index.html">l</a></u>)を見てみましょう。ヒートマップがおしゃれですね！</p>
-<h3>pandas：<u><a href="https://pandas.pydata.org/index.html">https://pandas.pydata.org/index.html</a></u>(公式)</h3></h3>
+<h3>pandas：<u><a href="https://pandas.pydata.org/index.html">https://pandas.pydata.org/index.html</a></u>(公式)</h3>
 <p>表計算で便利なpandasです。DataFrame形式のデータをpandas.DataFrame.plot(<u><a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html">http://pandas.pydata.org/pandas-docs/stable/visualization.html</a></u>)でグラフを書くのが一番手間がかからない気がします。bar(棒グラフ)やhistogramやscatter(散布図)を作るならこれで十分なことが多いです。DataFrameの.describe (<u><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html</a></u>)で統計量が簡単に計算できるので、グラフがあっているかの確認も一連の流れでできます。</p>
-<h3>plotly：<u><a href="https://plot.ly/">https://plot.ly/</a></u>(公式)</h3></h3>
+<h3>plotly：<u><a href="https://plot.ly/">https://plot.ly/</a></u>(公式)</h3>
 <p>インタラクティブに動かせるplotlyです。<u><a href="https://plot.ly/python/">https://plot.ly/python/</a></u>(Python用) を見てみると、なんとグラフを動かせます！楽しい！Kaggleでもよく見ます。データ構造を調べるのに便利だからかもしれないですね。(例<u><a href="https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=Weekly-Kernel-Awards">https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=Weekly-Kernel-Awards</a></u>) Dashと組み合わせると ( <u><a href="https://plot.ly/products/dash/">https://plot.ly/products/dash/</a></u>) 簡単にWebアプリにできます。</p>
-<h3>holoview：<u><a href="http://holoviews.org/">http://holoviews.org/</a></u>(公式)</h3></h3>
+<h3>holoview：<u><a href="http://holoviews.org/">http://holoviews.org/</a></u>(公式)</h3>
 <p>Pythonの可視化ツールはHoloViewsが標準になるかもしれない(<u><a href="https://qiita.com/driller/items/53be86cea3c3201e7e0f">https://qiita.com/driller/items/53be86cea3c3201e7e0f</a></u>)とまで言われるholoviewは、matplotlibやplotly、bokehを簡単に使えるようにするラッパーです。特筆すべき機能として、introduction(<u><a href="http://holoviews.org/getting_started/Introduction.html">http://holoviews.org/getting_started/Introduction.html</a></u>)をみるとわかるのですが、複数グラフ表示は足し算(例：<code>Compositional Layouts layout =scatter +hv.Histogram</code>)、オーバーレイは掛け算(例：<code>Compositional Overlays image +image*points</code>)で定義できとてもシンプルに書くことができます。</p>
 <p>可視化のまとめ(kaggle：<u><a href="https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial">https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial</a></u>)もよくまとまっていて非常に勉強になります。</p>
 <p>そのほかにも、tensorflowの embedding <u><a href="https://www.tensorflow.org/guide/embedding">https://www.tensorflow.org/guide/embedding</a></u>から Mnist や Word2Vecのデモ <u><a href="http://projector.tensorflow.org/">http://projector.tensorflow.org/</a></u>(重いかも) や <u><a href="https://distill.pub/">https://distill.pub/</a></u>も動かしてみると楽しいです！</p>
@@ -202,7 +202,6 @@
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
-
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -219,6 +218,9 @@
   <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
     <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
   </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
   <li><a href="./feeds/all.atom.xml" target="_blank" title="Atom Feed">
     <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
   </a></li>
@@ -228,86 +230,130 @@
 </ul>
 </div>
 </div>
-
-
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">4/8</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/04/linear_mixed_model.html"><span class="recent-posts-title">線形混合効果モデル</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">4/6</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/04/neural_tangents.html"><span class="recent-posts-title">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/29</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/03/ica.html"><span class="recent-posts-title">ICA（独立成分分析）について</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/29</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/24</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">11</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">1</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         競技プログラミング
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">2</span>
+        News
+      </a>
+    </span>
 </p>
-</div>
-</div> <!-- col -->
+</div></div> <!-- col -->
 <div class="col-md-12 col-sm-8 col-xs-12">
 <div class="sidebar_box">
 <div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
