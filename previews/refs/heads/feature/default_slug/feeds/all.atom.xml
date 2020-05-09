@@ -2394,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="f2e45b29-6a44-45db-8ea6-a1b786c91f1c"&gt;&lt;/div&gt;
+&lt;div id="0d04c6b1-1346-4fbd-b305-6decafcb7a0e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f2e45b29-6a44-45db-8ea6-a1b786c91f1c');
+var element = $('#0d04c6b1-1346-4fbd-b305-6decafcb7a0e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -5814,7 +5814,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="/previews/refs/heads/feature/default_slug/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-03-25:/previews/refs/heads/feature/default_slug/blog/2019/03/lorenz.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="/previews/refs/heads/feature/default_slug/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-03-25:/previews/refs/heads/feature/default_slug/blog/2019/03/lorenz.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -8435,15 +8435,15 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;p&gt;これを読めばそんなあなたも簡単にいい感じのグラフがかける！&lt;/p&gt;
 &lt;p&gt;この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、複数グラフ表示が簡単にできるラッパーであるholoviewsの簡単な解説をします。&lt;/p&gt;
 &lt;h2&gt;Pythonの可視化ライブラリ&lt;/h2&gt;
-&lt;h3&gt;matplotlib：&lt;u&gt;&lt;a href="https://seaborn.pydata.org/"&gt;https://matplotlib.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;&lt;/h3&gt;
+&lt;h3&gt;matplotlib：&lt;u&gt;&lt;a href="https://seaborn.pydata.org/"&gt;https://matplotlib.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;
 &lt;p&gt;定番のmatplotlibです。まずはギャラリー ( &lt;u&gt;&lt;a href="https://matplotlib.org/gallery/index.html"&gt;https://matplotlib.org/gallery/index.html&lt;/a&gt;&lt;/u&gt;)でいろいろなグラフを見てみましょう。グラフがたくさん並んでいて楽しいですね！&lt;/p&gt;
-&lt;h3&gt;seaborn：&lt;u&gt;&lt;a href="https://seaborn.pydata.org/"&gt;https://seaborn.pydata.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;&lt;/h3&gt;
+&lt;h3&gt;seaborn：&lt;u&gt;&lt;a href="https://seaborn.pydata.org/"&gt;https://seaborn.pydata.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;
 &lt;p&gt;matplotlibをベースにしたseabornです。こちらもギャラリー(&lt;u&gt;&lt;a href="https://seaborn.pydata.org/examples/index.html"&gt;https://seaborn.pydata.org/examples/index.htm&lt;/a&gt;&lt;a href="https://seaborn.pydata.org/examples/index.html"&gt;l&lt;/a&gt;&lt;/u&gt;)を見てみましょう。ヒートマップがおしゃれですね！&lt;/p&gt;
-&lt;h3&gt;pandas：&lt;u&gt;&lt;a href="https://pandas.pydata.org/index.html"&gt;https://pandas.pydata.org/index.html&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;&lt;/h3&gt;
+&lt;h3&gt;pandas：&lt;u&gt;&lt;a href="https://pandas.pydata.org/index.html"&gt;https://pandas.pydata.org/index.html&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;
 &lt;p&gt;表計算で便利なpandasです。DataFrame形式のデータをpandas.DataFrame.plot(&lt;u&gt;&lt;a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html"&gt;http://pandas.pydata.org/pandas-docs/stable/visualization.html&lt;/a&gt;&lt;/u&gt;)でグラフを書くのが一番手間がかからない気がします。bar(棒グラフ)やhistogramやscatter(散布図)を作るならこれで十分なことが多いです。DataFrameの.describe (&lt;u&gt;&lt;a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html"&gt;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html&lt;/a&gt;&lt;/u&gt;)で統計量が簡単に計算できるので、グラフがあっているかの確認も一連の流れでできます。&lt;/p&gt;
-&lt;h3&gt;plotly：&lt;u&gt;&lt;a href="https://plot.ly/"&gt;https://plot.ly/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;&lt;/h3&gt;
+&lt;h3&gt;plotly：&lt;u&gt;&lt;a href="https://plot.ly/"&gt;https://plot.ly/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;
 &lt;p&gt;インタラクティブに動かせるplotlyです。&lt;u&gt;&lt;a href="https://plot.ly/python/"&gt;https://plot.ly/python/&lt;/a&gt;&lt;/u&gt;(Python用) を見てみると、なんとグラフを動かせます！楽しい！Kaggleでもよく見ます。データ構造を調べるのに便利だからかもしれないですね。(例&lt;u&gt;&lt;a href="https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;amp;utm_source=twitter.com&amp;amp;utm_campaign=Weekly-Kernel-Awards"&gt;https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;amp;utm_source=twitter.com&amp;amp;utm_campaign=Weekly-Kernel-Awards&lt;/a&gt;&lt;/u&gt;) Dashと組み合わせると ( &lt;u&gt;&lt;a href="https://plot.ly/products/dash/"&gt;https://plot.ly/products/dash/&lt;/a&gt;&lt;/u&gt;) 簡単にWebアプリにできます。&lt;/p&gt;
-&lt;h3&gt;holoview：&lt;u&gt;&lt;a href="http://holoviews.org/"&gt;http://holoviews.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;&lt;/h3&gt;
+&lt;h3&gt;holoview：&lt;u&gt;&lt;a href="http://holoviews.org/"&gt;http://holoviews.org/&lt;/a&gt;&lt;/u&gt;(公式)&lt;/h3&gt;
 &lt;p&gt;Pythonの可視化ツールはHoloViewsが標準になるかもしれない(&lt;u&gt;&lt;a href="https://qiita.com/driller/items/53be86cea3c3201e7e0f"&gt;https://qiita.com/driller/items/53be86cea3c3201e7e0f&lt;/a&gt;&lt;/u&gt;)とまで言われるholoviewは、matplotlibやplotly、bokehを簡単に使えるようにするラッパーです。特筆すべき機能として、introduction(&lt;u&gt;&lt;a href="http://holoviews.org/getting_started/Introduction.html"&gt;http://holoviews.org/getting_started/Introduction.html&lt;/a&gt;&lt;/u&gt;)をみるとわかるのですが、複数グラフ表示は足し算(例：&lt;code&gt;Compositional Layouts layout =scatter +hv.Histogram&lt;/code&gt;)、オーバーレイは掛け算(例：&lt;code&gt;Compositional Overlays image +image*points&lt;/code&gt;)で定義できとてもシンプルに書くことができます。&lt;/p&gt;
 &lt;p&gt;可視化のまとめ(kaggle：&lt;u&gt;&lt;a href="https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial"&gt;https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial&lt;/a&gt;&lt;/u&gt;)もよくまとまっていて非常に勉強になります。&lt;/p&gt;
 &lt;p&gt;そのほかにも、tensorflowの embedding &lt;u&gt;&lt;a href="https://www.tensorflow.org/guide/embedding"&gt;https://www.tensorflow.org/guide/embedding&lt;/a&gt;&lt;/u&gt;から Mnist や Word2Vecのデモ &lt;u&gt;&lt;a href="http://projector.tensorflow.org/"&gt;http://projector.tensorflow.org/&lt;/a&gt;&lt;/u&gt;(重いかも) や &lt;u&gt;&lt;a href="https://distill.pub/"&gt;https://distill.pub/&lt;/a&gt;&lt;/u&gt;も動かしてみると楽しいです！&lt;/p&gt;
