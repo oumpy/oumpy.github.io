@@ -272,7 +272,55 @@
   </p>
 </div> <!-- /.article-header-info -->  
       <div class="summary">
-		    O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。</p>
+<p>正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><h3 id="メタ文字">&#12513;&#12479;&#25991;&#23383;<a class="anchor-link" href="#メタ文字">&#182;</a></h3><ul>
+<li><code>?</code>は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）</li>
+<li><code>*</code>は、直前のグループの0回以上の出現にマッチする。</li>
+<li><code>+</code>は、直前のグループの1回以上の出現にマッチする。</li>
+<li><code>{n}</code>は、直前のグループのn回の出現にマッチする。</li>
+<li><code>{n,}</code>は、直前のグループのn回以上の出現にマッチする。</li>
+<li><code>{,m}</code>は、直前のグループの0~m回の出現にマッチする。</li>
+<li><code>{n,m}?</code>、<code>?</code>、<code>+?</code>は直前のグループの非貪欲マッチを行う。</li>
+</ul>
+<h3 id="文字集合">&#25991;&#23383;&#38598;&#21512;<a class="anchor-link" href="#文字集合">&#182;</a></h3><ul>
+<li><code>\d</code>：0~9の数字</li>
+<li><code>\D</code>：0~9の数字以外</li>
+<li><code>\w</code>：文字、数字、下線（単語wordのw）</li>
+<li><code>\W</code>：文字、数字、下線以外</li>
+<li><code>\s</code>：スペース、タブ、改行（空白spaceのs）</li>
+<li><code>\S</code>：スペース、タブ、改行以外</li>
+</ul>
+<h3 id="正規表現マッチのまとめ">&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;<a class="anchor-link" href="#正規表現マッチのまとめ">&#182;</a></h3><ul>
+<li><code>re</code>モジュール</li>
+<li><code>re.compile()</code>関数</li>
+<li><code>search()</code>メソッド</li>
+<li><code>group()</code>メソッド</li>
+<li><code>findall()</code>メソッド</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="実践">&#23455;&#36341;<a class="anchor-link" href="#実践">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 		<p class="content-emphasis"><a href="../../../blog/2018/09/regular_expression.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -468,28 +516,16 @@
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
           <i class="fa fa-tag"></i>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
           <i class="fa fa-tag"></i>
-        Shell script
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
@@ -499,21 +535,39 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../../../tag/python.html">
           <i class="fa fa-tag"></i>
         Python
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
           <i class="fa fa-tag"></i>
-        Bioinformatics
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <i class="fa fa-tag"></i>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <i class="fa fa-tag"></i>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <i class="fa fa-tag"></i>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <i class="fa fa-tag"></i>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
@@ -522,10 +576,10 @@
         論文関連
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
+    <span class="tag-3">
+      <a href="../../../tag/news.html">
           <i class="fa fa-tag"></i>
-        競技プログラミング
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -535,15 +589,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <i class="fa fa-tag"></i>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
+        検定試験
       </a>
     </span>
 </p>

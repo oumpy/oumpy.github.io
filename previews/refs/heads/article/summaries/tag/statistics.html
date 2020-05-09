@@ -197,7 +197,20 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		    このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。 <strong>ローレンツ曲線とは<a class="anchor-link" href="#ローレンツ曲線とは"> </a></strong>ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。</p>
+<h2 id="ローレンツ曲線とは">&#12525;&#12540;&#12524;&#12531;&#12484;&#26354;&#32218;&#12392;&#12399;<a class="anchor-link" href="#ローレンツ曲線とは">&#182;</a></h2><p>ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。</p>
+<h2 id="ローレンツ曲線の使用法">&#12525;&#12540;&#12524;&#12531;&#12484;&#26354;&#32218;&#12398;&#20351;&#29992;&#27861;<a class="anchor-link" href="#ローレンツ曲線の使用法">&#182;</a></h2><p>何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。</p>
+<p>今回は日本人の年収に偏りがあるのかローレンツ曲線を使って見てみたいと思います。
+<a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html">厚生労働省のHPから</a>から、<a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls">世帯別年収データ</a>をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは<a href="/previews/refs/heads/article/summaries/blog/2019/03/data/income.csv">こちら</a>にあります。コードを動かす際にはデータをダウンロードして<code>data/income.csv</code>のように配置してください。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 		<p class="content-emphasis"><a href="../blog/2019/03/lorenz.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -247,7 +260,39 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		    <strong>はじめに<a class="anchor-link" href="#はじめに"> </a></strong><strong>書こうと思ったきっかけ<a class="anchor-link" href="#書こうと思ったきっかけ"> </a></strong>実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。 だいたい <strong>Kaplan-Meier曲線</strong> が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="はじめに">&#12399;&#12376;&#12417;&#12395;<a class="anchor-link" href="#はじめに">&#182;</a></h2><h3 id="書こうと思ったきっかけ">&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;<a class="anchor-link" href="#書こうと思ったきっかけ">&#182;</a></h3><p>実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
+だいたい <strong>Kaplan-Meier曲線</strong> が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。</p>
+<h3 id="Kaplan-Meier-曲線とは">Kaplan-Meier &#26354;&#32218;&#12392;&#12399;<a class="anchor-link" href="#Kaplan-Meier-曲線とは">&#182;</a></h3><p><a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A">Wikipedia</a>によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって</p>
+<ul>
+<li>観察期間は限られている(患者さんを何年もフォローすることはできない)</li>
+<li>観察不能になることがある(病院移った、他の要因で死亡したなど)</li>
+<li>患者さんによって観察開始時間は様々(みんな一緒に罹患したり治療を開始するわけではない)
+そういった問題をうまく対処してくれるのがKaplan-Meier曲線。</li>
+</ul>
+<p>Kaplan-Meier曲線の縦軸は累積生存率で、</p>
+$$
+S(t)=\prod_j^t  \left(1-\frac{d_j}{n_j}\right)
+$$<p>で表されます。ここで$d_j$は時間$j$における死亡者数で、$n_j$は時間$j$における生存者数です。</p>
+<p>今回はpythonのコードでKaplan-Meier曲線を書いていこうと思います。
+pythonのライブラリにlifelinesという便利なライブラリがあるのでそれを使っていこうと思います。installはpipでできます：<code>pip install lifelines</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="データの準備">&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;<a class="anchor-link" href="#データの準備">&#182;</a></h2><p>ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
+ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 		<p class="content-emphasis"><a href="../blog/2018/11/kaplan_meier_curve.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -272,7 +317,38 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		    ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っ....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。</p>
+<h2 id="概要">&#27010;&#35201;<a class="anchor-link" href="#概要">&#182;</a></h2><p>2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。</p>
+<p>当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。</p>
+<p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
+<strong>BEST</strong>(Bayesian estimation supersedes the t-test)
+というかっこいい名前です。</p>
+<blockquote><p>Kruschke, John. (2012) Bayesian estimation supersedes the t-test. Journal of Experimental Psychology: General.</p>
+</blockquote>
+<p>2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
+を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)">Bayesian estimation supersedes the t-test (BEST)<a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)">&#182;</a></h2><p>以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：<code>pip install pymc3</code></p>
+<p>(参考)</p>
+<ul>
+<li><a href="https://docs.pymc.io/notebooks/BEST.html">https://docs.pymc.io/notebooks/BEST.html</a></li>
+<li>「Pythonで体験するベイズ推論」　Cameron Davidson-Pilon / 玉木 徹</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 		<p class="content-emphasis"><a href="../blog/2018/10/bayesian_ttest.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -358,28 +434,16 @@
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../tag/github.html">
+    <span class="tag-1">
+      <a href="../tag/bioinformatics.html">
           <i class="fa fa-tag"></i>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
-      <a href="../tag/shell-script.html">
+      <a href="../tag/jing-ji-puroguramingu.html">
           <i class="fa fa-tag"></i>
-        Shell script
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
@@ -389,21 +453,39 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../tag/statistics.html">
-          <i class="fa fa-tag"></i>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../tag/python.html">
           <i class="fa fa-tag"></i>
         Python
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
+    <span class="tag-4">
+      <a href="../tag/github.html">
           <i class="fa fa-tag"></i>
-        Bioinformatics
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/hadouea.html">
+          <i class="fa fa-tag"></i>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/shell-script.html">
+          <i class="fa fa-tag"></i>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/hai-wai-liu-xue.html">
+          <i class="fa fa-tag"></i>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/statistics.html">
+          <i class="fa fa-tag"></i>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
@@ -412,10 +494,10 @@
         論文関連
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../tag/jing-ji-puroguramingu.html">
+    <span class="tag-3">
+      <a href="../tag/news.html">
           <i class="fa fa-tag"></i>
-        競技プログラミング
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -425,15 +507,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/hadouea.html">
+      <a href="../tag/jian-ding-shi-yan.html">
           <i class="fa fa-tag"></i>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
+        検定試験
       </a>
     </span>
 </p>
