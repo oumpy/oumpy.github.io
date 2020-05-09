@@ -2394,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="8683abc3-0162-4351-b106-95f9d752f523"&gt;&lt;/div&gt;
+&lt;div id="f2e45b29-6a44-45db-8ea6-a1b786c91f1c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8683abc3-0162-4351-b106-95f9d752f523');
+var element = $('#f2e45b29-6a44-45db-8ea6-a1b786c91f1c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -4104,7 +4104,7 @@ h6:hover .anchor-link {
 &lt;p&gt;みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Webサイトをリニューアルしました！</title><link href="/previews/refs/heads/feature/default_slug/news/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:/previews/refs/heads/feature/default_slug/news/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。&lt;/p&gt;
 &lt;p&gt;(2020/3/29 追記)&lt;br&gt;
 技術ブログはWebサイトに統合しました。  &lt;/p&gt;
-&lt;p&gt;参照：&lt;a href="/previews/refs/heads/feature/default_slug/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="/previews/refs/heads/feature/default_slug/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2020-02-26:/previews/refs/heads/feature/default_slug/blog/2020/02/shellscript_tutorial.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
+&lt;p&gt;参照：&lt;a href="/previews/refs/heads/feature/default_slug/news/2020/03/ji-shu-buroguwowebsaitonitong-he-shimashita.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="/previews/refs/heads/feature/default_slug/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2020-02-26:/previews/refs/heads/feature/default_slug/blog/2020/02/shellscript_tutorial.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
 &lt;p&gt;詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
 - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
 - シェル：命令をコンピュータに伝えるプログラムのこと  &lt;/p&gt;
@@ -14748,83 +14748,7 @@ $ git push origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="GitHub"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:/previews/refs/heads/feature/default_slug/blog/2018/10/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
-&lt;p&gt;今回は&lt;a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
-&lt;h2&gt;Pythonのインストール&lt;/h2&gt;
-&lt;p&gt;Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# check the version of python.&lt;/span&gt;
-$ python --version
-&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;2&lt;/span&gt;.7.15rc1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Biocondaのインストール&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://www.anaconda.com/download/#macos"&gt;Anaconda&lt;/a&gt;のインストーラーをダウンロードします。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
-$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;export PATH=/home/user/anaconda3/bin:$PATH&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; ~/.bashrc
-$ conda -V
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python --version
-&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;3&lt;/span&gt;.6.6+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
-Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Download a Miniconda package for linux python3&lt;/span&gt;
-$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-$ bash Miniconda3-latest-Linux-x86_64.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）&lt;/span&gt;
-$ conda -h
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda config --add channels conda-forge
-$ conda config --add channels defaults
-$ conda config --add channels r
-$ conda config --add channels bioconda
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;それでは早速ツールをインストールしていきましょう。基本 &lt;code&gt;conda install ???&lt;/code&gt;でインストールが完了し正常に動作していきます。非常に便利ですね。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda install parallel-fastq-dump
-$ conda install fastqc
-$ conda install multiqc
-$ conda install trimmomatic
-$ conda install kallisto
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;参照&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://imamachi-n.hatenablog.com/entry/2017/01/14/212719"&gt;http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Rツールのインストール&lt;/h2&gt;
-&lt;p&gt;Rのコンソールを開いて、Rのツールをインストールしていきます。
-Tximportのインストール&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tximport&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;DESeq2のインストール&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DESeq2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;参照&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/tximport.html"&gt;https://bioconductor.org/packages/release/bioc/html/tximport.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html"&gt;https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:/previews/refs/heads/feature/default_slug/blog/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
+&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="GitHub"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:/previews/refs/heads/feature/default_slug/blog/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
 &lt;h2&gt;リファレンスのダウンロード&lt;/h2&gt;
 &lt;p&gt;kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は&lt;a href="https://www.gencodegenes.org/"&gt;GenCodeGenes&lt;/a&gt;のヒトtranscript sequencesのデータを用いました。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
@@ -15089,7 +15013,83 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-13:/previews/refs/heads/feature/default_slug/blog/2018/10/bayesian_ttest.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-10-16:/previews/refs/heads/feature/default_slug/blog/2018/10/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
+&lt;p&gt;今回は&lt;a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
+&lt;h2&gt;Pythonのインストール&lt;/h2&gt;
+&lt;p&gt;Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# check the version of python.&lt;/span&gt;
+$ python --version
+&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;2&lt;/span&gt;.7.15rc1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Biocondaのインストール&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.anaconda.com/download/#macos"&gt;Anaconda&lt;/a&gt;のインストーラーをダウンロードします。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;export PATH=/home/user/anaconda3/bin:$PATH&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; ~/.bashrc
+$ conda -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python --version
+&amp;gt;&amp;gt;&amp;gt; Python &lt;span class="m"&gt;3&lt;/span&gt;.6.6+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
+Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Download a Miniconda package for linux python3&lt;/span&gt;
+$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）&lt;/span&gt;
+$ conda -h
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda config --add channels conda-forge
+$ conda config --add channels defaults
+$ conda config --add channels r
+$ conda config --add channels bioconda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;それでは早速ツールをインストールしていきましょう。基本 &lt;code&gt;conda install ???&lt;/code&gt;でインストールが完了し正常に動作していきます。非常に便利ですね。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ conda install parallel-fastq-dump
+$ conda install fastqc
+$ conda install multiqc
+$ conda install trimmomatic
+$ conda install kallisto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://imamachi-n.hatenablog.com/entry/2017/01/14/212719"&gt;http://imamachi-n.hatenablog.com/entry/2017/01/14/212719&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Rツールのインストール&lt;/h2&gt;
+&lt;p&gt;Rのコンソールを開いて、Rのツールをインストールしていきます。
+Tximportのインストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tximport&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;DESeq2のインストール&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;source&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nf"&gt;biocLite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;DESeq2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;参照&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/tximport.html"&gt;https://bioconductor.org/packages/release/bioc/html/tximport.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html"&gt;https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-13:/previews/refs/heads/feature/default_slug/blog/2018/10/bayesian_ttest.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -19609,31 +19609,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;p&gt;有名な雑誌（Impact Factorの高い雑誌）に関しては免内のサイトをみてください。 日本語でいいから論文に触れる。を目標にして行きたい。 Nature とNEJMは題名とアブストを日本語で読める。興味のある記事が一目でわかります。Natureには日本語のご利用ガイドまで。ありがたいです。 AASJはほぼ毎日日本語で面白い論文を解説してくれています。&lt;a href="http://aasj.jp/watch.html"&gt;AASJ&lt;/a&gt;おすすめ あと&lt;a href="http://first.lifesciencedb.jp"&gt;ライフサイエンス新着論文レビュー&lt;/a&gt;, &lt;a href="http://leading.lifesciencedb.jp"&gt;領域融合レビュー&lt;/a&gt;もお世話になってます。論文執筆者がその論文について解説してくれていたり、その領域について概説してくれています。（DBCLSのサービスの一つなのですが、他にも前述のAllie含め色々なサービスがあります。うまく使いこなせるようになりたい。使いこなしてるって人は教えてください。サイトは→ &lt;a href="http://dbcls.rois.ac.jp/services"&gt;DBCLS&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;（有名どころの）論文を探す&lt;/h2&gt;
 &lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。&lt;br&gt;
-論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="論文関連"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/09/hardware_for_deeplearning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-09-09:/previews/refs/heads/feature/default_slug/blog/2018/09/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
-&lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1"&gt;Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;スマホ&lt;/h2&gt;
-&lt;p&gt;やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.sejuku.net/blog/55188"&gt;侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;GPU&lt;/h2&gt;
-&lt;p&gt;おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。&lt;/p&gt;
-&lt;h2&gt;FPGA&lt;/h2&gt;
-&lt;p&gt;Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9"&gt;Qiita : そろそろプログラマーもFPGAを触ってみよう！&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://science.sciencemag.org/content/360/6394/1246.full"&gt;Science : Gohst Cytometry&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;jetson&lt;/h2&gt;
-&lt;p&gt;NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry><entry><title>Parameter Tuning</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/09/parameter_tuning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2018-09-09:/previews/refs/heads/feature/default_slug/blog/2018/09/parameter_tuning.html</id><summary type="html"></summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。
+論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="論文関連"></category></entry><entry><title>Parameter Tuning</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/09/parameter_tuning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2018-09-09:/previews/refs/heads/feature/default_slug/blog/2018/09/parameter_tuning.html</id><summary type="html"></summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。
 今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。以下の資料がわかりやすかったです。(図もこちらのものを引用しました)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html"&gt;http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Bayesian Optimization&lt;/h2&gt;
@@ -19848,4 +19824,28 @@ $$&lt;/div&gt;
 &lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-09-09:/previews/refs/heads/feature/default_slug/blog/2018/09/webscraping.html</id><summary type="html"></summary><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/feature/default_slug/blog/2018/09/images/webscraping_figs/1.jpg"&gt;
 &lt;img alt="2" src="/previews/refs/heads/feature/default_slug/blog/2018/09/images/webscraping_figs/2.jpg"&gt;
-&lt;img alt="3" src="/previews/refs/heads/feature/default_slug/blog/2018/09/images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry></feed>
+&lt;img alt="3" src="/previews/refs/heads/feature/default_slug/blog/2018/09/images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="/previews/refs/heads/feature/default_slug/blog/2018/09/hardware_for_deeplearning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-09-09:/previews/refs/heads/feature/default_slug/blog/2018/09/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
+&lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1"&gt;Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;スマホ&lt;/h2&gt;
+&lt;p&gt;やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.sejuku.net/blog/55188"&gt;侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;GPU&lt;/h2&gt;
+&lt;p&gt;おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。&lt;/p&gt;
+&lt;h2&gt;FPGA&lt;/h2&gt;
+&lt;p&gt;Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9"&gt;Qiita : そろそろプログラマーもFPGAを触ってみよう！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://science.sciencemag.org/content/360/6394/1246.full"&gt;Science : Gohst Cytometry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;jetson&lt;/h2&gt;
+&lt;p&gt;NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry></feed>
