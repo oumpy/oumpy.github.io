@@ -139,7 +139,7 @@
   </h2>
   <div class="blog_box">
   <ul class="group_taglist">
-    <li><a href="./tag/lun-wen-matome.html">論文まとめ</a>&nbsp;<span class="article-numbers">(1)</span></li>
+    <li><a href="./tag/lun-wen-matome.html">論文まとめ</a>&nbsp;<span class="article-numbers">(2)</span></li>
       
     <li><a href="./tag/lun-wen-guan-lian.html">論文関連</a>&nbsp;<span class="article-numbers">(1)</span></li>
       
@@ -201,7 +201,28 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		    <strong>要点<a class="anchor-link" href="#要点"> </a></strong><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。 Neural....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><p><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。</p>
+<p>Neural Tangentsでは無限幅のNNを学習させる手法として<strong>NNGP</strong> (Neural Network Gaussian Process)と <strong>NTK</strong> (Neural Tangent Kernel)の2つを実装しています。</p>
+<p>この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。</p>
+<h3 id="Neural-Tangentsに関連する文献">Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;<a class="anchor-link" href="#Neural-Tangentsに関連する文献">&#182;</a></h3><ul>
+<li>Paper :  <a href="https://arxiv.org/abs/1912.02803">https://arxiv.org/abs/1912.02803</a></li>
+<li>OpenReview : <a href="https://openreview.net/forum?id=SklD9yrFPS">https://openreview.net/forum?id=SklD9yrFPS</a></li>
+<li>Github : <a href="https://github.com/google/neural-tangents">https://github.com/google/neural-tangents</a></li>
+<li>Document : <a href="https://neural-tangents.readthedocs.io/en/latest/#">https://neural-tangents.readthedocs.io/en/latest/#</a></li>
+<li>Google AI Blog : <a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html">https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html</a></li>
+<li>Tutorial in Colab Notebook : <a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb">https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Neural-Network-Gaussian-Process-(NNGP)">Neural Network Gaussian Process (NNGP)<a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)">&#182;</a></h2><p>隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (<a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf">Neal, 1994</a>)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を<strong>Neural Network GP</strong>
 		<p class="content-emphasis"><a href="./blog/2020/04/neural_tangents.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -277,7 +298,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<p>先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。</p>
+		先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  <strong>模範解答 (?)</strong>     1 2 3 4 5 6 7 8 9 10     <strong>0</strong> 4 4 3 3 2 2 4 1 2 2   <strong>10</strong> 2 1 3 3 4 2 4 3 1 3   <strong>20</strong> 3 4 2 2 4 1 2 1 4 3   <strong>30</strong> 1 1 1 2 1 2 3 4 1 4   <strong>40</strong> 3 4 4 3 2 2 3 1 ....
 		<p class="content-emphasis"><a href="./blog/2019/12/bioinfoexam2019_answer.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -303,7 +324,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<p>某所でGPU調達の必要があって、いまどきの事情を調べました。ゲームのことは知りません。</p>
+		某所でGPU調達の必要があって、いまどきの事情を調べました。 ゲームのことは知りません。 <strong>主要GPU一覧</strong> NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。     コア VRAM 最大精度 TDP 放熱 価格(税込)     GeForce RTX 208....
 		<p class="content-emphasis"><a href="./blog/2019/10/GPUs_for_ML.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -403,7 +424,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<p><a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"><strong>基本情報技術者試験</strong></a>を受けてきた話。</p>
+		IPAの「<a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"><strong>基本情報技術者試験</strong></a>」 (2019年春期) を受験してきました。 なんでも経済産業省管轄の<strong>国家試験</strong>で、<a href="https://kanpou.npb.go.jp/"><strong>官報公示</strong></a>までされるらしい。<strong>よくわからないけどすごい</strong>。 厚生労働省の<a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"><strong>某国家試験</strong></a>は受験資格が残念ながらまだないけれど、<strong>こないだ国試受けてきた</strong>って言ってもたぶん嘘じゃないわけです。だか....
 		<p class="content-emphasis"><a href="./blog/2019/05/IPA_FE.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -509,88 +530,88 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="./tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="./tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="./tag/github.html">
-          <i class="fa fa-tag"></i>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="./tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="./tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="./tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="./tag/lun-wen-matome.html">
-          <i class="fa fa-tag"></i>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="./tag/shell-script.html">
-          <i class="fa fa-tag"></i>
-        Shell script
-      </a>
-    </span>
     <span class="tag-2">
       <a href="./tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="./tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-3">
       <a href="./tag/hadouea.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         ハードウェア
       </a>
     </span>
     <span class="tag-1">
+      <a href="./tag/machine-learning.html">
+          <span class="label label-primary">11</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="./tag/python.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">8</span>
         Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="./tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="./tag/news.html">
+          <span class="label label-primary">2</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="./tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-3">
       <a href="./tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         Data Science Competition
       </a>
     </span>
     <span class="tag-1">
       <a href="./tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
       </a>
     </span>
     <span class="tag-4">
-      <a href="./tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
+      <a href="./tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="./tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="./tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="./tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
       </a>
     </span>
 </p>
