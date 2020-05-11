@@ -233,7 +233,17 @@
 </ul></li>
 <li class="active">
 <a href="./blog.html">技術ブログ</a>
+<ul>
+<li>
+<a href="./tags.html">タグ別</a>
 </li>
+<li>
+<a href="./authors.html">著者別</a>
+</li>
+<li>
+<a href="./archives.html">過去記事一覧</a>
+</li>
+</ul></li>
 <li>
 <a href="./news.html">お知らせ</a>
 </li>
@@ -461,7 +471,38 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		    ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っ....
+		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。</p>
+<h2 id="概要">&#27010;&#35201;<a class="anchor-link" href="#概要">&#182;</a></h2><p>2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。</p>
+<p>当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。</p>
+<p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
+<strong>BEST</strong>(Bayesian estimation supersedes the t-test)
+というかっこいい名前です。</p>
+<blockquote><p>Kruschke, John. (2012) Bayesian estimation supersedes the t-test. Journal of Experimental Psychology: General.</p>
+</blockquote>
+<p>2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
+を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)">Bayesian estimation supersedes the t-test (BEST)<a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)">&#182;</a></h2><p>以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：<code>pip install pymc3</code></p>
+<p>(参考)</p>
+<ul>
+<li><a href="https://docs.pymc.io/notebooks/BEST.html">https://docs.pymc.io/notebooks/BEST.html</a></li>
+<li>「Pythonで体験するベイズ推論」　Cameron Davidson-Pilon / 玉木 徹</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 		<p class="content-emphasis"><a href="../../../blog/2018/10/bayesian_ttest.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -618,88 +659,88 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
-        GitHub
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         ハードウェア
       </a>
     </span>
     <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">11</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         Shell script
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         Data Science Competition
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-matome.html">
-          <i class="fa fa-tag"></i>
-        論文まとめ
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>
