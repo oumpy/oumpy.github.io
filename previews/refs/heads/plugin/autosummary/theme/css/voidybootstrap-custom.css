@@ -28,6 +28,7 @@
 .jumbotron {
 		padding-top: 0px;
 		padding-bottom: 0px;
+    margin-top: -10px;
     margin-bottom: 20px;
     background-color: #0f5889;
 }
@@ -109,20 +110,20 @@ p.standfirst {
 }
 
 .tag-1 {
-	font-size: 14pt;
-}
-.tag-2 {
 	font-size: 12pt;
 }
-.tag-3 {
+.tag-2 {
 	font-size: 10pt;
+}
+.tag-3 {
+	font-size: 9pt;
 }
 .tag-4 {
 	font-size: 8pt;
 }
 
 .tag-cloud {
-    line-height: 16px;
+    line-height: 12px;
 }
 
 .article-tag-list {
@@ -462,4 +463,62 @@ ul#toc {
   max-height: calc(90vw * 0.75)!important;
   display: block;
   margin: auto;
+}
+
+.horizontal-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+  
+ul.group_taglist {
+  list-style:none;
+  padding-left:0;
+}
+ul.group_taglist > li {
+  display:inline;
+  font-size: 18px;
+  font-weight: 500;
+}
+ul.group_taglist > li:not(:nth-child(1)):before {
+  content:"\0a0\0a0/\0a0\0a0\0a0";
+}
+ul.group_taglist .article-numbers {
+  font-size: 16px;
+}
+
+ul.social-links {
+  list-style:none;
+  padding-left:0;
+}
+ul.social-links > li {
+  display:inline;
+  font-size: 1.5em;
+}
+
+table.recent-posts {
+  border-style: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-spacing: 0px;
+  font-size: smaller;
+}
+table.recent-posts > tr {
+  padding: 0px;
+  border-style: hidden;
+}
+table.recent-posts td {
+  padding: 1px 3px;
+  border-style: hidden;
+}
+td.recent-posts-date {
+  padding-left: 0px;
+}
+.recent-posts-year {
+  font-style: italic;
+}
+.recent-posts-prefix-category {
+  font-size: smaller;
+}
+.recent-posts-title {
+  font-weight: bolder;
 }
