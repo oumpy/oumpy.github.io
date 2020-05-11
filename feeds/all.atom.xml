@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-04-14T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>線形混合効果モデル</title><link href="https://oumpy.github.io/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-04-08:/blog/2020/04/linear_mixed_model.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-04-14T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>線形混合効果モデル</title><link href="https://oumpy.github.io/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-04-08:/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
 &lt;p&gt;複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。&lt;/p&gt;
 &lt;h3&gt;経時測定データ解析の特徴&lt;/h3&gt;
 &lt;ul&gt;
@@ -109,7 +109,28 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="https://oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-04-06:/blog/2020/04/neural_tangents.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="https://oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-04-06:/blog/2020/04/neural_tangents.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="要点"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#要点"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。&lt;/p&gt;
+&lt;p&gt;Neural Tangentsでは無限幅のNNを学習させる手法として&lt;strong&gt;NNGP&lt;/strong&gt; (Neural Network Gaussian Process)と &lt;strong&gt;NTK&lt;/strong&gt; (Neural Tangent Kernel)の2つを実装しています。&lt;/p&gt;
+&lt;p&gt;この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。&lt;/p&gt;
+&lt;h3 id="Neural-Tangentsに関連する文献"&gt;Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#Neural-Tangentsに関連する文献"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Paper :  &lt;a href="https://arxiv.org/abs/1912.02803"&gt;https://arxiv.org/abs/1912.02803&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;OpenReview : &lt;a href="https://openreview.net/forum?id=SklD9yrFPS"&gt;https://openreview.net/forum?id=SklD9yrFPS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github : &lt;a href="https://github.com/google/neural-tangents"&gt;https://github.com/google/neural-tangents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Document : &lt;a href="https://neural-tangents.readthedocs.io/en/latest/#"&gt;https://neural-tangents.readthedocs.io/en/latest/#&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Google AI Blog : &lt;a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html"&gt;https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial in Colab Notebook : &lt;a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb"&gt;https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Neural-Network-Gaussian-Process-(NNGP)"&gt;Neural Network Gaussian Process (NNGP)&lt;a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (&lt;a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf"&gt;Neal, 1994&lt;/a&gt;)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を&lt;strong&gt;Neural Network GP&lt;/strong&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1220,7 +1241,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#35201;&amp;#28857;"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#35201;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。&lt;/p&gt;
@@ -2394,10 +2415,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="779e8823-ca8c-45fb-ac62-d6c24b2d053f"&gt;&lt;/div&gt;
+&lt;div id="ca26021e-0ffe-4b9c-9a5c-401ae30039fc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#779e8823-ca8c-45fb-ac62-d6c24b2d053f');
+var element = $('#ca26021e-0ffe-4b9c-9a5c-401ae30039fc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2594,7 +2615,7 @@ var element = $('#779e8823-ca8c-45fb-ac62-d6c24b2d053f');
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -2623,7 +2644,7 @@ var element = $('#779e8823-ca8c-45fb-ac62-d6c24b2d053f');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>ICA（独立成分分析）について</title><link href="https://oumpy.github.io/blog/2020/03/ica.html" rel="alternate"></link><published>2020-03-29T23:00:00+09:00</published><updated>2020-03-29T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:oumpy.github.io,2020-03-29:/blog/2020/03/ica.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>ICA（独立成分分析）について</title><link href="https://oumpy.github.io/blog/2020/03/ica.html" rel="alternate"></link><published>2020-03-29T23:00:00+09:00</published><updated>2020-03-29T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:oumpy.github.io,2020-03-29:/blog/2020/03/ica.html</id><summary type="html">    &lt;strong&gt;概要&lt;a class="anchor-link" href="#概要"&gt; &lt;/a&gt;&lt;/strong&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。 電源ノイズのように周波数が分かっていればフィルタでノイズを除....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -4100,11 +4121,11 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>技術ブログをWebサイトに統合しました</title><link href="https://oumpy.github.io/news/2020/03/website_integration.html" rel="alternate"></link><published>2020-03-29T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-29:/news/2020/03/website_integration.html</id><content type="html">&lt;p&gt;技術ブログは一時的にはてなブログで開設していましたが、本日、GitHub上の本サイトに統合しました。&lt;/p&gt;
-&lt;p&gt;みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Webサイトをリニューアルしました！</title><link href="https://oumpy.github.io/news/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-24:/news/2020/03/website_renewal.html</id><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。&lt;/p&gt;
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>技術ブログをWebサイトに統合しました</title><link href="https://oumpy.github.io/news/2020/03/website_integration.html" rel="alternate"></link><published>2020-03-29T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-29:/news/2020/03/website_integration.html</id><summary type="html">技術ブログは一時的にはてなブログで開設していましたが、本日、GitHub上の本サイトに統合しました。 みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！</summary><content type="html">&lt;p&gt;技術ブログは一時的にはてなブログで開設していましたが、本日、GitHub上の本サイトに統合しました。&lt;/p&gt;
+&lt;p&gt;みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Webサイトをリニューアルしました！</title><link href="https://oumpy.github.io/news/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-24:/news/2020/03/website_renewal.html</id><summary type="html">Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。 (2020/3/29 追記) 技術ブログはWebサイトに統合しました。  参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;</summary><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。&lt;/p&gt;
 &lt;p&gt;(2020/3/29 追記)&lt;br&gt;
 技術ブログはWebサイトに統合しました。  &lt;/p&gt;
-&lt;p&gt;参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="https://oumpy.github.io/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2020-02-26:/blog/2020/02/shellscript_tutorial.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
+&lt;p&gt;参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="https://oumpy.github.io/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2020-02-26:/blog/2020/02/shellscript_tutorial.html</id><summary type="html">&lt;strong&gt;シェルって？ コマンドってなに？&lt;/strong&gt; 詳しくはググるなり下の記事等を見てもらえばよいのですが、 簡単にまとめると - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの - シェル：命令をコンピュータに伝えるプログラムのこと  つまるところ、Pyth....</summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
 &lt;p&gt;詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
 - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
 - シェル：命令をコンピュータに伝えるプログラムのこと  &lt;/p&gt;
@@ -4276,7 +4297,8 @@ $ emacs
 キーワード：相対/絶対パス&lt;/li&gt;
 &lt;li&gt;エディタとは？&lt;br&gt;
 emacs/vim/atom/vscode...&lt;/li&gt;
-&lt;/ol&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
+&lt;/ol&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
 &lt;h2&gt;模範解答 (?)&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -4563,7 +4585,7 @@ emacs/vim/atom/vscode...&lt;/li&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category><category term="検定試験"></category></entry><entry><title>機械学習のための最新GPU比較</title><link href="https://oumpy.github.io/blog/2019/10/GPUs_for_ML.html" rel="alternate"></link><published>2019-10-07T00:00:00+09:00</published><updated>2019-10-07T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-10-07:/blog/2019/10/GPUs_for_ML.html</id><summary type="html">&lt;p&gt;某所でGPU調達の必要があって、いまどきの事情を調べました。ゲームのことは知りません。&lt;/p&gt;</summary><content type="html">&lt;p&gt;某所でGPU調達の必要があって、いまどきの事情を調べました。
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category><category term="検定試験"></category></entry><entry><title>機械学習のための最新GPU比較</title><link href="https://oumpy.github.io/blog/2019/10/GPUs_for_ML.html" rel="alternate"></link><published>2019-10-07T00:00:00+09:00</published><updated>2019-10-07T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-10-07:/blog/2019/10/GPUs_for_ML.html</id><summary type="html">某所でGPU調達の必要があって、いまどきの事情を調べました。 ゲームのことは知りません。 &lt;strong&gt;主要GPU一覧&lt;/strong&gt; NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。     コア VRAM 最大精度 TDP 放熱 価格(税込)     GeForce RTX 208....</summary><content type="html">&lt;p&gt;某所でGPU調達の必要があって、いまどきの事情を調べました。
 ゲームのことは知りません。&lt;/p&gt;
 &lt;h2&gt;主要GPU一覧&lt;/h2&gt;
 &lt;p&gt;NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。&lt;/p&gt;
@@ -4654,7 +4676,7 @@ FP16を使うように調整してやらないと本来の性能は出ない。&
 &lt;p&gt;演算性能を妥協すれば、大容量VRAMの上位GPUにも実は手が出しやすくなっています。
 用途に合わせて選びましょう。
 選べる余地があるのはいいことですね。&lt;/p&gt;
-&lt;p&gt;おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="https://oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:oumpy.github.io,2019-06-24:/blog/2019/06/atcoder_beginners_selection.html</id><summary type="html"></summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry><entry><title>AtCoder Beginners Selection 雑感</title><link href="https://oumpy.github.io/blog/2019/06/atcoder_beginners_selection.html" rel="alternate"></link><published>2019-06-24T00:00:00+09:00</published><updated>2019-06-24T00:00:00+09:00</updated><author><name>加藤</name></author><id>tag:oumpy.github.io,2019-06-24:/blog/2019/06/atcoder_beginners_selection.html</id><summary type="html">プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。 &lt;strong&gt;AtCoderとは？&lt;/strong&gt; まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサ....</summary><content type="html">&lt;p&gt;プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。&lt;/p&gt;
 &lt;h2&gt;AtCoderとは？&lt;/h2&gt;
 &lt;p&gt;まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(&lt;a href="https://atcoder.jp/?lang=ja"&gt;https://atcoder.jp/?lang=ja&lt;/a&gt;)。  &lt;/p&gt;
 &lt;p&gt;定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として) コンテストが開かれることもあります。コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。&lt;/p&gt;
@@ -4917,7 +4939,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</title><link href="https://oumpy.github.io/blog/2019/06/DABEST_tutorial.html" rel="alternate"></link><published>2019-06-23T00:00:00+09:00</published><updated>2019-06-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2019-06-23:/blog/2019/06/DABEST_tutorial.html</id><summary type="html"></summary><content type="html">&lt;p&gt;データを可視化する手法としては、棒グラフ(&lt;strong&gt;Barplot&lt;/strong&gt;), 箱ひげ図(&lt;strong&gt;Boxplot&lt;/strong&gt;), &lt;strong&gt;Jitter plot&lt;/strong&gt;, &lt;strong&gt;Violin plot&lt;/strong&gt; などがよく用いられます。しかし、これらの可視化手法は &lt;strong&gt;有意差検定(null hypothesis significance testing; NHST)&lt;/strong&gt; の結果を表示するためのものです。有意差検定は様々な分野の研究において広く用いられていますが、統計検定の結果の評価に&lt;strong&gt;p値&lt;/strong&gt;を用いることは二分的な評価に繋がっています(例えばp&amp;lt;0.05ならOKでp&amp;gt;0.05ならダメ、という判断)。一方で、&lt;strong&gt;Estimation Statistics&lt;/strong&gt;はp値ではなく &lt;strong&gt;効果量(effect size)&lt;/strong&gt; に重きを置きます。つまり、効果がある/なしではなく、どのくらい効果があるか、を重視するということです。&lt;/p&gt;
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</title><link href="https://oumpy.github.io/blog/2019/06/DABEST_tutorial.html" rel="alternate"></link><published>2019-06-23T00:00:00+09:00</published><updated>2019-06-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2019-06-23:/blog/2019/06/DABEST_tutorial.html</id><summary type="html">データを可視化する手法としては、棒グラフ(&lt;strong&gt;Barplot&lt;/strong&gt;), 箱ひげ図(&lt;strong&gt;Boxplot&lt;/strong&gt;), &lt;strong&gt;Jitter plot&lt;/strong&gt;, &lt;strong&gt;Violin plot&lt;/strong&gt; などがよく用いられます。しかし、これらの可視化手法は &lt;strong&gt;有意差検定(null hypothesis significance testing; NHST)&lt;/strong&gt; の結果を....</summary><content type="html">&lt;p&gt;データを可視化する手法としては、棒グラフ(&lt;strong&gt;Barplot&lt;/strong&gt;), 箱ひげ図(&lt;strong&gt;Boxplot&lt;/strong&gt;), &lt;strong&gt;Jitter plot&lt;/strong&gt;, &lt;strong&gt;Violin plot&lt;/strong&gt; などがよく用いられます。しかし、これらの可視化手法は &lt;strong&gt;有意差検定(null hypothesis significance testing; NHST)&lt;/strong&gt; の結果を表示するためのものです。有意差検定は様々な分野の研究において広く用いられていますが、統計検定の結果の評価に&lt;strong&gt;p値&lt;/strong&gt;を用いることは二分的な評価に繋がっています(例えばp&amp;lt;0.05ならOKでp&amp;gt;0.05ならダメ、という判断)。一方で、&lt;strong&gt;Estimation Statistics&lt;/strong&gt;はp値ではなく &lt;strong&gt;効果量(effect size)&lt;/strong&gt; に重きを置きます。つまり、効果がある/なしではなく、どのくらい効果があるか、を重視するということです。&lt;/p&gt;
 &lt;p&gt;今回紹介する &lt;strong&gt;DABEST&lt;/strong&gt; (&lt;strong&gt;D&lt;/strong&gt;ata &lt;strong&gt;A&lt;/strong&gt;nalysis using &lt;strong&gt;B&lt;/strong&gt;ootstrap-coupled &lt;strong&gt;EST&lt;/strong&gt;imation)はEstimation Statisticsに基づいたデータの可視化を行うためのライブラリ（パッケージ）です。 &lt;strong&gt;Python, R, Matlab&lt;/strong&gt; に対応しています。以下はDABESTについての論文です。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;J. Ho, T. Tumkaya, S. Aryal, H. Choi, A. Claridge-Chang. &lt;strong&gt;Moving beyond P values: Everyday data analysis with estimation plots&lt;/strong&gt;. &lt;em&gt;Nature Methods&lt;/em&gt;. (2019), 1548-7105. 10.1038/s41592-019-0470-3. (&lt;a href="https://www.nature.com/articles/s41592-019-0470-3"&gt;Nature Methods&lt;/a&gt;, &lt;a href="https://www.biorxiv.org/content/10.1101/377978v2"&gt;bioRxiv&lt;/a&gt;)&lt;/p&gt;
@@ -5096,7 +5118,7 @@ $$&lt;/div&gt;
 &lt;li&gt;統計学の時間（&lt;a href="https://bellcurve.jp/statistics/course/12752.html"&gt;効果量1&lt;/a&gt;, &lt;a href="https://bellcurve.jp/statistics/course/12765.html"&gt;効果量2&lt;/a&gt;）&lt;/li&gt;
 &lt;li&gt;岡田謙介. &lt;strong&gt;心理学における効果量をめぐる最近の話題&lt;/strong&gt;. (&lt;a href="http://www3.psy.senshu-u.ac.jp/~ken/DevPsy2015_okada.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;汪金芳. &lt;strong&gt;ブートストラップ法入門&lt;/strong&gt;. (&lt;a href="http://www.math.s.chiba-u.ac.jp/~wang/bootstrap.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>がんゲノム変異シグネチャー解析</title><link href="https://oumpy.github.io/blog/2019/06/cancer_signature.html" rel="alternate"></link><published>2019-06-21T00:00:00+09:00</published><updated>2019-06-21T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2019-06-21:/blog/2019/06/cancer_signature.html</id><summary type="html"></summary><content type="html">&lt;p&gt;がんゲノムの変異シグネチャーの推定にチャレンジしてみました。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>がんゲノム変異シグネチャー解析</title><link href="https://oumpy.github.io/blog/2019/06/cancer_signature.html" rel="alternate"></link><published>2019-06-21T00:00:00+09:00</published><updated>2019-06-21T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2019-06-21:/blog/2019/06/cancer_signature.html</id><summary type="html">がんゲノムの変異シグネチャーの推定にチャレンジしてみました。  &lt;strong&gt;きっかけ&lt;/strong&gt; 先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。 講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦....</summary><content type="html">&lt;p&gt;がんゲノムの変異シグネチャーの推定にチャレンジしてみました。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/1.png" width="400px"&gt;&lt;/p&gt;
 &lt;h2&gt;きっかけ&lt;/h2&gt;
 &lt;p&gt;先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。&lt;/p&gt;
@@ -5625,7 +5647,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 - &lt;a href="https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html"&gt;https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html&lt;/a&gt;
 - &lt;a href="https://science.sciencemag.org/content/354/6312/618"&gt;https://science.sciencemag.org/content/354/6312/618&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;同じ変異シグネチャーについて調べていて、特にたばこについて見ている論文でした
-- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>IPA「基本情報技術者試験」受験録</title><link href="https://oumpy.github.io/blog/2019/05/IPA_FE.html" rel="alternate"></link><published>2019-05-12T00:00:00+09:00</published><updated>2019-11-21T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-05-12:/blog/2019/05/IPA_FE.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;を受けてきた話。&lt;/p&gt;</summary><content type="html">&lt;p&gt;IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。&lt;/p&gt;
+- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>IPA「基本情報技術者試験」受験録</title><link href="https://oumpy.github.io/blog/2019/05/IPA_FE.html" rel="alternate"></link><published>2019-05-12T00:00:00+09:00</published><updated>2019-11-21T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-05-12:/blog/2019/05/IPA_FE.html</id><summary type="html">IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。 なんでも経済産業省管轄の&lt;strong&gt;国家試験&lt;/strong&gt;で、&lt;a href="https://kanpou.npb.go.jp/"&gt;&lt;strong&gt;官報公示&lt;/strong&gt;&lt;/a&gt;までされるらしい。&lt;strong&gt;よくわからないけどすごい&lt;/strong&gt;。 厚生労働省の&lt;a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"&gt;&lt;strong&gt;某国家試験&lt;/strong&gt;&lt;/a&gt;は受験資格が残念ながらまだないけれど、&lt;strong&gt;こないだ国試受けてきた&lt;/strong&gt;って言ってもたぶん嘘じゃないわけです。だか....</summary><content type="html">&lt;p&gt;IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。&lt;/p&gt;
 &lt;p&gt;なんでも経済産業省管轄の&lt;strong&gt;国家試験&lt;/strong&gt;で、&lt;a href="https://kanpou.npb.go.jp/"&gt;&lt;strong&gt;官報公示&lt;/strong&gt;&lt;/a&gt;までされるらしい。&lt;strong&gt;よくわからないけどすごい&lt;/strong&gt;。
 厚生労働省の&lt;a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"&gt;&lt;strong&gt;某国家試験&lt;/strong&gt;&lt;/a&gt;は受験資格が残念ながらまだないけれど、&lt;strong&gt;こないだ国試受けてきた&lt;/strong&gt;って言ってもたぶん嘘じゃないわけです。だからどうしたって話ではありますが。&lt;/p&gt;
 &lt;p&gt;今回はその受験録です。&lt;/p&gt;
@@ -5686,7 +5708,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  &lt;/p&gt;
 &lt;h3&gt;注3 : Python導入 (2019.11)&lt;/h3&gt;
 &lt;p&gt;2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。&lt;br&gt;
-&lt;a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html"&gt;https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="検定試験"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="https://oumpy.github.io/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-27:/blog/2019/04/competition_input.html</id><summary type="html">&lt;p&gt;AtCoderのABCで、これさえ覚えれば大丈夫！な入力のパターンについて解説します。&lt;/p&gt;</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
+&lt;a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html"&gt;https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="検定試験"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="https://oumpy.github.io/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-27:/blog/2019/04/competition_input.html</id><summary type="html">&lt;strong&gt;入力のパターン&lt;/strong&gt; &lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt; はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。 &lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。 最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。 &lt;strong&gt;言語&lt;/strong&gt;は Python3 (3.4.....</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。&lt;br&gt;
 &lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。
@@ -5778,7 +5800,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 
 
 &lt;p&gt;ループとの組み合わせ。&lt;s&gt;C問題&lt;/s&gt; B問題以降でときどき必要。&lt;/p&gt;
-&lt;p&gt;以上です。おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>5年次海外実習</title><link href="https://oumpy.github.io/blog/2019/03/study_abroad.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-03-29:/blog/2019/03/study_abroad.html</id><summary type="html"></summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
+&lt;p&gt;以上です。おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>5年次海外実習</title><link href="https://oumpy.github.io/blog/2019/03/study_abroad.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-03-29:/blog/2019/03/study_abroad.html</id><summary type="html">1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。  僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をも....</summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2019/03/images/study_abroad_figs/img_01.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をもらいました。&lt;/p&gt;
 &lt;iframe src="//www.slideshare.net/slideshow/embed_code/key/f3e0fxEFp9OQAq" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
@@ -5810,11 +5832,24 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 &lt;p&gt;旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。&lt;/p&gt;
 &lt;p&gt;海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！&lt;/p&gt;
 &lt;p&gt;&lt;img alt="6" src="https://oumpy.github.io/blog/2019/03/images/study_abroad_figs/img_06.jpg"&gt;
-&lt;img alt="7" src="https://oumpy.github.io/blog/2019/03/images/study_abroad_figs/img_07.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="海外留学"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="https://oumpy.github.io/blog/2019/03/voice_recognition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-03-29:/blog/2019/03/voice_recognition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
+&lt;img alt="7" src="https://oumpy.github.io/blog/2019/03/images/study_abroad_figs/img_07.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="海外留学"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="https://oumpy.github.io/blog/2019/03/voice_recognition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2019-03-29:/blog/2019/03/voice_recognition.html</id><summary type="html">&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。  思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです....</summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="https://oumpy.github.io/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-03-25:/blog/2019/03/lorenz.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="https://oumpy.github.io/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-03-25:/blog/2019/03/lorenz.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。&lt;/p&gt;
+&lt;h2 id="ローレンツ曲線とは"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#ローレンツ曲線とは"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。&lt;/p&gt;
+&lt;h2 id="ローレンツ曲線の使用法"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;&lt;a class="anchor-link" href="#ローレンツ曲線の使用法"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。&lt;/p&gt;
+&lt;p&gt;今回は日本人の年収に偏りがあるのかローレンツ曲線を使って見てみたいと思います。
+&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html"&gt;厚生労働省のHPから&lt;/a&gt;から、&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls"&gt;世帯別年収データ&lt;/a&gt;をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは&lt;a href="https://oumpy.github.io/blog/2019/03/data/income.csv"&gt;こちら&lt;/a&gt;にあります。コードを動かす際にはデータをダウンロードして&lt;code&gt;data/income.csv&lt;/code&gt;のように配置してください。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6925,7 +6960,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。&lt;/p&gt;
@@ -7893,7 +7928,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -7922,7 +7957,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>VELOCYTO</title><link href="https://oumpy.github.io/blog/2019/03/velocyto.html" rel="alternate"></link><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:oumpy.github.io,2019-03-24:/blog/2019/03/velocyto.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;strong&gt;Velocyto&lt;/strong&gt; とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。&lt;/p&gt;
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>VELOCYTO</title><link href="https://oumpy.github.io/blog/2019/03/velocyto.html" rel="alternate"></link><published>2019-03-24T00:00:00+09:00</published><updated>2019-03-24T00:00:00+09:00</updated><author><name>廣瀬</name></author><id>tag:oumpy.github.io,2019-03-24:/blog/2019/03/velocyto.html</id><summary type="html">&lt;strong&gt;Velocyto&lt;/strong&gt; とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。 &lt;strong&gt;RNAseq でイントロン??&lt;/strong&gt; RNAseq においては totalRNA のうち 99%ともいわれる rRNA を除き mRNA のみを効率よくSequence する目的で、Pol....</summary><content type="html">&lt;p&gt;&lt;strong&gt;Velocyto&lt;/strong&gt; とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。&lt;/p&gt;
 &lt;h2&gt;RNAseq でイントロン??&lt;/h2&gt;
 &lt;p&gt;RNAseq においては totalRNA のうち 99%ともいわれる rRNA を除き mRNA のみを効率よくSequence する目的で、Poly(A)で成熟 mRNA を濃縮することがしばしば行われています。しかし、そのようなサンプルにおいても、実際の Sequence 結果ではイントロンにあたる配列が読まれてくることが指摘されており、この原因は Poly(A)類似モチーフの存在であると推察されています。&lt;/p&gt;
 &lt;h2&gt;結果の例&lt;/h2&gt;
@@ -7999,7 +8034,7 @@ gunzip。&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://velocyto.org/velocyto.py/index.html"&gt;http://velocyto.org/velocyto.py/index.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://catway.jp/bioinformatics/qc/rmrepeat.html"&gt;http://catway.jp/bioinformatics/qc/rmrepeat.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/theislab/scvelo"&gt;https://github.com/theislab/scvelo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="https://oumpy.github.io/blog/2019/03/n_number.html" rel="alternate"></link><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:oumpy.github.io,2019-03-22:/blog/2019/03/n_number.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;シングルセル解析での細胞数&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>必要n数の決定～研究計画～</title><link href="https://oumpy.github.io/blog/2019/03/n_number.html" rel="alternate"></link><published>2019-03-22T00:00:00+09:00</published><updated>2019-03-22T00:00:00+09:00</updated><author><name>依藤</name></author><id>tag:oumpy.github.io,2019-03-22:/blog/2019/03/n_number.html</id><summary type="html">&lt;strong&gt;シングルセル解析での細胞数&lt;/strong&gt; ① &lt;strong&gt;実現可能性&lt;/strong&gt;：金銭面、使用機器のスループットを考慮した細胞数 ② &lt;strong&gt;検出力&lt;/strong&gt;：統計学的検討により細胞種間の差が充分に検出される症例数であるか ③ &lt;strong&gt;倫理面&lt;/strong&gt;：ヒトサンプル、あるいはモデル動物サンプルの取り扱い  とくに②に関して：  分類するclusterに関して過去の文献から....</summary><content type="html">&lt;h2&gt;シングルセル解析での細胞数&lt;/h2&gt;
 &lt;p&gt;① &lt;strong&gt;実現可能性&lt;/strong&gt;：金銭面、使用機器のスループットを考慮した細胞数&lt;br&gt;
 ② &lt;strong&gt;検出力&lt;/strong&gt;：統計学的検討により細胞種間の差が充分に検出される症例数であるか&lt;br&gt;
 ③ &lt;strong&gt;倫理面&lt;/strong&gt;：ヒトサンプル、あるいはモデル動物サンプルの取り扱い  &lt;/p&gt;
@@ -8029,7 +8064,7 @@ gunzip。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;今日から使える医療統計　(新谷歩, 2015年, 医学書院)&lt;/li&gt;
 &lt;li&gt;Tutorial: guidelines for the experimental design of single-cell RNA sequencing studies　(Atefeh Lafzi et el., Nature Protocols volume 13, pages2742–2757 (2018))&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="https://oumpy.github.io/blog/2019/03/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-03-19T00:00:00+09:00</published><updated>2019-03-19T00:00:00+09:00</updated><author><name>菅波</name></author><id>tag:oumpy.github.io,2019-03-19:/blog/2019/03/original_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="https://oumpy.github.io/blog/2019/03/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-03-19T00:00:00+09:00</published><updated>2019-03-19T00:00:00+09:00</updated><author><name>菅波</name></author><id>tag:oumpy.github.io,2019-03-19:/blog/2019/03/original_rnaseq_pipeline.html</id><summary type="html">阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等....</summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/yyoshiaki/auto_counttable_maker"&gt;https://github.com/yyoshiaki/auto_counttable_maker&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;なお、以下のイラストはikraのアイコンとなっています。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://oumpy.github.io/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra.png" width="250px"&gt; &lt;/p&gt;
@@ -8107,7 +8142,7 @@ gunzip。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="3" src="https://oumpy.github.io/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra_git.png"&gt;&lt;/p&gt;
 &lt;p&gt;雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Enjoy bioinformatics life!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="https://oumpy.github.io/blog/2019/03/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="https://oumpy.github.io/blog/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-16T00:00:00+09:00</published><updated>2019-03-16T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-03-16:/blog/2019/03/julia_python_competition.html</id><summary type="html"></summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="https://oumpy.github.io/blog/2019/03/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="https://oumpy.github.io/blog/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-16T00:00:00+09:00</published><updated>2019-03-16T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-03-16:/blog/2019/03/julia_python_competition.html</id><summary type="html">最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。 &lt;strong&gt;Juliaってなに？&lt;/strong&gt; Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もど....</summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
 &lt;h2&gt;Juliaってなに？&lt;/h2&gt;
 &lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。&lt;br&gt;
 &lt;s&gt;ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。&lt;/s&gt;&lt;/p&gt;
@@ -8245,14 +8280,14 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;p&gt;&lt;strong&gt;&amp;lt; History &amp;gt;&lt;/strong&gt;&lt;br&gt;
 2019.03.21 ver1.0&lt;br&gt;
 2019.03.21 ver1.1 微修正、PyPy3の成績を追記&lt;br&gt;
-2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>Bioinformatics春合宿@三島</title><link href="https://oumpy.github.io/blog/2019/03/mishima.html" rel="alternate"></link><published>2019-03-10T00:00:00+09:00</published><updated>2019-03-10T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-03-10:/blog/2019/03/mishima.html</id><summary type="html"></summary><content type="html">&lt;p&gt;平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある&lt;a href="https://dbcls.rois.ac.jp/"&gt;DBCLS&lt;/a&gt;にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。&lt;/p&gt;
+2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>Bioinformatics春合宿@三島</title><link href="https://oumpy.github.io/blog/2019/03/mishima.html" rel="alternate"></link><published>2019-03-10T00:00:00+09:00</published><updated>2019-03-10T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2019-03-10:/blog/2019/03/mishima.html</id><summary type="html">平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある&lt;a href="https://dbcls.rois.ac.jp/"&gt;DBCLS&lt;/a&gt;にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioin....</summary><content type="html">&lt;p&gt;平岡と安水は2019/03/04-09の一週間、静岡県三島市の国立遺伝学研究所にある&lt;a href="https://dbcls.rois.ac.jp/"&gt;DBCLS&lt;/a&gt;にてbioinformatics合宿をしていました。定量、アセンブリを始めとするトランスクリプトーム解析やjuliaの入門、データベースのコツなど、たくさんのことを学びました。bioinformatics意外にも、坊農さんのグルメツアーや温泉、富士山など、季節ならではの三島を堪能することができました。詳しくは以下の日誌をご覧ください。&lt;/p&gt;
 &lt;h3&gt;平岡&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://github.com/yuna06/mishima2019/blob/master/README.md"&gt;mishima2019&lt;/a&gt;
  &lt;/p&gt;
 &lt;h3&gt;安水&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://github.com/yyoshiaki/mishima_gassyuku/blob/master/README.md"&gt;三島合宿日誌&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最後に、合宿を快諾いただいた坊農さんはじめ、仲里さん、内藤さん、小野さん、大田さんには心よりお礼申し上げます。生涯忘れることない、大切な経験になりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2019/03/images/mishima_figs/img_8242.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="https://oumpy.github.io/blog/2019/01/mockinbird_parclip.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/mockinbird_parclip.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2019/03/images/mishima_figs/img_8242.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="https://oumpy.github.io/blog/2019/01/mockinbird_parclip.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/mockinbird_parclip.html</id><summary type="html">今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。 &lt;strong&gt;PAR-CLIPって何？&lt;/strong&gt; PAR-CLIPは photoactivatable ribon....</summary><content type="html">&lt;p&gt;今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。&lt;/p&gt;
 &lt;h2&gt;PAR-CLIPって何？&lt;/h2&gt;
 &lt;p&gt;PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。&lt;/p&gt;
 &lt;p&gt;実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。&lt;/p&gt;
@@ -8431,7 +8466,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Pythonで可視化入門</title><link href="https://oumpy.github.io/blog/2019/01/python_visualization.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/python_visualization.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！&lt;/p&gt;
+&lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Pythonで可視化入門</title><link href="https://oumpy.github.io/blog/2019/01/python_visualization.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/python_visualization.html</id><summary type="html">Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！ これを読めばそんなあなたも簡単にいい感じのグラフがかける！ この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、....</summary><content type="html">&lt;p&gt;Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！&lt;/p&gt;
 &lt;p&gt;これを読めばそんなあなたも簡単にいい感じのグラフがかける！&lt;/p&gt;
 &lt;p&gt;この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、複数グラフ表示が簡単にできるラッパーであるholoviewsの簡単な解説をします。&lt;/p&gt;
 &lt;h2&gt;Pythonの可視化ライブラリ&lt;/h2&gt;
@@ -8452,7 +8487,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;li&gt;holoview最強説(plotlyも使えるラッパーなので)&lt;/li&gt;
 &lt;li&gt;楽にしたいならpandasのplot、動かしたければplotly！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;keywordでググると詳しい記事がたくさん出てきます。上記以外の可視化手法や面白いものあれば教えてください！&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Twitter自動投稿あれこれ</title><link href="https://oumpy.github.io/blog/2019/01/twitter_automation.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/twitter_automation.html</id><summary type="html"></summary><content type="html">&lt;p&gt;突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。&lt;/p&gt;
+&lt;p&gt;keywordでググると詳しい記事がたくさん出てきます。上記以外の可視化手法や面白いものあれば教えてください！&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Twitter自動投稿あれこれ</title><link href="https://oumpy.github.io/blog/2019/01/twitter_automation.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:oumpy.github.io,2019-01-18:/blog/2019/01/twitter_automation.html</id><summary type="html">突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。 &lt;strong&gt;きっかけ&lt;/strong&gt;  講義棟の音出し禁止時間を毎日6時に通知してくれるBOTが欲しい。 幸い音出し禁止時間はネット上に記載されているので、毎日取得して呟くだけなら実装は簡単そう。 何よりPython会の記事のネタになる....</summary><content type="html">&lt;p&gt;突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。&lt;/p&gt;
 &lt;h2&gt;きっかけ&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;講義棟の音出し禁止時間を毎日6時に通知してくれるBOTが欲しい。&lt;/li&gt;
@@ -8528,7 +8563,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;h2&gt;実行結果&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2019/01/images/twitter_automation_figs/picture1.png"&gt;&lt;/p&gt;
 &lt;p&gt;成功です。語尾は適当です。&lt;/p&gt;
-&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>【論文まとめ】医師国家試験問題自動生成AI</title><link href="https://oumpy.github.io/blog/2018/12/doctor_exam_ai.html" rel="alternate"></link><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2018-12-20:/blog/2018/12/doctor_exam_ai.html</id><summary type="html"></summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
+&lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>【論文まとめ】医師国家試験問題自動生成AI</title><link href="https://oumpy.github.io/blog/2018/12/doctor_exam_ai.html" rel="alternate"></link><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2018-12-20:/blog/2018/12/doctor_exam_ai.html</id><summary type="html">以下の論文を軽く紹介。  Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. On the Generation of Medical Question-Answer Pairs. &lt;em&gt;arXiv&lt;/em&gt;. 2018. &lt;a href="http://arxiv.org/abs/1811.00681"&gt;http://arxiv.org/abs/1811.00681&lt;/a&gt;  &lt;strong&gt;概要&lt;/strong&gt; Tensent M....</summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al.  On the Generation of Medical Question-Answer Pairs. &lt;em&gt;arXiv&lt;/em&gt;. 2018.
 &lt;a href="http://arxiv.org/abs/1811.00681"&gt;http://arxiv.org/abs/1811.00681&lt;/a&gt;&lt;/p&gt;
@@ -8553,7 +8588,7 @@ Deep learning技術により質問文に対して回答するAI (&lt;strong&gt;q
 &lt;h2&gt;実験結果&lt;/h2&gt;
 &lt;p&gt;アルゴリズムによる評価、人間による評価ともにベースラインを上回った。&lt;/p&gt;
 &lt;h2&gt;読んだ感想&lt;/h2&gt;
-&lt;p&gt;生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="論文まとめ"></category></entry><entry><title>Pythonの変数と代入について</title><link href="https://oumpy.github.io/blog/2018/12/python_value.html" rel="alternate"></link><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2018-12-20:/blog/2018/12/python_value.html</id><summary type="html"></summary><content type="html">&lt;p&gt;Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。&lt;/p&gt;
+&lt;p&gt;生成された問題文の例が載ってないのですごいのかよくわからなかった。データの量はすごい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="論文まとめ"></category></entry><entry><title>Pythonの変数と代入について</title><link href="https://oumpy.github.io/blog/2018/12/python_value.html" rel="alternate"></link><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2018-12-20:/blog/2018/12/python_value.html</id><summary type="html">Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。 実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうで....</summary><content type="html">&lt;p&gt;Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。&lt;/p&gt;
 &lt;p&gt;実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうです。&lt;/p&gt;
 &lt;h2&gt;変数は参照である&lt;/h2&gt;
 &lt;p&gt;一言でいえば表題の通り。
@@ -8660,7 +8695,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;p&gt;以上見てきたように、Pythonの変数は全て参照、関数引数は全て参照渡しです。これらが組み合わさると、結果的に全てを値渡しにした場合（C/C++）と殆ど違いが見えなくなり、あまり意識することなくプログラムを書けるようになっています。&lt;/p&gt;
 &lt;p&gt;しかし、リストや配列（や、もっと複雑なクラスオブジェクトなど）のように部分的に書き換え可能なものを扱う場合などには、この違いはかなり重要になってきます。怪しいと思ったら、各変数が何を参照しているか、互いに同じか違うかなどを、その都度考えてみてください。&lt;/p&gt;
 &lt;p&gt;ひとまず今回はここまで。おしまい。
-※画像は&lt;a href="https://www.python.org/"&gt;公式&lt;/a&gt;のものです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Common Workflow Language入門</title><link href="https://oumpy.github.io/blog/2018/12/cwl.html" rel="alternate"></link><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-12-07:/blog/2018/12/cwl.html</id><summary type="html"></summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
+※画像は&lt;a href="https://www.python.org/"&gt;公式&lt;/a&gt;のものです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Common Workflow Language入門</title><link href="https://oumpy.github.io/blog/2018/12/cwl.html" rel="alternate"></link><published>2018-12-07T00:00:00+09:00</published><updated>2018-12-07T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-12-07:/blog/2018/12/cwl.html</id><summary type="html">先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。 &lt;strong&gt;CWLって？&lt;/strong&gt;  一言で言うと、bioinformatics処理の自動化です。ど....</summary><content type="html">&lt;p&gt;先日&lt;a href="https://github.com/manabuishii/workflow-meetup/wiki/20181126"&gt;workflow-meetup&lt;/a&gt;にお誘いを頂いて参加してきました。そこでThe Common Workflow Language(CWL)というものを習ったので忘れないうちに&lt;strong&gt;医学部生にもわかりやすく&lt;/strong&gt;まとめます。&lt;/p&gt;
 &lt;h2&gt;CWLって？&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="cwl" src="https://github.com/common-workflow-language/cwl-website/blob/master/site/CWL-Logo-Header.png?raw=true"&gt;&lt;/p&gt;
 &lt;p&gt;一言で言うと、bioinformatics処理の自動化です。どういうことかもうちょっと詳しく見てみましょう。&lt;/p&gt;
@@ -8726,7 +8761,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.commonwl.org/"&gt;CWL公式ページ&lt;/a&gt; : リンク集がついている。&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/13K6BKQoimiaOIFSnComw8in3HlCxEm820OASP8_jnDI/edit?usp=sharing"&gt;cwl-intro-gui-workshop スライド&lt;/a&gt; : 二階堂研石井さんのスライド。わかりやすいです。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="https://oumpy.github.io/blog/2018/12/animalshogi.html" rel="alternate"></link><published>2018-12-06T00:00:00+09:00</published><updated>2018-12-06T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2018-12-06:/blog/2018/12/animalshogi.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>PythonとKerasでどうぶつしょうぎ</title><link href="https://oumpy.github.io/blog/2018/12/animalshogi.html" rel="alternate"></link><published>2018-12-06T00:00:00+09:00</published><updated>2018-12-06T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2018-12-06:/blog/2018/12/animalshogi.html</id><summary type="html">&lt;strong&gt;はじめに&lt;/strong&gt; &lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt; というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;） 普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオ....</summary><content type="html">&lt;h2&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;「どうぶつしょうぎ」&lt;/strong&gt; というゲームをご存知でしょうか。（&lt;a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ"&gt;wikipediaの解説&lt;/a&gt;）&lt;/p&gt;
 &lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
@@ -8841,7 +8876,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;h3&gt;追記2&lt;/h3&gt;
 &lt;p&gt;強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。&lt;br&gt;
 今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。&lt;br&gt;
-最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Gene Set Enrichment Analysis (GSEA)入門</title><link href="https://oumpy.github.io/blog/2018/11/gsea.html" rel="alternate"></link><published>2018-11-27T00:00:00+09:00</published><updated>2018-11-27T00:00:00+09:00</updated><author><name>西田</name></author><id>tag:oumpy.github.io,2018-11-27:/blog/2018/11/gsea.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;GSEAとは&lt;/h2&gt;
+最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Gene Set Enrichment Analysis (GSEA)入門</title><link href="https://oumpy.github.io/blog/2018/11/gsea.html" rel="alternate"></link><published>2018-11-27T00:00:00+09:00</published><updated>2018-11-27T00:00:00+09:00</updated><author><name>西田</name></author><id>tag:oumpy.github.io,2018-11-27:/blog/2018/11/gsea.html</id><summary type="html">&lt;strong&gt;GSEAとは&lt;/strong&gt; GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。 &lt;strong&gt;clusterProfilerでGSEA&lt;/strong&gt;....</summary><content type="html">&lt;h2&gt;GSEAとは&lt;/h2&gt;
 &lt;p&gt;GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。&lt;/p&gt;
 &lt;h2&gt;clusterProfilerでGSEA入門&lt;/h2&gt;
 &lt;p&gt;GSEA には様々なGSEAがあります。単に注目する遺伝子のリストをGSEAへの入力とするもの、発現プロファイルを入力とするもの、機能のデータベースやGSEA手法を複数組み合わせたりするもの (EGSEA) など様々です。[余談ですがGeneを代謝物(Metabolite)に置き換えたMSEAもあります。]&lt;/p&gt;
@@ -8910,7 +8945,23 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;p&gt;&lt;img alt="KEGG map" src="https://oumpy.github.io/blog/2018/11/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
 &lt;h2&gt;終わりに&lt;/h2&gt;
 &lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
-&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>化合物データ処理ソフト RDKit</title><link href="https://oumpy.github.io/blog/2018/11/RDKit.html" rel="alternate"></link><published>2018-11-21T23:00:00+09:00</published><updated>2018-11-21T23:00:00+09:00</updated><author><name>川島</name></author><id>tag:oumpy.github.io,2018-11-21:/blog/2018/11/RDKit.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>化合物データ処理ソフト RDKit</title><link href="https://oumpy.github.io/blog/2018/11/RDKit.html" rel="alternate"></link><published>2018-11-21T23:00:00+09:00</published><updated>2018-11-21T23:00:00+09:00</updated><author><name>川島</name></author><id>tag:oumpy.github.io,2018-11-21:/blog/2018/11/RDKit.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="いつものパッケージのインポート"&gt;&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#いつものパッケージのインポート"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -10021,7 +10072,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。&lt;/p&gt;
@@ -10303,7 +10354,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -10332,7 +10383,25 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>2018年阪大理系数学をPythonで解いてみた</title><link href="https://oumpy.github.io/blog/2018/11/handai_math.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/handai_math.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>2018年阪大理系数学をPythonで解いてみた</title><link href="https://oumpy.github.io/blog/2018/11/handai_math.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/handai_math.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="なぜ入試数学をPythonで？？"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#なぜ入試数学をPythonで？？"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
+&lt;p&gt;コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。&lt;/p&gt;
+&lt;h2 id="どの問題を解くか？"&gt;&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#どの問題を解くか？"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。&lt;/p&gt;
+&lt;p&gt;ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。&lt;/p&gt;
+&lt;p&gt;※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。&lt;/p&gt;
+&lt;h2 id="環境"&gt;&amp;#29872;&amp;#22659;&lt;a class="anchor-link" href="#環境"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Python3.6.1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sympy&lt;/code&gt;：sympyはPythonのライブラリの一つで、記号計算を行うものです。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各問題共通のコードとして、sympyをインポートしておきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -11443,7 +11512,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
@@ -12197,7 +12266,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -12226,7 +12295,39 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="https://oumpy.github.io/blog/2018/11/kaplan_meier_curve.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/kaplan_meier_curve.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="https://oumpy.github.io/blog/2018/11/kaplan_meier_curve.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/kaplan_meier_curve.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="はじめに"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#はじめに"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="書こうと思ったきっかけ"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#書こうと思ったきっかけ"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
+だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。&lt;/p&gt;
+&lt;h3 id="Kaplan-Meier-曲線とは"&gt;Kaplan-Meier &amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#Kaplan-Meier-曲線とは"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;観察期間は限られている(患者さんを何年もフォローすることはできない)&lt;/li&gt;
+&lt;li&gt;観察不能になることがある(病院移った、他の要因で死亡したなど)&lt;/li&gt;
+&lt;li&gt;患者さんによって観察開始時間は様々(みんな一緒に罹患したり治療を開始するわけではない)
+そういった問題をうまく対処してくれるのがKaplan-Meier曲線。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kaplan-Meier曲線の縦軸は累積生存率で、&lt;/p&gt;
+$$
+S(t)=\prod_j^t  \left(1-\frac{d_j}{n_j}\right)
+$$&lt;p&gt;で表されます。ここで$d_j$は時間$j$における死亡者数で、$n_j$は時間$j$における生存者数です。&lt;/p&gt;
+&lt;p&gt;今回はpythonのコードでKaplan-Meier曲線を書いていこうと思います。
+pythonのライブラリにlifelinesという便利なライブラリがあるのでそれを使っていこうと思います。installはpipでできます：&lt;code&gt;pip install lifelines&lt;/code&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="データの準備"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#データの準備"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
+ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -13337,7 +13438,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
@@ -14138,7 +14239,7 @@ height=261
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -14167,7 +14268,7 @@ height=261
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="https://oumpy.github.io/blog/2018/11/pandas_pivot_table.html" rel="alternate"></link><published>2018-11-17T00:00:00+09:00</published><updated>2018-11-17T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:oumpy.github.io,2018-11-17:/blog/2018/11/pandas_pivot_table.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;概要&lt;/h2&gt;
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="https://oumpy.github.io/blog/2018/11/pandas_pivot_table.html" rel="alternate"></link><published>2018-11-17T00:00:00+09:00</published><updated>2018-11-17T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:oumpy.github.io,2018-11-17:/blog/2018/11/pandas_pivot_table.html</id><summary type="html">&lt;strong&gt;概要&lt;/strong&gt; pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。 pivot_tableを使った計算で個人的によく使う処理をまとめたものを&lt;a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table"&gt;kaggle のkernel&lt;/a&gt;で公開しました。  このkernelでは簡単なダミーデータでpivot_tab....</summary><content type="html">&lt;h2&gt;概要&lt;/h2&gt;
 &lt;p&gt;pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。&lt;/p&gt;
 &lt;p&gt;pivot_tableを使った計算で個人的によく使う処理をまとめたものを&lt;a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table"&gt;kaggle のkernel&lt;/a&gt;で公開しました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2018/11/images/pandas_pivot_table_figs/pandas_pivot_table.png"&gt;&lt;/p&gt;
@@ -14181,7 +14282,7 @@ height=261
 &lt;h2&gt;どれくらい早くなるの？&lt;/h2&gt;
 &lt;p&gt;上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、&lt;/p&gt;
 &lt;p&gt;愚直なコード(1時間以上) → groupbyでの処理(2分半) → pivot_table(4秒)&lt;/p&gt;
-&lt;p&gt;という感じで早くなりました。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Data Science Competition"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="https://oumpy.github.io/blog/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2018-11-16:/blog/2018/11/shellscript_2.html</id><summary type="html"></summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
+&lt;p&gt;という感じで早くなりました。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Data Science Competition"></category></entry><entry><title>シェルスクリプト入門(2)</title><link href="https://oumpy.github.io/blog/2018/11/shellscript_2.html" rel="alternate"></link><published>2018-11-16T00:00:00+09:00</published><updated>2018-11-16T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2018-11-16:/blog/2018/11/shellscript_2.html</id><summary type="html">※ 編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。 テーブルファイルの操作と言えばRです。 (※ 編集注：Pythonでもできます。) が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！ ってことないでしょ....</summary><content type="html">&lt;p&gt;※　編集注：前作&lt;a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/"&gt;シェルスクリプト入門（1）&lt;/a&gt;の続編です。まだ読み終わってない方はそちらを先にどうぞ。&lt;/p&gt;
 &lt;p&gt;テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
 が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
 ってことないでしょうか。&lt;/p&gt;
@@ -14354,7 +14455,7 @@ xの\)&lt;/span&gt;にかかってた\は、&lt;code&gt;eval&lt;/code&gt;での�
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="https://oumpy.github.io/blog/2018/11/shellscript_1.html" rel="alternate"></link><published>2018-11-01T00:00:00+09:00</published><updated>2018-11-01T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2018-11-01:/blog/2018/11/shellscript_1.html</id><summary type="html"></summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>シェルスクリプト入門(1)</title><link href="https://oumpy.github.io/blog/2018/11/shellscript_1.html" rel="alternate"></link><published>2018-11-01T00:00:00+09:00</published><updated>2018-11-01T00:00:00+09:00</updated><author><name>水野</name></author><id>tag:oumpy.github.io,2018-11-01:/blog/2018/11/shellscript_1.html</id><summary type="html">python会なのにpythonまだ触ったことありません。勉強せねば。 データ整形の流れって、教わる機会なくないですか？ つまらないものですが、僕のやり方を紹介してみます。 始めたばかりの人は参考にしてください。 経験者の方、変なとこあったらどしどし突っ込みください！ そして皆さんの自己流....</summary><content type="html">&lt;p&gt;python会なのにpythonまだ触ったことありません。勉強せねば。&lt;/p&gt;
 &lt;p&gt;データ整形の流れって、教わる機会なくないですか？
 つまらないものですが、僕のやり方を紹介してみます。
 始めたばかりの人は参考にしてください。
@@ -14469,7 +14570,7 @@ cat &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$filena
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="https://oumpy.github.io/blog/2018/10/macs2_deeptools.html" rel="alternate"></link><published>2018-10-29T00:00:00+09:00</published><updated>2018-10-29T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-29:/blog/2018/10/macs2_deeptools.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;ChIP-seqとは&lt;/h2&gt;
+&lt;p&gt;各コマンドのオプションの使い方が重要ですが、長くなってきたので詳細はまたの機会に。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>MACS2とdeepToolsのbigwigファイルの比較</title><link href="https://oumpy.github.io/blog/2018/10/macs2_deeptools.html" rel="alternate"></link><published>2018-10-29T00:00:00+09:00</published><updated>2018-10-29T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-29:/blog/2018/10/macs2_deeptools.html</id><summary type="html">&lt;strong&gt;ChIP-seqとは&lt;/strong&gt; 全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピ....</summary><content type="html">&lt;h2&gt;ChIP-seqとは&lt;/h2&gt;
 &lt;p&gt;全身で37兆個あるといわれているヒトの細胞は、基本的にすべて同じDNA配列を有している。しかし、肝細胞、網膜、免疫細胞と細胞にはそれぞれの"個性"がある。更には正常の免疫細胞と暴走している免疫細胞など細胞には"状態"もある。これらを制御する大きな要素としてエピジェネティクスが挙げられ、DNAメチル化やクロマチン修飾などが知られている。ChIP-seq (chromatin immunoprecipitation sequence) は特異的クロマチン修飾を受けている領域を、抗体を用いて沈降、濃縮させ、どの細胞のどの領域でどういう修飾を受けているのかを調べるために用いられる。&lt;/p&gt;
 &lt;h2&gt;今回のきっかけ&lt;/h2&gt;
 &lt;p&gt;ChIP-seqの解析をする時に便利なフォーマットにbigwigがある。igvで表示したり、coverageを計算したり、様々な用途で使える。詳しくはdrbonobon（第一版）のp118に記載されている。ChIP-seqの解析には&lt;a href="https://github.com/taoliu/MACS"&gt;MACS2&lt;/a&gt;というソフトが良く使われ、bigwigの生成も可能だが、&lt;a href="https://deeptools.readthedocs.io/en/develop/index.html"&gt;deepTools&lt;/a&gt;でも&lt;code&gt;​bamCoverage&lt;/code&gt;や​&lt;code&gt;​bamComapre&lt;/code&gt;機能を使ってbigwigを作ることができる。挙動や使い所の違いを比較しようというのが今回の目的。&lt;/p&gt;
@@ -14721,7 +14822,7 @@ colormapは&lt;a href="https://matplotlib.org/examples/color/colormaps_reference
 &lt;li&gt;TregとTconvのデータを用意した割にはTreg-specific peaksを見るところまでは手が回らなかった。（論文読めば書いてあるが。)特異的ピーク検出をするなら&lt;a href="http://homer.ucsd.edu/homer/ngs/index.html"&gt;HOMER&lt;/a&gt;が安定感があって良さそうな。&lt;/li&gt;
 &lt;li&gt;ChIP-seq解析のいい練習になりました。&lt;/li&gt;
 &lt;li&gt;multi-omics人材になるぞ！&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>GitHub desktopアプリの使い方</title><link href="https://oumpy.github.io/blog/2018/10/github_desktop.html" rel="alternate"></link><published>2018-10-28T00:00:00+09:00</published><updated>2018-10-28T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-28:/blog/2018/10/github_desktop.html</id><summary type="html"></summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>GitHub desktopアプリの使い方</title><link href="https://oumpy.github.io/blog/2018/10/github_desktop.html" rel="alternate"></link><published>2018-10-28T00:00:00+09:00</published><updated>2018-10-28T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-28:/blog/2018/10/github_desktop.html</id><summary type="html">githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。 &lt;strong&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/strong&gt;  github上のレポジトリとLocal pathを指定。  これでうまくclo....</summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
 &lt;h2&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2018/10/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;github上のレポジトリとLocal pathを指定。&lt;/p&gt;
@@ -14748,7 +14849,7 @@ $ git push origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="GitHub"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="https://oumpy.github.io/blog/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-10-16:/blog/2018/10/environment_bioinformatics.html</id><summary type="html"></summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
+&lt;p&gt;って感じでやればOK。branchやmerge、プルリクエストについては触れていません。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="GitHub"></category></entry><entry><title>LinuxでのBioinformatics環境構築</title><link href="https://oumpy.github.io/blog/2018/10/environment_bioinformatics.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-10-16:/blog/2018/10/environment_bioinformatics.html</id><summary type="html">ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます....</summary><content type="html">&lt;p&gt;ただいま、私のMacbook Proが入院しておりまして、古いWindows10をUbuntuとデュアルブートして作業しております。下級生でもWindowsしか持っていない、でもBioinformaticsに関心があるという人が、スムーズに環境構築できるようにと今回の記事を書きます。なお、前提として、Ubuntuのインストールが完了しているものとします。なお、筆者のインストールしたUbuntuは18.04.1 LTSです。&lt;/p&gt;
 &lt;p&gt;今回は&lt;a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html"&gt;Kallistoを用いたRNA-seq解析パイプライン&lt;/a&gt;で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。&lt;/p&gt;
 &lt;h2&gt;Pythonのインストール&lt;/h2&gt;
 &lt;p&gt;Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。&lt;/p&gt;
@@ -14824,7 +14925,7 @@ Tximportのインストール&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/tximport.html"&gt;https://bioconductor.org/packages/release/bioc/html/tximport.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bioconductor.org/packages/release/bioc/html/DESeq2.html"&gt;https://bioconductor.org/packages/release/bioc/html/DESeq2.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="https://oumpy.github.io/blog/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-10-16:/blog/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Kallistoを用いたRNA-seq解析パイプライン</title><link href="https://oumpy.github.io/blog/2018/10/kallisto_rnaseq_pipeline.html" rel="alternate"></link><published>2018-10-16T00:00:00+09:00</published><updated>2018-10-16T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-10-16:/blog/2018/10/kallisto_rnaseq_pipeline.html</id><summary type="html">今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！....</summary><content type="html">&lt;p&gt;今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。&lt;a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html"&gt;LinuxでのBioinformatics環境構築&lt;/a&gt;でこの記事への準備はすべて終了している流れになります。&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)"&gt;Kallisto&lt;/a&gt;は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！&lt;/p&gt;
 &lt;h2&gt;リファレンスのダウンロード&lt;/h2&gt;
 &lt;p&gt;kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は&lt;a href="https://www.gencodegenes.org/"&gt;GenCodeGenes&lt;/a&gt;のヒトtranscript sequencesのデータを用いました。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
@@ -15089,7 +15190,38 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="https://oumpy.github.io/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-13:/blog/2018/10/bayesian_ttest.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="https://oumpy.github.io/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-13:/blog/2018/10/bayesian_ttest.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
+&lt;h2 id="概要"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#概要"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。&lt;/p&gt;
+&lt;p&gt;当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
+&lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
+&lt;strong&gt;BEST&lt;/strong&gt;(Bayesian estimation supersedes the t-test)
+というかっこいい名前です。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Kruschke, John. (2012) Bayesian estimation supersedes the t-test. Journal of Experimental Psychology: General.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
+を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;Bayesian estimation supersedes the t-test (BEST)&lt;a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：&lt;code&gt;pip install pymc3&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(参考)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.pymc.io/notebooks/BEST.html"&gt;https://docs.pymc.io/notebooks/BEST.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;「Pythonで体験するベイズ推論」　Cameron Davidson-Pilon / 玉木 徹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -16200,7 +16332,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
@@ -17311,7 +17443,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -17340,7 +17472,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="https://oumpy.github.io/blog/2018/10/google_colaboratory.html" rel="alternate"></link><published>2018-10-08T00:00:00+09:00</published><updated>2018-10-08T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2018-10-08:/blog/2018/10/google_colaboratory.html</id><summary type="html"></summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。&lt;/p&gt;
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>いまさらGoogle Colaboratory入門</title><link href="https://oumpy.github.io/blog/2018/10/google_colaboratory.html" rel="alternate"></link><published>2018-10-08T00:00:00+09:00</published><updated>2018-10-08T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:oumpy.github.io,2018-10-08:/blog/2018/10/google_colaboratory.html</id><summary type="html">いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。 (あと、PCがクソザコなので、クラウドがいいかなーと思いました) &lt;strong&gt;対象&lt;/strong&gt; 初学者に非常に向いています。python....</summary><content type="html">&lt;p&gt;いまさらGoogle Colaboratory触ってみた感じ、かなり便利なのでまとめておきます。動機は、研究室の環境とは別に、趣味のプログラミングの環境が欲しかったからです。&lt;/p&gt;
 &lt;p&gt;(あと、PCがクソザコなので、クラウドがいいかなーと思いました)&lt;/p&gt;
 &lt;h2&gt;対象&lt;/h2&gt;
 &lt;p&gt;初学者に非常に向いています。pythonの勉強会や趣味レベルまで対応している神環境だと思います。&lt;/p&gt;
@@ -17370,7 +17502,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4"&gt;https://www.codexa.net/how-to-use-google-colaboratory/#Google_Colab-4&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://karaage.hatenadiary.jp/entry/2018/03/21/073000"&gt;https://karaage.hatenadiary.jp/entry/2018/03/21/073000&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Particle filter</title><link href="https://oumpy.github.io/blog/2018/10/particle_filter.html" rel="alternate"></link><published>2018-10-05T00:00:00+09:00</published><updated>2018-10-05T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-10-05:/blog/2018/10/particle_filter.html</id><summary type="html"></summary><content type="html">&lt;p&gt;今回は&lt;strong&gt;パーティクルフィルター&lt;/strong&gt;の紹介をしたいと思います。
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>Particle filter</title><link href="https://oumpy.github.io/blog/2018/10/particle_filter.html" rel="alternate"></link><published>2018-10-05T00:00:00+09:00</published><updated>2018-10-05T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-10-05:/blog/2018/10/particle_filter.html</id><summary type="html">今回は&lt;strong&gt;パーティクルフィルター&lt;/strong&gt;の紹介をしたいと思います。 といってもやり始めたばっかなので、間違っていたらご指摘お願いします。 &lt;strong&gt;手順&lt;/strong&gt; 基本は以下の４つのサイクルを繰り返すだけです。   リサンプリング  予測  観測  尤度計算 重みの更新   と言っても分かりにくかったんで、イメージで話すと  まず粒子（パーティク....</summary><content type="html">&lt;p&gt;今回は&lt;strong&gt;パーティクルフィルター&lt;/strong&gt;の紹介をしたいと思います。
 といってもやり始めたばっかなので、間違っていたらご指摘お願いします。&lt;/p&gt;
 &lt;h2&gt;手順&lt;/h2&gt;
 &lt;p&gt;基本は以下の４つのサイクルを繰り返すだけです。  &lt;/p&gt;
@@ -17499,7 +17631,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E5%85%88%E7%AB%AF%E3%82%AC%E3%82%A4%E3%83%891-CVIM%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%80%89%E7%88%AA-%E4%BA%AE/dp/4915851346"&gt;コンピュータビジョン最先端ガイド&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>【論文まとめ】Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="https://oumpy.github.io/blog/2018/09/breast_cancer_detection.html" rel="alternate"></link><published>2018-09-25T00:00:00+09:00</published><updated>2018-09-25T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2018-09-25:/blog/2018/09/breast_cancer_detection.html</id><summary type="html"></summary><content type="html">&lt;blockquote&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>【論文まとめ】Improving Breast Cancer Detection using Symmetry Information with Deep Learning</title><link href="https://oumpy.github.io/blog/2018/09/breast_cancer_detection.html" rel="alternate"></link><published>2018-09-25T00:00:00+09:00</published><updated>2018-09-25T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:oumpy.github.io,2018-09-25:/blog/2018/09/breast_cancer_detection.html</id><summary type="html"> Improving Breast Cancer Detection using Symmetry Information with Deep Learning. http://arxiv.org/abs/1808.08273  &lt;strong&gt;概要&lt;/strong&gt;  放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCN....</summary><content type="html">&lt;blockquote&gt;
 &lt;p&gt;Improving Breast Cancer Detection using Symmetry Information with Deep Learning.
 http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -17548,7 +17680,7 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;暗めの悪性腫瘍, 明るい正常像は誤判定しやすいがsymmetry modelは左右の比較によって正しく判定していることが読み取れる&lt;/p&gt;
 &lt;h2&gt;読んだ感想&lt;/h2&gt;
-&lt;p&gt;性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="論文まとめ"></category></entry><entry><title>クラスター分析</title><link href="https://oumpy.github.io/blog/2018/09/cluster_analysis.html" rel="alternate"></link><published>2018-09-24T00:00:00+09:00</published><updated>2018-09-24T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-09-24:/blog/2018/09/cluster_analysis.html</id><summary type="html"></summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
+&lt;p&gt;性能差がちょっと微妙だけど考察の納得感はある&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="論文まとめ"></category></entry><entry><title>クラスター分析</title><link href="https://oumpy.github.io/blog/2018/09/cluster_analysis.html" rel="alternate"></link><published>2018-09-24T00:00:00+09:00</published><updated>2018-09-24T00:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-09-24:/blog/2018/09/cluster_analysis.html</id><summary type="html">現在、クラスター分析の勉強をしています。 勉強し始めて数時間ですが、少しまとめてみたいと思います。 &lt;strong&gt;クラスター分析とは&lt;/strong&gt; 簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。 あらかじめ分類の基準が決まっておらず分類のための....</summary><content type="html">&lt;p&gt;現在、クラスター分析の勉強をしています。
 勉強し始めて数時間ですが、少しまとめてみたいと思います。&lt;/p&gt;
 &lt;h2&gt;クラスター分析とは&lt;/h2&gt;
 &lt;p&gt;簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
@@ -17612,7 +17744,7 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;li&gt;&lt;a href="http://datanongrata.com/2019/04/27/67/"&gt;http://datanongrata.com/2019/04/27/67/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours"&gt;https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Pythonではじめる機械学習 オライリー社&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>寿司打タイピング自動化</title><link href="https://oumpy.github.io/blog/2018/09/sushi_typing.html" rel="alternate"></link><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-20:/blog/2018/09/sushi_typing.html</id><summary type="html"></summary><content type="html">&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>寿司打タイピング自動化</title><link href="https://oumpy.github.io/blog/2018/09/sushi_typing.html" rel="alternate"></link><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-20:/blog/2018/09/sushi_typing.html</id><summary type="html">   寿司打の自動化についてです。上の動画のようになりました。寿司打は結構昔からあるタイピング練習サイトです。寿司打は&lt;a href="http://typing.sakura.ne.jp/sushida/"&gt;こちら&lt;/a&gt;です。 1万円コースで1万円超えない人はタイピング遅いので特訓しましょう。 自動化の流れとしては  スクリーンショットを取る(PIL) OCRで文字認識をする(pyocr) ....</summary><content type="html">&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width="640" height="390"
     src="https://www.youtube.com/embed/SqOO9I1tFjk"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
@@ -17630,7 +17762,7 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;p&gt;今回はMBPをつかって一万円コース63120 円でした。OCRの部分が律速になっていそうなので、リソースかアルゴリズムでここを高速化するとプラトーになるのではと考えています。
 一晩中自動でゲームを繰り返してスコアをメモし続けるように書き直したので、少し冗長なコードになっています。
 ところで、ランキングをチェックすると、抜かれていたので、だれかリベンジしてください。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871"&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="https://oumpy.github.io/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-15:/blog/2018/09/umap.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871"&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="https://oumpy.github.io/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-15:/blog/2018/09/umap.html</id><summary type="html">&lt;strong&gt;tSNEとUMAP&lt;/strong&gt; 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
 &lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照）&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2017/03/08/tsne.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;そこで今回紹介するのは&lt;strong&gt;UMAP&lt;/strong&gt;。 arxivで今月publishされたばかりのアルゴリズムです(記事執筆時 2018年2月時点)。 試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。&lt;/p&gt;
@@ -17667,7 +17799,55 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;h3&gt;tSNE&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="tsne" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/tsne.png"&gt;&lt;/p&gt;
 &lt;h3&gt;UMAP&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="umap" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="https://oumpy.github.io/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:oumpy.github.io,2018-09-12:/blog/2018/09/regular_expression.html</id><summary type="html"></summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;&lt;img alt="umap" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="https://oumpy.github.io/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:oumpy.github.io,2018-09-12:/blog/2018/09/regular_expression.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。&lt;/p&gt;
+&lt;p&gt;正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="要点"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#要点"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="メタ文字"&gt;&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;&lt;a class="anchor-link" href="#メタ文字"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;?&lt;/code&gt;は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt;は、直前のグループの0回以上の出現にマッチする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt;は、直前のグループの1回以上の出現にマッチする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt;は、直前のグループのn回の出現にマッチする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n,}&lt;/code&gt;は、直前のグループのn回以上の出現にマッチする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{,m}&lt;/code&gt;は、直前のグループの0~m回の出現にマッチする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n,m}?&lt;/code&gt;、&lt;code&gt;?&lt;/code&gt;、&lt;code&gt;+?&lt;/code&gt;は直前のグループの非貪欲マッチを行う。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="文字集合"&gt;&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;&lt;a class="anchor-link" href="#文字集合"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\d&lt;/code&gt;：0~9の数字&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\D&lt;/code&gt;：0~9の数字以外&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\w&lt;/code&gt;：文字、数字、下線（単語wordのw）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\W&lt;/code&gt;：文字、数字、下線以外&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\s&lt;/code&gt;：スペース、タブ、改行（空白spaceのs）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\S&lt;/code&gt;：スペース、タブ、改行以外&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="正規表現マッチのまとめ"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#正規表現マッチのまとめ"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;re&lt;/code&gt;モジュール&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;re.compile()&lt;/code&gt;関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;search()&lt;/code&gt;メソッド&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group()&lt;/code&gt;メソッド&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;findall()&lt;/code&gt;メソッド&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="実践"&gt;&amp;#23455;&amp;#36341;&lt;a class="anchor-link" href="#実践"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -18778,7 +18958,7 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。&lt;/p&gt;
@@ -19573,7 +19753,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;/div&gt;
  
 
-
+&lt;/body&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -19602,7 +19782,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="https://oumpy.github.io/blog/2018/09/article_reading.html" rel="alternate"></link><published>2018-09-09T23:00:00+09:00</published><updated>2018-09-09T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/article_reading.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;論文抄読で便利なサイト&lt;/h2&gt;
+</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>論文抄読で便利なサイト</title><link href="https://oumpy.github.io/blog/2018/09/article_reading.html" rel="alternate"></link><published>2018-09-09T23:00:00+09:00</published><updated>2018-09-09T23:00:00+09:00</updated><author><name>柳澤</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/article_reading.html</id><summary type="html">&lt;strong&gt;論文抄読で便利なサイト&lt;/strong&gt; 英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…という....</summary><content type="html">&lt;h2&gt;論文抄読で便利なサイト&lt;/h2&gt;
 &lt;p&gt;英語論文を読むのにものすごいハードルがある人（＝僕）や英語見るだけでなんとなく気持ちがのらない人（＝僕）でも、論文を読まなければみたいな状況は訪れます。結局大事なことは英語で書いてあるし今後嫌でも読まなければいけないので、なんとか楽して読めないものか…ということで、いつも論文を読む時にどんなサイトを使っているかを一度書き起こしてみました。&lt;br&gt;
 とりあえずハードルを下げることメインなので、「普通に読めるやろ」みたいな人はスルーでお願いします笑。5年の免疫内科の実習で論文の効率的な読み方を習って、もっと早く知ってればなあと思ったので、もし先生に「〇〇に関する論文読んできてねー」みたいなことを言われた時とかに参考にしてみてください。 &lt;a href="http://www.imed3.med.osaka-u.ac.jp/education/education01.html"&gt;大阪大学免疫内科のホームページ&lt;/a&gt;と被っていることも多いです。こちらも是非見てみてください。&lt;/p&gt;
 &lt;h2&gt;論文を（ざっと）読む&lt;/h2&gt;
@@ -19613,7 +19793,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;p&gt;有名な雑誌（Impact Factorの高い雑誌）に関しては免内のサイトをみてください。 日本語でいいから論文に触れる。を目標にして行きたい。 Nature とNEJMは題名とアブストを日本語で読める。興味のある記事が一目でわかります。Natureには日本語のご利用ガイドまで。ありがたいです。 AASJはほぼ毎日日本語で面白い論文を解説してくれています。&lt;a href="http://aasj.jp/watch.html"&gt;AASJ&lt;/a&gt;おすすめ あと&lt;a href="http://first.lifesciencedb.jp"&gt;ライフサイエンス新着論文レビュー&lt;/a&gt;, &lt;a href="http://leading.lifesciencedb.jp"&gt;領域融合レビュー&lt;/a&gt;もお世話になってます。論文執筆者がその論文について解説してくれていたり、その領域について概説してくれています。（DBCLSのサービスの一つなのですが、他にも前述のAllie含め色々なサービスがあります。うまく使いこなせるようになりたい。使いこなしてるって人は教えてください。サイトは→ &lt;a href="http://dbcls.rois.ac.jp/services"&gt;DBCLS&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;（有名どころの）論文を探す&lt;/h2&gt;
 &lt;p&gt;せっかく読むんならたくさん引用されているすごい論文を読んだ方がかコスパがいい気がする！ということでその領域の代表的な論文を読みたいって時、結構pubmedでは検索しにくかったりします。キーワード入れたけどこれはどれくらいすごい論文なのかわからないという時はISI web of knowledgeを使ってます。ある領域で被引用回数の多い順に論文を見ることができたりいろいろ便利な機能があります。おおきな括りで調べる時（autophagyとかsepsisとか）は最近3年くらいで、何個か検索ワードを並べて検索する時には最近10年分くらいで検索するとうまく行くことが多いです。被引用回数の多い順に検索結果を並べかえて上位のものからいくつかアブストを読んでみて、面白いなあと思ったものの論文を実際に読むっていう感じにしてます。&lt;br&gt;
-論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="論文関連"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="https://oumpy.github.io/blog/2018/09/hardware_for_deeplearning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/hardware_for_deeplearning.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
+論文がどこにあるかわからなければ下の方に書いてあるpubmed idをコピーしてpubmedの検索のところにその番号を直接ペーストすると、お目当の論文が出てきます。阪大のwifiに繋がないと見れないですが、本当に役立ちます。あとはやっぱりgoogle scholarも使うことが多いです。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="論文関連"></category></entry><entry><title>組み込みでDeep Learningにつかえるハードについて</title><link href="https://oumpy.github.io/blog/2018/09/hardware_for_deeplearning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/hardware_for_deeplearning.html</id><summary type="html">&lt;strong&gt;Rasberry pi&lt;/strong&gt; シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。  &lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;Rasberry pi&lt;/h2&gt;
 &lt;p&gt;シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.cenav.org/raspi2/"&gt;計算工学ナビ : RaspberryPiでスパコンを作ろう&lt;/a&gt;&lt;/li&gt;
@@ -19637,7 +19817,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://qiita.com/ababa893/items/57b43e788d684c380866"&gt;Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry><entry><title>Parameter Tuning</title><link href="https://oumpy.github.io/blog/2018/09/parameter_tuning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/parameter_tuning.html</id><summary type="html"></summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。
+&lt;p&gt;ディープラーニングに限らず、なにか作ったよとか、こんなの面白いよというのがあれば教えてください。最近ラズパイを持て余して困っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="ハードウェア"></category></entry><entry><title>Parameter Tuning</title><link href="https://oumpy.github.io/blog/2018/09/parameter_tuning.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/parameter_tuning.html</id><summary type="html">機械学習を行う際に大事なのがパラメーターの調整です。 今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。以下の資料がわかりやすかったです。(図もこちらのものを引用しました) &lt;a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;機械学習を行う際に大事なのがパラメーターの調整です。
 今まで適当にデフォルトの値でそのままやったりGridearchで探したりしていましたが、結構時間かかるので他の有効な方法を探して、手元で実際に動かして見ました。以下の資料がわかりやすかったです。(図もこちらのものを引用しました)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html"&gt;http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Bayesian Optimization&lt;/h2&gt;
@@ -19849,7 +20029,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="https://oumpy.github.io/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/webscraping.html</id><summary type="html"></summary><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="https://oumpy.github.io/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/webscraping.html</id><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="https://oumpy.github.io/blog/2018/09/images/webscraping_figs/1.jpg"&gt;
 &lt;img alt="2" src="https://oumpy.github.io/blog/2018/09/images/webscraping_figs/2.jpg"&gt;
 &lt;img alt="3" src="https://oumpy.github.io/blog/2018/09/images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry></feed>
