@@ -197,25 +197,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="なぜ入試数学をPythonで？？">&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;<a class="anchor-link" href="#なぜ入試数学をPythonで？？">&#182;</a></h2><p>Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。</p>
-<p>コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。</p>
-<h2 id="どの問題を解くか？">&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;<a class="anchor-link" href="#どの問題を解くか？">&#182;</a></h2><p>いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。</p>
-<p>ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。</p>
-<p>※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。</p>
-<h2 id="環境">&#29872;&#22659;<a class="anchor-link" href="#環境">&#182;</a></h2><ul>
-<li><code>Python3.6.1</code></li>
-<li><code>sympy</code>：sympyはPythonのライブラリの一つで、記号計算を行うものです。</li>
-</ul>
-<p>各問題共通のコードとして、sympyをインポートしておきます。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+		   <strong>なぜ入試数学をPythonで？？<a class="anchor-link" href="#なぜ入試数学をPythonで？？"> </a></strong>Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。 コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。 <strong>どの問題を解くか？<a class="anchor-link" href="#どの問題を解くか？"> </a></strong>いろいろなサイトでPythonで....
 		<p class="content-emphasis"><a href="../blog/2018/11/handai_math.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -290,55 +272,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。</p>
-<p>正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><h3 id="メタ文字">&#12513;&#12479;&#25991;&#23383;<a class="anchor-link" href="#メタ文字">&#182;</a></h3><ul>
-<li><code>?</code>は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）</li>
-<li><code>*</code>は、直前のグループの0回以上の出現にマッチする。</li>
-<li><code>+</code>は、直前のグループの1回以上の出現にマッチする。</li>
-<li><code>{n}</code>は、直前のグループのn回の出現にマッチする。</li>
-<li><code>{n,}</code>は、直前のグループのn回以上の出現にマッチする。</li>
-<li><code>{,m}</code>は、直前のグループの0~m回の出現にマッチする。</li>
-<li><code>{n,m}?</code>、<code>?</code>、<code>+?</code>は直前のグループの非貪欲マッチを行う。</li>
-</ul>
-<h3 id="文字集合">&#25991;&#23383;&#38598;&#21512;<a class="anchor-link" href="#文字集合">&#182;</a></h3><ul>
-<li><code>\d</code>：0~9の数字</li>
-<li><code>\D</code>：0~9の数字以外</li>
-<li><code>\w</code>：文字、数字、下線（単語wordのw）</li>
-<li><code>\W</code>：文字、数字、下線以外</li>
-<li><code>\s</code>：スペース、タブ、改行（空白spaceのs）</li>
-<li><code>\S</code>：スペース、タブ、改行以外</li>
-</ul>
-<h3 id="正規表現マッチのまとめ">&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;<a class="anchor-link" href="#正規表現マッチのまとめ">&#182;</a></h3><ul>
-<li><code>re</code>モジュール</li>
-<li><code>re.compile()</code>関数</li>
-<li><code>search()</code>メソッド</li>
-<li><code>group()</code>メソッド</li>
-<li><code>findall()</code>メソッド</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="実践">&#23455;&#36341;<a class="anchor-link" href="#実践">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+		   O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....
 		<p class="content-emphasis"><a href="../blog/2018/09/regular_expression.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -443,16 +377,34 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../tag/news.html">
           <span class="label label-primary">2</span>
         News
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../tag/jing-ji-puroguramingu.html">
+      <a href="../tag/shell-script.html">
           <span class="label label-primary">3</span>
-        競技プログラミング
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-1">
@@ -468,27 +420,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/data-science-competition.html">
+      <a href="../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
+        論文まとめ
       </a>
     </span>
     <span class="tag-4">
@@ -497,10 +431,22 @@
         海外留学
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../tag/shell-script.html">
-          <span class="label label-primary">3</span>
-        Shell script
+    <span class="tag-1">
+      <a href="../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -509,22 +455,10 @@
         GitHub
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/jian-ding-shi-yan.html">
-          <span class="label label-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
+    <span class="tag-4">
+      <a href="../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
 </p>

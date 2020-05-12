@@ -109,28 +109,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="https://oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-04-06:/blog/2020/04/neural_tangents.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="要点"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#要点"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。&lt;/p&gt;
-&lt;p&gt;Neural Tangentsでは無限幅のNNを学習させる手法として&lt;strong&gt;NNGP&lt;/strong&gt; (Neural Network Gaussian Process)と &lt;strong&gt;NTK&lt;/strong&gt; (Neural Tangent Kernel)の2つを実装しています。&lt;/p&gt;
-&lt;p&gt;この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。&lt;/p&gt;
-&lt;h3 id="Neural-Tangentsに関連する文献"&gt;Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#Neural-Tangentsに関連する文献"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Paper :  &lt;a href="https://arxiv.org/abs/1912.02803"&gt;https://arxiv.org/abs/1912.02803&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;OpenReview : &lt;a href="https://openreview.net/forum?id=SklD9yrFPS"&gt;https://openreview.net/forum?id=SklD9yrFPS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Github : &lt;a href="https://github.com/google/neural-tangents"&gt;https://github.com/google/neural-tangents&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Document : &lt;a href="https://neural-tangents.readthedocs.io/en/latest/#"&gt;https://neural-tangents.readthedocs.io/en/latest/#&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Google AI Blog : &lt;a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html"&gt;https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial in Colab Notebook : &lt;a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb"&gt;https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Neural-Network-Gaussian-Process-(NNGP)"&gt;Neural Network Gaussian Process (NNGP)&lt;a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (&lt;a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf"&gt;Neal, 1994&lt;/a&gt;)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を&lt;strong&gt;Neural Network GP&lt;/strong&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</title><link href="https://oumpy.github.io/blog/2020/04/neural_tangents.html" rel="alternate"></link><published>2020-04-06T23:00:00+09:00</published><updated>2020-04-14T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-04-06:/blog/2020/04/neural_tangents.html</id><summary type="html">   &lt;strong&gt;要点&lt;a class="anchor-link" href="#要点"&gt; &lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。 Neural....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2415,10 +2394,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="ca26021e-0ffe-4b9c-9a5c-401ae30039fc"&gt;&lt;/div&gt;
+&lt;div id="92caf074-7542-4164-ac09-3358bcb88929"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ca26021e-0ffe-4b9c-9a5c-401ae30039fc');
+var element = $('#92caf074-7542-4164-ac09-3358bcb88929');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -5836,20 +5815,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
-&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="https://oumpy.github.io/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-03-25:/blog/2019/03/lorenz.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。&lt;/p&gt;
-&lt;h2 id="ローレンツ曲線とは"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#ローレンツ曲線とは"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。&lt;/p&gt;
-&lt;h2 id="ローレンツ曲線の使用法"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;&lt;a class="anchor-link" href="#ローレンツ曲線の使用法"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。&lt;/p&gt;
-&lt;p&gt;今回は日本人の年収に偏りがあるのかローレンツ曲線を使って見てみたいと思います。
-&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html"&gt;厚生労働省のHPから&lt;/a&gt;から、&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls"&gt;世帯別年収データ&lt;/a&gt;をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは&lt;a href="https://oumpy.github.io/blog/2019/03/data/income.csv"&gt;こちら&lt;/a&gt;にあります。コードを動かす際にはデータをダウンロードして&lt;code&gt;data/income.csv&lt;/code&gt;のように配置してください。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;2stage制なのになぜかstageごとにメダルをもらい、signate総合ランキング52位に入りました。ランキングはあんまり当てにならない気がします。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category><category term="Data Science Competition"></category></entry><entry><title>ローレンツ曲線とPythonで日本人の年収の偏りを示そう！</title><link href="https://oumpy.github.io/blog/2019/03/lorenz.html" rel="alternate"></link><published>2019-03-25T23:00:00+09:00</published><updated>2019-03-25T23:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2019-03-25:/blog/2019/03/lorenz.html</id><summary type="html">   このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。 &lt;strong&gt;ローレンツ曲線とは&lt;a class="anchor-link" href="#ローレンツ曲線とは"&gt; &lt;/a&gt;&lt;/strong&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -8945,23 +8911,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;p&gt;&lt;img alt="KEGG map" src="https://oumpy.github.io/blog/2018/11/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
 &lt;h2&gt;終わりに&lt;/h2&gt;
 &lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
-&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>化合物データ処理ソフト RDKit</title><link href="https://oumpy.github.io/blog/2018/11/RDKit.html" rel="alternate"></link><published>2018-11-21T23:00:00+09:00</published><updated>2018-11-21T23:00:00+09:00</updated><author><name>川島</name></author><id>tag:oumpy.github.io,2018-11-21:/blog/2018/11/RDKit.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="いつものパッケージのインポート"&gt;&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#いつものパッケージのインポート"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>化合物データ処理ソフト RDKit</title><link href="https://oumpy.github.io/blog/2018/11/RDKit.html" rel="alternate"></link><published>2018-11-21T23:00:00+09:00</published><updated>2018-11-21T23:00:00+09:00</updated><author><name>川島</name></author><id>tag:oumpy.github.io,2018-11-21:/blog/2018/11/RDKit.html</id><summary type="html">   &lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。       &lt;strong&gt;いつものパッケージのインポート&lt;a class="anchor-link" href="#いつものパッケージのインポート"&gt; &lt;/a&gt;&lt;/strong&gt;     </summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -10383,25 +10333,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>2018年阪大理系数学をPythonで解いてみた</title><link href="https://oumpy.github.io/blog/2018/11/handai_math.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/handai_math.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="なぜ入試数学をPythonで？？"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#なぜ入試数学をPythonで？？"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
-&lt;p&gt;コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。&lt;/p&gt;
-&lt;h2 id="どの問題を解くか？"&gt;&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#どの問題を解くか？"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。&lt;/p&gt;
-&lt;p&gt;ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。&lt;/p&gt;
-&lt;p&gt;※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。&lt;/p&gt;
-&lt;h2 id="環境"&gt;&amp;#29872;&amp;#22659;&lt;a class="anchor-link" href="#環境"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Python3.6.1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sympy&lt;/code&gt;：sympyはPythonのライブラリの一つで、記号計算を行うものです。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;各問題共通のコードとして、sympyをインポートしておきます。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>2018年阪大理系数学をPythonで解いてみた</title><link href="https://oumpy.github.io/blog/2018/11/handai_math.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/handai_math.html</id><summary type="html">   &lt;strong&gt;なぜ入試数学をPythonで？？&lt;a class="anchor-link" href="#なぜ入試数学をPythonで？？"&gt; &lt;/a&gt;&lt;/strong&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。 コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。 &lt;strong&gt;どの問題を解くか？&lt;a class="anchor-link" href="#どの問題を解くか？"&gt; &lt;/a&gt;&lt;/strong&gt;いろいろなサイトでPythonで....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -12295,39 +12227,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="https://oumpy.github.io/blog/2018/11/kaplan_meier_curve.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/kaplan_meier_curve.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="はじめに"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#はじめに"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="書こうと思ったきっかけ"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#書こうと思ったきっかけ"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
-だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。&lt;/p&gt;
-&lt;h3 id="Kaplan-Meier-曲線とは"&gt;Kaplan-Meier &amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#Kaplan-Meier-曲線とは"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;観察期間は限られている(患者さんを何年もフォローすることはできない)&lt;/li&gt;
-&lt;li&gt;観察不能になることがある(病院移った、他の要因で死亡したなど)&lt;/li&gt;
-&lt;li&gt;患者さんによって観察開始時間は様々(みんな一緒に罹患したり治療を開始するわけではない)
-そういった問題をうまく対処してくれるのがKaplan-Meier曲線。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Kaplan-Meier曲線の縦軸は累積生存率で、&lt;/p&gt;
-$$
-S(t)=\prod_j^t  \left(1-\frac{d_j}{n_j}\right)
-$$&lt;p&gt;で表されます。ここで$d_j$は時間$j$における死亡者数で、$n_j$は時間$j$における生存者数です。&lt;/p&gt;
-&lt;p&gt;今回はpythonのコードでKaplan-Meier曲線を書いていこうと思います。
-pythonのライブラリにlifelinesという便利なライブラリがあるのでそれを使っていこうと思います。installはpipでできます：&lt;code&gt;pip install lifelines&lt;/code&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="データの準備"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#データの準備"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
-ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>カプランマイヤー曲線について</title><link href="https://oumpy.github.io/blog/2018/11/kaplan_meier_curve.html" rel="alternate"></link><published>2018-11-20T23:00:00+09:00</published><updated>2018-11-20T23:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:oumpy.github.io,2018-11-20:/blog/2018/11/kaplan_meier_curve.html</id><summary type="html">   &lt;strong&gt;はじめに&lt;a class="anchor-link" href="#はじめに"&gt; &lt;/a&gt;&lt;/strong&gt;&lt;strong&gt;書こうと思ったきっかけ&lt;a class="anchor-link" href="#書こうと思ったきっかけ"&gt; &lt;/a&gt;&lt;/strong&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。 だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -15190,38 +15090,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="https://oumpy.github.io/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-13:/blog/2018/10/bayesian_ttest.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
-&lt;h2 id="概要"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#概要"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。&lt;/p&gt;
-&lt;p&gt;当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
-&lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
-&lt;strong&gt;BEST&lt;/strong&gt;(Bayesian estimation supersedes the t-test)
-というかっこいい名前です。&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Kruschke, John. (2012) Bayesian estimation supersedes the t-test. Journal of Experimental Psychology: General.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
-を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;Bayesian estimation supersedes the t-test (BEST)&lt;a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：&lt;code&gt;pip install pymc3&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;(参考)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://docs.pymc.io/notebooks/BEST.html"&gt;https://docs.pymc.io/notebooks/BEST.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;「Pythonで体験するベイズ推論」　Cameron Davidson-Pilon / 玉木 徹&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>ベイズ流T検定 -BEST-</title><link href="https://oumpy.github.io/blog/2018/10/bayesian_ttest.html" rel="alternate"></link><published>2018-10-13T23:00:00+09:00</published><updated>2018-10-13T23:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-10-13:/blog/2018/10/bayesian_ttest.html</id><summary type="html">   ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っ....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -17799,55 +17668,7 @@ http://arxiv.org/abs/1808.08273&lt;/p&gt;
 &lt;h3&gt;tSNE&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="tsne" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/tsne.png"&gt;&lt;/p&gt;
 &lt;h3&gt;UMAP&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="umap" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="https://oumpy.github.io/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:oumpy.github.io,2018-09-12:/blog/2018/09/regular_expression.html</id><summary type="html">&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。&lt;/p&gt;
-&lt;p&gt;正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="要点"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#要点"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="メタ文字"&gt;&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;&lt;a class="anchor-link" href="#メタ文字"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;?&lt;/code&gt;は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;*&lt;/code&gt;は、直前のグループの0回以上の出現にマッチする。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;+&lt;/code&gt;は、直前のグループの1回以上の出現にマッチする。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt;は、直前のグループのn回の出現にマッチする。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{n,}&lt;/code&gt;は、直前のグループのn回以上の出現にマッチする。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{,m}&lt;/code&gt;は、直前のグループの0~m回の出現にマッチする。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;{n,m}?&lt;/code&gt;、&lt;code&gt;?&lt;/code&gt;、&lt;code&gt;+?&lt;/code&gt;は直前のグループの非貪欲マッチを行う。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="文字集合"&gt;&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;&lt;a class="anchor-link" href="#文字集合"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;\d&lt;/code&gt;：0~9の数字&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\D&lt;/code&gt;：0~9の数字以外&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\w&lt;/code&gt;：文字、数字、下線（単語wordのw）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\W&lt;/code&gt;：文字、数字、下線以外&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\s&lt;/code&gt;：スペース、タブ、改行（空白spaceのs）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\S&lt;/code&gt;：スペース、タブ、改行以外&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="正規表現マッチのまとめ"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#正規表現マッチのまとめ"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;re&lt;/code&gt;モジュール&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;re.compile()&lt;/code&gt;関数&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;search()&lt;/code&gt;メソッド&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;group()&lt;/code&gt;メソッド&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;findall()&lt;/code&gt;メソッド&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="実践"&gt;&amp;#23455;&amp;#36341;&lt;a class="anchor-link" href="#実践"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;&lt;img alt="umap" src="https://oumpy.github.io/blog/2018/09/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="https://oumpy.github.io/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:oumpy.github.io,2018-09-12:/blog/2018/09/regular_expression.html</id><summary type="html">   O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
