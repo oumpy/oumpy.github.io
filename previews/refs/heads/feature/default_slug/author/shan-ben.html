@@ -122,28 +122,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><p><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。</p>
-<p>Neural Tangentsでは無限幅のNNを学習させる手法として<strong>NNGP</strong> (Neural Network Gaussian Process)と <strong>NTK</strong> (Neural Tangent Kernel)の2つを実装しています。</p>
-<p>この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。</p>
-<h3 id="Neural-Tangentsに関連する文献">Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;<a class="anchor-link" href="#Neural-Tangentsに関連する文献">&#182;</a></h3><ul>
-<li>Paper :  <a href="https://arxiv.org/abs/1912.02803">https://arxiv.org/abs/1912.02803</a></li>
-<li>OpenReview : <a href="https://openreview.net/forum?id=SklD9yrFPS">https://openreview.net/forum?id=SklD9yrFPS</a></li>
-<li>Github : <a href="https://github.com/google/neural-tangents">https://github.com/google/neural-tangents</a></li>
-<li>Document : <a href="https://neural-tangents.readthedocs.io/en/latest/#">https://neural-tangents.readthedocs.io/en/latest/#</a></li>
-<li>Google AI Blog : <a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html">https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html</a></li>
-<li>Tutorial in Colab Notebook : <a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb">https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Neural-Network-Gaussian-Process-(NNGP)">Neural Network Gaussian Process (NNGP)<a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)">&#182;</a></h2><p>隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (<a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf">Neal, 1994</a>)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を<strong>Neural Network GP</strong>
+		   <strong>要点<a class="anchor-link" href="#要点"> </a></strong><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。 Neural....
 		<p class="content-emphasis"><a href="../blog/2020/04/neural_tangents.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -249,6 +228,12 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-2">
+      <a href="../tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
       <a href="../tag/jing-ji-puroguramingu.html">
           <span class="label label-primary">3</span>
         競技プログラミング
@@ -261,9 +246,21 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/hadouea.html">
+      <a href="../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
@@ -273,27 +270,9 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/news.html">
-          <span class="label label-primary">2</span>
-        News
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../tag/shell-script.html">
-          <span class="label label-primary">3</span>
-        Shell script
+      <a href="../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
@@ -303,15 +282,21 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
+      <a href="../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/news.html">
+          <span class="label label-primary">2</span>
+        News
       </a>
     </span>
     <span class="tag-4">
-      <a href="../tag/github.html">
+      <a href="../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
-        GitHub
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -320,16 +305,10 @@
         検定試験
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../tag/lun-wen-matome.html">
+      <a href="../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        論文まとめ
+        ハードウェア
       </a>
     </span>
 </p>
