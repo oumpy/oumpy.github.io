@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-15T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>医学部公認団体申請を行いました</title><link href="https://oumpy.github.io/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-05-15:/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-16T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>医学部公認団体申請を行いました</title><link href="https://oumpy.github.io/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-05-15:/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
 &lt;p&gt;2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。
 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。&lt;/p&gt;
 &lt;p&gt;今年度こそ医学部から正式に承認されることを期待しています！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>線形混合効果モデル</title><link href="https://oumpy.github.io/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-04-08:/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
@@ -2397,10 +2397,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="8963d9c0-7907-4b04-ad40-e7222a129b9b"&gt;&lt;/div&gt;
+&lt;div id="f2ba8c90-95a0-49ad-9a98-02c4d7e7124c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8963d9c0-7907-4b04-ad40-e7222a129b9b');
+var element = $('#f2ba8c90-95a0-49ad-9a98-02c4d7e7124c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -5629,7 +5629,224 @@ Previously observed = when the mutation has been reported as somatic previously 
 - &lt;a href="https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html"&gt;https://www.ncc.go.jp/jp/information/pr_release/2016/1104/index.html&lt;/a&gt;
 - &lt;a href="https://science.sciencemag.org/content/354/6312/618"&gt;https://science.sciencemag.org/content/354/6312/618&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;同じ変異シグネチャーについて調べていて、特にたばこについて見ている論文でした
-- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>IPA「基本情報技術者試験」受験録</title><link href="https://oumpy.github.io/blog/2019/05/IPA_FE.html" rel="alternate"></link><published>2019-05-12T00:00:00+09:00</published><updated>2019-11-21T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-05-12:/blog/2019/05/IPA_FE.html</id><summary type="html">IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。 なんでも経済産業省管轄の&lt;strong&gt;国家試験&lt;/strong&gt;で、&lt;a href="https://kanpou.npb.go.jp/"&gt;&lt;strong&gt;官報公示&lt;/strong&gt;&lt;/a&gt;までされるらしい。&lt;strong&gt;よくわからないけどすごい&lt;/strong&gt;。 厚生労働省の&lt;a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"&gt;&lt;strong&gt;某国家試験&lt;/strong&gt;&lt;/a&gt;は受験資格が残念ながらまだないけれど、&lt;strong&gt;こないだ国試受けてきた&lt;/strong&gt;って言ってもたぶん嘘じゃないわけです。だか....</summary><content type="html">&lt;p&gt;IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。&lt;/p&gt;
+- https://www.nature.com/articles/nature12477#associating-cancer-aetiology-and-mutational-signatures&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>行列演算の初歩の初歩とNumPy</title><link href="https://oumpy.github.io/blog/2019/05/matrix_numpy.html" rel="alternate"></link><published>2019-05-16T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-05-16:/blog/2019/05/matrix_numpy.html</id><summary type="html">機械学習をはじめ、何をやるにも行列演算は必須です。 本稿ではその初歩と、ライブラリ &lt;a href="https://numpy.org/"&gt;NumPy&lt;/a&gt; での基本的な実行方法を簡単に解説します。 (主に1年生向け。)  引用表記の部分  はやや発展的な内容なので、初めて読むときは飛ばしてOKです。 &lt;strong&gt;ベクトルの積&lt;/strong&gt; &lt;strong&gt;定義&lt;/strong&gt; まず、&lt;strong&gt;ベクトルの積&lt;/strong&gt;を以下のように定義しま....</summary><content type="html">&lt;p&gt;機械学習をはじめ、何をやるにも行列演算は必須です。
+本稿ではその初歩と、ライブラリ &lt;a href="https://numpy.org/"&gt;NumPy&lt;/a&gt; での基本的な実行方法を簡単に解説します。
+(主に1年生向け。)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;引用表記の部分&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;はやや発展的な内容なので、初めて読むときは飛ばしてOKです。&lt;/p&gt;
+&lt;h2&gt;ベクトルの積&lt;/h2&gt;
+&lt;h3&gt;定義&lt;/h3&gt;
+&lt;p&gt;まず、&lt;strong&gt;ベクトルの積&lt;/strong&gt;を以下のように定義します。&lt;br&gt;
+(Python流に0-index記法を採用。)&lt;/p&gt;
+&lt;div class="math"&gt;$$
+x=(x_0,x_1,...,x_{D-1}),
+\quad
+y=\left(\begin{array} 
+\@
+y_0 \\
+y_1 \\
+\vdots\\
+y_{D-1} \\
+\end{array}\right)
+\quad\Rightarrow\quad
+x\cdot y = x_0y_0+x_1y_1+\cdot+x_{D-1}y_{D-1}
+$$&lt;/div&gt;
+&lt;p&gt;
+高校で学ぶベクトルの内積と基本的に同じですが、&lt;strong&gt;行ベクトル (横ベクトル) と列ベクトル (縦ベクトル) を区別&lt;/strong&gt;するのが大事なところです。
+掛け算は、同じ次元の&lt;strong&gt;「行ベクトル &lt;span class="math"&gt;\(\times\)&lt;/span&gt; 列ベクトル」の順序&lt;/strong&gt;でしか行えません。&lt;br&gt;
+(本当は逆順でもできるが、結果は全く違うものになる。
+どうなるか？最後まで読んだら考えてみましょう。)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;行ベクトルと列ベクトルはそれぞれ互いに双対なベクトル空間の元 (の数ベクトル表現) です。
+列ベクトル同士・行ベクトル同士で内積が定義できるのは、列ベクトルと行ベクトルを互いに変換する写像 (計量) が定義された&lt;strong&gt;計量ベクトル空間&lt;/strong&gt;に限られます。&lt;br&gt;
+高校で習うベクトル空間に内積がしれっと入っているのは、空間上に自然なユークリッド計量が暗黙に仮定されているからです。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;行列：ベクトルを並べたもの&lt;/h2&gt;
+&lt;p&gt;行列は、このように成分を2次元状 (&lt;span class="math"&gt;\(E\times D\)&lt;/span&gt;) に並べたもの。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+X = \left(
+\begin{array}\@
+x_{0,0}   &amp;amp; x_{0,1} &amp;amp; \dots  &amp;amp; x_{0,D-1} \\
+x_{1,0}   &amp;amp; x_{1,1} &amp;amp;        &amp;amp; \vdots \\
+\vdots    &amp;amp;         &amp;amp; \ddots &amp;amp; \\
+x_{E-1,0} &amp;amp; \dots   &amp;amp;        &amp;amp; x_{E-1,D-1}
+\end{array}
+\right)
+$$&lt;/div&gt;
+&lt;p&gt;
+これは&lt;br&gt;
+(1)「&lt;span class="math"&gt;\(D\)&lt;/span&gt;次元行ベクトルを縦に&lt;span class="math"&gt;\(E\)&lt;/span&gt;個並べたもの」&lt;br&gt;
+または&lt;br&gt;
+(2)「&lt;span class="math"&gt;\(E\)&lt;/span&gt;次元列ベクトルを横に&lt;span class="math"&gt;\(D\)&lt;/span&gt;個並べたもの」&lt;br&gt;
+です。&lt;br&gt;
+&lt;strong&gt;どちらの解釈をしても構いません&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3&gt;(1) 列ベクトルとの掛け算&lt;/h3&gt;
+&lt;p&gt;前者(1)の解釈をすると、上の列ベクトル&lt;span class="math"&gt;\(y\)&lt;/span&gt;と掛け算ができます。
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+X\cdot y =
+\left(\begin{array}
+\@
+x_{0,0}y_0+x_{0,1}y_1+\dots+x_{0,D-1}y_{D-1} \\
+x_{1,0}y_0+x_{1,1}y_1+\dots+x_{1,D-1}y_{D-1} \\
+\vdots \\
+x_{E-1,0}y_0+x_{E-1,1}y_1+\dots+x_{E-1,D-1}y_{D-1}
+\end{array}\right)
+$$&lt;/div&gt;
+&lt;p&gt;
+結果は&lt;strong&gt;E次元列ベクトル&lt;/strong&gt;になりました。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;列ベクトルに (正しい次元の) 行列を左から掛ければ列ベクトルに&lt;/strong&gt;なります。&lt;/p&gt;
+&lt;h3&gt;(2) 行ベクトルとの掛け算&lt;/h3&gt;
+&lt;p&gt;一方で解釈(2) をとると、&lt;span class="math"&gt;\(E\)&lt;/span&gt; 次元行ベクトル &lt;span class="math"&gt;\(z=(z_0,z_1,\dots,z_{E-1})\)&lt;/span&gt; に対して、&lt;strong&gt;右からの掛け算&lt;/strong&gt;  &lt;span class="math"&gt;\(z\cdot X\)&lt;/span&gt; を行うことができます。
+結果は &lt;strong&gt;D次元行ベクトル&lt;/strong&gt; になります。&lt;/p&gt;
+&lt;p&gt;つまり、&lt;strong&gt;行ベクトルに（正しい次元の）行列を右から掛ければ行ベクトルになる&lt;/strong&gt;ことがわかります。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;掛け算の結合則&lt;/h3&gt;
+&lt;p&gt;行列に対して、(1)(2) どちらの解釈をしても構わない、と言いました。
+この意味は例えば
+&lt;div class="math"&gt;$$
+z\cdot X\cdot y
+$$&lt;/div&gt;
+という式が与えられた際に現れます。&lt;br&gt;
+(1) の解釈をするなら、この式は&lt;span class="math"&gt;\(z\cdot(X\cdot y)\)&lt;/span&gt;と計算、(2) ならば&lt;span class="math"&gt;\((z\cdot X)\cdot y\)&lt;/span&gt;です。
+どちらもただ一つの数を与えますが、実は両者は&lt;strong&gt;常に同じ&lt;/strong&gt;になることが、実際に計算すれば簡単に証明できます。&lt;br&gt;
+これは後述の行列積にも拡張でき、行列積は全て順序によりません。
+ただし&lt;strong&gt;交換則は成立しない&lt;/strong&gt; (&lt;span class="math"&gt;\(X\cdot Y\ne Y\cdot X\)&lt;/span&gt;) ので注意。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;行列同士の掛け算&lt;/h2&gt;
+&lt;p&gt;ここまでくると、掛け算をさらに拡張できる。
+&lt;span class="math"&gt;\(D\times F\)&lt;/span&gt; 行列 &lt;span class="math"&gt;\(Y\)&lt;/span&gt; を
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+Y = 
+\left(\begin{array}\@
+y_{0,0}           &amp;amp; y_{0,1} &amp;amp; \dots  &amp;amp; y_{0,F-1} \\
+y_{1,0}           &amp;amp; y_{1,1} &amp;amp;        &amp;amp; \vdots \\
+\vdots            &amp;amp;         &amp;amp; \ddots &amp;amp; \\
+y_{D-1} &amp;amp; \dots   &amp;amp;        &amp;amp; y_{D-1,F-1}
+\end{array}\right)
+$$&lt;/div&gt;
+&lt;p&gt;
+とするとき、行列同士の掛け算は
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+X\cdot Y = W = 
+\left(\begin{array}\@
+w_{0,0} &amp;amp; \dots &amp;amp; w_{0,F-1} \\
+\vdots  &amp;amp; \ddots &amp;amp; \vdots \\
+w_{E-1,0} &amp;amp; \dots &amp;amp; w_{E-1,F-1}
+\end{array}\right)
+$$&lt;/div&gt;
+&lt;div class="math"&gt;$$
+w_{i,j} = x_{i,0}y_{0,j}+x_{i,1}y_{1,j}+\dots+x_{i,D-1}y_{D-1,j}
+$$&lt;/div&gt;
+&lt;p&gt;
+となる。
+左の &lt;span class="math"&gt;\(X\)&lt;/span&gt; から行ベクトル、右の &lt;span class="math"&gt;\(Y\)&lt;/span&gt; から列ベクトルを取り出して、それぞれ掛け算したものを順番に並べる。  &lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(E\times D\)&lt;/span&gt; と &lt;span class="math"&gt;\(D\times F\)&lt;/span&gt; を掛けると真ん中の &lt;span class="math"&gt;\(D\)&lt;/span&gt; が潰れて &lt;span class="math"&gt;\(E\times F\)&lt;/span&gt; 行列、と覚えればいいです。
+もちろん &lt;span class="math"&gt;\(D\)&lt;/span&gt; が揃っていないと掛け算できない。&lt;/p&gt;
+&lt;h2&gt;ベクトル、行列、掛け算の意味&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ベクトルは通常、「データ」とか「状態」などの、比較的直接的な意味を持ちます。
+特に数式として書く場合、普通は列ベクトルにその役割を持たせます。&lt;/li&gt;
+&lt;li&gt;データや状態がたくさんある場合、それら列ベクトルを横に並べれば行列になり、その行列がデータ／状態の集合を表します。
+別の行列を左から掛ければ、各列に独立・一括で演算ができます。&lt;/li&gt;
+&lt;li&gt;行列は基本的に、上で見た通り、&lt;strong&gt;列ベクトルに左から作用して別の列ベクトルを作る演算子&lt;/strong&gt;です。
+行ベクトルも、列ベクトルに作用する行列のうち、行が一つしかない特別な場合と見なせます。&lt;/li&gt;
+&lt;li&gt;例えば、画像を表すベクトルに行列を掛け算することで、&lt;strong&gt;画像の持つ特徴 (線の向きとか) を表す別のベクトルを得る&lt;/strong&gt;、といったことなどができます。
+(CNN = 畳み込みニューラルネットワーク)&lt;/li&gt;
+&lt;li&gt;行列の掛け算は合成関数のようなもの。掛け算の結合則があるので、ベクトル&lt;span class="math"&gt;\(x\)&lt;/span&gt;に順番に変換を施す操作 &lt;span class="math"&gt;\(A\cdot(B\cdot x)\)&lt;/span&gt; は、&lt;span class="math"&gt;\(=(A\cdot B)\cdot x\)&lt;/span&gt; のように予め左側を先に計算しておけます。
+これにより、&lt;span class="math"&gt;\(x\)&lt;/span&gt; を様々に取り替えて計算する場合に計算量を低減できます。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;NumPyによる行列演算&lt;/h2&gt;
+&lt;p&gt;Python の NumPy パッケージは強力な行列演算機能を備えています。
+行列の定義は &lt;code&gt;np.array()&lt;/code&gt;、掛け算は &lt;code&gt;np.dot()&lt;/code&gt; で行えます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt; &lt;span class="c1"&gt;# 2行3列(2x3)行列&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;     &lt;span class="c1"&gt;# 3次元列ベクトル&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;これで、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([[&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+       &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と表示されれば成功。結果は2次元列ベクトル。&lt;/p&gt;
+&lt;p&gt;他にも色々試してみてください。&lt;/p&gt;
+&lt;p&gt;なお若干ややこしいことに、NumPy にはいくつも便利機能があり、数学的には不正な式でも適当に補完してやってくれたりします。
+(例えば行列とベクトルの足し算などもできる。)&lt;br&gt;
+ただ慣れるまでは、ひとまず数学的に忠実な記法を心掛けた方がいいでしょう。&lt;/p&gt;
+&lt;p&gt;とりあえず以上。
+おしまい。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>IPA「基本情報技術者試験」受験録</title><link href="https://oumpy.github.io/blog/2019/05/IPA_FE.html" rel="alternate"></link><published>2019-05-12T00:00:00+09:00</published><updated>2019-11-21T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-05-12:/blog/2019/05/IPA_FE.html</id><summary type="html">IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。 なんでも経済産業省管轄の&lt;strong&gt;国家試験&lt;/strong&gt;で、&lt;a href="https://kanpou.npb.go.jp/"&gt;&lt;strong&gt;官報公示&lt;/strong&gt;&lt;/a&gt;までされるらしい。&lt;strong&gt;よくわからないけどすごい&lt;/strong&gt;。 厚生労働省の&lt;a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"&gt;&lt;strong&gt;某国家試験&lt;/strong&gt;&lt;/a&gt;は受験資格が残念ながらまだないけれど、&lt;strong&gt;こないだ国試受けてきた&lt;/strong&gt;って言ってもたぶん嘘じゃないわけです。だか....</summary><content type="html">&lt;p&gt;IPAの「&lt;a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"&gt;&lt;strong&gt;基本情報技術者試験&lt;/strong&gt;&lt;/a&gt;」 (2019年春期) を受験してきました。&lt;/p&gt;
 &lt;p&gt;なんでも経済産業省管轄の&lt;strong&gt;国家試験&lt;/strong&gt;で、&lt;a href="https://kanpou.npb.go.jp/"&gt;&lt;strong&gt;官報公示&lt;/strong&gt;&lt;/a&gt;までされるらしい。&lt;strong&gt;よくわからないけどすごい&lt;/strong&gt;。
 厚生労働省の&lt;a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"&gt;&lt;strong&gt;某国家試験&lt;/strong&gt;&lt;/a&gt;は受験資格が残念ながらまだないけれど、&lt;strong&gt;こないだ国試受けてきた&lt;/strong&gt;って言ってもたぶん嘘じゃないわけです。だからどうしたって話ではありますが。&lt;/p&gt;
 &lt;p&gt;今回はその受験録です。&lt;/p&gt;
@@ -5690,7 +5907,272 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  &lt;/p&gt;
 &lt;h3&gt;注3 : Python導入 (2019.11)&lt;/h3&gt;
 &lt;p&gt;2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。&lt;br&gt;
-&lt;a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html"&gt;https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="検定試験"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="https://oumpy.github.io/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-27:/blog/2019/04/competition_input.html</id><summary type="html">&lt;strong&gt;入力のパターン&lt;/strong&gt; &lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt; はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。 &lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。 最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。 &lt;strong&gt;言語&lt;/strong&gt;は Python3 (3.4.....</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
+&lt;a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html"&gt;https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="検定試験"></category></entry><entry><title>U-Netで細胞認識</title><link href="https://oumpy.github.io/blog/2019/05/UNet_cells_recognition.html" rel="alternate"></link><published>2019-05-01T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>味岡</name></author><id>tag:oumpy.github.io,2019-05-01:/blog/2019/05/UNet_cells_recognition.html</id><summary type="html">神大の味岡です。 今回は、deep learningの中でも画像から物体の領域を検出する「セマンティックセグメンテーション」といわれる手法についてです。 医療系の画像では、U-Netといわれるネットワークが有名です。 &lt;strong&gt;U-Netの特徴は？&lt;/strong&gt; (U-Netの処理の概要、&lt;a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/"&gt;https://lmb.&lt;/a&gt;....</summary><content type="html">&lt;p&gt;神大の味岡です。
+今回は、deep learningの中でも画像から物体の領域を検出する「セマンティックセグメンテーション」といわれる手法についてです。
+医療系の画像では、U-Netといわれるネットワークが有名です。&lt;/p&gt;
+&lt;h2&gt;U-Netの特徴は？&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="img01" src="https://oumpy.github.io/blog/2019/05/images/UNet_cells_recognition_figs/image01.png"&gt;(U-Netの処理の概要、&lt;a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/"&gt;https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/&lt;/a&gt; からの画像)&lt;/p&gt;
+&lt;p&gt;セマンティックセグメンテーションは、CNNによるエンコードと、trans-convolutionによるデコードからなりますが、U-Netの特徴としてはCNNによる畳み込みの途中の画像を結合して処理に使用している点です。
+そのため、処理のフローチャートは上の図のようにU字型になります。だからU-Netと呼ばれているんですね。&lt;/p&gt;
+&lt;h2&gt;U-Netの実装&lt;/h2&gt;
+&lt;p&gt;使用するPythonのパッケージは、tensorflow、keras、opencvです。
+コードについては以下のブログのものを使用させて頂きました。
+(ほとんど同じです)&lt;br&gt;
+&lt;a href="http://ni4muraano.hatenablog.com/entry/2017/08/10/101053"&gt;http://ni4muraano.hatenablog.com/entry/2017/08/10/101053&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下にコードを載せます。&lt;/p&gt;
+&lt;h3&gt;unet.py&lt;/h3&gt;
+&lt;p&gt;まずU-Net処理を表した関数です。
+&lt;details&gt;&lt;summary&gt;unet.py の中身を見る&lt;/summary&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Model&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.layers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.layers.convolutional&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ZeroPadding2D&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Conv2DTranspose&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.layers.merge&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.layers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LeakyReLU&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;BatchNormalization&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Dropout&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;UNet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;input_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INPUT_IMAGE_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_FILTER_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_STRIDE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_PADDING&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_FILTER_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_STRIDE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="c1"&gt;# (256 x 256 x input_channel_count)&lt;/span&gt;
+    &lt;span class="n"&gt;inputs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INPUT_IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INPUT_IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;input_channel_count&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="c1"&gt;# エンコーダーの作成&lt;/span&gt;
+    &lt;span class="c1"&gt;# (128 x 128 x N)&lt;/span&gt;
+    &lt;span class="n"&gt;enc1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ZeroPadding2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_PADDING&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;enc1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_FILTER_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strides&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_STRIDE&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;enc1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (64 x 64 x 2N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="n"&gt;enc2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (32 x 32 x 4N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+    &lt;span class="n"&gt;enc3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (16 x 16 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+    &lt;span class="n"&gt;enc4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (8 x 8 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;enc5&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (4 x 4 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;enc6&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (2 x 2 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;enc7&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (1 x 1 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;enc8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# デコーダーの作成&lt;/span&gt;
+    &lt;span class="c1"&gt;# (2 x 2 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;dec1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc7&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (4 x 4 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;dec2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc6&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (8 x 8 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;dec3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc5&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (16 x 16 x 8N)&lt;/span&gt;
+    &lt;span class="n"&gt;dec4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc4&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (32 x 32 x 4N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+    &lt;span class="n"&gt;dec5&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec5&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (64 x 64 x 2N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="n"&gt;dec6&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec6&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (128 x 128 x N)&lt;/span&gt;
+    &lt;span class="n"&gt;filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;
+    &lt;span class="n"&gt;dec7&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dec6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec7&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;dec7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;enc1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONCATENATE_AXIS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# (256 x 256 x output_channel_count)&lt;/span&gt;
+    &lt;span class="n"&gt;dec8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;dec7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Conv2DTranspose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_FILTER_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strides&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_STRIDE&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;dec8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dec8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sigmoid&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;dec8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UNET&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inputs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dec8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_add_encoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LeakyReLU&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ZeroPadding2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_PADDING&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_FILTER_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strides&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CONV_STRIDE&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BatchNormalization&lt;/span&gt;&lt;span class="p"&gt;()(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;new_sequence&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_add_decoding_layer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;add_drop_layer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Conv2DTranspose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filter_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_FILTER_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strides&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DECONV_STRIDE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                       &lt;span class="n"&gt;kernel_initializer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;he_uniform&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BatchNormalization&lt;/span&gt;&lt;span class="p"&gt;()(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;add_drop_layer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;new_sequence&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Dropout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;new_sequence&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;new_sequence&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UNET&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/details&gt;
+
+&lt;h3&gt;main.py&lt;/h3&gt;
+&lt;p&gt;次に、実際に動かすスクリプトです。
+&lt;details&gt;&lt;summary&gt;main.py の中身を見る&lt;/summary&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt;
+&lt;span class="c1"&gt;# 値を-1から1に正規化する関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;normalize_x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;127.5&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 値を0から1に正規化する関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;normalize_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 値を0から255に戻す関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;denormalize_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;255&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;
+
+&lt;span class="c1"&gt;# インプット画像を読み込む関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;load_X&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;cv2&lt;/span&gt;
+
+    &lt;span class="n"&gt;image_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;images&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image_file&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;image_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IMREAD_GRAYSCALE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;newaxis&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;normalize_x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image_files&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ラベル画像を読み込む関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;load_Y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;cv2&lt;/span&gt;
+    &lt;span class="n"&gt;image_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listdir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;images&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image_file&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image_files&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;folder_path&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;image_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IMREAD_GRAYSCALE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IMAGE_SIZE&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="p"&gt;:,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;newaxis&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;normalize_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;images&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.optimizers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Adam&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;keras.backend&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;K&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.callbacks&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ModelCheckpoint&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;EarlyStopping&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unet&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;UNet&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ダイス係数を計算する関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dice_coef&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;y_true&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flatten&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;y_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flatten&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;intersection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;intersection&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;K&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ロス関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dice_coef_loss&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dice_coef&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# U-Netのトレーニングを実行する関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;train_unet&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# trainingDataフォルダ配下にimageフォルダを置いている&lt;/span&gt;
+    &lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_X&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;trainingData&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# trainingDataフォルダ配下にimage_segmentフォルダを置いている&lt;/span&gt;
+    &lt;span class="n"&gt;Y_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_Y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;trainingData&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;image_segment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 入力は1チャンネル&lt;/span&gt;
+    &lt;span class="n"&gt;input_channel_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="c1"&gt;# 出力はグレースケール1チャンネル&lt;/span&gt;
+    &lt;span class="n"&gt;output_channel_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="c1"&gt;# 一番初めのConvolutionフィルタ枚数は64&lt;/span&gt;
+    &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;
+    &lt;span class="c1"&gt;# U-Netの生成&lt;/span&gt;
+    &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UNet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_model&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loss&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dice_coef_loss&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;optimizer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Adam&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;metrics&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;dice_coef&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+    &lt;span class="n"&gt;BATCH_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
+    &lt;span class="c1"&gt;# エポック数は適宜調整する&lt;/span&gt;
+    &lt;span class="n"&gt;NUM_EPOCH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;
+    &lt;span class="n"&gt;history&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;batch_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;BATCH_SIZE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;epochs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NUM_EPOCH&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save_weights&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;unet_weights.hdf5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 学習後のU-Netによる予測を行う関数&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cv2&lt;/span&gt;
+    &lt;span class="c1"&gt;# testDataフォルダ配下にimageフォルダを置いている&lt;/span&gt;
+    &lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_X&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testData&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;input_channel_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;output_channel_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt;
+    &lt;span class="n"&gt;network&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UNet&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output_channel_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first_layer_filter_count&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_model&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_weights&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;unet_weights.hdf5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;BATCH_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
+    &lt;span class="n"&gt;Y_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;BATCH_SIZE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Y_pred&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="c1"&gt;# testDataフォルダ配下にimageフォルダを置いている&lt;/span&gt;
+        &lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testData&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;image&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;file_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+        &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;cv2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imwrite&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;prediction&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;denormalize_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;train_unet&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/details&gt;
+
+&lt;p&gt;コメントを見るとわかる通り、trainingDataフォルダやtestDataフォルダなどを作ってそこに使用する画像を入れる仕組みです。&lt;/p&gt;
+&lt;h2&gt;コードを細胞の画像に適用してみる&lt;/h2&gt;
+&lt;p&gt;細胞の画像は以下です。2枚のトレーニング画像です。左が実際の画像、右がセグメンテーションの正解を表す2値画像となります。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img02" src="https://oumpy.github.io/blog/2019/05/images/UNet_cells_recognition_figs/image02.jpg"&gt;
+&lt;img alt="img03" src="https://oumpy.github.io/blog/2019/05/images/UNet_cells_recognition_figs/image03.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;今回は学習したモデルで、二つ目の画像をテスト画像としてセグメンテーションしてみました。&lt;/p&gt;
+&lt;p&gt;200エポック回した時のモデルでの結果が以下です。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img04" src="https://oumpy.github.io/blog/2019/05/images/UNet_cells_recognition_figs/image04.png"&gt;
+メッシュのようになっていてうまくいってないですね。もう少しエポック数が必要なのでしょうか。&lt;/p&gt;
+&lt;p&gt;1000エポック回した時のモデルでの結果が以下です。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img05" src="https://oumpy.github.io/blog/2019/05/images/UNet_cells_recognition_figs/image05.png"&gt;&lt;/p&gt;
+&lt;p&gt;だいぶセグメンテーションが出来てきました。
+十分にエポック数を回すことが重要なようですね。
+これでセマンティックセグメンテーションは一応成功しました。
+もちろんトレーニングデータで使用した画像なので、過学習している可能性があります。&lt;/p&gt;
+&lt;h2&gt;終わりに&lt;/h2&gt;
+&lt;p&gt;今回はPythonで０からの学習を行いましたが、実は最近、U-NetはImageJのpluginから出来るようになりました。
+linuxのサーバーにつないで行うみたいです。
+詳しくは下記の論文を参考にしてください。
+今回用いた画像はこのソフトのサンプル画像です。
+&lt;a href="https://www.nature.com/articles/s41592-018-0261-2?WT.feed_name=subjects_software"&gt;https://www.nature.com/articles/s41592-018-0261-2?WT.feed_name=subjects_software&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;僕の研究室でもこれを導入して、細胞の検出やカウントに使用することになりました。
+細胞の検出を手動で行えるようになると、研究が非常に効率的になりますね。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>はじめての競プロ：入力アンチョコメモ</title><link href="https://oumpy.github.io/blog/2019/04/competition_input.html" rel="alternate"></link><published>2019-04-27T00:00:00+09:00</published><updated>2019-04-29T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-04-27:/blog/2019/04/competition_input.html</id><summary type="html">&lt;strong&gt;入力のパターン&lt;/strong&gt; &lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt; はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。 &lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。 最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。 &lt;strong&gt;言語&lt;/strong&gt;は Python3 (3.4.....</summary><content type="html">&lt;h2&gt;入力のパターン&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Python会競プロ部（？）へようこそ！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;はじめての方には&lt;strong&gt;入力&lt;/strong&gt;が最初の鬼門だと思います。&lt;br&gt;
 &lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt; のABCで、&lt;strong&gt;これさえ覚えれば大丈夫！&lt;/strong&gt;な入力パターンは以下の通り。
