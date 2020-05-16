@@ -2397,10 +2397,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="f2ba8c90-95a0-49ad-9a98-02c4d7e7124c"&gt;&lt;/div&gt;
+&lt;div id="470ea7eb-90e2-4a2e-9e94-fa3db18c014d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f2ba8c90-95a0-49ad-9a98-02c4d7e7124c');
+var element = $('#470ea7eb-90e2-4a2e-9e94-fa3db18c014d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -18116,7 +18116,29 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;p&gt;今回はMBPをつかって一万円コース63120 円でした。OCRの部分が律速になっていそうなので、リソースかアルゴリズムでここを高速化するとプラトーになるのではと考えています。
 一晩中自動でゲームを繰り返してスコアをメモし続けるように書き直したので、少し冗長なコードになっています。
 ところで、ランキングをチェックすると、抜かれていたので、だれかリベンジしてください。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871"&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="https://oumpy.github.io/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-15:/blog/2018/09/umap.html</id><summary type="html">&lt;strong&gt;tSNEとUMAP&lt;/strong&gt; 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871"&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>ipynb破損時の対応</title><link href="https://oumpy.github.io/blog/2018/09/ipynb_broken.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-15:/blog/2018/09/ipynb_broken.html</id><summary type="html">先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。 なんとか....</summary><content type="html">&lt;p&gt;先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
+なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
+なんとか復旧したのでその方法を共有します。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image01" src="https://oumpy.github.io/blog/2018/09/images/ipynb_broken_figs/image01.png"&gt;&lt;/p&gt;
+&lt;p&gt;まず開こうと思ったらこんな感じでした。
+絶望感しかありません。
+ipynbファイルの弱点を見たような気がしました。&lt;/p&gt;
+&lt;p&gt;そこで、新しいipynbを作り、jsonを読んでみました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image02" src="https://oumpy.github.io/blog/2018/09/images/ipynb_broken_figs/image02.png"&gt;&lt;/p&gt;
+&lt;p&gt;てことで677378行目付近を見てみる。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;less -N BAP_note.ipynb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Nオプションで行数が表示されます。
+そして、&lt;code&gt;677378G&lt;/code&gt; と打つと677378行目に行けます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image03" src="https://oumpy.github.io/blog/2018/09/images/ipynb_broken_figs/image03.png"&gt;&lt;/p&gt;
+&lt;p&gt;たしかに表示が崩れているので、&lt;code&gt;v&lt;/code&gt; で編集モード（vimモード）を立ち上げ、&lt;code&gt;dd&lt;/code&gt; でけしていきました。
+&lt;code&gt;:x&lt;/code&gt; で保存できます。
+（vimじゃなくてもemacs等でも行ける。）&lt;/p&gt;
+&lt;p&gt;復活しました。
+うれしい!!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image04" src="https://oumpy.github.io/blog/2018/09/images/ipynb_broken_figs/image04.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="https://oumpy.github.io/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:oumpy.github.io,2018-09-15:/blog/2018/09/umap.html</id><summary type="html">&lt;strong&gt;tSNEとUMAP&lt;/strong&gt; 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
 &lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照）&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2017/03/08/tsne.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;そこで今回紹介するのは&lt;strong&gt;UMAP&lt;/strong&gt;。 arxivで今月publishされたばかりのアルゴリズムです(記事執筆時 2018年2月時点)。 試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。&lt;/p&gt;

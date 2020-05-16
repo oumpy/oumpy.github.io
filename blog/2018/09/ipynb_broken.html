@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="5年次海外実習"/>
-    <meta property="og:url" content="../../../blog/2019/03/study_abroad.html"/>
+    <meta property="og:title" content="ipynb破損時の対応"/>
+    <meta property="og:url" content="../../../blog/2018/09/ipynb_broken.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="海外留学"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="5年次海外実習">
+    <meta name="twitter:title" content="ipynb破損時の対応">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>5年次海外実習 - 大阪大学医学部 Python会</title>
+    <title>ipynb破損時の対応 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -105,9 +105,10 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="study_abroad">
+    <meta name="article:slug" property="og:article:slug" content="ipynb_broken">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2019-03-29">
+    <meta name="article:date" property="og:article:date" content="2018-09-15">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-16">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -115,64 +116,54 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/03/study_abroad.html" rel="bookmark"
-     title="Permalink to 5年次海外実習">
-    5年次海外実習
+  <a href="../../../blog/2018/09/ipynb_broken.html" rel="bookmark"
+     title="Permalink to ipynb破損時の対応">
+    ipynb破損時の対応
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-29(Fri)
+  2018-09-15(Sat)
 </abbr>       - Posted by 
-<a href="../../../author/zuo-teng.html">佐藤</a>, <a href="../../../author/gong-qi.html">宮崎</a>    in 
+<a href="../../../author/an-shui.html">安水</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/hai-wai-liu-xue.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=海外留学&labelColor=black&color=blue" alt="tag:海外留学" title="tag:海外留学"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。</p>
-<p><img alt="1" src="../../../blog/2019/03/images/study_abroad_figs/img_01.jpg"></p>
-<p>僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をもらいました。</p>
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/f3e0fxEFp9OQAq" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+	<p>先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
+なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
+なんとか復旧したのでその方法を共有します。</p>
+<p><img alt="image01" src="../../../blog/2018/09/images/ipynb_broken_figs/image01.png"></p>
+<p>まず開こうと思ったらこんな感じでした。
+絶望感しかありません。
+ipynbファイルの弱点を見たような気がしました。</p>
+<p>そこで、新しいipynbを作り、jsonを読んでみました。</p>
+<p><img alt="image02" src="../../../blog/2018/09/images/ipynb_broken_figs/image02.png"></p>
+<p>てことで677378行目付近を見てみる。</p>
+<div class="highlight"><pre><span></span><code>less -N BAP_note.ipynb
+</code></pre></div>
 
-<div style="margin-bottom:5px">
 
-<p>海外での生活は旅行も含めて初めてだったので本当に不安でしたが、寮の友達が親切に接してくれて本当に助かりました。ここでその暮らしぶりを少し書かせてもらおうと思います。</p>
-<h2>英語について</h2>
-<p>僕を含めて多くの人が海外留学する際に懸念していることかもしれません。IELTSはギリギリ6.0でかつ直前まで英語の勉強をサボっていたので非常に心配でした。なんとかなるかなーと割と楽観的だったのですが、空港でコーヒー頼む時に全然通じなくて絶望しました。</p>
-<p>ただ、僕が滞在していた寮は留学生が多く住んでいる寮で英語を母国語としている人はそこまで多くなかったので助かりました。それでも最初は聞き取れませんでしたが、周りの人が割と根気強く伝えようとしてくれたのでありがたかったです。</p>
-<p>日本に帰ってからもちゃんと英語勉強します。。。</p>
-<h2>寮生活について</h2>
-<p>今回僕は大学内にある寮的なところに滞在しました。朝晩食事付きで週34000円くらいです。オーストラリアにしてはだいぶ良心的ですが、それでも１ヶ月半いるとなるとばかにならないし、行かせてくれた親には超感謝してます。朝晩バイキング形式で食べるので、必然的に他の住人と話すことになるわけですが、結果的にこれがよかったです。用事を作らずとも自然に人と話す機会があるし、色々な人の色々な人生が聞けてすごく楽しいです。ここでたくさんの友達ができました。</p>
-<p>部屋も結構快適で落ち着きます。風呂とトイレは共同と聞いていて結構ビビってたんですが、全然不快な感じはなかったです。</p>
-<p>寮というものに住んだことがなかったので、とても新鮮でした。</p>
-<p><img alt="2" src="../../../blog/2019/03/images/study_abroad_figs/img_02.jpg">
-<img alt="3" src="../../../blog/2019/03/images/study_abroad_figs/img_03.jpg"></p>
-<h2>メルボルンという町について</h2>
-<p>ぶっちゃけ日本より住みやすい気がします。気温の年較差は小さく(冬でも10度前後)、日較差は大きいです(今は夏ですが、最低気温18度くらい)。昼間はラボに行っているので、外に出る時は5月くらいの気候で超気持ちいいです。日差しは強いのでオーストラリア来る時は日焼け止め必須です。</p>
-<p>メルボルンはアートとスポーツの町です。そこらかしこに美術館や記念館があり、とても全部は行けないほどです。古い建築物が多く残っており、伝統的な西洋建築が立ち並ぶかと思いきや、流線形のドーム状の病院や路地裏にはストリートアート的なものがそこら中に描かれ、それらがいい意味で混じり合い独特の景観を形成しています。</p>
-<p>先日全豪オープンが開かれたのもこの町です。ちょうど中之島のように中心地のすぐ近くにヤラ川という川が流れており、ボート競技も盛んに行われていました。</p>
-<p>オーストラリアは移民の国で、色々な人種の人たちがいます。だいたい３割がアジア系(中国が最多)、アフリカ系の人も結構います。</p>
-<p><img alt="4" src="../../../blog/2019/03/images/study_abroad_figs/img_04.jpg">
-<img alt="5" src="../../../blog/2019/03/images/study_abroad_figs/img_05.jpg"></p>
-<h2>海外の留学生について</h2>
-<p>アジア系の人たちが結構多かったです。特に中国はチャイナタウンもあるからなのか、非常に多くの学生が来ています。話を聞いていると、中国の学生の20%くらいの人が海外で修士、あるいは博士を取るらしく、英語は使えて当然のような雰囲気が伺えました。日本は自国の大学や研究機関以外の選択肢があまりないというか、海外に行く人が(少なくとも僕の周りには)少ないので驚きました。当然、speakingやlisteningの能力も程度の差こそあれ、日本人は劣っていると思います。カナダ人から「日本人ってシャイだしあんまり英語も喋れないよねー」って言われて、確かに、、、と納得してしまいました。海外に渡り、技術や知識を取り入れるのがスタンダードになろうとしている他のアジア諸国の人たちを見ていると、日本の将来を考えずにはいられませんでした。</p>
-<h2>まとめ</h2>
-<p>海外での生活は予想よりもはるかに楽しかったです。これは寮の友達によるところが大きかったです。毎日誰かが寮のどこかでボードゲームなどで遊んでおり、それを見ているだけでも楽しく、また一緒にやろうぜと気軽に誘ってくれました。休日はみんなで出かけ、それぞれの故郷の料理を交互に食べ、文化について語り合う。考え方は人それぞれなのはもちろん、国や宗教に大きく影響を受けていることを知りました。</p>
-<p>旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。</p>
-<p>海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！</p>
-<p><img alt="6" src="../../../blog/2019/03/images/study_abroad_figs/img_06.jpg">
-<img alt="7" src="../../../blog/2019/03/images/study_abroad_figs/img_07.jpg"></p>
+<p>Nオプションで行数が表示されます。
+そして、<code>677378G</code> と打つと677378行目に行けます。</p>
+<p><img alt="image03" src="../../../blog/2018/09/images/ipynb_broken_figs/image03.png"></p>
+<p>たしかに表示が崩れているので、<code>v</code> で編集モード（vimモード）を立ち上げ、<code>dd</code> でけしていきました。
+<code>:x</code> で保存できます。
+（vimじゃなくてもemacs等でも行ける。）</p>
+<p>復活しました。
+うれしい!!</p>
+<p><img alt="image04" src="../../../blog/2018/09/images/ipynb_broken_figs/image04.png"></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/hai-wai-liu-xue.html"><i class="fa fa-tag"></i>海外留学</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -186,7 +177,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/03/study_abroad.html" 
+        data-href="../../../blog/2018/09/ipynb_broken.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -199,7 +190,15 @@
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script>
+</script><div class="related-posts">
+    <h2>関連記事</h2>
+    <ul>
+        <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
+        <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
+        <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
+    </ul>
+</div>
+
 </article>
         </div><!-- /content -->
 
