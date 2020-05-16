@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/article/unix_permission/" rel="alternate"></link><link href="/previews/refs/heads/article/unix_permission/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/unix_permission/</id><updated>2020-05-13T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>線形混合効果モデル</title><link href="/previews/refs/heads/article/unix_permission/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:None,2020-04-08:/previews/refs/heads/article/unix_permission/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/article/unix_permission/" rel="alternate"></link><link href="/previews/refs/heads/article/unix_permission/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/unix_permission/</id><updated>2020-05-15T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>医学部公認団体申請を行いました</title><link href="/previews/refs/heads/article/unix_permission/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-15:/previews/refs/heads/article/unix_permission/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
+&lt;p&gt;2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。
+今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。&lt;/p&gt;
+&lt;p&gt;今年度こそ医学部から正式に承認されることを期待しています！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>線形混合効果モデル</title><link href="/previews/refs/heads/article/unix_permission/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:None,2020-04-08:/previews/refs/heads/article/unix_permission/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
 &lt;p&gt;複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。&lt;/p&gt;
 &lt;h3&gt;経時測定データ解析の特徴&lt;/h3&gt;
 &lt;ul&gt;
@@ -2394,10 +2397,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="9f802f3f-96dd-4c5a-b52f-b1edab871bf7"&gt;&lt;/div&gt;
+&lt;div id="6369c531-ff37-43ba-8ffc-d01fb1be54e0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9f802f3f-96dd-4c5a-b52f-b1edab871bf7');
+var element = $('#6369c531-ff37-43ba-8ffc-d01fb1be54e0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
