@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="シェルコマンドに触れてみよう"/>
-    <meta property="og:url" content="../../../blog/2020/02/shellscript_tutorial.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Shell script"/>
+    <meta property="og:title" content="医学部公認団体申請を行いました"/>
+    <meta property="og:url" content="../../../news/2020/05/officialize_request.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="シェルコマンドに触れてみよう">
+    <meta name="twitter:title" content="医学部公認団体申請を行いました">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>シェルコマンドに触れてみよう - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>医学部公認団体申請を行いました - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -243,7 +243,7 @@
 </li>
 </ul></li>
 </ul></li>
-<li class="active">
+<li>
 <a href="../../../blog.html">技術ブログ</a>
 <ul>
 <li>
@@ -256,7 +256,7 @@
 <a href="../../../archives.html">過去記事一覧</a>
 </li>
 </ul></li>
-<li>
+<li class="active">
 <a href="../../../news.html">お知らせ</a>
 </li>
 <li>
@@ -276,9 +276,10 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="shellscript_tutorial">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2020-02-26">
+    <meta name="article:slug" property="og:article:slug" content="officialize_request">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:date" property="og:article:date" content="2020-05-15">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-15">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -286,204 +287,35 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2020/02/shellscript_tutorial.html" rel="bookmark"
-     title="Permalink to シェルコマンドに触れてみよう">
-    シェルコマンドに触れてみよう
+  <a href="../../../news/2020/05/officialize_request.html" rel="bookmark"
+     title="Permalink to 医学部公認団体申請を行いました">
+    医学部公認団体申請を行いました
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2020-02-26(Wed)
+  2020-05-15(Fri)
 </abbr>       - Posted by 
-<a href="../../../author/shan-tian.html">山田</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/shell-script.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Shell script&labelColor=black&color=green" alt="tag:Shell script" title="tag:Shell script"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">シェルって？　コマンドってなに？</span></h2>
-<p>詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
-- コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
-- シェル：命令をコンピュータに伝えるプログラムのこと  </p>
-<p>つまるところ、Pythonに限らず<strong>プログラミングをやりたければ必須の内容</strong>というわけです！<br>
-これができないと、極論プログラミングを始めることもできないかもしれません。  （installすらできないかも...）<br>
-ですが、複雑なものではないので、下を読んでさくっと学んでしまいましょう！</p>
-<ul>
-<li>コマンドについてもっと知りたい方へ  </li>
-<li><a href="https://qiita.com/lrf141/items/6c01d2f7afff79cd7286">Linux初心者のシェルスクリプト入門 - Qiita</a>  </li>
-<li><a href="https://eng-entrance.com/linux-what-is-command">【初心者用】Linuxのコマンドとは？とコマンドラインの表示方法</a>  </li>
-<li><a href="https://www.sejuku.net/blog/5465">ブクマ必至！Linuxコマンド一覧表【全33種】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト</a>  </li>
-</ul>
-<h2><span id="pelican-subsections-1">シェルコマンドを学ぶ上でのポイント</span></h2>
-<ol>
-<li>ムリにおぼえようとしない</li>
-<li>日頃使っていたら自然と覚えていく</li>
-<li>コマンドの名前は英語の省略かも？</li>
-<li>忘れたら、すぐググればよし</li>
-</ol>
-<h2><span id="pelican-subsections-2">シェルコマンドってどういう風に書くの？</span></h2>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span>
-$ ls
-$ emacs
-</code></pre></div>
-
-
-<p>などのように、黒い画面（terminal、cmd）上にて、一つ一つの処理ごとに命令を書いてEnterキーで実行していきます。  </p>
-<h2><span id="pelican-subsections-3">ランク別よく使うシェルコマンド</span></h2>
-<p>筆者の独断と偏見による、日頃よく使うコマンドを3段階にわけてまとめてみました。<br>
-詳しい使い方は各自調べてもらいたいので、ここでは「何ができるか」だけ簡単に書いておきます。(<strong>自分で調べていく力</strong>がプログラミングには大事ですよ！)<br>
-ランク1、2あたりはググらずに使えるようになるといいと思います。<br>
-もちろんこの他にも様々なコマンドがありますが、最初の1歩として学んでみて下さい。</p>
-<h3><span id="pelican-subsections-4">ランク1</span></h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd</td>
-<td>ディレクトリ移動</td>
-</tr>
-<tr>
-<td>pwd</td>
-<td>カレントディレクトリを表示</td>
-</tr>
-<tr>
-<td>ls</td>
-<td>フォルダの内容をリスト形式で表示する</td>
-</tr>
-<tr>
-<td>ファイル操作編</td>
-<td></td>
-</tr>
-<tr>
-<td>mv</td>
-<td>ファイルを移動<br>ファイルの名前を編集</td>
-</tr>
-<tr>
-<td>cp</td>
-<td>ファイルやフォルダをコピーする</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>ファイルやフォルダを削除</td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>フォルダを作成</td>
-</tr>
-<tr>
-<td>rmdir</td>
-<td>フォルダを削除</td>
-</tr>
-<tr>
-<td>less</td>
-<td>テキストファイルを閲覧</td>
-</tr>
-<tr>
-<td>more</td>
-<td>ファイルの中身を表示<br>（lessがおすすめ）</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>ファイルの内容を表示</td>
-</tr>
-<tr>
-<td>grep</td>
-<td>指定した文字列がテキスト内に存在した場合その行を抽出</td>
-</tr>
-</tbody>
-</table>
-<h3><span id="pelican-subsections-5">ランク2</span></h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>chmod</td>
-<td>ファイルやフォルダのアクセス権限を変更</td>
-</tr>
-<tr>
-<td>touch</td>
-<td>空のファイルを作成</td>
-</tr>
-<tr>
-<td>emacs<br>vim<br>など</td>
-<td>（それぞれのエディタで）ファイルを新規作成</td>
-</tr>
-<tr>
-<td>echo</td>
-<td>画面に文字列や数値、変数を表示</td>
-</tr>
-<tr>
-<td>open</td>
-<td>Finderを開く</td>
-</tr>
-</tbody>
-</table>
-<h3><span id="pelican-subsections-6">ランク3</span></h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ps</td>
-<td>現在動作しているプロセスを表示する</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>リモートマシンにSSHでログイン</td>
-</tr>
-<tr>
-<td>zip<br>tar<br>gzip/gunzip</td>
-<td>ファイル・ディレクトリの解凍、圧縮</td>
-</tr>
-</tbody>
-</table>
-<p>何度も使ってみておぼえていきましょう！</p>
-<h2><span id="pelican-subsections-7">おまけ</span></h2>
-<ol>
-<li>シェル芸<br>
-気になる方は下の記事でも読んでみて下さい。  </li>
-<li><a href="https://qiita.com/t_nakayama0714/items/bfe4852e0535858ee662">【シェル芸人への道】シェル芸人の第一歩 - Qiita</a></li>
-<li>
-<p><a href="https://qiita.com/_-_-_-_-_/items/214d537aae2c1488692c">【危険シェル芸】禁じられた闇の魔術とその防衛術💥 - Qiita</a></p>
-</li>
-<li>
-<p>Clipyなどのクリップボードを活用する<br>
-よく使うコマンドを登録しておくと便利！</p>
-</li>
-</ol>
-<h2><span id="pelican-subsections-8">コマンドの次へ</span></h2>
-<p>上の文にもいくつかでてきているのですが、コマンドに入門した次に勉強するおすすめとして、以下の単語を調べてみましょう。<br>
-それぞれ今度何度も目にする単語なので、早めに知っておいて損はないと思います。</p>
-<ol>
-<li>パスとは？<br>
-キーワード：相対/絶対パス</li>
-<li>エディタとは？<br>
-emacs/vim/atom/vscode...</li>
-</ol>
+	<p>大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。</p>
+<p>2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。
+今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。</p>
+<p>今年度こそ医学部から正式に承認されることを期待しています！</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -497,7 +329,7 @@ emacs/vim/atom/vscode...</li>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2020/02/shellscript_tutorial.html" 
+        data-href="../../../news/2020/05/officialize_request.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -513,8 +345,8 @@ emacs/vim/atom/vscode...</li>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2018/11/shellscript_2.html">シェルスクリプト入門(2)</a></li>
-        <li><a href="../../../blog/2018/11/shellscript_1.html">シェルスクリプト入門(1)</a></li>
+        <li><a href="../../../news/2020/03/website_integration.html">技術ブログをWebサイトに統合しました</a></li>
+        <li><a href="../../../news/2020/03/website_renewal.html">Webサイトをリニューアルしました！</a></li>
     </ul>
 </div>
 

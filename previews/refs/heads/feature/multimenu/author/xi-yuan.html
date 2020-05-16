@@ -293,55 +293,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。</p>
-<p>正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなかった人は見てみてもいいかもです。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><h3 id="メタ文字">&#12513;&#12479;&#25991;&#23383;<a class="anchor-link" href="#メタ文字">&#182;</a></h3><ul>
-<li><code>?</code>は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）</li>
-<li><code>*</code>は、直前のグループの0回以上の出現にマッチする。</li>
-<li><code>+</code>は、直前のグループの1回以上の出現にマッチする。</li>
-<li><code>{n}</code>は、直前のグループのn回の出現にマッチする。</li>
-<li><code>{n,}</code>は、直前のグループのn回以上の出現にマッチする。</li>
-<li><code>{,m}</code>は、直前のグループの0~m回の出現にマッチする。</li>
-<li><code>{n,m}?</code>、<code>?</code>、<code>+?</code>は直前のグループの非貪欲マッチを行う。</li>
-</ul>
-<h3 id="文字集合">&#25991;&#23383;&#38598;&#21512;<a class="anchor-link" href="#文字集合">&#182;</a></h3><ul>
-<li><code>\d</code>：0~9の数字</li>
-<li><code>\D</code>：0~9の数字以外</li>
-<li><code>\w</code>：文字、数字、下線（単語wordのw）</li>
-<li><code>\W</code>：文字、数字、下線以外</li>
-<li><code>\s</code>：スペース、タブ、改行（空白spaceのs）</li>
-<li><code>\S</code>：スペース、タブ、改行以外</li>
-</ul>
-<h3 id="正規表現マッチのまとめ">&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;<a class="anchor-link" href="#正規表現マッチのまとめ">&#182;</a></h3><ul>
-<li><code>re</code>モジュール</li>
-<li><code>re.compile()</code>関数</li>
-<li><code>search()</code>メソッド</li>
-<li><code>group()</code>メソッド</li>
-<li><code>findall()</code>メソッド</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="実践">&#23455;&#36341;<a class="anchor-link" href="#実践">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+		   O'REILLYの著書『<a href="https://www.oreilly.co.jp/books/9784873117782/">退屈なことはPythonにやらせよう</a>』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....
 		<p class="content-emphasis"><a href="../blog/2018/09/regular_expression.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -390,6 +342,11 @@
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
+    <td><a href="../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../blog.html">Blog</a>]</span></td>
     <td><a href="../blog/2020/04/linear_mixed_model.html"><span class="recent-posts-title">線形混合効果モデル</span></a></td>
@@ -409,11 +366,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
     <td><a href="../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
-    <td><a href="../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -421,22 +373,22 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../tag/machine-learning.html">
           <span class="label label-primary">11</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -445,10 +397,16 @@
         Statistics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
+      </a>
+    </span>
     <span class="tag-4">
-      <a href="../tag/github.html">
+      <a href="../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
-        GitHub
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -458,33 +416,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/news.html">
+      <a href="../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../tag/shell-script.html">
-          <span class="label label-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -493,16 +427,34 @@
         海外留学
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../tag/python.html">
+          <span class="label label-primary">8</span>
+        Python
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+    <span class="tag-4">
+      <a href="../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
 </p>
