@@ -2397,10 +2397,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="470ea7eb-90e2-4a2e-9e94-fa3db18c014d"&gt;&lt;/div&gt;
+&lt;div id="2bd1e258-0960-45d5-b3e2-e21e9e89c572"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#470ea7eb-90e2-4a2e-9e94-fa3db18c014d');
+var element = $('#2bd1e258-0960-45d5-b3e2-e21e9e89c572');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -4107,7 +4107,66 @@ h6:hover .anchor-link {
 &lt;p&gt;みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Webサイトをリニューアルしました！</title><link href="https://oumpy.github.io/news/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-03-24:/news/2020/03/website_renewal.html</id><summary type="html">Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。 (2020/3/29 追記) 技術ブログはWebサイトに統合しました。  参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;</summary><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。&lt;/p&gt;
 &lt;p&gt;(2020/3/29 追記)&lt;br&gt;
 技術ブログはWebサイトに統合しました。  &lt;/p&gt;
-&lt;p&gt;参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="https://oumpy.github.io/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2020-02-26:/blog/2020/02/shellscript_tutorial.html</id><summary type="html">&lt;strong&gt;シェルって？ コマンドってなに？&lt;/strong&gt; 詳しくはググるなり下の記事等を見てもらえばよいのですが、 簡単にまとめると - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの - シェル：命令をコンピュータに伝えるプログラムのこと  つまるところ、Pyth....</summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
+&lt;p&gt;参照：&lt;a href="https://oumpy.github.io/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>UNIX系OSのファイルアクセス権</title><link href="https://oumpy.github.io/blog/2020/03/unix_permission.html" rel="alternate"></link><published>2020-03-17T00:00:00+09:00</published><updated>2020-05-13T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2020-03-17:/blog/2020/03/unix_permission.html</id><summary type="html">Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。 OS は Ubuntu 18.04 LTS です。 計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。 本稿ではその基本と、そ....</summary><content type="html">&lt;p&gt;Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
+OS は Ubuntu 18.04 LTS です。&lt;/p&gt;
+&lt;p&gt;計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。
+本稿ではその基本と、その拡張であるACL (Access Control List) を&lt;strong&gt;とても雑に&lt;/strong&gt;説明します。&lt;/p&gt;
+&lt;p&gt;Ubuntu 18.04を念頭に置きますが、他のLinuxでもほぼ同じです。
+macOSでのACL操作は方法が少し異なりますが、基本の仕組みは全て同じです。&lt;/p&gt;
+&lt;h2&gt;ファイルの所有者とアクセス権&lt;/h2&gt;
+&lt;p&gt;医学科計算サーバでは、一人ひとりに独立のアカウントを発行します。
+このような環境では、自分のデータは自分だけが読み書きできるようにしたりできます。
+以下がその仕組みです。&lt;/p&gt;
+&lt;p&gt;各ファイルやディレクトリには「所有者」「所有グループ」「アクセス権 (パーミッション) 」の情報がそれぞれ記録されています。
+所有者は、自分だけが操作できるか、他人にも読み書きを許すかなどを、「アクセス権」の設定によってファイル毎に自由に決められます。&lt;/p&gt;
+&lt;p&gt;これらの情報は &lt;code&gt;ls -l&lt;/code&gt; で確認できます。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ls -l
+-rw-r----- &lt;span class="m"&gt;1&lt;/span&gt; ogawa  ogawa  &lt;span class="m"&gt;4462&lt;/span&gt;  &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt; &lt;span class="m"&gt;22&lt;/span&gt;:38 &lt;span class="m"&gt;202003&lt;/span&gt;-ACL.md
+-rwxr-xr-- &lt;span class="m"&gt;1&lt;/span&gt; ogawa  users    &lt;span class="m"&gt;32&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;14&lt;/span&gt;:43 test.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;冒頭の &lt;code&gt;-rw-r--r--&lt;/code&gt; などがアクセス権設定、&lt;code&gt;ogawa&lt;/code&gt; が所有者。
+&lt;code&gt;202003-ACL.md&lt;/code&gt; は所有グループも同名の &lt;code&gt;ogawa&lt;/code&gt; (ubuntuではこれが普通)、&lt;code&gt;test.py&lt;/code&gt; は &lt;code&gt;users&lt;/code&gt; が所有グループです。  &lt;/p&gt;
+&lt;p&gt;アクセス権は &lt;code&gt;rwx&lt;/code&gt; の3文字が1セットで、これが3セット並びます。
+1セット目が所有者、2セット目が所有グループ、3セット目がそれ以外に対するアクセス権を表します。
+&lt;code&gt;rwx&lt;/code&gt;は読み取り (&lt;code&gt;r&lt;/code&gt;) 、書き込み (&lt;code&gt;w&lt;/code&gt;) 、実行 (&lt;code&gt;x&lt;/code&gt;) です。
+&lt;code&gt;-&lt;/code&gt; に変わっている操作はできません。
+(左端の &lt;code&gt;-&lt;/code&gt; にはディレクトリの場合に &lt;code&gt;d&lt;/code&gt; が入る。)&lt;/p&gt;
+&lt;p&gt;上の例の場合、&lt;code&gt;202003-ACL.md&lt;/code&gt; は、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有者は読み取りと書き込みが可能。 (実行はできない)&lt;/li&gt;
+&lt;li&gt;所有グループ（に属する所有者以外のユーザ）は読み取りが可能。 (書き込みと実行は不可)&lt;/li&gt;
+&lt;li&gt;その他のユーザはファイル内容への一切のアクセスが不可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;test.py&lt;/code&gt; は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有者は読み取り・書き込み・実行すべて可能。&lt;/li&gt;
+&lt;li&gt;所有グループ (に属する所有者以外のユーザ) は読み取りと実行が可能。 (書き込みは不可)&lt;/li&gt;
+&lt;li&gt;その他のユーザは読み取りのみ可能。 (書き込みと実行は不可)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;またこれらはしばしば、r=4、w=2、x=1 の足し算による3桁の8進数で表します。
+&lt;code&gt;202003-ALC.md&lt;/code&gt; はパーミッション &lt;code&gt;640&lt;/code&gt;、&lt;code&gt;test.py&lt;/code&gt; はパーミッション &lt;code&gt;754&lt;/code&gt; です。&lt;/p&gt;
+&lt;p&gt;アクセス権設定コマンド &lt;code&gt;chmod&lt;/code&gt; を使い、例えば&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ chmod &lt;span class="m"&gt;700&lt;/span&gt; hogehoge.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;とすれば、ファイル &lt;code&gt;hogehoge.py&lt;/code&gt; は自分のみ読み書き実行全て可能、他人は一切アクセス不可となります。
+Ubuntuなどではホームディレクトリの初期パーミッションが &lt;code&gt;755&lt;/code&gt; だったりするため、気になる場合はこのように変更するのもおすすめです。&lt;/p&gt;
+&lt;h2&gt;データ共有／共同作業／共同研究がしたい&lt;/h2&gt;
+&lt;p&gt;では、共同研究などで「特定の人」にだけアクセスを許すにはどうしたらいいか？&lt;/p&gt;
+&lt;p&gt;一つの方法は、一緒に作業したい仲間を含むグループを作り、ファイルの所有グループとアクセス権を適当に設定することです。
+しかしグループを作るには&lt;strong&gt;システム管理者にその都度依頼&lt;/strong&gt;しなければならず、あまり良い方法ではありません。&lt;/p&gt;
+&lt;p&gt;そこで登場するのが &lt;strong&gt;POSIX ACL&lt;/strong&gt; という、&lt;strong&gt;上記のアクセス権に詳細な例外条項を加える&lt;/strong&gt;仕組みです。
+例えば&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ setfacl -m user:otomodachi:rwx hogehoge.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;のようにすると、他人に対するパーミッションが0のファイルでも、指定したユーザ (&lt;code&gt;otomodachi&lt;/code&gt;) にだけファイルの読み書き実行、全てを許可することができます。
+ディレクトリに対して設定することもできます。これで共同作業や共同研究も自由自在です。&lt;/p&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Unix"></category></entry><entry><title>シェルコマンドに触れてみよう</title><link href="https://oumpy.github.io/blog/2020/02/shellscript_tutorial.html" rel="alternate"></link><published>2020-02-26T00:00:00+09:00</published><updated>2020-02-26T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2020-02-26:/blog/2020/02/shellscript_tutorial.html</id><summary type="html">&lt;strong&gt;シェルって？ コマンドってなに？&lt;/strong&gt; 詳しくはググるなり下の記事等を見てもらえばよいのですが、 簡単にまとめると - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの - シェル：命令をコンピュータに伝えるプログラムのこと  つまるところ、Pyth....</summary><content type="html">&lt;h2&gt;シェルって？　コマンドってなに？&lt;/h2&gt;
 &lt;p&gt;詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
 - コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
 - シェル：命令をコンピュータに伝えるプログラムのこと  &lt;/p&gt;

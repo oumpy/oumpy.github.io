@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="シェルスクリプト入門(2)"/>
-    <meta property="og:url" content="../../../blog/2018/11/shellscript_2.html"/>
+    <meta property="og:title" content="UNIX系OSのファイルアクセス権"/>
+    <meta property="og:url" content="../../../blog/2020/03/unix_permission.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Shell script"/>
+        <meta property="article:tag" content="Unix"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="シェルスクリプト入門(2)">
+    <meta name="twitter:title" content="UNIX系OSのファイルアクセス権">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>シェルスクリプト入門(2) - 大阪大学医学部 Python会</title>
+    <title>UNIX系OSのファイルアクセス権 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -105,10 +105,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="shellscript_2">
+    <meta name="article:slug" property="og:article:slug" content="unix_permission">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-11-16">
+    <meta name="article:date" property="og:article:date" content="2020-03-17">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-13">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,205 +117,91 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/11/shellscript_2.html" rel="bookmark"
-     title="Permalink to シェルスクリプト入門(2)">
-    シェルスクリプト入門(2)
+  <a href="../../../blog/2020/03/unix_permission.html" rel="bookmark"
+     title="Permalink to UNIX系OSのファイルアクセス権">
+    UNIX系OSのファイルアクセス権
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-11-16(Fri)
+  2020-03-17(Tue)
 </abbr>       - Posted by 
-<a href="../../../author/shui-ye.html">水野</a>    in 
+<a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/shell-script.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Shell script&labelColor=black&color=green" alt="tag:Shell script" title="tag:Shell script"></img></a>
+        <a href="../../../tag/unix.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Unix&labelColor=black&color=green" alt="tag:Unix" title="tag:Unix"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>※　編集注：前作<a href="https://pythonoum.wordpress.com/2018/11/01/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%85%A5%E9%96%801/">シェルスクリプト入門（1）</a>の続編です。まだ読み終わってない方はそちらを先にどうぞ。</p>
-<p>テーブルファイルの操作と言えばRです。 (※　編集注：Pythonでもできます。)
-が、そこまでbashで書いてきたのに、R呼び出して変数再設定して…面倒くさいから嫌だ！！
-ってことないでしょうか。</p>
-<p>Rの機能を代替するのは無理ですが、せめてほんの少し、
-例えば、テーブル中の値をそれぞれbashの変数に入れれたら、
-Rを呼び出さずに完結できたりします。</p>
-<p>要は、<code>$ mat_i_j=i行j列目の要素</code>で変数を格納していきます。</p>
-<p>対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。</p>
-<div class="highlight"><pre><span></span><code><span class="err">a    b    c</span>
-<span class="err">1    2    3</span>
-<span class="err">d    e    f</span>
+	<p>Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
+OS は Ubuntu 18.04 LTS です。</p>
+<p>計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。
+本稿ではその基本と、その拡張であるACL (Access Control List) を<strong>とても雑に</strong>説明します。</p>
+<p>Ubuntu 18.04を念頭に置きますが、他のLinuxでもほぼ同じです。
+macOSでのACL操作は方法が少し異なりますが、基本の仕組みは全て同じです。</p>
+<h2>ファイルの所有者とアクセス権</h2>
+<p>医学科計算サーバでは、一人ひとりに独立のアカウントを発行します。
+このような環境では、自分のデータは自分だけが読み書きできるようにしたりできます。
+以下がその仕組みです。</p>
+<p>各ファイルやディレクトリには「所有者」「所有グループ」「アクセス権 (パーミッション) 」の情報がそれぞれ記録されています。
+所有者は、自分だけが操作できるか、他人にも読み書きを許すかなどを、「アクセス権」の設定によってファイル毎に自由に決められます。</p>
+<p>これらの情報は <code>ls -l</code> で確認できます。</p>
+<div class="highlight"><pre><span></span><code>$ ls -l
+-rw-r----- <span class="m">1</span> ogawa  ogawa  <span class="m">4462</span>  <span class="m">3</span> <span class="m">16</span> <span class="m">22</span>:38 <span class="m">202003</span>-ACL.md
+-rwxr-xr-- <span class="m">1</span> ogawa  users    <span class="m">32</span>  <span class="m">1</span> <span class="m">10</span> <span class="m">14</span>:43 test.py
 </code></pre></div>
 
 
-<p>これの各要素を、<code>$mat_i_j</code> に格納していきます。
-一例として、以下のスクリプトでできます。
-配列つかったりしてもっといいスクリプトもきっとあります。</p>
-<p>bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nv">row</span><span class="o">=</span><span class="m">0</span> <span class="c1">## 行番号に使う変数の設定。</span>
-<span class="k">while</span> <span class="nb">read</span> x1 x2 x3 <span class="c1">## 解説①</span>
-<span class="k">do</span>
-    <span class="nv">row</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$row</span> + <span class="m">1</span><span class="sb">`</span> <span class="c1">## 1行ずつ読んでくので、1ずつ足していく。</span>
-    <span class="k">for</span> col in <span class="sb">`</span>seq <span class="m">1</span> <span class="m">3</span><span class="sb">`</span> <span class="c1">## 今読んでる行での列番号をfor文で回す。</span>
-    <span class="k">do</span>
-        <span class="nb">eval</span> mat_<span class="si">${</span><span class="nv">row</span><span class="si">}</span>_<span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="o">=</span><span class="sb">`</span><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\\</span><span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="sb">`</span> <span class="c1">## 解説②</span>
-    <span class="k">done</span>
-<span class="k">done</span><span class="p">&amp;</span>lt<span class="p">;</span>table.txt
-
-<span class="c1">### 変数mat_$i_$j を使った処理が続く。</span>
+<p>冒頭の <code>-rw-r--r--</code> などがアクセス権設定、<code>ogawa</code> が所有者。
+<code>202003-ACL.md</code> は所有グループも同名の <code>ogawa</code> (ubuntuではこれが普通)、<code>test.py</code> は <code>users</code> が所有グループです。  </p>
+<p>アクセス権は <code>rwx</code> の3文字が1セットで、これが3セット並びます。
+1セット目が所有者、2セット目が所有グループ、3セット目がそれ以外に対するアクセス権を表します。
+<code>rwx</code>は読み取り (<code>r</code>) 、書き込み (<code>w</code>) 、実行 (<code>x</code>) です。
+<code>-</code> に変わっている操作はできません。
+(左端の <code>-</code> にはディレクトリの場合に <code>d</code> が入る。)</p>
+<p>上の例の場合、<code>202003-ACL.md</code> は、</p>
+<ul>
+<li>所有者は読み取りと書き込みが可能。 (実行はできない)</li>
+<li>所有グループ（に属する所有者以外のユーザ）は読み取りが可能。 (書き込みと実行は不可)</li>
+<li>その他のユーザはファイル内容への一切のアクセスが不可。</li>
+</ul>
+<p><code>test.py</code> は</p>
+<ul>
+<li>所有者は読み取り・書き込み・実行すべて可能。</li>
+<li>所有グループ (に属する所有者以外のユーザ) は読み取りと実行が可能。 (書き込みは不可)</li>
+<li>その他のユーザは読み取りのみ可能。 (書き込みと実行は不可)</li>
+</ul>
+<p>またこれらはしばしば、r=4、w=2、x=1 の足し算による3桁の8進数で表します。
+<code>202003-ALC.md</code> はパーミッション <code>640</code>、<code>test.py</code> はパーミッション <code>754</code> です。</p>
+<p>アクセス権設定コマンド <code>chmod</code> を使い、例えば</p>
+<div class="highlight"><pre><span></span><code>$ chmod <span class="m">700</span> hogehoge.py
 </code></pre></div>
 
 
-<p>時間のある人用に解説です。
-少し小技があります。</p>
-<h2>1) while readの使い方</h2>
-<p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
-<div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
+<p>とすれば、ファイル <code>hogehoge.py</code> は自分のみ読み書き実行全て可能、他人は一切アクセス不可となります。
+Ubuntuなどではホームディレクトリの初期パーミッションが <code>755</code> だったりするため、気になる場合はこのように変更するのもおすすめです。</p>
+<h2>データ共有／共同作業／共同研究がしたい</h2>
+<p>では、共同研究などで「特定の人」にだけアクセスを許すにはどうしたらいいか？</p>
+<p>一つの方法は、一緒に作業したい仲間を含むグループを作り、ファイルの所有グループとアクセス権を適当に設定することです。
+しかしグループを作るには<strong>システム管理者にその都度依頼</strong>しなければならず、あまり良い方法ではありません。</p>
+<p>そこで登場するのが <strong>POSIX ACL</strong> という、<strong>上記のアクセス権に詳細な例外条項を加える</strong>仕組みです。
+例えば</p>
+<div class="highlight"><pre><span></span><code>$ setfacl -m user:otomodachi:rwx hogehoge.py
 </code></pre></div>
 
 
-<p>ファイルを一行ずつ読んで、各列の要素を<code>read</code>の後ろに置いた変数名<code>（x1,x2,x3）</code>に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
-各行ごとに、<code>do</code>～<code>done</code>の間で、<code>$x1</code>,<code>$x2</code>,<code>$x3</code>が使えるようになります。</p>
-<p>が、しかし、パイプで<code>while</code>に入ってしまうと、パイプ内はパイプ内で完結するため、
-<code>do</code>~<code>done</code>の中で変数操作をしても、<code>done</code>の後では、その中身が空っぽになっちゃいます。</p>
-<p>これを回避するためには、パイプを使わないということで、リダイレクトで、
-<code>done</code>の後ろに</p>
-<div class="highlight"><pre><span></span><code><span class="k">done</span>&lt;table.txt
-</code></pre></div>
-
-
-<p>を書きます。
-読みにくいですよねー。</p>
-<h2>2) evalの使い方</h2>
-<p>今回の<code>mat_$i_$j</code>のように、変数名に変数<code>($i,$j)</code>を使って値を格納する時には、<code>eval</code>を使います。
-<code>eval</code>は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。</p>
-<p>なので、<code>i=2, j=3</code> として、</p>
-<p><code>eval mat_${i}_${j}=aaa</code></p>
-<p>は、
-<code>mat_2_3=aaa</code> をスクリプトとして評価しろ、ということになり、
-<code>mat_2_3</code>という変数名に、<code>aaa</code>が入ります。
-（ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）</p>
-<p>変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
-<code>col=1</code>として、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
-</code></pre></div>
-
-
-<p>と書けば、まず、<code>eval</code>が<code>$col</code>の中身を出してからスクリプトとして評価するので、
-（xの<span class="math">\(には\がかかってるので無視されます）
-<code>echo $x1</code>
-と書いていることになり、通常の<code>echo</code>で書いたように、<code>$x1</code>の中身が出力されます。
-xの\)</span>にかかってた\は、<code>eval</code>での評価で消費されて、<code>echo</code>内にはなくなります。ここ重要。</p>
-<p>やりたいことは、<code>eval echo</code> で出してきた値を、変数を使った変数名に格納することです。</p>
-<p><code>eval mat_${i}_${j}=aaa</code></p>
-<p>の<code>aaa</code>部分に<code>eval echo</code>を直接もってきても、機能しません。
-<code>eval echo</code>のままでは、まだ値ではなくスクリプトだからです。</p>
-<p>なので、そのスクリプトを実行させて値を出力させたものを、<code>aaa</code>の部分に書きます。
-そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。</p>
-<p>アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
-なので、</p>
-<div class="highlight"><pre><span></span><code><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$k</span><span class="sb">`</span>
-</code></pre></div>
-
-
-<p>とすれば、<code>$k</code>の中身が出力されて、<code>test</code>に格納されます。
-<code>row</code>に1ずつ足していくとこでも使ってます。よく見る方法です。
-<code>for</code>文使わなくていいので、見た目がすっきりします。</p>
-<p>では、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
-</code></pre></div>
-
-
-<p>と書けば、<code>mat_2_3</code>に<code>$x1</code>の中身が代入されるはず！
-となるのですが、不完全です。</p>
-<p>アクサングラーブでの評価で、<code>\</code>が一個消費されてしまうので、実行する<code>eval echo</code>の文が、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
-</code></pre></div>
-
-
-<p>となるので、<code>eval</code>での評価時に<code>$x</code>の中身（設定してないので空っぽ）と<code>$col</code>が出されてしまって、
-<code>echo (空)1</code>
-となって、最終的に、<code>mat_2_3</code>には<code>$x1</code>ではなく、<code>$col</code>の中身である1が代入されてしまいます。</p>
-<p>なので、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
-</code></pre></div>
-
-
-<p>と、\を一個増やして書けば、目的達成です。
-めでたしめでたし。</p>
-<p>※ 編集注 : 記事はめでたく終わりましたが、アクサングラーブがマークダウンと干渉してしまいました。試行錯誤の結果、ところどころテキストが混じって読みにくくなってしまいました。すみません。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
+<p>のようにすると、他人に対するパーミッションが0のファイルでも、指定したユーザ (<code>otomodachi</code>) にだけファイルの読み書き実行、全てを許可することができます。
+ディレクトリに対して設定することもできます。これで共同作業や共同研究も自由自在です。</p>
+<p>おしまい。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
+	<a href="../../../tag/unix.html"><i class="fa fa-tag"></i>Unix</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -328,7 +215,7 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/11/shellscript_2.html" 
+        data-href="../../../blog/2020/03/unix_permission.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -341,14 +228,7 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><div class="related-posts">
-    <h2>関連記事</h2>
-    <ul>
-        <li><a href="../../../blog/2020/02/shellscript_tutorial.html">シェルコマンドに触れてみよう</a></li>
-        <li><a href="../../../blog/2018/11/shellscript_1.html">シェルスクリプト入門(1)</a></li>
-    </ul>
-</div>
-
+</script>
 </article>
         </div><!-- /content -->
 
