@@ -12,6 +12,7 @@
     <meta property="og:url" content="../../../blog/2019/10/GPUs_for_ML.html"/>
       <meta property="article:section" content="技術ブログ"/>
         <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="ハードウェア"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -107,6 +108,7 @@
 	</div>
     <meta name="article:slug" property="og:article:slug" content="GPUs_for_ML">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
     <meta name="article:date" property="og:article:date" content="2019-10-07">
     <meta name="article:modified" property="og:article:modified" content="2019-10-07">
 
@@ -129,7 +131,8 @@
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning"></img></a>
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../../../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=ハードウェア&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
@@ -233,6 +236,7 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
 	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/hadouea.html"><i class="fa fa-tag"></i>ハードウェア</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -262,9 +266,9 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2018/09/hardware_for_deeplearning.html">組み込みでDeep Learningにつかえるハードについて</a></li>
         <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
-        <li><a href="../../../blog/2018/12/doctor_exam_ai.html">【論文まとめ】医師国家試験問題自動生成AI</a></li>
-        <li><a href="../../../blog/2018/12/animalshogi.html">PythonとKerasでどうぶつしょうぎ</a></li>
+        <li><a href="../../../blog/2019/05/UNet_cells_recognition.html">U-Netで細胞認識</a></li>
     </ul>
 </div>
 
@@ -273,7 +277,6 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
-
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -290,6 +293,9 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
   <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
     <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
   </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
   <li><a href="./feeds/all.atom.xml" target="_blank" title="Atom Feed">
     <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
   </a></li>
@@ -299,14 +305,17 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 </ul>
 </div>
 </div>
-
-
 <div class="sidebar_box">
 <div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -327,11 +336,6 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -339,81 +343,98 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="label label-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">10</span>
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">1</span>
         GitHub
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">12</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
 </p>
-</div>
-</div> <!-- col -->
+</div></div> <!-- col -->
 <div class="col-md-12 col-sm-8 col-xs-12">
 <div class="sidebar_box">
 <div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
@@ -489,7 +510,7 @@ if (check_ipynb.length > 0) {
     var article_date = document.getElementsByName('article:date')[0].content;
     var article_year = article_date.slice(0, 4);
     var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
     if (parseInt(article_month) <= 3) {
       article_year = article_year - 1;
     }
