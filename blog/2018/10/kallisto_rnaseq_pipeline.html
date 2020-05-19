@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-10-16(Tue)
+  2018-10-16(火)
 </abbr>       - Posted by 
 <a href="../../../author/ping-gang.html">平岡</a>    in 
     <a href="../../../blog.html">
@@ -139,15 +139,15 @@
 	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
 <h2>リファレンスのダウンロード</h2>
 <p>kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は<a href="https://www.gencodegenes.org/">GenCodeGenes</a>のヒトtranscript sequencesのデータを用いました。</p>
-<div class="highlight"><pre><span></span><code>$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
+</pre></div>
 
 
 <h2>FASTQファイルをダウンロードする場合</h2>
 <p><a href="https://www.ebi.ac.uk/arrayexpress/">ArrayExpress</a>からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。</p>
-<div class="highlight"><pre><span></span><code>$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
+<div class="highlight"><pre><span></span>$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
 $ gunzip ERR266335.fastq.gz
-</code></pre></div>
+</pre></div>
 
 
 <p>ERR266349 ERR266351 ERR266338 ERR266347についても同様に！</p>
@@ -157,7 +157,7 @@ $ gunzip ERR266335.fastq.gz
 </ul>
 <h2>SRAファイルをダウンロードする場合</h2>
 <p>DDBJの<a href="https://ddbj.nig.ac.jp/DRASearch/">DRA search</a>からSRAファイルをダウンロード、SRAファイルをFASTQに変換する。pfast-dumpで .sraをペアエンド.fastqに変換。 (<strong>kallistoはsraファイルを扱えない</strong> ので、pfastq-dumpでfastqに変換する必要がある。）</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># download sra files.</span>
 mkdir sra-fastq
 <span class="nv">id</span><span class="o">=(</span>ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351<span class="o">)</span>
@@ -167,7 +167,7 @@ mkdir sra-fastq
 wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/<span class="si">${</span><span class="nv">item</span><span class="si">}</span>/<span class="si">${</span><span class="nv">item</span><span class="si">}</span>.sra
 pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class="si">}</span> -t <span class="m">8</span> -O sra-fastq
 <span class="k">done</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>pfastq-dumpのオプション</p>
@@ -179,8 +179,8 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <p>今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理をシェルスクリプトを使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。</p>
 <h3>SRAファイルとは？</h3>
 <p>Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。<a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration">INSDC</a>、<a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EBI</a>、<a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan">DDBJ</a>が共同で運営しているデータベース<a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive">SRA</a>に保存してある。</p>
-<div class="highlight"><pre><span></span><code>$ less ERR266335.sra
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ less ERR266335.sra
+</pre></div>
 
 
 <p>バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
@@ -189,7 +189,7 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <p>fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。<a href="https://github.com/inutanoOhta">Ohta</a>さんが公開されている。</p>
 <h2>Fastqc</h2>
 <p>クオリティチェック。</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nv">id</span><span class="o">=(</span>ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351<span class="o">)</span>
 mkdir fastqc
 <span class="k">for</span> item in <span class="si">${</span><span class="nv">id</span><span class="p">[@]</span><span class="si">}</span>
@@ -198,7 +198,7 @@ mkdir fastqc
 mkdir fastqc/fastqc_<span class="si">${</span><span class="nv">item</span><span class="si">}</span>
 fastqc -t <span class="m">8</span> -o fastqc/fastqc_<span class="si">${</span><span class="nv">item</span><span class="si">}</span> sra-fastq/<span class="si">${</span><span class="nv">item</span><span class="si">}</span>.fastq -f fastq
 <span class="k">done</span>
-</code></pre></div>
+</pre></div>
 
 
 <p><code>sra-fastq/${item}.fastq</code>がインプットファイル。
@@ -215,8 +215,8 @@ fastqcのオプションについて</p>
 <p>fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。</p>
 <p><img alt="4" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"></p>
 <p>htmlファイルをブラウザで開くことができる。</p>
-<div class="highlight"><pre><span></span><code>$ open ERR266335_fastqc.html
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ open ERR266335_fastqc.html
+</pre></div>
 
 
 <p><img alt="5" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
@@ -226,10 +226,10 @@ fastqcのオプションについて</p>
 </ul>
 <h2>Multiqc</h2>
 <p>クオリティチェックの結果、ログファイルなどをまとめていい感じにレポートにしてくれるツール。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># After analysis, run Multiqc by commands below. You can create report.</span>
+<div class="highlight"><pre><span></span><span class="c1"># After analysis, run Multiqc by commands below. You can create report.</span>
 $ multiqc .
 $ open multiqc_report.html
-</code></pre></div>
+</pre></div>
 
 
 <p>multiqcの実行により、関連ファイルが下記のように自動生成される。</p>
@@ -242,8 +242,8 @@ $ open multiqc_report.html
 </ul>
 <h2>Trimmomatic</h2>
 <p>Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。</p>
-<div class="highlight"><pre><span></span><code>$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-</code></pre></div>
+<div class="highlight"><pre><span></span>$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+</pre></div>
 
 
 <p><code>SE</code>オプションでsingle-end readを指定している。pair-end readでは、オプションでPEとかき、paired outputとunpaired outputの出力先２つを指定する必要がある。</p>
@@ -262,9 +262,9 @@ $ open multiqc_report.html
 <h2>Kallisto</h2>
 <p>RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。</p>
 <p>kallisto や Salmon を利用して定量したデータを使って、edgeR や DESeq2 などで発現量の群間比較を行うことができる。この際に、Bioconductor の tximport パッケージを利用することで、簡単に kallisto/Salmon の定量結果を edgeR/DESEq2 に渡すことができる。</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
+<div class="highlight"><pre><span></span>$ <span class="nb">time</span> kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
 $ <span class="nb">time</span> kallisto/kallisto quant -i hsGRCh38_kallisto sra_fastqc/ERR266335.fastq -o ERR266335exp_kallisto
-</code></pre></div>
+</pre></div>
 
 
 <p>kallisto quantにおいて、<strong>-iと-oのオプションは強制</strong> である。</p>
@@ -280,7 +280,7 @@ $ <span class="nb">time</span> kallisto/kallisto quant -i hsGRCh38_kallisto sra_
 <p>のオプションを追加するのが必須となる。
 (kallistoはsraファイルを扱えないので、pfastq-dumpでfastqに変換する必要があった。)
 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に<code>kallisto_quant.sh</code>というシェルスクリプトを書き実行した。今回に限らず、時間がかかるかつ繰り返しの処理はシェルスクリプトを書くと良い（私もこれから練習します）。</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nv">id</span><span class="o">=(</span>ERR266335 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347<span class="o">)</span>
 <span class="k">for</span> item in <span class="si">${</span><span class="nv">id</span><span class="p">[@]</span><span class="si">}</span>
 <span class="k">do</span>
@@ -288,7 +288,7 @@ ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に<code>kallisto_quan
 <span class="nv">result_dir</span><span class="o">=</span><span class="si">${</span><span class="nv">item</span><span class="si">}</span>_exp_kallisto
 kallisto/kallisto quant -i hsGRCh38_kallisto -o <span class="si">${</span><span class="nv">item</span><span class="si">}</span> --single -l <span class="m">200</span> -s <span class="m">20</span> -b <span class="m">100</span> sra_fastqc/<span class="si">${</span><span class="nv">item</span><span class="si">}</span>.fastq
 <span class="k">done</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>abundance.tsv, target_id, length, eff_length, est_counts, tpm</p>
@@ -513,46 +513,10 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+      <a href="../../../tag/unix.html">
           <span class="label label-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -563,26 +527,50 @@ $$</div>
     </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="label label-primary">10</span>
+          <span class="label label-primary">11</span>
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -592,15 +580,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
 </p>

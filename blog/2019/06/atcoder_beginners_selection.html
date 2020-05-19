@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-06-24(Mon)
+  2019-06-24(月)
 </abbr>       - Posted by 
 <a href="../../../author/jia-teng.html">加藤</a>    in 
     <a href="../../../blog.html">
@@ -176,7 +176,7 @@ $$</div>
 <p>数問解いた後の話ですが、気付きました。 ああこれが競技プログラミングなのか。 あれです、初心者あるあるの「思ってたのと違う」ってやつです。今回のは悪い意味ではないのですが。言語つながりで、例えば英語の問題なら、文法や読解、和文英訳など受験でさんざんやった形式のものが思い浮かびます。てっきりそういう類いの問題が出るのかなと思っていたら、完全に実践形式の問題で驚きました。英語始めたばっかりで、いきなり英会話しようと言われたら誰だってそうなるでしょう。</p>
 <p>このように競技プログラミングでは答えが決まってはなく、かなりのバリエーションがあり、独自に考えたプログラムが答えになり得るというのが面白みの一つですね。また、同じ方針でも表記の仕方がたくさんあって、まるで方言のようです。</p>
 <p>まとめっぽくなりましたが問題に戻ります。考えても分かる訳なさそうなので、この問題にだけついている解答例を見ます。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1"># 整数の入力</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="c1"># スペース区切りの整数の入力</span>
@@ -184,8 +184,8 @@ $$</div>
 <span class="c1"># 文字列の入力</span>
 <span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="c1"># 出力</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+</pre></div>
 
 
 <p>いまさらですが言語はPython3です。 なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番印象に残った事です。</p>
@@ -219,15 +219,15 @@ $$</div>
 <h4>出力</h4>
 <p>硬貨を選ぶ方法の個数を出力せよ。
 <hr></p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">500</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
                 <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)</p>
@@ -264,24 +264,24 @@ $$</div>
 <hr>
 
 <h4>普通の解法</h4>
-<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
 入力をリストにしてからセットにして要素数を数える。当然ですね。僕はセットの存在を思い出せなかったので、次のようにしました。</p>
 <h4>僕の解法</h4>
 <p>ソートしてからリストのままでなんとか数えあげました。明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。</p>
-<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])))</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
 
 
 <h3>問題９：Daydream</h3>
@@ -306,28 +306,28 @@ $$</div>
 <hr>
 
 <h4>僕の解法</h4>
-<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
-</code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <p>文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。<br>
 変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。  </p>
 <h4>別解答</h4>
-<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">s</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
-</code></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
@@ -510,46 +510,10 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+      <a href="../../../tag/unix.html">
           <span class="label label-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -560,26 +524,50 @@ $$</div>
     </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="label label-primary">10</span>
+          <span class="label label-primary">11</span>
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -589,15 +577,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
 </p>

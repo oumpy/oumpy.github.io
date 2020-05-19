@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-12-20(Thu)
+  2018-12-20(木)
 </abbr>       - Posted by 
 <a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
@@ -143,19 +143,19 @@
 Pythonでの<strong>変数への代入とは、変数の参照するメモリ（インスタンス）を切り替えること</strong>であり、<strong>メモリの内容を書き換えることではない</strong>。これが多くの言語（C/C++など）と大きく違うところです。</p>
 <h2>変数の代入(1)</h2>
 <p>例えばこんなコード。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
+<div class="highlight"><pre><span></span><span class="c1"># Python3</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 1を出力</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 1を出力</span>
+</pre></div>
 
 
 <p>C++で書き換えると、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
+<div class="highlight"><pre><span></span><span class="c1">// C++</span>
 <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>なのか？？
@@ -164,11 +164,11 @@ Pythonでの<strong>変数への代入とは、変数の参照するメモリ（
 C++の方では<code>a</code>で表されるメモリ領域を一つ確保し、そこにまず<code>0</code>をセット、次に<code>1</code>を、<strong>同じメモリ領域を書き換えて</strong>セットしています。  </p>
 <p>Pythonの方はそうではありません。まず<code>0</code>の値を持つメモリ領域を確保し、<strong>変数<code>a</code>がそこを指すように</strong>します。次に<code>1</code>の値を持つ<strong>別のメモリ領域を確保</strong>し、変数<code>a</code>がそこを指すように切り替えます。</p>
 <p>C++で無理矢理それっぽいものを書くと、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
+<div class="highlight"><pre><span></span><span class="c1">// C++</span>
 <span class="kt">int</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>のようになります。<br>
@@ -177,22 +177,22 @@ C++の方では<code>a</code>で表されるメモリ領域を一つ確保し、
 しかし、Pythonではそれを<strong>ガベージコレクタ</strong>という仕組みが<strong>勝手に代行</strong>してくれます。逆にこれがないと、Pythonではメモリリークが頻繁に起こって大変なことになります。</p>
 <h2>変数の代入(2)</h2>
 <p>問題です。次のコードは何を出力するでしょうか。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
+<div class="highlight"><pre><span></span><span class="c1"># Python3</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 何が出る？</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 何が出る？</span>
+</pre></div>
 
 
 <p><strong>答えは「<code>0</code>」</strong>です。<br>
 C++で書いた似たようなコード、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
+<div class="highlight"><pre><span></span><span class="c1">// C++</span>
 <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 出力は「0」</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>も結果は同じなのですが、内部動作は全く異なります。<strong>Pythonでの変数代入は参照の切り替え</strong>であることがやはりポイントです。</p>
@@ -200,15 +200,15 @@ C++で書いた似たようなコード、</p>
 <h2>関数引数はすべて参照渡し</h2>
 <p>「変数が全て参照」であることから、関数引数もまた<strong>参照渡し</strong>となります。C/C++のデフォルトである<strong>値渡し</strong>と異なり、メモリのコピーなどは行われません。</p>
 <p>では再び問題。次のコードは何を出力するでしょう？</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
+<div class="highlight"><pre><span></span><span class="c1"># Python3</span>
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="c1"># ここまで。このprint()は何を出力するか？0？1？</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>「参照渡し」を知っている人ほど、「1」と答えたくなりそうですが、、  </p>
@@ -216,25 +216,25 @@ C++で書いた似たようなコード、</p>
 <code>func(a)</code>を呼び出した時点では、<strong><code>a</code>と<code>x</code>の指すメモリは同じ<code>0</code></strong>ですが、<code>x = 1</code>で<code>x</code>の指すメモリは<strong>別に確保された<code>1</code></strong>に切り替わります。<strong><code>a</code>および、<code>a</code>の指す<code>0</code>には何の変化も無い</strong>のです。このあたりは前項の問題とほとんど同じです。</p>
 <h2>「変数への代入」ではない場合</h2>
 <p>例えばこんなとき。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
+<div class="highlight"><pre><span></span><span class="c1"># Python3</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 出力は[2,1]</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 出力は[2,1]</span>
+</pre></div>
 
 
 <p>3行目で<code>b</code>と<code>a</code>は同じリストを参照するようになります。4行目では、そのリスト（これも参照の列みたいなもの）の最初の成分を、<code>0</code>でなく<code>2</code>のメモリを参照するように切り替えます。全体として見れば<code>a</code>と<code>b</code>が同じリストを参照していることに変わりはないので、この変更は<code>b</code>にも反映されています。</p>
 <p>これは、前項の関数引数で若干の問題を引き起こします。<br>
 次のコード、前項で見たものにそっくりですが、、、</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
+<div class="highlight"><pre><span></span><span class="c1"># Python3</span>
 <span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</code></pre></div>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
 
 
 <p><strong>前項とは違い、この出力は「<code>1</code>」</strong>です。<br>
@@ -278,9 +278,9 @@ C++で書いた似たようなコード、</p>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2019/12/deeplabcut.html">deeplabcutの使い方まとめ</a></li>
         <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
         <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
-        <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
     </ul>
 </div>
 
@@ -355,46 +355,10 @@ C++で書いた似たようなコード、</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+      <a href="../../../tag/unix.html">
           <span class="label label-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -405,26 +369,50 @@ C++で書いた似たようなコード、</p>
     </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="label label-primary">10</span>
+          <span class="label label-primary">11</span>
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -434,15 +422,27 @@ C++で書いた似たようなコード、</p>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
       </a>
     </span>
 </p>
