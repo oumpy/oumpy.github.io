@@ -364,45 +364,9 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="label label-primary">1</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
+        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -412,9 +376,9 @@
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
-        海外留学
+        論文関連
       </a>
     </span>
     <span class="tag-1">
@@ -423,10 +387,40 @@
         Python
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
@@ -435,10 +429,10 @@
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-2">
@@ -453,10 +447,16 @@
         GitHub
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
+    <span class="tag-4">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="label label-primary">1</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
       </a>
     </span>
 </p>
@@ -567,22 +567,28 @@ if (check_ipynb.length > 0) {
 
 $(function() {
   $('a').each(function() {
-    const target = $(this).attr('href');
     const myhost = 'oumpy.github.io';
     const repo = 'oumpy/oumpy.github.io/blob/master';
-    if ((target.startsWith('.') || target.startsWith('/')
-          || target.startsWith('https://'+myhost) || target.startsWith(myhost))
-         && target.endsWith('.ipynb')) {
-      const root = 'https://colab.research.google.com/github/' + repo + $(location).attr('pathname');
-      let root_split = root.split('/');
+    const root = 'https://colab.research.google.com/github/' + repo;
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
       let target_split = target.split('/');
-      root_split.pop();
+      upper_split.pop();
+      let head = true;
       while (true) {
-        if (target_split[0] == '.') {
+        if (head && target_split[0] == '') {
           target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
         } else if (target_split[0] == '..') {
           target_split.shift();
-          root_split.pop();
+          upper_split.pop();
+          head = false;
         } else {
           break;
         }
