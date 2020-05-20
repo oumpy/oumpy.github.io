@@ -324,22 +324,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
           <span class="label label-primary">12</span>
         Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
       </a>
     </span>
     <span class="tag-2">
@@ -348,22 +342,16 @@
         競技プログラミング
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="label label-primary">1</span>
         勉強会
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -373,9 +361,39 @@
       </a>
     </span>
     <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="../../../tag/github.html">
           <span class="label label-primary">1</span>
         GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -385,33 +403,15 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/statistics.html">
+          <span class="label label-primary">7</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
       </a>
     </span>
     <span class="tag-2">
@@ -525,6 +525,33 @@ if (check_ipynb.length > 0) {
                +'<a href='+colab_url+'>'+colab_img+'</a>';
     doc0.innerHTML= button;
 }
+
+$(function() {
+  $('a').each(function() {
+    var target = $(this).attr('href');
+    var root = $(location).attr('href');
+    var head = 'oumpy.github.com';
+    var repo = 'oumpy/oumpy.github.io/blob/master';
+    if ($(location).attr('host')==head && target.endsWith('.ipynb')) {
+      root = 'https://colab.research.google.com/github/' + repo + $(location).attr('pathname');
+      root_split = root.split('/');
+      root_split.pop();
+      target_split = target.split('/');
+      while (true) {
+        if (target_split[0] == '.') {
+          target_split.shift();
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          root_split.pop();
+        } else {
+          break;
+        }
+      }
+      colablink = root_split.join('/') + '/' + target_split.join('/');
+      $(this).attr('href', colablink);
+    }
+  });
+});
 </script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 !function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
