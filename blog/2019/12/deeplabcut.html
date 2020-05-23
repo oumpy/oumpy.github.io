@@ -124,7 +124,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-12-16(月)
+  2019-12-16(Mon)
 </abbr>       - Posted by 
 <a href="../../../author/wei-gang.html">味岡</a>    in 
     <a href="../../../blog.html">
@@ -162,8 +162,8 @@ googlecolabでもできるそうです。
 <ul>
 <li>インストールは、<code>dlc-macOS-CPU.yaml</code> をダウンロードして、</li>
 </ul>
-<div class="highlight"><pre><span></span>conda env create -f dlc-macOS-CPU.yaml
-</pre></div>
+<div class="highlight"><pre><span></span><code>conda env create -f dlc-macOS-CPU.yaml
+</code></pre></div>
 
 
 <p>で環境を作成 (<code>pip install deeplabcut</code> はNG)</p>
@@ -184,14 +184,14 @@ googlecolabでもできるそうです。
 </ul>
 <h2>ソースコードの例 (Ubuntuの場合)</h2>
 <h3>トレーニング (train.py)</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_new_project</span><span class="p">(</span><span class="s1">&#39;日付&#39;</span><span class="p">,</span><span class="s1">&#39;名前&#39;</span><span class="p">,[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">])</span>
 <span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;生成されたconfig.yamlのパス&quot;</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">extract_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">,</span> <span class="s1">&#39;automatic&#39;</span><span class="p">,</span> <span class="s1">&#39;kmeans&#39;</span><span class="p">)</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">label_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">)</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_training_dataset</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">)</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">train_network</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">displayiters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">saveiters</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -201,13 +201,13 @@ googlecolabでもできるそうです。
 <li>走らせると学習がずっと進むので、十分学習できたらCtrl+Cで止めましょう。</li>
 </ul>
 <h3>推論 (inference.py)</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
 <span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;使いたいモデルのconfig.yamlのパス&quot;</span>
 <span class="n">videofile_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">]</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_labeled_video</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos_converth5_to_csv</span><span class="p">(</span><span class="s2">&quot;videoがあるフォルダのパス&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -324,24 +324,6 @@ googlecolabでもできるそうです。
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -354,34 +336,16 @@ googlecolabでもできるそうです。
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -391,9 +355,21 @@ googlecolabでもできるそうです。
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -402,16 +378,40 @@ googlecolabでもできるそうです。
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>

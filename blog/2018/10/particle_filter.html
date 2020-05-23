@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-10-05(金)
+  2018-10-05(Fri)
 </abbr>       - Posted by 
 <a href="../../../author/liu-ze.html">柳澤</a>    in 
     <a href="../../../blog.html">
@@ -164,11 +164,11 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 ブラウン運動ではなく、今回のように細胞の動きを追う場合では、次のフレームで動きそうなところの尤度を大きくすればもっと正確に動きを追いかけられるみたいです。難しい。。。</p>
 <h2>実装</h2>
 <p>以下、<a href="https://www.udemy.com/pythonopencv/">『Udemy 【Pythonで学ぶ】OpenCVでの画像処理入門』</a>のコードを参考にさせていただきました。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -179,14 +179,14 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 
 <span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">&quot;/movie/lps.avi&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">()</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span>
 
 <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="c1">#大きさを取得</span>
 
 <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">&quot;mp4v&quot;</span><span class="p">)</span>
-<span class="n">output_dst</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">&quot;/output/test[{0},{1}].m4v&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="n">fourcc</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">))</span><span class="c1">#動画出力の設定</span>
+<span class="n">output_dst</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">&quot;/output/test[</span><span class="si">{0}</span><span class="s2">,</span><span class="si">{1}</span><span class="s2">].m4v&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="n">fourcc</span><span class="p">,</span><span class="mf">5.0</span><span class="p">,(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">))</span><span class="c1">#動画出力の設定</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="c1">#乱数の初期化,毎回同じ乱数になる</span>
 <span class="n">Np</span> <span class="o">=</span> <span class="mi">50</span><span class="c1">#粒子の数</span>
@@ -207,9 +207,9 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 
 <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">artists</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="c1">#１枚読み込み</span>
-    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
         <span class="k">break</span><span class="c1">#最後になったらループから抜ける</span>
 
     <span class="n">gx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">px</span><span class="p">)</span>
@@ -240,26 +240,26 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
     <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
 
     <span class="n">output_dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>結果</h2>
 <p>こんな感じです。</p>
 <p><img alt="1" src="../../../blog/2018/10/images/particle_filter_figs/result.gif"></p>
 <p>最初は尤度を計算するとき以下のようにやってました。</p>
-<div class="highlight"><pre><span></span><span class="n">pxnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">px</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">pxnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">px</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
 <span class="n">pynew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">py</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>これではxとyを別々に計算してしまっているので、微妙に結果がおかしい感じになってました。（点が四角っぽくなる）
 確かにそれはそうか。ランダムに選ぶのは１回でいいはず。。。。</p>
 <p>こういうとき、適当にindexとかおいてやるとうまくいくんですね。
 今回もpnew_indexをおいてしまうという感じでやってます。</p>
-<div class="highlight"><pre><span></span><span class="n">pnew_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">index</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">pnew_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">index</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span>
 <span class="n">pxnew</span> <span class="o">=</span> <span class="n">px</span><span class="p">[</span><span class="n">pnew_index</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
 <span class="n">pynew</span> <span class="o">=</span> <span class="n">py</span><span class="p">[</span><span class="n">pnew_index</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>参考文献</h2>
@@ -377,24 +377,6 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -407,34 +389,16 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -444,9 +408,21 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -455,16 +431,40 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>

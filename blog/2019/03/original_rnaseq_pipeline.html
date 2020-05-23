@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-19(火)
+  2019-03-19(Tue)
 </abbr>       - Posted by 
 <a href="../../../author/jian-bo.html">菅波</a>, <a href="../../../author/xi-tian.html">西田</a>, <a href="../../../author/da-sen.html">大森</a>, <a href="../../../author/an-shui.html">安水</a>, <a href="../../../author/xiao-chuan.html">小川</a>, <a href="../../../author/shan-tian.html">山田</a>, <a href="../../../author/chuan-dao.html">川島</a>, <a href="../../../author/chuan-qi.html">川崎</a>, <a href="../../../author/ping-gang.html">平岡</a>, <a href="../../../author/guang-lai.html">廣瀬</a>, <a href="../../../author/liu-ze.html">柳澤</a>, <a href="../../../author/dan-tian.html">淡田</a>, <a href="../../../author/zhong-cun.html">中村</a>, <a href="../../../author/yi-teng.html">依藤</a>    in 
     <a href="../../../blog.html">
@@ -180,18 +180,18 @@
 </table>
 <p>のような形式で、前3列が必須です。簡単ですね！データの集め方は、論文についているaccession number等をたどるのでもいいし、新しくなって爆速になった<a href="http://sra.dbcls.jp/">DDBJ Search</a>もおすすめ。</p>
 <p>コマンドはオプションが指定でき、リード数を100000に絞ったテストモードやマルチプロセスにも対応。</p>
-<div class="highlight"><pre><span></span><span class="nv">Usage</span>: <span class="nv">bash</span> <span class="nv">MakeCountTable_Illumina_trimgalore_SRR</span>.<span class="nv">sh</span> <span class="nv">experiment_table</span>.<span class="nv">csv</span> <span class="nv">spiece</span> [<span class="o">--</span><span class="nv">test</span>, <span class="o">--</span><span class="nv">help</span>, <span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">docker</span>, <span class="o">--</span><span class="nv">udocker</span>] [<span class="o">--</span><span class="nv">threads</span> [<span class="nv">VALUE</span>]]
-<span class="nv">args</span>
-<span class="mi">1</span>.<span class="nv">experiment</span> <span class="nv">matrix</span><span class="ss">(</span><span class="nv">csv</span><span class="ss">)</span>
-<span class="mi">2</span>.<span class="nv">reference</span><span class="ss">(</span><span class="nv">human</span> <span class="nv">or</span> <span class="nv">mouse</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">bash</span><span class="w"> </span><span class="n">MakeCountTable_Illumina_trimgalore_SRR</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">experiment_table</span><span class="p">.</span><span class="n">csv</span><span class="w"> </span><span class="n">spiece</span><span class="w"> </span><span class="o">[</span><span class="n">--test, --help, --without-docker, --udocker</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">--threads [VALUE</span><span class="o">]</span><span class="err">]</span><span class="w"></span>
+<span class="n">args</span><span class="w"></span>
+<span class="mf">1.</span><span class="n">experiment</span><span class="w"> </span><span class="n">matrix</span><span class="p">(</span><span class="n">csv</span><span class="p">)</span><span class="w"></span>
+<span class="mf">2.</span><span class="n">reference</span><span class="p">(</span><span class="n">human</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">mouse</span><span class="p">)</span><span class="w"></span>
 
-<span class="nv">Options</span>:
-<span class="o">--</span><span class="nv">test</span> <span class="nv">test</span> <span class="nv">mode</span><span class="ss">(</span><span class="nv">MAX_SPOT_ID</span><span class="o">=</span><span class="mi">100000</span><span class="ss">)</span>.<span class="ss">(</span><span class="nv">dafault</span> : <span class="nv">False</span><span class="ss">)</span>
-<span class="o">-</span><span class="nv">u</span>, <span class="o">--</span><span class="nv">udocker</span>
-<span class="o">-</span><span class="nv">w</span>, <span class="o">--</span><span class="nv">without</span><span class="o">-</span><span class="nv">docker</span>
-<span class="o">-</span><span class="nv">t</span>, <span class="o">--</span><span class="nv">threads</span>
-<span class="o">-</span><span class="nv">h</span>, <span class="o">--</span><span class="nv">help</span> <span class="k">Show</span> <span class="nv">usage</span>.
-</pre></div>
+<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
+<span class="c1">--test test mode(MAX_SPOT_ID=100000).(dafault : False)</span>
+<span class="o">-</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="c1">--udocker</span>
+<span class="o">-</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="c1">--without-docker</span>
+<span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="c1">--threads</span>
+<span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="c1">--help Show usage.</span>
+</code></pre></div>
 
 
 <p>なお、自前のfastq filesからの実行はv1.1で載せようと思っています。また、出力はscaled TPMを採用。(Soneson, C., Love, M. I. &amp; Robinson, M. D. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research 4, 1521 (2015).)。</p>
@@ -326,24 +326,6 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -356,34 +338,16 @@
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -393,9 +357,21 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -404,16 +380,40 @@
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>

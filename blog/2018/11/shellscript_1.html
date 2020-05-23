@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-11-01(木)
+  2018-11-01(Thu)
 </abbr>       - Posted by 
 <a href="../../../author/shui-ye.html">水野</a>    in 
     <a href="../../../blog.html">
@@ -147,53 +147,53 @@
 僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
 その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
 圧縮ファイルの時は、解凍する前にzcatでつないで試します。</p>
-<div class="highlight"><pre><span></span>cat hogehoge.txt <span class="p">|</span> sed 1d（試したいコマンド）<span class="p">|</span> head
+<div class="highlight"><pre><span></span><code>cat hogehoge.txt <span class="p">|</span> sed 1d（試したいコマンド）<span class="p">|</span> head
 zcat hoge.gz <span class="p">|</span> cut –f1（試したいコマンド）<span class="p">|</span> head
-</pre></div>
+</code></pre></div>
 
 
 <p>一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
 別画面で折り返しなしで見ることができます。</p>
-<div class="highlight"><pre><span></span>cat hogehoge <span class="p">|</span> sed 1d（試したいコマンド）<span class="p">|</span> head <span class="p">|</span> less -S
-</pre></div>
+<div class="highlight"><pre><span></span><code>cat hogehoge <span class="p">|</span> sed 1d（試したいコマンド）<span class="p">|</span> head <span class="p">|</span> less -S
+</code></pre></div>
 
 
 <h2>2) scriptを書く</h2>
 <p>うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
 結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。</p>
-<div class="highlight"><pre><span></span>touch test.sh <span class="c1"># ファイルつくって、</span>
+<div class="highlight"><pre><span></span><code>touch test.sh <span class="c1"># ファイルつくって、</span>
 emacs test.sh <span class="c1"># emacsで開く。</span>
-</pre></div>
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash # おまじない。</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash # おまじない。</span>
 <span class="nv">$1</span><span class="o">=</span>filename <span class="c1"># ファイルはいつも外から入れれるようにしてます。</span>
 rm –r ./folder <span class="c1"># 一発で上手くいくことはないので、やり直しやすいように消去コマンド。</span>
 mkdir ./folder <span class="c1"># 散らからないように専用フォルダを作成。</span>
 <span class="nv">dir1</span><span class="o">=</span><span class="s2">&quot;./folder&quot;</span> <span class="c1"># フォルダ名をいつでも変えやすいようにパスを変数にいれる。</span>
 cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> sed 1d &gt; <span class="s2">&quot;</span><span class="nv">$dir1</span><span class="s2">&quot;</span>/hogehoge2.txt <span class="c1">#目的のコマンドで処理して保存。</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>3) 実行</h2>
 <p>書けたら、処理したいファイルを渡して実行してみます。
 <code>&amp;</code>はバックグラウンド実行です。</p>
-<div class="highlight"><pre><span></span>bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
+</code></pre></div>
 
 
 <p>時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
 screenを使うこともあります。</p>
-<div class="highlight"><pre><span></span>nohup bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>nohup bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
+</code></pre></div>
 
 
 <p>4)　修正</p>
 <p>scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
 そうすれば、後でやり直しやすいです。</p>
-<div class="highlight"><pre><span></span><span class="c1"># cat &quot;$filename&quot; | sed 1d &gt; &quot;$dir1&quot;/hogehoge2.txt # コメントアウトして置いておく。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat &quot;$filename&quot; | sed 1d &gt; &quot;$dir1&quot;/hogehoge2.txt # コメントアウトして置いておく。</span>
 cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;blahblah&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$dir1</span><span class="s2">&quot;</span>/hogehoge2.txt <span class="c1"># 新しい文。</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。</p>
@@ -362,24 +362,6 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -392,34 +374,16 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -429,9 +393,21 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -440,16 +416,40 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>

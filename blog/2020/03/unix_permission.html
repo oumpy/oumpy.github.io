@@ -124,7 +124,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2020-03-17(火)
+  2020-03-17(Tue)
 </abbr>       - Posted by 
 <a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
@@ -150,10 +150,10 @@ macOSでのACL操作は方法が少し異なりますが、基本の仕組みは
 <p>各ファイルやディレクトリには「所有者」「所有グループ」「アクセス権 (パーミッション) 」の情報がそれぞれ記録されています。
 所有者は、自分だけが操作できるか、他人にも読み書きを許すかなどを、「アクセス権」の設定によってファイル毎に自由に決められます。</p>
 <p>これらの情報は <code>ls -l</code> で確認できます。</p>
-<div class="highlight"><pre><span></span>$ ls -l
+<div class="highlight"><pre><span></span><code>$ ls -l
 -rw-r----- <span class="m">1</span> ogawa  ogawa  <span class="m">4462</span>  <span class="m">3</span> <span class="m">16</span> <span class="m">22</span>:38 <span class="m">202003</span>-ACL.md
 -rwxr-xr-- <span class="m">1</span> ogawa  users    <span class="m">32</span>  <span class="m">1</span> <span class="m">10</span> <span class="m">14</span>:43 test.py
-</pre></div>
+</code></pre></div>
 
 
 <p>冒頭の <code>-rw-r--r--</code> などがアクセス権設定、<code>ogawa</code> が所有者。
@@ -178,8 +178,8 @@ macOSでのACL操作は方法が少し異なりますが、基本の仕組みは
 <p>またこれらはしばしば、r=4、w=2、x=1 の足し算による3桁の8進数で表します。
 <code>202003-ALC.md</code> はパーミッション <code>640</code>、<code>test.py</code> はパーミッション <code>754</code> です。</p>
 <p>アクセス権設定コマンド <code>chmod</code> を使い、例えば</p>
-<div class="highlight"><pre><span></span>$ chmod <span class="m">700</span> hogehoge.py
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ chmod <span class="m">700</span> hogehoge.py
+</code></pre></div>
 
 
 <p>とすれば、ファイル <code>hogehoge.py</code> は自分のみ読み書き実行全て可能、他人は一切アクセス不可となります。
@@ -190,8 +190,8 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
 しかしグループを作るには<strong>システム管理者にその都度依頼</strong>しなければならず、あまり良い方法ではありません。</p>
 <p>そこで登場するのが <strong>POSIX ACL</strong> という、<strong>上記のアクセス権に詳細な例外条項を加える</strong>仕組みです。
 例えば</p>
-<div class="highlight"><pre><span></span>$ setfacl -m user:otomodachi:rwx hogehoge.py
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ setfacl -m user:otomodachi:rwx hogehoge.py
+</code></pre></div>
 
 
 <p>のようにすると、他人に対するパーミッションが0のファイルでも、指定したユーザ (<code>otomodachi</code>) にだけファイルの読み書き実行、全てを許可することができます。
@@ -300,24 +300,6 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -330,34 +312,16 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -367,9 +331,21 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -378,16 +354,40 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>

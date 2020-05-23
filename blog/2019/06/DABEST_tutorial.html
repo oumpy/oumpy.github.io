@@ -123,7 +123,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-06-23(日)
+  2019-06-23(Sun)
 </abbr>       - Posted by 
 <a href="../../../author/shan-ben.html">山本</a>    in 
     <a href="../../../blog.html">
@@ -149,14 +149,14 @@
 <p>DABESTのチュートリアルは既に用意されています(<a href="https://acclab.github.io/DABEST-python-docs/tutorial.html">Tutorial-dabest 0.2.4 documentation</a>)。以下ではインストールの方法と簡単な使い方の紹介をします。</p>
 <h3>インストール</h3>
 <p>DABEST(0.24)は次のライブラリに依存しています(括弧内はバージョン)： numpy(1.15), scipy(1.2), matplotlib(3.0), seaborn(0.9), pandas(0.24)。基本的なライブラリですが、必要に応じてバージョンアップ(またはダウン)しましょう。DABESTのインストールは次のコマンドによりpipで行うことができます。</p>
-<div class="highlight"><pre><span></span>pip install dabest
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip install dabest
+</code></pre></div>
 
 
 <h3>Quickstart</h3>
 <p>インストールしたら、とりあえずコードが動くか確認してみましょう。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">dabest</span>
 
 <span class="c1"># Load the iris dataset. Requires internet access.</span>
@@ -169,7 +169,7 @@
 <span class="c1"># Produce a Cumming estimation plot and save plot.</span>
 <span class="n">iris_dabest</span><span class="o">.</span><span class="n">mean_diff</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;quick_start.png&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>以下のようなグラフが出力されれば成功です。<br>
@@ -179,9 +179,9 @@
 <p><strong>Gardner-Altman plot</strong> はM. GardnerとD. Altmanによって提案された描画法です。以下はGardner-Altman plotの例です。図の左側では両方の群のすべての観測値をJitter plotにより表示しています。右側にあるのは効果量の軸で、効果量の点推定(黒丸)と信頼区間(縦の黒棒)を表示しています。この効果量の信頼区間ですが、これは <strong>Bootstrap法</strong> を用いて算出しています。なお、Bootstrap法に関しては後で詳しく述べます。<br>
 <img alt="ga1" src="../../../blog/2019/06/images/DABEST_tutorial_figs/ga1.png"></p>
 <p>コードは次のようになっています。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">dabest</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20190623</span><span class="p">)</span>
@@ -197,13 +197,13 @@
 <span class="n">df_dabest</span><span class="o">.</span><span class="n">mean_diff</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="c1">#df_dabest.cohens_d.plot(fig_size=(5,4))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ga1.png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Gardner-Altman plotには <strong>対応のある2群(paired)</strong> のためのバージョンもあります。<br>
 <img alt="ga2" src="../../../blog/2019/06/images/DABEST_tutorial_figs/ga2.png"></p>
 <p>ここでは効果量として <strong>Cohen's d</strong> を用いています。コードは次のようになります(ライブラリのインポートは省略)。</p>
-<div class="highlight"><pre><span></span><span class="c1"># Generate toy dataset</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate toy dataset</span>
 <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
@@ -213,19 +213,19 @@
 
 <span class="c1"># Load the above data into `dabest`.</span>
 <span class="n">df_dabest</span> <span class="o">=</span> <span class="n">dabest</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">idx</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Control&quot;</span><span class="p">,</span> <span class="s2">&quot;Test&quot;</span><span class="p">),</span>
-                        <span class="n">paired</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">id_col</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span><span class="p">)</span>
+                        <span class="n">paired</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">id_col</span><span class="o">=</span><span class="s2">&quot;idx&quot;</span><span class="p">)</span>
 
 <span class="n">df_dabest</span><span class="o">.</span><span class="n">cohens_d</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="c1">#df_dabest.mean_diff.plot(fig_size=(4,4))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ga2.png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>Cumming plot</h3>
 <p><strong>Cumming plot</strong> はG. Cummingによって提案された描画法です。複数の群に対して2つ以上の効果量およびそれらの信頼区間を、今度は観測データの下に描画しています。<br>
 <img alt="cumming" src="../../../blog/2019/06/images/DABEST_tutorial_figs/cumming.png"></p>
 <p>ここでは効果量として <strong>hedges' g</strong> を用いています。コードは次のようになります(ライブラリのインポートは省略)。  </p>
-<div class="highlight"><pre><span></span><span class="c1"># Generate toy dataset</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate toy dataset</span>
 <span class="n">size1</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">size2</span> <span class="o">=</span> <span class="mi">25</span>
 
@@ -244,15 +244,15 @@
 <span class="c1">#df_dabest.mean_diff.plot(fig_size=(5,5))</span>
 <span class="n">df_dabest</span><span class="o">.</span><span class="n">hedges_g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;cumming.png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>Bootstrap Confidence Intervalについて</h2>
 <p>Bootstrap法で算出する信頼区間を <strong>Bootstrap Confidence Interval</strong> といいます。信頼区間を出すためには多数のサンプルが必要ですが、Bootstrap法により疑似的に実験を繰り返し、2群間での効果量を算出することで多数の効果量のサンプルを得ることで解決します。  </p>
 <p>DABESTによる実装を用いずに効果量の信頼区間を描画してみます。正規分布に従う2つの群(N(50, 20<sup>2</sup>), N(60, 20<sup>2</sup>))からそれぞれ50サンプルを得たとします。効果量を平均の差として、5000回ブートストラップを行い、効果量のサンプルを5000個得ます。この場合のコードは以下のようになります。描画のためのコードが多いですが、<code>np.random.choice(x, size, replace=True)</code>を用いればよい、というのが大事な部分です。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">20190623</span><span class="p">)</span>
 
@@ -273,15 +273,15 @@
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bootstrap</span><span class="p">):</span>
     <span class="c1"># bootstrapping</span>
-    <span class="n">x1_resampling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x1_obs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">x2_resampling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x2_obs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">x1_resampling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x1_obs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">x2_resampling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x2_obs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># calculate effect size (mean difference) and save.</span>
     <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x2_resampling</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x1_resampling</span><span class="p">)</span>
     <span class="n">es_bootstrap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">mu</span>
 
 <span class="c1"># plot</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">es_bootstrap</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">es_bootstrap</span><span class="p">,</span> <span class="n">shade</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">data_x</span><span class="p">,</span> <span class="n">data_y</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">data_y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
@@ -296,7 +296,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
 <span class="c1">#plt.show()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;bootstrap_ci.png&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>結果は次のようになります。<br>
@@ -427,24 +427,6 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">3</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
@@ -457,34 +439,16 @@
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="label label-primary">2</span>
-        検定試験
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="label label-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -494,9 +458,21 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="label label-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -505,16 +481,40 @@
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="label label-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="label label-primary">2</span>
-        Data Science Competition
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>
