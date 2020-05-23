@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/article/studymeeting2020_01/" rel="alternate"></link><link href="/previews/refs/heads/article/studymeeting2020_01/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/studymeeting2020_01/</id><updated>2020-05-19T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="/previews/refs/heads/article/studymeeting2020_01/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:/previews/refs/heads/article/studymeeting2020_01/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
-&lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/article/studymeeting2020_01/" rel="alternate"></link><link href="/previews/refs/heads/article/studymeeting2020_01/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/studymeeting2020_01/</id><updated>2020-05-19T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="/previews/refs/heads/article/studymeeting2020_01/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:/previews/refs/heads/article/studymeeting2020_01/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+&lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
+次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
@@ -55,7 +56,7 @@
 &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
 
-&lt;span class="c1"&gt;# 回帰直線のplot &lt;/span&gt;
+&lt;span class="c1"&gt;# 回帰直線のplot&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;regplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 回帰(regression)の実行&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 画像表示&lt;/span&gt;
@@ -65,7 +66,7 @@
 &lt;h3&gt;Markdownについて&lt;/h3&gt;
 &lt;p&gt;Markdownはプレーンテキスト形式で手軽に書いた文書からHTMLを生成するための言語
 - 書き方は&lt;a href="https://qiita.com/tbpgr/items/989c6badefff69377da7"&gt;Markdown記法サンプル集&lt;/a&gt;等を見るとよい
--  普段から使う場合は&lt;a href="https://typora.io/"&gt;Typora&lt;/a&gt;を使うのがおススメ。TeX形式の数式も書ける。PandocをインストールすればWordやLaTeXなどに変換可能。&lt;/p&gt;
+- 普段から使う場合は&lt;a href="https://typora.io/"&gt;Typora&lt;/a&gt;を使うのがおススメ。TeX形式の数式も書ける。PandocをインストールすればWordやLaTeXなどに変換可能。&lt;/p&gt;
 &lt;h3&gt;Google Colabについて&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://colab.research.google.com"&gt;Google Colaboratory&lt;/a&gt;はJupyter Notebookを
 ブラウザ上で使えるようにGoogleが提供しているサービス。Pythonをインストールする必要はありません。また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>医学部公認団体申請を行いました</title><link href="/previews/refs/heads/article/studymeeting2020_01/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-15:/previews/refs/heads/article/studymeeting2020_01/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
@@ -2466,10 +2467,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="29143a8e-ba18-4ef2-9a0a-5d9b7d552f86"&gt;&lt;/div&gt;
+&lt;div id="10f04052-3f46-4609-95b2-ff3ceab2b03e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#29143a8e-ba18-4ef2-9a0a-5d9b7d552f86');
+var element = $('#10f04052-3f46-4609-95b2-ff3ceab2b03e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
