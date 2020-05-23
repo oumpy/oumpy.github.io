@@ -8,17 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="機械学習のための最新GPU比較"/>
-    <meta property="og:url" content="../../../blog/2019/10/GPUs_for_ML.html"/>
+    <meta property="og:title" content="deeplabcutの使い方まとめ"/>
+    <meta property="og:url" content="../../../blog/2019/12/deeplabcut.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Machine Learning"/>
-        <meta property="article:tag" content="ハードウェア"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="機械学習のための最新GPU比較">
+    <meta name="twitter:title" content="deeplabcutの使い方まとめ">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -26,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>機械学習のための最新GPU比較 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>deeplabcutの使い方まとめ - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -51,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -106,10 +105,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="GPUs_for_ML">
+    <meta name="article:slug" property="og:article:slug" content="deeplabcut">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2019-10-07">
-    <meta name="article:modified" property="og:article:modified" content="2019-10-07">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2019-12-16">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-16">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -117,125 +117,107 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/10/GPUs_for_ML.html" rel="bookmark"
-     title="Permalink to 機械学習のための最新GPU比較">
-    機械学習のための最新GPU比較
+  <a href="../../../blog/2019/12/deeplabcut.html" rel="bookmark"
+     title="Permalink to deeplabcutの使い方まとめ">
+    deeplabcutの使い方まとめ
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-10-07(Mon)
+  2019-12-16(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/wei-gang.html">味岡</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../../../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=ハードウェア&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>某所でGPU調達の必要があって、いまどきの事情を調べました。
-ゲームのことは知りません。</p>
-<h2>主要GPU一覧</h2>
-<p>NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>コア</th>
-<th>VRAM</th>
-<th>最大精度</th>
-<th>TDP</th>
-<th>放熱</th>
-<th>価格(税込)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GeForce RTX 2080Ti</td>
-<td>Turing (TU102)</td>
-<td><em>11GB</em></td>
-<td>単精度</td>
-<td><strong>250W</strong></td>
-<td>外排気</td>
-<td>14万円〜</td>
-</tr>
-<tr>
-<td>Titan RTX</td>
-<td>Turing (TU102)</td>
-<td>24GB</td>
-<td>単精度</td>
-<td><em>280W</em></td>
-<td><em>内排気</em></td>
-<td>27.6万円〜※</td>
-</tr>
-<tr>
-<td>Quadro RTX 6000</td>
-<td>Turing (TU102)</td>
-<td>24GB</td>
-<td><strong>倍精度</strong></td>
-<td>260W</td>
-<td>外排気</td>
-<td><em>41.5万円〜</em>※</td>
-</tr>
-<tr>
-<td>Quadro RTX 8000</td>
-<td>Turing (TU102)</td>
-<td><strong>48GB</strong></td>
-<td><strong>倍精度</strong></td>
-<td>260W</td>
-<td>外排気</td>
-<td>60万円〜※</td>
-</tr>
-<tr>
-<td>Titan V</td>
-<td>Volta (V102?)</td>
-<td><em>12GB</em></td>
-<td><strong>倍精度</strong></td>
-<td><strong>250W</strong></td>
-<td>外排気</td>
-<td><em>40万円〜</em></td>
-</tr>
-<tr>
-<td>Tesla V100 32GB (参考)</td>
-<td>Volta (V100)</td>
-<td>32GB</td>
-<td><strong>倍精度</strong></td>
-<td><strong>250W</strong></td>
-<td>外排気</td>
-<td><em>99万円〜</em>※</td>
-</tr>
-</tbody>
-</table>
-<p>（<strong>すごい</strong>。<em>いまいち</em>。※はアカデミック価格。価格は2019年10月初頭調べ。）</p>
-<h2>ポイント</h2>
+	<h2>DeepLabCut とは</h2>
+<p>deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。
+package化されているので簡単に使うことができます。
+googlecolabでもできるそうです。
+詳しい使い方は下記の資料が参考になります。</p>
+<p>日本語資料：<br>
+<a href="https://qiita.com/riichirohira/items/b92723278ba92fb42db9">https://qiita.com/riichirohira/items/b92723278ba92fb42db9</a><br>
+<a href="https://qiita.com/Cony-san/items/62df5365878baaa5e275">https://qiita.com/Cony-san/items/62df5365878baaa5e275</a></p>
+<p>公式サイト(github)：<br>
+<a href="https://github.com/AlexEMG/DeepLabCut">https://github.com/AlexEMG/DeepLabCut</a></p>
+<p>以下は資料にはない僕が使っていく中で気づいた点のメモ書きです。</p>
+<h2>各OSでのインストールの時に気をつけること</h2>
+<h3>Windows</h3>
 <ul>
-<li>目を引くのはTuring世代ワークステーション用GPUの<strong>VRAM大容量化</strong>。</li>
-<li>Titan RTXでも24GB、Quadro RTX 8000に至っては<strong>泣く子も黙る48GB</strong>。
-サーバ用のTesla V100も凌ぐ。</li>
-<li>Titan RTXのみ内排気のため、多数枚の搭載には水冷システムが必要。</li>
-<li>Quadro 6000がやや割高なことを除けば、Turingコア製品の<strong>VRAM容量あたりの価格は概ね一定</strong>なのが面白い。</li>
-<li>大きなネットワークを学習したい時など、GPU1基のメモリ容量はしばしば演算性能以上に重要。
-例えばGPU予算が60万の場合、2080Tiを4枚かTitan RTXを2枚かQuadro 8000を1枚か、は用途次第。</li>
-<li>どれもTensorCore搭載。
-FP16を使うように調整してやらないと本来の性能は出ない。</li>
-<li>倍精度演算機能は、実際のところ物理シミュレーションでもしない限り、あっても使わないので関係ない。遅いし。 </li>
+<li>インストールはできる (yamlなしでも) 。</li>
+<li>プロジェクトを作るのに管理者権限が必要。</li>
+<li>ROI取りまでは出来た。
+しかしその後はエラーが多発した。<br>
+(hdf5ファイルが出来ない、numpy import errorなど)</li>
 </ul>
-<h2>まとめ</h2>
-<p>演算性能を妥協すれば、大容量VRAMの上位GPUにも実は手が出しやすくなっています。
-用途に合わせて選びましょう。
-選べる余地があるのはいいことですね。</p>
-<p>おしまい。</p>
+<p>(追記：2019/12/9時点 最新版のdeeplabcutではwindowsでも実装できた（研究室の先輩談）)</p>
+<h3>Mac OS</h3>
+<ul>
+<li>インストールは、<code>dlc-macOS-CPU.yaml</code> をダウンロードして、</li>
+</ul>
+<div class="highlight"><pre><span></span><code>conda env create -f dlc-macOS-CPU.yaml
+</code></pre></div>
+
+
+<p>で環境を作成 (<code>pip install deeplabcut</code> はNG)</p>
+<ul>
+<li>GUIでのROI取りをするため、<code>python</code> ではなく、「<code>pythonw</code>」で起動</li>
+</ul>
+<h3>Linux (Ubuntu)</h3>
+<ul>
+<li>pipでもインストール可能、普通に起動すればOK</li>
+</ul>
+<h2>補足情報</h2>
+<ul>
+<li>日本語資料には動画はAVIではないといけないとあったが、実際はMPEGでもMP4でも大丈夫だった。
+また、tensorflow-gpuは1.4.0でも大丈夫だった。(cuda8.0、cuDNN6、python3.5)</li>
+<li>ROIとりでは、目的部位が隠れた場合には点を打たないこともできる</li>
+<li>学習はlossが0.01以下で一定になってきたらOK</li>
+<li>ROIとり枚数の基準としては、20～50枚くらいが良さそう</li>
+</ul>
+<h2>ソースコードの例 (Ubuntuの場合)</h2>
+<h3>トレーニング (train.py)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_new_project</span><span class="p">(</span><span class="s1">&#39;日付&#39;</span><span class="p">,</span><span class="s1">&#39;名前&#39;</span><span class="p">,[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">])</span>
+<span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;生成されたconfig.yamlのパス&quot;</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">extract_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">,</span> <span class="s1">&#39;automatic&#39;</span><span class="p">,</span> <span class="s1">&#39;kmeans&#39;</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">label_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_training_dataset</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">train_network</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">displayiters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">saveiters</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</code></pre></div>
+
+
+<ul>
+<li>ホームフォルダにモデル用のフォルダが生成されます。</li>
+<li>configファイルを編集することで設定を変えられます。</li>
+<li><code>deeplabcut.label_frames</code> の部分でGUIが起動してROI取りできるようになります。</li>
+<li>走らせると学習がずっと進むので、十分学習できたらCtrl+Cで止めましょう。</li>
+</ul>
+<h3>推論 (inference.py)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;使いたいモデルのconfig.yamlのパス&quot;</span>
+<span class="n">videofile_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">]</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_labeled_video</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos_converth5_to_csv</span><span class="p">(</span><span class="s2">&quot;videoがあるフォルダのパス&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<ul>
+<li>生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。</li>
+</ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
-	<a href="../../../tag/hadouea.html"><i class="fa fa-tag"></i>ハードウェア</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -249,7 +231,7 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/10/GPUs_for_ML.html" 
+        data-href="../../../blog/2019/12/deeplabcut.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -265,9 +247,9 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2018/09/hardware_for_deeplearning.html">組み込みでDeep Learningにつかえるハードについて</a></li>
-        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
-        <li><a href="../../../blog/2019/03/voice_recognition.html">NTT corevoチャレンジ: 話者の性別・年代識別</a></li>
+        <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
+        <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
+        <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
     </ul>
 </div>
 
@@ -276,6 +258,11 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -309,7 +296,12 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -330,11 +322,6 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -343,27 +330,27 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">11</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -373,15 +360,15 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/news.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        News
+        論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -390,16 +377,22 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
         検定試験
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="label label-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -409,21 +402,21 @@ FP16を使うように調整してやらないと本来の性能は出ない。<
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/github.html">
           <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
+        GitHub
       </a>
     </span>
 </p>
@@ -503,7 +496,7 @@ if (check_ipynb.length > 0) {
     var article_date = document.getElementsByName('article:date')[0].content;
     var article_year = article_date.slice(0, 4);
     var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
     if (parseInt(article_month) <= 3) {
       article_year = article_year - 1;
     }

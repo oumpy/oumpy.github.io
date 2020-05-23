@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -118,32 +118,11 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="要点">&#35201;&#28857;<a class="anchor-link" href="#要点">&#182;</a></h2><p><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。</p>
-<p>Neural Tangentsでは無限幅のNNを学習させる手法として<strong>NNGP</strong> (Neural Network Gaussian Process)と <strong>NTK</strong> (Neural Tangent Kernel)の2つを実装しています。</p>
-<p>この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。</p>
-<h3 id="Neural-Tangentsに関連する文献">Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;<a class="anchor-link" href="#Neural-Tangentsに関連する文献">&#182;</a></h3><ul>
-<li>Paper :  <a href="https://arxiv.org/abs/1912.02803">https://arxiv.org/abs/1912.02803</a></li>
-<li>OpenReview : <a href="https://openreview.net/forum?id=SklD9yrFPS">https://openreview.net/forum?id=SklD9yrFPS</a></li>
-<li>Github : <a href="https://github.com/google/neural-tangents">https://github.com/google/neural-tangents</a></li>
-<li>Document : <a href="https://neural-tangents.readthedocs.io/en/latest/#">https://neural-tangents.readthedocs.io/en/latest/#</a></li>
-<li>Google AI Blog : <a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html">https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html</a></li>
-<li>Tutorial in Colab Notebook : <a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb">https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb</a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Neural-Network-Gaussian-Process-(NNGP)">Neural Network Gaussian Process (NNGP)<a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)">&#182;</a></h2><p>隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (<a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf">Neal, 1994</a>)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を<strong>Neural Network GP</strong>
+		   <strong>要点<a class="anchor-link" href="#要点"> </a></strong><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。 Neural....
 		<p class="content-emphasis"><a href="../blog/2020/04/neural_tangents.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -151,7 +130,7 @@
     <hr />
     <article>
 <h1>
-  <a href="../blog/2019/10/GPUs_for_ML.html" rel="bookmark"
+  <a href="../blog/2019/10/gpus_for_ml.html" rel="bookmark"
      title="Permalink to 機械学習のための最新GPU比較">
     機械学習のための最新GPU比較
   </a>
@@ -164,13 +143,63 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=ハードウェア&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
 		某所でGPU調達の必要があって、いまどきの事情を調べました。 ゲームのことは知りません。 <strong>主要GPU一覧</strong> NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。     コア VRAM 最大精度 TDP 放熱 価格(税込)     GeForce RTX 208....
-		<p class="content-emphasis"><a href="../blog/2019/10/GPUs_for_ML.html">
+		<p class="content-emphasis"><a href="../blog/2019/10/gpus_for_ml.html">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<h1>
+  <a href="../blog/2019/06/tf_cam.html" rel="bookmark"
+     title="Permalink to 転移学習とCAM">
+    転移学習とCAM
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2019-06-28(Fri)
+</abbr>       - Posted by 
+<a href="../author/wei-gang.html">味岡</a>    in 
+    <a href="../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		   <strong>転移学習とCAM<a class="anchor-link" href="#転移学習とCAM"> </a></strong>       こんにちは。神大の味岡です。一年くらい前 (編注: 原記事が執筆された2019年6月頃のこと) にdeep learningを使用した画像分類をしていたので、それについて書きたいと思います。サンプルとして、Kaggleのdog vs catを用いました。 とてもありがちな内容で....
+		<p class="content-emphasis"><a href="../blog/2019/06/tf_cam.html">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<h1>
+  <a href="../blog/2019/05/unet_cells_recognition.html" rel="bookmark"
+     title="Permalink to U-Netで細胞認識">
+    U-Netで細胞認識
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2019-05-01(Wed)
+</abbr>       - Posted by 
+<a href="../author/wei-gang.html">味岡</a>    in 
+    <a href="../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		神大の味岡です。 今回は、deep learningの中でも画像から物体の領域を検出する「セマンティックセグメンテーション」といわれる手法についてです。 医療系の画像では、U-Netといわれるネットワークが有名です。 <strong>U-Netの特徴は？</strong> (U-Netの処理の概要、<a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.</a>....
+		<p class="content-emphasis"><a href="../blog/2019/05/unet_cells_recognition.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
       </div>    </article>
@@ -190,8 +219,8 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data Science Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data%20Science%20Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -216,8 +245,8 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/lun-wen-matome.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=論文まとめ&labelColor=black&color=blue" alt="tag:論文まとめ" title="tag:論文まとめ"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/lun-wen-matome.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%AB%96%E6%96%87%E3%81%BE%E3%81%A8%E3%82%81&labelColor=black&color=blue" alt="tag:論文まとめ" title="tag:論文まとめ"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -242,7 +271,7 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -267,7 +296,7 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -292,12 +321,12 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/lun-wen-matome.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=論文まとめ&labelColor=black&color=blue" alt="tag:論文まとめ" title="tag:論文まとめ"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/lun-wen-matome.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%AB%96%E6%96%87%E3%81%BE%E3%81%A8%E3%82%81&labelColor=black&color=blue" alt="tag:論文まとめ" title="tag:論文まとめ"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		 Improving Breast Cancer Detection using Symmetry Information with Deep Learning. http://arxiv.org/abs/1808.08273  <strong>概要</strong>  放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCN....
+		 Improving Breast Cancer Detection using Symmetry Information with Deep Learning. <a href="http://arxiv.org/abs/1808.08273">http://arxiv.org/abs/1808.08273</a>  <strong>概要</strong>  放射線専門医がするようにマンモグラムの左右差を見て乳がんの判定をするCN....
 		<p class="content-emphasis"><a href="../blog/2018/09/breast_cancer_detection.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -318,63 +347,12 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
 		現在、クラスター分析の勉強をしています。 勉強し始めて数時間ですが、少しまとめてみたいと思います。 <strong>クラスター分析とは</strong> 簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。 あらかじめ分類の基準が決まっておらず分類のための....
 		<p class="content-emphasis"><a href="../blog/2018/09/cluster_analysis.html">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<h1>
-  <a href="../blog/2018/09/umap.html" rel="bookmark"
-     title="Permalink to 超高速次元圧縮アルゴリズムUMAP">
-    超高速次元圧縮アルゴリズムUMAP
-  </a>
-</h1><div class="article-header-info">
-  <p>
-<abbr class="article-header-date">
-  2018-09-15(Sat)
-</abbr>       - Posted by 
-<a href="../author/an-shui.html">安水</a>    in 
-    <a href="../blog.html">
-      技術ブログ</a>
-    &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<strong>tSNEとUMAP</strong> 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） <a href="https://deepage.net/machine_learning/2017/03/08/tsne.html">https://deepage.net/machine_learning/2</a>....
-		<p class="content-emphasis"><a href="../blog/2018/09/umap.html">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-    <hr />
-    <article>
-<h1>
-  <a href="../blog/2018/09/hardware_for_deeplearning.html" rel="bookmark"
-     title="Permalink to 組み込みでDeep Learningにつかえるハードについて">
-    組み込みでDeep Learningにつかえるハードについて
-  </a>
-</h1><div class="article-header-info">
-  <p>
-<abbr class="article-header-date">
-  2018-09-09(Sun)
-</abbr>       - Posted by 
-<a href="../author/an-shui.html">安水</a>    in 
-    <a href="../blog.html">
-      技術ブログ</a>
-    &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=ハードウェア&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
-  </p>
-</div> <!-- /.article-header-info -->
-      <div class="summary">
-		<strong>Rasberry pi</strong> シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。  <a href="http://www.cenav.org/raspi2/">計算工学ナビ</a>....
-		<p class="content-emphasis"><a href="../blog/2018/09/hardware_for_deeplearning.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
       </div>    </article>
@@ -404,6 +382,11 @@
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -437,7 +420,12 @@
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
+    <td><a href="../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../blog.html">Blog</a>]</span></td>
@@ -458,11 +446,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
     <td><a href="../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
-    <td><a href="../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -471,27 +454,27 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../tag/machine-learning.html">
-          <span class="label label-primary">11</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../tag/statistics.html">
           <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -501,15 +484,15 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/news.html">
+      <a href="../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        News
+        論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
+    <span class="tag-1">
+      <a href="../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -518,16 +501,22 @@
         検定試験
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../tag/shell-script.html">
           <span class="label label-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -537,21 +526,21 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+      <a href="../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
+      <a href="../tag/github.html">
           <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
+        GitHub
       </a>
     </span>
 </p>

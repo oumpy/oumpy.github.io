@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -247,38 +247,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。</p>
-<h2 id="概要">&#27010;&#35201;<a class="anchor-link" href="#概要">&#182;</a></h2><p>2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。</p>
-<p>当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。</p>
-<p>このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
-<strong>BEST</strong>(Bayesian estimation supersedes the t-test)
-というかっこいい名前です。</p>
-<blockquote><p>Kruschke, John. (2012) Bayesian estimation supersedes the t-test. Journal of Experimental Psychology: General.</p>
-</blockquote>
-<p>2群それぞれを独立にt分布に従うと仮定し、それぞれ3つのパラメーター（平均、分散、外れ値）
-を推論します。つまり、6つのパラメーターを推論します。ベイズ推論に落とし込むことで、2群それぞれの平均、分散、外れ値の解釈が容易になります。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)">Bayesian estimation supersedes the t-test (BEST)<a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)">&#182;</a></h2><p>以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：<code>pip install pymc3</code></p>
-<p>(参考)</p>
-<ul>
-<li><a href="https://docs.pymc.io/notebooks/BEST.html">https://docs.pymc.io/notebooks/BEST.html</a></li>
-<li>「Pythonで体験するベイズ推論」　Cameron Davidson-Pilon / 玉木 徹</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+		   ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(<a href="http://amzn.asia/1TWcfTI">http://amzn.asia/1TWcfTI</a>)が先週発売されて買ってしまったのですが、まだ前のpymc本(<a href="http://amzn.asia/8CPISDp">http://amzn.asia/8CPISDp</a>)を読み切っ....
 		<p class="content-emphasis"><a href="../blog/2018/10/bayesian_ttest.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -311,6 +280,31 @@
     <hr />
     <article>
 <h1>
+  <a href="../blog/2018/09/ipynb_broken.html" rel="bookmark"
+     title="Permalink to ipynb破損時の対応">
+    ipynb破損時の対応
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2018-09-15(Sat)
+</abbr>       - Posted by 
+<a href="../author/an-shui.html">安水</a>    in 
+    <a href="../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
+  </p>
+</div> <!-- /.article-header-info -->
+      <div class="summary">
+		先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。 なんとか....
+		<p class="content-emphasis"><a href="../blog/2018/09/ipynb_broken.html">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+    <hr />
+    <article>
+<h1>
   <a href="../blog/2018/09/umap.html" rel="bookmark"
      title="Permalink to 超高速次元圧縮アルゴリズムUMAP">
     超高速次元圧縮アルゴリズムUMAP
@@ -324,7 +318,7 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -349,8 +343,8 @@
     <a href="../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
-        <a href="../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=ハードウェア&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
+        <a href="../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
@@ -368,6 +362,11 @@
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -401,7 +400,12 @@
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
+    <td><a href="../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../blog.html">Blog</a>]</span></td>
@@ -422,11 +426,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
     <td><a href="../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../news.html">News</a>]</span></td>
-    <td><a href="../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -435,27 +434,27 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../tag/machine-learning.html">
-          <span class="label label-primary">11</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../tag/statistics.html">
           <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -465,15 +464,15 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/news.html">
+      <a href="../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        News
+        論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
+    <span class="tag-1">
+      <a href="../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -482,16 +481,22 @@
         検定試験
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../tag/shell-script.html">
           <span class="label label-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -501,21 +506,21 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+      <a href="../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
+      <a href="../tag/github.html">
           <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
+        GitHub
       </a>
     </span>
 </p>

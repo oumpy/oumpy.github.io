@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="IPA「基本情報技術者試験」受験録"/>
-    <meta property="og:url" content="../../../blog/2019/05/IPA_FE.html"/>
+    <meta property="og:title" content="行列演算の初歩の初歩とNumPy"/>
+    <meta property="og:url" content="../../../blog/2019/05/matrix_numpy.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="検定試験"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="IPA「基本情報技術者試験」受験録">
+    <meta name="twitter:title" content="行列演算の初歩の初歩とNumPy">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>IPA「基本情報技術者試験」受験録 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>行列演算の初歩の初歩とNumPy - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -50,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/feature/slugify_source/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -105,10 +105,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="IPA_FE">
+    <meta name="article:slug" property="og:article:slug" content="matrix_numpy">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2019-05-12">
-    <meta name="article:modified" property="og:article:modified" content="2019-11-21">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2019-05-16">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-16">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,93 +117,249 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/05/IPA_FE.html" rel="bookmark"
-     title="Permalink to IPA「基本情報技術者試験」受験録">
-    IPA「基本情報技術者試験」受験録
+  <a href="../../../blog/2019/05/matrix_numpy.html" rel="bookmark"
+     title="Permalink to 行列演算の初歩の初歩とNumPy">
+    行列演算の初歩の初歩とNumPy
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-05-12(Sun)
+  2019-05-16(Thu)
 </abbr>       - Posted by 
 <a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jian-ding-shi-yan.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=検定試験&labelColor=black&color=blue" alt="tag:検定試験" title="tag:検定試験"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>IPAの「<a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"><strong>基本情報技術者試験</strong></a>」 (2019年春期) を受験してきました。</p>
-<p>なんでも経済産業省管轄の<strong>国家試験</strong>で、<a href="https://kanpou.npb.go.jp/"><strong>官報公示</strong></a>までされるらしい。<strong>よくわからないけどすごい</strong>。
-厚生労働省の<a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"><strong>某国家試験</strong></a>は受験資格が残念ながらまだないけれど、<strong>こないだ国試受けてきた</strong>って言ってもたぶん嘘じゃないわけです。だからどうしたって話ではありますが。</p>
-<p>今回はその受験録です。</p>
-<h2>受験申込〜当日まで</h2>
-<h3>申込</h3>
-<p>特に何も目的などはないんですが、2月のBioinfo会でNさんが<a href="https://www.jitec.ipa.go.jp/"><strong>情報処理技術者試験</strong></a>のポスターを持ってこられ、締切直前だったこともあり、何となくその場の勢いでぽちる。<br>
-試験はレベル1から最上位の4まで区分があり、これも何となく弱気にレベル2の本試験を選択。</p>
-<h3>会場変更</h3>
-<p>試験会場は阪大豊中キャンパス。<br>
-…のはずが、なんか<strong>遠くの方の某大学</strong>に変更。ちょっと気力を削がれる。</p>
-<h3>試験勉強など</h3>
-<p>結局、何もしませんでした。
-勉強も過去問調査も一切無しの<strong>ガチンコ</strong> (?) で本番に臨みます。<br>
-(そもそも試験受験の目的って半分以上はそれを口実に勉強することだと思うので、何やってるのかよくわかりませんが。。)</p>
-<h2>試験当日</h2>
-<p>昨夜も<a href="https://atcoder.jp/contests/tenka1-2019">競プロ</a>の出来は微妙だったけど、検討はほどほどにして寝たよ。</p>
-<h3>午前試験（9:30〜12:00）</h3>
+	<p>機械学習をはじめ、何をやるにも行列演算は必須です。
+本稿ではその初歩と、ライブラリ <a href="https://numpy.org/">NumPy</a> での基本的な実行方法を簡単に解説します。
+(主に1年生向け。)</p>
+<blockquote>
+<p>引用表記の部分</p>
+</blockquote>
+<p>はやや発展的な内容なので、初めて読むときは飛ばしてOKです。</p>
+<h2>ベクトルの積</h2>
+<h3>定義</h3>
+<p>まず、<strong>ベクトルの積</strong>を以下のように定義します。<br>
+(Python流に0-index記法を採用。)</p>
+<div class="math">$$
+x=(x_0,x_1,...,x_{D-1}),
+\quad
+y=\left(\begin{array} 
+\@
+y_0 \\
+y_1 \\
+\vdots\\
+y_{D-1} \\
+\end{array}\right)
+\quad\Rightarrow\quad
+x\cdot y = x_0y_0+x_1y_1+\cdot+x_{D-1}y_{D-1}
+$$</div>
+<p>
+高校で学ぶベクトルの内積と基本的に同じですが、<strong>行ベクトル (横ベクトル) と列ベクトル (縦ベクトル) を区別</strong>するのが大事なところです。
+掛け算は、同じ次元の<strong>「行ベクトル <span class="math">\(\times\)</span> 列ベクトル」の順序</strong>でしか行えません。<br>
+(本当は逆順でもできるが、結果は全く違うものになる。
+どうなるか？最後まで読んだら考えてみましょう。)</p>
+<blockquote>
+<p>行ベクトルと列ベクトルはそれぞれ互いに双対なベクトル空間の元 (の数ベクトル表現) です。
+列ベクトル同士・行ベクトル同士で内積が定義できるのは、列ベクトルと行ベクトルを互いに変換する写像 (計量) が定義された<strong>計量ベクトル空間</strong>に限られます。<br>
+高校で習うベクトル空間に内積がしれっと入っているのは、空間上に自然なユークリッド計量が暗黙に仮定されているからです。</p>
+</blockquote>
+<h2>行列：ベクトルを並べたもの</h2>
+<p>行列は、このように成分を2次元状 (<span class="math">\(E\times D\)</span>) に並べたもの。
+</p>
+<div class="math">$$
+X = \left(
+\begin{array}\@
+x_{0,0}   &amp; x_{0,1} &amp; \dots  &amp; x_{0,D-1} \\
+x_{1,0}   &amp; x_{1,1} &amp;        &amp; \vdots \\
+\vdots    &amp;         &amp; \ddots &amp; \\
+x_{E-1,0} &amp; \dots   &amp;        &amp; x_{E-1,D-1}
+\end{array}
+\right)
+$$</div>
+<p>
+これは<br>
+(1)「<span class="math">\(D\)</span>次元行ベクトルを縦に<span class="math">\(E\)</span>個並べたもの」<br>
+または<br>
+(2)「<span class="math">\(E\)</span>次元列ベクトルを横に<span class="math">\(D\)</span>個並べたもの」<br>
+です。<br>
+<strong>どちらの解釈をしても構いません</strong>。</p>
+<h3>(1) 列ベクトルとの掛け算</h3>
+<p>前者(1)の解釈をすると、上の列ベクトル<span class="math">\(y\)</span>と掛け算ができます。
+</p>
+<div class="math">$$
+X\cdot y =
+\left(\begin{array}
+\@
+x_{0,0}y_0+x_{0,1}y_1+\dots+x_{0,D-1}y_{D-1} \\
+x_{1,0}y_0+x_{1,1}y_1+\dots+x_{1,D-1}y_{D-1} \\
+\vdots \\
+x_{E-1,0}y_0+x_{E-1,1}y_1+\dots+x_{E-1,D-1}y_{D-1}
+\end{array}\right)
+$$</div>
+<p>
+結果は<strong>E次元列ベクトル</strong>になりました。</p>
+<p><strong>列ベクトルに (正しい次元の) 行列を左から掛ければ列ベクトルに</strong>なります。</p>
+<h3>(2) 行ベクトルとの掛け算</h3>
+<p>一方で解釈(2) をとると、<span class="math">\(E\)</span> 次元行ベクトル <span class="math">\(z=(z_0,z_1,\dots,z_{E-1})\)</span> に対して、<strong>右からの掛け算</strong>  <span class="math">\(z\cdot X\)</span> を行うことができます。
+結果は <strong>D次元行ベクトル</strong> になります。</p>
+<p>つまり、<strong>行ベクトルに（正しい次元の）行列を右から掛ければ行ベクトルになる</strong>ことがわかります。</p>
+<blockquote>
+<h3>掛け算の結合則</h3>
+<p>行列に対して、(1)(2) どちらの解釈をしても構わない、と言いました。
+この意味は例えば
+<div class="math">$$
+z\cdot X\cdot y
+$$</div>
+という式が与えられた際に現れます。<br>
+(1) の解釈をするなら、この式は<span class="math">\(z\cdot(X\cdot y)\)</span>と計算、(2) ならば<span class="math">\((z\cdot X)\cdot y\)</span>です。
+どちらもただ一つの数を与えますが、実は両者は<strong>常に同じ</strong>になることが、実際に計算すれば簡単に証明できます。<br>
+これは後述の行列積にも拡張でき、行列積は全て順序によりません。
+ただし<strong>交換則は成立しない</strong> (<span class="math">\(X\cdot Y\ne Y\cdot X\)</span>) ので注意。</p>
+</blockquote>
+<h2>行列同士の掛け算</h2>
+<p>ここまでくると、掛け算をさらに拡張できる。
+<span class="math">\(D\times F\)</span> 行列 <span class="math">\(Y\)</span> を
+</p>
+<div class="math">$$
+Y = 
+\left(\begin{array}\@
+y_{0,0}           &amp; y_{0,1} &amp; \dots  &amp; y_{0,F-1} \\
+y_{1,0}           &amp; y_{1,1} &amp;        &amp; \vdots \\
+\vdots            &amp;         &amp; \ddots &amp; \\
+y_{D-1} &amp; \dots   &amp;        &amp; y_{D-1,F-1}
+\end{array}\right)
+$$</div>
+<p>
+とするとき、行列同士の掛け算は
+</p>
+<div class="math">$$
+X\cdot Y = W = 
+\left(\begin{array}\@
+w_{0,0} &amp; \dots &amp; w_{0,F-1} \\
+\vdots  &amp; \ddots &amp; \vdots \\
+w_{E-1,0} &amp; \dots &amp; w_{E-1,F-1}
+\end{array}\right)
+$$</div>
+<div class="math">$$
+w_{i,j} = x_{i,0}y_{0,j}+x_{i,1}y_{1,j}+\dots+x_{i,D-1}y_{D-1,j}
+$$</div>
+<p>
+となる。
+左の <span class="math">\(X\)</span> から行ベクトル、右の <span class="math">\(Y\)</span> から列ベクトルを取り出して、それぞれ掛け算したものを順番に並べる。  </p>
+<p><span class="math">\(E\times D\)</span> と <span class="math">\(D\times F\)</span> を掛けると真ん中の <span class="math">\(D\)</span> が潰れて <span class="math">\(E\times F\)</span> 行列、と覚えればいいです。
+もちろん <span class="math">\(D\)</span> が揃っていないと掛け算できない。</p>
+<h2>ベクトル、行列、掛け算の意味</h2>
 <ul>
-<li>4択問題が80問。ひたすらマークしていく。  </li>
-<li>常識で解けるような問題も多い。
-第1問「10進数の7÷32の結果を2進数表記したものはどれか」…高校入試かな？  </li>
-<li>とはいえ、1/4くらいは確信がもてない／よくわからなかった。
-第71問「IoTの応用事例のうちHEMSの説明はどれか」…知らないよ、ごめんね [注1]。  </li>
-<li>でも<strong>結局は4択</strong>だからね。期待値的に8割以上はあるはずだよ [注2]。</li>
+<li>ベクトルは通常、「データ」とか「状態」などの、比較的直接的な意味を持ちます。
+特に数式として書く場合、普通は列ベクトルにその役割を持たせます。</li>
+<li>データや状態がたくさんある場合、それら列ベクトルを横に並べれば行列になり、その行列がデータ／状態の集合を表します。
+別の行列を左から掛ければ、各列に独立・一括で演算ができます。</li>
+<li>行列は基本的に、上で見た通り、<strong>列ベクトルに左から作用して別の列ベクトルを作る演算子</strong>です。
+行ベクトルも、列ベクトルに作用する行列のうち、行が一つしかない特別な場合と見なせます。</li>
+<li>例えば、画像を表すベクトルに行列を掛け算することで、<strong>画像の持つ特徴 (線の向きとか) を表す別のベクトルを得る</strong>、といったことなどができます。
+(CNN = 畳み込みニューラルネットワーク)</li>
+<li>行列の掛け算は合成関数のようなもの。掛け算の結合則があるので、ベクトル<span class="math">\(x\)</span>に順番に変換を施す操作 <span class="math">\(A\cdot(B\cdot x)\)</span> は、<span class="math">\(=(A\cdot B)\cdot x\)</span> のように予め左側を先に計算しておけます。
+これにより、<span class="math">\(x\)</span> を様々に取り替えて計算する場合に計算量を低減できます。</li>
 </ul>
-<p>見直す気力も沸かないし、お昼が気になるから午前試験は途中退出。
-近くにラーメン屋さんを見つけてがっつり食べてきたよ。眠い。。</p>
-<h3>午後試験（13:00〜15:30）</h3>
-<ul>
-<li>4択は少ないけど、やっぱり全問択一式。要求知識は午前より少なくて、<strong>問題文や選択肢の読解力</strong>が一番のポイントっぽい気がする。
-ちゃんと読んで理解できれば答えられる問題がほとんど。  </li>
-<li>「変更管理会議において、仕様変更依頼が採用された場合、担当PMは（　　）する」…うん、<strong>辞任</strong>…と、、あれ？選択肢にない？
-「<strong>仕様変更依頼の内容をプロジェクト計画に反映させて更新</strong>」か、、記述なら死んでたよ。</li>
-<li>「ソフトウェア開発」という5言語から1題選択のセクションがある。<br>
-C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Pythonどこ？</strong> [注3] どこ？軽くパニック。
-何回探しても出てこないから、しぶしぶCを解く。
-レベル的には、昔のセンター試験（N88-BASIC）よりはちょっと上くらい？  </li>
-<li>結局、午後は午前より出来がよくて、9割あるんじゃないかな、たぶん [注2]。</li>
-</ul>
-<p>そんなわけで終了。午後試験はちゃんと最後までいたよ。
-マークがずれたりしてなければ合格だと思う。
-結果発表は<strong>1ヶ月後</strong>。全部マークシートなのに長いねえ。</p>
-<h2>全体を通しての感想</h2>
-<p>この試験の合格基準は午前午後とも<strong>各60%</strong>です。
-僕は理数系出身の学士編入生で、この種の試験には医学部生の中でも強い方だと思います。
-しかしそれを差し引いても、少なくともボーダー60%の試験としては、<strong>難度がきわめて低い</strong>と言わざるをえません。  </p>
-<p>ですので、情報処理技術者試験に興味があっても、能力証明という意味では<strong>レベル2の本試験は会員の皆さんにお勧めしません</strong>。
-レベル3の<a href="https://www.jitec.ipa.go.jp/1_11seido/ap.html"><strong>応用情報技術者試験</strong></a>を検討してみてください。
-尤も、午前試験の超高得点はそんなに簡単じゃないと思うので、勉強してみるのは悪くないかも。
-そのあたりは<a href="http://www.toukei-kentei.jp/about/grade1semi/">統計検定準1級</a>などと似ていると思います。</p>
-<p>何はともあれ、<strong>基本情報技術者</strong>というよくわからない肩書き（<strong>国家資格</strong>？）を手に入れました（たぶん）。
+<h2>NumPyによる行列演算</h2>
+<p>Python の NumPy パッケージは強力な行列演算機能を備えています。
+行列の定義は <code>np.array()</code>、掛け算は <code>np.dot()</code> で行えます。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span> <span class="c1"># 2行3列(2x3)行列</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>     <span class="c1"># 3次元列ベクトル</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+
+
+<p>これで、</p>
+<div class="highlight"><pre><span></span><code><span class="n">array</span><span class="p">([[</span><span class="mi">14</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">32</span><span class="p">]])</span>
+</code></pre></div>
+
+
+<p>と表示されれば成功。結果は2次元列ベクトル。</p>
+<p>他にも色々試してみてください。</p>
+<p>なお若干ややこしいことに、NumPy にはいくつも便利機能があり、数学的には不正な式でも適当に補完してやってくれたりします。
+(例えば行列とベクトルの足し算などもできる。)<br>
+ただ慣れるまでは、ひとまず数学的に忠実な記法を心掛けた方がいいでしょう。</p>
+<p>とりあえず以上。
 おしまい。</p>
-<h2>注記</h2>
-<h3>注1 : HEMS</h3>
-<p>HEMS = Home Energy Management System.</p>
-<h3>注2 : 試験結果 (2019.06)</h3>
-<p>試験結果開示は午前80.00点、午後95.00点。
-ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  </p>
-<h3>注3 : Python導入 (2019.11)</h3>
-<p>2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。<br>
-<a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html">https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jian-ding-shi-yan.html"><i class="fa fa-tag"></i>検定試験</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -216,7 +373,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/05/IPA_FE.html" 
+        data-href="../../../blog/2019/05/matrix_numpy.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -232,7 +389,9 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
+        <li><a href="../../../blog/2019/12/deeplabcut.html">deeplabcutの使い方まとめ</a></li>
+        <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
+        <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
     </ul>
 </div>
 
@@ -241,6 +400,11 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -274,7 +438,12 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -295,11 +464,6 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -308,27 +472,27 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">11</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="label label-primary">7</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -338,15 +502,15 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/news.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="label label-primary">2</span>
-        News
+        論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">11</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -355,16 +519,22 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
         検定試験
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="label label-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -374,21 +544,21 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/github.html">
           <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">8</span>
-        Python
+        GitHub
       </a>
     </span>
 </p>
@@ -468,7 +638,7 @@ if (check_ipynb.length > 0) {
     var article_date = document.getElementsByName('article:date')[0].content;
     var article_year = article_date.slice(0, 4);
     var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
     if (parseInt(article_month) <= 3) {
       article_year = article_year - 1;
     }
