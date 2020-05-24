@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2020-05-24T07:52:09-00:00</lastmod>
+<lastmod>2020-05-24T07:53:41-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2020-05-24T07:52:09-00:00</lastmod>
+<lastmod>2020-05-24T07:53:41-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/categories.html</loc>
-<lastmod>2020-05-24T07:52:09-00:00</lastmod>
+<lastmod>2020-05-24T07:53:41-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2020-05-24T07:52:09-00:00</lastmod>
+<lastmod>2020-05-24T07:53:41-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/archives.html</loc>
-<lastmod>2020-05-24T07:52:09-00:00</lastmod>
+<lastmod>2020-05-24T07:53:41-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -151,14 +151,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2019/10/GPUs_for_ML.html</loc>
+<loc>https://oumpy.github.io/blog/2019/10/gpus_for_ml.html</loc>
 <lastmod>2019-10-07T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2019/06/TF_CAM.html</loc>
+<loc>https://oumpy.github.io/blog/2019/06/tf_cam.html</loc>
 <lastmod>2020-05-17T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
@@ -172,7 +172,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2019/06/DABEST_tutorial.html</loc>
+<loc>https://oumpy.github.io/blog/2019/06/dabest_tutorial.html</loc>
 <lastmod>2019-06-23T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
@@ -193,14 +193,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2019/05/IPA_FE.html</loc>
+<loc>https://oumpy.github.io/blog/2019/05/ipa_fe.html</loc>
 <lastmod>2019-11-21T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2019/05/UNet_cells_recognition.html</loc>
+<loc>https://oumpy.github.io/blog/2019/05/unet_cells_recognition.html</loc>
 <lastmod>2020-05-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
@@ -326,7 +326,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oumpy.github.io/blog/2018/11/RDKit.html</loc>
+<loc>https://oumpy.github.io/blog/2018/11/rdkit.html</loc>
 <lastmod>2018-11-21T23:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
