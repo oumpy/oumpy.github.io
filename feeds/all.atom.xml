@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-17T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>医学部公認団体申請を行いました</title><link href="https://oumpy.github.io/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-05-15:/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-19T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-05-19:/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+&lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
+次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
+&lt;h2&gt;スライド&lt;/h2&gt;
+&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+  &lt;iframe width=640" height="390"
+    src="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01_attach/200519_python会入門.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;Pythonの環境構築&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallしても使えるが、パッケージ管理や環境管理のためにAnacondaを使うと便利（ここで不要じゃという声が飛んでくる）。&lt;/li&gt;
+&lt;li&gt;少なくともWindowsだと使った方が楽&lt;/li&gt;
+&lt;li&gt;Anacondaそのままは全部盛りに近い（＝要らないものなども自動でinstallされる）ので、最小限のパッケージに留めたMinicondaをinstallする方がよい&lt;/li&gt;
+&lt;li&gt;Miniconda入れる前にpyenv入れた方が良いという話もある(MacOS, Linux)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Pythonファイルの実行&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python hoge.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;で実行可能。
+IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。&lt;/p&gt;
+&lt;h2&gt;Python Tutorial&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01_attach/Python_tutorial.ipynb"&gt;Jupyter Notebook @Google Colab&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;コードのみ以下に掲載します。&lt;/p&gt;
+&lt;h3&gt;NumPyで数値計算&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Matplotlibで図を描画する&lt;/h3&gt;
+&lt;p&gt;Matplotlibは図を描画するためのライブラリ。
+どんな図が描画できるかは公式ドキュメントの&lt;a href="https://matplotlib.org/gallery/index.html"&gt;ギャラリー&lt;/a&gt;を参照。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Seabornによる回帰直線の描画&lt;/h3&gt;
+&lt;p&gt;SeabornはMatplotlibがベースのライブラリ。
+より綺麗で複雑な図を簡単に描画できる。
+公式ドキュメントの&lt;a href="https://seaborn.pydata.org/examples/index.html"&gt;ギャラリー&lt;/a&gt;を参照。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;seaborn&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sns&lt;/span&gt;
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 乱数seedの設定&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Toyデータ(y=2*x+10+noise)の作成&lt;/span&gt;
+&lt;span class="n"&gt;n_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="c1"&gt;# データ数&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 回帰直線のplot&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;regplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 回帰(regression)の実行&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# 画像表示&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Markdownについて&lt;/h3&gt;
+&lt;p&gt;Markdownはプレーンテキスト形式で手軽に書いた文書からHTMLを生成するための言語
+- 書き方は&lt;a href="https://qiita.com/tbpgr/items/989c6badefff69377da7"&gt;Markdown記法サンプル集&lt;/a&gt;等を見るとよい
+- 普段から使う場合は&lt;a href="https://typora.io/"&gt;Typora&lt;/a&gt;を使うのがおススメ。
+TeX形式の数式も書ける。
+PandocをインストールすればWordやLaTeXなどに変換可能。&lt;/p&gt;
+&lt;h3&gt;Google Colabについて&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://colab.research.google.com"&gt;Google Colaboratory&lt;/a&gt;はJupyter Notebookをブラウザ上で使えるようにGoogleが提供しているサービス。
+Pythonをインストールする必要はありません。
+また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>医学部公認団体申請を行いました</title><link href="https://oumpy.github.io/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-05-15:/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
 &lt;p&gt;2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。
 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。&lt;/p&gt;
 &lt;p&gt;今年度こそ医学部から正式に承認されることを期待しています！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>線形混合効果モデル</title><link href="https://oumpy.github.io/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-04-08:/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
@@ -2397,10 +2474,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="cb53cdc5-0a82-4aa0-81d4-c72448ac20fe"&gt;&lt;/div&gt;
+&lt;div id="270dfd18-058f-43cf-b037-2aa38da42b4f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cb53cdc5-0a82-4aa0-81d4-c72448ac20fe');
+var element = $('#270dfd18-058f-43cf-b037-2aa38da42b4f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}

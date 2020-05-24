@@ -8,16 +8,17 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="JuliaとPythonと競技プログラミング"/>
-    <meta property="og:url" content="../../../blog/2019/03/julia_python_competition.html"/>
+    <meta property="og:title" content="【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎"/>
+    <meta property="og:url" content="../../../blog/2020/05/studymeeting2020_01.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="競技プログラミング"/>
+        <meta property="article:tag" content="勉強会"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="JuliaとPythonと競技プログラミング">
+    <meta name="twitter:title" content="【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>JuliaとPythonと競技プログラミング - 大阪大学医学部 Python会</title>
+    <title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -105,10 +106,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="julia_python_competition">
+    <meta name="article:slug" property="og:article:slug" content="studymeeting2020_01">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-03-16">
+    <meta name="article:date" property="og:article:date" content="2020-05-19">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-19">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,170 +118,111 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/03/julia_python_competition.html" rel="bookmark"
-     title="Permalink to JuliaとPythonと競技プログラミング">
-    JuliaとPythonと競技プログラミング
+  <a href="../../../blog/2020/05/studymeeting2020_01.html" rel="bookmark"
+     title="Permalink to 【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎">
+    【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-16(Sat)
+  2020-05-19(Tue)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/shan-ben.html">山本</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jing-ji-puroguramingu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0&labelColor=black&color=green" alt="tag:競技プログラミング" title="tag:競技プログラミング"></img></a>
+        <a href="../../../tag/mian-qiang-hui.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E5%8B%89%E5%BC%B7%E4%BC%9A&labelColor=black&color=blue" alt="tag:勉強会" title="tag:勉強会"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>最近友人と話していてJulia (<a href="https://julialang.org">https://julialang.org</a>)が話題になったことがあったので、少しだけ調べて試してみた話。</p>
-<h2>Juliaってなに？</h2>
-<p>Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。<br>
-<s>ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。</s></p>
-<h2>AtCoderでのJulia</h2>
-<p>ご多分に漏れず、実行速度に惹かれました。半年ほど前から参加している競技プログラミングサイト<strong>AtCoder</strong> (<a href="https://atcoder.jp">https://atcoder.jp</a>)で、常用しているPython（← Python会だからね！）で実行時間切れ、C/C++に書き換えると正答、という経験を何度かしてきたので。</p>
-<p>そういうわけで、ここでは最近の<strong>第121回 AtCoder Beginner Contest (ABC121)</strong> (<a href="https://atcoder.jp/contests/abc121/">https://atcoder.jp/contests/abc121/</a>)の問題で、Juliaのパフォーマンスを実際に見てみます。<br>
-（言語知識0から数十分調べて書いたコードのため、動きはするが思わぬところで非効率、ということはあるかもしれません。）</p>
-<h3>AtCoder Beginner Contest 121 問題A "White Cells"</h3>
-<p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_a">https://atcoder.jp/contests/abc121/tasks/abc121_a</a>）</p>
-<p>入力値4個を読み込んで簡単な演算結果を返すだけの問題です。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">println</span><span class="p">((</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">-</span><span class="n">w</span><span class="p">))</span>
+	<p>2020.05.19に開催したオンライン勉強会の資料を公開します。</p>
+<p>今回のみ、会外部の一般の方々にも参加頂く形で行われました。
+次回からは会内部のみとなりますが、資料は公開してゆく予定です。</p>
+<h2>スライド</h2>
+<p><p><span class="videobox">
+  <iframe width=640" height="390"
+    src="../../../blog/2020/05/attach/studymeeting2020_01_attach/200519_python会入門.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+  </iframe></span></p></p>
+<h2>Pythonの環境構築</h2>
+<ul>
+<li><a href="https://www.python.org/">Pythonの公式サイト</a>からPythonだけをinstallしても使えるが、パッケージ管理や環境管理のためにAnacondaを使うと便利（ここで不要じゃという声が飛んでくる）。</li>
+<li>少なくともWindowsだと使った方が楽</li>
+<li>Anacondaそのままは全部盛りに近い（＝要らないものなども自動でinstallされる）ので、最小限のパッケージに留めたMinicondaをinstallする方がよい</li>
+<li>Miniconda入れる前にpyenv入れた方が良いという話もある(MacOS, Linux)</li>
+</ul>
+<h2>Pythonファイルの実行</h2>
+<div class="highlight"><pre><span></span><code>python hoge.py
 </code></pre></div>
 
 
-<p>所要時間が入力にほぼ依存しない問題ですが、、各言語でのAtCoder上実行結果。</p>
-<table>
-<thead>
-<tr>
-<th align="center">言語</th>
-<th align="right">実行時間</th>
-<th align="right">消費メモリ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><strong>Julia</strong></td>
-<td align="right"><strong>360 ms</strong></td>
-<td align="right"><strong>110 MB</strong></td>
-</tr>
-<tr>
-<td align="center">PyPy3</td>
-<td align="right">180 ms</td>
-<td align="right">40 MB</td>
-</tr>
-<tr>
-<td align="center">Python3</td>
-<td align="right">17 ms</td>
-<td align="right">3 MB</td>
-</tr>
-<tr>
-<td align="center">C++</td>
-<td align="right">1 ms</td>
-<td align="right">256 kB</td>
-</tr>
-</tbody>
-</table>
-<p>C++にもPythonにも、実行時間と消費メモリ双方で惨敗。 <br>
-おそらくですが、<strong>実行ごとにまずコンパイルを行う</strong>ので、簡単な問題だとそれが相対的に巨大なオーバーヘッドになってしまうようです。<br>
-Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でした。</p>
-<!---
-
-### AtCoder Beginner Contest 121-B
-
-問題はこちら → <https://atcoder.jp/contests/abc121/tasks/abc121_b>
-
-
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-B by Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">input</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="k">end</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">+</span><span class="n">C</span>
-<span class="k">for</span> <span class="n">d</span> <span class="kp">in</span> <span class="n">D</span>
-  <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<p>で実行可能。
+IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。</p>
+<h2>Python Tutorial</h2>
+<p><a href="../../../blog/2020/05/attach/studymeeting2020_01_attach/Python_tutorial.ipynb">Jupyter Notebook @Google Colab</a></p>
+<p>コードのみ以下に掲載します。</p>
+<h3>NumPyで数値計算</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 
 
+<h3>Matplotlibで図を描画する</h3>
+<p>Matplotlibは図を描画するためのライブラリ。
+どんな図が描画できるかは公式ドキュメントの<a href="https://matplotlib.org/gallery/index.html">ギャラリー</a>を参照。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
---->
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
 
-<h3>AtCoder Beginner Contest 121 問題C "Energy Drink Collector"</h3>
-<p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_c">https://atcoder.jp/contests/abc121/tasks/abc121_c</a>）</p>
-<p>読み込んだ値の列をソートして、条件判定をしながら順番に足し上げていく問題。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-  <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="k">end</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">sortrows</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-  <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">M</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">M</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">break</span>
-  <span class="k">else</span>
-    <span class="n">M</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
 
-<p>なんと、テスト16個中15個でタイムアウト（2000ms以上）。。。</p>
-<p>Pythonのコードはこちら：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ABC121-C &quot;Energy Drink Collector&quot; in Python3</span>
-<span class="n">inpl</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">N</span><span class="p">,</span><span class="n">M</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-  <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inpl</span><span class="p">())</span>
-<span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-  <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span>
-    <span class="k">break</span>
-  <span class="k">else</span><span class="p">:</span>
-    <span class="n">M</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<h3>Seabornによる回帰直線の描画</h3>
+<p>SeabornはMatplotlibがベースのライブラリ。
+より綺麗で複雑な図を簡単に描画できる。
+公式ドキュメントの<a href="https://seaborn.pydata.org/examples/index.html">ギャラリー</a>を参照。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 乱数seedの設定</span>
+
+<span class="c1"># Toyデータ(y=2*x+10+noise)の作成</span>
+<span class="n">n_data</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># データ数</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
+
+<span class="c1"># 回帰直線のplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># 回帰(regression)の実行</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 画像表示</span>
 </code></pre></div>
 
 
-<p>こちらは最大466msでクリア（同一コードのPyPy3では733ms）。ここで134msのテストもJuliaではタイムアウト。悲しい。</p>
-<p>今回Juliaでタイムアウトになったのは、言語の特性や正しいコーディングの仕方を知らないから、という可能性は高いです。ただ実際にこの問題でJuliaを使って提出されている答案は、最速クリアのものでも1724ms（そもそもJuliaでの提出数自体が少ないですが）。やはり上の安直なPythonコードが圧勝しています。</p>
-<h2>Juliaは競技プログラミングに向かない？</h2>
-<p>Juliaの実行速度が速いこと自体は（今回検証していませんが、きっと）本当なんだと思います。しかしそれは時間のかかる複雑・大規模な処理の場合であって、競技プログラミングのような高々2-3秒の計算にはコンパイルのオーバーヘッドがやはり大きいのかな、という印象です。  </p>
-<p>AtCoderなどでは、C++などのあからさまなコンパイル型言語はコンパイル時間が実行時間に算入されず、一方でJuliaに対しては算入されます。やや理不尽な感じはしなくもないけれど、このルール下でJuliaの高速性能を生かすことは（あくまでAtCoderのような短時間型競技プログラミングの話ですが）なかなか難しそう。残念ながら、普通にやるとPythonよりもずっと遅い。  </p>
-<p>なので、当面の競技プログラミング用言語は<strong>やっぱりPython</strong>（とC/C++）、と個人的には結論づけたところです。おしまい。</p>
-<p><strong>&lt; History &gt;</strong><br>
-2019.03.21 ver1.0<br>
-2019.03.21 ver1.1 微修正、PyPy3の成績を追記<br>
-2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正</p>
+<h3>Markdownについて</h3>
+<p>Markdownはプレーンテキスト形式で手軽に書いた文書からHTMLを生成するための言語
+- 書き方は<a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法サンプル集</a>等を見るとよい
+- 普段から使う場合は<a href="https://typora.io/">Typora</a>を使うのがおススメ。
+TeX形式の数式も書ける。
+PandocをインストールすればWordやLaTeXなどに変換可能。</p>
+<h3>Google Colabについて</h3>
+<p><a href="https://colab.research.google.com">Google Colaboratory</a>はJupyter Notebookをブラウザ上で使えるようにGoogleが提供しているサービス。
+Pythonをインストールする必要はありません。
+また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
+	<a href="../../../tag/mian-qiang-hui.html"><i class="fa fa-tag"></i>勉強会</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -293,7 +236,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/03/julia_python_competition.html" 
+        data-href="../../../blog/2020/05/studymeeting2020_01.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -309,8 +252,9 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/06/atcoder_beginners_selection.html">AtCoder Beginners Selection 雑感</a></li>
-        <li><a href="../../../blog/2019/04/competition_input.html">はじめての競プロ：入力アンチョコメモ</a></li>
+        <li><a href="../../../blog/2019/12/deeplabcut.html">deeplabcutの使い方まとめ</a></li>
+        <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
+        <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
     </ul>
 </div>
 
