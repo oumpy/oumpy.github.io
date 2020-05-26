@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="./previews/refs/heads/feature/colab_link/" rel="alternate"></link><link href="./previews/refs/heads/feature/colab_link/feeds/all.atom.xml" rel="self"></link><id>./previews/refs/heads/feature/colab_link/</id><updated>2020-05-19T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/feature/colab_link/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/feature/colab_link/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="./previews/refs/heads/feature/colab_link/" rel="alternate"></link><link href="./previews/refs/heads/feature/colab_link/feeds/all.atom.xml" rel="self"></link><id>./previews/refs/heads/feature/colab_link/</id><updated>2020-05-24T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/feature/colab_link/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-24T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/feature/colab_link/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
 &lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
@@ -2474,10 +2474,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="fc880774-7050-4852-970b-7d696d5938a0"&gt;&lt;/div&gt;
+&lt;div id="6d0e7f75-277d-497c-83ab-1d3635605450"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fc880774-7050-4852-970b-7d696d5938a0');
+var element = $('#6d0e7f75-277d-497c-83ab-1d3635605450');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
