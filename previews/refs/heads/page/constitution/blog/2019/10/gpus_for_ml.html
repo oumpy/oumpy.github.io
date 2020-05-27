@@ -8,16 +8,17 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="IPA「基本情報技術者試験」受験録"/>
-    <meta property="og:url" content="../../../blog/2019/05/IPA_FE.html"/>
+    <meta property="og:title" content="機械学習のための最新GPU比較"/>
+    <meta property="og:url" content="../../../blog/2019/10/gpus_for_ml.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="検定試験"/>
+        <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="ハードウェア"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="IPA「基本情報技術者試験」受験録">
+    <meta name="twitter:title" content="機械学習のための最新GPU比較">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>IPA「基本情報技術者試験」受験録 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>機械学習のための最新GPU比較 - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -50,8 +51,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/page/constitution/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/page/constitution/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/page/constitution/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/page/constitution/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -105,10 +106,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="IPA_FE">
+    <meta name="article:slug" property="og:article:slug" content="gpus_for_ml">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2019-05-12">
-    <meta name="article:modified" property="og:article:modified" content="2019-11-21">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2019-10-07">
+    <meta name="article:modified" property="og:article:modified" content="2019-10-07">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,93 +118,125 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/05/IPA_FE.html" rel="bookmark"
-     title="Permalink to IPA「基本情報技術者試験」受験録">
-    IPA「基本情報技術者試験」受験録
+  <a href="../../../blog/2019/10/gpus_for_ml.html" rel="bookmark"
+     title="Permalink to 機械学習のための最新GPU比較">
+    機械学習のための最新GPU比較
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-05-12(Sun)
+  2019-10-07(Mon)
 </abbr>       - Posted by 
 <a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jian-ding-shi-yan.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=検定試験&labelColor=black&color=blue" alt="tag:検定試験" title="tag:検定試験"></img></a>
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../../../tag/hadouea.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2&labelColor=black&color=darkorange" alt="tag:ハードウェア" title="tag:ハードウェア"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>IPAの「<a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"><strong>基本情報技術者試験</strong></a>」 (2019年春期) を受験してきました。</p>
-<p>なんでも経済産業省管轄の<strong>国家試験</strong>で、<a href="https://kanpou.npb.go.jp/"><strong>官報公示</strong></a>までされるらしい。<strong>よくわからないけどすごい</strong>。
-厚生労働省の<a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"><strong>某国家試験</strong></a>は受験資格が残念ながらまだないけれど、<strong>こないだ国試受けてきた</strong>って言ってもたぶん嘘じゃないわけです。だからどうしたって話ではありますが。</p>
-<p>今回はその受験録です。</p>
-<h2>受験申込〜当日まで</h2>
-<h3>申込</h3>
-<p>特に何も目的などはないんですが、2月のBioinfo会でNさんが<a href="https://www.jitec.ipa.go.jp/"><strong>情報処理技術者試験</strong></a>のポスターを持ってこられ、締切直前だったこともあり、何となくその場の勢いでぽちる。<br>
-試験はレベル1から最上位の4まで区分があり、これも何となく弱気にレベル2の本試験を選択。</p>
-<h3>会場変更</h3>
-<p>試験会場は阪大豊中キャンパス。<br>
-…のはずが、なんか<strong>遠くの方の某大学</strong>に変更。ちょっと気力を削がれる。</p>
-<h3>試験勉強など</h3>
-<p>結局、何もしませんでした。
-勉強も過去問調査も一切無しの<strong>ガチンコ</strong> (?) で本番に臨みます。<br>
-(そもそも試験受験の目的って半分以上はそれを口実に勉強することだと思うので、何やってるのかよくわかりませんが。。)</p>
-<h2>試験当日</h2>
-<p>昨夜も<a href="https://atcoder.jp/contests/tenka1-2019">競プロ</a>の出来は微妙だったけど、検討はほどほどにして寝たよ。</p>
-<h3>午前試験（9:30〜12:00）</h3>
+	<p>某所でGPU調達の必要があって、いまどきの事情を調べました。
+ゲームのことは知りません。</p>
+<h2>主要GPU一覧</h2>
+<p>NVidia製Volta/Turing世代ハイエンドデスクトップ／ワークステーション用の主要GPUラインアップ。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>コア</th>
+<th>VRAM</th>
+<th>最大精度</th>
+<th>TDP</th>
+<th>放熱</th>
+<th>価格(税込)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GeForce RTX 2080Ti</td>
+<td>Turing (TU102)</td>
+<td><em>11GB</em></td>
+<td>単精度</td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td>14万円〜</td>
+</tr>
+<tr>
+<td>Titan RTX</td>
+<td>Turing (TU102)</td>
+<td>24GB</td>
+<td>単精度</td>
+<td><em>280W</em></td>
+<td><em>内排気</em></td>
+<td>27.6万円〜※</td>
+</tr>
+<tr>
+<td>Quadro RTX 6000</td>
+<td>Turing (TU102)</td>
+<td>24GB</td>
+<td><strong>倍精度</strong></td>
+<td>260W</td>
+<td>外排気</td>
+<td><em>41.5万円〜</em>※</td>
+</tr>
+<tr>
+<td>Quadro RTX 8000</td>
+<td>Turing (TU102)</td>
+<td><strong>48GB</strong></td>
+<td><strong>倍精度</strong></td>
+<td>260W</td>
+<td>外排気</td>
+<td>60万円〜※</td>
+</tr>
+<tr>
+<td>Titan V</td>
+<td>Volta (V102?)</td>
+<td><em>12GB</em></td>
+<td><strong>倍精度</strong></td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td><em>40万円〜</em></td>
+</tr>
+<tr>
+<td>Tesla V100 32GB (参考)</td>
+<td>Volta (V100)</td>
+<td>32GB</td>
+<td><strong>倍精度</strong></td>
+<td><strong>250W</strong></td>
+<td>外排気</td>
+<td><em>99万円〜</em>※</td>
+</tr>
+</tbody>
+</table>
+<p>（<strong>すごい</strong>。<em>いまいち</em>。※はアカデミック価格。価格は2019年10月初頭調べ。）</p>
+<h2>ポイント</h2>
 <ul>
-<li>4択問題が80問。ひたすらマークしていく。  </li>
-<li>常識で解けるような問題も多い。
-第1問「10進数の7÷32の結果を2進数表記したものはどれか」…高校入試かな？  </li>
-<li>とはいえ、1/4くらいは確信がもてない／よくわからなかった。
-第71問「IoTの応用事例のうちHEMSの説明はどれか」…知らないよ、ごめんね [注1]。  </li>
-<li>でも<strong>結局は4択</strong>だからね。期待値的に8割以上はあるはずだよ [注2]。</li>
+<li>目を引くのはTuring世代ワークステーション用GPUの<strong>VRAM大容量化</strong>。</li>
+<li>Titan RTXでも24GB、Quadro RTX 8000に至っては<strong>泣く子も黙る48GB</strong>。
+サーバ用のTesla V100も凌ぐ。</li>
+<li>Titan RTXのみ内排気のため、多数枚の搭載には水冷システムが必要。</li>
+<li>Quadro 6000がやや割高なことを除けば、Turingコア製品の<strong>VRAM容量あたりの価格は概ね一定</strong>なのが面白い。</li>
+<li>大きなネットワークを学習したい時など、GPU1基のメモリ容量はしばしば演算性能以上に重要。
+例えばGPU予算が60万の場合、2080Tiを4枚かTitan RTXを2枚かQuadro 8000を1枚か、は用途次第。</li>
+<li>どれもTensorCore搭載。
+FP16を使うように調整してやらないと本来の性能は出ない。</li>
+<li>倍精度演算機能は、実際のところ物理シミュレーションでもしない限り、あっても使わないので関係ない。遅いし。 </li>
 </ul>
-<p>見直す気力も沸かないし、お昼が気になるから午前試験は途中退出。
-近くにラーメン屋さんを見つけてがっつり食べてきたよ。眠い。。</p>
-<h3>午後試験（13:00〜15:30）</h3>
-<ul>
-<li>4択は少ないけど、やっぱり全問択一式。要求知識は午前より少なくて、<strong>問題文や選択肢の読解力</strong>が一番のポイントっぽい気がする。
-ちゃんと読んで理解できれば答えられる問題がほとんど。  </li>
-<li>「変更管理会議において、仕様変更依頼が採用された場合、担当PMは（　　）する」…うん、<strong>辞任</strong>…と、、あれ？選択肢にない？
-「<strong>仕様変更依頼の内容をプロジェクト計画に反映させて更新</strong>」か、、記述なら死んでたよ。</li>
-<li>「ソフトウェア開発」という5言語から1題選択のセクションがある。<br>
-C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Pythonどこ？</strong> [注3] どこ？軽くパニック。
-何回探しても出てこないから、しぶしぶCを解く。
-レベル的には、昔のセンター試験（N88-BASIC）よりはちょっと上くらい？  </li>
-<li>結局、午後は午前より出来がよくて、9割あるんじゃないかな、たぶん [注2]。</li>
-</ul>
-<p>そんなわけで終了。午後試験はちゃんと最後までいたよ。
-マークがずれたりしてなければ合格だと思う。
-結果発表は<strong>1ヶ月後</strong>。全部マークシートなのに長いねえ。</p>
-<h2>全体を通しての感想</h2>
-<p>この試験の合格基準は午前午後とも<strong>各60%</strong>です。
-僕は理数系出身の学士編入生で、この種の試験には医学部生の中でも強い方だと思います。
-しかしそれを差し引いても、少なくともボーダー60%の試験としては、<strong>難度がきわめて低い</strong>と言わざるをえません。  </p>
-<p>ですので、情報処理技術者試験に興味があっても、能力証明という意味では<strong>レベル2の本試験は会員の皆さんにお勧めしません</strong>。
-レベル3の<a href="https://www.jitec.ipa.go.jp/1_11seido/ap.html"><strong>応用情報技術者試験</strong></a>を検討してみてください。
-尤も、午前試験の超高得点はそんなに簡単じゃないと思うので、勉強してみるのは悪くないかも。
-そのあたりは<a href="http://www.toukei-kentei.jp/about/grade1semi/">統計検定準1級</a>などと似ていると思います。</p>
-<p>何はともあれ、<strong>基本情報技術者</strong>というよくわからない肩書き（<strong>国家資格</strong>？）を手に入れました（たぶん）。
-おしまい。</p>
-<h2>注記</h2>
-<h3>注1 : HEMS</h3>
-<p>HEMS = Home Energy Management System.</p>
-<h3>注2 : 試験結果 (2019.06)</h3>
-<p>試験結果開示は午前80.00点、午後95.00点。
-ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  </p>
-<h3>注3 : Python導入 (2019.11)</h3>
-<p>2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。<br>
-<a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html">https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html</a></p>
+<h2>まとめ</h2>
+<p>演算性能を妥協すれば、大容量VRAMの上位GPUにも実は手が出しやすくなっています。
+用途に合わせて選びましょう。
+選べる余地があるのはいいことですね。</p>
+<p>おしまい。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jian-ding-shi-yan.html"><i class="fa fa-tag"></i>検定試験</a>&nbsp;
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/hadouea.html"><i class="fa fa-tag"></i>ハードウェア</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -216,7 +250,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/05/IPA_FE.html" 
+        data-href="../../../blog/2019/10/gpus_for_ml.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -232,7 +266,9 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
+        <li><a href="../../../blog/2018/09/hardware_for_deeplearning.html">組み込みでDeep Learningにつかえるハードについて</a></li>
+        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
+        <li><a href="../../../blog/2019/06/tf_cam.html">転移学習とCAM</a></li>
     </ul>
 </div>
 
@@ -241,6 +277,11 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -274,7 +315,17 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/19</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/05/studymeeting2020_01.html"><span class="recent-posts-title">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -290,16 +341,6 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/04/establish_constitution.html"><span class="recent-posts-title">会規約を制定しました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/29</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/03/ica.html"><span class="recent-posts-title">ICA（独立成分分析）について</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">3/29</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -308,87 +349,99 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
-        競技プログラミング
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">4</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="label label-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">12</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="label label-primary">1</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="label label-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="label label-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         検定試験
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <i class="fa fa-tag"></i>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-matome.html">
-          <i class="fa fa-tag"></i>
-        論文まとめ
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
-        Data Science Competition
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
-        GitHub
       </a>
     </span>
 </p>
@@ -468,7 +521,7 @@ if (check_ipynb.length > 0) {
     var article_date = document.getElementsByName('article:date')[0].content;
     var article_year = article_date.slice(0, 4);
     var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
     if (parseInt(article_month) <= 3) {
       article_year = article_year - 1;
     }
@@ -496,6 +549,46 @@ if (check_ipynb.length > 0) {
                +'<a href='+colab_url+'>'+colab_img+'</a>';
     doc0.innerHTML= button;
 }
+
+$(function() {
+  const myhost = $(location).attr('hostname'); /* hogehoge.github.io */
+  /* in order to work only on github pages, add:
+  if (! myhost.match(/^[^\.]+\.github\.io$/)) {
+    return;
+  }
+  */
+  const account = myhost.split('.')[0]; /* hogehoge */
+  const repo = account + '/' + myhost + '/blob/master';
+  const root = 'https://colab.research.google.com/github/' + repo;
+  $('a').each(function() {
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
+      let target_split = target.split('/');
+      upper_split.pop();
+      let head = true;
+      while (true) {
+        if (head && target_split[0] == '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      colablink = upper_split.join('/') + '/' + target_split.join('/');
+      $(this).attr('href', colablink);
+    }
+  });
+});
 </script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 !function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
