@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="pandasのpivot_tableを用いた高速データ処理"/>
-    <meta property="og:url" content="../../../blog/2018/11/pandas_pivot_table.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Data Science Competition"/>
+    <meta property="og:title" content="会規約を制定しました"/>
+    <meta property="og:url" content="../../../news/2020/04/establish_constitution.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="pandasのpivot_tableを用いた高速データ処理">
+    <meta name="twitter:title" content="会規約を制定しました">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>pandasのpivot_tableを用いた高速データ処理 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>会規約を制定しました - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -246,7 +246,7 @@
 </li>
 </ul></li>
 </ul></li>
-<li class="active">
+<li>
 <a href="../../../blog.html">技術ブログ</a>
 <ul>
 <li>
@@ -259,7 +259,7 @@
 <a href="../../../archives.html">過去記事一覧</a>
 </li>
 </ul></li>
-<li>
+<li class="active">
 <a href="../../../news.html">お知らせ</a>
 </li>
 <li>
@@ -279,10 +279,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="pandas_pivot_table">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-11-17">
+    <meta name="article:slug" property="og:article:slug" content="establish_constitution">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="news">
+    <meta name="article:date" property="og:article:date" content="2020-04-01">
+    <meta name="article:modified" property="og:article:modified" content="2020-04-01">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -290,46 +291,37 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/11/pandas_pivot_table.html" rel="bookmark"
-     title="Permalink to pandasのpivot_tableを用いた高速データ処理">
-    pandasのpivot_tableを用いた高速データ処理
+  <a href="../../../news/2020/04/establish_constitution.html" rel="bookmark"
+     title="Permalink to 会規約を制定しました">
+    会規約を制定しました
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-11-17(Sat)
+  2020-04-01(Wed)
 </abbr>       - Posted by 
-<a href="../../../author/jin-zi.html">金子</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data%20Science%20Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">概要</span></h2>
-<p>pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。</p>
-<p>pivot_tableを使った計算で個人的によく使う処理をまとめたものを<a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table">kaggle のkernel</a>で公開しました。</p>
-<p><img alt="1" src="../../../blog/2018/11/images/pandas_pivot_table_figs/pandas_pivot_table.png"></p>
-<p>このkernelでは簡単なダミーデータでpivot_tableに対する計算の仕方をまとめた後、実例として<a href="https://www.kaggle.com/c/PLAsTiCC-2018">PLAsTiCC コンペ</a>の<a href="https://www.kaggle.com/michaelapers/the-plasticc-astronomy-starter-kit">Starter Kit</a>にあった特徴量の計算をpandasのpivot_tableを用いて高速化しました。</p>
-<h2><span id="pelican-subsections-1">どんなことができるようになるの？</span></h2>
-<ul>
-<li>カテゴリごとに組み込みの集計関数より高度な関数を適用できる</li>
-<li>カテゴリごとの移動平均をかけるようになる</li>
-<li>未来のデータを含まないmean_encodingがかける</li>
-</ul>
-<h2><span id="pelican-subsections-2">どれくらい早くなるの？</span></h2>
-<p>上記のkernelはEDA中に実際に僕が書いたコードに少し修正を加えたものですが、</p>
-<p>愚直なコード(1時間以上) → groupbyでの処理(2分半) → pivot_table(4秒)</p>
-<p>という感じで早くなりました。</p>
+	<p>このたび本会は、
+<a href="../../../constitution.html">大阪大学医学部Python会規約</a>
+をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。</p>
+<p>今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。
+規約の内容は従来からの会運営体制に沿ったものであり、規約の施行に伴う直接の体制変更などはありません。</p>
+<p>今後ともPython会をよろしくお願いいたします。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/data-science-competition.html"><i class="fa fa-tag"></i>Data Science Competition</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -343,7 +335,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/11/pandas_pivot_table.html" 
+        data-href="../../../news/2020/04/establish_constitution.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -359,7 +351,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/03/voice_recognition.html">NTT corevoチャレンジ: 話者の性別・年代識別</a></li>
+        <li><a href="../../../news/2020/05/officialize_request.html">医学部公認団体申請を行いました</a></li>
+        <li><a href="../../../news/2020/03/website_integration.html">技術ブログをWebサイトに統合しました</a></li>
+        <li><a href="../../../news/2020/03/website_renewal.html">Webサイトをリニューアルしました！</a></li>
     </ul>
 </div>
 
