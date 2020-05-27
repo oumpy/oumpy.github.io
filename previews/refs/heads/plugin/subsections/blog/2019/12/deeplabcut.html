@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="IPA「基本情報技術者試験」受験録"/>
-    <meta property="og:url" content="../../../blog/2019/05/IPA_FE.html"/>
+    <meta property="og:title" content="deeplabcutの使い方まとめ"/>
+    <meta property="og:url" content="../../../blog/2019/12/deeplabcut.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="検定試験"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="IPA「基本情報技術者試験」受験録">
+    <meta name="twitter:title" content="deeplabcutの使い方まとめ">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>IPA「基本情報技術者試験」受験録 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>deeplabcutの使い方まとめ - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -50,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="/previews/refs/heads/plugin/subsections/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="/previews/refs/heads/plugin/subsections/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="./previews/refs/heads/plugin/subsections/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="./previews/refs/heads/plugin/subsections/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
@@ -105,10 +105,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="IPA_FE">
+    <meta name="article:slug" property="og:article:slug" content="deeplabcut">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:date" property="og:article:date" content="2019-05-12">
-    <meta name="article:modified" property="og:article:modified" content="2019-11-21">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2019-12-16">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-16">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,93 +117,107 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/05/IPA_FE.html" rel="bookmark"
-     title="Permalink to IPA「基本情報技術者試験」受験録">
-    IPA「基本情報技術者試験」受験録
+  <a href="../../../blog/2019/12/deeplabcut.html" rel="bookmark"
+     title="Permalink to deeplabcutの使い方まとめ">
+    deeplabcutの使い方まとめ
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-05-12(Sun)
+  2019-12-16(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/wei-gang.html">味岡</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jian-ding-shi-yan.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=検定試験&labelColor=black&color=blue" alt="tag:検定試験" title="tag:検定試験"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>IPAの「<a href="https://www.jitec.ipa.go.jp/1_11seido/fe.html"><strong>基本情報技術者試験</strong></a>」 (2019年春期) を受験してきました。</p>
-<p>なんでも経済産業省管轄の<strong>国家試験</strong>で、<a href="https://kanpou.npb.go.jp/"><strong>官報公示</strong></a>までされるらしい。<strong>よくわからないけどすごい</strong>。
-厚生労働省の<a href="https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/ishi/"><strong>某国家試験</strong></a>は受験資格が残念ながらまだないけれど、<strong>こないだ国試受けてきた</strong>って言ってもたぶん嘘じゃないわけです。だからどうしたって話ではありますが。</p>
-<p>今回はその受験録です。</p>
-<h2>受験申込〜当日まで</h2>
-<h3>申込</h3>
-<p>特に何も目的などはないんですが、2月のBioinfo会でNさんが<a href="https://www.jitec.ipa.go.jp/"><strong>情報処理技術者試験</strong></a>のポスターを持ってこられ、締切直前だったこともあり、何となくその場の勢いでぽちる。<br>
-試験はレベル1から最上位の4まで区分があり、これも何となく弱気にレベル2の本試験を選択。</p>
-<h3>会場変更</h3>
-<p>試験会場は阪大豊中キャンパス。<br>
-…のはずが、なんか<strong>遠くの方の某大学</strong>に変更。ちょっと気力を削がれる。</p>
-<h3>試験勉強など</h3>
-<p>結局、何もしませんでした。
-勉強も過去問調査も一切無しの<strong>ガチンコ</strong> (?) で本番に臨みます。<br>
-(そもそも試験受験の目的って半分以上はそれを口実に勉強することだと思うので、何やってるのかよくわかりませんが。。)</p>
-<h2>試験当日</h2>
-<p>昨夜も<a href="https://atcoder.jp/contests/tenka1-2019">競プロ</a>の出来は微妙だったけど、検討はほどほどにして寝たよ。</p>
-<h3>午前試験（9:30〜12:00）</h3>
+	<h2>DeepLabCut とは</h2>
+<p>deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。
+package化されているので簡単に使うことができます。
+googlecolabでもできるそうです。
+詳しい使い方は下記の資料が参考になります。</p>
+<p>日本語資料：<br>
+<a href="https://qiita.com/riichirohira/items/b92723278ba92fb42db9">https://qiita.com/riichirohira/items/b92723278ba92fb42db9</a><br>
+<a href="https://qiita.com/Cony-san/items/62df5365878baaa5e275">https://qiita.com/Cony-san/items/62df5365878baaa5e275</a></p>
+<p>公式サイト(github)：<br>
+<a href="https://github.com/AlexEMG/DeepLabCut">https://github.com/AlexEMG/DeepLabCut</a></p>
+<p>以下は資料にはない僕が使っていく中で気づいた点のメモ書きです。</p>
+<h2>各OSでのインストールの時に気をつけること</h2>
+<h3>Windows</h3>
 <ul>
-<li>4択問題が80問。ひたすらマークしていく。  </li>
-<li>常識で解けるような問題も多い。
-第1問「10進数の7÷32の結果を2進数表記したものはどれか」…高校入試かな？  </li>
-<li>とはいえ、1/4くらいは確信がもてない／よくわからなかった。
-第71問「IoTの応用事例のうちHEMSの説明はどれか」…知らないよ、ごめんね [注1]。  </li>
-<li>でも<strong>結局は4択</strong>だからね。期待値的に8割以上はあるはずだよ [注2]。</li>
+<li>インストールはできる (yamlなしでも) 。</li>
+<li>プロジェクトを作るのに管理者権限が必要。</li>
+<li>ROI取りまでは出来た。
+しかしその後はエラーが多発した。<br>
+(hdf5ファイルが出来ない、numpy import errorなど)</li>
 </ul>
-<p>見直す気力も沸かないし、お昼が気になるから午前試験は途中退出。
-近くにラーメン屋さんを見つけてがっつり食べてきたよ。眠い。。</p>
-<h3>午後試験（13:00〜15:30）</h3>
+<p>(追記：2019/12/9時点 最新版のdeeplabcutではwindowsでも実装できた（研究室の先輩談）)</p>
+<h3>Mac OS</h3>
 <ul>
-<li>4択は少ないけど、やっぱり全問択一式。要求知識は午前より少なくて、<strong>問題文や選択肢の読解力</strong>が一番のポイントっぽい気がする。
-ちゃんと読んで理解できれば答えられる問題がほとんど。  </li>
-<li>「変更管理会議において、仕様変更依頼が採用された場合、担当PMは（　　）する」…うん、<strong>辞任</strong>…と、、あれ？選択肢にない？
-「<strong>仕様変更依頼の内容をプロジェクト計画に反映させて更新</strong>」か、、記述なら死んでたよ。</li>
-<li>「ソフトウェア開発」という5言語から1題選択のセクションがある。<br>
-C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Pythonどこ？</strong> [注3] どこ？軽くパニック。
-何回探しても出てこないから、しぶしぶCを解く。
-レベル的には、昔のセンター試験（N88-BASIC）よりはちょっと上くらい？  </li>
-<li>結局、午後は午前より出来がよくて、9割あるんじゃないかな、たぶん [注2]。</li>
+<li>インストールは、<code>dlc-macOS-CPU.yaml</code> をダウンロードして、</li>
 </ul>
-<p>そんなわけで終了。午後試験はちゃんと最後までいたよ。
-マークがずれたりしてなければ合格だと思う。
-結果発表は<strong>1ヶ月後</strong>。全部マークシートなのに長いねえ。</p>
-<h2>全体を通しての感想</h2>
-<p>この試験の合格基準は午前午後とも<strong>各60%</strong>です。
-僕は理数系出身の学士編入生で、この種の試験には医学部生の中でも強い方だと思います。
-しかしそれを差し引いても、少なくともボーダー60%の試験としては、<strong>難度がきわめて低い</strong>と言わざるをえません。  </p>
-<p>ですので、情報処理技術者試験に興味があっても、能力証明という意味では<strong>レベル2の本試験は会員の皆さんにお勧めしません</strong>。
-レベル3の<a href="https://www.jitec.ipa.go.jp/1_11seido/ap.html"><strong>応用情報技術者試験</strong></a>を検討してみてください。
-尤も、午前試験の超高得点はそんなに簡単じゃないと思うので、勉強してみるのは悪くないかも。
-そのあたりは<a href="http://www.toukei-kentei.jp/about/grade1semi/">統計検定準1級</a>などと似ていると思います。</p>
-<p>何はともあれ、<strong>基本情報技術者</strong>というよくわからない肩書き（<strong>国家資格</strong>？）を手に入れました（たぶん）。
-おしまい。</p>
-<h2>注記</h2>
-<h3>注1 : HEMS</h3>
-<p>HEMS = Home Energy Management System.</p>
-<h3>注2 : 試験結果 (2019.06)</h3>
-<p>試験結果開示は午前80.00点、午後95.00点。
-ほぼ手応え通りながら、午前試験でわからなかった部分は本当にランダム回答の正答率しかなかった模様。。  </p>
-<h3>注3 : Python導入 (2019.11)</h3>
-<p>2020年春期試験から、COBOLが廃止されPythonがめでたく導入されることになりました。<br>
-<a href="https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html">https://www.jitec.ipa.go.jp/1_00topic/topic_20191028.html</a></p>
+<div class="highlight"><pre><span></span><code>conda env create -f dlc-macOS-CPU.yaml
+</code></pre></div>
+
+
+<p>で環境を作成 (<code>pip install deeplabcut</code> はNG)</p>
+<ul>
+<li>GUIでのROI取りをするため、<code>python</code> ではなく、「<code>pythonw</code>」で起動</li>
+</ul>
+<h3>Linux (Ubuntu)</h3>
+<ul>
+<li>pipでもインストール可能、普通に起動すればOK</li>
+</ul>
+<h2>補足情報</h2>
+<ul>
+<li>日本語資料には動画はAVIではないといけないとあったが、実際はMPEGでもMP4でも大丈夫だった。
+また、tensorflow-gpuは1.4.0でも大丈夫だった。(cuda8.0、cuDNN6、python3.5)</li>
+<li>ROIとりでは、目的部位が隠れた場合には点を打たないこともできる</li>
+<li>学習はlossが0.01以下で一定になってきたらOK</li>
+<li>ROIとり枚数の基準としては、20～50枚くらいが良さそう</li>
+</ul>
+<h2>ソースコードの例 (Ubuntuの場合)</h2>
+<h3>トレーニング (train.py)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_new_project</span><span class="p">(</span><span class="s1">&#39;日付&#39;</span><span class="p">,</span><span class="s1">&#39;名前&#39;</span><span class="p">,[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">])</span>
+<span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;生成されたconfig.yamlのパス&quot;</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">extract_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">,</span> <span class="s1">&#39;automatic&#39;</span><span class="p">,</span> <span class="s1">&#39;kmeans&#39;</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">label_frames</span><span class="p">(</span><span class="n">path_config</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_training_dataset</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">train_network</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">displayiters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">saveiters</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</code></pre></div>
+
+
+<ul>
+<li>ホームフォルダにモデル用のフォルダが生成されます。</li>
+<li>configファイルを編集することで設定を変えられます。</li>
+<li><code>deeplabcut.label_frames</code> の部分でGUIが起動してROI取りできるようになります。</li>
+<li>走らせると学習がずっと進むので、十分学習できたらCtrl+Cで止めましょう。</li>
+</ul>
+<h3>推論 (inference.py)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
+<span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;使いたいモデルのconfig.yamlのパス&quot;</span>
+<span class="n">videofile_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">]</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_labeled_video</span><span class="p">(</span><span class="n">path_config_file</span><span class="p">,</span><span class="n">videofile_path</span><span class="p">)</span>
+<span class="n">deeplabcut</span><span class="o">.</span><span class="n">analyze_videos_converth5_to_csv</span><span class="p">(</span><span class="s2">&quot;videoがあるフォルダのパス&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<ul>
+<li>生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。</li>
+</ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jian-ding-shi-yan.html"><i class="fa fa-tag"></i>検定試験</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -216,7 +231,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/05/IPA_FE.html" 
+        data-href="../../../blog/2019/12/deeplabcut.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -232,7 +247,9 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_01.html">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</a></li>
+        <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
+        <li><a href="../../../blog/2019/01/python_visualization.html">Pythonで可視化入門</a></li>
     </ul>
 </div>
 
@@ -241,7 +258,11 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 
         <div class="col-md-3 sidebar-nav" id="sidebar">
 <div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
-
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
 <div class="box-contents">
@@ -258,6 +279,9 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
   <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
     <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
   </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
   <li><a href="./feeds/all.atom.xml" target="_blank" title="Atom Feed">
     <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
   </a></li>
@@ -267,14 +291,22 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 </ul>
 </div>
 </div>
-
-
 <div class="sidebar_box">
 <div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="2"><span class="recent-posts-year">2020</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/19</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/05/studymeeting2020_01.html"><span class="recent-posts-title">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">5/15</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">4/8</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -290,16 +322,6 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/03/ica.html"><span class="recent-posts-title">ICA（独立成分分析）について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/29</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_integration.html"><span class="recent-posts-title">技術ブログをWebサイトに統合しました</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">3/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/03/website_renewal.html"><span class="recent-posts-title">Webサイトをリニューアルしました！</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -307,93 +329,104 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？<strong>Python�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="label label-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="label label-primary">12</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="label label-primary">1</span>
+        海外留学
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">7</span>
         Statistics
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">3</span>
         Shell script
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <i class="fa fa-tag"></i>
-        海外留学
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="label label-primary">1</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <i class="fa fa-tag"></i>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <i class="fa fa-tag"></i>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <i class="fa fa-tag"></i>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <i class="fa fa-tag"></i>
-        論文関連
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">2</span>
         Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/news.html">
-          <i class="fa fa-tag"></i>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-matome.html">
-          <i class="fa fa-tag"></i>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <i class="fa fa-tag"></i>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <i class="fa fa-tag"></i>
-        Machine Learning
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
-          <i class="fa fa-tag"></i>
+          <span class="label label-primary">1</span>
         GitHub
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="label label-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="label label-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="label label-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="label label-primary">3</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="label label-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="label label-primary">3</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="label label-primary">1</span>
+        Unix
+      </a>
+    </span>
 </p>
-</div>
-</div> <!-- col -->
+</div></div> <!-- col -->
 <div class="col-md-12 col-sm-8 col-xs-12">
 <div class="sidebar_box">
 <div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
@@ -469,7 +502,7 @@ if (check_ipynb.length > 0) {
     var article_date = document.getElementsByName('article:date')[0].content;
     var article_year = article_date.slice(0, 4);
     var article_month = article_date.slice(5, 7);
-    var article_category = document.getElementsByName('article:category')[0].content; 
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
     if (parseInt(article_month) <= 3) {
       article_year = article_year - 1;
     }
@@ -497,6 +530,46 @@ if (check_ipynb.length > 0) {
                +'<a href='+colab_url+'>'+colab_img+'</a>';
     doc0.innerHTML= button;
 }
+
+$(function() {
+  const myhost = $(location).attr('hostname'); /* hogehoge.github.io */
+  /* in order to work only on github pages, add:
+  if (! myhost.match(/^[^\.]+\.github\.io$/)) {
+    return;
+  }
+  */
+  const account = myhost.split('.')[0]; /* hogehoge */
+  const repo = account + '/' + myhost + '/blob/master';
+  const root = 'https://colab.research.google.com/github/' + repo;
+  $('a').each(function() {
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
+      let target_split = target.split('/');
+      upper_split.pop();
+      let head = true;
+      while (true) {
+        if (head && target_split[0] == '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      colablink = upper_split.join('/') + '/' + target_split.join('/');
+      $(this).attr('href', colablink);
+    }
+  });
+});
 </script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 !function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
