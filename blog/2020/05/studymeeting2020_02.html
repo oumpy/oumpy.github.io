@@ -8,16 +8,17 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="はじめての競プロ：入力アンチョコメモ"/>
-    <meta property="og:url" content="../../../blog/2019/04/competition_input.html"/>
+    <meta property="og:title" content="【勉強会資料 2020 第2回】Pythonの基本文法"/>
+    <meta property="og:url" content="../../../blog/2020/05/studymeeting2020_02.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="競技プログラミング"/>
+        <meta property="article:tag" content="勉強会"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="はじめての競プロ：入力アンチョコメモ">
+    <meta name="twitter:title" content="【勉強会資料 2020 第2回】Pythonの基本文法">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>はじめての競プロ：入力アンチョコメモ - 大阪大学医学部 Python会</title>
+    <title>【勉強会資料 2020 第2回】Pythonの基本文法 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -105,11 +106,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="competition_input">
+    <meta name="article:slug" property="og:article:slug" content="studymeeting2020_02">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-04-27">
-    <meta name="article:modified" property="og:article:modified" content="2019-04-29">
+    <meta name="article:date" property="og:article:date" content="2020-05-27">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-28">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -117,124 +118,38 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/04/competition_input.html" rel="bookmark"
-     title="Permalink to はじめての競プロ：入力アンチョコメモ">
-    はじめての競プロ：入力アンチョコメモ
+  <a href="../../../blog/2020/05/studymeeting2020_02.html" rel="bookmark"
+     title="Permalink to 【勉強会資料 2020 第2回】Pythonの基本文法">
+    【勉強会資料 2020 第2回】Pythonの基本文法
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-04-27(Sat)
+  2020-05-27(Wed)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/fu-tian.html">富田</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jing-ji-puroguramingu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0&labelColor=black&color=green" alt="tag:競技プログラミング" title="tag:競技プログラミング"></img></a>
+        <a href="../../../tag/mian-qiang-hui.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E5%8B%89%E5%BC%B7%E4%BC%9A&labelColor=black&color=blue" alt="tag:勉強会" title="tag:勉強会"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>入力のパターン</h2>
-<p><strong>Python会競プロ部（？）へようこそ！</strong></p>
-<p>はじめての方には<strong>入力</strong>が最初の鬼門だと思います。<br>
-<a href="https://atcoder.jp">AtCoder</a> のABCで、<strong>これさえ覚えれば大丈夫！</strong>な入力パターンは以下の通り。
-最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。</p>
-<p><strong>言語</strong>は <code>Python3 (3.4.3)</code> (または <code>PyPy3 (2.4.0)</code>) を選択してね。</p>
-<h3>文字列を入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-</code></pre></div>
-
-
-<h3>整数ひとつを入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-</code></pre></div>
-
-
-<p><code>int()</code> が、文字列を整数 (integer) に変換する<strong>呪文</strong>です。</p>
-<h3>整数2つ〜を一行（空白区切り）で入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-</code></pre></div>
-
-
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-</code></pre></div>
-
-
-<p>まず <code>split()</code> で文字列を分割。
-次に <code>map()</code> で <code>int()</code> をそれぞれに適用しています。</p>
-<h3>多数の整数を一行で入力</h3>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-</code></pre></div>
-
-
-<p><code>x</code> は0番目から始まる配列になる。n番目は <code>x[n]</code> で参照します。</p>
-<h2>使用例</h2>
-<h3>問題1</h3>
-<p>整数A, Bが1行 (空白区切り) で</p>
-<div class="highlight"><pre><span></span><code><span class="err">A B</span>
-</code></pre></div>
-
-
-<p>のように与えられる。和 <code>A+B</code> を出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
-</code></pre></div>
-
-
-<h3>問題2</h3>
-<p>1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目にN個の整数 <code>x1,..,xN</code> が、</p>
-<div class="highlight"><pre><span></span><code><span class="err">N K</span>
-<span class="err">x1 x2 x3 ... xN</span>
-</code></pre></div>
-
-
-<p>のように与えられる。
-このうちK番目の整数xKを出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p>配列が0番目からであることに注意。
-<code>N</code> は実は使わなくてよい。<br>
-ちょっと難しいパターンだが、B問題ではちょくちょく出てくる。</p>
-<h3>問題3</h3>
-<p><s>(このパターンはたぶんC問題以降のみ。)</s> B問題にも時々出ます。<br>
-1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目〜N+1行目に <code>N</code>個の整数 <code>x1,..,xN</code> が、</p>
-<div class="highlight"><pre><span></span><code><span class="err">N K</span>
-<span class="err">x1</span>
-<span class="err">x2</span>
-<span class="err">x3</span>
-<span class="err">...</span>
-<span class="err">...</span>
-<span class="err">xN</span>
-</code></pre></div>
-
-
-<p>のように与えられる。
-このうち <code>K</code> 番目の整数 <code>xK</code> を出力せよ。</p>
-<p><strong>解答例</strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p>ループとの組み合わせ。<s>C問題</s> B問題以降でときどき必要。</p>
-<p>以上です。おしまい。</p>
+	<p>2020.05.27開催のオンライン勉強会の資料を公開します。
+内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
+リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。</p>
+<h2>Pythonの基本文法</h2>
+<p><a href="../../../blog/2020/05/attach/studymeeting2020_02_attach/勉強会_python基本文法.ipynb">Jupyter Notebook @Google Colab</a></p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
+	<a href="../../../tag/mian-qiang-hui.html"><i class="fa fa-tag"></i>勉強会</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -248,7 +163,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/04/competition_input.html" 
+        data-href="../../../blog/2020/05/studymeeting2020_02.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -264,8 +179,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/06/atcoder_beginners_selection.html">AtCoder Beginners Selection 雑感</a></li>
-        <li><a href="../../../blog/2019/03/julia_python_competition.html">JuliaとPythonと競技プログラミング</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_01.html">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</a></li>
+        <li><a href="../../../blog/2019/12/deeplabcut.html">deeplabcutの使い方まとめ</a></li>
+        <li><a href="../../../blog/2019/05/matrix_numpy.html">行列演算の初歩の初歩とNumPy</a></li>
     </ul>
 </div>
 
