@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="./previews/refs/heads/feature/multimenu/" rel="alternate"></link><link href="./previews/refs/heads/feature/multimenu/feeds/all.atom.xml" rel="self"></link><id>./previews/refs/heads/feature/multimenu/</id><updated>2020-05-19T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="./previews/refs/heads/feature/multimenu/" rel="alternate"></link><link href="./previews/refs/heads/feature/multimenu/feeds/all.atom.xml" rel="self"></link><id>./previews/refs/heads/feature/multimenu/</id><updated>2020-05-28T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
+内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
+リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
+&lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
+&lt;p&gt;&lt;a href="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/feature/multimenu/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
 &lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
-    src="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_01_attach/200519_python会入門.pdf"
+    src="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_01/200519_python会入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;h2&gt;Pythonの環境構築&lt;/h2&gt;
@@ -23,7 +27,7 @@
 &lt;p&gt;で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。&lt;/p&gt;
 &lt;h2&gt;Python Tutorial&lt;/h2&gt;
-&lt;p&gt;&lt;a href="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_01_attach/Python_tutorial.ipynb"&gt;Jupyter Notebook @Google Colab&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./previews/refs/heads/feature/multimenu/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;コードのみ以下に掲載します。&lt;/p&gt;
 &lt;h3&gt;NumPyで数値計算&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -76,7 +80,189 @@ PandocをインストールすればWordやLaTeXなどに変換可能。&lt;/p&g
 &lt;h3&gt;Google Colabについて&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://colab.research.google.com"&gt;Google Colaboratory&lt;/a&gt;はJupyter Notebookをブラウザ上で使えるようにGoogleが提供しているサービス。
 Pythonをインストールする必要はありません。
-また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>医学部公認団体申請を行いました</title><link href="./previews/refs/heads/feature/multimenu/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-15:./previews/refs/heads/feature/multimenu/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
+また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>赤外線対応エアコンをインターネットを用いて操作する方法</title><link href="./previews/refs/heads/feature/multimenu/blog/2020/05/aircon_via_internet.html" rel="alternate"></link><published>2020-05-18T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>吉田</name></author><id>tag:None,2020-05-18:./previews/refs/heads/feature/multimenu/blog/2020/05/aircon_via_internet.html</id><summary type="html">著者Twitter：&lt;a href="https://twitter.com/y7tsy"&gt;https://twitter.com/y7tsy&lt;/a&gt; 注:この記事は、作成の時間の都合と読みやすさを優先するために論文のフォーマットは採用していません。 また、新規性に欠けるところはおよそリンクを貼るだけとしております。 &lt;strong&gt;システム概要&lt;/strong&gt;   図1-1 システム概略  システムの概略....</summary><content type="html">&lt;p&gt;著者Twitter：&lt;a href="https://twitter.com/y7tsy"&gt;https://twitter.com/y7tsy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注:この記事は、作成の時間の都合と読みやすさを優先するために論文のフォーマットは採用していません。
+また、新規性に欠けるところはおよそリンクを貼るだけとしております。&lt;/p&gt;
+&lt;h2&gt;&lt;span id="sec01"&gt;&lt;/span&gt;システム概要&lt;/h2&gt;
+&lt;p&gt;&lt;figure id="fig11"&gt;
+  &lt;img src="./previews/refs/heads/feature/multimenu/blog/2020/05/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" /&gt;
+  &lt;figcaption&gt;図1-1 システム概略&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;システムの概略を上&lt;a href="#fig11"&gt;図1-1&lt;/a&gt;に示す。
+スマートフォンやパソコンで、特定のサイトを開くこと、また、google assistantに「OK google,冷房/除湿/暖房をいれて」「OK google、エアコンを止めて」と指示することで、IFTTT、beebotte、rapsberry pi、ESP32を経由し、ESP32が特定の赤外線のシグナルを発信する。
+これによってエアコンを操作するのである。
+なお、ラインへの通知はおよそデバッグ用である。&lt;/p&gt;
+&lt;h2&gt;ブラウザでの情報処理について&lt;/h2&gt;
+&lt;p&gt;多くのインターネット上のブログでは、スマートスピーカから情報を送信するものが多くみられる。
+しかし、外出先からの動作を考慮し、また、拡張性の高さを求め、ブラウザからの指令を行えるように設計した。
+もちろん、このブラウザは作成者しかリンクを知らないため、第三者は利用できない。
+それに加え、パスワードも実装してある。&lt;/p&gt;
+&lt;p&gt;執筆時のブラウザ画面を下図1-2に載せる。
+&lt;figure id="fig12"&gt;
+  &lt;img src="./previews/refs/heads/feature/multimenu/blog/2020/05/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" /&gt;
+  &lt;figcaption&gt;図1-2 ブラウザ画面&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;ここで、サーバーはXSERVERを利用している。
+これは、オンラインのレンタルサーバであり、無料でPHPサーバを作成できる。
+当初、raspberry piにこのサーバ機能を持たせようと考えたが、ipアドレスの設定に手間がかかることを踏まえ、却下した。
+さて、このサーバにはいくつかのファイルが存在する。
+上&lt;a href="#fig12"&gt;図1-2&lt;/a&gt;内上のボタンにリンクが紐づけられており、指定したPHPを実行するように設定されている。
+このPHPがwebhookを介し、IFTTTに指示を出す。
+&lt;a href="#appendix01"&gt;附録1&lt;/a&gt;として、PHPからwebhookを介してIFTTTTのトリガーを起動させる最低限のプログラムを載せておく。
+上&lt;a href="#fig12"&gt;図1-2&lt;/a&gt;において、最後に操作された日時と時間が表示されているのが分かる。
+ブラウザから操作されたタイミングをテキストファイルで保存しており、その最新の日時を表示させているのである。
+これはrapberry piにサーバを担わせていた仕様の名残でもある。
+この情報を機械学習などを用いて解析することで、エアコンを操作するタイミングの特徴を抽出し、ラインなどに「冷房をつけましょうか」といった通知を送るような機能の実装を計画していた。&lt;/p&gt;
+&lt;h2&gt;google assistant、IFTTT及びbeebotteの処理について&lt;/h2&gt;
+&lt;p&gt;先に述べておくが、開発はIFTTTよりもbeebotteの設定を先に行った。
+これは、IFTTTの設定時にbeebotteの情報が必要だからである。&lt;/p&gt;
+&lt;p&gt;さて、google assistantとIFTTTの連携は非常にシンプルに構成できる。
+私は
+&lt;a href="https://qiita.com/sesame525/items/fba27b41bec3aebd3de0"&gt;https://qiita.com/sesame525/items/fba27b41bec3aebd3de0&lt;/a&gt;
+を主に参考にした。
+また、IFTTTからbeebotteの設定は
+&lt;a href="https://qiita.com/minatomirai21/items/4c4e777b43ede1e42900"&gt;https://qiita.com/minatomirai21/items/4c4e777b43ede1e42900&lt;/a&gt;
+ (*3-1) を参考にした。
+ さて、肝心のIFTTTの設定だが、ブラウザ側から、PHPがwebhookを介してIFTTTにPOSTする場合、IFTTTのIF、THIS、THEN、THATのTHISをwebhookに設定する。
+ THATの設定は *3-1 に従う。
+ 即ち、THIS、THAT両方ともwebhookというアップレットが必要である。
+ ここで、実装した機能は、冷房ON、除湿ON、暖房ON、エアコンOFFの4種類である。
+ これをブラウザとgoogle assistantからそれぞれ情報を得るため、合計8個のアップレットが必要となるのである。
+ IFTTTの設定を下&lt;a href="#table31"&gt;表3-1&lt;/a&gt;に示す。
+ なお、ラインへの通知はデバッグ用のため省略した。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;THIS&lt;/th&gt;
+&lt;th&gt;THAT&lt;/th&gt;
+&lt;th&gt;POSTデータ(JSON)&lt;br&gt;※あくまで一例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ブラウザ⇒冷房ON&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ブラウザ⇒除湿ON&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ブラウザ⇒暖房ON&lt;/td&gt;
+&lt;td&gt;webhokks&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ブラウザ⇒エアコンOFF&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google assistant⇒冷房ON&lt;/td&gt;
+&lt;td&gt;Google assistant&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google assistant⇒除湿ON&lt;/td&gt;
+&lt;td&gt;Google assistant&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google assistant⇒暖房ON&lt;/td&gt;
+&lt;td&gt;Google assistant&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Google assistant⇒エアコンOFF&lt;/td&gt;
+&lt;td&gt;Google assistant&lt;/td&gt;
+&lt;td&gt;webhooks&lt;/td&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;span id="table31"&gt;表3-1&lt;/span&gt; IFTTTの設定&lt;/p&gt;
+&lt;h2&gt;MQTT及びrapsberry piのプログラムについて&lt;/h2&gt;
+&lt;p&gt;raspberry piがMQTT通信を用いて、beebotteからの情報を受け取る。
+pythonで処理できるため、処理が簡単になる。
+&lt;a href="https://qiita.com/msquare33/items/9f0312585bb4707c686b"&gt;https://qiita.com/msquare33/items/9f0312585bb4707c686b&lt;/a&gt;
+を主に参考にした。
+ここで、簡単にraspberry piについて説明する。
+raspberry piは数千円で購入できる、linux様のコンピュータである。
+wifiやbluetooth、usbなどインターフェースも申し分なく、サーバーコンピュータとしては省電力である。
+詳しくはこちらを参考にされたい。
+今回、常に起動させておく必要があり省エネであることが求められ、また、スレーブの増設への対応の設定を行うためのユーザーインターフェースが整っており、安価であるという点からこのraspberry piを選定した。 &lt;/p&gt;
+&lt;h2&gt;pythonからbluetoothを用いたESP32との通信&lt;/h2&gt;
+&lt;p&gt;raspberry piはサーバであり、そこから複数の距離の離れたスレーブに情報を送信する。
+そしてそのスレーブが各々の家電を操作するのである。サーバとスレーブ(クライアント)間の無線通信は技適を取得している製品を用いるのが望ましい。
+また、電子回路を制御するためのマイコンがあれば、赤外線LEDを制御しやすい。
+このような、技適を取得し、扱いやすいマイコンの機能を有するESP32を採用した。
+これは900円という安さながら、wifi、bluetoothも利用できるマイコンである。
+その中でも扱いやすくなったこのモジュールを利用した。
+bluetoothを利用するにあたって、raspberry piはpythonで、ESP32がarduino IDEというC++様な言語を用いた。
+&lt;a href="#appendix02"&gt;附録2&lt;/a&gt;として、pythonでbluetoothを送信するプログラムを、&lt;a href="#appendix03"&gt;附録3&lt;/a&gt;としてESP32でbluetoothを受信するプログラムを載せる。&lt;/p&gt;
+&lt;h2&gt;赤外線LED及び受信機の回路設計とプログラムについて&lt;/h2&gt;
+&lt;p&gt;どのような赤外線信号を出せばエアコンが動くかは、その付属のリモコンの信号を解析するのが正確である。
+ここで、それぞれ受信と送信を行う回路を組まなければならない。
+受信機の回路は
+&lt;a href="https://qiita.com/takjg/items/e6b8af53421be54b62c9"&gt;https://qiita.com/takjg/items/e6b8af53421be54b62c9&lt;/a&gt;
+を参考に、赤外線LEDの回路は
+&lt;a href="https://www.hibihogehoge.com/2017/04/arduinomosfet1.html"&gt;https://www.hibihogehoge.com/2017/04/arduinomosfet1.html&lt;/a&gt;
+を参考に組んだ。&lt;/p&gt;
+&lt;p&gt;プログラムは二つ用意する必要がある。
+最初にリモコンの赤外線シグナルを受信し解析するプログラムで赤外線シグナルのデータを読み込むプログラム(プログラム6-Aとする)と、そこで出力されたデータをもとに赤外線LEDを発行させるプログラムである(プログラム6-Bとする)。
+ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8266を用いた。
+プログラム6-AはサンプルスケッチのIRrecvDumpV2のピン番号を設定し直したプログラムである。
+これを書き込み、シリアルモニタを起動させ、リモコンのボタンを押すと赤外線のシグナルの構造データを得られる。
+プログラム6-BはサンプルスケッチのIRsendDEMOにプログラム6-Aで得られたデータを書き込んだものである。&lt;/p&gt;
+&lt;h2&gt;今後の展望&lt;/h2&gt;
+&lt;p&gt;&lt;a href="#sec01"&gt;1章&lt;/a&gt;でも述べたように、それぞれの操作と時間の関係を解析し、ユーザに提案するようなシステムを構築したい。&lt;/p&gt;
+&lt;p&gt;また、寝室の蛍光灯やカーテンの開閉をこのシステムに組み込みたい(下&lt;a href="#fig71"&gt;図7-1&lt;/a&gt;)。
+これは起床を促進させる可能性があると考えている。そして、&lt;a href="#fig12"&gt;図1-2&lt;/a&gt;のブラウザ画面のような見た目が良くないものを、CSSを用いて扱いやすく、視覚的に好印象を与えるようなものに改良したい。&lt;/p&gt;
+&lt;p&gt;今、新型コロナウイルスにより加工機械が利用できないため、新しい端末の開発の速度が低迷している。&lt;/p&gt;
+&lt;figure id="fig71"&gt;
+  &lt;img src="./previews/refs/heads/feature/multimenu/blog/2020/05/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" /&gt;
+  &lt;figcaption&gt;図7-1 今後の展望&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2&gt;附録&lt;/h2&gt;
+&lt;h3&gt;&lt;span id="appendix01"&gt;附録1&lt;/span&gt; : PHPからwebhookを介してIFTTTTのトリガーを起動させるプログラム&lt;/h3&gt;
+&lt;p&gt;参考にしたサイト &lt;a href="https://amg-solution.jp/blog/14245"&gt;https://amg-solution.jp/blog/14245&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;＜著作権を鑑み、消去しました＞&lt;/p&gt;
+&lt;h3&gt;&lt;span id="appendix02"&gt;附録2&lt;/span&gt; : pythonでbluetoothを用いてテキストデータを送信するプログラム&lt;/h3&gt;
+&lt;p&gt;参考にしたサイト &lt;a href="https://stackoverrun.com/ja/q/10556918"&gt;https://stackoverrun.com/ja/q/10556918&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;＜著作権を鑑み、消去しました＞&lt;/p&gt;
+&lt;h3&gt;&lt;span id="appendix03"&gt;附録3&lt;/span&gt; : arduino IDEでbluetoothを用いてテキストデータを受信するプログラム&lt;/h3&gt;
+&lt;p&gt;以下はセミコロン(;)までを読み込むプログラムである。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;quot;BluetoothSerial.h&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;BluetoothSerial&lt;/span&gt; &lt;span class="n"&gt;SerialBT&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;SerialBT&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ESP32test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;loop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;SerialBT&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;available&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;receiveDeta&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="n"&gt;gotchar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="n"&gt;gotchar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SerialBT&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+      &lt;span class="n"&gt;receiveData&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;receiveDeta&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gotchar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gotchar&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;59&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;receiveDeta&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>医学部公認団体申請を行いました</title><link href="./previews/refs/heads/feature/multimenu/news/2020/05/officialize_request.html" rel="alternate"></link><published>2020-05-15T00:00:00+09:00</published><updated>2020-05-15T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-15:./previews/refs/heads/feature/multimenu/news/2020/05/officialize_request.html</id><summary type="html">大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。 2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。 今年度こそ医学部から正式に承認されること....</summary><content type="html">&lt;p&gt;大阪大学医学部に、学部公認学生団体となるための申請書類を提出しました。&lt;/p&gt;
 &lt;p&gt;2019年度にも申請していましたが、2017年結成の本会は活動実績不足などの理由から公認が見送られています。
 今回の申請書類には昨年度の新たな活動実績も多く盛り込みました。&lt;/p&gt;
 &lt;p&gt;今年度こそ医学部から正式に承認されることを期待しています！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>線形混合効果モデル</title><link href="./previews/refs/heads/feature/multimenu/blog/2020/04/linear_mixed_model.html" rel="alternate"></link><published>2020-04-08T00:00:00+09:00</published><updated>2020-04-08T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:None,2020-04-08:./previews/refs/heads/feature/multimenu/blog/2020/04/linear_mixed_model.html</id><summary type="html">&lt;strong&gt;経時測定データ解析&lt;/strong&gt; 複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、&lt;strong&gt;経時測定データ&lt;/strong&gt;（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。 &lt;strong&gt;経時測定データ解析の特徴&lt;/strong&gt;  個体間誤差だけでなく、個体内誤差も考慮する必要が....</summary><content type="html">&lt;h2&gt;経時測定データ解析&lt;/h2&gt;
@@ -2474,10 +2660,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="be606994-c953-40b2-8dc8-5ddf844093e6"&gt;&lt;/div&gt;
+&lt;div id="7604d9db-0a57-43ac-a774-82dbff3c927d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#be606994-c953-40b2-8dc8-5ddf844093e6');
+var element = $('#7604d9db-0a57-43ac-a774-82dbff3c927d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2703,7 +2889,7 @@ var element = $('#be606994-c953-40b2-8dc8-5ddf844093e6');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>会規約を制定しました</title><link href="./previews/refs/heads/feature/multimenu/news/2020/04/establish_constitution.html" rel="alternate"></link><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-04-01:./previews/refs/heads/feature/multimenu/news/2020/04/establish_constitution.html</id><summary type="html">このたび本会は、 &lt;a href="./previews/refs/heads/feature/multimenu/constitution.html"&gt;大阪大学医学部Python会規約&lt;/a&gt; をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。 今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。 規約の内容は従来からの会運営体制....</summary><content type="html">&lt;p&gt;このたび本会は、
+</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>会規約を制定しました</title><link href="./previews/refs/heads/feature/multimenu/news/2020/04/establish_constitution.html" rel="alternate"></link><published>2020-04-01T00:00:00+09:00</published><updated>2020-05-27T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-04-01:./previews/refs/heads/feature/multimenu/news/2020/04/establish_constitution.html</id><summary type="html">このたび本会は、 &lt;a href="./previews/refs/heads/feature/multimenu/constitution.html"&gt;大阪大学医学部Python会規約&lt;/a&gt; をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。 今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。 規約の内容は従来からの会運営体制....</summary><content type="html">&lt;p&gt;このたび本会は、
 &lt;a href="./previews/refs/heads/feature/multimenu/constitution.html"&gt;大阪大学医学部Python会規約&lt;/a&gt;
 をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。&lt;/p&gt;
 &lt;p&gt;今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。
