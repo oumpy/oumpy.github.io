@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-28T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:oumpy.github.io,2020-05-27:/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_02_attach/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2020-05-28T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:oumpy.github.io,2020-05-27:/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
 &lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_02_attach/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-05-19:/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:oumpy.github.io,2020-05-19:/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
 &lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
-    src="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01_attach/200519_python会入門.pdf"
+    src="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01/200519_python会入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;h2&gt;Pythonの環境構築&lt;/h2&gt;
@@ -27,7 +27,7 @@
 &lt;p&gt;で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。&lt;/p&gt;
 &lt;h2&gt;Python Tutorial&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01_attach/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;コードのみ以下に掲載します。&lt;/p&gt;
 &lt;h3&gt;NumPyで数値計算&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -2660,10 +2660,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="40753369-5536-44cb-be77-56199cbabac9"&gt;&lt;/div&gt;
+&lt;div id="87477f5c-edbb-4037-825e-733cb38e96ec"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#40753369-5536-44cb-be77-56199cbabac9');
+var element = $('#87477f5c-edbb-4037-825e-733cb38e96ec');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
