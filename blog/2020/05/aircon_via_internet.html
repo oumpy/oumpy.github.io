@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="シェルコマンドに触れてみよう"/>
-    <meta property="og:url" content="../../../blog/2020/02/shellscript_tutorial.html"/>
+    <meta property="og:title" content="赤外線対応エアコンをインターネットを用いて操作する方法"/>
+    <meta property="og:url" content="../../../blog/2020/05/aircon_via_internet.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Shell script"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="シェルコマンドに触れてみよう">
+    <meta name="twitter:title" content="赤外線対応エアコンをインターネットを用いて操作する方法">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/logo.jpg"/>
 
-    <title>シェルコマンドに触れてみよう - 大阪大学医学部 Python会</title>
+    <title>赤外線対応エアコンをインターネットを用いて操作する方法 - 大阪大学医学部 Python会</title>
 
    
         <link rel="stylesheet"
@@ -105,10 +105,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="shellscript_tutorial">
+    <meta name="article:slug" property="og:article:slug" content="aircon_via_internet">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2020-02-26">
+    <meta name="article:date" property="og:article:date" content="2020-05-18">
+    <meta name="article:modified" property="og:article:modified" content="2020-05-23">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -116,204 +117,214 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2020/02/shellscript_tutorial.html" rel="bookmark"
-     title="Permalink to シェルコマンドに触れてみよう">
-    シェルコマンドに触れてみよう
+  <a href="../../../blog/2020/05/aircon_via_internet.html" rel="bookmark"
+     title="Permalink to 赤外線対応エアコンをインターネットを用いて操作する方法">
+    赤外線対応エアコンをインターネットを用いて操作する方法
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2020-02-26(Wed)
+  2020-05-18(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/shan-tian.html">山田</a>    in 
+<a href="../../../author/ji-tian.html">吉田</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/shell-script.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Shell%20script&labelColor=black&color=green" alt="tag:Shell script" title="tag:Shell script"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>シェルって？　コマンドってなに？</h2>
-<p>詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
-- コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
-- シェル：命令をコンピュータに伝えるプログラムのこと  </p>
-<p>つまるところ、Pythonに限らず<strong>プログラミングをやりたければ必須の内容</strong>というわけです！<br>
-これができないと、極論プログラミングを始めることもできないかもしれません。  （installすらできないかも...）<br>
-ですが、複雑なものではないので、下を読んでさくっと学んでしまいましょう！</p>
-<ul>
-<li>コマンドについてもっと知りたい方へ  </li>
-<li><a href="https://qiita.com/lrf141/items/6c01d2f7afff79cd7286">Linux初心者のシェルスクリプト入門 - Qiita</a>  </li>
-<li><a href="https://eng-entrance.com/linux-what-is-command">【初心者用】Linuxのコマンドとは？とコマンドラインの表示方法</a>  </li>
-<li><a href="https://www.sejuku.net/blog/5465">ブクマ必至！Linuxコマンド一覧表【全33種】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト</a>  </li>
-</ul>
-<h2>シェルコマンドを学ぶ上でのポイント</h2>
-<ol>
-<li>ムリにおぼえようとしない</li>
-<li>日頃使っていたら自然と覚えていく</li>
-<li>コマンドの名前は英語の省略かも？</li>
-<li>忘れたら、すぐググればよし</li>
-</ol>
-<h2>シェルコマンドってどういう風に書くの？</h2>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span>
-$ ls
-$ emacs
+	<p>著者Twitter：<a href="https://twitter.com/y7tsy">https://twitter.com/y7tsy</a></p>
+<p>注:この記事は、作成の時間の都合と読みやすさを優先するために論文のフォーマットは採用していません。
+また、新規性に欠けるところはおよそリンクを貼るだけとしております。</p>
+<h2><span id="sec01"></span>システム概要</h2>
+<p><figure id="fig11">
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" />
+  <figcaption>図1-1 システム概略</figcaption>
+</figure></p>
+<p>システムの概略を上<a href="#fig11">図1-1</a>に示す。
+スマートフォンやパソコンで、特定のサイトを開くこと、また、google assistantに「OK google,冷房/除湿/暖房をいれて」「OK google、エアコンを止めて」と指示することで、IFTTT、beebotte、rapsberry pi、ESP32を経由し、ESP32が特定の赤外線のシグナルを発信する。
+これによってエアコンを操作するのである。
+なお、ラインへの通知はおよそデバッグ用である。</p>
+<h2>ブラウザでの情報処理について</h2>
+<p>多くのインターネット上のブログでは、スマートスピーカから情報を送信するものが多くみられる。
+しかし、外出先からの動作を考慮し、また、拡張性の高さを求め、ブラウザからの指令を行えるように設計した。
+もちろん、このブラウザは作成者しかリンクを知らないため、第三者は利用できない。
+それに加え、パスワードも実装してある。</p>
+<p>執筆時のブラウザ画面を下図1-2に載せる。
+<figure id="fig12">
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" />
+  <figcaption>図1-2 ブラウザ画面</figcaption>
+</figure></p>
+<p>ここで、サーバーはXSERVERを利用している。
+これは、オンラインのレンタルサーバであり、無料でPHPサーバを作成できる。
+当初、raspberry piにこのサーバ機能を持たせようと考えたが、ipアドレスの設定に手間がかかることを踏まえ、却下した。
+さて、このサーバにはいくつかのファイルが存在する。
+上<a href="#fig12">図1-2</a>内上のボタンにリンクが紐づけられており、指定したPHPを実行するように設定されている。
+このPHPがwebhookを介し、IFTTTに指示を出す。
+<a href="#appendix01">附録1</a>として、PHPからwebhookを介してIFTTTTのトリガーを起動させる最低限のプログラムを載せておく。
+上<a href="#fig12">図1-2</a>において、最後に操作された日時と時間が表示されているのが分かる。
+ブラウザから操作されたタイミングをテキストファイルで保存しており、その最新の日時を表示させているのである。
+これはrapberry piにサーバを担わせていた仕様の名残でもある。
+この情報を機械学習などを用いて解析することで、エアコンを操作するタイミングの特徴を抽出し、ラインなどに「冷房をつけましょうか」といった通知を送るような機能の実装を計画していた。</p>
+<h2>google assistant、IFTTT及びbeebotteの処理について</h2>
+<p>先に述べておくが、開発はIFTTTよりもbeebotteの設定を先に行った。
+これは、IFTTTの設定時にbeebotteの情報が必要だからである。</p>
+<p>さて、google assistantとIFTTTの連携は非常にシンプルに構成できる。
+私は
+<a href="https://qiita.com/sesame525/items/fba27b41bec3aebd3de0">https://qiita.com/sesame525/items/fba27b41bec3aebd3de0</a>
+を主に参考にした。
+また、IFTTTからbeebotteの設定は
+<a href="https://qiita.com/minatomirai21/items/4c4e777b43ede1e42900">https://qiita.com/minatomirai21/items/4c4e777b43ede1e42900</a>
+ (*3-1) を参考にした。
+ さて、肝心のIFTTTの設定だが、ブラウザ側から、PHPがwebhookを介してIFTTTにPOSTする場合、IFTTTのIF、THIS、THEN、THATのTHISをwebhookに設定する。
+ THATの設定は *3-1 に従う。
+ 即ち、THIS、THAT両方ともwebhookというアップレットが必要である。
+ ここで、実装した機能は、冷房ON、除湿ON、暖房ON、エアコンOFFの4種類である。
+ これをブラウザとgoogle assistantからそれぞれ情報を得るため、合計8個のアップレットが必要となるのである。
+ IFTTTの設定を下<a href="#table31">表3-1</a>に示す。
+ なお、ラインへの通知はデバッグ用のため省略した。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>THIS</th>
+<th>THAT</th>
+<th>POSTデータ(JSON)<br>※あくまで一例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ブラウザ⇒冷房ON</td>
+<td>webhooks</td>
+<td>webhooks</td>
+<td>A</td>
+</tr>
+<tr>
+<td>ブラウザ⇒除湿ON</td>
+<td>webhooks</td>
+<td>webhooks</td>
+<td>B</td>
+</tr>
+<tr>
+<td>ブラウザ⇒暖房ON</td>
+<td>webhokks</td>
+<td>webhooks</td>
+<td>C</td>
+</tr>
+<tr>
+<td>ブラウザ⇒エアコンOFF</td>
+<td>webhooks</td>
+<td>webhooks</td>
+<td>D</td>
+</tr>
+<tr>
+<td>Google assistant⇒冷房ON</td>
+<td>Google assistant</td>
+<td>webhooks</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Google assistant⇒除湿ON</td>
+<td>Google assistant</td>
+<td>webhooks</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Google assistant⇒暖房ON</td>
+<td>Google assistant</td>
+<td>webhooks</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Google assistant⇒エアコンOFF</td>
+<td>Google assistant</td>
+<td>webhooks</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p><span id="table31">表3-1</span> IFTTTの設定</p>
+<h2>MQTT及びrapsberry piのプログラムについて</h2>
+<p>raspberry piがMQTT通信を用いて、beebotteからの情報を受け取る。
+pythonで処理できるため、処理が簡単になる。
+<a href="https://qiita.com/msquare33/items/9f0312585bb4707c686b">https://qiita.com/msquare33/items/9f0312585bb4707c686b</a>
+を主に参考にした。
+ここで、簡単にraspberry piについて説明する。
+raspberry piは数千円で購入できる、linux様のコンピュータである。
+wifiやbluetooth、usbなどインターフェースも申し分なく、サーバーコンピュータとしては省電力である。
+詳しくはこちらを参考にされたい。
+今回、常に起動させておく必要があり省エネであることが求められ、また、スレーブの増設への対応の設定を行うためのユーザーインターフェースが整っており、安価であるという点からこのraspberry piを選定した。 </p>
+<h2>pythonからbluetoothを用いたESP32との通信</h2>
+<p>raspberry piはサーバであり、そこから複数の距離の離れたスレーブに情報を送信する。
+そしてそのスレーブが各々の家電を操作するのである。サーバとスレーブ(クライアント)間の無線通信は技適を取得している製品を用いるのが望ましい。
+また、電子回路を制御するためのマイコンがあれば、赤外線LEDを制御しやすい。
+このような、技適を取得し、扱いやすいマイコンの機能を有するESP32を採用した。
+これは900円という安さながら、wifi、bluetoothも利用できるマイコンである。
+その中でも扱いやすくなったこのモジュールを利用した。
+bluetoothを利用するにあたって、raspberry piはpythonで、ESP32がarduino IDEというC++様な言語を用いた。
+<a href="#appendix02">附録2</a>として、pythonでbluetoothを送信するプログラムを、<a href="#appendix03">附録3</a>としてESP32でbluetoothを受信するプログラムを載せる。</p>
+<h2>赤外線LED及び受信機の回路設計とプログラムについて</h2>
+<p>どのような赤外線信号を出せばエアコンが動くかは、その付属のリモコンの信号を解析するのが正確である。
+ここで、それぞれ受信と送信を行う回路を組まなければならない。
+受信機の回路は
+<a href="https://qiita.com/takjg/items/e6b8af53421be54b62c9">https://qiita.com/takjg/items/e6b8af53421be54b62c9</a>
+を参考に、赤外線LEDの回路は
+<a href="https://www.hibihogehoge.com/2017/04/arduinomosfet1.html">https://www.hibihogehoge.com/2017/04/arduinomosfet1.html</a>
+を参考に組んだ。</p>
+<p>プログラムは二つ用意する必要がある。
+最初にリモコンの赤外線シグナルを受信し解析するプログラムで赤外線シグナルのデータを読み込むプログラム(プログラム6-Aとする)と、そこで出力されたデータをもとに赤外線LEDを発行させるプログラムである(プログラム6-Bとする)。
+ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8266を用いた。
+プログラム6-AはサンプルスケッチのIRrecvDumpV2のピン番号を設定し直したプログラムである。
+これを書き込み、シリアルモニタを起動させ、リモコンのボタンを押すと赤外線のシグナルの構造データを得られる。
+プログラム6-BはサンプルスケッチのIRsendDEMOにプログラム6-Aで得られたデータを書き込んだものである。</p>
+<h2>今後の展望</h2>
+<p><a href="#sec01">1章</a>でも述べたように、それぞれの操作と時間の関係を解析し、ユーザに提案するようなシステムを構築したい。</p>
+<p>また、寝室の蛍光灯やカーテンの開閉をこのシステムに組み込みたい(下<a href="#fig71">図7-1</a>)。
+これは起床を促進させる可能性があると考えている。そして、<a href="#fig12">図1-2</a>のブラウザ画面のような見た目が良くないものを、CSSを用いて扱いやすく、視覚的に好印象を与えるようなものに改良したい。</p>
+<p>今、新型コロナウイルスにより加工機械が利用できないため、新しい端末の開発の速度が低迷している。</p>
+<figure id="fig71">
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" />
+  <figcaption>図7-1 今後の展望</figcaption>
+</figure>
+
+<h2>附録</h2>
+<h3><span id="appendix01">附録1</span> : PHPからwebhookを介してIFTTTTのトリガーを起動させるプログラム</h3>
+<p>参考にしたサイト <a href="https://amg-solution.jp/blog/14245">https://amg-solution.jp/blog/14245</a></p>
+<p>＜著作権を鑑み、消去しました＞</p>
+<h3><span id="appendix02">附録2</span> : pythonでbluetoothを用いてテキストデータを送信するプログラム</h3>
+<p>参考にしたサイト <a href="https://stackoverrun.com/ja/q/10556918">https://stackoverrun.com/ja/q/10556918</a></p>
+<p>＜著作権を鑑み、消去しました＞</p>
+<h3><span id="appendix03">附録3</span> : arduino IDEでbluetoothを用いてテキストデータを受信するプログラム</h3>
+<p>以下はセミコロン(;)までを読み込むプログラムである。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;BluetoothSerial.h&quot;</span><span class="cp"></span>
+
+<span class="n">BluetoothSerial</span> <span class="n">SerialBT</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">SerialBT</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="s">&quot;ESP32test&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">SerialBT</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">receiveDeta</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">gotchar</span><span class="p">;</span>
+    <span class="k">do</span> <span class="p">{</span>
+      <span class="n">gotchar</span> <span class="o">=</span> <span class="n">SerialBT</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+      <span class="n">receiveData</span> <span class="o">=</span> <span class="n">receiveDeta</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">gotchar</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">gotchar</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">59</span><span class="p">);</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">receiveDeta</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-
-
-<p>などのように、黒い画面（terminal、cmd）上にて、一つ一つの処理ごとに命令を書いてEnterキーで実行していきます。  </p>
-<h2>ランク別よく使うシェルコマンド</h2>
-<p>筆者の独断と偏見による、日頃よく使うコマンドを3段階にわけてまとめてみました。<br>
-詳しい使い方は各自調べてもらいたいので、ここでは「何ができるか」だけ簡単に書いておきます。(<strong>自分で調べていく力</strong>がプログラミングには大事ですよ！)<br>
-ランク1、2あたりはググらずに使えるようになるといいと思います。<br>
-もちろんこの他にも様々なコマンドがありますが、最初の1歩として学んでみて下さい。</p>
-<h3>ランク1</h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd</td>
-<td>ディレクトリ移動</td>
-</tr>
-<tr>
-<td>pwd</td>
-<td>カレントディレクトリを表示</td>
-</tr>
-<tr>
-<td>ls</td>
-<td>フォルダの内容をリスト形式で表示する</td>
-</tr>
-<tr>
-<td>ファイル操作編</td>
-<td></td>
-</tr>
-<tr>
-<td>mv</td>
-<td>ファイルを移動<br>ファイルの名前を編集</td>
-</tr>
-<tr>
-<td>cp</td>
-<td>ファイルやフォルダをコピーする</td>
-</tr>
-<tr>
-<td>rm</td>
-<td>ファイルやフォルダを削除</td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>フォルダを作成</td>
-</tr>
-<tr>
-<td>rmdir</td>
-<td>フォルダを削除</td>
-</tr>
-<tr>
-<td>less</td>
-<td>テキストファイルを閲覧</td>
-</tr>
-<tr>
-<td>more</td>
-<td>ファイルの中身を表示<br>（lessがおすすめ）</td>
-</tr>
-<tr>
-<td>cat</td>
-<td>ファイルの内容を表示</td>
-</tr>
-<tr>
-<td>grep</td>
-<td>指定した文字列がテキスト内に存在した場合その行を抽出</td>
-</tr>
-</tbody>
-</table>
-<h3>ランク2</h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>chmod</td>
-<td>ファイルやフォルダのアクセス権限を変更</td>
-</tr>
-<tr>
-<td>touch</td>
-<td>空のファイルを作成</td>
-</tr>
-<tr>
-<td>emacs<br>vim<br>など</td>
-<td>（それぞれのエディタで）ファイルを新規作成</td>
-</tr>
-<tr>
-<td>echo</td>
-<td>画面に文字列や数値、変数を表示</td>
-</tr>
-<tr>
-<td>open</td>
-<td>Finderを開く</td>
-</tr>
-</tbody>
-</table>
-<h3>ランク3</h3>
-<table>
-<thead>
-<tr>
-<th>コマンド</th>
-<th>何ができるか</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ps</td>
-<td>現在動作しているプロセスを表示する</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>リモートマシンにSSHでログイン</td>
-</tr>
-<tr>
-<td>zip<br>tar<br>gzip/gunzip</td>
-<td>ファイル・ディレクトリの解凍、圧縮</td>
-</tr>
-</tbody>
-</table>
-<p>何度も使ってみておぼえていきましょう！</p>
-<h2>おまけ</h2>
-<ol>
-<li>シェル芸<br>
-気になる方は下の記事でも読んでみて下さい。  </li>
-<li><a href="https://qiita.com/t_nakayama0714/items/bfe4852e0535858ee662">【シェル芸人への道】シェル芸人の第一歩 - Qiita</a></li>
-<li>
-<p><a href="https://qiita.com/_-_-_-_-_/items/214d537aae2c1488692c">【危険シェル芸】禁じられた闇の魔術とその防衛術💥 - Qiita</a></p>
-</li>
-<li>
-<p>Clipyなどのクリップボードを活用する<br>
-よく使うコマンドを登録しておくと便利！</p>
-</li>
-</ol>
-<h2>コマンドの次へ</h2>
-<p>上の文にもいくつかでてきているのですが、コマンドに入門した次に勉強するおすすめとして、以下の単語を調べてみましょう。<br>
-それぞれ今度何度も目にする単語なので、早めに知っておいて損はないと思います。</p>
-<ol>
-<li>パスとは？<br>
-キーワード：相対/絶対パス</li>
-<li>エディタとは？<br>
-emacs/vim/atom/vscode...</li>
-</ol>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -327,7 +338,7 @@ emacs/vim/atom/vscode...</li>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2020/02/shellscript_tutorial.html" 
+        data-href="../../../blog/2020/05/aircon_via_internet.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -343,8 +354,9 @@ emacs/vim/atom/vscode...</li>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2018/11/shellscript_2.html">シェルスクリプト入門(2)</a></li>
-        <li><a href="../../../blog/2018/11/shellscript_1.html">シェルスクリプト入門(1)</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_02.html">【勉強会資料 2020 第2回】Pythonの基本文法</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_01.html">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</a></li>
+        <li><a href="../../../blog/2019/12/deeplabcut.html">deeplabcutの使い方まとめ</a></li>
     </ul>
 </div>
 
