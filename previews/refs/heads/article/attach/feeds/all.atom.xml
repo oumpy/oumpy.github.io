@@ -3,7 +3,7 @@
 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
 &lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
-&lt;p&gt;&lt;a href="./previews/refs/heads/article/attach/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook @Google Colab&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/article/attach/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-19T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/article/attach/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+&lt;p&gt;&lt;a href="./previews/refs/heads/article/attach/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="./previews/refs/heads/article/attach/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:./previews/refs/heads/article/attach/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
 &lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
@@ -27,7 +27,7 @@
 &lt;p&gt;で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。&lt;/p&gt;
 &lt;h2&gt;Python Tutorial&lt;/h2&gt;
-&lt;p&gt;&lt;a href="./previews/refs/heads/article/attach/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook @Google Colab&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="./previews/refs/heads/article/attach/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;コードのみ以下に掲載します。&lt;/p&gt;
 &lt;h3&gt;NumPyで数値計算&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -2478,10 +2478,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="14086a5f-b423-4f2b-ace8-3027004d2913"&gt;&lt;/div&gt;
+&lt;div id="a2a71977-3bdf-4822-9acb-bb91fc6e54cd"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#14086a5f-b423-4f2b-ace8-3027004d2913');
+var element = $('#a2a71977-3bdf-4822-9acb-bb91fc6e54cd');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2707,7 +2707,12 @@ var element = $('#14086a5f-b423-4f2b-ace8-3027004d2913');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>ICA（独立成分分析）について</title><link href="./previews/refs/heads/article/attach/blog/2020/03/ica.html" rel="alternate"></link><published>2020-03-29T23:00:00+09:00</published><updated>2020-03-29T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:None,2020-03-29:./previews/refs/heads/article/attach/blog/2020/03/ica.html</id><summary type="html">    &lt;strong&gt;概要&lt;a class="anchor-link" href="#概要"&gt; &lt;/a&gt;&lt;/strong&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。 電源ノイズのように周波数が分かっていればフィルタでノイズを除....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>会規約を制定しました</title><link href="./previews/refs/heads/article/attach/news/2020/04/establish_constitution.html" rel="alternate"></link><published>2020-04-01T00:00:00+09:00</published><updated>2020-05-27T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-04-01:./previews/refs/heads/article/attach/news/2020/04/establish_constitution.html</id><summary type="html">このたび本会は、 &lt;a href="./previews/refs/heads/article/attach/constitution.html"&gt;大阪大学医学部Python会規約&lt;/a&gt; をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。 今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。 規約の内容は従来からの会運営体制....</summary><content type="html">&lt;p&gt;このたび本会は、
+&lt;a href="./previews/refs/heads/article/attach/constitution.html"&gt;大阪大学医学部Python会規約&lt;/a&gt;
+をSlack上での会議 (運営会) により、付属の施行細則とともに承認・制定しました。&lt;/p&gt;
+&lt;p&gt;今回の規約制定は、会の持続的な運営体制を整備するとともに、大阪大学医学部での公認や今後の対外的活動にも備えたものです。
+規約の内容は従来からの会運営体制に沿ったものであり、規約の施行に伴う直接の体制変更などはありません。&lt;/p&gt;
+&lt;p&gt;今後ともPython会をよろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>ICA（独立成分分析）について</title><link href="./previews/refs/heads/article/attach/blog/2020/03/ica.html" rel="alternate"></link><published>2020-03-29T23:00:00+09:00</published><updated>2020-03-29T23:00:00+09:00</updated><author><name>奥田</name></author><id>tag:None,2020-03-29:./previews/refs/heads/article/attach/blog/2020/03/ica.html</id><summary type="html">    &lt;strong&gt;概要&lt;a class="anchor-link" href="#概要"&gt; &lt;/a&gt;&lt;/strong&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。 電源ノイズのように周波数が分かっていればフィルタでノイズを除....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
