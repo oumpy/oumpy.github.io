@@ -12,7 +12,7 @@
 &lt;p&gt;これを受けて、本会では、名称についての検討を指定された期限までに行うことと致しました。&lt;/p&gt;
 &lt;p&gt;「Python会」の名称は結成以来多くの方々に親しんでいただき、ご支援を頂いてきたものでもあることから、名称変更の場合の現名称の扱いにつきましても同時に検討してまいります。&lt;/p&gt;
 &lt;p&gt;今後、本件に関する経過につきましては主に
-&lt;a href="https://twitter.com/{{ TWITTER_USERNAME }}"&gt;Twitter&lt;/a&gt;
+&lt;a href="https://twitter.com/oumed_python"&gt;Twitter&lt;/a&gt;
 にてお伝えする予定です。
 ご意見ご感想なども歓迎します。
 何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="./previews/refs/heads/news/officialize_and_name/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:./previews/refs/heads/news/officialize_and_name/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="./previews/refs/heads/news/officialize_and_name/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
@@ -2676,10 +2676,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="e36b102f-f914-405b-9c0e-adb24c60e5f1"&gt;&lt;/div&gt;
+&lt;div id="ed4bd91f-0221-45ec-b22a-6aed42bd9d0f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e36b102f-f914-405b-9c0e-adb24c60e5f1');
+var element = $('#ed4bd91f-0221-45ec-b22a-6aed42bd9d0f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
