@@ -58,42 +58,82 @@
    
     <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
+      <div class="row dropdown-hover-all">
         <a class="navbar-brand" href="../../../" rel="home">
           <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
           </a>
 		<button type="button" class="navbar-toggler" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item">
-<a class="nav-link" href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="nav-item active">
-<a class="nav-link" href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -133,7 +173,7 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>はじめに</h2>
+	<h2><span id="pelican-subsections-0">はじめに</span></h2>
 <p><strong>「どうぶつしょうぎ」</strong> というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ">wikipediaの解説</a>）</p>
 <p>普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。<br>
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。<br>
@@ -146,14 +186,14 @@
 を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、<strong>どうぶつしょうぎをプレイするプログラム</strong> を作ってみました。<br>
 ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。</p>
 <p>今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）</p>
-<h2>つくりかた概要</h2>
+<h2><span id="pelican-subsections-1">つくりかた概要</span></h2>
 <p>「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。<br>
 この部分を、深層ニューラルネットワーク「だけ」で作ります。  </p>
 <p>実はこれ、<strong>画像カテゴリ認識と殆ど同じ</strong> です。
 例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。<br>
 入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。</p>
-<h2>ネットワーク構成</h2>
-<h3>入力：盤面と持駒の表現</h3>
+<h2><span id="pelican-subsections-2">ネットワーク構成</span></h2>
+<h3><span id="pelican-subsections-3">入力：盤面と持駒の表現</span></h3>
 <p>どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
 （駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）<br>
 なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
@@ -161,7 +201,7 @@
 <p>次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。<br>
 こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。</p>
 <p>入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。</p>
-<h3>出力：可能な指し手を網羅する</h3>
+<h3><span id="pelican-subsections-4">出力：可能な指し手を網羅する</span></h3>
 <p>どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。<br>
 これらは任意の局面に対して、<br>
 (1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」<br>
@@ -170,7 +210,7 @@
 一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。<br>
 合わせて<strong>合法手の可能性は97通り</strong>です。
 ですからネットワークは、<strong>97ノードのソフトマックスを出力とすればよい</strong> ことになります。</p>
-<h3>今回使ったネットワーク</h3>
+<h3><span id="pelican-subsections-5">今回使ったネットワーク</span></h3>
 <p>入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。</p>
 <div class="highlight"><pre><span></span><code><span class="err">____________________________________________________________________________________________________</span>
@@ -210,7 +250,7 @@
 
 <p>input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。<br>
 盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。</p>
-<h2>強化学習：自己対戦と指し手評価</h2>
+<h2><span id="pelican-subsections-6">強化学習：自己対戦と指し手評価</span></h2>
 <p>さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。</p>
 <p>そのためには、<strong>審判・履歴機能付きのどうぶつしょうぎ盤セット</strong> をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。</p>
 <p>自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。</p>
@@ -223,13 +263,13 @@
 </ul>
 <p>今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。<br>
 計算は全てノートPC上で行い、計算時間は45分程度でした。</p>
-<h2>学習結果</h2>
-<h3>ルールの習得</h3>
+<h2><span id="pelican-subsections-7">学習結果</span></h2>
+<h3><span id="pelican-subsections-8">ルールの習得</span></h3>
 <p>まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。<br>
 ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに <strong>合法手が98.7%</strong> となりました。1.3%の指し手が反則です。<br>
 これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。<br>
 ルールについてはかなり良く習得してきていることがわかります。</p>
-<h3>どれくらい強い？</h3>
+<h3><span id="pelican-subsections-9">どれくらい強い？</span></h3>
 <p>自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。  </p>
 <p>結果は、、、</p>
 <p><strong>勝率 53% !!!!!!</strong> (´･ω･`)</p>
@@ -243,9 +283,9 @@
 <p>今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
 自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。</p>
 <p>ひとまず今回はここまで。おしまい。</p>
-<h3>追記1</h3>
+<h3><span id="pelican-subsections-10">追記1</span></h3>
 <p>強化学習をさらに2倍、総計2<sup>18</sup>局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。</p>
-<h3>追記2</h3>
+<h3><span id="pelican-subsections-11">追記2</span></h3>
 <p>強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。<br>
 今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。<br>
 最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。</p>
@@ -380,82 +420,10 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">1</span>
         Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">3</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -464,16 +432,88 @@
         海外留学
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">12</span>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
       </a>
     </span>
 </p>
@@ -524,6 +564,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -664,6 +706,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>

@@ -59,42 +59,82 @@
    
     <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
+      <div class="row dropdown-hover-all">
         <a class="navbar-brand" href="../../../" rel="home">
           <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
           </a>
 		<button type="button" class="navbar-toggler" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item">
-<a class="nav-link" href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="nav-item active">
-<a class="nav-link" href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -139,30 +179,30 @@
 	<p>2020.05.19に開催したオンライン勉強会の資料を公開します。</p>
 <p>今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。</p>
-<h2>スライド</h2>
+<h2><span id="pelican-subsections-0">スライド</span></h2>
 <p><p><span class="videobox">
   <iframe width=640" height="390"
     src="../../../articles/2020sy/blog/attach/studymeeting2020_01/200519_python会入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
   </iframe></span></p></p>
-<h2>Pythonの環境構築</h2>
+<h2><span id="pelican-subsections-1">Pythonの環境構築</span></h2>
 <ul>
 <li><a href="https://www.python.org/">Pythonの公式サイト</a>からPythonだけをinstallしても使えるが、パッケージ管理や環境管理のためにAnacondaを使うと便利（ここで不要じゃという声が飛んでくる）。</li>
 <li>少なくともWindowsだと使った方が楽</li>
 <li>Anacondaそのままは全部盛りに近い（＝要らないものなども自動でinstallされる）ので、最小限のパッケージに留めたMinicondaをinstallする方がよい</li>
 <li>Miniconda入れる前にpyenv入れた方が良いという話もある(MacOS, Linux)</li>
 </ul>
-<h2>Pythonファイルの実行</h2>
+<h2><span id="pelican-subsections-2">Pythonファイルの実行</span></h2>
 <div class="highlight"><pre><span></span><code>python hoge.py
 </code></pre></div>
 
 
 <p>で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。</p>
-<h2>Python Tutorial</h2>
+<h2><span id="pelican-subsections-3">Python Tutorial</span></h2>
 <p><a href="../../../articles/2020sy/blog/attach/studymeeting2020_01/Python_tutorial.ipynb">Jupyter Notebook</a></p>
 <p>コードのみ以下に掲載します。</p>
-<h3>NumPyで数値計算</h3>
+<h3><span id="pelican-subsections-4">NumPyで数値計算</span></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -171,7 +211,7 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3>Matplotlibで図を描画する</h3>
+<h3><span id="pelican-subsections-5">Matplotlibで図を描画する</span></h3>
 <p>Matplotlibは図を描画するためのライブラリ。
 どんな図が描画できるかは公式ドキュメントの<a href="https://matplotlib.org/gallery/index.html">ギャラリー</a>を参照。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -185,7 +225,7 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3>Seabornによる回帰直線の描画</h3>
+<h3><span id="pelican-subsections-6">Seabornによる回帰直線の描画</span></h3>
 <p>SeabornはMatplotlibがベースのライブラリ。
 より綺麗で複雑な図を簡単に描画できる。
 公式ドキュメントの<a href="https://seaborn.pydata.org/examples/index.html">ギャラリー</a>を参照。</p>
@@ -204,13 +244,13 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3>Markdownについて</h3>
+<h3><span id="pelican-subsections-7">Markdownについて</span></h3>
 <p>Markdownはプレーンテキスト形式で手軽に書いた文書からHTMLを生成するための言語
 - 書き方は<a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法サンプル集</a>等を見るとよい
 - 普段から使う場合は<a href="https://typora.io/">Typora</a>を使うのがおススメ。
 TeX形式の数式も書ける。
 PandocをインストールすればWordやLaTeXなどに変換可能。</p>
-<h3>Google Colabについて</h3>
+<h3><span id="pelican-subsections-8">Google Colabについて</span></h3>
 <p><a href="https://colab.research.google.com">Google Colaboratory</a>はJupyter Notebookをブラウザ上で使えるようにGoogleが提供しているサービス。
 Pythonをインストールする必要はありません。
 また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。</p>
@@ -346,82 +386,10 @@ Pythonをインストールする必要はありません。
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">1</span>
         Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">3</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -430,16 +398,88 @@ Pythonをインストールする必要はありません。
         海外留学
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">12</span>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
       </a>
     </span>
 </p>
@@ -490,6 +530,8 @@ Pythonをインストールする必要はありません。
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -630,6 +672,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>

@@ -58,42 +58,82 @@
    
     <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
+      <div class="row dropdown-hover-all">
         <a class="navbar-brand" href="../../../" rel="home">
           <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
           </a>
 		<button type="button" class="navbar-toggler" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item">
-<a class="nav-link" href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="nav-item active">
-<a class="nav-link" href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -1248,10 +1288,10 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#35201;&#28857;">&#35201;&#28857;<a class="anchor-link" href="#&#35201;&#28857;">&#182;</a></h2><p><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。</p>
+<h2 id="&#35201;&#28857;"><span id="pelican-subsections-0">&#35201;&#28857;<a class="anchor-link" href="#&#35201;&#28857;">&#182;</a></span></h2><p><strong>Neural Tangents</strong>はGoogle AIが開発した<a href="https://github.com/google/jax">JAX</a>のラッパーライブラリです。<strong>無限幅</strong> (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, <strong>NN</strong>: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。</p>
 <p>Neural Tangentsでは無限幅のNNを学習させる手法として<strong>NNGP</strong> (Neural Network Gaussian Process)と <strong>NTK</strong> (Neural Tangent Kernel)の2つを実装しています。</p>
 <p>この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。</p>
-<h3 id="Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;">Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;<a class="anchor-link" href="#Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;">&#182;</a></h3><ul>
+<h3 id="Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;"><span id="pelican-subsections-1">Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;<a class="anchor-link" href="#Neural-Tangents&#12395;&#38306;&#36899;&#12377;&#12427;&#25991;&#29486;">&#182;</a></span></h3><ul>
 <li>Paper :  <a href="https://arxiv.org/abs/1912.02803">https://arxiv.org/abs/1912.02803</a></li>
 <li>OpenReview : <a href="https://openreview.net/forum?id=SklD9yrFPS">https://openreview.net/forum?id=SklD9yrFPS</a></li>
 <li>Github : <a href="https://github.com/google/neural-tangents">https://github.com/google/neural-tangents</a></li>
@@ -1266,7 +1306,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Neural-Network-Gaussian-Process-(NNGP)">Neural Network Gaussian Process (NNGP)<a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)">&#182;</a></h2><p>隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (<a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf">Neal, 1994</a>)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を<strong>Neural Network GP</strong>といいます)。</p>
+<h2 id="Neural-Network-Gaussian-Process-(NNGP)"><span id="pelican-subsections-2">Neural Network Gaussian Process (NNGP)<a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)">&#182;</a></span></h2><p>隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (<a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf">Neal, 1994</a>)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を<strong>Neural Network GP</strong>といいます)。</p>
 <blockquote><p>Lee et al., Deep Neural Networks as Gaussian Processes. ICLR 2018. <a href="https://arxiv.org/abs/1711.00165">https://arxiv.org/abs/1711.00165</a></p>
 </blockquote>
 <p>NNGP kernelの構築とそれを用いたベイズ予測について、要点を書いておきます。訓練データ $(x, y)$ の集合を $\mathcal{D}$ とし、$\mathcal{D}$ に含まれる入力 $x$ の集合を $\mathcal{X}$, 出力 (教師データ) $y$ の集合を $\mathcal{Y}$とします。 またデータの数を $N:=|\mathcal{D}|$ とします。さらに $\mathcal{GP}(\mu, \mathcal{K})$ を平均 $\mu(\cdot)$, 共分散 $\mathcal{K}(\cdot, \cdot)$ のガウス過程とします。</p>
@@ -1277,7 +1317,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;">NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;">&#182;</a></h3><p>NNを次のように定義します。ただし、入力を0層、出力を$L$層とします。</p>
+<h3 id="NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;"><span id="pelican-subsections-3">NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12392;&#12497;&#12521;&#12513;&#12540;&#12479;&#20998;&#24067;&#12398;&#23450;&#32681;">&#182;</a></span></h3><p>NNを次のように定義します。ただし、入力を0層、出力を$L$層とします。</p>
 $$
 \begin{align*}
 z^{(l)}_i(\boldsymbol{x}) &amp;= \phi (a^{(l)}_i(\boldsymbol{x}))\\
@@ -1291,7 +1331,7 @@ $$<p>ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)}$は�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#28961;&#38480;&#24133;NN&#12392;GP">&#28961;&#38480;&#24133;NN&#12392;GP<a class="anchor-link" href="#&#28961;&#38480;&#24133;NN&#12392;GP">&#182;</a></h3><p>NNのパラメータは正規分布から独立に生成されているので、$n_l \to \infty$のとき、中心極限定理より$a_i(l)$は正規分布に従い、$l$層目の出力$z_i^{(l)}$も$\phi$に関わらず正規分布に従います (重みもバイアスも平均は0なので、$z_i^{(l)}$が従う分布の平均も0となります)。これを帰納的に行うことで0から$L$層までの出力がガウス過程に従うことを示すことができます。$l$層の出力がガウス過程に従えば$l$層目の共分散行列 (カーネル) $\mathcal{K}^{l}$を計算することができます。なお、この場合 $z_{i}^{l-1}\sim\mathcal{GP}(0,\mathcal{K}^{l-1})$です。</p>
+<h3 id="&#28961;&#38480;&#24133;NN&#12392;GP"><span id="pelican-subsections-4">&#28961;&#38480;&#24133;NN&#12392;GP<a class="anchor-link" href="#&#28961;&#38480;&#24133;NN&#12392;GP">&#182;</a></span></h3><p>NNのパラメータは正規分布から独立に生成されているので、$n_l \to \infty$のとき、中心極限定理より$a_i(l)$は正規分布に従い、$l$層目の出力$z_i^{(l)}$も$\phi$に関わらず正規分布に従います (重みもバイアスも平均は0なので、$z_i^{(l)}$が従う分布の平均も0となります)。これを帰納的に行うことで0から$L$層までの出力がガウス過程に従うことを示すことができます。$l$層の出力がガウス過程に従えば$l$層目の共分散行列 (カーネル) $\mathcal{K}^{l}$を計算することができます。なお、この場合 $z_{i}^{l-1}\sim\mathcal{GP}(0,\mathcal{K}^{l-1})$です。</p>
 <p><a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html">Google AIのblog</a>では次のようなアニメーションを掲載しています。このアニメーションは各層のユニット数が増えるほど（幅が広がるほど）出力$\boldsymbol{y}=(y_1, y_2)$の同時分布$p(\boldsymbol{y})$が中心極限定理により多変量ガウス分布に近づくことを表しています。</p>
 
 </div>
@@ -1308,7 +1348,7 @@ $$<p>ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)}$は�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NNGP-kernel&#12398;&#35336;&#31639;">NNGP kernel&#12398;&#35336;&#31639;<a class="anchor-link" href="#NNGP-kernel&#12398;&#35336;&#31639;">&#182;</a></h3><p>$\mathcal{K}^{l}$の計算式を見てみましょう。以下では$x, x' \in \mathcal{X}, x\neq x' $であるとします。</p>
+<h3 id="NNGP-kernel&#12398;&#35336;&#31639;"><span id="pelican-subsections-5">NNGP kernel&#12398;&#35336;&#31639;<a class="anchor-link" href="#NNGP-kernel&#12398;&#35336;&#31639;">&#182;</a></span></h3><p>$\mathcal{K}^{l}$の計算式を見てみましょう。以下では$x, x' \in \mathcal{X}, x\neq x' $であるとします。</p>
 $$
 \begin{align*}
 \mathcal{K}^{l}(x,x')&amp;:=\mathbb{E}[z_{i}^{l}(x)z_{i}^{l}(x')]\\
@@ -1323,7 +1363,7 @@ $$<p>(1)式により、帰納的に$\mathcal{K}^{l-1}$から$\mathcal{K}^{l}$を
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NNGP&#12395;&#12424;&#12427;&#25512;&#35542;">NNGP&#12395;&#12424;&#12427;&#25512;&#35542;<a class="anchor-link" href="#NNGP&#12395;&#12424;&#12427;&#25512;&#35542;">&#182;</a></h3><p>ベイズ推論を行う場合は次のようにします。あるテストデータ$x^*$に対する予測$y^*$が従う分布は正規分布$\mathcal{N}(\mu(x^*), \sigma^2(x^*))$であり、スカラー値$\mu(x^*)$, $\sigma^2(x^*)$はそれぞれ、</p>
+<h3 id="NNGP&#12395;&#12424;&#12427;&#25512;&#35542;"><span id="pelican-subsections-6">NNGP&#12395;&#12424;&#12427;&#25512;&#35542;<a class="anchor-link" href="#NNGP&#12395;&#12424;&#12427;&#25512;&#35542;">&#182;</a></span></h3><p>ベイズ推論を行う場合は次のようにします。あるテストデータ$x^*$に対する予測$y^*$が従う分布は正規分布$\mathcal{N}(\mu(x^*), \sigma^2(x^*))$であり、スカラー値$\mu(x^*)$, $\sigma^2(x^*)$はそれぞれ、</p>
 $$
 \begin{align*}
 \mu(x^*)&amp;=\mathcal{K}(x^*, \mathcal{X})\ \mathcal{K}(\mathcal{X}, \mathcal{X})^{-1}\ \mathcal{Y}\\
@@ -1337,7 +1377,7 @@ $$<p>として求められます。</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Neural-Tangent-Kernel-(NTK)">Neural Tangent Kernel (NTK)<a class="anchor-link" href="#Neural-Tangent-Kernel-(NTK)">&#182;</a></h2><p>この説ではNeural Tangent Kernel (NTK)を扱います。NNGPとの違いは勾配法により(関数空間における)最適化過程も記述するという点です。要するにNTKで構成されるNNは連続時間の勾配法によって訓練された無限幅のネットワークに対応します。NTKは一般のNNの解析において、有限幅であってもユニット数が十分に大きければ極小解が大域解となる、などの定理を提供します。</p>
+<h2 id="Neural-Tangent-Kernel-(NTK)"><span id="pelican-subsections-7">Neural Tangent Kernel (NTK)<a class="anchor-link" href="#Neural-Tangent-Kernel-(NTK)">&#182;</a></span></h2><p>この説ではNeural Tangent Kernel (NTK)を扱います。NNGPとの違いは勾配法により(関数空間における)最適化過程も記述するという点です。要するにNTKで構成されるNNは連続時間の勾配法によって訓練された無限幅のネットワークに対応します。NTKは一般のNNの解析において、有限幅であってもユニット数が十分に大きければ極小解が大域解となる、などの定理を提供します。</p>
 <blockquote><p>Jacot et al. Neural Tangent Kernel: Convergence and Generalization in Neural Networks. NIPS. 2018.
 <a href="https://arxiv.org/abs/1806.07572">https://arxiv.org/abs/1806.07572</a></p>
 </blockquote>
@@ -1349,7 +1389,7 @@ $$<p>として求められます。</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NN&#12398;&#23450;&#32681;">NN&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12398;&#23450;&#32681;">&#182;</a></h3><p>全結合のNNを考えます。NNは入力(0層目)から出力($L$層目)まであるとし、$l$番目の層のユニット数を$n_l (l=0, \cdots, L)$とします。NNを構成するパラメータ $\theta\in \mathbb{R}^{P}$ は重み行列 $W^{(l)}\in \mathbb{R}^{n_l \times n_{l+1}}$, およびバイアス $b \in \mathbb{R}^{n_l}$をまとめたベクトルとします。ただし、$P$はパラメータ空間の次元で$P=\sum_{l=0}^L (n_l + 1)n_{l+1}$です。また、パラメータの初期化は$W^{(l)}, b^{(l)} \sim \mathcal{N}(0, 1)$とします。</p>
+<h3 id="NN&#12398;&#23450;&#32681;"><span id="pelican-subsections-8">NN&#12398;&#23450;&#32681;<a class="anchor-link" href="#NN&#12398;&#23450;&#32681;">&#182;</a></span></h3><p>全結合のNNを考えます。NNは入力(0層目)から出力($L$層目)まであるとし、$l$番目の層のユニット数を$n_l (l=0, \cdots, L)$とします。NNを構成するパラメータ $\theta\in \mathbb{R}^{P}$ は重み行列 $W^{(l)}\in \mathbb{R}^{n_l \times n_{l+1}}$, およびバイアス $b \in \mathbb{R}^{n_l}$をまとめたベクトルとします。ただし、$P$はパラメータ空間の次元で$P=\sum_{l=0}^L (n_l + 1)n_{l+1}$です。また、パラメータの初期化は$W^{(l)}, b^{(l)} \sim \mathcal{N}(0, 1)$とします。</p>
 <p>NNの中身が以下のようであるとします。
 $$
 \begin{align*}
@@ -1370,7 +1410,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NN&#12398;&#23398;&#32722;&#12392;NTK">NN&#12398;&#23398;&#32722;&#12392;NTK<a class="anchor-link" href="#NN&#12398;&#23398;&#32722;&#12392;NTK">&#182;</a></h3><p>訓練データの入力を$x \in \mathcal{X}$、出力 (教師信号)を$y \in \mathcal{Y}$とします。MSEを損失関数$\mathcal{L}$とすると、次のようになります。</p>
+<h3 id="NN&#12398;&#23398;&#32722;&#12392;NTK"><span id="pelican-subsections-9">NN&#12398;&#23398;&#32722;&#12392;NTK<a class="anchor-link" href="#NN&#12398;&#23398;&#32722;&#12392;NTK">&#182;</a></span></h3><p>訓練データの入力を$x \in \mathcal{X}$、出力 (教師信号)を$y \in \mathcal{Y}$とします。MSEを損失関数$\mathcal{L}$とすると、次のようになります。</p>
 $$
 \mathcal{L}:=\frac{1}{2}\|f(\mathcal{X}; \theta)-\mathcal{Y}\|^2
 $$<p>この損失関数を最小化するようにNNを学習することを考えます。学習率を$\eta$として勾配法によりパラメータを更新する際、その変化量を$\Delta \theta$とすると次式のようになります。</p>
@@ -1408,7 +1448,7 @@ $$</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;">NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;<a class="anchor-link" href="#NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;">&#182;</a></h3><p>NNを1次のTaylor展開により線形化します。また、NNへの入力は訓練データ $x \in \mathcal{X}$とします。</p>
+<h3 id="NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;"><span id="pelican-subsections-10">NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;<a class="anchor-link" href="#NN&#12398;&#32218;&#24418;&#21270;&#12392;&#38306;&#25968;&#31354;&#38291;&#12391;&#12398;&#12480;&#12452;&#12490;&#12511;&#12463;&#12473;">&#182;</a></span></h3><p>NNを1次のTaylor展開により線形化します。また、NNへの入力は訓練データ $x \in \mathcal{X}$とします。</p>
 $$
 f_t^{\text{lin}}(x; \theta_t)\approx f_0(x;\theta_0)+ \nabla_\theta f_0(x;\theta_0)^T (\theta_t-\theta_0) \tag{5}
 $$<p>$\omega_t:=\theta_t-\theta_0$とおき、時間微分します (式(2), (3)参照)。</p>
@@ -1458,8 +1498,8 @@ $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tutorial-of-Neural-Tangents">Tutorial of Neural Tangents<a class="anchor-link" href="#Tutorial-of-Neural-Tangents">&#182;</a></h2><p>前置きが長くなりましたが、実際にNeural tangentsで無限幅のNNを学習させてみましょう。なお、コードの大半は<a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb">Tutorial in Colab Notebook</a>から引用しています。また、不明な点は<a href="#Neural-Tangentsに関連する文献">Neural Tangentsに関連する文献</a>を参考にしてください。</p>
-<h3 id="&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;">&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;<a class="anchor-link" href="#&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;">&#182;</a></h3><p>Neural Tangentsはjax依存なのでjaxを先にインストールします：<code>pip install jaxlib jax --upgrade</code></p>
+<h2 id="Tutorial-of-Neural-Tangents"><span id="pelican-subsections-11">Tutorial of Neural Tangents<a class="anchor-link" href="#Tutorial-of-Neural-Tangents">&#182;</a></span></h2><p>前置きが長くなりましたが、実際にNeural tangentsで無限幅のNNを学習させてみましょう。なお、コードの大半は<a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb">Tutorial in Colab Notebook</a>から引用しています。また、不明な点は<a href="#Neural-Tangentsに関連する文献">Neural Tangentsに関連する文献</a>を参考にしてください。</p>
+<h3 id="&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;"><span id="pelican-subsections-12">&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;<a class="anchor-link" href="#&#12452;&#12531;&#12473;&#12488;&#12540;&#12523;">&#182;</a></span></h3><p>Neural Tangentsはjax依存なのでjaxを先にインストールします：<code>pip install jaxlib jax --upgrade</code></p>
 <p>JAXは現在(2020/3/26), LinuxとMacでのみbuild可能のようです(<a href="https://github.com/google/jax/issues/507">https://github.com/google/jax/issues/507</a>)。本記事ではUbuntu 18.04 で動作確認しました。Windows OSしかない場合はColabで実行するとよいでしょう。</p>
 <p>次にNeural Tangentsをインストールします：<code>pip install neural-tangents</code></p>
 
@@ -1469,7 +1509,7 @@ $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import">&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import<a class="anchor-link" href="#&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import">&#182;</a></h3><p>必要なライブラリを<code>import</code>していきます (初めのcellは無視してください)。</p>
+<h3 id="&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import"><span id="pelican-subsections-13">&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import<a class="anchor-link" href="#&#12521;&#12452;&#12502;&#12521;&#12522;&#12398;import">&#182;</a></span></h3><p>必要なライブラリを<code>import</code>していきます (初めのcellは無視してください)。</p>
 
 </div>
 </div>
@@ -1544,7 +1584,7 @@ $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;">Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;<a class="anchor-link" href="#Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;">&#182;</a></h3><p>回帰を実行するためにToy データセットを作成します。まず、予測したい真の関数を次のように定義します。</p>
+<h3 id="Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;"><span id="pelican-subsections-14">Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;<a class="anchor-link" href="#Toy&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12398;&#20316;&#25104;">&#182;</a></span></h3><p>回帰を実行するためにToy データセットを作成します。まず、予測したい真の関数を次のように定義します。</p>
 $$
 y = f(x) + \epsilon
 $$<p>$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノイズです。訓練時の入力$x$は一様分布$\text{Uniform}(-\pi, \pi)$から5点サンプリングします。推論時は$y = f(x)$とし、入力$x$は$[-\pi, \pi]$から一定間隔で50点取得します。</p>
@@ -1691,7 +1731,7 @@ $$<p>$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノ�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Neural-Network&#12398;&#23450;&#32681;">Neural Network&#12398;&#23450;&#32681;<a class="anchor-link" href="#Neural-Network&#12398;&#23450;&#32681;">&#182;</a></h3>
+<h3 id="Neural-Network&#12398;&#23450;&#32681;"><span id="pelican-subsections-15">Neural Network&#12398;&#23450;&#32681;<a class="anchor-link" href="#Neural-Network&#12398;&#23450;&#32681;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1924,7 +1964,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NNGP&#12398;&#22580;&#21512;">NNGP&#12398;&#22580;&#21512;<a class="anchor-link" href="#NNGP&#12398;&#22580;&#21512;">&#182;</a></h3>
+<h3 id="NNGP&#12398;&#22580;&#21512;"><span id="pelican-subsections-16">NNGP&#12398;&#22580;&#21512;<a class="anchor-link" href="#NNGP&#12398;&#22580;&#21512;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -2015,7 +2055,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NTK&#12398;&#22580;&#21512;">NTK&#12398;&#22580;&#21512;<a class="anchor-link" href="#NTK&#12398;&#22580;&#21512;">&#182;</a></h3>
+<h3 id="NTK&#12398;&#22580;&#21512;"><span id="pelican-subsections-17">NTK&#12398;&#22580;&#21512;<a class="anchor-link" href="#NTK&#12398;&#22580;&#21512;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -2101,7 +2141,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NNGP&#12392;NTK&#12398;&#27604;&#36611;">NNGP&#12392;NTK&#12398;&#27604;&#36611;<a class="anchor-link" href="#NNGP&#12392;NTK&#12398;&#27604;&#36611;">&#182;</a></h3><p>NNGPとNTKの推論の比較をしてみます。殆ど似たような出力であることがわかります。</p>
+<h3 id="NNGP&#12392;NTK&#12398;&#27604;&#36611;"><span id="pelican-subsections-18">NNGP&#12392;NTK&#12398;&#27604;&#36611;<a class="anchor-link" href="#NNGP&#12392;NTK&#12398;&#27604;&#36611;">&#182;</a></span></h3><p>NNGPとNTKの推論の比較をしてみます。殆ど似たような出力であることがわかります。</p>
 
 </div>
 </div>
@@ -2165,7 +2205,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot">NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot<a class="anchor-link" href="#NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot">&#182;</a></h3>
+<h3 id="NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot"><span id="pelican-subsections-19">NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot<a class="anchor-link" href="#NTK&#12398;&#23398;&#32722;&#26354;&#32218;&#12398;plot">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -2283,7 +2323,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;">&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;<a class="anchor-link" href="#&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;">&#182;</a></h3><p>次に有限幅のNNを複数 (n=100) 訓練し、そのアンサンブルの学習曲線や出力(の平均や分散)をNTKと比較してみましょう。ここで用いる<code>apply_fn</code>は上でNNを定義したときのものです (ユニット数の情報はここで使用されます)。</p>
+<h3 id="&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;"><span id="pelican-subsections-20">&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;<a class="anchor-link" href="#&#26377;&#38480;&#24133;NN&#12392;&#12398;&#27604;&#36611;">&#182;</a></span></h3><p>次に有限幅のNNを複数 (n=100) 訓練し、そのアンサンブルの学習曲線や出力(の平均や分散)をNTKと比較してみましょう。ここで用いる<code>apply_fn</code>は上でNNを定義したときのものです (ユニット数の情報はここで使用されます)。</p>
 <p>まず、NNを訓練するためのoptimizerを定義します。</p>
 
 </div>
@@ -2419,10 +2459,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-<div id="5108b3d7-cc25-45e4-bd4e-2df85122c3a4"></div>
+<div id="eaad1495-4fd2-40ef-90a4-5baa9c747758"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
+var element = $('#eaad1495-4fd2-40ef-90a4-5baa9c747758');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2594,7 +2634,7 @@ var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21442;&#32771;&#25991;&#29486;">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></h2><h3 id="NNGP">NNGP<a class="anchor-link" href="#NNGP">&#182;</a></h3><ul>
+<h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-21">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><h3 id="NNGP"><span id="pelican-subsections-22">NNGP<a class="anchor-link" href="#NNGP">&#182;</a></span></h3><ul>
 <li>Lee et al., <a href="https://arxiv.org/abs/1711.00165">Deep Neural Networks as Gaussian Processes</a>. <em>ICLR</em> 2018.</li>
 <li>持橋 大地, 大羽 成征. 『<a href="http://chasen.org/~daiti-m/gpbook/">ガウス過程と機械学習</a>』 講談社. 2019.</li>
 <li>須山 敦志. 『ベイズ深層学習』 講談社. 2019. </li>
@@ -2602,7 +2642,7 @@ var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
 <li><a href="https://hackmd.io/@FF/BypA3l_BQ?type=view">Deep Neural Networks as Gaussian Processes - HackMD</a></li>
 <li><a href="https://www.slideshare.net/DeepLearningJP2016/dldeep-neural-networks-as-gaussian-processes">[DL輪読会]Deep Neural Networks as Gaussian Processes</a> </li>
 </ul>
-<h3 id="NTK">NTK<a class="anchor-link" href="#NTK">&#182;</a></h3><ul>
+<h3 id="NTK"><span id="pelican-subsections-23">NTK<a class="anchor-link" href="#NTK">&#182;</a></span></h3><ul>
 <li>Jacot et al. <a href="https://arxiv.org/abs/1806.07572">Neural Tangent Kernel: Convergence and Generalization in Neural Networks</a>. <em>NIPS</em>. 2018.</li>
 <li>Lee et al. <a href="https://arxiv.org/abs/1902.06720">Wide Neural Networks of Any Depth Evolve as Linear Models Under Gradient Descent</a>. <em>NeurIPS.</em> 2019.</li>
 <li>甘利 俊一. 『新版 情報幾何学の新展開』. サイエンス社. 2019.</li>
@@ -2780,82 +2820,10 @@ var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">1</span>
         Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">3</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -2864,16 +2832,88 @@ var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
         海外留学
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">12</span>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
       </a>
     </span>
 </p>
@@ -2924,6 +2964,8 @@ var element = $('#5108b3d7-cc25-45e4-bd4e-2df85122c3a4');
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -3064,6 +3106,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>

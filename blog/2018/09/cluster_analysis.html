@@ -58,42 +58,82 @@
    
     <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
+      <div class="row dropdown-hover-all">
         <a class="navbar-brand" href="../../../" rel="home">
           <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
           </a>
 		<button type="button" class="navbar-toggler" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item">
-<a class="nav-link" href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="nav-item active">
-<a class="nav-link" href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -135,24 +175,24 @@
   <div class="content-body" itemprop="text articleBody">
 	<p>現在、クラスター分析の勉強をしています。
 勉強し始めて数時間ですが、少しまとめてみたいと思います。</p>
-<h2>クラスター分析とは</h2>
+<h2><span id="pelican-subsections-0">クラスター分析とは</span></h2>
 <p>簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
 あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。</p>
-<h3>グループ分けの対象</h3>
+<h3><span id="pelican-subsections-1">グループ分けの対象</span></h3>
 <p>サンプルを分類するのか、変数を分類するのか</p>
-<h3>分類の形式（種類、生成）</h3>
+<h3><span id="pelican-subsections-2">分類の形式（種類、生成）</span></h3>
 <p>階層的方法か非階層的方法か</p>
-<h3>分類に用いる対象間の距離（類似度）</h3>
+<h3><span id="pelican-subsections-3">分類に用いる対象間の距離（類似度）</span></h3>
 <p>ユークリッド距離、マハラノビス距離、コサイン距離 ・・・</p>
-<h3>クラスターの合併方法（クラスター間の距離の測定方法）</h3>
+<h3><span id="pelican-subsections-4">クラスターの合併方法（クラスター間の距離の測定方法）</span></h3>
 <p>ウォード法、群平均法、最短距離法、最長距離法・・・</p>
 <p>クラスター分類するにはここら辺を決めなくてはいけません。
 特に後ろ二つが馴染みがなく難しい。。。</p>
-<h2>デンドログラム</h2>
+<h2><span id="pelican-subsections-5">デンドログラム</span></h2>
 <p>階層的クラスタリングを可視化する代表的な方法にデンドログラムがあります。Scikit-learnのirisデータセットで試しにやってみます。調べたところ、scikit-learnでデンドログラム描写はできないみたいだったので、Scipyからimportして使います。
 （Scipyのクラスタリングアルゴリズムはscikit-learnのアルゴリズムを若干違うみたいです。）
 上で書いた後ろ２つを以下で指定しています。</p>
-<h3>実装</h3>
+<h3><span id="pelican-subsections-6">実装</span></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
@@ -182,7 +222,7 @@
 </code></pre></div>
 
 
-<h3>結果</h3>
+<h3><span id="pelican-subsections-7">結果</span></h3>
 <p>縦軸がクラスタ間距離です。横軸のラベルでは、setosaをシアン、versicolorをマゼンタ、virginicaを黄色としました。</p>
 <p><img alt="1" src="../../../articles/2018sy/blog/images/cluster_analysis_figs/dendrogram.png"></p>
 <p>setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。</p>
@@ -191,7 +231,7 @@
 <p>うまく特徴がつかめるような解析がしたいなあ。</p>
 <p>頑張って勉強してみます。
 何かいいサイトや参考資料があったら教えてください。</p>
-<h2>参考資料</h2>
+<h2><span id="pelican-subsections-8">参考資料</span></h2>
 <ul>
 <li><a href="http://www.kamishima.net/jp/clustering/">http://www.kamishima.net/jp/clustering/</a></li>
 <li><a href="http://datanongrata.com/2019/04/27/67/">http://datanongrata.com/2019/04/27/67/</a></li>
@@ -329,82 +369,10 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">1</span>
         Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">3</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -413,16 +381,88 @@
         海外留学
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">12</span>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
       </a>
     </span>
 </p>
@@ -473,6 +513,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -613,6 +655,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
