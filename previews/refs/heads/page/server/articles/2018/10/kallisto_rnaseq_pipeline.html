@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
     <meta name="twitter:title" content="Kallistoを用いたRNA-seq解析パイプライン">
     <meta name="twitter:description" content="">
@@ -23,23 +23,23 @@
     <meta name="twitter:creator" content="@oumed_python">
     <meta name="twitter:domain" content="../../..">
         <meta property="twitter:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
 
     <title>Kallistoを用いたRNA-seq解析パイプライン - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous" />
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
             crossorigin="anonymous">
 
 
       <link rel="stylesheet" href="../../../theme/css/pygment.css" />
-      <link rel="stylesheet" href="../../../theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
       <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
 
     <!--[if lt IE 9]>
@@ -50,55 +50,93 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="./previews/refs/heads/page/server/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="./previews/refs/heads/page/server/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="/previews/refs/heads/page/server/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/page/server/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
    
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
-	   <div class="navbar-header">
-		<button type="button" class="navbar-toggle" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../../../" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
-       </div>
-
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-<a href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li>
-<a href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li>
-<a href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="active">
-<a href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
-<li>
-<a href="../../../news.html">お知らせ</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li>
-<a href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
-<li>
-<a href="../../../student_server.html">学生用計算機</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../student_server.html">学生用計算機</a>
 </li>
-<li>
-<a href="../../../contact.html">Contact</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -139,13 +177,13 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
-<h2>リファレンスのダウンロード</h2>
+<h2><span id="pelican-subsections-0">リファレンスのダウンロード</span></h2>
 <p>kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は<a href="https://www.gencodegenes.org/">GenCodeGenes</a>のヒトtranscript sequencesのデータを用いました。</p>
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
 </code></pre></div>
 
 
-<h2>FASTQファイルをダウンロードする場合</h2>
+<h2><span id="pelican-subsections-1">FASTQファイルをダウンロードする場合</span></h2>
 <p><a href="https://www.ebi.ac.uk/arrayexpress/">ArrayExpress</a>からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。</p>
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
 $ gunzip ERR266335.fastq.gz
@@ -153,11 +191,11 @@ $ gunzip ERR266335.fastq.gz
 
 
 <p>ERR266349 ERR266351 ERR266338 ERR266347についても同様に！</p>
-<h3>参照：</h3>
+<h3><span id="pelican-subsections-2">参照：</span></h3>
 <ul>
 <li>次世代シークエンサーDRY解析教本 (細胞工学別冊)</li>
 </ul>
-<h2>SRAファイルをダウンロードする場合</h2>
+<h2><span id="pelican-subsections-3">SRAファイルをダウンロードする場合</span></h2>
 <p>DDBJの<a href="https://ddbj.nig.ac.jp/DRASearch/">DRA search</a>からSRAファイルをダウンロード、SRAファイルをFASTQに変換する。pfast-dumpで .sraをペアエンド.fastqに変換。 (<strong>kallistoはsraファイルを扱えない</strong> ので、pfastq-dumpでfastqに変換する必要がある。）</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># download sra files.</span>
@@ -179,7 +217,7 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <li><code>-O</code> : 出力ファイル</li>
 </ul>
 <p>今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理をシェルスクリプトを使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。</p>
-<h3>SRAファイルとは？</h3>
+<h3><span id="pelican-subsections-4">SRAファイルとは？</span></h3>
 <p>Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。<a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration">INSDC</a>、<a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EBI</a>、<a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan">DDBJ</a>が共同で運営しているデータベース<a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive">SRA</a>に保存してある。</p>
 <div class="highlight"><pre><span></span><code>$ less ERR266335.sra
 </code></pre></div>
@@ -187,9 +225,9 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 
 <p>バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
 <img alt="1" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"></p>
-<h3>pfastq-dumpとは？</h3>
+<h3><span id="pelican-subsections-5">pfastq-dumpとは？</span></h3>
 <p>fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。<a href="https://github.com/inutanoOhta">Ohta</a>さんが公開されている。</p>
-<h2>Fastqc</h2>
+<h2><span id="pelican-subsections-6">Fastqc</span></h2>
 <p>クオリティチェック。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">id</span><span class="o">=(</span>ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351<span class="o">)</span>
@@ -222,11 +260,11 @@ fastqcのオプションについて</p>
 
 
 <p><img alt="5" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
-<h3>参照：</h3>
+<h3><span id="pelican-subsections-7">参照：</span></h3>
 <ul>
 <li>次世代シークエンサーDRY解析教本</li>
 </ul>
-<h2>Multiqc</h2>
+<h2><span id="pelican-subsections-8">Multiqc</span></h2>
 <p>クオリティチェックの結果、ログファイルなどをまとめていい感じにレポートにしてくれるツール。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># After analysis, run Multiqc by commands below. You can create report.</span>
 $ multiqc .
@@ -238,11 +276,11 @@ $ open multiqc_report.html
 <p><img alt="6" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"></p>
 <p>複数のリードのクオリティチェックの結果を同時に表示できる。</p>
 <p><img alt="7" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"></p>
-<h3>参照：</h3>
+<h3><span id="pelican-subsections-9">参照：</span></h3>
 <ul>
 <li><a href="https://multiqc.info/">https://multiqc.info/</a></li>
 </ul>
-<h2>Trimmomatic</h2>
+<h2><span id="pelican-subsections-10">Trimmomatic</span></h2>
 <p>Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。</p>
 <div class="highlight"><pre><span></span><code>$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 </code></pre></div>
@@ -252,16 +290,16 @@ $ open multiqc_report.html
 <ul>
 <li>ILLUMINACLIP : 除去するアダプター配列をFASTA形式で与える。そのあとにミスマッチ許容数、palindrome clip threshold、simple clip thresholdの順に指定していく。</li>
 </ul>
-<h3>参照</h3>
+<h3><span id="pelican-subsections-11">参照</span></h3>
 <ul>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html">https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html</a></li>
 <li><a href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></li>
 </ul>
-<h2>Single-end, Pair-endってなに？？</h2>
+<h2><span id="pelican-subsections-12">Single-end, Pair-endってなに？？</span></h2>
 <p><img alt="8" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"></p>
 <p><img alt="9" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"></p>
 <p>シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。</p>
-<h2>Kallisto</h2>
+<h2><span id="pelican-subsections-13">Kallisto</span></h2>
 <p>RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。</p>
 <p>kallisto や Salmon を利用して定量したデータを使って、edgeR や DESeq2 などで発現量の群間比較を行うことができる。この際に、Bioconductor の tximport パッケージを利用することで、簡単に kallisto/Salmon の定量結果を edgeR/DESEq2 に渡すことができる。</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
@@ -294,17 +332,17 @@ kallisto/kallisto quant -i hsGRCh38_kallisto -o <span class="si">${</span><span 
 
 
 <p>abundance.tsv, target_id, length, eff_length, est_counts, tpm</p>
-<h3>参照</h3>
+<h3><span id="pelican-subsections-14">参照</span></h3>
 <ul>
 <li><a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto">https://scilifelab.github.io/courses/rnaseq/labs/kallisto</a></li>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html">https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html</a></li>
 <li><a href="http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503">http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503</a></li>
 <li><a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto">https://scilifelab.github.io/courses/rnaseq/labs/kallisto</a></li>
 </ul>
-<h2>FPKM, RPKM, TPMとは？</h2>
+<h2><span id="pelican-subsections-15">FPKM, RPKM, TPMとは？</span></h2>
 <p>転写産物にマッピングされるリードの数は、サンプル中の総リード数（sequence depth）と転写産物の長さに影響されるので、RNA-Seq データから得られたリードカウントデータは、そのまま転写産物（遺伝子）発現量を表すわけではない。そのため、RNA-Seq データから得られるリードカウントデータを転写産物発現量として利用するには、総リード数や転写産物長で補正する必要がある。</p>
 <p>補正計算として、かつてはFPKM,RPKMが用いられてきたが、現在ではかわりにTPMが用いられている。TPMではサンプルごとの値の合計が同じになるので、比較する目的のためにはTPMの方が都合が良い。</p>
-<h3>FPKM/RPKM の計算</h3>
+<h3><span id="pelican-subsections-16">FPKM/RPKM の計算</span></h3>
 <ul>
 <li>FPKM : Fragments Per Kilobase of exon per Killion reads Mapped</li>
 <li>RPKM : Reads Per Kilobase of exon per Million mapped reads
@@ -316,7 +354,7 @@ $$</div>
 <li><span class="math">\(Y_i\)</span>: そのうち転写産物 <span class="math">\(i\)</span> の領域にマッピングされたリード数</li>
 <li><span class="math">\(L_i\)</span>: 転写産物 <span class="math">\(i\)</span> の長さ</li>
 </ul>
-<h3>TPMの計算</h3>
+<h3><span id="pelican-subsections-17">TPMの計算</span></h3>
 <ul>
 <li>TPM : Transcripts Per Kilobase Million</li>
 </ul>
@@ -332,7 +370,7 @@ $$</div>
 TPM_t = T_t \frac{10^6}{\sum_t T_t}
 $$</div>
 <p>転写産物長による補正後の総リードカウントが 100 万となるように補正</p>
-<h3>参照</h3>
+<h3><span id="pelican-subsections-18">参照</span></h3>
 <ul>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/fpkm.html">bipapyrus fpkm</a></li>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/tpm.html">bipapyrus tpm</a></li>
@@ -533,102 +571,102 @@ $$</div>
 </div>
 </div>
 <div class="sidebar_box">
-<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="label label-primary">3</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
+          <span class="badge badge-primary">12</span>
         Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="label label-primary">2</span>
-        検定試験
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
+          <span class="badge badge-primary">7</span>
         Statistics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">4</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="label label-primary">3</span>
-        Shell script
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         海外留学
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">14</span>
-        Python
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
 </p>
@@ -648,7 +686,7 @@ $$</div>
     <footer id="site-footer">
 <!-- colophon  -->
 <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
-<address id="site-colophon" style="margin:0px;padding:5px">
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
         © 2020 大阪大学医学部 Python会
@@ -670,10 +708,17 @@ $$</div>
 
     <!-- javascript -->
    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -799,9 +844,7 @@ $(function(){
     if( $('#toc').is(':empty') ) {
       $('.toc_box').remove();
     }
-</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<p class="pagetop"><a href="#wrap"></a></p>
+</script><p class="pagetop"><a href="#wrap"></a></p>
 <script>
 $(document).ready(function() {
     var pagetop = $('.pagetop');
@@ -816,6 +859,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
