@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
     <meta name="twitter:title" content="Pythonで使える正規表現まとめ">
     <meta name="twitter:description" content="">
@@ -23,23 +23,23 @@
     <meta name="twitter:creator" content="@oumed_python">
     <meta name="twitter:domain" content="../../..">
         <meta property="twitter:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
 
     <title>Pythonで使える正規表現まとめ - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous" />
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
             crossorigin="anonymous">
 
 
       <link rel="stylesheet" href="../../../theme/css/pygment.css" />
-      <link rel="stylesheet" href="../../../theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
       <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
 
     <!--[if lt IE 9]>
@@ -50,52 +50,90 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="./previews/refs/heads/system/preview_delete_artifact/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="./previews/refs/heads/system/preview_delete_artifact/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="/previews/refs/heads/system/preview_delete_artifact/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/system/preview_delete_artifact/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
    
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
-	   <div class="navbar-header">
-		<button type="button" class="navbar-toggle" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../../../" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
-       </div>
-
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-<a href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li>
-<a href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li>
-<a href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="active">
-<a href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
-<li>
-<a href="../../../news.html">お知らせ</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li>
-<a href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
-<li>
-<a href="../../../contact.html">Contact</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -1258,7 +1296,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#35201;&#28857;">&#35201;&#28857;<a class="anchor-link" href="#&#35201;&#28857;">&#182;</a></h2><h3 id="&#12513;&#12479;&#25991;&#23383;">&#12513;&#12479;&#25991;&#23383;<a class="anchor-link" href="#&#12513;&#12479;&#25991;&#23383;">&#182;</a></h3><ul>
+<h2 id="&#35201;&#28857;"><span id="pelican-subsections-0">&#35201;&#28857;<a class="anchor-link" href="#&#35201;&#28857;">&#182;</a></span></h2><h3 id="&#12513;&#12479;&#25991;&#23383;"><span id="pelican-subsections-1">&#12513;&#12479;&#25991;&#23383;<a class="anchor-link" href="#&#12513;&#12479;&#25991;&#23383;">&#182;</a></span></h3><ul>
 <li><code>?</code>は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）</li>
 <li><code>*</code>は、直前のグループの0回以上の出現にマッチする。</li>
 <li><code>+</code>は、直前のグループの1回以上の出現にマッチする。</li>
@@ -1267,7 +1305,7 @@ h6:hover .anchor-link {
 <li><code>{,m}</code>は、直前のグループの0~m回の出現にマッチする。</li>
 <li><code>{n,m}?</code>、<code>?</code>、<code>+?</code>は直前のグループの非貪欲マッチを行う。</li>
 </ul>
-<h3 id="&#25991;&#23383;&#38598;&#21512;">&#25991;&#23383;&#38598;&#21512;<a class="anchor-link" href="#&#25991;&#23383;&#38598;&#21512;">&#182;</a></h3><ul>
+<h3 id="&#25991;&#23383;&#38598;&#21512;"><span id="pelican-subsections-2">&#25991;&#23383;&#38598;&#21512;<a class="anchor-link" href="#&#25991;&#23383;&#38598;&#21512;">&#182;</a></span></h3><ul>
 <li><code>\d</code>：0~9の数字</li>
 <li><code>\D</code>：0~9の数字以外</li>
 <li><code>\w</code>：文字、数字、下線（単語wordのw）</li>
@@ -1275,7 +1313,7 @@ h6:hover .anchor-link {
 <li><code>\s</code>：スペース、タブ、改行（空白spaceのs）</li>
 <li><code>\S</code>：スペース、タブ、改行以外</li>
 </ul>
-<h3 id="&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;">&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;<a class="anchor-link" href="#&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;">&#182;</a></h3><ul>
+<h3 id="&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;"><span id="pelican-subsections-3">&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;<a class="anchor-link" href="#&#27491;&#35215;&#34920;&#29694;&#12510;&#12483;&#12481;&#12398;&#12414;&#12392;&#12417;">&#182;</a></span></h3><ul>
 <li><code>re</code>モジュール</li>
 <li><code>re.compile()</code>関数</li>
 <li><code>search()</code>メソッド</li>
@@ -1289,7 +1327,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23455;&#36341;">&#23455;&#36341;<a class="anchor-link" href="#&#23455;&#36341;">&#182;</a></h2>
+<h2 id="&#23455;&#36341;"><span id="pelican-subsections-4">&#23455;&#36341;<a class="anchor-link" href="#&#23455;&#36341;">&#182;</a></span></h2>
 </div>
 </div>
 </div>
@@ -1311,7 +1349,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;">'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;<a class="anchor-link" href="#'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;">&#182;</a></h3><p><code>\d</code>を用いて、あるtextから、電話番号パターンにマッチする部分を検索しましょう。
+<h3 id="'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;"><span id="pelican-subsections-5">'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;<a class="anchor-link" href="#'\d'&#12399;1&#25991;&#23383;&#12398;&#25968;&#23383;&#12434;&#34920;&#12377;&#27491;&#35215;&#34920;&#29694;">&#182;</a></span></h3><p><code>\d</code>を用いて、あるtextから、電話番号パターンにマッチする部分を検索しましょう。
 <code>re.compile()</code>に正規表現パターンを表す文字列を渡すと、Regexオブジェクトが返ります。</p>
 
 </div>
@@ -1334,7 +1372,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>文字列の前の<code>r</code>はraw文字列を指定し、文字をエスケープせずに簡潔に表現しています。</p>
-<h3 id="search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;">search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;">&#182;</a></h3><p>Regexオブジェクトの<code>search()</code>メソッドは、渡された文字列の中から正規表現にマッチするパターンが見つかれば、Matchオブジェクトを返します。
+<h3 id="search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;"><span id="pelican-subsections-6">search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#search()&#12513;&#12477;&#12483;&#12489;&#12392;group()&#12513;&#12477;&#12483;&#12489;">&#182;</a></span></h3><p>Regexオブジェクトの<code>search()</code>メソッドは、渡された文字列の中から正規表現にマッチするパターンが見つかれば、Matchオブジェクトを返します。
 Matchオブジェクトには<code>group()</code>メソッドがあり、実際にマッチしたテキストを返します</p>
 
 </div>
@@ -1375,7 +1413,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;">'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;<a class="anchor-link" href="#'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;">&#182;</a></h3>
+<h3 id="'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;"><span id="pelican-subsections-7">'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;<a class="anchor-link" href="#'()'&#12434;&#29992;&#12356;&#12383;&#12464;&#12523;&#12540;&#12500;&#12531;&#12464;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1433,7 +1471,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;">'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;">&#182;</a></h3><p>例えば<code>r'Batman|Spiderman'</code>という正規表現は、<code>'Batman'</code>or<code>'Spiderman'</code>にマッチします。</p>
+<h3 id="'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;"><span id="pelican-subsections-8">'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'|'&#12434;&#20351;&#12387;&#12390;&#35079;&#25968;&#12398;&#12464;&#12523;&#12540;&#12503;&#12392;&#12510;&#12483;&#12481;">&#182;</a></span></h3><p>例えば<code>r'Batman|Spiderman'</code>という正規表現は、<code>'Batman'</code>or<code>'Spiderman'</code>にマッチします。</p>
 
 </div>
 </div>
@@ -1518,7 +1556,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;">&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;<a class="anchor-link" href="#&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;">&#182;</a></h3>
+<h3 id="&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;"><span id="pelican-subsections-9">&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;<a class="anchor-link" href="#&#20024;&#12459;&#12483;&#12467;&#12392;&#32294;&#32218;&#12392;&#12434;&#24540;&#29992;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1560,7 +1598,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;">'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;">&#182;</a></h3>
+<h3 id="'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;"><span id="pelican-subsections-10">'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'?'&#12434;&#29992;&#12356;&#12383;&#20219;&#24847;&#12398;&#12510;&#12483;&#12481;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1636,7 +1674,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">&#182;</a></h3>
+<h3 id="'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;"><span id="pelican-subsections-11">'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'*'&#12434;&#29992;&#12356;&#12383;0&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1712,7 +1750,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">&#182;</a></h3>
+<h3 id="'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;"><span id="pelican-subsections-12">'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;<a class="anchor-link" href="#'+'&#12434;&#29992;&#12356;&#12383;1&#22238;&#20197;&#19978;&#12398;&#12510;&#12483;&#12481;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1788,7 +1826,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;">'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;<a class="anchor-link" href="#'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;">&#182;</a></h3><p>例：<code>(Ha){3} = (HaHaHa) , (Ha){3,5} = (HaHaHa|HaHaHaHa|HaHaHaHaHa)</code></p>
+<h3 id="'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;"><span id="pelican-subsections-13">'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;<a class="anchor-link" href="#'{}'&#12434;&#29992;&#12356;&#12390;&#32368;&#12426;&#36820;&#12375;&#22238;&#25968;&#12434;&#25351;&#23450;&#12377;&#12427;">&#182;</a></span></h3><p>例：<code>(Ha){3} = (HaHaHa) , (Ha){3,5} = (HaHaHa|HaHaHaHa|HaHaHaHaHa)</code></p>
 
 </div>
 </div>
@@ -1865,7 +1903,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;">&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;<a class="anchor-link" href="#&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;">&#182;</a></h3><p>Pythonの正規表現は、デフォルトでは貪欲マッチです。つまり、複数の可能性があると最も長い方にマッチします。</p>
+<h3 id="&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;"><span id="pelican-subsections-14">&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;<a class="anchor-link" href="#&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#12472;&#12515;&#12460;&#12499;&#12540;&#12399;&#19968;&#30058;&#38263;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;&#12290;">&#182;</a></span></h3><p>Pythonの正規表現は、デフォルトでは貪欲マッチです。つまり、複数の可能性があると最も長い方にマッチします。</p>
 
 </div>
 </div>
@@ -1908,7 +1946,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;">&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;<a class="anchor-link" href="#&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;">&#182;</a></h3><p>閉じカッコの後に<code>?</code></p>
+<h3 id="&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;"><span id="pelican-subsections-15">&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;<a class="anchor-link" href="#&#38750;&#36010;&#27442;&#12510;&#12483;&#12481;&#65306;&#36960;&#24942;&#12375;&#12390;&#19968;&#30058;&#30701;&#12356;&#12418;&#12398;&#12434;&#12392;&#12427;">&#182;</a></span></h3><p>閉じカッコの後に<code>?</code></p>
 
 </div>
 </div>
@@ -1951,7 +1989,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="findall()&#12513;&#12477;&#12483;&#12489;">findall()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#findall()&#12513;&#12477;&#12483;&#12489;">&#182;</a></h3><p><code>search()</code>が最初に見つかった文字列を返すのに対し、<code>findall()</code>は見つかったすべての文字列を返します。
+<h3 id="findall()&#12513;&#12477;&#12483;&#12489;"><span id="pelican-subsections-16">findall()&#12513;&#12477;&#12483;&#12489;<a class="anchor-link" href="#findall()&#12513;&#12477;&#12483;&#12489;">&#182;</a></span></h3><p><code>search()</code>が最初に見つかった文字列を返すのに対し、<code>findall()</code>は見つかったすべての文字列を返します。
 <code>findall()</code>はタプルのリストを返すことに注意。</p>
 
 </div>
@@ -2031,7 +2069,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 <p>続きはありますが、あまり出しすぎるとネタが無くなるので、今回はここまでにしておきます。
 また書きます。</p>
 <p>上記の内容をうまく利用して、自分で電子メールアドレスの正規表現を作ってみてもおもしろいと思います。</p>
-<h2 id="&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;">&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;<a class="anchor-link" href="#&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;">&#182;</a></h2><ul>
+<h2 id="&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;"><span id="pelican-subsections-17">&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;<a class="anchor-link" href="#&#27491;&#35215;&#34920;&#29694;&#12395;&#12388;&#12356;&#12390;&#12289;&#12373;&#12425;&#12395;&#35443;&#12375;&#12367;">&#182;</a></span></h2><ul>
 <li><a href="https://docs.python.jp/3/library/re.html">6.2. re — 正規表現操作 — Python 3.6.3 ドキュメント</a></li>
 <li><a href="https://qiita.com/dongri/items/2a0a18e253eb5bf9edba">よく使う正規表現はもうググりたくない！ - Qiita</a></li>
 </ul>
@@ -2200,102 +2238,102 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 </div>
 </div>
 <div class="sidebar_box">
-<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         論文関連
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
+          <span class="badge badge-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">14</span>
-        Python
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="label label-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
-          <span class="label label-primary">3</span>
+          <span class="badge badge-primary">3</span>
         Shell script
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">4</span>
-        競技プログラミング
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
+          <span class="badge badge-primary">2</span>
         ハードウェア
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         Unix
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
+          <span class="badge badge-primary">13</span>
         Machine Learning
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="label label-primary">3</span>
-        勉強会
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
       </a>
     </span>
 </p>
@@ -2315,7 +2353,7 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
     <footer id="site-footer">
 <!-- colophon  -->
 <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
-<address id="site-colophon" style="margin:0px;padding:5px">
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
         © 2020 大阪大学医学部 Python会
@@ -2337,10 +2375,17 @@ Matchオブジェクトには<code>group()</code>メソッドがあり、実際�
 
     <!-- javascript -->
    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -2466,9 +2511,7 @@ $(function(){
     if( $('#toc').is(':empty') ) {
       $('.toc_box').remove();
     }
-</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<p class="pagetop"><a href="#wrap"></a></p>
+</script><p class="pagetop"><a href="#wrap"></a></p>
 <script>
 $(document).ready(function() {
     var pagetop = $('.pagetop');
@@ -2483,6 +2526,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
