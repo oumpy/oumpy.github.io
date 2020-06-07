@@ -1,43 +1,41 @@
 .navbar {
-	margin-bottom: 0px;
-	border-radius: 0px!important;
-}
-
-.navbar-default {
   background-color: #1d2113;
 	border-color: #1d2113;
-	z-index: 999;
-  top: 0;
   position: sticky;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar .navbar-nav>li>a {
     color: #fff;
 }
 
-.navbar-default .navbar-nav>li>a:hover {
+.navbar .navbar-nav>li>a:hover {
     color: #999;
     background: #072A24;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.navbar .navbar-nav>.active>a, .navbar .navbar-nav>.active>a:focus, .navbar .navbar-nav>.active>a:hover {
     color: #1d2113;
     background-color: #e7e7e7;
 }
 
 .jumbotron {
-		padding-top: 0px;
-		padding-bottom: 0px;
-    margin-top: -10px;
-    margin-bottom: 20px;
+    padding-top: 1.25rem;
+    padding-bottom: 0.1rem;
+    margin-top: 0rem;
+    margin-bottom: 1.25rem;
     background-color: #0f5889;
+    border-radius: 0rem;
 }
 
 .jumbotron a {
 	 color: #fff;
 	 text-decoration: none!important;
 	 font-weight: bolder;
-	 font-size: 70%;
+	 /*font-size: 70%;*/
+}
+
+.jumbotron h1 {
+  font-size: 3.0rem;
 }
 
 p.lead{
@@ -172,15 +170,16 @@ dt {
 
 header h1{
   font-weight:bold;
-  font-size: 2.75rem;
+  font-size: 1.7rem;
   padding: .5em .75em;
   background-color: #f6f6f6;
   border-bottom: 2px solid #ccc;
+  border-radius: 0.75rem;
 }
 
 article h1{
 	color: #333333;
-  font-size: 2.5rem;
+  font-size: 1.7rem;
 }
 
 article h1 a{
@@ -193,9 +192,9 @@ article h1 a{
 
 .content-body h2{
 	font-weight:bold;
-	font-size: 2.3rem;
+	font-size: 1.6rem;
   padding: 0rem 1rem;
-  margin: 3rem 0 1rem 0;
+  margin: 1.5rem 0 1rem 0;
   text-align: left;
   border-left: 6px solid #126ca7;
   border-bottom: 3px solid #126ca7;
@@ -203,14 +202,14 @@ article h1 a{
 
 .content-body h3{
 	font-weight:bold;
-	font-size: 1.7rem;
+	font-size: 1.4rem;
 	padding: .25em 0 .25em .75em;
   border-left: 6px solid #ccc;
 }
 
 .content-body h4 {
   font-weight: bold;
-  font-size: 1.65rem;
+  font-size: 1.2rem;
 	padding: .25em 0 .25em 1em;
 }
 
@@ -268,7 +267,7 @@ article h1 a{
     margin: 1em 0;
     background: #fff;
     border: 3px solid #126ca7;
-
+    border-radius: 0.5rem;
 }
 .sidebar_box .box-title {
     font-size: 1.2em;
@@ -523,110 +522,9 @@ td.recent-posts-date {
   font-weight: bolder;
 }
 
-.gnav {
-  display: flex;
-  height: 3rem;
-  margin: 0;
-  padding: 0;
+/* デスクトップ表示ではホバー操作でドロップダウンを表示 */
+@media only screen and (min-width : 768px) {
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
 }
-/*親階層のみ幅を25%にする*/
-.gnav > li {
-  width: 25%;
-}
-/*全てのリスト・リンク共通*/
-.gnav li {
-  list-style: none;
-  position: relative;
-}
-.gnav li a {
-  background: #001b34;
-  border-right: 1px solid #eee;
-  color: #fff;
-  display: block;
-  height: 2rem;
-  line-height: 2rem;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-}
-/*子階層以降共通*/
-.gnav li li {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: opacity .5s;
-}
-.gnav li li a {
-  border-top: 1px solid #eee;
-}
-.gnav li:hover > ul > li {
-  height: 2rem;
-  opacity: 1;
-  overflow: visible;
-}
-.gnav li ul li ul {
-  left: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-/*一番右のメニュー*/
-/*
-.gnav > li:nth-child(5) ul li ul {
-  left: -100%;
-}
-*/
-/*hover*/  
-.gnav > li:hover > a {/*親階層*/
-  background: #00305c;
-}
-   
-.gnav > li li > a {/*子階層*/
-  background: #00305c;
-}
-.gnav > li li:hover > a {
-  background: #004789;
-}
-
-.gnav li ul li ul li > a {/*孫階層*/
-  background: #004789;
-}
-.gnav li ul li ul li:hover > a {
-  background: #0065c1;
-}
-
-.gnav li ul li ul li ul li > a {/*ひ孫階層*/
-  background: #0065c1;
-}
-.gnav li ul li ul li ul li:hover > a {
-  background: #1e7dd4;
-}
-
-/*リストに「▶︎」を付ける*/
-.gnav > li > ul:before{/*子階層*/
-  border: 5px solid transparent;
-  border-top: 5px solid #fff;
-  content: "";
-  right: 1rem;
-  position: absolute;
-  top: 1rem;
-  transform: translateY(-40%);
-}
-.gnav li ul li ul:before {/*孫階層*/
-  border: 5px solid transparent;
-  border-left: 5px solid #fff;
-  content: "";
-  left: -20px;
-  position: absolute;
-  top: 1em;
-  transform: translateY(-50%);
-}
-/*一番右のメニューの孫階層*/
-/*
-.gnav li:nth-child(5) ul li ul:before {
-  border: 5px solid transparent;
-  border-right: 5px solid #fff;
-  left: auto;
-  right: -20px;
-}
-*/

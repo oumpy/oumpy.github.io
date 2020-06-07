@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,7 @@
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
     <meta name="twitter:title" content="NTT corevoチャレンジ: 話者の性別・年代識別">
     <meta name="twitter:description" content="">
@@ -24,23 +24,23 @@
     <meta name="twitter:creator" content="@oumed_python">
     <meta name="twitter:domain" content="../../..">
         <meta property="twitter:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
 
     <title>NTT corevoチャレンジ: 話者の性別・年代識別 - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous" />
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
             crossorigin="anonymous">
 
 
       <link rel="stylesheet" href="../../../theme/css/pygment.css" />
-      <link rel="stylesheet" href="../../../theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
       <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
 
     <!--[if lt IE 9]>
@@ -57,221 +57,84 @@
 
   <body>
    
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
-	   <div class="navbar-header">
-		<button type="button" class="navbar-toggle" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../../../" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
-       </div>
-
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav gnav">
-            <li>
-<a href="../../../index.html">Python会について</a>
-<ul>
-<li>
-<a href="../../../constitution.html">Python会規約</a>
-<ul>
-<li>
-<a href="../../../constitution.html#pelican-subsections-0">第1条（名称）</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-1">第2条（所在地）</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-2">第3条（目的）</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-3">第4条（会員）</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-4">第5条（役員）</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-5">第6条（機関）</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-6">第7条（財務）</a>
-</li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-7">第8条（細則）</a>
-</li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-8">第9条（改定）</a>
-</li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-9">第10条（設立日）</a>
-</li>
-<li>
-<a href="../../../constitution.html#pelican-subsections-10">第11条（規約施行日）</a>
-</li>
-</ul></li>
-</ul></li>
-<li>
-<a href="../../../activities.html">活動内容</a>
-<ul>
-<li>
-<a href="../../../activities.html#pelican-subsections-0">学習・研究</a>
-<ul>
-<li>
-<a href="../../../activities.html#pelican-subsections-1">バイオインフォマティクス</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-2">機械学習・統計学</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-3">競技プログラミング</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-6">過去の活動</a>
-<ul>
-<li>
-<a href="../../../activities.html#pelican-subsections-7">2019/12/22 奈良県立医科大学ハンズオン</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-8">2019/12/15 2019忘年会</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-9">2019/10/20 「生命科学者のためのDr.Bonoデータ解析実践道場」読書会</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-10">2019/09/22 技術書典7</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-11">2019/06/14 大阪大学微生物病研究所 × 阪医Python会 合同ワークショップ</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-12">2019/02/25</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-13">2018/12/26 第1回バイオインフォマティクス可視化セミナー</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-14">2018/12/19 signate&amp;マイナビstudentcupアフターイベント</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-15">2018/12/14 忘年会＆冬の研究交流会</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-16">2018/10/23 RNA-seq会②</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-17">2018/10/03 RNA-seq入門①</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-18">2018/09/20 低学年会</a>
-</li>
-<li>
-<a href="../../../activities.html#pelican-subsections-19">2018/09/07 秋の研究交流会</a>
-</li>
-</ul></li>
-</ul></li>
-<li>
-<a href="../../../achievements.html">実績</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-1">会内勉強会</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-3">リレー投稿制度およびweb公開</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-5">勉強合宿</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-6">ワークショップ等の企画</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-8">機械学習コンペティション</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-11">競技プログラミング</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-13">RNA-seq pipeline ikra ver1.0をリリース</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-14">外部との共同研究</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-15">企業インターンシップ参加</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-17">2020</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-18">2019</a>
-</li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-19">2018</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
-<ul>
-<li>
-<a href="../../../achievements.html#pelican-subsections-21">2019</a>
-</li>
-</ul></li>
-</ul></li>
-<li class="active">
-<a href="../../../blog.html">技術ブログ</a>
-<ul>
-<li>
-<a href="../../../tags.html">タグ別</a>
-</li>
-<li>
-<a href="../../../authors.html">著者別</a>
-</li>
-<li>
-<a href="../../../archives.html">過去記事一覧</a>
-</li>
-</ul></li>
-<li>
-<a href="../../../news.html">お知らせ</a>
-</li>
-<li>
-<a href="../../../recruit.html">会員募集</a>
-</li>
-<li>
-<a href="../../../contact.html">Contact</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -403,6 +266,11 @@
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">6/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/06/studymeeting2020_03.html"><span class="recent-posts-title">【勉強会資料 2020 第3回】 競プロの基礎</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">5/29</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/05/officialize_and_officialname.html"><span class="recent-posts-title">医学部公認と正式名称の検討について</span></a></td>
@@ -437,11 +305,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/04/neural_tangents.html"><span class="recent-posts-title">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">4/1</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/04/establish_constitution.html"><span class="recent-posts-title">会規約を制定しました</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -449,100 +312,100 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
+          <span class="badge badge-primary">2</span>
         論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">3</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         Unix
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
+          <span class="badge badge-primary">1</span>
         海外留学
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="label label-primary">2</span>
-        検定試験
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
+          <span class="badge badge-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="label label-primary">2</span>
-        勉強会
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
-          <span class="label label-primary">3</span>
+          <span class="badge badge-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>
@@ -562,7 +425,7 @@
     <footer id="site-footer">
 <!-- colophon  -->
 <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
-<address id="site-colophon" style="margin:0px;padding:5px">
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
         © 2020 大阪大学医学部 Python会
@@ -584,10 +447,17 @@
 
     <!-- javascript -->
    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -713,9 +583,7 @@ $(function(){
     if( $('#toc').is(':empty') ) {
       $('.toc_box').remove();
     }
-</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<p class="pagetop"><a href="#wrap"></a></p>
+</script><p class="pagetop"><a href="#wrap"></a></p>
 <script>
 $(document).ready(function() {
     var pagetop = $('.pagetop');
@@ -730,6 +598,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
