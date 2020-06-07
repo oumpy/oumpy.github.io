@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
     <meta name="twitter:title" content="2018年阪大理系数学をPythonで解いてみた">
     <meta name="twitter:description" content="">
@@ -23,23 +23,23 @@
     <meta name="twitter:creator" content="@oumed_python">
     <meta name="twitter:domain" content="../../..">
         <meta property="twitter:image"
-              content="../../../images/logo.jpg"/>
+              content="../../../images/images/logo.jpg"/>
 
     <title>2018年阪大理系数学をPythonで解いてみた - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous" />
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
       <link rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
             crossorigin="anonymous">
 
 
       <link rel="stylesheet" href="../../../theme/css/pygment.css" />
-      <link rel="stylesheet" href="../../../theme/css/voidybootstrap.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
       <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
 
     <!--[if lt IE 9]>
@@ -50,52 +50,90 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="./previews/refs/heads/config/minorconfs/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="./previews/refs/heads/config/minorconfs/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="/previews/refs/heads/config/minorconfs/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/config/minorconfs/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
    
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
-	   <div class="navbar-header">
-		<button type="button" class="navbar-toggle" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="../../../" rel="home">
-          <i class="fa fa-home fa-fw fa-lg"> </i> </a>
-       </div>
-
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-<a href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li>
-<a href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li>
-<a href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="active">
-<a href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
-<li>
-<a href="../../../news.html">お知らせ</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li>
-<a href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
-<li>
-<a href="../../../contact.html">Contact</a>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -1249,12 +1287,12 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;">&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;<a class="anchor-link" href="#&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;">&#182;</a></h2><p>Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。</p>
+<h2 id="&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;"><span id="pelican-subsections-0">&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;<a class="anchor-link" href="#&#12394;&#12380;&#20837;&#35430;&#25968;&#23398;&#12434;Python&#12391;&#65311;&#65311;">&#182;</a></span></h2><p>Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。</p>
 <p>コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。</p>
-<h2 id="&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;">&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;<a class="anchor-link" href="#&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;">&#182;</a></h2><p>いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。</p>
+<h2 id="&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;"><span id="pelican-subsections-1">&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;<a class="anchor-link" href="#&#12393;&#12398;&#21839;&#38988;&#12434;&#35299;&#12367;&#12363;&#65311;">&#182;</a></span></h2><p>いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。</p>
 <p>ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。</p>
 <p>※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。</p>
-<h2 id="&#29872;&#22659;">&#29872;&#22659;<a class="anchor-link" href="#&#29872;&#22659;">&#182;</a></h2><ul>
+<h2 id="&#29872;&#22659;"><span id="pelican-subsections-2">&#29872;&#22659;<a class="anchor-link" href="#&#29872;&#22659;">&#182;</a></span></h2><ul>
 <li><code>Python3.6.1</code></li>
 <li><code>sympy</code>：sympyはPythonのライブラリの一つで、記号計算を行うものです。</li>
 </ul>
@@ -1283,7 +1321,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#22823;&#38442;&#22823;&#23398;2018&#24180;-&#29702;&#31995;&#25968;&#23398;-&#31532;&#65297;&#21839;">&#22823;&#38442;&#22823;&#23398;2018&#24180; &#29702;&#31995;&#25968;&#23398; &#31532;&#65297;&#21839;<a class="anchor-link" href="#&#22823;&#38442;&#22823;&#23398;2018&#24180;-&#29702;&#31995;&#25968;&#23398;-&#31532;&#65297;&#21839;">&#182;</a></h2>
+<h2 id="&#22823;&#38442;&#22823;&#23398;2018&#24180;-&#29702;&#31995;&#25968;&#23398;-&#31532;&#65297;&#21839;"><span id="pelican-subsections-3">&#22823;&#38442;&#22823;&#23398;2018&#24180; &#29702;&#31995;&#25968;&#23398; &#31532;&#65297;&#21839;<a class="anchor-link" href="#&#22823;&#38442;&#22823;&#23398;2018&#24180;-&#29702;&#31995;&#25968;&#23398;-&#31532;&#65297;&#21839;">&#182;</a></span></h2>
 </div>
 </div>
 </div>
@@ -1298,7 +1336,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="(1)">(1)<a class="anchor-link" href="#(1)">&#182;</a></h3><h4><方針></h4>
+<h3 id="(1)"><span id="pelican-subsections-4">(1)<a class="anchor-link" href="#(1)">&#182;</a></span></h3><h4><span id="pelican-subsections-5"><方針></span></h4>
 <p>普通に解くなら、$y=$(真ん中)$-$(左)、$y=$(右)$-$(真ん中)、とおいて、<br>
 微分 → 増減表 → グラフ → $x&gt;0$で$y&gt;0$<br>
 という流れで示すのが一般的だと思いますが、<code>sympy</code>では、簡単にグラフが書けるので、一気にグラフを描いて示します。</p>
@@ -1642,7 +1680,7 @@ $\displaystyle \frac{x}{\sqrt{x + 1}} - \log{\left(x + 1 \right)}$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="(2)">(2)<a class="anchor-link" href="#(2)">&#182;</a></h3><h4 id="&#65308;&#26041;&#37341;&#65310;">&#65308;&#26041;&#37341;&#65310;<a class="anchor-link" href="#&#65308;&#26041;&#37341;&#65310;">&#182;</a></h4><p>これも普通に解くなら、(1)の誘導を利用して、はさみうちやら微分やらで解けますが、今回は最大値・最小値・極限＋グラフで求めます。</p>
+<h3 id="(2)"><span id="pelican-subsections-6">(2)<a class="anchor-link" href="#(2)">&#182;</a></span></h3><h4 id="&#65308;&#26041;&#37341;&#65310;"><span id="pelican-subsections-7">&#65308;&#26041;&#37341;&#65310;<a class="anchor-link" href="#&#65308;&#26041;&#37341;&#65310;">&#182;</a></span></h4><p>これも普通に解くなら、(1)の誘導を利用して、はさみうちやら微分やらで解けますが、今回は最大値・最小値・極限＋グラフで求めます。</p>
 
 </div>
 </div>
@@ -1979,7 +2017,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#31572;&#12360;">&#31572;&#12360;<a class="anchor-link" href="#&#31572;&#12360;">&#182;</a></h3><p>(1)上記のグラフより<br>
+<h3 id="&#31572;&#12360;"><span id="pelican-subsections-8">&#31572;&#12360;<a class="anchor-link" href="#&#31572;&#12360;">&#182;</a></span></h3><p>(1)上記のグラフより<br>
 (2) $0&lt;y&lt;\frac{1}{2}$</p>
 
 </div>
@@ -1988,7 +2026,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#24863;&#24819;">&#24863;&#24819;<a class="anchor-link" href="#&#24863;&#24819;">&#182;</a></h2><ul>
+<h2 id="&#24863;&#24819;"><span id="pelican-subsections-9">&#24863;&#24819;<a class="anchor-link" href="#&#24863;&#24819;">&#182;</a></span></h2><ul>
 <li>今回は時間の都合で大問１しか解けませんでしたが、今後他のものにも挑戦したいと思います。（第4問の空間図形とか3次元で難しそうですが…）</li>
 <li>僕はPythonの文法の勉強がまだ終わっていない状態での今回の記事でしたが、実際に簡単目なコマンドを実行してみる、というのはとても良い練習になり、今後の勉強の理解の助けになると思いました。Jupyterに慣れることができたのも良かったです。</li>
 <li>（入試問題を見ていると、急に去年の受験時代が思い出され、良くも悪くも感傷に浸ってしまいます。去年のやる気に負けないようにしたい…！）</li>
@@ -2159,102 +2197,102 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 </div>
 </div>
 <div class="sidebar_box">
-<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ</div>
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="label label-primary">7</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="label label-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="label label-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="label label-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="label label-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="label label-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="label label-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="label label-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="label label-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="label label-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="label label-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="label label-primary">3</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="label label-primary">13</span>
-        Machine Learning
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
-          <span class="label label-primary">2</span>
+          <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="label label-primary">5</span>
-        News
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="label label-primary">4</span>
-        競技プログラミング
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">3</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">7</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
       </a>
     </span>
 </p>
@@ -2274,7 +2312,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
     <footer id="site-footer">
 <!-- colophon  -->
 <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
-<address id="site-colophon" style="margin:0px;padding:5px">
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
         © 2020 大阪大学医学部 Python会
@@ -2296,10 +2334,17 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 
     <!-- javascript -->
    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -2425,9 +2470,7 @@ $(function(){
     if( $('#toc').is(':empty') ) {
       $('.toc_box').remove();
     }
-</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<p class="pagetop"><a href="#wrap"></a></p>
+</script><p class="pagetop"><a href="#wrap"></a></p>
 <script>
 $(document).ready(function() {
     var pagetop = $('.pagetop');
@@ -2442,6 +2485,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
