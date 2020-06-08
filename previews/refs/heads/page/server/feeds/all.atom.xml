@@ -2685,10 +2685,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="aebf393c-7753-49b9-a1c5-b359704c8df5"&gt;&lt;/div&gt;
+&lt;div id="6167f085-e214-4d33-b585-a63897d9e6d9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aebf393c-7753-49b9-a1c5-b359704c8df5');
+var element = $('#6167f085-e214-4d33-b585-a63897d9e6d9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -4400,7 +4400,7 @@ h6:hover .anchor-link {
 &lt;p&gt;みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Webサイトをリニューアルしました！</title><link href="/previews/refs/heads/page/server/news/2020/03/website_renewal.html" rel="alternate"></link><published>2020-03-24T00:00:00+09:00</published><updated>2020-03-29T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-03-24:/previews/refs/heads/page/server/news/2020/03/website_renewal.html</id><summary type="html">Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。 (2020/3/29 追記) 技術ブログはWebサイトに統合しました。  参照：&lt;a href="/previews/refs/heads/page/server/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;</summary><content type="html">&lt;p&gt;Python会の&lt;a href="https://oumpy.github.io"&gt;Webサイト&lt;/a&gt;と技術ブログがリニューアルしました。&lt;/p&gt;
 &lt;p&gt;(2020/3/29 追記)&lt;br&gt;
 技術ブログはWebサイトに統合しました。  &lt;/p&gt;
-&lt;p&gt;参照：&lt;a href="/previews/refs/heads/page/server/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>UNIX系OSのファイルアクセス権</title><link href="/previews/refs/heads/page/server/blog/2020/03/unix_permission.html" rel="alternate"></link><published>2020-03-17T00:00:00+09:00</published><updated>2020-05-13T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-03-17:/previews/refs/heads/page/server/blog/2020/03/unix_permission.html</id><summary type="html">Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。 OS は Ubuntu 18.04 LTS です。 計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。 本稿ではその基本と、そ....</summary><content type="html">&lt;p&gt;Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
+&lt;p&gt;参照：&lt;a href="/previews/refs/heads/page/server/news/2020/03/website_integration.html"&gt;技術ブログをWebサイトに統合しました&lt;/a&gt;&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>UNIX系OSのファイルアクセス権</title><link href="/previews/refs/heads/page/server/blog/2020/03/unix_permission.html" rel="alternate"></link><published>2020-03-17T00:00:00+09:00</published><updated>2020-05-13T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-03-17:/previews/refs/heads/page/server/blog/2020/03/unix_permission.html</id><summary type="html">Python会が管理する&lt;a href="/previews/refs/heads/page/server/student_server.html"&gt;医学科学生用計算サーバ&lt;/a&gt; (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。 OS は Ubuntu 18.04 LTS です。 計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。 本稿ではその基本と、そ....</summary><content type="html">&lt;p&gt;Python会が管理する&lt;a href="/previews/refs/heads/page/server/student_server.html"&gt;医学科学生用計算サーバ&lt;/a&gt; (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
 OS は Ubuntu 18.04 LTS です。&lt;/p&gt;
 &lt;p&gt;計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。
 本稿ではその基本と、その拡張であるACL (Access Control List) を&lt;strong&gt;とても雑に&lt;/strong&gt;説明します。&lt;/p&gt;
