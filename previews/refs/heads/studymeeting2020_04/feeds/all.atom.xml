@@ -8,6 +8,15 @@ AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標と�
   &lt;iframe width=640" height="390"
     src="/previews/refs/heads/studymeeting2020_04/articles/2020sy/blog/attach/studymeeting2020_03/第3回勉強会_競プロの基礎.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category><category term="勉強会"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/studymeeting2020_04/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/studymeeting2020_04/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/studymeeting2020_04/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
+AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。&lt;/p&gt;
+&lt;h2&gt;使用したNotebook&lt;/h2&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/studymeeting2020_04/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;紹介スライド&lt;/h2&gt;
+&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+  &lt;iframe width=640" height="390"
+    src="/previews/refs/heads/studymeeting2020_04/articles/2020sy/blog/attach/studymeeting2020_03/第3回勉強会_競プロの基礎.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category><category term="勉強会"></category></entry><entry><title>医学部公認と正式名称の検討について</title><link href="/previews/refs/heads/studymeeting2020_04/news/2020/05/officialize_and_officialname.html" rel="alternate"></link><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-30T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-29:/previews/refs/heads/studymeeting2020_04/news/2020/05/officialize_and_officialname.html</id><summary type="html">本日、大阪大学医学部学生支援委員会より、本会の公認についての審議結果が通知されましたのでご報告します。 &lt;strong&gt;名称条件付きの公認許可&lt;/strong&gt; 通知では、「Python会」の名称は永続的な公認団体の名称として不適切であると指摘した上で、 例えば「医学部バイオ情報処理研究会」のような団体名に変更すること....</summary><content type="html">&lt;p&gt;本日、大阪大学医学部学生支援委員会より、本会の公認についての審議結果が通知されましたのでご報告します。&lt;/p&gt;
 &lt;h2&gt;名称条件付きの公認許可&lt;/h2&gt;
 &lt;p&gt;通知では、「Python会」の名称は永続的な公認団体の名称として不適切であると指摘した上で、&lt;/p&gt;
@@ -2685,10 +2694,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="e9e4661b-d109-4685-8458-5a4e5bc7e38a"&gt;&lt;/div&gt;
+&lt;div id="0b7c31a8-a3e7-46a6-bb54-f1d208d1f21d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e9e4661b-d109-4685-8458-5a4e5bc7e38a');
+var element = $('#0b7c31a8-a3e7-46a6-bb54-f1d208d1f21d');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
