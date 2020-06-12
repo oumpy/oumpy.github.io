@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (阪神タイガース) (テスト用ページ)</title><link href="/previews/refs/heads/feature/formalname/" rel="alternate"></link><link href="/previews/refs/heads/feature/formalname/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/formalname/</id><updated>2020-06-05T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (阪神タイガース) (テスト用ページ)</title><link href="/previews/refs/heads/feature/formalname/" rel="alternate"></link><link href="/previews/refs/heads/feature/formalname/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/formalname/</id><updated>2020-06-12T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
+ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;def&lt;/code&gt; による関数の定義&lt;/li&gt;
+&lt;li&gt;Numpy：&lt;code&gt;array&lt;/code&gt;を使ってみよう&lt;/li&gt;
+&lt;li&gt;Pandasによるデータ処理とその可視化&lt;/li&gt;
+&lt;li&gt;演習問題&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;使用したNotebook&lt;/h2&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;紹介スライド&lt;/h2&gt;
+&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+  &lt;iframe width=640" height="500"
+    src="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_04/第4回勉強会_ライブラリを用いたデータ処理.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/feature/formalname/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。&lt;/p&gt;
 &lt;h2&gt;使用したNotebook&lt;/h2&gt;
 &lt;p&gt;&lt;a href="/previews/refs/heads/feature/formalname/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
@@ -2685,10 +2700,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="658a3e93-49b2-49d9-8ac1-f82e015ef79b"&gt;&lt;/div&gt;
+&lt;div id="75700798-d538-4d86-bd37-6f50fcb92add"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#658a3e93-49b2-49d9-8ac1-f82e015ef79b');
+var element = $('#75700798-d538-4d86-bd37-6f50fcb92add');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
