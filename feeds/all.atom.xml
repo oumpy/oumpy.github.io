@@ -1581,7 +1581,7 @@ $$&lt;p&gt;ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/oumpy/hp_management/master/content/articles/2020sy/Blog/images/neural_tangents_figs/1_640_50fps_FINAL_VERSION.gif" alt="gauss"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/oumpy/hp_management/blob/master/content/articles/2020sy/blog/images/neural_tangents_figs/1_640_50fps_FINAL_VERSION.gif?raw=true" alt="gauss"&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2700,10 +2700,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="b17b2adf-bb11-4af1-a76c-51b3260ee136"&gt;&lt;/div&gt;
+&lt;div id="0f8f47d0-df03-40a8-b5c9-bb8ee8f19944"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b17b2adf-bb11-4af1-a76c-51b3260ee136');
+var element = $('#0f8f47d0-df03-40a8-b5c9-bb8ee8f19944');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
