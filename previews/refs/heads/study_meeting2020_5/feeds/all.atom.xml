@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/study_meeting2020_5/" rel="alternate"></link><link href="/previews/refs/heads/study_meeting2020_5/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/study_meeting2020_5/</id><updated>2020-06-12T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/study_meeting2020_5/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (テスト用ページ)</title><link href="/previews/refs/heads/study_meeting2020_5/" rel="alternate"></link><link href="/previews/refs/heads/study_meeting2020_5/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/study_meeting2020_5/</id><updated>2020-06-17T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>【勉強会資料 2020 第5回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_05.html" rel="alternate"></link><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:None,2020-06-17:/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_05.html</id><summary type="html">2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。 主な内容は統計入門として医学の中での統計学がどのように使用されるか、またその重要性についてです。 &lt;strong&gt;紹介スライド&lt;/strong&gt;   </summary><content type="html">&lt;p&gt;2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。
+主な内容は統計入門として医学の中での統計学がどのように使用されるか、またその重要性についてです。&lt;/p&gt;
+&lt;h2&gt;紹介スライド&lt;/h2&gt;
+&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+  &lt;iframe width=640" height="500"
+    src="/previews/refs/heads/study_meeting2020_5/articles/2020sy/blog/attach/studymeeting2020_05/第5回勉強会_統計入門.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="統計学"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/study_meeting2020_5/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/study_meeting2020_5/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;def&lt;/code&gt; による関数の定義&lt;/li&gt;
@@ -2700,10 +2707,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="33053769-39a6-49f9-8d39-1f3ea2dc2cfd"&gt;&lt;/div&gt;
+&lt;div id="3371eb96-63ba-49d9-9d84-b10debb7d68e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#33053769-39a6-49f9-8d39-1f3ea2dc2cfd');
+var element = $('#3371eb96-63ba-49d9-9d84-b10debb7d68e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
