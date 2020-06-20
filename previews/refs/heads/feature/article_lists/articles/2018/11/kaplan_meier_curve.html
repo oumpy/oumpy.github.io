@@ -50,50 +50,90 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="./previews/refs/heads/feature/article_lists/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
-        <link href="./previews/refs/heads/feature/article_lists/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+        <link href="/previews/refs/heads/feature/article_lists/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/feature/article_lists/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
   </head>
 
   <body>
    
     <nav class="navbar navbar-expand py-0 fixed-top">
       <div class="container">
+      <div class="row dropdown-hover-all">
         <a class="navbar-brand" href="../../../" rel="home">
           <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
           </a>
 		<button type="button" class="navbar-toggler" 
-				data-toggle="collapse" data-target="#main-navbar-collapse">
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
 		  <span class="sr-only">Toggle navigation</span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		  <span class="icon-bar"></span>
 		</button>
       <div class="collapse navbar-collapse" id="main-navbar-collapse">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item">
-<a class="nav-link" href="../../../index.html">Python会について</a>
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../activities.html">活動内容</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../achievements.html">実績</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+</div>
 </li>
-<li class="nav-item active">
-<a class="nav-link" href="../../../blog.html">技術ブログ</a>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="../../../recruit.html">会員募集</a>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="../../../contact.html">Contact</a>
 </li>
         </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
       </div> <!-- /navbar-collapse -->
-	  </div> <!-- /container -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
     </nav> <!-- /navbar -->
 
 	<div class="jumbotron" id="overview">
@@ -1247,9 +1287,9 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12399;&#12376;&#12417;&#12395;">&#12399;&#12376;&#12417;&#12395;<a class="anchor-link" href="#&#12399;&#12376;&#12417;&#12395;">&#182;</a></h2><h3 id="&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;">&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;<a class="anchor-link" href="#&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;">&#182;</a></h3><p>実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
+<h2 id="&#12399;&#12376;&#12417;&#12395;"><span id="pelican-subsections-0">&#12399;&#12376;&#12417;&#12395;<a class="anchor-link" href="#&#12399;&#12376;&#12417;&#12395;">&#182;</a></span></h2><h3 id="&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;"><span id="pelican-subsections-1">&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;<a class="anchor-link" href="#&#26360;&#12371;&#12358;&#12392;&#24605;&#12387;&#12383;&#12365;&#12387;&#12363;&#12369;">&#182;</a></span></h3><p>実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
 だいたい <strong>Kaplan-Meier曲線</strong> が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。</p>
-<h3 id="Kaplan-Meier-&#26354;&#32218;&#12392;&#12399;">Kaplan-Meier &#26354;&#32218;&#12392;&#12399;<a class="anchor-link" href="#Kaplan-Meier-&#26354;&#32218;&#12392;&#12399;">&#182;</a></h3><p><a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A">Wikipedia</a>によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって</p>
+<h3 id="Kaplan-Meier-&#26354;&#32218;&#12392;&#12399;"><span id="pelican-subsections-2">Kaplan-Meier &#26354;&#32218;&#12392;&#12399;<a class="anchor-link" href="#Kaplan-Meier-&#26354;&#32218;&#12392;&#12399;">&#182;</a></span></h3><p><a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A">Wikipedia</a>によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって</p>
 <ul>
 <li>観察期間は限られている(患者さんを何年もフォローすることはできない)</li>
 <li>観察不能になることがある(病院移った、他の要因で死亡したなど)</li>
@@ -1269,7 +1309,7 @@ pythonのライブラリにlifelinesという便利なライブラリがある�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;">&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;<a class="anchor-link" href="#&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;">&#182;</a></h2><p>ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
+<h2 id="&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;"><span id="pelican-subsections-3">&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;<a class="anchor-link" href="#&#12487;&#12540;&#12479;&#12398;&#28310;&#20633;">&#182;</a></span></h2><p>ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
 ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。</p>
 
 </div>
@@ -1422,7 +1462,7 @@ height=278
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#23455;&#38555;&#12398;&#35336;&#31639;">&#23455;&#38555;&#12398;&#35336;&#31639;<a class="anchor-link" href="#&#23455;&#38555;&#12398;&#35336;&#31639;">&#182;</a></h2><p>さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、</p>
+<h2 id="&#23455;&#38555;&#12398;&#35336;&#31639;"><span id="pelican-subsections-4">&#23455;&#38555;&#12398;&#35336;&#31639;<a class="anchor-link" href="#&#23455;&#38555;&#12398;&#35336;&#31639;">&#182;</a></span></h2><p>さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、</p>
 
 </div>
 </div>
@@ -1553,7 +1593,7 @@ $$<p>となります。</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;">&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;<a class="anchor-link" href="#&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;">&#182;</a></h2><p>ここら辺の計算と描画はライブラリに任せます。</p>
+<h2 id="&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;"><span id="pelican-subsections-5">&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;<a class="anchor-link" href="#&#32080;&#26524;&#12398;&#12503;&#12525;&#12483;&#12488;">&#182;</a></span></h2><p>ここら辺の計算と描画はライブラリに任せます。</p>
 <p>やってることは各期間の点における累積生存率をプロットして線を横に伸ばすだけです。</p>
 
 </div>
@@ -1614,7 +1654,7 @@ height=277
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;">&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;<a class="anchor-link" href="#&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;">&#182;</a></h2><p>一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。</p>
+<h2 id="&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;"><span id="pelican-subsections-6">&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;<a class="anchor-link" href="#&#20083;&#12364;&#12435;&#12487;&#12540;&#12479;&#12475;&#12483;&#12488;&#12434;&#29992;&#12356;&#12390;&#35299;&#26512;&#12434;&#34892;&#12387;&#12383;&#20363;">&#182;</a></span></h2><p>一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。</p>
 <p>ここから使われる統計手法はLog-rank検定、一般化wilcoxon検定など様々ですが、ここではcox比例ハザードを使った回帰分析を例にして解析を進めていきます。なお、cox比例ハザードモデルに関する説明は<a href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/Cox.pdf">このpdf</a>がわかりやすかったです。</p>
 <p>lifelinesライブラリに乳がんの予後のデータセットがあるのでそれを用います。調べたいことは、乳がんの治療でどのような因子が予後に影響を及ぼすのかということです。</p>
 
@@ -1624,7 +1664,7 @@ height=277
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="hormone-therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;">hormone therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;<a class="anchor-link" href="#hormone-therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;">&#182;</a></h3>
+<h3 id="hormone-therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;"><span id="pelican-subsections-7">hormone therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;<a class="anchor-link" href="#hormone-therapy&#12398;&#26377;&#28961;&#12391;2&#32676;&#12395;&#20998;&#12369;Kaplan-Meier&#26354;&#32218;&#12434;&#25551;&#12356;&#12383;&#20363;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -1681,7 +1721,7 @@ height=277
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH-model)&#12398;&#36969;&#24540;">Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH model)&#12398;&#36969;&#24540;<a class="anchor-link" href="#Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH-model)&#12398;&#36969;&#24540;">&#182;</a></h3>
+<h3 id="Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH-model)&#12398;&#36969;&#24540;"><span id="pelican-subsections-8">Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH model)&#12398;&#36969;&#24540;<a class="anchor-link" href="#Cox&#27604;&#20363;&#12495;&#12470;&#12540;&#12489;&#12514;&#12487;&#12523;(CoxPH-model)&#12398;&#36969;&#24540;">&#182;</a></span></h3>
 </div>
 </div>
 </div>
@@ -2029,12 +2069,12 @@ height=261
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#12414;&#12392;&#12417;">&#12414;&#12392;&#12417;<a class="anchor-link" href="#&#12414;&#12392;&#12417;">&#182;</a></h2><ul>
+<h2 id="&#12414;&#12392;&#12417;"><span id="pelican-subsections-9">&#12414;&#12392;&#12417;<a class="anchor-link" href="#&#12414;&#12392;&#12417;">&#182;</a></span></h2><ul>
 <li>Kaplan-Meier曲線がどのように作られているか分かった。</li>
 <li>pythonを用いて割と簡単に統計解析ができた。</li>
 <li>統計モデルについても定義からもう少し詳しく説明できたらよかったが、latex使うのめんどくさくて諦めた。リンク参考にしてください。</li>
 </ul>
-<h2 id="&#21442;&#32771;HP">&#21442;&#32771;HP<a class="anchor-link" href="#&#21442;&#32771;HP">&#182;</a></h2><ul>
+<h2 id="&#21442;&#32771;HP"><span id="pelican-subsections-10">&#21442;&#32771;HP<a class="anchor-link" href="#&#21442;&#32771;HP">&#182;</a></span></h2><ul>
 <li><a href="https://lifelines.readthedocs.io/en/latest/index.html">lifelines公式HP</a></li>
 <li><a href="https://istat.co.jp/sk_commentary/kaplan_meier">相関、検定の手法別解説</a></li>
 <li><a href="http://www.emalliance.org/%E6%9C%AA%E5%88%86%E9%A1%9E/%E7%AC%AC%EF%BC%97%E5%9B%9Eema-jc%E3%80%80%E8%A7%A3%E8%AA%AC%E3%80%80%E3%82%AB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%9E%E3%82%A4%E3%83%A4%E3%83%BC%E7%94%9F%E5%AD%98%E6%9B%B2%E7%B7%9A">EM Aliance</a></li>
@@ -2109,9 +2149,9 @@ height=261
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2020/06/studymeeting2020_05.html">【勉強会資料 2020 第5回】 統計入門</a></li>
         <li><a href="../../../blog/2020/04/linear_mixed_model.html">線形混合効果モデル</a></li>
         <li><a href="../../../blog/2020/03/ica.html">ICA（独立成分分析）について</a></li>
-        <li><a href="../../../blog/2019/06/dabest_tutorial.html">Estimation statisticsに基づいたデータの可視化ライブラリ -DABEST-</a></li>
     </ul>
 </div>
 
@@ -2160,6 +2200,16 @@ height=261
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">6/17</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/06/studymeeting2020_05.html"><span class="recent-posts-title">【勉強会資料 2020 第5回】 統計入門</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">6/10</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/06/studymeeting2020_04.html"><span class="recent-posts-title">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">6/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/studymeeting2020_03.html"><span class="recent-posts-title">【勉強会資料 2020 第3回】 競プロの基礎</span></a></td>
@@ -2189,16 +2239,6 @@ height=261
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">4/8</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/04/linear_mixed_model.html"><span class="recent-posts-title">線形混合効果モデル</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">4/6</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/04/neural_tangents.html"><span class="recent-posts-title">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -2208,20 +2248,20 @@ height=261
 <p class="tag-cloud">
     <span class="tag-2">
       <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">3</span>
+          <span class="badge badge-primary">5</span>
         勉強会
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">7</span>
-        Statistics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        Unix
       </a>
     </span>
     <span class="tag-1">
@@ -2230,22 +2270,22 @@ height=261
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
       </a>
     </span>
     <span class="tag-3">
@@ -2261,15 +2301,15 @@ height=261
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -2279,27 +2319,27 @@ height=261
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">8</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        論文関連
+        GitHub
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
       </a>
     </span>
 </p>
@@ -2350,6 +2390,8 @@ height=261
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
 
 
 <!-- Facebook -->
@@ -2490,6 +2532,12 @@ $(document).ready(function() {
             $('body, html').animate({ scrollTop: 0 }, 500);
                 return false;
     });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
 });
 </script>  </body>
 </html>
