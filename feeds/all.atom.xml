@@ -2707,10 +2707,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="7ae34fcc-315d-4be5-bb34-e614846053db"&gt;&lt;/div&gt;
+&lt;div id="6d641d88-5a64-477c-8461-7eac4abfc4d7"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7ae34fcc-315d-4be5-bb34-e614846053db');
+var element = $('#6d641d88-5a64-477c-8461-7eac4abfc4d7');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -4729,8 +4729,8 @@ googlecolabでもできるそうです。
 &lt;ul&gt;
 &lt;li&gt;生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。&lt;/li&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。
-&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
-&lt;h2&gt;模範解答 (?)&lt;/h2&gt;
+&lt;/p&gt;
+&lt;h2&gt;&lt;span id="pelican-subsections-0"&gt;模範解答 (?)&lt;/span&gt;&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -4856,8 +4856,8 @@ googlecolabでもできるそうです。
 &lt;/table&gt;
 &lt;p&gt;(問題番号 = 縦列番号 + 横列番号)&lt;/p&gt;
 &lt;p&gt;(2019.12.23 公式解答と全問一致でした。ただ問74は取消になりませんでした。)&lt;/p&gt;
-&lt;h2&gt;解説&lt;/h2&gt;
-&lt;h3&gt;バイオ（問1-20）&lt;/h3&gt;
+&lt;h2&gt;&lt;span id="pelican-subsections-1"&gt;解説&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;span id="pelican-subsections-2"&gt;バイオ（問1-20）&lt;/span&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;問1：答4：はい&lt;/li&gt;
 &lt;li&gt;問2：答4：核小体で合成されるのはrRNA。なおさらにリボソームの組み立ても行われる。&lt;/li&gt;
@@ -4881,7 +4881,7 @@ googlecolabでもできるそうです。
 &lt;li&gt;問19：答1：2,3,4は正しいので消去法で決めることができる。&lt;/li&gt;
 &lt;li&gt;問20：答3：はい&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;インフォマティクス（問21-40）&lt;/h3&gt;
+&lt;h3&gt;&lt;span id="pelican-subsections-3"&gt;インフォマティクス（問21-40）&lt;/span&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;問21：答3：偶奇を決める演算を問われている。該当するのはXORしかない。&lt;/li&gt;
 &lt;li&gt;問22：答4：GPGPUの省略前名称を与えてくれており、これが説明と矛盾することは知らなくてもわかる。GPGPUの本当の意味は名前の通りだが、特に現在のカジュアルな深層学習には必須の技術である（そのうち専用プロセッサが主流となれば死語になるかもしれない）。&lt;/li&gt;
@@ -4908,7 +4908,7 @@ googlecolabでもできるそうです。
 &lt;li&gt;問39：答1：隠れマルコフモデルがクラスタリングに使えるかわからなくても（実際僕は知らない）、2,3,4は明らかにクラスタリングに使えるアルゴリズムである。&lt;/li&gt;
 &lt;li&gt;問40：答4：訓練用とテスト用が逆である。訓練用のデータはなるべく多く確保したい。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;バイオインフォマティクス（問41-80）&lt;/h3&gt;
+&lt;h3&gt;&lt;span id="pelican-subsections-4"&gt;バイオインフォマティクス（問41-80）&lt;/span&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;問41：答3：菌種によらず共通に必要な機能は多く存在する。それらを1菌種にまとめるようなことをしてはいけない。&lt;/li&gt;
 &lt;li&gt;問42：答4：はい&lt;/li&gt;
