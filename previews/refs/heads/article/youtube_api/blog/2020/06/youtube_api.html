@@ -175,6 +175,7 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><a href="../../../blog/2019/01/twitter_automation.html">前回</a>は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では <strong>YouTube API</strong> を試してみたいと思います。</p>
+<h2><span id="pelican-subsections-0">APIとは？</span></h2>
 <p>APIとは何かざっくり説明いたしますと、<br>
 あるアプリケーションにまつわる操作を、<br>
 プログラミングを通じて自動化やらなんやら、といったものです。<br>
@@ -182,6 +183,7 @@
 <p><img alt="image9" src="../../../blog/2020/06/images/youtube_api_figs/image9.jpg"></p>
 <p>Youtube にまつわるAPIは様々ありますが今回は <strong>YouTube Data API v3</strong> を使っていきます。
 YouTube Data API v3 は、動画、プレイリスト、チャンネルなどのYouTubeデータへのアクセスを提供するAPIです。</p>
+<h2><span id="pelican-subsections-1">準備</span></h2>
 <p>まずは
 <a href="https://www.google.com">Google</a>
 が提供しているクラウドコンピューティングサービスである、
@@ -199,6 +201,7 @@ Google Cloud Platform (<a href="https://console.cloud.google.com">https://consol
 <code>google-api-python-client</code> モジュールを用いますが、これは Google Colab に始めからインストールされているようです。
 <code>!pip list</code> を実行して確認できます。</p>
 <p><img alt="image6" src="../../../blog/2020/06/images/youtube_api_figs/image6.jpg"></p>
+<h2><span id="pelican-subsections-2">実際に動かしてみる</span></h2>
 <p>早速YouTube APIで動画の情報を収集してみましょう。
 例えば、ある投稿者の最新の動画を調べたい場合にも、APIを使って検索が可能です。
 今回は<strong>HIKAKINさんのチャンネルで新しく投稿された動画</strong>について調べてみたいと思います。</p>
@@ -230,6 +233,7 @@ Google Cloud Platform (<a href="https://console.cloud.google.com">https://consol
 <p><img alt="image8" src="../../../blog/2020/06/images/youtube_api_figs/image8.jpg"></p>
 <p>HIKAKINさんの新着動画のタイトルが取得出来ています。</p>
 <p>このようにYouTubeのサイトに直接アクセスしなくても、APIを叩くだけでちょっとした調べものが出来てしまいます。</p>
+<h2><span id="pelican-subsections-3">自動化とOAuth2.0認証の実装</span></h2>
 <p>さらにAPIはプログラミング言語で動かすことが出来るという特性上、一連の操作をすべて自動でできるという利点があります。
 例えば <strong>自分が登録しているチャンネルを全て取得して、そのどれかが新しく動画をアップロードし、それが特定のワードを含む場合にメールでお知らせしてくれるようなシステム</strong> を作りたいとします。</p>
 <p>まずは自分が登録しているチャンネルの一覧を取得してみましょう。
@@ -265,6 +269,7 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
 <p>というわけでまったくやさしくないOAuth2認証のお話でした。</p>
 <p><img alt="image11" src="../../../blog/2020/06/images/youtube_api_figs/image11.png">
 <em>↑ 未知のモノを実装するにはその構造を理解する必要がある</em></p>
+<h2><span id="pelican-subsections-4">まとめ</span></h2>
 <p>残念ながら今回はYouTube APIを使いこなすことが出来ませんでした。</p>
 <p>プログラミングを学ぶ中で分からない概念に出会って心が折れてしまったこと、誰でも一度は経験があると思います。</p>
 <p>そんな時には<strong>見極め</strong>が大事です。
@@ -406,22 +411,16 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">5</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
       </a>
     </span>
     <span class="tag-4">
@@ -430,22 +429,10 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-4">
@@ -455,27 +442,33 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">8</span>
         Statistics
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-1">
@@ -485,21 +478,33 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">5</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
 </p>
