@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2020-06-24T07:00:52-00:00</lastmod>
+<lastmod>2020-06-25T00:45:19-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2020-06-24T07:00:52-00:00</lastmod>
+<lastmod>2020-06-25T00:45:19-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/categories.html</loc>
-<lastmod>2020-06-24T07:00:52-00:00</lastmod>
+<lastmod>2020-06-25T00:45:19-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2020-06-24T07:00:52-00:00</lastmod>
+<lastmod>2020-06-25T00:45:19-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/archives.html</loc>
-<lastmod>2020-06-24T07:00:52-00:00</lastmod>
+<lastmod>2020-06-25T00:45:19-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2020-03-24T00:00:00+09:00</lastmod>
+<lastmod>2020-06-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -61,7 +61,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/constitution.html</loc>
-<lastmod>2020-04-01T00:00:00+09:00</lastmod>
+<lastmod>2020-06-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -83,6 +83,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/search.html</loc>
 <lastmod>2020-05-18T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/news/2020/06/formalname.html</loc>
+<lastmod>2020-06-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -558,7 +565,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/news.html</loc>
-<lastmod>2020-05-30T00:00:00+09:19</lastmod>
+<lastmod>2020-06-25T00:00:00+09:19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.1</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/tag/news.html</loc>
+<lastmod>2020-06-25T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -587,13 +601,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/tag/jing-ji-puroguramingu.html</loc>
 <lastmod>2020-06-05T00:00:00+09:19</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.1</priority>
-</url>
-
-<url>
-<loc>https://oumpy.github.io/tag/news.html</loc>
-<lastmod>2020-05-30T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -789,7 +796,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/author/pythonhui.html</loc>
-<lastmod>2020-05-30T00:00:00+09:19</lastmod>
+<lastmod>2020-06-25T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>

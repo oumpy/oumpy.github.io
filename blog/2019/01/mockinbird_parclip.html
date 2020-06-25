@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>Mockinbirdを用いたPAR-CLIP解析 - 大阪大学医学部 Python会</title>
+    <title>Mockinbirdを用いたPAR-CLIP解析 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -50,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="https://oumpy.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 Atom Feed" />
-        <link href="https://oumpy.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 RSS Feed" />
+        <link href="https://oumpy.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) Atom Feed" />
+        <link href="https://oumpy.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) RSS Feed" />
   </head>
 
   <body>
@@ -79,7 +79,7 @@
 <div class="dropdown-menu" aria-labelledby="dropdown1">
 <a class="dropdown-item" href="../../../index.html">Python会について</a>
 <div class="dropdown-divider"></div>
-<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+<a class="dropdown-item" href="../../../constitution.html">会規約</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -138,7 +138,7 @@
 
 	<div class="jumbotron" id="overview">
 	  <div class="container">
-		<h1><a href="../../../">大阪大学医学部 Python会</a></h1>
+		<h1><a href="../../../">大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></a></h1>
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
@@ -178,13 +178,13 @@
 <p>PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。</p>
 <p>実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。</p>
 <p>サンプルRNAを逆転写するときに、4SUがシトシン( C )に置換されます(misread)。そのため、リードがピークを形成し、かつT -&gt; C置換が入っていた場合、RBPと結合していた可能性が高いということになります。これによりあるタンパクが、RNAのどの領域に結合するのか？結合領域間でどのような相互作用があるのかを知ることができます。特に一塩基という高い解像度での解析ができることが特徴です。</p>
-<p><img alt="1" src="../../../articles/2018sy/blog/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
+<p><img alt="1" src="../../../blog/2019/01/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
 <h2><span id="pelican-subsections-1">Mockinbirdとは？</span></h2>
 <p><a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”">公式ドキュメント</a>、<a href="//github.com/soedinglab/mockinbird)”">GitHub</a>に詳細は記載されていますが、日本語での情報が少ない、というか全くない。のでまとめていきたいと思います。</p>
 <p>PAR-CLIPの解析は生のFASTQデータから、Quality Check -&gt; Trimming -&gt; Mapping -&gt; Downstream Analysisという流れで行いますが、それらすべての解析をMockinbirdでは一気に行ってくれます。また、MockinbirdModule（詳細は後述）を使うことでmock PAR-CLIP experimentを考慮に入れた解析を行うことができるのも大きな特徴です。</p>
 <p>このソフトでは、２つにパイプラインが分かれており、preprocessing phaseとpostprocessing phaseと呼ばれています。タンパク結合サイトの情報が書かれたテーブルを出力するまでが、preprocessing phaseでそれ以降のDownstream解析をpostprocessing phaseと呼んでいます。それぞれにYAMLファイルが用意されており、ユーザーはYAMLファイルで解析したいサンプルデータ、使いたいリファレンスデータ、使いたいモジュール（Mappingの時にSTARやBowtieを選べたりする。）閾値などのパラメータを指定します。最後にコマンドを一行実行するだけで、解析がすべて自動で流れていきます。あるモジュールで出力されたファイルのパスが次のモジュールに自動で設定されていくシステムになっているので、慣れると非常に便利です。</p>
 <p>ただ、ドキュメントでも、既存の解析手法に完全に取って代わるものではなく、PAR-CLIP実験のコンディションのトラブルシューティングを再現可能性が高い状態で行なったり、研究の最初の仮説づくりを短時間で行うために使ってもらうことが目的と書かれていました。</p>
-<p><img alt="2" src="../../../articles/2018sy/blog/images/mockinbird_parclip_figs/library.png"></p>
+<p><img alt="2" src="../../../blog/2019/01/images/mockinbird_parclip_figs/library.png"></p>
 <h2><span id="pelican-subsections-2">環境構築</span></h2>
 <p>前置きが長くなりましたが、実際に環境構築から進めていきます。</p>
 <div class="highlight"><pre><span></span><code>conda create -n mockinbird -c bioconda -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 mockinbird
@@ -438,6 +438,11 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">6/25</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">6/17</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/studymeeting2020_05.html"><span class="recent-posts-title">【勉強会資料 2020 第5回】 統計入門</span></a></td>
@@ -472,11 +477,6 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/05/aircon_via_internet.html"><span class="recent-posts-title">赤外線対応エアコンをインターネットを用いて操作する方法</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">5/15</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -484,28 +484,16 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">15</span>
-        Python
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -514,10 +502,28 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
         勉強会
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-1">
@@ -527,33 +533,9 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -564,8 +546,20 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
     </span>
     <span class="tag-2">
       <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
+          <span class="badge badge-primary">6</span>
         News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -574,10 +568,16 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
         Unix
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
       </a>
     </span>
 </p>
@@ -600,7 +600,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2020 大阪大学医学部 Python会
+        © 2020 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

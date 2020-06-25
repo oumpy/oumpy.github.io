@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>ipynb破損時の対応 - 大阪大学医学部 Python会</title>
+    <title>ipynb破損時の対応 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -50,8 +50,8 @@
     <link rel="shortcut icon" href="../../../favicon.ico" />
     <meta name="siteurl" property="og:siteurl" content="../../..">
     <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
-        <link href="https://oumpy.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 Atom Feed" />
-        <link href="https://oumpy.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 RSS Feed" />
+        <link href="https://oumpy.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) Atom Feed" />
+        <link href="https://oumpy.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) RSS Feed" />
   </head>
 
   <body>
@@ -79,7 +79,7 @@
 <div class="dropdown-menu" aria-labelledby="dropdown1">
 <a class="dropdown-item" href="../../../index.html">Python会について</a>
 <div class="dropdown-divider"></div>
-<a class="dropdown-item" href="../../../constitution.html">Python会規約</a>
+<a class="dropdown-item" href="../../../constitution.html">会規約</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -138,7 +138,7 @@
 
 	<div class="jumbotron" id="overview">
 	  <div class="container">
-		<h1><a href="../../../">大阪大学医学部 Python会</a></h1>
+		<h1><a href="../../../">大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></a></h1>
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
@@ -177,12 +177,12 @@
 	<p>先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
 なんとか復旧したのでその方法を共有します。</p>
-<p><img alt="image01" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image01.png"></p>
+<p><img alt="image01" src="../../../blog/2018/09/images/ipynb_broken_figs/image01.png"></p>
 <p>まず開こうと思ったらこんな感じでした。
 絶望感しかありません。
 ipynbファイルの弱点を見たような気がしました。</p>
 <p>そこで、新しいipynbを作り、jsonを読んでみました。</p>
-<p><img alt="image02" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image02.png"></p>
+<p><img alt="image02" src="../../../blog/2018/09/images/ipynb_broken_figs/image02.png"></p>
 <p>てことで677378行目付近を見てみる。</p>
 <div class="highlight"><pre><span></span><code>less -N BAP_note.ipynb
 </code></pre></div>
@@ -190,13 +190,13 @@ ipynbファイルの弱点を見たような気がしました。</p>
 
 <p>Nオプションで行数が表示されます。
 そして、<code>677378G</code> と打つと677378行目に行けます。</p>
-<p><img alt="image03" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image03.png"></p>
+<p><img alt="image03" src="../../../blog/2018/09/images/ipynb_broken_figs/image03.png"></p>
 <p>たしかに表示が崩れているので、<code>v</code> で編集モード（vimモード）を立ち上げ、<code>dd</code> でけしていきました。
 <code>:x</code> で保存できます。
 （vimじゃなくてもemacs等でも行ける。）</p>
 <p>復活しました。
 うれしい!!</p>
-<p><img alt="image04" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image04.png"></p>
+<p><img alt="image04" src="../../../blog/2018/09/images/ipynb_broken_figs/image04.png"></p>
   </div>
   
 <div class="article-tag-list">
@@ -282,6 +282,11 @@ ipynbファイルの弱点を見たような気がしました。</p>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">6/25</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">6/17</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/studymeeting2020_05.html"><span class="recent-posts-title">【勉強会資料 2020 第5回】 統計入門</span></a></td>
@@ -316,11 +321,6 @@ ipynbファイルの弱点を見たような気がしました。</p>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/05/aircon_via_internet.html"><span class="recent-posts-title">赤外線対応エアコンをインターネットを用いて操作する方法</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">5/15</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/05/officialize_request.html"><span class="recent-posts-title">医学部公認団体申請を行いました</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -328,28 +328,16 @@ ipynbファイルの弱点を見たような気がしました。</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">15</span>
-        Python
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">4</span>
-        競技プログラミング
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -358,10 +346,28 @@ ipynbファイルの弱点を見たような気がしました。</p>
         勉強会
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">4</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-1">
@@ -371,33 +377,9 @@ ipynbファイルの弱点を見たような気がしました。</p>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -408,8 +390,20 @@ ipynbファイルの弱点を見たような気がしました。</p>
     </span>
     <span class="tag-2">
       <a href="../../../tag/news.html">
-          <span class="badge badge-primary">5</span>
+          <span class="badge badge-primary">6</span>
         News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -418,10 +412,16 @@ ipynbファイルの弱点を見たような気がしました。</p>
         Unix
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
       </a>
     </span>
 </p>
@@ -444,7 +444,7 @@ ipynbファイルの弱点を見たような気がしました。</p>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2020 大阪大学医学部 Python会
+        © 2020 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
