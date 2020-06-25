@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Pythonの変数と代入について"/>
-    <meta property="og:url" content="../../../blog/2018/12/python_value.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Python"/>
+    <meta property="og:title" content="会正式名称の制定等について"/>
+    <meta property="og:url" content="../../../news/2020/06/formalname.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Pythonの変数と代入について">
+    <meta name="twitter:title" content="会正式名称の制定等について">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>Pythonの変数と代入について - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
+    <title>会正式名称の制定等について - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -106,16 +106,16 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
 </div>
 </li>
-<li class="nav-item dropdown dropdown-hover active">
+<li class="nav-item dropdown dropdown-hover">
 <a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
 <div class="dropdown-menu" aria-labelledby="dropdown18">
-<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<a class="dropdown-item" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
 <a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
 </div>
 </li>
-<li class="nav-item">
+<li class="nav-item active">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -142,10 +142,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="python_value">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-12-20">
+    <meta name="article:slug" property="og:article:slug" content="formalname">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="news">
+    <meta name="article:date" property="og:article:date" content="2020-06-25">
+    <meta name="article:modified" property="og:article:modified" content="2020-06-25">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -153,139 +154,53 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/12/python_value.html" rel="bookmark"
-     title="Permalink to Pythonの変数と代入について">
-    Pythonの変数と代入について
+  <a href="../../../news/2020/06/formalname.html" rel="bookmark"
+     title="Permalink to 会正式名称の制定等について">
+    会正式名称の制定等について
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-12-20(Thu)
+  2020-06-25(Thu)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。</p>
-<p>実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうです。</p>
-<h2><span id="pelican-subsections-0">変数は参照である</span></h2>
-<p>一言でいえば表題の通り。
-Pythonでの<strong>変数への代入とは、変数の参照するメモリ（インスタンス）を切り替えること</strong>であり、<strong>メモリの内容を書き換えることではない</strong>。これが多くの言語（C/C++など）と大きく違うところです。</p>
-<h2><span id="pelican-subsections-1">変数の代入(1)</span></h2>
-<p>例えばこんなコード。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 1を出力</span>
+	<p><a href="../../../news/2020/05/officialize_and_officialname.html">前回 (5/29) のお知らせ</a>の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。</p>
+<p>本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下の通りお知らせいたします。</p>
+<h2><span id="pelican-subsections-0">会正式名称</span></h2>
+<p>本会は本日より、下記名称を正式名称といたします。</p>
+<div class="highlight"><pre><span></span><code>大阪大学医学部 情報医科学研究会
 </code></pre></div>
 
 
-<p>C++で書き換えると、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
+<h2><span id="pelican-subsections-1">「Python会」を通称とすることについて</span></h2>
+<p>本会は今後も引き続き、「大阪大学医学部Python会」を通称とし、日常活動での主たる名称として使用します。
+また必要に応じ、「Python会 (情報医科学研究会) 」等の表記を用いてまいります。</p>
+<p>このため、正式名称変更に伴い部分改定した<a href="../../../constitution.html">会規約</a>第1条に新たな項を設け、</p>
+<div class="highlight"><pre><span></span><code>本会は「大阪大学医学部Python会」を通称とする。
 </code></pre></div>
 
 
-<p>なのか？？
-（#include\とかint main(void){...}とかは全部省略。）  </p>
-<p><strong>実は違う</strong>のです。<br>
-C++の方では<code>a</code>で表されるメモリ領域を一つ確保し、そこにまず<code>0</code>をセット、次に<code>1</code>を、<strong>同じメモリ領域を書き換えて</strong>セットしています。  </p>
-<p>Pythonの方はそうではありません。まず<code>0</code>の値を持つメモリ領域を確保し、<strong>変数<code>a</code>がそこを指すように</strong>します。次に<code>1</code>の値を持つ<strong>別のメモリ領域を確保</strong>し、変数<code>a</code>がそこを指すように切り替えます。</p>
-<p>C++で無理矢理それっぽいものを書くと、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
-<span class="kt">int</span> <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
-</code></pre></div>
-
-
-<p>のようになります。<br>
-（C++に参照定数はあるが参照変数がないため、ポインタで書いた。）</p>
-<p>実はこのC++コード、2行目で確保した<code>int(0)</code>メモリを3行目の<code>int(1)</code>代入時に<strong>放棄</strong>していて、<strong>メモリリーク</strong>が起こっています。C++では、これを処理（メモリ解放）するためのコードを本当は書き加えないといけません。<br>
-しかし、Pythonではそれを<strong>ガベージコレクタ</strong>という仕組みが<strong>勝手に代行</strong>してくれます。逆にこれがないと、Pythonではメモリリークが頻繁に起こって大変なことになります。</p>
-<h2><span id="pelican-subsections-2">変数の代入(2)</span></h2>
-<p>問題です。次のコードは何を出力するでしょうか。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 何が出る？</span>
-</code></pre></div>
-
-
-<p><strong>答えは「<code>0</code>」</strong>です。<br>
-C++で書いた似たようなコード、</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
-<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 出力は「0」</span>
-</code></pre></div>
-
-
-<p>も結果は同じなのですが、内部動作は全く異なります。<strong>Pythonでの変数代入は参照の切り替え</strong>であることがやはりポイントです。</p>
-<p>一方で、過程は違えどPythonもC++も結果は変わりません。<strong>気にしなくても大抵はうまくいく</strong>、というのも大事なところです(笑)。</p>
-<h2><span id="pelican-subsections-3">関数引数はすべて参照渡し</span></h2>
-<p>「変数が全て参照」であることから、関数引数もまた<strong>参照渡し</strong>となります。C/C++のデフォルトである<strong>値渡し</strong>と異なり、メモリのコピーなどは行われません。</p>
-<p>では再び問題。次のコードは何を出力するでしょう？</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="c1"># ここまで。このprint()は何を出力するか？0？1？</span>
-</code></pre></div>
-
-
-<p>「参照渡し」を知っている人ほど、「1」と答えたくなりそうですが、、  </p>
-<p><strong>答えは「0」</strong>です。何故か？<br>
-<code>func(a)</code>を呼び出した時点では、<strong><code>a</code>と<code>x</code>の指すメモリは同じ<code>0</code></strong>ですが、<code>x = 1</code>で<code>x</code>の指すメモリは<strong>別に確保された<code>1</code></strong>に切り替わります。<strong><code>a</code>および、<code>a</code>の指す<code>0</code>には何の変化も無い</strong>のです。このあたりは前項の問題とほとんど同じです。</p>
-<h2><span id="pelican-subsections-4">「変数への代入」ではない場合</span></h2>
-<p>例えばこんなとき。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 出力は[2,1]</span>
-</code></pre></div>
-
-
-<p>3行目で<code>b</code>と<code>a</code>は同じリストを参照するようになります。4行目では、そのリスト（これも参照の列みたいなもの）の最初の成分を、<code>0</code>でなく<code>2</code>のメモリを参照するように切り替えます。全体として見れば<code>a</code>と<code>b</code>が同じリストを参照していることに変わりはないので、この変更は<code>b</code>にも反映されています。</p>
-<p>これは、前項の関数引数で若干の問題を引き起こします。<br>
-次のコード、前項で見たものにそっくりですが、、、</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p><strong>前項とは違い、この出力は「<code>1</code>」</strong>です。<br>
-関数が呼び出されると<strong><code>a</code>と<code>x</code>の指すリストは一貫して同じ</strong>で、その一部が書き換えられるからです。これは<strong>リストでなくnumpy配列の場合もほぼ同じ</strong>です。</p>
-<h2><span id="pelican-subsections-5">まとめ</span></h2>
-<p>以上見てきたように、Pythonの変数は全て参照、関数引数は全て参照渡しです。これらが組み合わさると、結果的に全てを値渡しにした場合（C/C++）と殆ど違いが見えなくなり、あまり意識することなくプログラムを書けるようになっています。</p>
-<p>しかし、リストや配列（や、もっと複雑なクラスオブジェクトなど）のように部分的に書き換え可能なものを扱う場合などには、この違いはかなり重要になってきます。怪しいと思ったら、各変数が何を参照しているか、互いに同じか違うかなどを、その都度考えてみてください。</p>
-<p>ひとまず今回はここまで。おしまい。
-※画像は<a href="https://www.python.org/">公式</a>のものです。</p>
+<p>と明記いたしました。</p>
+<h2><span id="pelican-subsections-2">大阪大学医学部への公認申請書類再提出</span></h2>
+<p>再申請の期限とされていた本日までに、新たな正式名称による申請書類の再提出を完了いたしました。</p>
+<p>不備等がなけば、後日、医学部学生支援委員会より正式に公認が許可されるものと見込んでいます。</p>
+<p>設立3年でここまで来ることができたのも、学内外の多くの方々のご支援ご声援を頂いてきたからこそと考えております。
+今後とも大阪大学医学部Python会 (情報医科学研究会) を何卒よろしくお願いいたします。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -299,7 +214,7 @@ C++で書いた似たようなコード、</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/12/python_value.html" 
+        data-href="../../../news/2020/06/formalname.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -315,9 +230,9 @@ C++で書いた似たようなコード、</p>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2020/06/studymeeting2020_04.html">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</a></li>
-        <li><a href="../../../blog/2020/05/studymeeting2020_02.html">【勉強会資料 2020 第2回】Pythonの基本文法</a></li>
-        <li><a href="../../../blog/2020/05/studymeeting2020_01.html">【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</a></li>
+        <li><a href="../../../news/2020/05/officialize_and_officialname.html">医学部公認と正式名称の検討について</a></li>
+        <li><a href="../../../news/2020/05/officialize_request.html">医学部公認団体申請を行いました</a></li>
+        <li><a href="../../../news/2020/04/establish_constitution.html">会規約を制定しました</a></li>
     </ul>
 </div>
 
