@@ -20,7 +20,112 @@
 &lt;p&gt;再申請の期限とされていた本日までに、新たな正式名称による申請書類の再提出を完了いたしました。&lt;/p&gt;
 &lt;p&gt;不備等がなけば、後日、医学部学生支援委員会より正式に公認が許可されるものと見込んでいます。&lt;/p&gt;
 &lt;p&gt;設立3年でここまで来ることができたのも、学内外の多くの方々のご支援ご声援を頂いてきたからこそと考えております。
-今後とも大阪大学医学部Python会 (情報医科学研究会) を何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第5回】 統計入門</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_05.html" rel="alternate"></link><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-06-17:/blog/2020/06/studymeeting2020_05.html</id><summary type="html">2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。 『統計入門』という題で、主に医学の中で統計学がどのように用いられるか、またその重要性について話しました。 &lt;strong&gt;紹介スライド&lt;/strong&gt;   </summary><content type="html">&lt;p&gt;2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。
+今後とも大阪大学医学部Python会 (情報医科学研究会) を何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>やさしいYouTube APIのはなし</title><link href="https://oumpy.github.io/blog/2020/06/youtube_api.html" rel="alternate"></link><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:oumpy.github.io,2020-06-24:/blog/2020/06/youtube_api.html</id><summary type="html">&lt;a href="https://oumpy.github.io/blog/2019/01/twitter_automation.html"&gt;前回&lt;/a&gt;は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では &lt;strong&gt;YouTube API&lt;/strong&gt; を試してみたいと思います。 &lt;strong&gt;APIとは？&lt;/strong&gt; APIとは何かざっくり説明いたしますと、 あるアプリケーションにまつわる操作を、 プログラミングを通じて自動化やらなんやら、といったも....</summary><content type="html">&lt;p&gt;&lt;a href="https://oumpy.github.io/blog/2019/01/twitter_automation.html"&gt;前回&lt;/a&gt;は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では &lt;strong&gt;YouTube API&lt;/strong&gt; を試してみたいと思います。&lt;/p&gt;
+&lt;h2&gt;APIとは？&lt;/h2&gt;
+&lt;p&gt;APIとは何かざっくり説明いたしますと、&lt;br&gt;
+あるアプリケーションにまつわる操作を、&lt;br&gt;
+プログラミングを通じて自動化やらなんやら、といったものです。&lt;br&gt;
+例えば Twitter ならツイート検索や投稿などがPythonで実行できます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image9" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image9.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Youtube にまつわるAPIは様々ありますが今回は &lt;strong&gt;YouTube Data API v3&lt;/strong&gt; を使っていきます。
+YouTube Data API v3 は、動画、プレイリスト、チャンネルなどのYouTubeデータへのアクセスを提供するAPIです。&lt;/p&gt;
+&lt;h2&gt;準備&lt;/h2&gt;
+&lt;p&gt;まずは
+&lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;
+が提供しているクラウドコンピューティングサービスである、
+Google Cloud Platform (&lt;a href="https://console.cloud.google.com"&gt;https://console.cloud.google.com&lt;/a&gt;)
+にアクセスし、「プロジェクトの選択」から新しいプロジェクトを作成します。
+次に「スタートガイド」の「APIを探索して有効にする」をクリック。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image7" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image7.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;左側のタブからライブラリを選んでAPIが検索できます。
+検索窓に YouTube と入力し、 "YouTube Data API v3" を選択して「有効にする」ボタンをクリック。
+「認証情報」の画面から「認証情報作成」のボタンを押下し、APIキーを取得しておきます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image6" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image5.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;今回は「&lt;a href="https://colab.research.google.com"&gt;&lt;strong&gt;Google Colabotratory&lt;/strong&gt;&lt;/a&gt;」での実装を試してみます。
+「Google Colabotratory」は Google ドライブ上で使えるJupyter Notebookのようなものです。
+ドライブ上にコードを保管できるほか、予め構築されたGoogleの仮想環境上で動かすことができるので大変便利です。
+&lt;code&gt;google-api-python-client&lt;/code&gt; モジュールを用いますが、これは Google Colab に始めからインストールされているようです。
+&lt;code&gt;!pip list&lt;/code&gt; を実行して確認できます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image6" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image6.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;実際に動かしてみる&lt;/h2&gt;
+&lt;p&gt;早速YouTube APIで動画の情報を収集してみましょう。
+例えば、ある投稿者の最新の動画を調べたい場合にも、APIを使って検索が可能です。
+今回は&lt;strong&gt;HIKAKINさんのチャンネルで新しく投稿された動画&lt;/strong&gt;について調べてみたいと思います。&lt;/p&gt;
+&lt;p&gt;さて、実は Youtube ではチャンネル毎に固有の ID が割り振られています。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image4" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image4.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;これを &lt;code&gt;search()&lt;/code&gt; 関数に与えることでAPI上で動画の検索ができます。
+早速試してみます。
+先程取得したAPIキーを使って、YouTubeにAPI経由でアクセスします。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;apiclient.discovery&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;apiclient.errors&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HttpError&lt;/span&gt;
+
+&lt;span class="n"&gt;YOUTUBE_API_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;AI*************************************&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;youtube&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;youtube&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;v3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;developerKey&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;YOUTUBE_API_KEY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;search_response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;youtube&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="n"&gt;part&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;snippet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;channelId&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;UCZf__ehlCEBPop-_sldpBUQ&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;maxResults&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;date&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;execute&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;titles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;snippet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;search_response&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;items&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;span class="n"&gt;titles&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;出力結果は以下のようになりました。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image8" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image8.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;HIKAKINさんの新着動画のタイトルが取得出来ています。&lt;/p&gt;
+&lt;p&gt;このようにYouTubeのサイトに直接アクセスしなくても、APIを叩くだけでちょっとした調べものが出来てしまいます。&lt;/p&gt;
+&lt;h2&gt;自動化とOAuth2.0認証の実装&lt;/h2&gt;
+&lt;p&gt;さらにAPIはプログラミング言語で動かすことが出来るという特性上、一連の操作をすべて自動でできるという利点があります。
+例えば &lt;strong&gt;自分が登録しているチャンネルを全て取得して、そのどれかが新しく動画をアップロードし、それが特定のワードを含む場合にメールでお知らせしてくれるようなシステム&lt;/strong&gt; を作りたいとします。&lt;/p&gt;
+&lt;p&gt;まずは自分が登録しているチャンネルの一覧を取得してみましょう。
+登録チャンネルは非公開情報ですので、取得するにはログイン権限が必要です。
+Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth2 (オーオースツー) 認証方式&lt;/strong&gt; が使われています。
+下のような画面に見覚えがある方も多いと思います。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image2" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image2.png"&gt;&lt;/p&gt;
+&lt;p&gt;この画面を作ることで、自分の Google アカウントにログインし登録チャンネルを取得します。
+幸いPythonには &lt;strong&gt;&lt;code&gt;oauth2client&lt;/code&gt;&lt;/strong&gt; というモジュールが存在し、これを使えば &lt;strong&gt;OAuth2認証&lt;/strong&gt; が簡単に実装できるようになっています。
+早速やってみましょう。&lt;/p&gt;
+&lt;p&gt;まずはプログラムにOAuth認証を組み込むのに必要な、 &lt;strong&gt;クライアントIDとクライアントシークレット&lt;/strong&gt; を取得します。
+これは先程のAPI認証情報のページから容易に手に入ります。
+これを使用してOAuth2認証を実装してみた結果が以下になります。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image3" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;エラーが出ています。&lt;/strong&gt;
+何がいけなかったのでしょうか。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image1" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image1.png"&gt;&lt;/p&gt;
+&lt;p&gt;公式サイト
+(&lt;a href="https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription"&gt;https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription&lt;/a&gt;)
+にAPI実装のサンプルコードが載っていました。
+自力では無理でもこのサンプルをコピペすれば…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;CLIENT_SECRETS_FILE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;client_secrets.json&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;json&lt;/strong&gt;？？？
+その json はどっから出てきたんや？？？&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image12" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image12.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;storage&lt;/strong&gt;？？？
+そんなものは無いが？？？&lt;/p&gt;
+&lt;p&gt;……。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image10" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image10.png"&gt;&lt;/p&gt;
+&lt;p&gt;というわけでまったくやさしくないOAuth2認証のお話でした。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image11" src="https://oumpy.github.io/blog/2020/06/images/youtube_api_figs/image11.png"&gt;
+&lt;em&gt;↑ 未知のモノを実装するにはその構造を理解する必要がある&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;残念ながら今回はYouTube APIを使いこなすことが出来ませんでした。&lt;/p&gt;
+&lt;p&gt;プログラミングを学ぶ中で分からない概念に出会って心が折れてしまったこと、誰でも一度は経験があると思います。&lt;/p&gt;
+&lt;p&gt;そんな時には&lt;strong&gt;見極め&lt;/strong&gt;が大事です。
+本当に使う必要があるのか？
+別のルートで迂回は出来ないか？
+それを覚える時間は無駄にならないか？
+自身のスキルアップに繋がるか？
+などなど……&lt;/p&gt;
+&lt;p&gt;見極めた上で本当に必要だと思った知識は、是非時間を掛け学んで自分の武器にしてみてください。&lt;/p&gt;
+&lt;p&gt;次回は「&lt;strong&gt;やさしいOAuth2認証のはなし&lt;/strong&gt;」について投稿予定です。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第5回】 統計入門</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_05.html" rel="alternate"></link><published>2020-06-17T00:00:00+09:00</published><updated>2020-06-17T00:00:00+09:00</updated><author><name>竹内</name></author><id>tag:oumpy.github.io,2020-06-17:/blog/2020/06/studymeeting2020_05.html</id><summary type="html">2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。 『統計入門』という題で、主に医学の中で統計学がどのように用いられるか、またその重要性について話しました。 &lt;strong&gt;紹介スライド&lt;/strong&gt;   </summary><content type="html">&lt;p&gt;2020.06.17に行われた第5回勉強会のオンライン勉強会の資料を公開します。
 『統計入門』という題で、主に医学の中で統計学がどのように用いられるか、またその重要性について話しました。&lt;/p&gt;
 &lt;h2&gt;紹介スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
@@ -2728,10 +2833,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="aa902e4a-92cd-46f6-b2ef-271cf9c8d446"&gt;&lt;/div&gt;
+&lt;div id="3a9ea621-0ecb-4e78-a528-f3c6c96a6eaf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#aa902e4a-92cd-46f6-b2ef-271cf9c8d446');
+var element = $('#3a9ea621-0ecb-4e78-a528-f3c6c96a6eaf');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
