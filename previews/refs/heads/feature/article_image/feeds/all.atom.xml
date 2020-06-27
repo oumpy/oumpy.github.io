@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/feature/article_image/" rel="alternate"></link><link href="/previews/refs/heads/feature/article_image/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/article_image/</id><updated>2020-06-25T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>会正式名称の制定等について</title><link href="/previews/refs/heads/feature/article_image/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-06-25:/previews/refs/heads/feature/article_image/news/2020/06/formalname.html</id><summary type="html">&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/feature/article_image/" rel="alternate"></link><link href="/previews/refs/heads/feature/article_image/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/feature/article_image/</id><updated>2020-06-27T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/feature/article_image/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/feature/article_image/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
+&lt;p&gt;自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話&lt;/p&gt;
+&lt;h2&gt;競プロって？&lt;/h2&gt;
+&lt;p&gt;競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。&lt;/p&gt;
+&lt;p&gt;問題によって縛りがあって
+「○○時間内に解けよ」
+って制約がある。
+なので愚直に解こうとすると
+「あなたの書いたコードは終わるのに5秒も掛かっちゃってます！遅すぎ！」
+ってなる。
+よって問題によっては工夫が必要になる。&lt;/p&gt;
+&lt;h2&gt;アルゴリズム&lt;/h2&gt;
+&lt;p&gt;他にも単純に問題むずくて工夫しないと汗、パターンもあるので難易度が上がると手の込んだ手法・手順が必要となる。&lt;/p&gt;
+&lt;p&gt;それがアルゴリズム（ざっくりしすぎ・・・？）&lt;/p&gt;
+&lt;p&gt;今回はその中で幅優先探索というやり方を説明する。
+といってもそんなに難しくないので気軽に聞いてくださいまし。&lt;/p&gt;
+&lt;h2&gt;実際の問題&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://atcoder.jp/contests/abc168/tasks/abc168_d"&gt;https://atcoder.jp/contests/abc168/tasks/abc168_d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;↑問題はこれ。
+詳しい説明は省きますが、ざっくり言うと&lt;/p&gt;
+&lt;p&gt;&lt;img alt="graph-image" src="/previews/refs/heads/feature/article_image/blog/2020/06/images/competition_BFS_figs/image.png"&gt;&lt;/p&gt;
+&lt;p&gt;「上記のような感じで部屋と部屋とが繋がってるぞ
+(入力のところでどの部屋と部屋が繋がってるかが与えられる。
+上のはそれを図にした) 。
+それぞれの部屋から最短で①に行く方法を探せ (３→４→２→１みたいな) 。
+探したら最短経路を辿るためには、例えばaの部屋は次にどこに向かえばいいかを出力しろ。
+複数あったら一個でいいぞ」&lt;/p&gt;
+&lt;p&gt;って問題。
+なんとなくやることはわかるけど実際にプログラミングじゃどう書くのだろうってなる。&lt;/p&gt;
+&lt;h2&gt;幅優先探索について&lt;/h2&gt;
+&lt;p&gt;結論からいうとこれは幅優先探索を使えば簡単に解ける。&lt;/p&gt;
+&lt;p&gt;はじめの状態→最短1回の遷移 (移動) でたどり着ける状態を探す→最短2回の遷移 (移動) でたどり着ける状態探す・・・&lt;/p&gt;
+&lt;p&gt;を上の例で行けば「①から1回で移動できるのは②、⑤→②、⑤から1回で移動できるのは④・・・という風に探索していく。&lt;/p&gt;
+&lt;p&gt;イメージ数学の問題で出てきた「点Aから点Bへの最短で行くのは何通りか？」みたいなのと似ている。&lt;/p&gt;
+&lt;h2&gt;実装&lt;/h2&gt;
+&lt;p&gt;実際にコードを書いてみる
+(初めて書いたからスマートでないところはあるかも・・・。
+悪しからず)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;まずは入力される &lt;code&gt;n&lt;/code&gt;, &lt;code&gt;m&lt;/code&gt; をget。&lt;/p&gt;
+&lt;p&gt;今回はゴールである①の部屋にはどうすればいけるか？
+というのが問題。
+すると繰り返し上の例でいくと①の部屋には②と⑤が隣り合ってるから②と⑤は最短1回。
+②と⑤と隣り合っているのは④だから・・・という風に探索していくと、「どの部屋とどの部屋が隣り合っているか」が重要になる。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[[]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ここで空の &lt;code&gt;[]&lt;/code&gt; が &lt;code&gt;n&lt;/code&gt; 個あるリストを作る。
+1個目の &lt;code&gt;[]&lt;/code&gt; には①と隣り合った部屋の番号を、2個目には②と隣り合った部屋の番号を入れていく。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+  &lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上で隣り合うリスト完成。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ここで答え用のリストを作る。
+たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったら &lt;code&gt;ans&lt;/code&gt; の5番目の &lt;code&gt;0&lt;/code&gt; を &lt;code&gt;3&lt;/code&gt; に変える、という風にしていく。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;今現在どこの部屋にいるかのリストをつくる。
+上の例だと最初は &lt;code&gt;1&lt;/code&gt;、次は &lt;code&gt;2&lt;/code&gt;、&lt;code&gt;5&lt;/code&gt; みたいな。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;temp2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;temp&lt;/code&gt; を随時更新するので臨時の別のリストもつくる。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;temp2&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;
+  &lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;
+
+  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temp2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;temp2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;
+        &lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;まず今どの部屋にいるか &lt;code&gt;temp2&lt;/code&gt; にいれて &lt;code&gt;temp&lt;/code&gt; を一旦空に。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pop()&lt;/code&gt; で &lt;code&gt;temp2&lt;/code&gt; の先頭の数字を取ってくる ( &lt;code&gt;get&lt;/code&gt; のこと) 。
+その部屋と隣り合っている部屋全てに対して以下の処理を行う。
+まだその部屋に訪れていない ( &lt;code&gt;ans&lt;/code&gt; のリストでその部屋の値が &lt;code&gt;0&lt;/code&gt; ) なら、その部屋からは &lt;code&gt;get&lt;/code&gt; に向かえば最小経路を辿るので &lt;code&gt;get&lt;/code&gt; の部屋番号を入れる。
+部屋を行ったり来たりしないので &lt;code&gt;get&lt;/code&gt; の部屋と隣り合っている部屋の隣り合っている部屋のリストから &lt;code&gt;get&lt;/code&gt; を削除。
+そして &lt;code&gt;temp&lt;/code&gt; を改めて更新していく。&lt;/p&gt;
+&lt;p&gt;もう行ってない部屋ないよってなったら &lt;code&gt;break&lt;/code&gt; で処理終了。
+以上でOK&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;なんか言葉で説明するとグダってしまった感がある・・・。
+申し訳ねぇ。&lt;/p&gt;
+&lt;p&gt;こういうのって習うより慣れろなんでしょうかね？&lt;/p&gt;
+&lt;p&gt;ただ一回自力で書けば2回目以降はそんな苦労しないんじゃないでしょうか？&lt;/p&gt;
+&lt;p&gt;同じアルゴリズムで解ける&lt;a href="https://atcoder.jp/contests/abc007/tasks/abc007_3"&gt;問題&lt;/a&gt;と、本記事は&lt;a href="https://www.amazon.co.jp/dp/B00CY9256C/ref=dp-kindle-redirect?_encoding=UTF8&amp;amp;btkr=1"&gt;蟻本&lt;/a&gt;と呼ばれる本を参考にしました。
+ただC++で書かれているので、pythonで説明してくれてる&lt;a href="https://juppy.hatenablog.com"&gt;サイト&lt;/a&gt;も載っけときます。
+よければどうぞ。&lt;/p&gt;
+&lt;p&gt;という訳でもっと競プロ、勉強します。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>会正式名称の制定等について</title><link href="/previews/refs/heads/feature/article_image/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-06-25:/previews/refs/heads/feature/article_image/news/2020/06/formalname.html</id><summary type="html">&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
 &lt;p&gt;本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下の通りお知らせいたします。&lt;/p&gt;
 &lt;h2&gt;会正式名称&lt;/h2&gt;
 &lt;p&gt;本会は本日より、下記名称を正式名称といたします。&lt;/p&gt;
@@ -2835,10 +2948,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="f800df8e-64fe-4283-9dd1-2f89a574617d"&gt;&lt;/div&gt;
+&lt;div id="f79fe78f-cd2b-4ef7-a71f-5f896ac4967f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f800df8e-64fe-4283-9dd1-2f89a574617d');
+var element = $('#f79fe78f-cd2b-4ef7-a71f-5f896ac4967f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}

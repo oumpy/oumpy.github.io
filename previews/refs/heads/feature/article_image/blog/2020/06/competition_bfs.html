@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="技術ブログをWebサイトに統合しました"/>
-    <meta property="og:url" content="../../../news/2020/03/website_integration.html"/>
-      <meta property="article:section" content="お知らせ"/>
-        <meta property="article:tag" content="News"/>
+    <meta property="og:title" content="幅優先探索の話 (競プロの話)"/>
+    <meta property="og:url" content="../../../blog/2020/06/competition_bfs.html"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="競技プログラミング"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="技術ブログをWebサイトに統合しました">
+    <meta name="twitter:title" content="幅優先探索の話 (競プロの話)">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>技術ブログをWebサイトに統合しました - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
+    <title>幅優先探索の話 (競プロの話) - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -106,16 +106,16 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
 </div>
 </li>
-<li class="nav-item dropdown dropdown-hover">
+<li class="nav-item dropdown dropdown-hover active">
 <a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
 <div class="dropdown-menu" aria-labelledby="dropdown18">
-<a class="dropdown-item" href="../../../blog.html">技術ブログ</a>
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
 <a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
 </div>
 </li>
-<li class="nav-item active">
+<li class="nav-item">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -142,11 +142,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="website_integration">
-    <meta name="article:category" property="og:article:category" content="お知らせ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="news">
-    <meta name="article:date" property="og:article:date" content="2020-03-29">
-    <meta name="article:modified" property="og:article:modified" content="2020-03-29">
+    <meta name="article:slug" property="og:article:slug" content="competition_bfs">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2020-06-27">
+    <meta name="article:modified" property="og:article:modified" content="2020-06-27">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -156,25 +156,25 @@
 <div class="row article-header">
   <div class="col-sm-9 article-header-title">
 <h1>
-  <a href="../../../news/2020/03/website_integration.html" rel="bookmark"
-     title="Permalink to 技術ブログをWebサイトに統合しました">
-    技術ブログをWebサイトに統合しました
+  <a href="../../../blog/2020/06/competition_bfs.html" rel="bookmark"
+     title="Permalink to 幅優先探索の話 (競プロの話)">
+    幅優先探索の話 (競プロの話)
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2020-03-29(Sun)
+  2020-06-27(Sat)
 </abbr>       - Posted by 
-<a href="../../../author/pythonhui.html">Python会</a>    in 
-    <a href="../../../news.html">
-      お知らせ</a>
+<a href="../../../author/dan-tian.html">淡田</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
+        <a href="../../../tag/jing-ji-puroguramingu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0&labelColor=black&color=green" alt="tag:競技プログラミング" title="tag:競技プログラミング"></img></a>
   </p>
 </div> <!-- /.article-header-info -->  </div>
   <div class="col-sm-3 article-header-image">
-<a href="../../../news/2020/03/website_integration.html" rel="bookmark"
-   title="Permalink to : 技術ブログをWebサイトに統合しました">
+<a href="../../../blog/2020/06/competition_bfs.html" rel="bookmark"
+   title="Permalink to : 幅優先探索の話 (競プロの話)">
   <img alt="article header image" itemprop="image"
        src="../../../favicon.ico"></img>
 </a>  </div>
@@ -183,13 +183,125 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>技術ブログは一時的にはてなブログで開設していましたが、本日、GitHub上の本サイトに統合しました。</p>
-<p>みんなでgitを使ってブログ記事をどんどん掲載していけるように頑張ります！</p>
+	<p>こんばんは、医学部5年の淡田です。</p>
+<p>自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話</p>
+<h2><span id="pelican-subsections-0">競プロって？</span></h2>
+<p>競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。</p>
+<p>問題によって縛りがあって
+「○○時間内に解けよ」
+って制約がある。
+なので愚直に解こうとすると
+「あなたの書いたコードは終わるのに5秒も掛かっちゃってます！遅すぎ！」
+ってなる。
+よって問題によっては工夫が必要になる。</p>
+<h2><span id="pelican-subsections-1">アルゴリズム</span></h2>
+<p>他にも単純に問題むずくて工夫しないと汗、パターンもあるので難易度が上がると手の込んだ手法・手順が必要となる。</p>
+<p>それがアルゴリズム（ざっくりしすぎ・・・？）</p>
+<p>今回はその中で幅優先探索というやり方を説明する。
+といってもそんなに難しくないので気軽に聞いてくださいまし。</p>
+<h2><span id="pelican-subsections-2">実際の問題</span></h2>
+<p><a href="https://atcoder.jp/contests/abc168/tasks/abc168_d">https://atcoder.jp/contests/abc168/tasks/abc168_d</a></p>
+<p>↑問題はこれ。
+詳しい説明は省きますが、ざっくり言うと</p>
+<p><img alt="graph-image" src="../../../blog/2020/06/images/competition_BFS_figs/image.png"></p>
+<p>「上記のような感じで部屋と部屋とが繋がってるぞ
+(入力のところでどの部屋と部屋が繋がってるかが与えられる。
+上のはそれを図にした) 。
+それぞれの部屋から最短で①に行く方法を探せ (３→４→２→１みたいな) 。
+探したら最短経路を辿るためには、例えばaの部屋は次にどこに向かえばいいかを出力しろ。
+複数あったら一個でいいぞ」</p>
+<p>って問題。
+なんとなくやることはわかるけど実際にプログラミングじゃどう書くのだろうってなる。</p>
+<h2><span id="pelican-subsections-3">幅優先探索について</span></h2>
+<p>結論からいうとこれは幅優先探索を使えば簡単に解ける。</p>
+<p>はじめの状態→最短1回の遷移 (移動) でたどり着ける状態を探す→最短2回の遷移 (移動) でたどり着ける状態探す・・・</p>
+<p>を上の例で行けば「①から1回で移動できるのは②、⑤→②、⑤から1回で移動できるのは④・・・という風に探索していく。</p>
+<p>イメージ数学の問題で出てきた「点Aから点Bへの最短で行くのは何通りか？」みたいなのと似ている。</p>
+<h2><span id="pelican-subsections-4">実装</span></h2>
+<p>実際にコードを書いてみる
+(初めて書いたからスマートでないところはあるかも・・・。
+悪しからず)</p>
+<div class="highlight"><pre><span></span><code><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</code></pre></div>
+
+
+<p>まずは入力される <code>n</code>, <code>m</code> をget。</p>
+<p>今回はゴールである①の部屋にはどうすればいけるか？
+というのが問題。
+すると繰り返し上の例でいくと①の部屋には②と⑤が隣り合ってるから②と⑤は最短1回。
+②と⑤と隣り合っているのは④だから・・・という風に探索していくと、「どの部屋とどの部屋が隣り合っているか」が重要になる。</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_tonari</span><span class="o">=</span><span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>ここで空の <code>[]</code> が <code>n</code> 個あるリストを作る。
+1個目の <code>[]</code> には①と隣り合った部屋の番号を、2個目には②と隣り合った部屋の番号を入れていく。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+  <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+  <span class="n">list_tonari</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+  <span class="n">list_tonari</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>以上で隣り合うリスト完成。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>ここで答え用のリストを作る。
+たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったら <code>ans</code> の5番目の <code>0</code> を <code>3</code> に変える、という風にしていく。</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>今現在どこの部屋にいるかのリストをつくる。
+上の例だと最初は <code>1</code>、次は <code>2</code>、<code>5</code> みたいな。</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp2</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p><code>temp</code> を随時更新するので臨時の別のリストもつくる。</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="n">temp2</span><span class="o">=</span><span class="n">temp</span>
+  <span class="n">temp</span><span class="o">=</span><span class="p">[]</span>
+
+  <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp2</span><span class="p">):</span>
+    <span class="n">get</span><span class="o">=</span><span class="n">temp2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">list_tonari</span><span class="p">[</span><span class="n">get</span><span class="p">]:</span>
+      <span class="k">if</span> <span class="n">ans</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">ans</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">get</span>
+        <span class="n">list_tonari</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">get</span><span class="p">)</span>
+        <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">break</span>
+</code></pre></div>
+
+
+<p>まず今どの部屋にいるか <code>temp2</code> にいれて <code>temp</code> を一旦空に。</p>
+<p><code>pop()</code> で <code>temp2</code> の先頭の数字を取ってくる ( <code>get</code> のこと) 。
+その部屋と隣り合っている部屋全てに対して以下の処理を行う。
+まだその部屋に訪れていない ( <code>ans</code> のリストでその部屋の値が <code>0</code> ) なら、その部屋からは <code>get</code> に向かえば最小経路を辿るので <code>get</code> の部屋番号を入れる。
+部屋を行ったり来たりしないので <code>get</code> の部屋と隣り合っている部屋の隣り合っている部屋のリストから <code>get</code> を削除。
+そして <code>temp</code> を改めて更新していく。</p>
+<p>もう行ってない部屋ないよってなったら <code>break</code> で処理終了。
+以上でOK</p>
+<h2><span id="pelican-subsections-5">まとめ</span></h2>
+<p>なんか言葉で説明するとグダってしまった感がある・・・。
+申し訳ねぇ。</p>
+<p>こういうのって習うより慣れろなんでしょうかね？</p>
+<p>ただ一回自力で書けば2回目以降はそんな苦労しないんじゃないでしょうか？</p>
+<p>同じアルゴリズムで解ける<a href="https://atcoder.jp/contests/abc007/tasks/abc007_3">問題</a>と、本記事は<a href="https://www.amazon.co.jp/dp/B00CY9256C/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1">蟻本</a>と呼ばれる本を参考にしました。
+ただC++で書かれているので、pythonで説明してくれてる<a href="https://juppy.hatenablog.com">サイト</a>も載っけときます。
+よければどうぞ。</p>
+<p>という訳でもっと競プロ、勉強します。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
+	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -203,7 +315,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../news/2020/03/website_integration.html" 
+        data-href="../../../blog/2020/06/competition_bfs.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -219,9 +331,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../news/2020/06/formalname.html">会正式名称の制定等について</a></li>
-        <li><a href="../../../news/2020/05/officialize_and_officialname.html">医学部公認と正式名称の検討について</a></li>
-        <li><a href="../../../news/2020/05/officialize_request.html">医学部公認団体申請を行いました</a></li>
+        <li><a href="../../../blog/2020/06/studymeeting2020_03.html">【勉強会資料 2020 第3回】 競プロの基礎</a></li>
+        <li><a href="../../../blog/2019/06/atcoder_beginners_selection.html">AtCoder Beginners Selection 雑感</a></li>
+        <li><a href="../../../blog/2019/04/competition_input.html">はじめての競プロ：入力アンチョコメモ</a></li>
     </ul>
 </div>
 
