@@ -240,7 +240,7 @@
 
 
 <p>ここで答え用のリストを作る。
-たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったらansの5番目の <code>0</code> を <code>3</code> に変える、という風にしていく。</p>
+たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったら <code>ans</code> の5番目の <code>0</code> を <code>3</code> に変える、という風にしていく。</p>
 <div class="highlight"><pre><span></span><code><span class="n">temp</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
 <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
@@ -274,7 +274,7 @@
 <p>まず今どの部屋にいるか <code>temp2</code> にいれて <code>temp</code> を一旦空に。</p>
 <p><code>pop()</code> で <code>temp2</code> の先頭の数字を取ってくる ( <code>get</code> のこと) 。
 その部屋と隣り合っている部屋全てに対して以下の処理を行う。
-まだその部屋に訪れていない ( <code>ans</code> のリストでその部屋の値が <code>0</code> ) なら、その部屋からはgetに向かえば最小経路を辿るので <code>get</code> の部屋番号を入れる。
+まだその部屋に訪れていない ( <code>ans</code> のリストでその部屋の値が <code>0</code> ) なら、その部屋からは <code>get</code> に向かえば最小経路を辿るので <code>get</code> の部屋番号を入れる。
 部屋を行ったり来たりしないので <code>get</code> の部屋と隣り合っている部屋の隣り合っている部屋のリストから <code>get</code> を削除。
 そして <code>temp</code> を改めて更新していく。</p>
 <p>もう行ってない部屋ないよってなったら <code>break</code> で処理終了。
@@ -419,22 +419,10 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-1">
@@ -443,10 +431,10 @@
         Bioinformatics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -455,22 +443,10 @@
         海外留学
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-1">
@@ -480,9 +456,27 @@
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">6</span>
-        News
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -491,10 +485,16 @@
         Data Science Competition
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">6</span>
+        News
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -503,16 +503,16 @@
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">5</span>
-        勉強会
+        競技プログラミング
       </a>
     </span>
 </p>

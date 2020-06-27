@@ -65,7 +65,7 @@
 
 
 &lt;p&gt;ここで答え用のリストを作る。
-たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったらansの5番目の &lt;code&gt;0&lt;/code&gt; を &lt;code&gt;3&lt;/code&gt; に変える、という風にしていく。&lt;/p&gt;
+たとえば「5の部屋から最短で1に向かうには次に3の部屋いけばいいんやで」となったら &lt;code&gt;ans&lt;/code&gt; の5番目の &lt;code&gt;0&lt;/code&gt; を &lt;code&gt;3&lt;/code&gt; に変える、という風にしていく。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -99,7 +99,7 @@
 &lt;p&gt;まず今どの部屋にいるか &lt;code&gt;temp2&lt;/code&gt; にいれて &lt;code&gt;temp&lt;/code&gt; を一旦空に。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;pop()&lt;/code&gt; で &lt;code&gt;temp2&lt;/code&gt; の先頭の数字を取ってくる ( &lt;code&gt;get&lt;/code&gt; のこと) 。
 その部屋と隣り合っている部屋全てに対して以下の処理を行う。
-まだその部屋に訪れていない ( &lt;code&gt;ans&lt;/code&gt; のリストでその部屋の値が &lt;code&gt;0&lt;/code&gt; ) なら、その部屋からはgetに向かえば最小経路を辿るので &lt;code&gt;get&lt;/code&gt; の部屋番号を入れる。
+まだその部屋に訪れていない ( &lt;code&gt;ans&lt;/code&gt; のリストでその部屋の値が &lt;code&gt;0&lt;/code&gt; ) なら、その部屋からは &lt;code&gt;get&lt;/code&gt; に向かえば最小経路を辿るので &lt;code&gt;get&lt;/code&gt; の部屋番号を入れる。
 部屋を行ったり来たりしないので &lt;code&gt;get&lt;/code&gt; の部屋と隣り合っている部屋の隣り合っている部屋のリストから &lt;code&gt;get&lt;/code&gt; を削除。
 そして &lt;code&gt;temp&lt;/code&gt; を改めて更新していく。&lt;/p&gt;
 &lt;p&gt;もう行ってない部屋ないよってなったら &lt;code&gt;break&lt;/code&gt; で処理終了。
@@ -2946,10 +2946,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="0e2538ab-0421-4ba7-9aea-c99339f7c732"&gt;&lt;/div&gt;
+&lt;div id="2baf130b-bf1c-4258-b80c-daff29dab71a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0e2538ab-0421-4ba7-9aea-c99339f7c732');
+var element = $('#2baf130b-bf1c-4258-b80c-daff29dab71a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
