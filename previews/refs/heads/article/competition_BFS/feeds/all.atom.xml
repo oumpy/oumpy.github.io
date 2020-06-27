@@ -129,7 +129,7 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;と、リストでなく集合を使うように変更します。
+&lt;p&gt;と、リスト &lt;code&gt;[]&lt;/code&gt; でなく集合 &lt;code&gt;set()&lt;/code&gt; を使うように変更します。
 これに伴い、その下の &lt;code&gt;append()&lt;/code&gt; は &lt;code&gt;add()&lt;/code&gt; に変更します。&lt;br&gt;
 それだけです。
 (&lt;code&gt;remove()&lt;/code&gt; の行自体はそのままでOKです。)&lt;/p&gt;
@@ -2969,10 +2969,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="b8d5b634-4776-4df5-8f54-1a5d254e3807"&gt;&lt;/div&gt;
+&lt;div id="63321784-99c6-489f-b880-34fee5c8d5fb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b8d5b634-4776-4df5-8f54-1a5d254e3807');
+var element = $('#63321784-99c6-489f-b880-34fee5c8d5fb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
