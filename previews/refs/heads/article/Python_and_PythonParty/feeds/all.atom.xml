@@ -65,7 +65,7 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 順番を保ちつつ、途中の入退会にも対応するとか、祝日はお休みとか、実はそれなりに複雑な要素があります。
 会員有志により、すべてPythonで一から書かれています。&lt;/p&gt;
 &lt;h4&gt;AtCoder AC数ランキング&lt;/h4&gt;
-&lt;p&gt;毎週毎月、&lt;a href=""&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
+&lt;p&gt;毎週毎月、&lt;a href="https://kenkoooo.com/atcoder/"&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
 途中経過を出す機能もあり、実際に利用しています。&lt;/p&gt;
 &lt;p&gt;実は作られたのはこちらが先で、上記のリレー投稿Botはその改造版です。
 他の人が頑張っているのを見ると、自分もちょっとやる気になったりもしますよね。&lt;/p&gt;
@@ -3055,10 +3055,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="18070a9a-b1f3-4ccb-a74e-f69ff0934415"&gt;&lt;/div&gt;
+&lt;div id="2dd9afed-873a-43c5-b463-36dc2526d710"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#18070a9a-b1f3-4ccb-a74e-f69ff0934415');
+var element = $('#2dd9afed-873a-43c5-b463-36dc2526d710');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
