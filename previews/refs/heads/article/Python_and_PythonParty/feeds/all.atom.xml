@@ -39,10 +39,10 @@ Dropboxなど多くのサービスやアプリケーションも、主にPython�
 &lt;p&gt;ここから後半です。
 Python会自身が、会の運営用途などでどのようにPythonを活用しているか、少しだけ例をあげて紹介します。
 研究用途とは全く違う使い方です。&lt;/p&gt;
-&lt;h3&gt;会HPの作成運営&lt;/h3&gt;
-&lt;p&gt;この&lt;a href="https://oumpy.github.io"&gt;Python会HP&lt;/a&gt;は、Pythonで作られています。
+&lt;h3&gt;会Webサイトの作成運営&lt;/h3&gt;
+&lt;p&gt;この&lt;a href="https://oumpy.github.io"&gt;Python会Webサイト&lt;/a&gt;は、Pythonで作られています。
 正確にはPythonで書かれた&lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;というシステムを使い、各ページのhtmlファイルなどを自動生成しています。&lt;/p&gt;
-&lt;p&gt;設定ファイルはすべてPythonコードで書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会HPオリジナルのものが10個程度あります) 。
+&lt;p&gt;設定ファイルはすべてPythonコードで書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会Webサイトオリジナルのものが10個程度あります) 。
 その他の補助ツール群も、Pythonとシェルスクリプトの組み合わせで作られています。&lt;/p&gt;
 &lt;p&gt;この用途に限れば、Python一択ということは別段ありません。
 GitHubが標準として採用しているのはPelicanと似た&lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;というシステムで、こちらはPythonでなくRubyです。
@@ -51,7 +51,7 @@ GitHubが標準として採用しているのはPelicanと似た&lt;a href="http
 興味を持ったらすぐに勉強することができます。
 コード資産のロストテクノロジー化を防ぐ意味でも、これは結構大事です。
 Rubyが得意な先輩が卒業したら管理できる人がいなくなった、では笑えないですからね。&lt;br&gt;
-(なお現HPの原型はOBの&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/author/ping-gang.html"&gt;平岡&lt;/a&gt;さんによるものですが、さすがの慧眼だと思います。)&lt;/p&gt;
+(なお現Webサイトの原型はOBの&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/author/ping-gang.html"&gt;平岡&lt;/a&gt;さんによるものですが、さすがの慧眼だと思います。)&lt;/p&gt;
 &lt;h3&gt;Slack Botの作成運用&lt;/h3&gt;
 &lt;p&gt;Slackで自動的にお知らせなどを流してくれる、あれです。
 現在はoumpyというBotをSlackに配置し、その裏で2種類のPythonプログラムを独立に動かしています。&lt;/p&gt;
@@ -82,7 +82,7 @@ Python一本で、イエローコーダー (レート2000) までは最低でも
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;研究以外にも会で実用的に使っているPython&lt;ul&gt;
-&lt;li&gt;HP作成、Bot作成、競プロなど&lt;/li&gt;
+&lt;li&gt;Webサイト作成、Bot作成、競プロなど&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
@@ -3055,10 +3055,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="925aa418-4a60-4127-b93a-cdb692460c0b"&gt;&lt;/div&gt;
+&lt;div id="77ce6260-f199-4a30-b362-c8ab91d71490"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#925aa418-4a60-4127-b93a-cdb692460c0b');
+var element = $('#77ce6260-f199-4a30-b362-c8ab91d71490');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
