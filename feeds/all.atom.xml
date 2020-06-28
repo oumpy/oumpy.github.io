@@ -112,7 +112,30 @@
 &lt;p&gt;同じアルゴリズムで解ける&lt;a href="https://atcoder.jp/contests/abc007/tasks/abc007_3"&gt;問題&lt;/a&gt;と、本記事は&lt;a href="https://www.amazon.co.jp/dp/B00CY9256C/ref=dp-kindle-redirect?_encoding=UTF8&amp;amp;btkr=1"&gt;蟻本&lt;/a&gt;と呼ばれる本を参考にしました。
 ただC++で書かれているので、pythonで説明してくれてる&lt;a href="https://juppy.hatenablog.com"&gt;サイト&lt;/a&gt;も載っけときます。
 よければどうぞ。&lt;/p&gt;
-&lt;p&gt;という訳でもっと競プロ、勉強します。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>会正式名称の制定等について</title><link href="https://oumpy.github.io/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-06-25:/news/2020/06/formalname.html</id><summary type="html">&lt;a href="https://oumpy.github.io/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="https://oumpy.github.io/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
+&lt;p&gt;という訳でもっと競プロ、勉強します。&lt;/p&gt;
+&lt;h2&gt;(編集注記)&lt;/h2&gt;
+&lt;p&gt;発展的な話となりますが、今回の本文コードで使われている&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;の部分は実は少しだけ危険で、時間切れの恐れがあります。&lt;/p&gt;
+&lt;p&gt;リストからの要素削除は、リストの長さに比例した時間がかかります。
+よって意地悪な入力では、トータルでほぼ頂点数の2乗に比例する時間がかかる可能性があります。
+AtCoderのテストデータでは実際に本文のコードで正解と判定されるのですが、時間切れになる (正解に数時間程度かかる) 入力は問題制約の範囲で作れると思います。&lt;/p&gt;
+&lt;p&gt;ではどうすればいいか。
+最初に &lt;code&gt;list_tonari&lt;/code&gt; を作る部分を、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;list_tonari&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;と、リスト &lt;code&gt;[]&lt;/code&gt; でなく集合 &lt;code&gt;set()&lt;/code&gt; を使うように変更します。
+これに伴い、その下の &lt;code&gt;append()&lt;/code&gt; は &lt;code&gt;add()&lt;/code&gt; に変更します。&lt;br&gt;
+それだけです。
+(&lt;code&gt;remove()&lt;/code&gt; の行自体はそのままでOKです。)&lt;/p&gt;
+&lt;p&gt;同じ &lt;code&gt;remove()&lt;/code&gt; でも、集合では要素数の対数に比例した時間しかかかりません。
+したがって全体の計算量が頂点数の2乗で爆発する可能性もなく、どんな入力でも確実に時間内で正解することができます。&lt;/p&gt;
+&lt;p&gt;(注記担当：&lt;a href="https://oumpy.github.io/author/xiao-chuan.html"&gt;小川&lt;/a&gt;)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>会正式名称の制定等について</title><link href="https://oumpy.github.io/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-06-25:/news/2020/06/formalname.html</id><summary type="html">&lt;a href="https://oumpy.github.io/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="https://oumpy.github.io/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
 &lt;p&gt;本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下の通りお知らせいたします。&lt;/p&gt;
 &lt;h2&gt;会正式名称&lt;/h2&gt;
 &lt;p&gt;本会は本日より、下記名称を正式名称といたします。&lt;/p&gt;
@@ -2946,10 +2969,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="0d796a8a-605d-4502-9c78-1f7422ffac5a"&gt;&lt;/div&gt;
+&lt;div id="6aa4382a-e997-4e50-bd53-726ac7b3ed30"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0d796a8a-605d-4502-9c78-1f7422ffac5a');
+var element = $('#6aa4382a-e997-4e50-bd53-726ac7b3ed30');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}

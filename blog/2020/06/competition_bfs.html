@@ -288,6 +288,29 @@
 ただC++で書かれているので、pythonで説明してくれてる<a href="https://juppy.hatenablog.com">サイト</a>も載っけときます。
 よければどうぞ。</p>
 <p>という訳でもっと競プロ、勉強します。</p>
+<h2><span id="pelican-subsections-6">(編集注記)</span></h2>
+<p>発展的な話となりますが、今回の本文コードで使われている</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_tonari</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">get</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>の部分は実は少しだけ危険で、時間切れの恐れがあります。</p>
+<p>リストからの要素削除は、リストの長さに比例した時間がかかります。
+よって意地悪な入力では、トータルでほぼ頂点数の2乗に比例する時間がかかる可能性があります。
+AtCoderのテストデータでは実際に本文のコードで正解と判定されるのですが、時間切れになる (正解に数時間程度かかる) 入力は問題制約の範囲で作れると思います。</p>
+<p>ではどうすればいいか。
+最初に <code>list_tonari</code> を作る部分を、</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_tonari</span><span class="o">=</span><span class="p">[</span><span class="nb">set</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>と、リスト <code>[]</code> でなく集合 <code>set()</code> を使うように変更します。
+これに伴い、その下の <code>append()</code> は <code>add()</code> に変更します。<br>
+それだけです。
+(<code>remove()</code> の行自体はそのままでOKです。)</p>
+<p>同じ <code>remove()</code> でも、集合では要素数の対数に比例した時間しかかかりません。
+したがって全体の計算量が頂点数の2乗で爆発する可能性もなく、どんな入力でも確実に時間内で正解することができます。</p>
+<p>(注記担当：<a href="../../../author/xiao-chuan.html">小川</a>)</p>
   </div>
   
 <div class="article-tag-list">
@@ -419,10 +442,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">5</span>
-        勉強会
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -431,28 +460,22 @@
         News
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/python.html">
           <span class="badge badge-primary">16</span>
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -461,16 +484,16 @@
         Statistics
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">5</span>
         競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
       </a>
     </span>
     <span class="tag-4">
@@ -486,15 +509,15 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-4">
@@ -509,10 +532,10 @@
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
 </p>
