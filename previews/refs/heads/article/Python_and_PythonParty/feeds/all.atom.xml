@@ -1,64 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/" rel="alternate"></link><link href="/previews/refs/heads/article/Python_and_PythonParty/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/Python_and_PythonParty/</id><updated>2020-07-03T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>PythonとPython会とPython会で使われているPython</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/07/python_and_pythonparty.html" rel="alternate"></link><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-03:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/07/python_and_pythonparty.html</id><summary type="html">Python会は、Pythonを主に勉強したり研究に使ったりしています。 また、会の運営上の道具としてもPythonを利用しています。 なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。 (主に新入会員向けの内容....</summary><content type="html">&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/" rel="alternate"></link><link href="/previews/refs/heads/article/Python_and_PythonParty/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/Python_and_PythonParty/</id><updated>2020-07-03T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Python会とPythonとPython会で使われているPython</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/07/pythonparty_and_python.html" rel="alternate"></link><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-03:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/07/pythonparty_and_python.html</id><summary type="html">Python会は、Pythonを主に勉強したり研究に使ったりしています。 また、会の運営上の道具としてもPythonを利用しています。 なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。 (主に新入会員向けの内容....</summary><content type="html">&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
 また、会の運営上の道具としてもPythonを利用しています。&lt;/p&gt;
 &lt;p&gt;なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。&lt;/p&gt;
-&lt;p&gt;(主に新入会員向けの内容です。すべて個人の見解です。)&lt;/p&gt;
+&lt;p&gt;(主に新入会員向けの内容です。
+すべて個人の見解です。
+あと技術ブログなのに技術的内容には乏しいですがご容赦を。。)&lt;/p&gt;
 &lt;h2&gt;なぜPythonか？&lt;/h2&gt;
+&lt;p&gt;まず前半ではあらためて、なぜPython会ではPythonを学んでいるのか？
+についての僕なりの説明を試みてみたいと思います。&lt;/p&gt;
 &lt;h3&gt;プログラミング言語宗教戦争&lt;/h3&gt;
 &lt;p&gt;プログラミング言語の選択は宗教であるとも言われます。
 実際に、プログラミング言語宗教論争あるいは宗教戦争のようなものは、人類誕生以来幾度となく繰り返されてきました。&lt;/p&gt;
 &lt;p&gt;これはとても根強いもので、例えば本会「Python会」の名前を見るだけで、あいつらも宗教だ、などと言う人もきっといます。
-(まあ大抵、そういう人の方がもっと、プログラミング言語の宗教性に囚われているものではありますが。。)&lt;/p&gt;
+[&lt;a href="#note1"&gt;注1&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;そういう全ての言語が敵に見えるような仁義なき宗教戦争の中にあって、とりわけPythonは、支持者も多いが敵も多い、といった印象があります。
-また他の言語で言えばC++などもそうです。
+また他の言語ではC++などもそうです。
 なぜでしょうか。&lt;/p&gt;
 &lt;h3&gt;汎用言語としてのPython&lt;/h3&gt;
-&lt;p&gt;これもまったく個人的な見解ですが、PythonとC++、両者の共通点は、きわめて汎用的で、あらゆるところで使われているということです。
-それゆえ、あらゆる分野で他言語派から敵視されたりするわけです。&lt;/p&gt;
+&lt;p&gt;これもまったく個人的な見解ですが、PythonとC++、両者の共通点は、きわめて汎用的で、あらゆるところで使われていることです。
+それゆえ、あらゆる分野で他言語派から敵視されたりするわけです。
+(なお汎用性の意味や形は両言語の間でもかなり異なります、念のため。)&lt;/p&gt;
 &lt;p&gt;Python会では名前の通り、主にPythonを中心に (「だけ」ではないですが) 学ぶことにしています。
-Pythonを選ぶことの利点を、新入会員の人たちは先輩から勉強会などでいくつか聞いたかもしれませんが、僕はこの汎用性が最大のポイントだと思っています。&lt;/p&gt;
-&lt;p&gt;各分野には、ガラパゴス化した世界が確かにあります。
+Pythonを選ぶことの利点を、新入会員の人たちは勉強会などもでいくつか聞いたかもしれませんが、僕は&lt;strong&gt;この汎用性が最大のポイント&lt;/strong&gt;だと思います。
+実際、これほどあらゆる分野で、＜高度かつ不安定な技術で無理矢理に＞などではなく、普通に一線の言語として使えるものは他にほぼ選択肢がないと言っても過言ではありません。&lt;/p&gt;
+&lt;p&gt;Python会はやはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
+でも同じPythonで、その他にももっと色々なことができます。
+その例はこのブログの記事にも多数あります。
+最近のリレー投稿でも時々登場していますよね。
+本稿の後半で紹介するのも、そのような例の一部です。&lt;/p&gt;
+&lt;p&gt;あるいは例えばMacにはPythonが標準で入っていますが、それはシステムの一部がPythonで書かれているからです。
+&lt;a href="https://www.youtube.com"&gt;YouTube&lt;/a&gt;や&lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt;など多くのサービスやアプリケーションも、Pythonを主力として開発されています。&lt;/p&gt;
+&lt;h3&gt;広い世界を見る&lt;/h3&gt;
+&lt;p&gt;逆の方向を考えてみましょう。
+各個別分野には、それぞれのガラパゴス化した世界が確かにあります。
 様々な言語が使われています。
-研究室などに入っても、Pythonなんかよりウチの業界ではこの言語を使え、このソフトを使え、とか言ってくる人たちはいます。
-でも基本的には&lt;strong&gt;できるだけ耳を貸さない方がいい&lt;/strong&gt;です。
+研究室などに入っても、Pythonなんかやめてウチの業界ではこの言語を使え、このソフトを使え、とか&lt;s&gt;偉そうに言ってくる&lt;/s&gt;おすすめしてくれる人たちはいるかもしれません。&lt;/p&gt;
+&lt;p&gt;でも基本的には&lt;strong&gt;できるだけ耳を貸さない方がいい&lt;/strong&gt;です。
 タコ壺です。
 その人たちには物凄く狭い世界しか見えていません。
-これから多くの選択肢がある若者が、真に受けてはいけません。&lt;br&gt;
-(一方で大人の事情はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではありますが。)&lt;/p&gt;
+その人たちとは違ってこれから多くの可能性と選択肢のある若者が、真に受けてはいけません。
+[&lt;a href="#note2"&gt;注2&lt;/a&gt;]&lt;br&gt;
+実際の個別分野の研究でも、Pythonが使い物にならない分野なんてどこにあるのか？とも思います。
+[&lt;a href="#note3"&gt;注3&lt;/a&gt;]&lt;/p&gt;
 &lt;p&gt;まあともかく、Pythonはそんな言語です。
 もちろん多くの言語を習得し、場面に応じて使いこなせればそれが一番です。
 でも医学系の人は基本的にはそれが本職でも、そこまで暇でもありません。
-それなら、適所だといってガラパゴスに集中するより、Pythonを軸にして色んな分野や世界を見られた方がいい。
-繰り返し個人的見解ですが、そう思います。&lt;/p&gt;
-&lt;p&gt;Python会はやはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
-でも同じPythonで、その他にももっと色々なことができます
-(時々リレー投稿にも登場していますよね) 。
-あるいは例えばMacには標準で入っていますが、それはシステムの一部がPythonで書かれているからです。
-Dropboxなど多くのサービスやアプリケーションも、主にPythonで開発されています。&lt;/p&gt;
+それなら、適所だといってガラパゴスに集中するより、&lt;strong&gt;Pythonを通して色んな分野や世界を見る&lt;/strong&gt;ことができた方がいい。
+どちらも高いレベルでできるなら勿論よいですが、どちらかであれば圧倒的に後者がいい。
+僕はそう考えています。&lt;/p&gt;
 &lt;h2&gt;Python会で使われているPython&lt;/h2&gt;
 &lt;p&gt;ここから後半です。
-Python会自身が、会の運営用途などでどのようにPythonを活用しているか、少しだけ例をあげて紹介します。
-研究用途とは全く違う使い方です。&lt;/p&gt;
+Python会自身が、会の運営用途などでどのようにPythonを活用しているか、少しだけ例をあげて紹介します。&lt;/p&gt;
+&lt;p&gt;同じ言語で同じPython会ですが、&lt;strong&gt;研究用途とは全く違う使い方&lt;/strong&gt;です。
+(繰り返しですが、それができるのがPythonです。)&lt;/p&gt;
 &lt;h3&gt;会Webサイトの作成運営&lt;/h3&gt;
 &lt;p&gt;この&lt;a href="https://oumpy.github.io"&gt;Python会Webサイト&lt;/a&gt;は、Pythonで作られています。
-正確にはPythonで書かれた&lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;というシステムを使い、各ページのhtmlファイルなどを自動生成しています。&lt;/p&gt;
-&lt;p&gt;設定ファイルはすべてPythonコードで書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会Webサイトオリジナルのものが10個程度あります) 。
+正確にはPythonで書かれた&lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;というシステムを使い、各ページのhtmlファイルなどを自動生成しています。&lt;br&gt;
+(なおPelicanは名前が一般名詞すぎるため、ググラビリティが異常に低いのが難点です。)&lt;/p&gt;
+&lt;p&gt;設定ファイルはすべてPythonコードで (変数の値などを) 書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会Webサイトオリジナルのものが10個程度あります) 。
 その他の補助ツール群も、Pythonとシェルスクリプトの組み合わせで作られています。&lt;/p&gt;
 &lt;p&gt;この用途に限れば、Python一択ということは別段ありません。
 GitHubが標準として採用しているのはPelicanと似た&lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;というシステムで、こちらはPythonでなくRubyです。
 またJavaScriptベースのものなども人気があります。&lt;/p&gt;
-&lt;p&gt;しかし上記の通り、Pythonで書かれていれば、最低限のことは会員誰でも見ればわかります。
+&lt;p&gt;しかし前記の通り、共通言語のPythonで書かれていれば、最低限のことは会員誰でも見ればわかります。
 興味を持ったらすぐに勉強することができます。
 コード資産のロストテクノロジー化を防ぐ意味でも、これは結構大事です。
-Rubyが得意な先輩が卒業したら管理できる人がいなくなった、では笑えないですからね。&lt;br&gt;
-(なお現Webサイトの原型はOBの&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/author/ping-gang.html"&gt;平岡&lt;/a&gt;さんによるものですが、さすがの慧眼だと思います。)&lt;/p&gt;
+&lt;strong&gt;Rubyの得意な先輩が卒業したら管理できる人がいなくなった&lt;/strong&gt;、では笑えないですからね。&lt;/p&gt;
+&lt;p&gt;なお現Webサイトの原型はPelicanの選択も含めてOBの&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/author/ping-gang.html"&gt;平岡&lt;/a&gt;さんによるもので、さすがの慧眼だと思います。&lt;/p&gt;
 &lt;h3&gt;Slack Botの作成運用&lt;/h3&gt;
 &lt;p&gt;Slackで自動的にお知らせなどを流してくれる、あれです。
 現在はoumpyというBotをSlackに配置し、その裏で2種類のPythonプログラムを独立に動かしています。&lt;/p&gt;
 &lt;p&gt;Bot作成に関しても再び、これだけなら必ずしもPythonでなくてもいいです。
 Web検索してみると、むしろJavaScript系言語の方が多いくらいです。
 でもPythonを選んでいるのは、やはり上記と同じ理由です。
-(医科学研究でJavaScriptを使う人はさすがに殆どいないので。)&lt;/p&gt;
+また例えば&lt;strong&gt;医科学研究で解析にJavaScriptを使う人&lt;/strong&gt;などはさすがにあまり聞いたことがないです。&lt;/p&gt;
 &lt;h4&gt;リレー投稿の順番お知らせ&lt;/h4&gt;
 &lt;p&gt;リレー投稿ちゃんねるのメンバーリストを見て、次週の担当をお知らせするBot。&lt;/p&gt;
 &lt;p&gt;会ではすっかりお馴染みに？なりました。
@@ -68,24 +83,34 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 &lt;p&gt;毎週毎月、&lt;a href="https://kenkoooo.com/atcoder/"&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
 途中経過を出す機能もあり、実際に利用しています。&lt;/p&gt;
 &lt;p&gt;実は作られたのはこちらが先で、上記のリレー投稿Botはその改造版です。
-他の人が頑張っているのを見ると、自分もちょっとやる気になったりもしますよね。&lt;/p&gt;
+他の人が頑張っているのをランキングで見ると、自分もちょっとやる気になったりしますよね。&lt;/p&gt;
 &lt;h3&gt;競技プログラミング&lt;/h3&gt;
 &lt;p&gt;Python会存立に必須と言っても過言ではない (個人的見解) 競技プログラミング (主にAtCoder) には、もちろん多くの会員がPythonを主力言語として参戦しています。&lt;/p&gt;
 &lt;p&gt;今年行われたシステム更新で、実行速度上のハンデは従来よりもさらに小さくなりました。
 少なくとも初心者向けのABC (AtCoder Beginner Contest) の範囲では、Pythonで時間内に解けないような問題はまず出ません。
-Python一本で、イエローコーダー (レート2000) までは最低でも到達可能です。
-その先はそのあと考えればいいです。&lt;/p&gt;
+&lt;strong&gt;Python一本で、イエローコーダー (レート2000以上) までは最低でも到達可能&lt;/strong&gt;です。
+その先はそれが見えてから考えればいいです。&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Pythonは汎用言語&lt;ul&gt;
-&lt;li&gt;これを通じて色んな世界を見よう&lt;/li&gt;
+&lt;li&gt;これを通じて色んな分野、色んな世界を見よう！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;研究以外にも会で実用的に使っているPython&lt;ul&gt;
+&lt;li&gt;研究以外にもPython会で実用的に使っているPython&lt;ul&gt;
 &lt;li&gt;Webサイト作成、Bot作成、競プロなど&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
+&lt;/ul&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;
+&lt;h2&gt;注記&lt;/h2&gt;
+&lt;h3&gt;&lt;span id="note1"&gt;&lt;/span&gt;注1：Python会は宗教&lt;/h3&gt;
+&lt;p&gt;まあ大抵、そういうことを言う人自身の方が実はもっとずっと、プログラミング言語の宗教性に囚われているものではあります。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note2"&gt;&lt;/span&gt;注2：耳を貸さない、真に受けない&lt;/h3&gt;
+&lt;p&gt;一方で&lt;strong&gt;大人の事情&lt;/strong&gt;はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。
+あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note3"&gt;&lt;/span&gt;注3：Pythonが使い物にならない分野&lt;/h3&gt;
+&lt;p&gt;汎用性の低い特定言語等が分野内で業界標準となっており、技術的にはともかくコミュニティとして、それを使わないと相手にされないケースなどはなくはないと思います。&lt;/p&gt;
+&lt;p&gt;ただ、そういうところは遠からず分野コミュニティごと滅びないか、と側から見て心配ではあります。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
 &lt;p&gt;自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話&lt;/p&gt;
 &lt;h2&gt;競プロって？&lt;/h2&gt;
 &lt;p&gt;競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。&lt;/p&gt;
@@ -3055,10 +3080,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="2dd9afed-873a-43c5-b463-36dc2526d710"&gt;&lt;/div&gt;
+&lt;div id="9fc064e4-e276-4b63-9afc-269a11d36379"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2dd9afed-873a-43c5-b463-36dc2526d710');
+var element = $('#9fc064e4-e276-4b63-9afc-269a11d36379');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
