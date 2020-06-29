@@ -21,10 +21,11 @@
 [&lt;a href="#note2"&gt;注2&lt;/a&gt;]&lt;br&gt;
 それゆえ、あらゆる分野で他言語派から敵視されたりもするわけです。&lt;/p&gt;
 &lt;p&gt;Python会では名前の通り、主にPythonを中心に (「だけ」ではないですが) 学ぶことにしています。
-Pythonを選ぶことの利点を、新入会員の人たちは勉強会などもでいくつか聞いたかもしれませんが、僕は&lt;strong&gt;この汎用性が最大のポイント&lt;/strong&gt;だと思います。
-実際、これほどあらゆる分野で、＜高度かつ不安定な技術で無理矢理に＞などではなく、普通に一線の言語として使えるものは他にほぼ選択肢がないと言っても過言ではありません。&lt;/p&gt;
+Pythonを選ぶことの利点を、新入会員の人たちは勉強会などでもいくつか聞いたかもしれませんが、僕は&lt;strong&gt;この汎用性が最大のポイント&lt;/strong&gt;だと思います。
+実際、これほどあらゆる分野で、＜高度かつ不安定な技術で無理矢理に＞などではなく、普通に一線の言語として使えるものは他に選択肢がないと言っても過言ではありません。&lt;/p&gt;
 &lt;p&gt;Python会では、やはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
-でも同じPythonで、その他にももっと色々なことができます。
+それだけでも、内容・分野は多様多岐にわたります。
+でも同じPythonで、さらにその他にももっと色々なことができます。
 その例はこのブログの記事にも多数あります。
 最近のリレー投稿でも時々登場していますよね。
 本稿の後半で紹介するのも、そのような例の一部です。&lt;/p&gt;
@@ -74,7 +75,7 @@ GitHubが標準として採用しているのはPelicanと似た&lt;a href="http
 &lt;p&gt;Bot作成に関しても再び、これだけなら必ずしもPythonでなくてもいいです。
 Web検索してみると、むしろJavaScript系言語の方が多いくらいです。
 でもPythonを選んでいるのは、やはり上記と同じ理由です。
-また例えば&lt;strong&gt;医科学研究で解析にJavaScriptを使う人&lt;/strong&gt;などはさすがにあまり聞いたことがないです。&lt;/p&gt;
+例えば&lt;strong&gt;医科学研究で解析にJavaScriptを使う人&lt;/strong&gt;などはさすがにあまり聞いたことがないし、そのあたりが再び、狭い特定用途だけを見ていてはわからない違いになります。&lt;/p&gt;
 &lt;h4&gt;リレー投稿の順番お知らせ&lt;/h4&gt;
 &lt;p&gt;リレー投稿ちゃんねるのメンバーリストを見て、次週の担当をお知らせするBot。&lt;/p&gt;
 &lt;p&gt;会ではすっかりお馴染みに？なりました。
@@ -106,7 +107,7 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 &lt;p&gt;おしまい。&lt;/p&gt;
 &lt;h2&gt;注記&lt;/h2&gt;
 &lt;h3&gt;&lt;span id="note1"&gt;&lt;/span&gt;注1 : 「Python会は宗教」&lt;/h3&gt;
-&lt;p&gt;まあ大抵、そういうことを言う人自身の方が実はもっとずっと、プログラミング言語の宗教性に囚われているものではあります。&lt;/p&gt;
+&lt;p&gt;まあ大抵、こういうことを言う人自身の方が実はもっとずっと、プログラミング言語の宗教性に囚われているものではあります。&lt;/p&gt;
 &lt;h3&gt;&lt;span id="note2"&gt;&lt;/span&gt;注2 : PythonとC++の汎用性&lt;/h3&gt;
 &lt;p&gt;この2言語の間でも、汎用性の意味や形はかなり異なります。
 両言語が直接競合する場面は比較的限定的で、相互補完的に使われることが多いと思います。
@@ -114,7 +115,7 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 (分子シミュレーションなど一部分野を除き)
 そう中々あるものではないでしょう。&lt;/p&gt;
 &lt;p&gt;また元々Pythonで確立・実装されたソフトウェアやライブラリを、実行速度その他のためにC++で再実装することなどは珍しくありません。
-(例 : Chainer → PyTorch)&lt;/p&gt;
+(例 : &lt;a href="https://chainer.org"&gt;Chainer&lt;/a&gt; → &lt;a href="https://pytorch.org"&gt;PyTorch&lt;/a&gt;)&lt;/p&gt;
 &lt;h3&gt;&lt;span id="note3"&gt;&lt;/span&gt;注3 : 耳を貸さない、真に受けない&lt;/h3&gt;
 &lt;p&gt;一方で&lt;strong&gt;大人の事情&lt;/strong&gt;はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。
 あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。&lt;/p&gt;
@@ -130,7 +131,7 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 中途半端なPythonとは違い完全オブジェクト志向であるなど、それ自体は非常に優れた言語です
 (と、理解しています。
 普段自分では全く使いませんが) 。
-環境が整えば、&lt;strong&gt;Pythonに匹敵する汎用言語として将来台頭する可能性&lt;/strong&gt;もあると思います。
+現在はWeb系言語の色彩が強いですが、環境が整えば、将来&lt;strong&gt;Pythonに匹敵する汎用言語として台頭する可能性&lt;/strong&gt;も、あるんじゃないのかなと思っています。
 今すぐ、とはいきませんが。。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
 &lt;p&gt;自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話&lt;/p&gt;
 &lt;h2&gt;競プロって？&lt;/h2&gt;
@@ -3101,10 +3102,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="c030652d-ce4a-44f0-aa27-59547b360e6e"&gt;&lt;/div&gt;
+&lt;div id="d7d56d99-494d-49fc-b962-048d069825d8"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c030652d-ce4a-44f0-aa27-59547b360e6e');
+var element = $('#d7d56d99-494d-49fc-b962-048d069825d8');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
