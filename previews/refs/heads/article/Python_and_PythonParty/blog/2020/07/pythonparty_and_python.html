@@ -193,12 +193,12 @@
 なぜでしょうか。</p>
 <h3><span id="pelican-subsections-2">汎用言語としてのPython</span></h3>
 <p>これもまったく個人的な見解ですが、PythonとC++、両者の共通点は、きわめて汎用的で、あらゆるところで使われていることです。
-それゆえ、あらゆる分野で他言語派から敵視されたりするわけです。
-(なお汎用性の意味や形は両言語の間でもかなり異なります、念のため。)</p>
+[<a href="#note2">注2</a>]<br>
+それゆえ、あらゆる分野で他言語派から敵視されたりもするわけです。</p>
 <p>Python会では名前の通り、主にPythonを中心に (「だけ」ではないですが) 学ぶことにしています。
 Pythonを選ぶことの利点を、新入会員の人たちは勉強会などもでいくつか聞いたかもしれませんが、僕は<strong>この汎用性が最大のポイント</strong>だと思います。
 実際、これほどあらゆる分野で、＜高度かつ不安定な技術で無理矢理に＞などではなく、普通に一線の言語として使えるものは他にほぼ選択肢がないと言っても過言ではありません。</p>
-<p>Python会はやはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
+<p>Python会では、やはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
 でも同じPythonで、その他にももっと色々なことができます。
 その例はこのブログの記事にも多数あります。
 最近のリレー投稿でも時々登場していますよね。
@@ -214,13 +214,13 @@ Pythonを選ぶことの利点を、新入会員の人たちは勉強会など�
 タコ壺です。
 その人たちには物凄く狭い世界しか見えていません。
 その人たちとは違ってこれから多くの可能性と選択肢のある若者が、真に受けてはいけません。
-[<a href="#note2">注2</a>]<br>
+[<a href="#note3">注3</a>]<br>
 実際の個別分野の研究でも、Pythonが使い物にならない分野なんてどこにあるのか？とも思います。
-[<a href="#note3">注3</a>]</p>
+[<a href="#note4">注4</a>]</p>
 <p>まあともかく、Pythonはそんな言語です。
 もちろん多くの言語を習得し、場面に応じて使いこなせればそれが一番です。
 でも医学系の人は基本的にはそれが本職でも、そこまで暇でもありません。
-それなら、適所だといってガラパゴスに集中するより、<strong>Pythonを通して色んな分野や世界を見る</strong>ことができた方がいい。
+それなら、適所だといってガラパゴス言語に集中するより、<strong>Pythonを通して色んな分野や世界を見る</strong>ことができた方がいい。
 どちらも高いレベルでできるなら勿論よいですが、どちらかであれば圧倒的に後者がいい。
 僕はそう考えています。</p>
 <h2><span id="pelican-subsections-4">Python会で使われているPython</span></h2>
@@ -230,17 +230,18 @@ Python会自身が、会の運営用途などでどのようにPythonを活用�
 (繰り返しですが、それができるのがPythonです。)</p>
 <h3><span id="pelican-subsections-5">会Webサイトの作成運営</span></h3>
 <p>この<a href="https://oumpy.github.io">Python会Webサイト</a>は、Pythonで作られています。
-正確にはPythonで書かれた<a href="https://blog.getpelican.com">Pelican</a>というシステムを使い、各ページのhtmlファイルなどを自動生成しています。<br>
-(なおPelicanは名前が一般名詞すぎるため、ググラビリティが異常に低いのが難点です。)</p>
+正確にはPythonで書かれた<a href="https://blog.getpelican.com">Pelican</a>というシステムを使い、各ページのhtmlファイルなどを自動生成しています。
+[<a href="#note5">注5</a>]</p>
 <p>設定ファイルはすべてPythonコードで (変数の値などを) 書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会Webサイトオリジナルのものが10個程度あります) 。
 その他の補助ツール群も、Pythonとシェルスクリプトの組み合わせで作られています。</p>
 <p>この用途に限れば、Python一択ということは別段ありません。
 GitHubが標準として採用しているのはPelicanと似た<a href="https://jekyllrb.com">Jekyll</a>というシステムで、こちらはPythonでなくRubyです。
+[<a href="#note6">注6</a>]<br>
 またJavaScriptベースのものなども人気があります。</p>
 <p>しかし前記の通り、共通言語のPythonで書かれていれば、最低限のことは会員誰でも見ればわかります。
 興味を持ったらすぐに勉強することができます。
 コード資産のロストテクノロジー化を防ぐ意味でも、これは結構大事です。
-<strong>Rubyの得意な先輩が卒業したら管理できる人がいなくなった</strong>、では笑えないですからね。</p>
+<strong>Rubyの得意な先輩が卒業したらシステムを管理できる人がいなくなった</strong>、では笑えないですからね。</p>
 <p>なお現Webサイトの原型はPelicanの選択も含めてOBの<a href="../../../author/ping-gang.html">平岡</a>さんによるもので、さすがの慧眼だと思います。</p>
 <h3><span id="pelican-subsections-6">Slack Botの作成運用</span></h3>
 <p>Slackで自動的にお知らせなどを流してくれる、あれです。
@@ -268,7 +269,7 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 <h2><span id="pelican-subsections-10">まとめ</span></h2>
 <ul>
 <li>Pythonは汎用言語<ul>
-<li>これを通じて色んな分野、色んな世界を見よう！</li>
+<li>これを通じて色んな分野、色んな世界を見よう</li>
 </ul>
 </li>
 <li>研究以外にもPython会で実用的に使っているPython<ul>
@@ -276,16 +277,36 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 </ul>
 </li>
 </ul>
+<p><strong>何でもPythonでやってみよう！！</strong></p>
 <p>おしまい。</p>
 <h2><span id="pelican-subsections-11">注記</span></h2>
-<h3><span id="pelican-subsections-12"><span id="note1"></span>注1：Python会は宗教</span></h3>
+<h3><span id="pelican-subsections-12"><span id="note1"></span>注1 : 「Python会は宗教」</span></h3>
 <p>まあ大抵、そういうことを言う人自身の方が実はもっとずっと、プログラミング言語の宗教性に囚われているものではあります。</p>
-<h3><span id="pelican-subsections-13"><span id="note2"></span>注2：耳を貸さない、真に受けない</span></h3>
+<h3><span id="pelican-subsections-13"><span id="note2"></span>注2 : PythonとC++の汎用性</span></h3>
+<p>この2言語の間でも、汎用性の意味や形はかなり異なります。
+両言語が直接競合する場面は比較的限定的で、相互補完的に使われることが多いと思います。
+例えば医科学研究でC++をガリガリ書く場面などは、
+(分子シミュレーションなど一部分野を除き)
+そう中々あるものではないでしょう。</p>
+<p>また元々Pythonで確立・実装されたソフトウェアやライブラリを、実行速度その他のためにC++で再実装することなどは珍しくありません。
+(例 : Chainer → PyTorch)</p>
+<h3><span id="pelican-subsections-14"><span id="note3"></span>注3 : 耳を貸さない、真に受けない</span></h3>
 <p>一方で<strong>大人の事情</strong>はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。
 あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。</p>
-<h3><span id="pelican-subsections-14"><span id="note3"></span>注3：Pythonが使い物にならない分野</span></h3>
+<h3><span id="pelican-subsections-15"><span id="note4"></span>注4 : Pythonが使い物にならない分野</span></h3>
 <p>汎用性の低い特定言語等が分野内で業界標準となっており、技術的にはともかくコミュニティとして、それを使わないと相手にされないケースなどはなくはないと思います。</p>
 <p>ただ、そういうところは遠からず分野コミュニティごと滅びないか、と側から見て心配ではあります。</p>
+<h3><span id="pelican-subsections-16"><span id="note5"></span>注5 : Pelican</span></h3>
+<p>システムはすばらしいのですが名前が一般名詞すぎて、ググラビリティが異常に低いのが難点です。
+公式サイトには、名前の由来として<strong>なんとかのアナグラムであるとか意味不明なこと</strong>が書かれています。
+アナグラム前の方がましだよ。。</p>
+<h3><span id="pelican-subsections-17"><span id="note6"></span>注6：Ruby</span></h3>
+<p>まつもとゆきひろ氏開発の日本原産プログラミング言語。
+中途半端なPythonとは違い完全オブジェクト志向であるなど、それ自体は非常に優れた言語です
+(と、理解しています。
+普段自分では全く使いませんが) 。
+環境が整えば、<strong>Pythonに匹敵する汎用言語として将来台頭する可能性</strong>もあると思います。
+今すぐ、とはいきませんが。。</p>
   </div>
   
 <div class="article-tag-list">
@@ -418,9 +439,63 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">6</span>
-        News
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-0">
@@ -435,58 +510,10 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
         Unix
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">5</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">6</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -495,22 +522,16 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
         Statistics
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
+        Data Science Competition
       </a>
     </span>
 </p>
