@@ -174,22 +174,22 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>がんゲノムの変異シグネチャーの推定にチャレンジしてみました。</p>
-<p><img src="../../../blog/2019/06/images/cancer_signature_figs/1.png" width="400px"></p>
+<p><img src="../../../articles/2019sy/blog/images/cancer_signature_figs/1.png" width="400px"></p>
 <h2><span id="pelican-subsections-0">きっかけ</span></h2>
 <p>先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。</p>
 <p>講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦記録です。</p>
 <h2><span id="pelican-subsections-1">がんゲノムの変異シグネチャーとは？？</span></h2>
-<p><img alt="2" src="../../../blog/2019/06/images/cancer_signature_figs/2.png"></p>
+<p><img alt="2" src="../../../articles/2019sy/blog/images/cancer_signature_figs/2.png"></p>
 <p>（がんゲノム情報学　中谷先生のスライドより）</p>
 <h2><span id="pelican-subsections-2">トピックモデルとは？？</span></h2>
-<p><img alt="3" src="../../../blog/2019/06/images/cancer_signature_figs/3.png"></p>
+<p><img alt="3" src="../../../articles/2019sy/blog/images/cancer_signature_figs/3.png"></p>
 <p>（<a href="https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model">https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model</a>より）</p>
 <h3><span id="pelican-subsections-3">がんゲノムの場合のトピックは？？</span></h3>
-<p><img alt="4" src="../../../blog/2019/06/images/cancer_signature_figs/4.png"></p>
+<p><img alt="4" src="../../../articles/2019sy/blog/images/cancer_signature_figs/4.png"></p>
 <p>（がんゲノム情報学　中谷先生のスライドより）</p>
 <p>一塩基ごとの変異情報がまとめられたテキストがDocumentsとして、がんの原因となる要素を一つ一つの「topic」、変異シグネチャーとして、トピックモデルを用いて推定します。</p>
 <h2><span id="pelican-subsections-4">解析の方法</span></h2>
-<p><img alt="5" src="../../../blog/2019/06/images/cancer_signature_figs/5.png"></p>
+<p><img alt="5" src="../../../articles/2019sy/blog/images/cancer_signature_figs/5.png"></p>
 <p>（がんゲノム情報学　中谷先生のスライドより）</p>
 <p>データベースにある変異データには、<br>
 ゲノムの位置、その位置における変異前の塩基配列、変異後の配列<br>
@@ -250,7 +250,7 @@ wordcloud自体は、文章中で出現頻度が高い単語を複数選び出�
 - <a href="https://cancer.sanger.ac.uk/cosmic/download">https://cancer.sanger.ac.uk/cosmic/download</a></p>
 <p>データを無料でダウンロードするには、学生としての登録が必要でした。
 今回は様々なデータの中でも、Non coding variantsのものを使いました。
-<img alt="6" src="../../../blog/2019/06/images/cancer_signature_figs/6.png"></p>
+<img alt="6" src="../../../articles/2019sy/blog/images/cancer_signature_figs/6.png"></p>
 <h3><span id="pelican-subsections-9">リファレンス配列の入手</span></h3>
 <p>今回はUCSCからhg38をダウンロードしました。</p>
 <div class="highlight"><pre><span></span><code>$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
@@ -258,14 +258,14 @@ wordcloud自体は、文章中で出現頻度が高い単語を複数選び出�
 
 
 <p>こちらのフォーマットはfastaで、</p>
-<p><img alt="7" src="../../../blog/2019/06/images/cancer_signature_figs/7.png"></p>
+<p><img alt="7" src="../../../articles/2019sy/blog/images/cancer_signature_figs/7.png"></p>
 <p>のような感じで並んでいます。</p>
 <p>配列にAやaなど、大文字と小文字が並んでいるのは、大文字の A, C, G, T はコード領域、小文字の a, c, g, t はコード領域以外を表します。</p>
 <h3><span id="pelican-subsections-10">変異データを覗いてみる</span></h3>
 <p>COSMICから入手したデータがどんなフォーマットなのか見てみました。</p>
-<p><img alt="8" src="../../../blog/2019/06/images/cancer_signature_figs/8.png"></p>
+<p><img alt="8" src="../../../articles/2019sy/blog/images/cancer_signature_figs/8.png"></p>
 <p>ここからサンプルID、ゲノムのposition、元の配列、変異後の配列、という形で抽出し手確認しました。</p>
-<p><img alt="9" src="../../../blog/2019/06/images/cancer_signature_figs/9.png"></p>
+<p><img alt="9" src="../../../articles/2019sy/blog/images/cancer_signature_figs/9.png"></p>
 <p>公式サイトによると、変異データのフォーマットは以下のようになっているようです。</p>
 <blockquote>
 <p><strong>[column number:label] Heading</strong><br>
@@ -328,7 +328,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="10" src="../../../blog/2019/06/images/cancer_signature_figs/10.png"></p>
+<p><img alt="10" src="../../../articles/2019sy/blog/images/cancer_signature_figs/10.png"></p>
 <p>上記のようにDataFrameとしてきれいに読み込めました。</p>
 <h4><span id="pelican-subsections-15">リファレンス配列の読み込み</span></h4>
 <p>ここではbiopythonを使って簡単に配列部分を取り出します。</p>
@@ -348,7 +348,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 <p>塩基配列はlist_seqに入っています。</p>
-<p><img alt="11" src="../../../blog/2019/06/images/cancer_signature_figs/11.png"></p>
+<p><img alt="11" src="../../../articles/2019sy/blog/images/cancer_signature_figs/11.png"></p>
 <p>全てリスト形式なので、</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_seq</span><span class="p">[</span><span class="mi">49</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list_desc</span><span class="p">[</span><span class="mi">49</span><span class="p">])</span><span class="mi">19829559</span>
@@ -379,7 +379,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="12" src="../../../blog/2019/06/images/cancer_signature_figs/12.png"></p>
+<p><img alt="12" src="../../../articles/2019sy/blog/images/cancer_signature_figs/12.png"></p>
 <ol>
 <li>MUT_SEQの欠損値、chr23、24、25を除く。</li>
 </ol>
@@ -424,7 +424,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 <p>ここまでで以下のようになります。（dfの右側だけ）</p>
-<p><img alt="13" src="../../../blog/2019/06/images/cancer_signature_figs/13.png"></p>
+<p><img alt="13" src="../../../articles/2019sy/blog/images/cancer_signature_figs/13.png"></p>
 <ol>
 <li>3つの配列について、相補鎖を作ります</li>
 </ol>
@@ -453,7 +453,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="14" src="../../../blog/2019/06/images/cancer_signature_figs/14.png"></p>
+<p><img alt="14" src="../../../articles/2019sy/blog/images/cancer_signature_figs/14.png"></p>
 <p>（上はテストファイルで行ったため、実際の数値とは異なります。）</p>
 <p>いろいろな試行錯誤したコードで、テキストファイルに書き出していきます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">df_index_for_id</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -481,7 +481,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 ここまでで変異のデータをIDごとに抽出することができました！</p>
 <p>上のスクリプトをサーバーにでも投げてしばらく待ちます。</p>
 <h3><span id="pelican-subsections-20">トピックモデルを使ってみる</span></h3>
-<p><img alt="15" src="../../../blog/2019/06/images/cancer_signature_figs/15.png"></p>
+<p><img alt="15" src="../../../articles/2019sy/blog/images/cancer_signature_figs/15.png"></p>
 <p>4までの操作で各IDごとの上のように、変異データが得られました。</p>
 <p>これをトピックモデルを使って解析していきます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim</span>
@@ -530,7 +530,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="16" src="../../../blog/2019/06/images/cancer_signature_figs/16.png"></p>
+<p><img alt="16" src="../../../articles/2019sy/blog/images/cancer_signature_figs/16.png"></p>
 <p>結果を見てみると、各トピックごとに、各変異がどれほどの割合を占めているのか、というのがわかります。</p>
 <h4><span id="pelican-subsections-24">可視化</span></h4>
 <p>おなじみmatplotlibを使ってグラフにしてみます。</p>
@@ -555,7 +555,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="17" src="../../../blog/2019/06/images/cancer_signature_figs/17.png"></p>
+<p><img alt="17" src="../../../articles/2019sy/blog/images/cancer_signature_figs/17.png"></p>
 <p>リストで色を指定することで、このように変異の種類（T&gt;C、T&gt;A、C&gt;Gなど）ごとに色づけすることができました。
 - 参考：<a href="https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap">https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap</a></p>
 <p>これをトピックごとにグラフを作成し、画像として保存します。</p>
@@ -578,12 +578,12 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 <p>（色はCOSMICのグラフのものと揃えました）</p>
-<p><img alt="18" src="../../../blog/2019/06/images/cancer_signature_figs/18.png"></p>
-<p><img alt="19" src="../../../blog/2019/06/images/cancer_signature_figs/19.png"></p>
+<p><img alt="18" src="../../../articles/2019sy/blog/images/cancer_signature_figs/18.png"></p>
+<p><img alt="19" src="../../../articles/2019sy/blog/images/cancer_signature_figs/19.png"></p>
 <h3><span id="pelican-subsections-25">データベースのシグネチャと比較</span></h3>
 <p>COSMICには、今までに推定されてきたがんゲノムの変異シグネチャーが多数登録されています。
 - <a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/">https://cancer.sanger.ac.uk/cosmic/signatures/SBS/</a></p>
-<p><img alt="20" src="../../../blog/2019/06/images/cancer_signature_figs/20.png"></p>
+<p><img alt="20" src="../../../articles/2019sy/blog/images/cancer_signature_figs/20.png"></p>
 <p>シグネチャーのグラフと、関連するがんの原因が示されています。</p>
 <h4><span id="pelican-subsections-26">推定</span></h4>
 <p>今回の課題は、「<strong>たばこ/紫外線のシグネチャーを見つけることができたか</strong>」でした。</p>
@@ -593,7 +593,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <li><strong>たばこ</strong>（tobacco）が原因とされるもの→SBS4、5、29</li>
 <li><strong>紫外線</strong>（ultraviolet light）が原因とされるもの→SBS7a〜d、38</li>
 </ul>
-<p><img alt="21" src="../../../blog/2019/06/images/cancer_signature_figs/21.png"></p>
+<p><img alt="21" src="../../../articles/2019sy/blog/images/cancer_signature_figs/21.png"></p>
 <p>であるとわかりました。</p>
 <h4><span id="pelican-subsections-27">推定結果</span></h4>
 <p><strong>-たばこ-</strong></p>
@@ -601,51 +601,51 @@ Previously observed = when the mutation has been reported as somatic previously 
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="22" src="../../../blog/2019/06/images/cancer_signature_figs/22.png"></p>
+<p><img alt="22" src="../../../articles/2019sy/blog/images/cancer_signature_figs/22.png"></p>
 <ul>
 <li>推定</li>
 </ul>
-<p><img alt="23" src="../../../blog/2019/06/images/cancer_signature_figs/23.png"></p>
+<p><img alt="23" src="../../../articles/2019sy/blog/images/cancer_signature_figs/23.png"></p>
 <p>②SBS5</p>
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="24" src="../../../blog/2019/06/images/cancer_signature_figs/24.png"></p>
+<p><img alt="24" src="../../../articles/2019sy/blog/images/cancer_signature_figs/24.png"></p>
 <ul>
 <li>推定</li>
 </ul>
-<p><img alt="25" src="../../../blog/2019/06/images/cancer_signature_figs/25.png"></p>
+<p><img alt="25" src="../../../articles/2019sy/blog/images/cancer_signature_figs/25.png"></p>
 <p>③SBS29</p>
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="26" src="../../../blog/2019/06/images/cancer_signature_figs/26.png"></p>
+<p><img alt="26" src="../../../articles/2019sy/blog/images/cancer_signature_figs/26.png"></p>
 <ul>
 <li>推定</li>
 </ul>
-<p><img alt="27" src="../../../blog/2019/06/images/cancer_signature_figs/27.png"></p>
+<p><img alt="27" src="../../../articles/2019sy/blog/images/cancer_signature_figs/27.png"></p>
 <p><strong>-紫外線-</strong></p>
 <p>①SBS7a
 - COSMIC</p>
-<p><img alt="28" src="../../../blog/2019/06/images/cancer_signature_figs/28.png"></p>
+<p><img alt="28" src="../../../articles/2019sy/blog/images/cancer_signature_figs/28.png"></p>
 <ul>
 <li>推定</li>
 </ul>
-<p><img alt="29" src="../../../blog/2019/06/images/cancer_signature_figs/29.png"></p>
+<p><img alt="29" src="../../../articles/2019sy/blog/images/cancer_signature_figs/29.png"></p>
 <p>②SBS7b</p>
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="30" src="../../../blog/2019/06/images/cancer_signature_figs/30.png"></p>
+<p><img alt="30" src="../../../articles/2019sy/blog/images/cancer_signature_figs/30.png"></p>
 <ul>
 <li>推定</li>
 </ul>
-<p><img alt="31" src="../../../blog/2019/06/images/cancer_signature_figs/31.png"></p>
+<p><img alt="31" src="../../../articles/2019sy/blog/images/cancer_signature_figs/31.png"></p>
 <p>③SBS7c</p>
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="32" src="../../../blog/2019/06/images/cancer_signature_figs/32.png"></p>
+<p><img alt="32" src="../../../articles/2019sy/blog/images/cancer_signature_figs/32.png"></p>
 <ul>
 <li>推定</li>
 </ul>
@@ -654,7 +654,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="33" src="../../../blog/2019/06/images/cancer_signature_figs/33.png"></p>
+<p><img alt="33" src="../../../articles/2019sy/blog/images/cancer_signature_figs/33.png"></p>
 <ul>
 <li>推定</li>
 </ul>
@@ -663,7 +663,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <ul>
 <li>COSMIC</li>
 </ul>
-<p><img alt="34" src="../../../blog/2019/06/images/cancer_signature_figs/34.png"></p>
+<p><img alt="34" src="../../../articles/2019sy/blog/images/cancer_signature_figs/34.png"></p>
 <ul>
 <li>推定</li>
 </ul>
@@ -683,7 +683,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 </code></pre></div>
 
 
-<p><img alt="35" src="../../../blog/2019/06/images/cancer_signature_figs/35.png"></p>
+<p><img alt="35" src="../../../articles/2019sy/blog/images/cancer_signature_figs/35.png"></p>
 <h2><span id="pelican-subsections-29">今後やってみたいこと</span></h2>
 <blockquote>
 <p>がんゲノムの変異シグネチャーは、最初に発表された論文ではNon- negative Matrix Factorization(NMF)(非負値行列因子分解)を使って推定された。2019年になって「トピックモデル」を使って変異 シグネチャを推定する論文が二報発表された。<br>
@@ -834,34 +834,28 @@ Previously observed = when the mutation has been reported as somatic previously 
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">8</span>
+        Statistics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
@@ -870,10 +864,16 @@ Previously observed = when the mutation has been reported as somatic previously 
         News
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -883,21 +883,9 @@ Previously observed = when the mutation has been reported as somatic previously 
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">5</span>
-        勉強会
+        競技プログラミング
       </a>
     </span>
     <span class="tag-1">
@@ -907,9 +895,9 @@ Previously observed = when the mutation has been reported as somatic previously 
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-3">
@@ -918,16 +906,28 @@ Previously observed = when the mutation has been reported as somatic previously 
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">8</span>
-        Statistics
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>
