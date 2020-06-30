@@ -194,7 +194,7 @@
 <p><a href="https://atcoder.jp/contests/abc168/tasks/abc168_d">https://atcoder.jp/contests/abc168/tasks/abc168_d</a></p>
 <p>↑問題はこれ。
 詳しい説明は省きますが、ざっくり言うと</p>
-<p><img alt="graph-image" src="../../../articles/2020sy/blog/images/competition_BFS_figs/image.png"></p>
+<p><img alt="graph-image" src="../../../blog/2020/06/images/competition_BFS_figs/image.png"></p>
 <p>「上記のような感じで部屋と部屋とが繋がってるぞ
 (入力のところでどの部屋と部屋が繋がってるかが与えられる。
 上のはそれを図にした) 。
@@ -310,6 +310,10 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 (<code>remove()</code> の行自体はそのままでOKです。)</p>
 <p>同じ <code>remove()</code> でも、集合では要素数の対数に比例した時間しかかかりません。
 したがって全体の計算量が頂点数の2乗で爆発する可能性もなく、どんな入力でも確実に時間内で正解することができます。</p>
+<p>また <code>set()</code> に変更するかわりに、上記の <code>remove()</code> の行だけを削除してもいいです。
+削除しなかったものはいずれ呼ばれますが、<code>ans[]</code> に値が入っているので <code>if</code> でスキップされます。
+これは事前に削除しておくより高速です。
+逆に <code>remove()</code> がある場合、<code>if</code> 判定は実はなくても構いません。</p>
 <p>(注記担当：<a href="../../../author/xiao-chuan.html">小川</a>)</p>
   </div>
   
@@ -442,16 +446,10 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        Unix
+        GitHub
       </a>
     </span>
     <span class="tag-4">
@@ -460,10 +458,64 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
         論文関連
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">8</span>
-        Statistics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">13</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">6</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">5</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">16</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
@@ -478,64 +530,16 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">16</span>
-        Python
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">8</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">6</span>
-        News
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">5</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">13</span>
-        Machine Learning
+        ハードウェア
       </a>
     </span>
 </p>
