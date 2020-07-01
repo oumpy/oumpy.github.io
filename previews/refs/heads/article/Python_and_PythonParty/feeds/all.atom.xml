@@ -51,7 +51,7 @@ Pythonを選ぶことの利点を、新入会員の人たちは勉強会など�
 僕はそう考えています。&lt;/p&gt;
 &lt;h2&gt;Python会で使われているPython&lt;/h2&gt;
 &lt;p&gt;ここから後半です。
-Python会自身が、会の運営用途などでどのようにPythonを活用しているか、少しだけ例をあげて紹介します。&lt;/p&gt;
+Python会自身が、会の運営用途などでどのようにPythonを活用しているか、各主要開発者等了承のもとで少しだけ例をあげて紹介します。&lt;/p&gt;
 &lt;p&gt;同じ言語で同じPython会ですが、&lt;strong&gt;研究用途とは全く違う使い方&lt;/strong&gt;です。
 (繰り返しですが、それができるのがPythonです。)&lt;/p&gt;
 &lt;h3&gt;会Webサイトの作成運営&lt;/h3&gt;
@@ -77,14 +77,16 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 でもPythonを選んでいるのは、やはり上記と同じ理由です。
 例えば&lt;strong&gt;医科学研究で解析にJavaScriptを使う人&lt;/strong&gt;などはさすがにあまり聞いたことがないし、そのあたりが再び、狭い特定用途だけを見ていてはわからない違いになります。&lt;/p&gt;
 &lt;h4&gt;リレー投稿の順番お知らせ&lt;/h4&gt;
-&lt;p&gt;リレー投稿ちゃんねるのメンバーリストを見て、次週の担当をお知らせするBot。&lt;/p&gt;
-&lt;p&gt;会ではすっかりお馴染みに？なりました。
-順番を保ちつつ、途中の入退会にも対応するとか、祝日はお休みとか、実はそれなりに複雑な要素があります。
-会員有志により、すべてPythonで一から書かれています。&lt;/p&gt;
+&lt;p&gt;リレー投稿ちゃんねるのメンバーリストを見て、次週の担当をお知らせするBot。
+会ではすっかりお馴染みに？なりました。&lt;/p&gt;
+&lt;p&gt;順番を保ちつつ、途中の入退会にも対応するとか、祝日はお休みとか、実はそれなりに複雑な要素があります。
+順番予定を投稿したり、リマインダを出したり、スレッド内とチャンネル投稿を切り替えるなど、必要に応じて使える豊富なオプション機能もあります。&lt;/p&gt;
+&lt;p&gt;会員有志により、すべてPythonで一から書かれています。
+[&lt;a href="#note7"&gt;注7&lt;/a&gt;]&lt;/p&gt;
 &lt;h4&gt;AtCoder AC数ランキング&lt;/h4&gt;
-&lt;p&gt;毎週毎月、&lt;a href="https://kenkoooo.com/atcoder/"&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
+&lt;p&gt;毎週毎月、あるいは半期や年度ごとに、&lt;a href="https://kenkoooo.com/atcoder/"&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
 途中経過を出す機能もあり、実際に利用しています。&lt;/p&gt;
-&lt;p&gt;実は作られたのはこちらが先で、上記のリレー投稿Botはその改造版です。
+&lt;p&gt;実は作られたのはこちらが先で、上記のリレー投稿Botはその改造版です (競プロのPython会への貢献例) 。
 他の人が頑張っているのをランキングで見ると、自分もちょっとやる気になったりしますよね。&lt;/p&gt;
 &lt;h3&gt;競技プログラミング&lt;/h3&gt;
 &lt;p&gt;Python会存立に必須と言っても過言ではない (個人的見解) 競技プログラミング (主にAtCoder) には、もちろん多くの会員がPythonを主力言語として参戦しています。&lt;/p&gt;
@@ -117,8 +119,8 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 &lt;p&gt;また元々Pythonで確立・実装されたソフトウェアやライブラリを、実行速度その他のためにC++で再実装することなどは珍しくありません。
 (例 : &lt;a href="https://chainer.org"&gt;Chainer&lt;/a&gt; → &lt;a href="https://pytorch.org"&gt;PyTorch&lt;/a&gt;)&lt;/p&gt;
 &lt;h3&gt;&lt;span id="note3"&gt;&lt;/span&gt;注3 : 耳を貸さない、真に受けない&lt;/h3&gt;
-&lt;p&gt;一方で&lt;strong&gt;大人の事情&lt;/strong&gt;はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。
-あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。&lt;/p&gt;
+&lt;p&gt;一方で&lt;strong&gt;大人の事情&lt;/strong&gt;はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。&lt;/p&gt;
+&lt;p&gt;あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。&lt;/p&gt;
 &lt;h3&gt;&lt;span id="note4"&gt;&lt;/span&gt;注4 : Pythonが使い物にならない分野&lt;/h3&gt;
 &lt;p&gt;汎用性の低い特定言語等が分野内で業界標準となっており、技術的にはともかくコミュニティとして、それを使わないと相手にされないケースなどはなくはないと思います。&lt;/p&gt;
 &lt;p&gt;ただ、そういうところは遠からず分野コミュニティごと滅びないか、と側から見て心配ではあります。&lt;/p&gt;
@@ -126,13 +128,18 @@ Web検索してみると、むしろJavaScript系言語の方が多いくらい�
 &lt;p&gt;システムはすばらしいのですが名前が一般名詞すぎて、ググラビリティが異常に低いのが難点です。
 公式サイトには、名前の由来として&lt;strong&gt;なんとかのアナグラムであるとか意味不明なこと&lt;/strong&gt;が書かれています。
 アナグラム前の方がましだよ。。&lt;/p&gt;
-&lt;h3&gt;&lt;span id="note6"&gt;&lt;/span&gt;注6：Ruby&lt;/h3&gt;
+&lt;h3&gt;&lt;span id="note6"&gt;&lt;/span&gt;注6 : Ruby&lt;/h3&gt;
 &lt;p&gt;まつもとゆきひろ氏開発の日本原産プログラミング言語。
 中途半端なPythonとは違い完全オブジェクト志向であるなど、それ自体は非常に優れた言語です
 (と、理解しています。
-普段自分では全く使いませんが) 。
-現在はWeb系言語の色彩が強いですが、環境が整えば、将来&lt;strong&gt;Pythonに匹敵する汎用言語として台頭する可能性&lt;/strong&gt;も、あるんじゃないのかなと思っています。
-今すぐ、とはいきませんが。。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
+普段自分では全く使いませんが) 。&lt;/p&gt;
+&lt;p&gt;現在はWeb系言語の色彩が強いですが、環境が整えば、将来&lt;strong&gt;Pythonに匹敵する汎用言語として台頭する可能性&lt;/strong&gt;も、あるんじゃないのかなと思っています。
+今すぐ、とはいきませんが。。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note7"&gt;&lt;/span&gt;注7 : Pythonで一から書かれている&lt;/h3&gt;
+&lt;p&gt;PythonはC/C++などと同じく、配列添字が &lt;code&gt;0&lt;/code&gt; から始まる 0-indexed 言語です。
+なので仮に完全フルスクラッチなら、「&lt;strong&gt;零から書かれている&lt;/strong&gt;」と言う方が正しいです。
+しかし本Botの場合、さすがにライブラリの類は&lt;a href="https://github.com/slackapi/python-slackclient"&gt;Slack API&lt;/a&gt;をはじめ色々使われており、零からは言い過ぎ、よって一から、ということになります。
+(うん、つまんないですね、、失礼しました。)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/article/Python_and_PythonParty/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
 &lt;p&gt;自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話&lt;/p&gt;
 &lt;h2&gt;競プロって？&lt;/h2&gt;
 &lt;p&gt;競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。&lt;/p&gt;
@@ -268,6 +275,10 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 (&lt;code&gt;remove()&lt;/code&gt; の行自体はそのままでOKです。)&lt;/p&gt;
 &lt;p&gt;同じ &lt;code&gt;remove()&lt;/code&gt; でも、集合では要素数の対数に比例した時間しかかかりません。
 したがって全体の計算量が頂点数の2乗で爆発する可能性もなく、どんな入力でも確実に時間内で正解することができます。&lt;/p&gt;
+&lt;p&gt;また &lt;code&gt;set()&lt;/code&gt; に変更するかわりに、上記の &lt;code&gt;remove()&lt;/code&gt; の行だけを削除してもいいです。
+削除しなかったものはいずれ呼ばれますが、&lt;code&gt;ans[]&lt;/code&gt; に値が入っているので &lt;code&gt;if&lt;/code&gt; でスキップされます。
+これは事前に削除しておくより高速です。
+逆に &lt;code&gt;remove()&lt;/code&gt; がある場合、&lt;code&gt;if&lt;/code&gt; 判定は実はなくても構いません。&lt;/p&gt;
 &lt;p&gt;(注記担当：&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/author/xiao-chuan.html"&gt;小川&lt;/a&gt;)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>会正式名称の制定等について</title><link href="/previews/refs/heads/article/Python_and_PythonParty/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-06-25:/previews/refs/heads/article/Python_and_PythonParty/news/2020/06/formalname.html</id><summary type="html">&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="/previews/refs/heads/article/Python_and_PythonParty/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
 &lt;p&gt;本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下の通りお知らせいたします。&lt;/p&gt;
 &lt;h2&gt;会正式名称&lt;/h2&gt;
@@ -3102,10 +3113,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="d7d56d99-494d-49fc-b962-048d069825d8"&gt;&lt;/div&gt;
+&lt;div id="9c35420e-0a02-4a0f-9ddf-7a0e625cc1c0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d7d56d99-494d-49fc-b962-048d069825d8');
+var element = $('#9c35420e-0a02-4a0f-9ddf-7a0e625cc1c0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
