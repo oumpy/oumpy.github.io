@@ -1675,10 +1675,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="036d6659-3ff3-4a3f-a4c5-576fe19bfa2b"&gt;&lt;/div&gt;
+&lt;div id="c8a2f906-7ac9-43f9-af2d-4e7e815c1866"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#036d6659-3ff3-4a3f-a4c5-576fe19bfa2b');
+var element = $('#c8a2f906-7ac9-43f9-af2d-4e7e815c1866');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "6fc21c5b0b19458989115775c6505226", "version_major": 2, "version_minor": 0}
@@ -1736,10 +1736,10 @@ var element = $('#036d6659-3ff3-4a3f-a4c5-576fe19bfa2b');
 
  
  
-&lt;div id="f10812cd-7223-48e9-b583-f25c7a101d4a"&gt;&lt;/div&gt;
+&lt;div id="d6154011-045a-47c0-9482-0a9ce44de43b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f10812cd-7223-48e9-b583-f25c7a101d4a');
+var element = $('#d6154011-045a-47c0-9482-0a9ce44de43b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "3ce6ada6c3cd4455a8a01e2d7dbfc7f4", "version_major": 2, "version_minor": 0}
@@ -1797,10 +1797,10 @@ var element = $('#f10812cd-7223-48e9-b583-f25c7a101d4a');
 
  
  
-&lt;div id="8fde5e69-3224-457c-a29b-20d759314981"&gt;&lt;/div&gt;
+&lt;div id="38c1a975-4b12-4f64-b6ec-03189d6aa0de"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8fde5e69-3224-457c-a29b-20d759314981');
+var element = $('#38c1a975-4b12-4f64-b6ec-03189d6aa0de');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "ff704b077aa447969fb13837bb070062", "version_major": 2, "version_minor": 0}
@@ -2176,6 +2176,10 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 (&lt;code&gt;remove()&lt;/code&gt; の行自体はそのままでOKです。)&lt;/p&gt;
 &lt;p&gt;同じ &lt;code&gt;remove()&lt;/code&gt; でも、集合では要素数の対数に比例した時間しかかかりません。
 したがって全体の計算量が頂点数の2乗で爆発する可能性もなく、どんな入力でも確実に時間内で正解することができます。&lt;/p&gt;
+&lt;p&gt;また &lt;code&gt;set()&lt;/code&gt; に変更するかわりに、上記の &lt;code&gt;remove()&lt;/code&gt; の行だけを削除してもいいです。
+削除しなかったものはいずれ呼ばれますが、&lt;code&gt;ans[]&lt;/code&gt; に値が入っているので &lt;code&gt;if&lt;/code&gt; でスキップされます。
+これは事前に削除しておくより高速です。
+逆に &lt;code&gt;remove()&lt;/code&gt; がある場合、&lt;code&gt;if&lt;/code&gt; 判定は実はなくても構いません。&lt;/p&gt;
 &lt;p&gt;(注記担当：&lt;a href="/previews/refs/heads/samestat/author/xiao-chuan.html"&gt;小川&lt;/a&gt;)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>会正式名称の制定等について</title><link href="/previews/refs/heads/samestat/news/2020/06/formalname.html" rel="alternate"></link><published>2020-06-25T00:00:00+09:00</published><updated>2020-06-25T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-06-25:/previews/refs/heads/samestat/news/2020/06/formalname.html</id><summary type="html">&lt;a href="/previews/refs/heads/samestat/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。 本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下....</summary><content type="html">&lt;p&gt;&lt;a href="/previews/refs/heads/samestat/news/2020/05/officialize_and_officialname.html"&gt;前回 (5/29) のお知らせ&lt;/a&gt;の通り、本会では公認申請に対する大阪大学医学部学生支援委員会よりの回答を受け、医学部公認、会正式名称およびそれらに関連する事項について、検討を重ねてまいりました。&lt;/p&gt;
 &lt;p&gt;本日 (6/25) までに、本会運営会での議論・決議により関連事項を全て決定致しましたので、以下の通りお知らせいたします。&lt;/p&gt;
 &lt;h2&gt;会正式名称&lt;/h2&gt;
@@ -5010,10 +5014,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="89540c9c-8963-4dc7-8c8a-c04407ec87c4"&gt;&lt;/div&gt;
+&lt;div id="58c39796-a4b1-4f7d-90d9-07d8397d9e19"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#89540c9c-8963-4dc7-8c8a-c04407ec87c4');
+var element = $('#58c39796-a4b1-4f7d-90d9-07d8397d9e19');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
