@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/article/studymeeting2020_07/" rel="alternate"></link><link href="/previews/refs/heads/article/studymeeting2020_07/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/studymeeting2020_07/</id><updated>2020-07-01T23:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</title><link href="/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/samestats.html" rel="alternate"></link><published>2020-07-01T23:00:00+09:00</published><updated>2020-07-01T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-07-01:/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/samestats.html</id><summary type="html">   &lt;strong&gt;Anscombeの例&lt;a class="anchor-link" href="#Anscombeの例"&gt; &lt;/a&gt;&lt;/strong&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/article/studymeeting2020_07/" rel="alternate"></link><link href="/previews/refs/heads/article/studymeeting2020_07/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/article/studymeeting2020_07/</id><updated>2020-07-02T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</title><link href="/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/samestats.html" rel="alternate"></link><published>2020-07-01T23:00:00+09:00</published><updated>2020-07-01T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-07-01:/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/samestats.html</id><summary type="html">   &lt;strong&gt;Anscombeの例&lt;a class="anchor-link" href="#Anscombeの例"&gt; &lt;/a&gt;&lt;/strong&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1675,10 +1675,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="33232e1f-865d-4c19-8544-51c39a62039c"&gt;&lt;/div&gt;
+&lt;div id="e07c0c57-01a9-4e5b-925b-244cb8a28dc0"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#33232e1f-865d-4c19-8544-51c39a62039c');
+var element = $('#e07c0c57-01a9-4e5b-925b-244cb8a28dc0');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -1736,10 +1736,10 @@ var element = $('#33232e1f-865d-4c19-8544-51c39a62039c');
 
  
  
-&lt;div id="f4cfdfe7-6a03-4e4c-957e-944cb3523afd"&gt;&lt;/div&gt;
+&lt;div id="907f7c50-732d-450a-99b0-52ef7499483c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f4cfdfe7-6a03-4e4c-957e-944cb3523afd');
+var element = $('#907f7c50-732d-450a-99b0-52ef7499483c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -1797,10 +1797,10 @@ var element = $('#f4cfdfe7-6a03-4e4c-957e-944cb3523afd');
 
  
  
-&lt;div id="2a3ff63a-0f3a-4d73-bac1-63318718d218"&gt;&lt;/div&gt;
+&lt;div id="6567837a-b044-44b1-a60e-28ed3f1c4e6c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2a3ff63a-0f3a-4d73-bac1-63318718d218');
+var element = $('#6567837a-b044-44b1-a60e-28ed3f1c4e6c');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -2040,7 +2040,7 @@ var element = $('#2a3ff63a-0f3a-4d73-bac1-63318718d218');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</title><link href="/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/studymeeting2020_07.html" rel="alternate"></link><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-01T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-01:/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/studymeeting2020_07.html</id><summary type="html">   &lt;strong&gt;機械学習実践編 : Kerasで作る深層学習画像分類器&lt;a class="anchor-link" href="#機械学習実践編-:-Kerasで作る深層学習画像分類器"&gt; &lt;/a&gt;&lt;/strong&gt;Python会勉強会第7回 (2020.07.01 小川)       今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。 深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</title><link href="/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/studymeeting2020_07.html" rel="alternate"></link><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-02T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-01:/previews/refs/heads/article/studymeeting2020_07/blog/2020/07/studymeeting2020_07.html</id><summary type="html">   &lt;strong&gt;機械学習実践編 : Kerasで作る深層学習画像分類器&lt;a class="anchor-link" href="#機械学習実践編-:-Kerasで作る深層学習画像分類器"&gt; &lt;/a&gt;&lt;/strong&gt;Python会勉強会第7回 (2020.07.01 小川)       今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。 深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6973,10 +6973,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="7068b42a-eccd-430c-ab22-081b6ca3fdc5"&gt;&lt;/div&gt;
+&lt;div id="20cec1bf-fa6b-40c7-9e0a-4281f4eec2c3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7068b42a-eccd-430c-ab22-081b6ca3fdc5');
+var element = $('#20cec1bf-fa6b-40c7-9e0a-4281f4eec2c3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
