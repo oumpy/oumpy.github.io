@@ -1,5 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/page/constitution/" rel="alternate"></link><link href="/previews/refs/heads/page/constitution/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/page/constitution/</id><updated>2020-07-01T23:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/samestats.html" rel="alternate"></link><published>2020-07-01T23:00:00+09:00</published><updated>2020-07-01T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-07-01:/previews/refs/heads/page/constitution/blog/2020/07/samestats.html</id><summary type="html">   &lt;strong&gt;Anscombeの例&lt;a class="anchor-link" href="#Anscombeの例"&gt; &lt;/a&gt;&lt;/strong&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/page/constitution/" rel="alternate"></link><link href="/previews/refs/heads/page/constitution/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/page/constitution/</id><updated>2020-07-03T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Python会とPythonとPython会で使われているPython</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html" rel="alternate"></link><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-03:/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html</id><summary type="html">Python会は、Pythonを主に勉強したり研究に使ったりしています。 また、会の運営上の道具としてもPythonを利用しています。 なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。 (主に新入会員向けの内容....</summary><content type="html">&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
+また、会の運営上の道具としてもPythonを利用しています。&lt;/p&gt;
+&lt;p&gt;なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。&lt;/p&gt;
+&lt;p&gt;(主に新入会員向けの内容です。
+すべて個人の見解です。
+あと技術ブログなのに技術的内容には乏しいですがご容赦を。。)&lt;/p&gt;
+&lt;h2&gt;なぜPythonか？&lt;/h2&gt;
+&lt;p&gt;まず前半ではあらためて、なぜPython会ではPythonを学んでいるのか？
+についての僕なりの説明を試みてみたいと思います。&lt;/p&gt;
+&lt;h3&gt;プログラミング言語宗教戦争&lt;/h3&gt;
+&lt;p&gt;プログラミング言語の選択は宗教であるとも言われます。
+実際に、プログラミング言語宗教論争あるいは宗教戦争のようなものは、人類誕生以来幾度となく繰り返されてきました。&lt;/p&gt;
+&lt;p&gt;これはとても根強いもので、例えば本会「Python会」の名前を見るだけで、あいつらも宗教だ、などと言う人もきっといます。
+[&lt;a href="#note1"&gt;注1&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;そういう全ての言語が敵に見えるような仁義なき宗教戦争の中にあって、とりわけPythonは、支持者も多いが敵も多い、といった印象があります。
+また他の言語ではC++などもそうです。
+なぜでしょうか。&lt;/p&gt;
+&lt;h3&gt;汎用言語としてのPython&lt;/h3&gt;
+&lt;p&gt;これもまったく個人的な見解ですが、PythonとC++、両者の共通点は、きわめて汎用的で、あらゆるところで使われていることです。
+[&lt;a href="#note2"&gt;注2&lt;/a&gt;]&lt;br&gt;
+それゆえ、あらゆる分野で他言語派から敵視されたりもするわけです。&lt;/p&gt;
+&lt;p&gt;Python会では名前の通り、主にPythonを中心に (「だけ」ではないですが) 学ぶことにしています。
+Pythonを選ぶことの利点を、新入会員の人たちは勉強会などでもいくつか聞いたかもしれませんが、僕は&lt;strong&gt;この汎用性が最大のポイント&lt;/strong&gt;だと思います。
+実際、これほどあらゆる分野で、＜高度かつ不安定な技術で無理矢理に＞などではなく、普通に一線の言語として使えるものは他に選択肢がないと言っても過言ではありません。&lt;/p&gt;
+&lt;p&gt;Python会では、やはり基本的に多くの人が医科学系の学術研究に興味を持っているので、その観点の話を聞くことは多いでしょう。
+それだけでも、内容・分野は多様多岐にわたります。
+でも同じPythonで、さらにその他にももっと色々なことができます。
+その例はこのブログの記事にも多数あります。
+最近のリレー投稿でも時々登場していますよね。
+本稿の後半で紹介するのも、そのような例の一部です。&lt;/p&gt;
+&lt;p&gt;あるいは例えばMacにはPythonが標準で入っていますが、それはシステムの一部がPythonで書かれているからです。
+&lt;a href="https://www.youtube.com"&gt;YouTube&lt;/a&gt;や&lt;a href="https://www.dropbox.com"&gt;Dropbox&lt;/a&gt;など多くのサービスやアプリケーションも、Pythonを主力として開発されています。&lt;/p&gt;
+&lt;h3&gt;広い世界を見る&lt;/h3&gt;
+&lt;p&gt;逆の方向を考えてみましょう。
+各個別分野には、それぞれのガラパゴス化した世界が確かにあります。
+様々な言語が使われています。
+研究室などに入っても、Pythonなんかやめてウチの業界ではこの言語を使え、このソフトを使え、とか&lt;s&gt;偉そうに言ってくる&lt;/s&gt;おすすめしてくれる人たちはいるかもしれません。&lt;/p&gt;
+&lt;p&gt;でも基本的には&lt;strong&gt;できるだけ耳を貸さない方がいい&lt;/strong&gt;です。
+タコ壺です。
+その人たちには物凄く狭い世界しか見えていません。
+その人たちとは違ってこれから多くの可能性と選択肢のある若者が、真に受けてはいけません。
+[&lt;a href="#note3"&gt;注3&lt;/a&gt;]&lt;br&gt;
+実際の個別分野の研究でも、Pythonが使い物にならない分野なんてどこにあるのか？とも思います。
+[&lt;a href="#note4"&gt;注4&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;まあともかく、Pythonはそんな言語です。
+もちろん多くの言語を習得し、場面に応じて使いこなせればそれが一番です。
+でも医学系の人は基本的にはそれが本職でも、そこまで暇でもありません。
+それなら、適所だといってガラパゴス言語に集中するより、&lt;strong&gt;Pythonを通して色んな分野や世界を見る&lt;/strong&gt;ことができた方がいい。
+どちらも高いレベルでできるなら勿論よいですが、どちらかであれば圧倒的に後者がいい。
+僕はそう考えています。&lt;/p&gt;
+&lt;h2&gt;Python会で使われているPython&lt;/h2&gt;
+&lt;p&gt;ここから後半です。
+Python会自身が、会の運営用途などでどのようにPythonを活用しているか、各主要開発者等了承のもとで少しだけ例をあげて紹介します。&lt;/p&gt;
+&lt;p&gt;同じ言語で同じPython会ですが、&lt;strong&gt;研究用途とは全く違う使い方&lt;/strong&gt;です。
+(繰り返しですが、それができるのがPythonです。)&lt;/p&gt;
+&lt;h3&gt;会Webサイトの作成運営&lt;/h3&gt;
+&lt;p&gt;この&lt;a href="https://oumpy.github.io"&gt;Python会Webサイト&lt;/a&gt;は、Pythonで作られています。
+正確にはPythonで書かれた&lt;a href="https://blog.getpelican.com"&gt;Pelican&lt;/a&gt;というシステムを使い、各ページのhtmlファイルなどを自動生成しています。
+[&lt;a href="#note5"&gt;注5&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;設定ファイルはすべてPythonコードで (変数の値などを) 書き、独自機能を追加したい時はPythonでプラグインを書きます (現在、Python会Webサイトオリジナルのものが10個程度あります) 。
+その他の補助ツール群も、Pythonとシェルスクリプトの組み合わせで作られています。&lt;/p&gt;
+&lt;p&gt;この用途に限れば、Python一択ということは別段ありません。
+GitHubが標準として採用しているのはPelicanと似た&lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt;というシステムで、こちらはPythonでなくRubyです。
+[&lt;a href="#note6"&gt;注6&lt;/a&gt;]&lt;br&gt;
+またJavaScriptベースのものなども人気があります。&lt;/p&gt;
+&lt;p&gt;しかし前記の通り、共通言語のPythonで書かれていれば、最低限のことは会員誰でも見ればわかります。
+興味を持ったらすぐに勉強することができます。
+コード資産のロストテクノロジー化を防ぐ意味でも、これは結構大事です。
+&lt;strong&gt;Rubyの得意な先輩が卒業したらシステムを管理できる人がいなくなった&lt;/strong&gt;、では笑えないですからね。&lt;/p&gt;
+&lt;p&gt;なお現Webサイトの原型はPelicanの選択も含めてOBの&lt;a href="/previews/refs/heads/page/constitution/author/ping-gang.html"&gt;平岡&lt;/a&gt;さんによるもので、さすがの慧眼だと思います。&lt;/p&gt;
+&lt;h3&gt;Slack Botの作成運用&lt;/h3&gt;
+&lt;p&gt;Slackで自動的にお知らせなどを流してくれる、あれです。
+現在はoumpyというBotをSlackに配置し、その裏で2種類のPythonプログラムを独立に動かしています。&lt;/p&gt;
+&lt;p&gt;Bot作成に関しても再び、これだけなら必ずしもPythonでなくてもいいです。
+Web検索してみると、むしろJavaScript系言語の方が多いくらいです。
+でもPythonを選んでいるのは、やはり上記と同じ理由です。
+例えば&lt;strong&gt;医科学研究で解析にJavaScriptを使う人&lt;/strong&gt;などはさすがにあまり聞いたことがないし、そのあたりが再び、狭い特定用途だけを見ていてはわからない違いになります。&lt;/p&gt;
+&lt;h4&gt;リレー投稿の順番お知らせ&lt;/h4&gt;
+&lt;p&gt;リレー投稿ちゃんねるのメンバーリストを見て、次週の担当をお知らせするBot。
+会ではすっかりお馴染みに？なりました。&lt;/p&gt;
+&lt;p&gt;順番を保ちつつ、途中の入退会にも対応するとか、祝日はお休みとか、実はそれなりに複雑な要素があります。
+順番予定を投稿したり、リマインダを出したり、スレッド内とチャンネル投稿を切り替えるなど、必要に応じて使える豊富なオプション機能もあります。&lt;/p&gt;
+&lt;p&gt;会員有志により、すべてPythonで一から書かれています。
+[&lt;a href="#note7"&gt;注7&lt;/a&gt;]&lt;/p&gt;
+&lt;h4&gt;AtCoder AC数ランキング&lt;/h4&gt;
+&lt;p&gt;毎週毎月、あるいは半期や年度ごとに、&lt;a href="https://kenkoooo.com/atcoder/"&gt;AtCoder Problems&lt;/a&gt;をチェックし、各人が&lt;a href="https://atcoder.jp"&gt;AtCoder&lt;/a&gt;で期間内に新しく解いた問題数 (AC数) を、会内ランキングにして発表。
+途中経過を出す機能もあり、実際に利用しています。&lt;/p&gt;
+&lt;p&gt;実は作られたのはこちらが先で、上記のリレー投稿Botはその改造版です (競プロのPython会への貢献例) 。
+他の人が頑張っているのをランキングで見ると、自分もちょっとやる気になったりしますよね。&lt;/p&gt;
+&lt;h3&gt;競技プログラミング&lt;/h3&gt;
+&lt;p&gt;Python会存立に必須と言っても過言ではない (個人的見解) 競技プログラミング (主にAtCoder) には、もちろん多くの会員がPythonを主力言語として参戦しています。&lt;/p&gt;
+&lt;p&gt;今年行われたシステム更新で、実行速度上のハンデは従来よりもさらに小さくなりました。
+少なくとも初心者向けのABC (AtCoder Beginner Contest) の範囲では、Pythonで時間内に解けないような問題はまず出ません。
+&lt;strong&gt;Python一本で、イエローコーダー (レート2000以上) までは最低でも到達可能&lt;/strong&gt;です。
+その先はそれが見えてから考えればいいです。&lt;/p&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pythonは汎用言語&lt;ul&gt;
+&lt;li&gt;これを通じて色んな分野、色んな世界を見よう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;研究以外にもPython会で実用的に使っているPython&lt;ul&gt;
+&lt;li&gt;Webサイト作成、Bot作成、競プロなど&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;何でもPythonでやってみよう！！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;
+&lt;h2&gt;注記&lt;/h2&gt;
+&lt;h3&gt;&lt;span id="note1"&gt;&lt;/span&gt;注1 : 「Python会は宗教」&lt;/h3&gt;
+&lt;p&gt;まあ大抵、こういうことを言う人自身の方が実はもっとずっと、プログラミング言語の宗教性に囚われているものではあります。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note2"&gt;&lt;/span&gt;注2 : PythonとC++の汎用性&lt;/h3&gt;
+&lt;p&gt;この2言語の間でも、汎用性の意味や形はかなり異なります。
+両言語が直接競合する場面は比較的限定的で、相互補完的に使われることが多いと思います。
+例えば医科学研究でC++をガリガリ書く場面などは、
+(分子シミュレーションなど一部分野を除き)
+そう中々あるものではないでしょう。&lt;/p&gt;
+&lt;p&gt;また元々Pythonで確立・実装されたソフトウェアやライブラリを、実行速度その他のためにC++で再実装することなどは珍しくありません。
+(例 : &lt;a href="https://chainer.org"&gt;Chainer&lt;/a&gt; → &lt;a href="https://pytorch.org"&gt;PyTorch&lt;/a&gt;)&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note3"&gt;&lt;/span&gt;注3 : 耳を貸さない、真に受けない&lt;/h3&gt;
+&lt;p&gt;一方で&lt;strong&gt;大人の事情&lt;/strong&gt;はどこにもありますから、社会人としてのお付き合いもほどほどに大切ではあります。&lt;/p&gt;
+&lt;p&gt;あとPythonをやめるのではなく他のものもちょっとやってみること自体は、もちろん勉強にもなるし全く悪いことではありません。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note4"&gt;&lt;/span&gt;注4 : Pythonが使い物にならない分野&lt;/h3&gt;
+&lt;p&gt;汎用性の低い特定言語等が分野内で業界標準となっており、技術的にはともかくコミュニティとして、それを使わないと相手にされないケースなどはなくはないと思います。&lt;/p&gt;
+&lt;p&gt;ただ、そういうところは遠からず分野コミュニティごと滅びないか、と側から見て心配ではあります。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note5"&gt;&lt;/span&gt;注5 : Pelican&lt;/h3&gt;
+&lt;p&gt;システムはすばらしいのですが名前が一般名詞すぎて、ググラビリティが異常に低いのが難点です。
+公式サイトには、名前の由来として&lt;strong&gt;なんとかのアナグラムであるとか意味不明なこと&lt;/strong&gt;が書かれています。
+アナグラム前の方がましだよ。。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note6"&gt;&lt;/span&gt;注6 : Ruby&lt;/h3&gt;
+&lt;p&gt;まつもとゆきひろ氏開発の日本原産プログラミング言語。
+中途半端なPythonとは違い完全オブジェクト志向であるなど、それ自体は非常に優れた言語です
+(と、理解しています。
+普段自分では全く使いませんが) 。&lt;/p&gt;
+&lt;p&gt;現在はWeb系言語の色彩が強いですが、環境が整えば、将来&lt;strong&gt;Pythonに匹敵する汎用言語として台頭する可能性&lt;/strong&gt;も、あるんじゃないのかなと思っています。
+今すぐ、とはいきませんが。。&lt;/p&gt;
+&lt;h3&gt;&lt;span id="note7"&gt;&lt;/span&gt;注7 : Pythonで一から書かれている&lt;/h3&gt;
+&lt;p&gt;PythonはC/C++などと同じく、配列添字が &lt;code&gt;0&lt;/code&gt; から始まる 0-indexed 言語です。
+なので仮に完全フルスクラッチなら、「&lt;strong&gt;零から書かれている&lt;/strong&gt;」と言う方が正しいです。
+しかし本Botの場合、さすがにライブラリの類は&lt;a href="https://github.com/slackapi/python-slackclient"&gt;Slack API&lt;/a&gt;をはじめ色々使われており、零からは言い過ぎ、よって一から、ということになります。
+(うん、つまんないですね、、失礼しました。)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/samestats.html" rel="alternate"></link><published>2020-07-01T23:00:00+09:00</published><updated>2020-07-01T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-07-01:/previews/refs/heads/page/constitution/blog/2020/07/samestats.html</id><summary type="html">   &lt;strong&gt;Anscombeの例&lt;a class="anchor-link" href="#Anscombeの例"&gt; &lt;/a&gt;&lt;/strong&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1675,10 +1815,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="d2827aec-efb1-4882-991c-5af19e63c5a7"&gt;&lt;/div&gt;
+&lt;div id="58193bf8-0a76-4585-a189-aa8ba51a28cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d2827aec-efb1-4882-991c-5af19e63c5a7');
+var element = $('#58193bf8-0a76-4585-a189-aa8ba51a28cf');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -1736,10 +1876,10 @@ var element = $('#d2827aec-efb1-4882-991c-5af19e63c5a7');
 
  
  
-&lt;div id="b0c25db3-22a6-4ac7-91ed-9670ee36308e"&gt;&lt;/div&gt;
+&lt;div id="88df075e-3fae-45f2-b8ef-da22ff0c477b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b0c25db3-22a6-4ac7-91ed-9670ee36308e');
+var element = $('#88df075e-3fae-45f2-b8ef-da22ff0c477b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -1797,10 +1937,10 @@ var element = $('#b0c25db3-22a6-4ac7-91ed-9670ee36308e');
 
  
  
-&lt;div id="63533bd7-ebd5-46f5-940f-fd82e2c4246e"&gt;&lt;/div&gt;
+&lt;div id="c5628777-c1c2-423c-817f-def5df58e68f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#63533bd7-ebd5-46f5-940f-fd82e2c4246e');
+var element = $('#c5628777-c1c2-423c-817f-def5df58e68f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -2040,7 +2180,1960 @@ var element = $('#63533bd7-ebd5-46f5-940f-fd82e2c4246e');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/page/constitution/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/page/constitution/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/studymeeting2020_07.html" rel="alternate"></link><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-02T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-01:/previews/refs/heads/page/constitution/blog/2020/07/studymeeting2020_07.html</id><summary type="html">   &lt;strong&gt;機械学習実践編 : Kerasで作る深層学習画像分類器&lt;a class="anchor-link" href="#機械学習実践編-:-Kerasで作る深層学習画像分類器"&gt; &lt;/a&gt;&lt;/strong&gt;Python会勉強会第7回 (2020.07.01 小川)       今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。 深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph &gt; img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232; : Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;&lt;a class="anchor-link" href="#&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;Python会勉強会第7回 (2020.07.01 小川)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。&lt;/p&gt;
+&lt;p&gt;深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何らかのライブラリを使います。GPUを動かすための処理なども全て組み込まれていて、慣れればとても楽ちんです。&lt;/p&gt;
+&lt;p&gt;今回はその中から「&lt;a href="https://github.com/keras-team/keras"&gt;Keras&lt;/a&gt;」というライブラリ (フレームワークともいう) を選びました。記述量が少なく、初めて使ってみるのには特に適していると思います。&lt;/p&gt;
+&lt;p&gt;(TensorFlowを呼び出すところまでは全てPythonで書かれているので、中身を読んで理解できるのも良いところです。
+本格的に使っていると読む機会は実際あります。)&lt;/p&gt;
+&lt;p&gt;この他には「&lt;a href="https://pytorch.org"&gt;PyTorch&lt;/a&gt;」も一大勢力です。 (今回、どっちにするか迷いました。)&lt;br&gt;
+PyTorchをやってみたい人にも配慮？して、今回やることは概ね、&lt;a href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py"&gt;こちら&lt;/a&gt;のPyTorchの公式チュートリアル (の一部) をKeras訳したようなものにしています。&lt;br&gt;
+(そこ、めんどかっただけやろとか言わない。)&lt;/p&gt;
+&lt;p&gt;後からそちらをやって、似ているところや違いを感じてみるのも面白いと思います。&lt;/p&gt;
+&lt;p&gt;では、はじめましょう。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#28310;&amp;#20633; (&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)&lt;a class="anchor-link" href="#&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;自分で使う場合は、前準備としてKeras本体などのインストールが必要です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install keras&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;などのようにしてインストールします (pip, conda などは環境に応じて)。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Google Colabでは何もしなくてOK&lt;/strong&gt;です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;&lt;span id="pelican-subsections-2"&gt;Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;&lt;a class="anchor-link" href="#Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;おまじないです。とりあえずコピペで問題ありません。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;(Kerasはそのさらに裏でTensorFlowというライブラリが動いているので、順番に読み込んで初期化します。)&lt;/p&gt;
+&lt;p&gt;実行すると、GPUがいくつ使えるか、が表示されます。&lt;br&gt;
+Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思います。
+(多くのラップトップPCなどでは &lt;code&gt;0&lt;/code&gt; です。)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# TensorFlow (=backend)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;tensorflow&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;tf&lt;/span&gt;
+&lt;span class="n"&gt;gpus&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;list_physical_devices&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;GPU&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# ver2.1の場合。experimentalなので書き方は将来verで変更されそう&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Num GPUs Available: &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gpus&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;gpus&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;tf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_memory_growth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 無駄なVRAM確保をしないよう設定&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Keras&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;keras&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;keras.backend&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;K&lt;/span&gt;  &lt;span class="c1"&gt;# なぜ K... 慣例です。今回は最後まで使いませんが。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;ついでに他のパッケージのインポートもしておきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;  &lt;span class="c1"&gt;# NumPy はいつでもどこでもほぼ必須&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;  &lt;span class="c1"&gt;# 画像表示に MatplotLib を使います&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;まずはデータが必要です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;今回やってみるのは、&lt;strong&gt;深層学習を用いた自動画像分類器の作成&lt;/strong&gt;です。&lt;/p&gt;
+&lt;p&gt;そのためには、
+(下でもう少し説明しますが)
+まず「&lt;strong&gt;どういう分類器が欲しいか&lt;/strong&gt;」を決め、それに応じて、&lt;strong&gt;「画像とその答え」を大量に用意する&lt;/strong&gt;必要があります。&lt;/p&gt;
+&lt;p&gt;例えば組織染色画像を用意して、何の組織か分類するとか、病気の進行具合 (グレード、スコア) を判定するなどが考えられます。
+実際に高度な自動判別器が作れる場合もあり、多くの研究やコンペティションなどがあります。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;&lt;span id="pelican-subsections-4"&gt;CIFAR-10 &amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&lt;a class="anchor-link" href="#CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;今回は練習なので、もっと簡単なものを使います。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;CIFAR-10と呼ばれる実験用の定番データセットのひとつで、32x32のカラー画像が全部で6万枚程度あります。
+(学習用5万、テスト用1万)&lt;/p&gt;
+&lt;p&gt;各々の画像は、「飛行機」「自動車」「鳥」「猫」「鹿」「犬」「蛙」「馬」「船」「トラック」。&lt;/p&gt;
+&lt;p&gt;自動車とトラックって何だよというツッコミはさておき、この順に0-9のラベルがついています。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;plane&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;car&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;deer&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;frog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;horse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;ship&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;truck&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;&lt;span id="pelican-subsections-5"&gt;Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;Kerasには、CIFARなどの実験用データを自動的にダウンロードして読み込んでくれる機能があります。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;(他にもPyTorchなど、この種のフレームワークは実験を容易にするために大抵そういう機能があります。)&lt;/p&gt;
+&lt;p&gt;実際に何か研究をするときのデータなどはそうはいかず、データを揃えて用意するところが学習よりよっぽど大変なのがむしろ普通なくらいですが、ここではその部分はさぼります。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;まずはKerasの機能でデータの読み込み。訓練用 (5万枚) とテスト用 (1万枚) にあらかじめ分かれています。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.datasets&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cifar10&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_train_all&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train_all&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cifar10&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_data&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;画像の表示ができるように準備しておきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# function to show image/images&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;joinimg&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imgs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;imgs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;学習と評価のため、データは適切な分割が必要です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;今回使うCIFAR-10では、テスト用データをあらかじめ別にしてくれています。&lt;/p&gt;
+&lt;p&gt;しかしそれだけだと実は不十分で、ここでは訓練用データをさらに9:1にランダム分割し、小さい方を検証 (validation) 用データとします。&lt;br&gt;
+(意味は後ほど。)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_train_all&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;order&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;permutation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Nv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;Nt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Nv&lt;/span&gt;
+&lt;span class="n"&gt;x_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x_train_all&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;Nt&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;y_train_all&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;Nt&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;x_valid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_valid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x_train_all&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Nt&lt;/span&gt;&lt;span class="p"&gt;:]],&lt;/span&gt; &lt;span class="n"&gt;y_train_all&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Nt&lt;/span&gt;&lt;span class="p"&gt;:]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 列ベクトル → 行ベクトルに整形&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;code&gt;x_train&lt;/code&gt; などは大きな配列です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_valid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_valid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;テストデータの最初の5枚と、それぞれのラベルを表示して確認します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;joinimg&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;これで&lt;strong&gt;実験用データの用意は完了&lt;/strong&gt;です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&lt;span id="pelican-subsections-8"&gt;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463; : Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;データが用意できたので、それを学習・分類する深層ネットワークの構造を作ります。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;CIFAR10の各画像は 32x32 サイズのカラー画像 (RGB) です。&lt;/p&gt;
+&lt;p&gt;これらを入力にして、畳み込み (&lt;code&gt;Conv2D()&lt;/code&gt;)、プーリング (&lt;code&gt;MaxPooling2D&lt;/code&gt;)、全結合 (&lt;code&gt;Dense()&lt;/code&gt;)、を順に繰り返しながら出力（分類）を作っていきます。&lt;br&gt;
+(上記 &lt;strong&gt;&lt;a href="https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py"&gt;PyTorch Tutorial&lt;/a&gt; と完全に同一&lt;/strong&gt;にしてあります。)&lt;/p&gt;
+&lt;p&gt;Kerasにモデルの定義方法は複数あるのですが、一番簡単な方法(&lt;code&gt;Sequential()&lt;/code&gt;)を使います。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Sequential&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;keras.layers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Dense&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MaxPooling2D&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Flatten&lt;/span&gt;
+
+&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Sequential&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;
+    &lt;span class="c1"&gt;# 畳み込み1回目 : 「畳み込み + 活性化(Relu) + プーリング」 の3層で1セット&lt;/span&gt;
+    &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kernel_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;input_shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="c1"&gt;# 32x32のRGB画像を入力。大きさ5x5、厚み3の畳み込みフィルタが6枚&lt;/span&gt;
+    &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;MaxPooling2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pool_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 畳み込み2回目 : 構造は1回目と同じ&lt;/span&gt;
+    &lt;span class="n"&gt;Conv2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filters&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kernel_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="c1"&gt;# 大きさ5x5、厚み6の畳み込みフィルタが16枚&lt;/span&gt;
+    &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;MaxPooling2D&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pool_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    
+    &lt;span class="c1"&gt;# 5x5の16チャネル画像だが、構造を壊して 5x5x16=400 成分、1列に平たく並べる。&lt;/span&gt;
+    &lt;span class="n"&gt;Flatten&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# 全結合を3回繰り返す。「全結合 + 活性化」で1セット&lt;/span&gt;
+    &lt;span class="n"&gt;Dense&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;units&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+
+    &lt;span class="n"&gt;Dense&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;units&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;84&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;relu&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+
+    &lt;span class="n"&gt;Dense&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;units&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="n"&gt;Activation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;softmax&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# 最後だけSoftMax&lt;/span&gt;
+&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;これだけ！&lt;br&gt;
+(実際にはもっと短くも書けますが、意味がわかるように、あえてやや冗長に書きました。)&lt;/p&gt;
+&lt;p&gt;やや長いですが、中身は深層学習の「層 (layer)」をただ上から順番に並べているだけです。&lt;/p&gt;
+&lt;p&gt;これだけで、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CIFAR-10に集められている32x32サイズのカラー画像 (RGB) を入力にして&lt;/li&gt;
+&lt;li&gt;その画像が10通りの分類それぞれに属する&lt;strong&gt;確率&lt;/strong&gt; (0-1の実数10個、足すと1) を出力する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;「深層ネットワーク」&lt;code&gt;net&lt;/code&gt; が完成です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;(ネットワークとモデルという言葉は区別が難しいですが、モデルの方がネットワークの上に定義されたより詳細な構造をも含む概念、とでも思っておきましょう。
+ひとまずそんなに気にしなくていいです。)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;できあがった &lt;code&gt;net&lt;/code&gt; の構造は &lt;code&gt;net.summary()&lt;/code&gt; で表示できます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;summary&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;元の画像から、性質の異なる&lt;strong&gt;13層&lt;/strong&gt;の処理を順番に通して、最後に10成分の出力に到達します。&lt;br&gt;
+こうやって層を何重にも重ねるから「&lt;strong&gt;深層学習&lt;/strong&gt; (Deep Learning)」と呼ぶわけです。&lt;br&gt;
+極端なものでは&lt;strong&gt;数百層以上&lt;/strong&gt;という場合すらあります。&lt;/p&gt;
+&lt;p&gt;今回は13層のうち、&lt;strong&gt;パラメータを含む層が5層&lt;/strong&gt; (畳み込みと全結合層) あります。&lt;br&gt;
+合計で&lt;strong&gt;約6万&lt;/strong&gt;のパラメータが含まれています。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&lt;span id="pelican-subsections-10"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;ここから後半です。
+前半で作ったモデルのパラメータを学習していきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&lt;span id="pelican-subsections-11"&gt;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;&lt;a class="anchor-link" href="#&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;ですがその前に、&lt;strong&gt;そもそも学習とは&lt;/strong&gt;？？&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;ネットワーク &lt;code&gt;net&lt;/code&gt;は、32x32のカラー画像から10分類の確率 (より正しくは、足すと1になる非負実数の組) を出力する、ということがわかっています。
+しかし、&lt;strong&gt;どういう分類を与えるか&lt;/strong&gt;、はこれを見ても全くわかりません。&lt;/p&gt;
+&lt;p&gt;もっと卑近な例だと例えば、実数から実数への写像 (関数) と言われても、直線かもしれないし二次関数かもしれないし指数関数かもしれないし、もっとでたらめな関数かもしれない。
+それと同じです。&lt;/p&gt;
+&lt;p&gt;その具体的な関数の形を決めるのが、上の&lt;strong&gt;6万個のパラメータ&lt;/strong&gt;です。
+作りたい関数に応じて、この値を変えてやればいい。&lt;/p&gt;
+&lt;p&gt;まあそんなこと言われてもどう変えたらいいか、わからないわけですが、そこで登場するのが&lt;strong&gt;「学習」&lt;/strong&gt;です。&lt;br&gt;
+望ましい出力（答え）がわかっている入力画像を大量に用意し、それぞれの答えになるべく近づくように、6万個の値を少しずつ動かす、という&lt;strong&gt;気の遠くなる地道な操作&lt;/strong&gt;を繰り返す。
+この操作のことを、比喩的に「学習 (learn)」あるいは「訓練 (train)」と呼んでいます。&lt;br&gt;
+(心配しなくても、これはKerasとGPUがやってくれます。)&lt;/p&gt;
+&lt;p&gt;するとあら不思議、欲しかった性質を持つ関数（分類器）がひとりでにできあがる、という仕組みです。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&lt;span id="pelican-subsections-12"&gt;&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Kerasで学習を行わせる時は、「どういう方法で」「どういう尺度を使って」行うか、をまず設定します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;optimizer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;adam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;metrics&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;accuracy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;loss&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;categorical_crossentropy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;細かいことは気にしなくてよいです。&lt;strong&gt;今やりたいのが分類問題である&lt;/strong&gt;ことをモデルに教えました。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&lt;span id="pelican-subsections-13"&gt;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;いよいよ本当の学習！！！！&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;以下を実行すると学習が始まり、4万5000枚の訓練用画像データを1周するたびに中間成績が表示されていきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;history&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;x_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="c1"&gt;# 学習するデータを指定 (「過去問」)&lt;/span&gt;
+    &lt;span class="n"&gt;batch_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;64&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;validation_data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_valid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="n"&gt;y_valid&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt; &lt;span class="c1"&gt;# 中間評価を行うための検証用データを指定 (「模試」)&lt;/span&gt;
+    &lt;span class="n"&gt;initial_epoch&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;epochs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;# 同じ訓練データを何周 (= 「エポック」) 回して学習するか設定&lt;/span&gt;
+    &lt;span class="n"&gt;shuffle&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;# エポック毎に成績を出力&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;history&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;左が訓練データ自体に対する成績、右が検証用データでの成績。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;loss&lt;/code&gt; は小さい方が、 &lt;code&gt;accuracy&lt;/code&gt; は大きい方が好成績です。
+&lt;strong&gt;やってみて何か気付くこと&lt;/strong&gt;はありませんか？？&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&lt;span id="pelican-subsections-14"&gt;&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;大事な学習済パラメータはまとめてちゃんと保存しておきます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;今回はとりあえず必要ありませんが、実際に使う場合は大規模ネットワークを何時間もかけて学習したりするのと、学習過程にはランダム性が入っていて完全な再現は難しいからです。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# net.save_weights(&amp;#39;net_param.hdf5&amp;#39;)&lt;/span&gt;
+&lt;span class="c1"&gt;# 上をコメントアウトして実行すると保存される&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&lt;span id="pelican-subsections-15"&gt;&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;学習が終わったら、実際に期待したような関数が高精度でできているかどうか、テストデータを使って評価します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&lt;span id="pelican-subsections-16"&gt;&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;&lt;a class="anchor-link" href="#&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;学習後のモデルで、テストデータに対する予測結果を出力します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;(模試 (valid) でベンチマークしながら過去問 (train) を何周も解きまくり、最後に本番試験 (test) に臨むイメージです)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;ここでは上で30エポック学習したモデルを使います。 (問題 : これは本当に適切でしょうか？)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;predict_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;結果は10個組の確率分布が1万個並んだ配列です。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;predict_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;predict_test&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&lt;span id="pelican-subsections-17"&gt;&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;とりあえず最初のいくつかを手動で確認して、予測性能の雰囲気をつかんでみます。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;確率を見ると悩んでいる問題 (画像) もあることがわかりますが、マーク式試験だと思って10択の答案にします。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;answersheet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;predict_test&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argmax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;answersheet&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;画像と一緒に見てみましょう。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;problems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;joinimg&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Ground Truth :&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Answer Sheet :&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;answersheet&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;problems&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;joinimg&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Ground Truth :&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Answer Sheet :&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;answersheet&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;problems&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h4 id="&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&lt;span id="pelican-subsections-18"&gt;&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;1万問題全てを採点します。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;where&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;answersheet&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;score&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;過去問や模試の成績と比べてみましょう。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-19"&gt;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-20"&gt;Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;ul&gt;
+&lt;li&gt;Kerasの初期化&lt;/li&gt;
+&lt;li&gt;学習データの用意&lt;ul&gt;
+&lt;li&gt;CIFAR-10などの実験用データはKerasで簡単に使える&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;(train, valid, test)&lt;/code&gt; に3分割&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;モデルの定義・初期化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;valid&lt;/code&gt; データでベンチマークしながら反復学習&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;test&lt;/code&gt; での最終成績評価&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&lt;span id="pelican-subsections-21"&gt;&amp;#12381;&amp;#12398;&amp;#20182;&lt;a class="anchor-link" href="#&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;より精密には交差検定 (cross-validation) と組み合わせる方法などもありますが、余程でなければ普通はなかなかやらない気がします。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;エポック数は今回固定にしましたが、実際にはvalidの結果を見ながら打ち切ったり、パラメタを順に保存しておいてvalidのスコアから良さそうなものを選ぶ、等するのが普通です。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;今回のモデル自体は率直に言って、大して優れたものではありません。
+層やノードの数、その他パラメタなどを変えて、スコアがもっと良くならないか、色々やってみるのも面白いです。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;おしまい。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+ 
+
+&lt;/body&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Machine Learning"></category></entry><entry><title>幅優先探索の話 (競プロの話)</title><link href="/previews/refs/heads/page/constitution/blog/2020/06/competition_bfs.html" rel="alternate"></link><published>2020-06-27T00:00:00+09:00</published><updated>2020-06-27T00:00:00+09:00</updated><author><name>淡田</name></author><id>tag:None,2020-06-27:/previews/refs/heads/page/constitution/blog/2020/06/competition_bfs.html</id><summary type="html">こんばんは、医学部5年の淡田です。 自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話 &lt;strong&gt;競プロって？&lt;/strong&gt; 競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。 問題によって縛りがあって 「○○時間内に解けよ」 っ....</summary><content type="html">&lt;p&gt;こんばんは、医学部5年の淡田です。&lt;/p&gt;
 &lt;p&gt;自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話&lt;/p&gt;
 &lt;h2&gt;競プロって？&lt;/h2&gt;
 &lt;p&gt;競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。&lt;/p&gt;
@@ -5020,10 +7113,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="ad8edfdc-0a6d-4397-8a30-4e129fe9c1f7"&gt;&lt;/div&gt;
+&lt;div id="fac6541d-8067-4389-a0b9-4d1e9756eb3e"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ad8edfdc-0a6d-4397-8a30-4e129fe9c1f7');
+var element = $('#fac6541d-8067-4389-a0b9-4d1e9756eb3e');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
