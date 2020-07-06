@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Gene Set Enrichment Analysis (GSEA)入門"/>
-    <meta property="og:url" content="../../../blog/2018/11/gsea.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Bioinformatics"/>
+    <meta property="og:title" content="医学部公認団体として正式承認されました"/>
+    <meta property="og:url" content="../../../news/2020/07/officialize_accept.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Gene Set Enrichment Analysis (GSEA)入門">
+    <meta name="twitter:title" content="医学部公認団体として正式承認されました">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>Gene Set Enrichment Analysis (GSEA)入門 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
+    <title>医学部公認団体として正式承認されました - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -106,16 +106,16 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
 </div>
 </li>
-<li class="nav-item dropdown dropdown-hover active">
+<li class="nav-item dropdown dropdown-hover">
 <a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
 <div class="dropdown-menu" aria-labelledby="dropdown18">
-<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<a class="dropdown-item" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
 <a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
 </div>
 </li>
-<li class="nav-item">
+<li class="nav-item active">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -142,10 +142,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="gsea">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-11-27">
+    <meta name="article:slug" property="og:article:slug" content="officialize_accept">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="news">
+    <meta name="article:date" property="og:article:date" content="2020-07-06">
+    <meta name="article:modified" property="og:article:modified" content="2020-07-06">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -153,101 +154,47 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/11/gsea.html" rel="bookmark"
-     title="Permalink to Gene Set Enrichment Analysis (GSEA)入門">
-    Gene Set Enrichment Analysis (GSEA)入門
+  <a href="../../../news/2020/07/officialize_accept.html" rel="bookmark"
+     title="Permalink to 医学部公認団体として正式承認されました">
+    医学部公認団体として正式承認されました
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-11-27(Tue)
+  2020-07-06(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/xi-tian.html">西田</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">GSEAとは</span></h2>
-<p>GSEAは発現差異解析の結果などで得られる遺伝子群がどういった機能のものかを明らかにするために用いられる解析手法です。機能表現として用いられる主なものとしてはKEGGのパスウェイ分類やGene Ontology(GO)があります。</p>
-<h2><span id="pelican-subsections-1">clusterProfilerでGSEA入門</span></h2>
-<p>GSEA には様々なGSEAがあります。単に注目する遺伝子のリストをGSEAへの入力とするもの、発現プロファイルを入力とするもの、機能のデータベースやGSEA手法を複数組み合わせたりするもの (EGSEA) など様々です。[余談ですがGeneを代謝物(Metabolite)に置き換えたMSEAもあります。]</p>
-<p>ここでは前述したものの内、最初の「単に注目する遺伝子のリストをGSEAへの入力とするもの」をbioconductorのパッケージ clusterProfiler を用いて体験してみましょう。</p>
-<p>(clusterProfilerのインストールについては省略します。)</p>
-<p>まず注目する遺伝子のリストを下記で用意します。</p>
-<p>※編集注 : 以下はすべてRでの実行になります。</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">data</span><span class="p">(</span><span class="n">geneList</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s">&quot;DOSE&quot;</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">gene</span> <span class="o">&lt;-</span> <span class="nf">names</span><span class="p">(</span><span class="n">geneList</span><span class="p">)[</span><span class="nf">abs</span><span class="p">(</span><span class="n">geneList</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">2</span><span class="p">]</span>
-<span class="o">&gt;</span> <span class="n">gene</span>
-  <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;4312&quot;</span>   <span class="s">&quot;8318&quot;</span>   <span class="s">&quot;10874&quot;</span>  <span class="s">&quot;55143&quot;</span>  <span class="s">&quot;55388&quot;</span>  <span class="s">&quot;991&quot;</span>    <span class="s">&quot;6280&quot;</span>   <span class="s">&quot;2305&quot;</span>   <span class="s">&quot;9493&quot;</span>   <span class="s">&quot;1062&quot;</span>   <span class="s">&quot;3868&quot;</span>  
- <span class="p">[</span><span class="m">12</span><span class="p">]</span> <span class="s">&quot;4605&quot;</span>   <span class="s">&quot;9833&quot;</span>   <span class="s">&quot;9133&quot;</span>   <span class="s">&quot;6279&quot;</span>   <span class="s">&quot;10403&quot;</span>  <span class="s">&quot;8685&quot;</span>   <span class="s">&quot;597&quot;</span>    <span class="s">&quot;7153&quot;</span>   <span class="s">&quot;23397&quot;</span>  <span class="s">&quot;6278&quot;</span>   <span class="s">&quot;79733&quot;</span>
- <span class="p">[</span><span class="m">23</span><span class="p">]</span> <span class="s">&quot;259266&quot;</span> <span class="s">&quot;1381&quot;</span>   <span class="s">&quot;3627&quot;</span>   <span class="s">&quot;27074&quot;</span>  <span class="s">&quot;6241&quot;</span>   <span class="s">&quot;55165&quot;</span>  <span class="s">&quot;9787&quot;</span>   <span class="s">&quot;7368&quot;</span>   <span class="s">&quot;11065&quot;</span>  <span class="s">&quot;55355&quot;</span>  <span class="s">&quot;9582&quot;</span>  
- <span class="p">[</span><span class="m">34</span><span class="p">]</span> <span class="s">&quot;220134&quot;</span> <span class="s">&quot;55872&quot;</span>  <span class="s">&quot;51203&quot;</span>  <span class="s">&quot;3669&quot;</span>   <span class="s">&quot;83461&quot;</span>  <span class="s">&quot;22974&quot;</span>  <span class="s">&quot;10460&quot;</span>  <span class="s">&quot;10563&quot;</span>  <span class="s">&quot;4751&quot;</span>   <span class="s">&quot;6373&quot;</span>   <span class="s">&quot;8140&quot;</span>  
- <span class="p">[</span><span class="m">45</span><span class="p">]</span> <span class="s">&quot;79019&quot;</span>  <span class="s">&quot;820&quot;</span>    <span class="s">&quot;10635&quot;</span>  <span class="s">&quot;1844&quot;</span>   <span class="s">&quot;4283&quot;</span>   <span class="s">&quot;27299&quot;</span>  <span class="s">&quot;55839&quot;</span>  <span class="s">&quot;27338&quot;</span>  <span class="s">&quot;890&quot;</span>    <span class="s">&quot;9415&quot;</span>   <span class="s">&quot;983&quot;</span>   
- <span class="p">[</span><span class="m">56</span><span class="p">]</span> <span class="s">&quot;54821&quot;</span>  <span class="s">&quot;10232&quot;</span>  <span class="s">&quot;4085&quot;</span>   <span class="s">&quot;6362&quot;</span>   <span class="s">&quot;9837&quot;</span>   <span class="s">&quot;5080&quot;</span>   <span class="s">&quot;7850&quot;</span>   <span class="s">&quot;81930&quot;</span>  <span class="s">&quot;5918&quot;</span>   <span class="s">&quot;81620&quot;</span>  <span class="s">&quot;332&quot;</span>   
- <span class="p">[</span><span class="m">67</span><span class="p">]</span> <span class="s">&quot;55765&quot;</span>  <span class="s">&quot;79605&quot;</span>  <span class="s">&quot;3832&quot;</span>   <span class="s">&quot;6286&quot;</span>   <span class="s">&quot;5163&quot;</span>   <span class="s">&quot;2146&quot;</span>   <span class="s">&quot;3002&quot;</span>   <span class="s">&quot;50852&quot;</span>  <span class="s">&quot;7272&quot;</span>   <span class="s">&quot;2568&quot;</span>   <span class="s">&quot;64151&quot;</span>
- <span class="p">[</span><span class="m">78</span><span class="p">]</span> <span class="s">&quot;51806&quot;</span>  <span class="s">&quot;366&quot;</span>    <span class="s">&quot;2842&quot;</span>   <span class="s">&quot;9212&quot;</span>   <span class="s">&quot;140578&quot;</span> <span class="s">&quot;51659&quot;</span>  <span class="s">&quot;8715&quot;</span>   <span class="s">&quot;4902&quot;</span>   <span class="s">&quot;8208&quot;</span>   <span class="s">&quot;1111&quot;</span>   <span class="s">&quot;9319&quot;</span>  
- <span class="p">[</span><span class="m">89</span><span class="p">]</span> <span class="s">&quot;9055&quot;</span>   <span class="s">&quot;3833&quot;</span>   <span class="s">&quot;146909&quot;</span> <span class="s">&quot;23475&quot;</span>  <span class="s">&quot;4321&quot;</span>   <span class="s">&quot;11182&quot;</span>  <span class="s">&quot;10112&quot;</span>  <span class="s">&quot;3902&quot;</span>   <span class="s">&quot;3620&quot;</span>   <span class="s">&quot;3887&quot;</span>   <span class="s">&quot;51514&quot;</span>
-<span class="p">[</span><span class="m">100</span><span class="p">]</span> <span class="s">&quot;6790&quot;</span>   <span class="s">&quot;4521&quot;</span>   <span class="s">&quot;891&quot;</span>    <span class="s">&quot;57110&quot;</span>  <span class="s">&quot;8544&quot;</span>   <span class="s">&quot;1448&quot;</span>   <span class="s">&quot;24137&quot;</span>  <span class="s">&quot;6355&quot;</span>   <span class="s">&quot;10578&quot;</span>  <span class="s">&quot;4174&quot;</span>   <span class="s">&quot;9232&quot;</span>  
-<span class="p">[</span><span class="m">111</span><span class="p">]</span> <span class="s">&quot;643314&quot;</span> <span class="s">&quot;1307&quot;</span>   <span class="s">&quot;776&quot;</span>    <span class="s">&quot;4129&quot;</span>   <span class="s">&quot;9370&quot;</span>   <span class="s">&quot;196740&quot;</span> <span class="s">&quot;25924&quot;</span>  <span class="s">&quot;8857&quot;</span>   <span class="s">&quot;1602&quot;</span>   <span class="s">&quot;51161&quot;</span>  <span class="s">&quot;3708&quot;</span>  
-<span class="p">[</span><span class="m">122</span><span class="p">]</span> <span class="s">&quot;23090&quot;</span>  <span class="s">&quot;10742&quot;</span>  <span class="s">&quot;51760&quot;</span>  <span class="s">&quot;9122&quot;</span>   <span class="s">&quot;10699&quot;</span>  <span class="s">&quot;8416&quot;</span>   <span class="s">&quot;60598&quot;</span>  <span class="s">&quot;79148&quot;</span>  <span class="s">&quot;64799&quot;</span>  <span class="s">&quot;4629&quot;</span>   <span class="s">&quot;1556&quot;</span>  
-<span class="p">[</span><span class="m">133</span><span class="p">]</span> <span class="s">&quot;55096&quot;</span>  <span class="s">&quot;26289&quot;</span>  <span class="s">&quot;6038&quot;</span>   <span class="s">&quot;771&quot;</span>    <span class="s">&quot;51313&quot;</span>  <span class="s">&quot;23704&quot;</span>  <span class="s">&quot;3117&quot;</span>   <span class="s">&quot;80129&quot;</span>  <span class="s">&quot;23158&quot;</span>  <span class="s">&quot;125&quot;</span>    <span class="s">&quot;4958&quot;</span>  
-<span class="p">[</span><span class="m">144</span><span class="p">]</span> <span class="s">&quot;4857&quot;</span>   <span class="s">&quot;1311&quot;</span>   <span class="s">&quot;5105&quot;</span>   <span class="s">&quot;5174&quot;</span>   <span class="s">&quot;730&quot;</span>    <span class="s">&quot;2018&quot;</span>   <span class="s">&quot;81563&quot;</span>  <span class="s">&quot;2532&quot;</span>   <span class="s">&quot;1308&quot;</span>   <span class="s">&quot;4250&quot;</span>   <span class="s">&quot;23362&quot;</span>
-<span class="p">[</span><span class="m">155</span><span class="p">]</span> <span class="s">&quot;2167&quot;</span>   <span class="s">&quot;51705&quot;</span>  <span class="s">&quot;2593&quot;</span>   <span class="s">&quot;652&quot;</span>    <span class="s">&quot;80736&quot;</span>  <span class="s">&quot;4036&quot;</span>   <span class="s">&quot;57502&quot;</span>  <span class="s">&quot;5507&quot;</span>   <span class="s">&quot;56521&quot;</span>  <span class="s">&quot;22885&quot;</span>  <span class="s">&quot;4137&quot;</span>  
-<span class="p">[</span><span class="m">166</span><span class="p">]</span> <span class="s">&quot;8483&quot;</span>   <span class="s">&quot;8839&quot;</span>   <span class="s">&quot;2066&quot;</span>   <span class="s">&quot;4693&quot;</span>   <span class="s">&quot;4148&quot;</span>   <span class="s">&quot;79083&quot;</span>  <span class="s">&quot;1101&quot;</span>   <span class="s">&quot;3158&quot;</span>   <span class="s">&quot;3169&quot;</span>   <span class="s">&quot;5346&quot;</span>   <span class="s">&quot;1408&quot;</span>  
-<span class="p">[</span><span class="m">177</span><span class="p">]</span> <span class="s">&quot;9547&quot;</span>   <span class="s">&quot;2922&quot;</span>   <span class="s">&quot;11283&quot;</span>  <span class="s">&quot;64499&quot;</span>  <span class="s">&quot;54829&quot;</span>  <span class="s">&quot;1524&quot;</span>   <span class="s">&quot;10234&quot;</span>  <span class="s">&quot;1580&quot;</span>   <span class="s">&quot;10647&quot;</span>  <span class="s">&quot;25893&quot;</span>  <span class="s">&quot;24141&quot;</span>
-<span class="p">[</span><span class="m">188</span><span class="p">]</span> <span class="s">&quot;10351&quot;</span>  <span class="s">&quot;2330&quot;</span>   <span class="s">&quot;5304&quot;</span>   <span class="s">&quot;79846&quot;</span>  <span class="s">&quot;8614&quot;</span>   <span class="s">&quot;2625&quot;</span>   <span class="s">&quot;7021&quot;</span>   <span class="s">&quot;7802&quot;</span>   <span class="s">&quot;79689&quot;</span>  <span class="s">&quot;11122&quot;</span>  <span class="s">&quot;55351&quot;</span>
-<span class="p">[</span><span class="m">199</span><span class="p">]</span> <span class="s">&quot;9&quot;</span>      <span class="s">&quot;4239&quot;</span>   <span class="s">&quot;5241&quot;</span>   <span class="s">&quot;10551&quot;</span>  <span class="s">&quot;10974&quot;</span>  <span class="s">&quot;79838&quot;</span>  <span class="s">&quot;79901&quot;</span>  <span class="s">&quot;57758&quot;</span>  <span class="s">&quot;4969&quot;</span>  
+	<p>これまでのお知らせの通り、本会は大阪大学医学部に<a href="../../../news/2020/05/officialize_request.html">公認団体申請</a>を行っていましたが、このたび<strong>その承認が正式に決定</strong>した旨の通知を受けましたのでお知らせします。
+<!-- PELICAN_END_SUMMARY --></p>
+<h2><span id="pelican-subsections-0">公認許可</span></h2>
+<p>「<strong>医学部公認学生団体結成届の審議結果について</strong>」と題する医学科学生支援委員会委員長名の文書が、本日 (7/6) 付で交付されました。
+以下はその全文です。</p>
+<div class="highlight"><pre><span></span><code>標記について、医学部学生支援委員会等で審議の結果、承認されましたことをお知らせします。
 </code></pre></div>
 
 
-<p><code>gene</code>はヒト遺伝子のENTREZのIDです。</p>
-<p>この遺伝子リストを入力としてKEGGを対象としたGSEAを行ってみましょう。</p>
-<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">clusterProfiler</span><span class="p">)</span>
-
-<span class="o">&gt;</span> <span class="n">kk</span> <span class="o">&lt;-</span> <span class="nf">enrichKEGG</span><span class="p">(</span><span class="n">gene</span>         <span class="o">=</span> <span class="n">gene</span><span class="p">,</span>
-<span class="o">+</span>                  <span class="n">organism</span>     <span class="o">=</span> <span class="s">&#39;hsa&#39;</span><span class="p">,</span>
-<span class="o">+</span>                  <span class="n">pvalueCutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">kk</span><span class="p">)</span>
-               <span class="n">ID</span>                             <span class="n">Description</span> <span class="n">GeneRatio</span>  <span class="n">BgRatio</span>       <span class="n">pvalue</span>     <span class="n">p.adjust</span>       <span class="n">qvalue</span>                                             <span class="n">geneID</span> <span class="n">Count</span>
-<span class="n">hsa04110</span> <span class="n">hsa04110</span>                              <span class="n">Cell</span> <span class="n">cycle</span>     <span class="m">11</span><span class="o">/</span><span class="m">90</span> <span class="m">123</span><span class="o">/</span><span class="m">7469</span> <span class="m">2.135411e-07</span> <span class="m">0.0000409999</span> <span class="m">4.023565e-05</span> <span class="m">8318</span><span class="o">/</span><span class="m">991</span><span class="o">/</span><span class="m">9133</span><span class="o">/</span><span class="m">890</span><span class="o">/</span><span class="m">983</span><span class="o">/</span><span class="m">4085</span><span class="o">/</span><span class="m">7272</span><span class="o">/</span><span class="m">1111</span><span class="o">/</span><span class="m">891</span><span class="o">/</span><span class="m">4174</span><span class="o">/</span><span class="m">9232</span>    <span class="m">11</span>
-<span class="n">hsa04114</span> <span class="n">hsa04114</span>                          <span class="n">Oocyte</span> <span class="n">meiosis</span>     <span class="m">10</span><span class="o">/</span><span class="m">90</span> <span class="m">125</span><span class="o">/</span><span class="m">7469</span> <span class="m">2.216832e-06</span> <span class="m">0.0002128158</span> <span class="m">2.088489e-04</span>    <span class="m">991</span><span class="o">/</span><span class="m">9133</span><span class="o">/</span><span class="m">983</span><span class="o">/</span><span class="m">4085</span><span class="o">/</span><span class="m">51806</span><span class="o">/</span><span class="m">6790</span><span class="o">/</span><span class="m">891</span><span class="o">/</span><span class="m">9232</span><span class="o">/</span><span class="m">3708</span><span class="o">/</span><span class="m">5241</span>    <span class="m">10</span>
-<span class="n">hsa04218</span> <span class="n">hsa04218</span>                     <span class="n">Cellular</span> <span class="n">senescence</span>     <span class="m">10</span><span class="o">/</span><span class="m">90</span> <span class="m">160</span><span class="o">/</span><span class="m">7469</span> <span class="m">2.014286e-05</span> <span class="m">0.0012891427</span> <span class="m">1.265113e-03</span>     <span class="m">2305</span><span class="o">/</span><span class="m">4605</span><span class="o">/</span><span class="m">9133</span><span class="o">/</span><span class="m">890</span><span class="o">/</span><span class="m">983</span><span class="o">/</span><span class="m">51806</span><span class="o">/</span><span class="m">1111</span><span class="o">/</span><span class="m">891</span><span class="o">/</span><span class="m">776</span><span class="o">/</span><span class="m">3708</span>    <span class="m">10</span>
-<span class="n">hsa03320</span> <span class="n">hsa03320</span>                  <span class="n">PPAR</span> <span class="n">signaling</span> <span class="n">pathway</span>      <span class="m">7</span><span class="o">/</span><span class="m">90</span>  <span class="m">74</span><span class="o">/</span><span class="m">7469</span> <span class="m">2.724093e-05</span> <span class="m">0.0013075646</span> <span class="m">1.283191e-03</span>                 <span class="m">4312</span><span class="o">/</span><span class="m">9415</span><span class="o">/</span><span class="m">9370</span><span class="o">/</span><span class="m">5105</span><span class="o">/</span><span class="m">2167</span><span class="o">/</span><span class="m">3158</span><span class="o">/</span><span class="m">5346</span>     <span class="m">7</span>
-<span class="n">hsa04914</span> <span class="n">hsa04914</span> <span class="n">Progesterone</span><span class="o">-</span><span class="n">mediated</span> <span class="n">oocyte</span> <span class="n">maturation</span>      <span class="m">7</span><span class="o">/</span><span class="m">90</span>  <span class="m">98</span><span class="o">/</span><span class="m">7469</span> <span class="m">1.657604e-04</span> <span class="m">0.0063651988</span> <span class="m">6.246549e-03</span>                    <span class="m">9133</span><span class="o">/</span><span class="m">890</span><span class="o">/</span><span class="m">983</span><span class="o">/</span><span class="m">4085</span><span class="o">/</span><span class="m">6790</span><span class="o">/</span><span class="m">891</span><span class="o">/</span><span class="m">5241</span>     <span class="m">7</span>
-</code></pre></div>
-
-
-<p><code>kk</code> がGSEAの結果になります。</p>
-<p><code>head(kk)</code> でGSEAの結果を上から確からしいもの順にトップ5を出力しています。</p>
-<p>もし遺伝子リスト<code>gene</code>が発現差異解析の結果であるなら、コントロールとターゲット間で<code>Cell cycle</code>等に異変が起きているだろう、とこの結果から推測できるということになります。</p>
-<p>次に<code>kk</code>の各列名の意味ですが</p>
-<ul>
-<li>IDはKEGG pathwayのID</li>
-<li>DescriptionはKEGG pathwayの名前</li>
-<li>GeneRatioは入力<code>gene</code>の遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか</li>
-<li>BgRatioは全KEGG pathwayにマップされる遺伝子の内、何個の遺伝子がそのKEGG pathwayにマップされるか</li>
-<li>p.adjust, qvalueは多重検定に伴う補正後のpvalueになり小さいほど確からしいことを示します。</li>
-</ul>
-<p>入力<code>gene</code>に含まれる遺伝子がKEGG pathway上のどのgene productにmapされるかを可視化するには下記を実行します。</p>
-<div class="highlight"><pre><span></span><code><span class="err">browseKEGG(kk, &#39;hsa04110&#39;)</span>
-</code></pre></div>
-
-
-<p><img alt="KEGG map" src="../../../blog/2018/11/images/gsea_figs/null9.png"></p>
-<h2><span id="pelican-subsections-2">終わりに</span></h2>
-<p>最も簡単なGSEAを体験していただく例を示しました。</p>
-<p>追ってより進んだアンサンブル手法なども紹介できればと思っています。</p>
+<h2><span id="pelican-subsections-1">規約の修正</span></h2>
+<p>公認審査の過程で、<a href="../../../news/2020/06/formalname.html">先に改定</a>した規約の一部に再度指摘を受け、修正を行うことになりました。
+一部を再改定した<a href="../../../constitution.html">規約の全文</a>は、改定予定日付である7/11頃より掲載いたします。
+修正はいずれも公認に伴う技術的なもので、実際の会運営・会活動等への影響はありません。</p>
+<h2><span id="pelican-subsections-2">御礼</span></h2>
+<p>これまで有形無形にご支援を頂いてきた学内外の皆様、公認審査を頂いた大阪大学医学部医学科学生支援委員会、医学部教務室学生支援係をはじめ、関係者の皆様に厚く御礼申し上げます。</p>
+<p>今後とも大阪大学医学部Python会 (情報医科学研究会) を何卒よろしくお願いいたします。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -261,7 +208,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/11/gsea.html" 
+        data-href="../../../news/2020/07/officialize_accept.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -277,9 +224,9 @@
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
-        <li><a href="../../../blog/2019/06/cancer_signature.html">がんゲノム変異シグネチャー解析</a></li>
-        <li><a href="../../../blog/2019/03/velocyto.html">VELOCYTO</a></li>
+        <li><a href="../../../news/2020/06/formalname.html">会正式名称の制定等について</a></li>
+        <li><a href="../../../news/2020/05/officialize_and_officialname.html">医学部公認と正式名称の検討について</a></li>
+        <li><a href="../../../news/2020/05/officialize_request.html">医学部公認団体申請を行いました</a></li>
     </ul>
 </div>
 

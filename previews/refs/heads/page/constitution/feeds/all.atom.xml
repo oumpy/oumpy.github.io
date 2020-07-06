@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/page/constitution/" rel="alternate"></link><link href="/previews/refs/heads/page/constitution/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/page/constitution/</id><updated>2020-07-03T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>Python会とPythonとPython会で使われているPython</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html" rel="alternate"></link><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-03:/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html</id><summary type="html">Python会は、Pythonを主に勉強したり研究に使ったりしています。 また、会の運営上の道具としてもPythonを利用しています。 なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。 (主に新入会員向けの内容....</summary><content type="html">&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/page/constitution/" rel="alternate"></link><link href="/previews/refs/heads/page/constitution/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/page/constitution/</id><updated>2020-07-06T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>医学部公認団体として正式承認されました</title><link href="/previews/refs/heads/page/constitution/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-06T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-07-06:/previews/refs/heads/page/constitution/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会は大阪大学医学部に&lt;a href="/previews/refs/heads/page/constitution/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。  &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7/6) 付で交付されま....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会は大阪大学医学部に&lt;a href="/previews/refs/heads/page/constitution/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
+&lt;h2&gt;公認許可&lt;/h2&gt;
+&lt;p&gt;「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7/6) 付で交付されました。
+以下はその全文です。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;標記について、医学部学生支援委員会等で審議の結果、承認されましたことをお知らせします。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;規約の修正&lt;/h2&gt;
+&lt;p&gt;公認審査の過程で、&lt;a href="/previews/refs/heads/page/constitution/news/2020/06/formalname.html"&gt;先に改定&lt;/a&gt;した規約の一部に再度指摘を受け、修正を行うことになりました。
+一部を再改定した&lt;a href="/previews/refs/heads/page/constitution/constitution.html"&gt;規約の全文&lt;/a&gt;は、改定予定日付である7/11頃より掲載いたします。
+修正はいずれも公認に伴う技術的なもので、実際の会運営・会活動等への影響はありません。&lt;/p&gt;
+&lt;h2&gt;御礼&lt;/h2&gt;
+&lt;p&gt;これまで有形無形にご支援を頂いてきた学内外の皆様、公認審査を頂いた大阪大学医学部医学科学生支援委員会、医学部教務室学生支援係をはじめ、関係者の皆様に厚く御礼申し上げます。&lt;/p&gt;
+&lt;p&gt;今後とも大阪大学医学部Python会 (情報医科学研究会) を何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>Python会とPythonとPython会で使われているPython</title><link href="/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html" rel="alternate"></link><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2020-07-03:/previews/refs/heads/page/constitution/blog/2020/07/pythonparty_and_python.html</id><summary type="html">Python会は、Pythonを主に勉強したり研究に使ったりしています。 また、会の運営上の道具としてもPythonを利用しています。 なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。 (主に新入会員向けの内容....</summary><content type="html">&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
 また、会の運営上の道具としてもPythonを利用しています。&lt;/p&gt;
 &lt;p&gt;なぜPython会ではPythonなのか、そして研究以外で例えばどのように使っているか、あらためて紹介してみたいと思います。&lt;/p&gt;
 &lt;p&gt;(主に新入会員向けの内容です。
@@ -1815,10 +1830,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="58193bf8-0a76-4585-a189-aa8ba51a28cf"&gt;&lt;/div&gt;
+&lt;div id="98150325-bba6-4cf9-9a16-15ea842d6f86"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#58193bf8-0a76-4585-a189-aa8ba51a28cf');
+var element = $('#98150325-bba6-4cf9-9a16-15ea842d6f86');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -1876,10 +1891,10 @@ var element = $('#58193bf8-0a76-4585-a189-aa8ba51a28cf');
 
  
  
-&lt;div id="88df075e-3fae-45f2-b8ef-da22ff0c477b"&gt;&lt;/div&gt;
+&lt;div id="88db09b4-0189-4b2b-9e0c-67b50ae0a881"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#88df075e-3fae-45f2-b8ef-da22ff0c477b');
+var element = $('#88db09b4-0189-4b2b-9e0c-67b50ae0a881');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -1937,10 +1952,10 @@ var element = $('#88df075e-3fae-45f2-b8ef-da22ff0c477b');
 
  
  
-&lt;div id="c5628777-c1c2-423c-817f-def5df58e68f"&gt;&lt;/div&gt;
+&lt;div id="132da487-644a-489e-88f6-b88adc5413eb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c5628777-c1c2-423c-817f-def5df58e68f');
+var element = $('#132da487-644a-489e-88f6-b88adc5413eb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -7113,10 +7128,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="fac6541d-8067-4389-a0b9-4d1e9756eb3e"&gt;&lt;/div&gt;
+&lt;div id="78fa1059-3e7b-4ac8-aa7e-ea6c6a1bb8fc"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fac6541d-8067-4389-a0b9-4d1e9756eb3e');
+var element = $('#78fa1059-3e7b-4ac8-aa7e-ea6c6a1bb8fc');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
