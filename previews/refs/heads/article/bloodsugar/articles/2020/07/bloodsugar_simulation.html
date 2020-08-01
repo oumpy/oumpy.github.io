@@ -1294,11 +1294,11 @@ h6:hover .anchor-link {
 <p>ここで、$I(t)$は時刻$t$の血中インスリン濃度　[unit/L]、$p$はインスリン投与量　[unit/L/hr]、$G(t)$は時刻tの血中グルコース濃度　[g/L]、$q$はグルコース投与量　[g/L/hr]です。$\alpha, \beta, \gamma, \delta$は係数（すべて正）です。</p>
 $$
 \begin{align}
-\frac{dI(t)}{dt} &amp;= p - \alpha I(t) + \beta G(t)
+\frac{dI(t)}{dt} &amp;= p - \alpha I(t) + \beta G(t)\\
 \frac{dG(t)}{dt} &amp;= q - \gamma I(t) - \delta G(t)
 \end{align}
-$$<h2 id="&#24335;&#12398;&#35299;&#35500;"><span id="pelican-subsections-2">&#24335;&#12398;&#35299;&#35500;<a class="anchor-link" href="#&#24335;&#12398;&#35299;&#35500;">&#182;</a></span></h2><p>1つ目の式の$\frac{dI(t)}{dt} = - \alpha I(t)$の部分は、インスリンに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてインスリンの外部からの投与分$p$が、第3項としてグルコースの量に応じてインスリンが増加する項が加えられた形となっています。</p>
-<p>2つ目の式の$\frac{dG(t)}{dt} = - \delta G(t)$の部分は、グルコースに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてグルコースの外部からの投与分$q$が、第2項としてインスリンの量に応じてグルコースが減少する項が加えられた形となっています。</p>
+$$<h2 id="&#24335;&#12398;&#35299;&#35500;"><span id="pelican-subsections-2">&#24335;&#12398;&#35299;&#35500;<a class="anchor-link" href="#&#24335;&#12398;&#35299;&#35500;">&#182;</a></span></h2><p>1つ目の式の$\dfrac{dI(t)}{dt} = - \alpha I(t)$の部分は、インスリンに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてインスリンの外部からの投与分$p$が、第3項としてグルコースの量に応じてインスリンが増加する項が加えられた形となっています。</p>
+<p>2つ目の式の$\dfrac{dG(t)}{dt} = - \delta G(t)$の部分は、グルコースに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてグルコースの外部からの投与分$q$が、第2項としてインスリンの量に応じてグルコースが減少する項が加えられた形となっています。</p>
 <h2 id="&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#12398;&#26465;&#20214;"><span id="pelican-subsections-3">&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#12398;&#26465;&#20214;<a class="anchor-link" href="#&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#12398;&#26465;&#20214;">&#182;</a></span></h2><p>それでは、pythonでこの数理モデルの挙動を見てみたいと思います。</p>
 <p>今回は、1日に3回食事をする健常者について、0時から24時までの血糖値と血中インスリン濃度をシミュレーションします。条件として以下を設定します。</p>
 <ol>
@@ -1546,21 +1546,7 @@ $$<p>これを用いて毎時間ステップの血中インスリン濃度 $I_i$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(Jakob &amp; Michele, 2008; Fig.3)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#32080;&#35542;"><span id="pelican-subsections-7">&#32080;&#35542;<a class="anchor-link" href="#&#32080;&#35542;">&#182;</a></span></h2><p>血糖値の数理モデルをpythonで実装することで、血糖値と血中インスリン濃度の推移が確認できました。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#21442;&#32771;"><span id="pelican-subsections-8">&#21442;&#32771;<a class="anchor-link" href="#&#21442;&#32771;">&#182;</a></span></h2><p>[1]  Keh-Dong Shianga and Fouad Kandeelc. "A computational model of the human glucose-insulin regulatory system". J Biomed Res. 2010 Sep; 24(5): 347–364. doi: 10.1016/S1674-8301(10)60048-6</p>
 <ul>
 <li>血糖値の数理モデルに関するレビューです。</li>
@@ -1732,34 +1718,46 @@ $$<p>これを用いて毎時間ステップの血中インスリン濃度 $I_i$
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">1</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
         News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
       </a>
     </span>
     <span class="tag-1">
@@ -1769,33 +1767,9 @@ $$<p>これを用いて毎時間ステップの血中インスリン濃度 $I_i$
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
@@ -1804,22 +1778,34 @@ $$<p>これを用いて毎時間ステップの血中インスリン濃度 $I_i$
         Shell script
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
         GitHub
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -1828,10 +1814,10 @@ $$<p>これを用いて毎時間ステップの血中インスリン濃度 $I_i$
         ハードウェア
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
       </a>
     </span>
 </p>
