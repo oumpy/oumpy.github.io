@@ -1119,11 +1119,11 @@ h6:hover .anchor-link {
 &lt;p&gt;ここで、$I(t)$は時刻$t$の血中インスリン濃度　[unit/L]、$p$はインスリン投与量　[unit/L/hr]、$G(t)$は時刻tの血中グルコース濃度　[g/L]、$q$はグルコース投与量　[g/L/hr]です。$\alpha, \beta, \gamma, \delta$は係数（すべて正）です。&lt;/p&gt;
 $$
 \begin{align}
-\frac{dI(t)}{dt} &amp;amp;= p - \alpha I(t) + \beta G(t)\\
+\frac{dI(t)}{dt} &amp;amp;= p - \alpha I(t) + \beta G(t)
 \frac{dG(t)}{dt} &amp;amp;= q - \gamma I(t) - \delta G(t)
 \end{align}
-$$&lt;h2 id="&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;&lt;a class="anchor-link" href="#&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;1つ目の式の$\dfrac{dI(t)}{dt} = - \alpha I(t)$の部分は、インスリンに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてインスリンの外部からの投与分$p$が、第3項としてグルコースの量に応じてインスリンが増加する項が加えられた形となっています。&lt;/p&gt;
-&lt;p&gt;2つ目の式の$\dfrac{dG(t)}{dt} = - \delta G(t)$の部分は、グルコースに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてグルコースの外部からの投与分$q$が、第2項としてインスリンの量に応じてグルコースが減少する項が加えられた形となっています。&lt;/p&gt;
+$$&lt;h2 id="&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;&lt;a class="anchor-link" href="#&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;1つ目の式の$\frac{dI(t)}{dt} = - \alpha I(t)$の部分は、インスリンに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてインスリンの外部からの投与分$p$が、第3項としてグルコースの量に応じてインスリンが増加する項が加えられた形となっています。&lt;/p&gt;
+&lt;p&gt;2つ目の式の$\frac{dG(t)}{dt} = - \delta G(t)$の部分は、グルコースに関する1コンパートメントモデルになっていることが分かります。これに、第1項としてグルコースの外部からの投与分$q$が、第2項としてインスリンの量に応じてグルコースが減少する項が加えられた形となっています。&lt;/p&gt;
 &lt;h2 id="&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;&lt;a class="anchor-link" href="#&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;それでは、pythonでこの数理モデルの挙動を見てみたいと思います。&lt;/p&gt;
 &lt;p&gt;今回は、1日に3回食事をする健常者について、0時から24時までの血糖値と血中インスリン濃度をシミュレーションします。条件として以下を設定します。&lt;/p&gt;
 &lt;ol&gt;
@@ -1371,7 +1371,21 @@ $$&lt;p&gt;これを用いて毎時間ステップの血中インスリン濃度
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;(Jakob &amp;amp; Michele, 2008; Fig.3)&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#32080;&amp;#35542;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#32080;&amp;#35542;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#35542;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;血糖値の数理モデルをpythonで実装することで、血糖値と血中インスリン濃度の推移が確認できました。&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="&amp;#21442;&amp;#32771;"&gt;&lt;span id="pelican-subsections-8"&gt;&amp;#21442;&amp;#32771;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;[1]  Keh-Dong Shianga and Fouad Kandeelc. "A computational model of the human glucose-insulin regulatory system". J Biomed Res. 2010 Sep; 24(5): 347–364. doi: 10.1016/S1674-8301(10)60048-6&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;血糖値の数理モデルに関するレビューです。&lt;/li&gt;
@@ -3250,10 +3264,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="967023fb-cfec-4a87-8e83-64ca2aa1fe7d"&gt;&lt;/div&gt;
+&lt;div id="d4b256cd-13ec-4f6f-94d3-77abb1ce43fb"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#967023fb-cfec-4a87-8e83-64ca2aa1fe7d');
+var element = $('#d4b256cd-13ec-4f6f-94d3-77abb1ce43fb');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -3311,10 +3325,10 @@ var element = $('#967023fb-cfec-4a87-8e83-64ca2aa1fe7d');
 
  
  
-&lt;div id="d1427175-e55d-4255-a849-97b25c3d093d"&gt;&lt;/div&gt;
+&lt;div id="1a0a5210-7720-4d12-8569-db31e83c654a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d1427175-e55d-4255-a849-97b25c3d093d');
+var element = $('#1a0a5210-7720-4d12-8569-db31e83c654a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -3372,10 +3386,10 @@ var element = $('#d1427175-e55d-4255-a849-97b25c3d093d');
 
  
  
-&lt;div id="9bd7b306-f368-4456-a388-3499868a1921"&gt;&lt;/div&gt;
+&lt;div id="049941ce-cd7e-4cef-b397-a30f8b8c4671"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9bd7b306-f368-4456-a388-3499868a1921');
+var element = $('#049941ce-cd7e-4cef-b397-a30f8b8c4671');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -5588,7 +5602,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;p&gt;&lt;a href="https://atcoder.jp/contests/abc168/tasks/abc168_d"&gt;https://atcoder.jp/contests/abc168/tasks/abc168_d&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;↑問題はこれ。
 詳しい説明は省きますが、ざっくり言うと&lt;/p&gt;
-&lt;p&gt;&lt;img alt="graph-image" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/competition_BFS_figs/image.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="graph-image" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/competition_BFS_figs/image.png"&gt;&lt;/p&gt;
 &lt;p&gt;「上記のような感じで部屋と部屋とが繋がってるぞ
 (入力のところでどの部屋と部屋が繋がってるかが与えられる。
 上のはそれを図にした) 。
@@ -5733,7 +5747,7 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 &lt;h2&gt;紹介スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="500"
-    src="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_06/第6回勉強会_機械学習とCNN入門.pdf"
+    src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_06/第6回勉強会_機械学習とCNN入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Machine Learning"></category></entry><entry><title>やさしいYouTube APIのはなし</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/06/youtube_api.html" rel="alternate"></link><published>2020-06-24T00:00:00+09:00</published><updated>2020-06-24T00:00:00+09:00</updated><author><name>川崎</name></author><id>tag:None,2020-06-24:/previews/refs/heads/article/bloodsugar/blog/2020/06/youtube_api.html</id><summary type="html">&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2019/01/twitter_automation.html"&gt;前回&lt;/a&gt;は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では &lt;strong&gt;YouTube API&lt;/strong&gt; を試してみたいと思います。 &lt;strong&gt;APIとは？&lt;/strong&gt; APIとは何かざっくり説明いたしますと、 あるアプリケーションにまつわる操作を、 プログラミングを通じて自動化やらなんやら、といったも....</summary><content type="html">&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2019/01/twitter_automation.html"&gt;前回&lt;/a&gt;は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では &lt;strong&gt;YouTube API&lt;/strong&gt; を試してみたいと思います。&lt;/p&gt;
 &lt;h2&gt;APIとは？&lt;/h2&gt;
@@ -5741,7 +5755,7 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 あるアプリケーションにまつわる操作を、&lt;br&gt;
 プログラミングを通じて自動化やらなんやら、といったものです。&lt;br&gt;
 例えば Twitter ならツイート検索や投稿などがPythonで実行できます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image9" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image9.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image9" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image9.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Youtube にまつわるAPIは様々ありますが今回は &lt;strong&gt;YouTube Data API v3&lt;/strong&gt; を使っていきます。
 YouTube Data API v3 は、動画、プレイリスト、チャンネルなどのYouTubeデータへのアクセスを提供するAPIです。&lt;/p&gt;
 &lt;h2&gt;準備&lt;/h2&gt;
@@ -5751,23 +5765,23 @@ YouTube Data API v3 は、動画、プレイリスト、チャンネルなどの
 Google Cloud Platform (&lt;a href="https://console.cloud.google.com"&gt;https://console.cloud.google.com&lt;/a&gt;)
 にアクセスし、「プロジェクトの選択」から新しいプロジェクトを作成します。
 次に「スタートガイド」の「APIを探索して有効にする」をクリック。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image7" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image7.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image7" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image7.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;左側のタブからライブラリを選んでAPIが検索できます。
 検索窓に YouTube と入力し、 "YouTube Data API v3" を選択して「有効にする」ボタンをクリック。
 「認証情報」の画面から「認証情報作成」のボタンを押下し、APIキーを取得しておきます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image6" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image5.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image6" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image5.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;今回は「&lt;a href="https://colab.research.google.com"&gt;&lt;strong&gt;Google Colabotratory&lt;/strong&gt;&lt;/a&gt;」での実装を試してみます。
 「Google Colabotratory」は Google ドライブ上で使えるJupyter Notebookのようなものです。
 ドライブ上にコードを保管できるほか、予め構築されたGoogleの仮想環境上で動かすことができるので大変便利です。
 &lt;code&gt;google-api-python-client&lt;/code&gt; モジュールを用いますが、これは Google Colab に始めからインストールされているようです。
 &lt;code&gt;!pip list&lt;/code&gt; を実行して確認できます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image6" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image6.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image6" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image6.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;実際に動かしてみる&lt;/h2&gt;
 &lt;p&gt;早速YouTube APIで動画の情報を収集してみましょう。
 例えば、ある投稿者の最新の動画を調べたい場合にも、APIを使って検索が可能です。
 今回は&lt;strong&gt;HIKAKINさんのチャンネルで新しく投稿された動画&lt;/strong&gt;について調べてみたいと思います。&lt;/p&gt;
 &lt;p&gt;さて、実は Youtube ではチャンネル毎に固有の ID が割り振られています。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image4" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image4.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image4" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image4.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;これを &lt;code&gt;search()&lt;/code&gt; 関数に与えることでAPI上で動画の検索ができます。
 早速試してみます。
 先程取得したAPIキーを使って、YouTubeにAPI経由でアクセスします。&lt;/p&gt;
@@ -5791,7 +5805,7 @@ Google Cloud Platform (&lt;a href="https://console.cloud.google.com"&gt;https://
 
 
 &lt;p&gt;出力結果は以下のようになりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image8" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image8.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image8" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image8.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;HIKAKINさんの新着動画のタイトルが取得出来ています。&lt;/p&gt;
 &lt;p&gt;このようにYouTubeのサイトに直接アクセスしなくても、APIを叩くだけでちょっとした調べものが出来てしまいます。&lt;/p&gt;
 &lt;h2&gt;自動化とOAuth2.0認証の実装&lt;/h2&gt;
@@ -5801,17 +5815,17 @@ Google Cloud Platform (&lt;a href="https://console.cloud.google.com"&gt;https://
 登録チャンネルは非公開情報ですので、取得するにはログイン権限が必要です。
 Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth2 (オーオースツー) 認証方式&lt;/strong&gt; が使われています。
 下のような画面に見覚えがある方も多いと思います。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image2" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image2" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image2.png"&gt;&lt;/p&gt;
 &lt;p&gt;この画面を作ることで、自分の Google アカウントにログインし登録チャンネルを取得します。
 幸いPythonには &lt;strong&gt;&lt;code&gt;oauth2client&lt;/code&gt;&lt;/strong&gt; というモジュールが存在し、これを使えば &lt;strong&gt;OAuth2認証&lt;/strong&gt; が簡単に実装できるようになっています。
 早速やってみましょう。&lt;/p&gt;
 &lt;p&gt;まずはプログラムにOAuth認証を組み込むのに必要な、 &lt;strong&gt;クライアントIDとクライアントシークレット&lt;/strong&gt; を取得します。
 これは先程のAPI認証情報のページから容易に手に入ります。
 これを使用してOAuth2認証を実装してみた結果が以下になります。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image3" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image3" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image3.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;エラーが出ています。&lt;/strong&gt;
 何がいけなかったのでしょうか。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image1" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image1" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image1.png"&gt;&lt;/p&gt;
 &lt;p&gt;公式サイト
 (&lt;a href="https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription"&gt;https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription&lt;/a&gt;)
 にAPI実装のサンプルコードが載っていました。
@@ -5822,13 +5836,13 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
 
 &lt;p&gt;&lt;strong&gt;json&lt;/strong&gt;？？？
 その json はどっから出てきたんや？？？&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image12" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image12.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image12" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image12.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;storage&lt;/strong&gt;？？？
 そんなものは無いが？？？&lt;/p&gt;
 &lt;p&gt;……。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image10" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image10.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image10" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image10.png"&gt;&lt;/p&gt;
 &lt;p&gt;というわけでまったくやさしくないOAuth2認証のお話でした。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image11" src="/previews/refs/heads/article/bloodsugar/blog/2020/06/images/youtube_api_figs/image11.png"&gt;
+&lt;p&gt;&lt;img alt="image11" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/youtube_api_figs/image11.png"&gt;
 &lt;em&gt;↑ 未知のモノを実装するにはその構造を理解する必要がある&lt;/em&gt;&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
 &lt;p&gt;残念ながら今回はYouTube APIを使いこなすことが出来ませんでした。&lt;/p&gt;
@@ -5845,9 +5859,9 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
 &lt;h2&gt;紹介スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="500"
-    src="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_05/第5回勉強会_統計入門.pdf"
+    src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_05/第5回勉強会_統計入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;def&lt;/code&gt; による関数の定義&lt;/li&gt;
@@ -5856,20 +5870,20 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
 &lt;li&gt;演習問題&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;使用したNotebook&lt;/h2&gt;
-&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;紹介スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="500"
-    src="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_04/第4回勉強会_ライブラリを用いたデータ処理.pdf"
+    src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_04/第4回勉強会_ライブラリを用いたデータ処理.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/article/bloodsugar/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。&lt;/p&gt;
 &lt;h2&gt;使用したNotebook&lt;/h2&gt;
-&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;紹介スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
-    src="/previews/refs/heads/article/bloodsugar/blog/2020/06/attach/studymeeting2020_03/第3回勉強会_競プロの基礎.pdf"
+    src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_03/第3回勉強会_競プロの基礎.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category><category term="勉強会"></category></entry><entry><title>医学部公認と正式名称の検討について</title><link href="/previews/refs/heads/article/bloodsugar/news/2020/05/officialize_and_officialname.html" rel="alternate"></link><published>2020-05-29T00:00:00+09:00</published><updated>2020-05-30T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-05-29:/previews/refs/heads/article/bloodsugar/news/2020/05/officialize_and_officialname.html</id><summary type="html">本日、大阪大学医学部学生支援委員会より、本会の公認についての審議結果が通知されましたのでご報告します。 &lt;strong&gt;名称条件付きの公認許可&lt;/strong&gt; 通知では、「Python会」の名称は永続的な公認団体の名称として不適切であると指摘した上で、 例えば「医学部バイオ情報処理研究会」のような団体名に変更すること....</summary><content type="html">&lt;p&gt;本日、大阪大学医学部学生支援委員会より、本会の公認についての審議結果が通知されましたのでご報告します。&lt;/p&gt;
 &lt;h2&gt;名称条件付きの公認許可&lt;/h2&gt;
@@ -5887,17 +5901,17 @@ AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標と�
 &lt;a href="https://twitter.com/oumed_python"&gt;Twitter&lt;/a&gt;
 にてお伝えする予定です。
 ご意見ご感想なども歓迎します。
-何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
+何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
 &lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
-&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第1回】Python会とは? / Pythonの基礎</title><link href="/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_01.html" rel="alternate"></link><published>2020-05-19T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-05-19:/previews/refs/heads/article/bloodsugar/blog/2020/05/studymeeting2020_01.html</id><summary type="html">2020.05.19に開催したオンライン勉強会の資料を公開します。 今回のみ、会外部の一般の方々にも参加頂く形で行われました。 次回からは会内部のみとなりますが、資料は公開してゆく予定です。 &lt;strong&gt;スライド&lt;/strong&gt;    &lt;strong&gt;Pythonの環境構築&lt;/strong&gt;  &lt;a href="https://www.python.org/"&gt;Pythonの公式サイト&lt;/a&gt;からPythonだけをinstallして....</summary><content type="html">&lt;p&gt;2020.05.19に開催したオンライン勉強会の資料を公開します。&lt;/p&gt;
 &lt;p&gt;今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;
 &lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
-    src="/previews/refs/heads/article/bloodsugar/blog/2020/05/attach/studymeeting2020_01/200519_python会入門.pdf"
+    src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_01/200519_python会入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;h2&gt;Pythonの環境構築&lt;/h2&gt;
@@ -5915,7 +5929,7 @@ AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標と�
 &lt;p&gt;で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。&lt;/p&gt;
 &lt;h2&gt;Python Tutorial&lt;/h2&gt;
-&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/attach/studymeeting2020_01/Python_tutorial.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;コードのみ以下に掲載します。&lt;/p&gt;
 &lt;h3&gt;NumPyで数値計算&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -5973,7 +5987,7 @@ Pythonをインストールする必要はありません。
 また、新規性に欠けるところはおよそリンクを貼るだけとしております。&lt;/p&gt;
 &lt;h2&gt;&lt;span id="sec01"&gt;&lt;/span&gt;システム概要&lt;/h2&gt;
 &lt;p&gt;&lt;figure id="fig11"&gt;
-  &lt;img src="/previews/refs/heads/article/bloodsugar/blog/2020/05/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" /&gt;
+  &lt;img src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" /&gt;
   &lt;figcaption&gt;図1-1 システム概略&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;システムの概略を上&lt;a href="#fig11"&gt;図1-1&lt;/a&gt;に示す。
@@ -5987,7 +6001,7 @@ Pythonをインストールする必要はありません。
 それに加え、パスワードも実装してある。&lt;/p&gt;
 &lt;p&gt;執筆時のブラウザ画面を下図1-2に載せる。
 &lt;figure id="fig12"&gt;
-  &lt;img src="/previews/refs/heads/article/bloodsugar/blog/2020/05/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" /&gt;
+  &lt;img src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" /&gt;
   &lt;figcaption&gt;図1-2 ブラウザ画面&lt;/figcaption&gt;
 &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;ここで、サーバーはXSERVERを利用している。
@@ -6118,7 +6132,7 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
 これは起床を促進させる可能性があると考えている。そして、&lt;a href="#fig12"&gt;図1-2&lt;/a&gt;のブラウザ画面のような見た目が良くないものを、CSSを用いて扱いやすく、視覚的に好印象を与えるようなものに改良したい。&lt;/p&gt;
 &lt;p&gt;今、新型コロナウイルスにより加工機械が利用できないため、新しい端末の開発の速度が低迷している。&lt;/p&gt;
 &lt;figure id="fig71"&gt;
-  &lt;img src="/previews/refs/heads/article/bloodsugar/blog/2020/05/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" /&gt;
+  &lt;img src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" /&gt;
   &lt;figcaption&gt;図7-1 今後の展望&lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -6177,9 +6191,9 @@ $$&lt;/div&gt;
 Y_{ij}=\beta_1+\beta_2 t_{ij}+b_{1i}+b_{2i}t_{ij}+\epsilon_{ij}\qquad (j=1, 2, \cdots, n_i)
 $$&lt;/div&gt;
 &lt;p&gt;ただし、&lt;span class="math"&gt;\(t_{ij}\)&lt;/span&gt;は&lt;span class="math"&gt;\(i\)&lt;/span&gt;番目の被験者の&lt;span class="math"&gt;\(j\)&lt;/span&gt;番目の(イベント)時点である。以下ではモデルを図で表す。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2020/04/images/linear_mixed_model_figs/001.JPG"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2020/04/images/linear_mixed_model_figs/002.JPG"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2020/04/images/linear_mixed_model_figs/003.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/linear_mixed_model_figs/001.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/linear_mixed_model_figs/002.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2020sy/blog/images/linear_mixed_model_figs/003.JPG"&gt;&lt;/p&gt;
 &lt;h2&gt;固定効果とランダム効果&lt;/h2&gt;
 &lt;p&gt;線形混合効果モデルは、&lt;strong&gt;固定効果&lt;/strong&gt;（fixed effect）と &lt;strong&gt;ランダム効果&lt;/strong&gt;（random effect）から構成される。&lt;/p&gt;
 &lt;ul&gt;
@@ -8548,10 +8562,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="f3e953ed-57b3-48e1-8cf2-b4ed0d8e7c92"&gt;&lt;/div&gt;
+&lt;div id="5d75579d-baf2-4190-9dcd-42ccc1fb84d3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#f3e953ed-57b3-48e1-8cf2-b4ed0d8e7c92');
+var element = $('#5d75579d-baf2-4190-9dcd-42ccc1fb84d3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -13020,11 +13034,11 @@ $$&lt;/div&gt;
 
 
 &lt;p&gt;以下のようなグラフが出力されれば成功です。&lt;br&gt;
-&lt;img alt="quick_start" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/DABEST_tutorial_figs/quick_start.png"&gt;&lt;/p&gt;
+&lt;img alt="quick_start" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/DABEST_tutorial_figs/quick_start.png"&gt;&lt;/p&gt;
 &lt;p&gt;このグラフは &lt;strong&gt;Cumming plot&lt;/strong&gt; という可視化の方法です。Estimation statisticsにおける可視化の方法としてはもう1つ &lt;strong&gt;Gardner-Altman plot&lt;/strong&gt; というものがあります。以下ではこの2つの可視化方法の見方とコードについて紹介します。&lt;/p&gt;
 &lt;h3&gt;Gardner-Altman plot&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Gardner-Altman plot&lt;/strong&gt; はM. GardnerとD. Altmanによって提案された描画法です。以下はGardner-Altman plotの例です。図の左側では両方の群のすべての観測値をJitter plotにより表示しています。右側にあるのは効果量の軸で、効果量の点推定(黒丸)と信頼区間(縦の黒棒)を表示しています。この効果量の信頼区間ですが、これは &lt;strong&gt;Bootstrap法&lt;/strong&gt; を用いて算出しています。なお、Bootstrap法に関しては後で詳しく述べます。&lt;br&gt;
-&lt;img alt="ga1" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/DABEST_tutorial_figs/ga1.png"&gt;&lt;/p&gt;
+&lt;img alt="ga1" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/DABEST_tutorial_figs/ga1.png"&gt;&lt;/p&gt;
 &lt;p&gt;コードは次のようになっています。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
@@ -13048,7 +13062,7 @@ $$&lt;/div&gt;
 
 
 &lt;p&gt;Gardner-Altman plotには &lt;strong&gt;対応のある2群(paired)&lt;/strong&gt; のためのバージョンもあります。&lt;br&gt;
-&lt;img alt="ga2" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/DABEST_tutorial_figs/ga2.png"&gt;&lt;/p&gt;
+&lt;img alt="ga2" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/DABEST_tutorial_figs/ga2.png"&gt;&lt;/p&gt;
 &lt;p&gt;ここでは効果量として &lt;strong&gt;Cohen's d&lt;/strong&gt; を用いています。コードは次のようになります(ライブラリのインポートは省略)。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Generate toy dataset&lt;/span&gt;
 &lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
@@ -13070,7 +13084,7 @@ $$&lt;/div&gt;
 
 &lt;h3&gt;Cumming plot&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Cumming plot&lt;/strong&gt; はG. Cummingによって提案された描画法です。複数の群に対して2つ以上の効果量およびそれらの信頼区間を、今度は観測データの下に描画しています。&lt;br&gt;
-&lt;img alt="cumming" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/DABEST_tutorial_figs/cumming.png"&gt;&lt;/p&gt;
+&lt;img alt="cumming" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/DABEST_tutorial_figs/cumming.png"&gt;&lt;/p&gt;
 &lt;p&gt;ここでは効果量として &lt;strong&gt;hedges' g&lt;/strong&gt; を用いています。コードは次のようになります(ライブラリのインポートは省略)。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Generate toy dataset&lt;/span&gt;
 &lt;span class="n"&gt;size1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
@@ -13147,7 +13161,7 @@ $$&lt;/div&gt;
 
 
 &lt;p&gt;結果は次のようになります。&lt;br&gt;
-&lt;img alt="bootstrap_ci" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/DABEST_tutorial_figs/bootstrap_ci.png"&gt;&lt;/p&gt;
+&lt;img alt="bootstrap_ci" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/DABEST_tutorial_figs/bootstrap_ci.png"&gt;&lt;/p&gt;
 &lt;p&gt;横軸が平均の差、縦軸が密度です。黒破線は0, 赤破線は真の分布の平均の差(今回であれば10)、緑実線は効果量の点推定(要は平均値)です。黒実線は第1, 3四分位数で、この間を95%信頼区間と近似しています(この信頼区間の算出手法を &lt;strong&gt;パーセンタイル法&lt;/strong&gt; といいます)。これは簡易な手法ですが、他にも算出方法はあります。&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
 &lt;ul&gt;
@@ -13163,22 +13177,22 @@ $$&lt;/div&gt;
 &lt;li&gt;岡田謙介. &lt;strong&gt;心理学における効果量をめぐる最近の話題&lt;/strong&gt;. (&lt;a href="http://www3.psy.senshu-u.ac.jp/~ken/DevPsy2015_okada.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;汪金芳. &lt;strong&gt;ブートストラップ法入門&lt;/strong&gt;. (&lt;a href="http://www.math.s.chiba-u.ac.jp/~wang/bootstrap.pdf"&gt;pdf&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>がんゲノム変異シグネチャー解析</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/06/cancer_signature.html" rel="alternate"></link><published>2019-06-21T00:00:00+09:00</published><updated>2019-06-21T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:None,2019-06-21:/previews/refs/heads/article/bloodsugar/blog/2019/06/cancer_signature.html</id><summary type="html">がんゲノムの変異シグネチャーの推定にチャレンジしてみました。  &lt;strong&gt;きっかけ&lt;/strong&gt; 先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。 講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦....</summary><content type="html">&lt;p&gt;がんゲノムの変異シグネチャーの推定にチャレンジしてみました。&lt;/p&gt;
-&lt;p&gt;&lt;img src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/1.png" width="400px"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/1.png" width="400px"&gt;&lt;/p&gt;
 &lt;h2&gt;きっかけ&lt;/h2&gt;
 &lt;p&gt;先日の遺伝学の講義にて、がんゲノムの変異シグネチャーを教えていただき、やり方も詳しく書かれていたので、挑戦してみました。&lt;/p&gt;
 &lt;p&gt;講義ではRでしたので、Pythonでも同じ結果が得られるか、Pythonの勉強も兼ねての挑戦記録です。&lt;/p&gt;
 &lt;h2&gt;がんゲノムの変異シグネチャーとは？？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/2.png"&gt;&lt;/p&gt;
 &lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
 &lt;h2&gt;トピックモデルとは？？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/3.png"&gt;&lt;/p&gt;
 &lt;p&gt;（&lt;a href="https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model"&gt;https://www.albert2005.co.jp/knowledge/machine_learning/topic_model/about_topic_model&lt;/a&gt;より）&lt;/p&gt;
 &lt;h3&gt;がんゲノムの場合のトピックは？？&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/4.png"&gt;&lt;/p&gt;
 &lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
 &lt;p&gt;一塩基ごとの変異情報がまとめられたテキストがDocumentsとして、がんの原因となる要素を一つ一つの「topic」、変異シグネチャーとして、トピックモデルを用いて推定します。&lt;/p&gt;
 &lt;h2&gt;解析の方法&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/5.png"&gt;&lt;/p&gt;
 &lt;p&gt;（がんゲノム情報学　中谷先生のスライドより）&lt;/p&gt;
 &lt;p&gt;データベースにある変異データには、&lt;br&gt;
 ゲノムの位置、その位置における変異前の塩基配列、変異後の配列&lt;br&gt;
@@ -13239,7 +13253,7 @@ wordcloud自体は、文章中で出現頻度が高い単語を複数選び出�
 - &lt;a href="https://cancer.sanger.ac.uk/cosmic/download"&gt;https://cancer.sanger.ac.uk/cosmic/download&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;データを無料でダウンロードするには、学生としての登録が必要でした。
 今回は様々なデータの中でも、Non coding variantsのものを使いました。
-&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/6.png"&gt;&lt;/p&gt;
+&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/6.png"&gt;&lt;/p&gt;
 &lt;h3&gt;リファレンス配列の入手&lt;/h3&gt;
 &lt;p&gt;今回はUCSCからhg38をダウンロードしました。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
@@ -13247,14 +13261,14 @@ wordcloud自体は、文章中で出現頻度が高い単語を複数選び出�
 
 
 &lt;p&gt;こちらのフォーマットはfastaで、&lt;/p&gt;
-&lt;p&gt;&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/7.png"&gt;&lt;/p&gt;
 &lt;p&gt;のような感じで並んでいます。&lt;/p&gt;
 &lt;p&gt;配列にAやaなど、大文字と小文字が並んでいるのは、大文字の A, C, G, T はコード領域、小文字の a, c, g, t はコード領域以外を表します。&lt;/p&gt;
 &lt;h3&gt;変異データを覗いてみる&lt;/h3&gt;
 &lt;p&gt;COSMICから入手したデータがどんなフォーマットなのか見てみました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/8.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/8.png"&gt;&lt;/p&gt;
 &lt;p&gt;ここからサンプルID、ゲノムのposition、元の配列、変異後の配列、という形で抽出し手確認しました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/9.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/9.png"&gt;&lt;/p&gt;
 &lt;p&gt;公式サイトによると、変異データのフォーマットは以下のようになっているようです。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;[column number:label] Heading&lt;/strong&gt;&lt;br&gt;
@@ -13317,7 +13331,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="10" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/10.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="10" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/10.png"&gt;&lt;/p&gt;
 &lt;p&gt;上記のようにDataFrameとしてきれいに読み込めました。&lt;/p&gt;
 &lt;h4&gt;リファレンス配列の読み込み&lt;/h4&gt;
 &lt;p&gt;ここではbiopythonを使って簡単に配列部分を取り出します。&lt;/p&gt;
@@ -13337,7 +13351,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 &lt;p&gt;塩基配列はlist_seqに入っています。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="11" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/11.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="11" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/11.png"&gt;&lt;/p&gt;
 &lt;p&gt;全てリスト形式なので、&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_seq&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_desc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="mi"&gt;19829559&lt;/span&gt;
@@ -13368,7 +13382,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="12" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/12.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="12" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/12.png"&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;MUT_SEQの欠損値、chr23、24、25を除く。&lt;/li&gt;
 &lt;/ol&gt;
@@ -13413,7 +13427,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 &lt;p&gt;ここまでで以下のようになります。（dfの右側だけ）&lt;/p&gt;
-&lt;p&gt;&lt;img alt="13" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/13.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="13" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/13.png"&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;3つの配列について、相補鎖を作ります&lt;/li&gt;
 &lt;/ol&gt;
@@ -13442,7 +13456,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="14" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/14.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="14" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/14.png"&gt;&lt;/p&gt;
 &lt;p&gt;（上はテストファイルで行ったため、実際の数値とは異なります。）&lt;/p&gt;
 &lt;p&gt;いろいろな試行錯誤したコードで、テキストファイルに書き出していきます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;df_index_for_id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -13470,7 +13484,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 ここまでで変異のデータをIDごとに抽出することができました！&lt;/p&gt;
 &lt;p&gt;上のスクリプトをサーバーにでも投げてしばらく待ちます。&lt;/p&gt;
 &lt;h3&gt;トピックモデルを使ってみる&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="15" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/15.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="15" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/15.png"&gt;&lt;/p&gt;
 &lt;p&gt;4までの操作で各IDごとの上のように、変異データが得られました。&lt;/p&gt;
 &lt;p&gt;これをトピックモデルを使って解析していきます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;gensim&lt;/span&gt;
@@ -13519,7 +13533,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="16" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/16.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="16" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/16.png"&gt;&lt;/p&gt;
 &lt;p&gt;結果を見てみると、各トピックごとに、各変異がどれほどの割合を占めているのか、というのがわかります。&lt;/p&gt;
 &lt;h4&gt;可視化&lt;/h4&gt;
 &lt;p&gt;おなじみmatplotlibを使ってグラフにしてみます。&lt;/p&gt;
@@ -13544,7 +13558,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="17" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/17.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="17" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/17.png"&gt;&lt;/p&gt;
 &lt;p&gt;リストで色を指定することで、このように変異の種類（T&amp;gt;C、T&amp;gt;A、C&amp;gt;Gなど）ごとに色づけすることができました。
 - 参考：&lt;a href="https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap"&gt;https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;これをトピックごとにグラフを作成し、画像として保存します。&lt;/p&gt;
@@ -13567,12 +13581,12 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 
 &lt;p&gt;（色はCOSMICのグラフのものと揃えました）&lt;/p&gt;
-&lt;p&gt;&lt;img alt="18" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/18.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="19" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/19.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="18" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/18.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="19" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/19.png"&gt;&lt;/p&gt;
 &lt;h3&gt;データベースのシグネチャと比較&lt;/h3&gt;
 &lt;p&gt;COSMICには、今までに推定されてきたがんゲノムの変異シグネチャーが多数登録されています。
 - &lt;a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/"&gt;https://cancer.sanger.ac.uk/cosmic/signatures/SBS/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="20" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/20.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/20.png"&gt;&lt;/p&gt;
 &lt;p&gt;シグネチャーのグラフと、関連するがんの原因が示されています。&lt;/p&gt;
 &lt;h4&gt;推定&lt;/h4&gt;
 &lt;p&gt;今回の課題は、「&lt;strong&gt;たばこ/紫外線のシグネチャーを見つけることができたか&lt;/strong&gt;」でした。&lt;/p&gt;
@@ -13582,7 +13596,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;li&gt;&lt;strong&gt;たばこ&lt;/strong&gt;（tobacco）が原因とされるもの→SBS4、5、29&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;紫外線&lt;/strong&gt;（ultraviolet light）が原因とされるもの→SBS7a〜d、38&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="21" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/21.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="21" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/21.png"&gt;&lt;/p&gt;
 &lt;p&gt;であるとわかりました。&lt;/p&gt;
 &lt;h4&gt;推定結果&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;-たばこ-&lt;/strong&gt;&lt;/p&gt;
@@ -13590,51 +13604,51 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="22" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/22.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="22" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/22.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="23" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/23.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="23" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/23.png"&gt;&lt;/p&gt;
 &lt;p&gt;②SBS5&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="24" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/24.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="24" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/24.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="25" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/25.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="25" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/25.png"&gt;&lt;/p&gt;
 &lt;p&gt;③SBS29&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="26" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/26.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="26" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/26.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="27" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/27.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="27" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/27.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;-紫外線-&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;①SBS7a
 - COSMIC&lt;/p&gt;
-&lt;p&gt;&lt;img alt="28" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/28.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="28" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/28.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="29" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/29.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="29" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/29.png"&gt;&lt;/p&gt;
 &lt;p&gt;②SBS7b&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="30" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/30.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="30" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/30.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="31" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/31.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="31" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/31.png"&gt;&lt;/p&gt;
 &lt;p&gt;③SBS7c&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="32" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/32.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="32" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/32.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
@@ -13643,7 +13657,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="33" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/33.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="33" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/33.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
@@ -13652,7 +13666,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;ul&gt;
 &lt;li&gt;COSMIC&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="34" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/34.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="34" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/34.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推定&lt;/li&gt;
 &lt;/ul&gt;
@@ -13672,7 +13686,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="35" src="/previews/refs/heads/article/bloodsugar/blog/2019/06/images/cancer_signature_figs/35.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="35" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/cancer_signature_figs/35.png"&gt;&lt;/p&gt;
 &lt;h2&gt;今後やってみたいこと&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;がんゲノムの変異シグネチャーは、最初に発表された論文ではNon- negative Matrix Factorization(NMF)(非負値行列因子分解)を使って推定された。2019年になって「トピックモデル」を使って変異 シグネチャを推定する論文が二報発表された。&lt;br&gt;
@@ -13973,7 +13987,7 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 今回は、deep learningの中でも画像から物体の領域を検出する「セマンティックセグメンテーション」といわれる手法についてです。
 医療系の画像では、U-Netといわれるネットワークが有名です。&lt;/p&gt;
 &lt;h2&gt;U-Netの特徴は？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="img01" src="/previews/refs/heads/article/bloodsugar/blog/2019/05/images/UNet_cells_recognition_figs/image01.png"&gt;(U-Netの処理の概要、&lt;a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/"&gt;https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/&lt;/a&gt; からの画像)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img01" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/UNet_cells_recognition_figs/image01.png"&gt;(U-Netの処理の概要、&lt;a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/"&gt;https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/&lt;/a&gt; からの画像)&lt;/p&gt;
 &lt;p&gt;セマンティックセグメンテーションは、CNNによるエンコードと、trans-convolutionによるデコードからなりますが、U-Netの特徴としてはCNNによる畳み込みの途中の画像を結合して処理に使用している点です。
 そのため、処理のフローチャートは上の図のようにU字型になります。だからU-Netと呼ばれているんですね。&lt;/p&gt;
 &lt;h2&gt;U-Netの実装&lt;/h2&gt;
@@ -14215,14 +14229,14 @@ C、COBOL、Java、アセンブラ、表計算。…あれ？？&lt;strong&gt;Py
 &lt;p&gt;コメントを見るとわかる通り、trainingDataフォルダやtestDataフォルダなどを作ってそこに使用する画像を入れる仕組みです。&lt;/p&gt;
 &lt;h2&gt;コードを細胞の画像に適用してみる&lt;/h2&gt;
 &lt;p&gt;細胞の画像は以下です。2枚のトレーニング画像です。左が実際の画像、右がセグメンテーションの正解を表す2値画像となります。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img02" src="/previews/refs/heads/article/bloodsugar/blog/2019/05/images/UNet_cells_recognition_figs/image02.jpg"&gt;
-&lt;img alt="img03" src="/previews/refs/heads/article/bloodsugar/blog/2019/05/images/UNet_cells_recognition_figs/image03.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img02" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/UNet_cells_recognition_figs/image02.jpg"&gt;
+&lt;img alt="img03" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/UNet_cells_recognition_figs/image03.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;今回は学習したモデルで、二つ目の画像をテスト画像としてセグメンテーションしてみました。&lt;/p&gt;
 &lt;p&gt;200エポック回した時のモデルでの結果が以下です。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img04" src="/previews/refs/heads/article/bloodsugar/blog/2019/05/images/UNet_cells_recognition_figs/image04.png"&gt;
+&lt;p&gt;&lt;img alt="img04" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/UNet_cells_recognition_figs/image04.png"&gt;
 メッシュのようになっていてうまくいってないですね。もう少しエポック数が必要なのでしょうか。&lt;/p&gt;
 &lt;p&gt;1000エポック回した時のモデルでの結果が以下です。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="img05" src="/previews/refs/heads/article/bloodsugar/blog/2019/05/images/UNet_cells_recognition_figs/image05.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img05" src="/previews/refs/heads/article/bloodsugar/articles/2019sy/blog/images/UNet_cells_recognition_figs/image05.png"&gt;&lt;/p&gt;
 &lt;p&gt;だいぶセグメンテーションが出来てきました。
 十分にエポック数を回すことが重要なようですね。
 これでセマンティックセグメンテーションは一応成功しました。
@@ -14327,7 +14341,7 @@ linuxのサーバーにつないで行うみたいです。
 
 &lt;p&gt;ループとの組み合わせ。&lt;s&gt;C問題&lt;/s&gt; B問題以降でときどき必要。&lt;/p&gt;
 &lt;p&gt;以上です。おしまい。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="競技プログラミング"></category></entry><entry><title>5年次海外実習</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/study_abroad.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-03-29:/previews/refs/heads/article/bloodsugar/blog/2019/03/study_abroad.html</id><summary type="html">1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。  僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をも....</summary><content type="html">&lt;p&gt;1月末から3月中旬までオーストラリアのメルボルンに海外実習に行ってました、５年生の佐藤です。基礎系の研究室に行ったのですが、僕がまだまだ勉強不足なところも多くこれからの勉強のモチベーションにもなりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_01.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_01.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;僕の実習内容についてはまだまとまっていないので、去年行った宮崎先輩の資料をもらいました。&lt;/p&gt;
 &lt;iframe src="//www.slideshare.net/slideshow/embed_code/key/f3e0fxEFp9OQAq" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen&gt; &lt;/iframe&gt;
 
@@ -14342,23 +14356,23 @@ linuxのサーバーにつないで行うみたいです。
 &lt;p&gt;今回僕は大学内にある寮的なところに滞在しました。朝晩食事付きで週34000円くらいです。オーストラリアにしてはだいぶ良心的ですが、それでも１ヶ月半いるとなるとばかにならないし、行かせてくれた親には超感謝してます。朝晩バイキング形式で食べるので、必然的に他の住人と話すことになるわけですが、結果的にこれがよかったです。用事を作らずとも自然に人と話す機会があるし、色々な人の色々な人生が聞けてすごく楽しいです。ここでたくさんの友達ができました。&lt;/p&gt;
 &lt;p&gt;部屋も結構快適で落ち着きます。風呂とトイレは共同と聞いていて結構ビビってたんですが、全然不快な感じはなかったです。&lt;/p&gt;
 &lt;p&gt;寮というものに住んだことがなかったので、とても新鮮でした。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_02.jpg"&gt;
-&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_03.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_02.jpg"&gt;
+&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_03.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;メルボルンという町について&lt;/h2&gt;
 &lt;p&gt;ぶっちゃけ日本より住みやすい気がします。気温の年較差は小さく(冬でも10度前後)、日較差は大きいです(今は夏ですが、最低気温18度くらい)。昼間はラボに行っているので、外に出る時は5月くらいの気候で超気持ちいいです。日差しは強いのでオーストラリア来る時は日焼け止め必須です。&lt;/p&gt;
 &lt;p&gt;メルボルンはアートとスポーツの町です。そこらかしこに美術館や記念館があり、とても全部は行けないほどです。古い建築物が多く残っており、伝統的な西洋建築が立ち並ぶかと思いきや、流線形のドーム状の病院や路地裏にはストリートアート的なものがそこら中に描かれ、それらがいい意味で混じり合い独特の景観を形成しています。&lt;/p&gt;
 &lt;p&gt;先日全豪オープンが開かれたのもこの町です。ちょうど中之島のように中心地のすぐ近くにヤラ川という川が流れており、ボート競技も盛んに行われていました。&lt;/p&gt;
 &lt;p&gt;オーストラリアは移民の国で、色々な人種の人たちがいます。だいたい３割がアジア系(中国が最多)、アフリカ系の人も結構います。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_04.jpg"&gt;
-&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_05.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_04.jpg"&gt;
+&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_05.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;海外の留学生について&lt;/h2&gt;
 &lt;p&gt;アジア系の人たちが結構多かったです。特に中国はチャイナタウンもあるからなのか、非常に多くの学生が来ています。話を聞いていると、中国の学生の20%くらいの人が海外で修士、あるいは博士を取るらしく、英語は使えて当然のような雰囲気が伺えました。日本は自国の大学や研究機関以外の選択肢があまりないというか、海外に行く人が(少なくとも僕の周りには)少ないので驚きました。当然、speakingやlisteningの能力も程度の差こそあれ、日本人は劣っていると思います。カナダ人から「日本人ってシャイだしあんまり英語も喋れないよねー」って言われて、確かに、、、と納得してしまいました。海外に渡り、技術や知識を取り入れるのがスタンダードになろうとしている他のアジア諸国の人たちを見ていると、日本の将来を考えずにはいられませんでした。&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
 &lt;p&gt;海外での生活は予想よりもはるかに楽しかったです。これは寮の友達によるところが大きかったです。毎日誰かが寮のどこかでボードゲームなどで遊んでおり、それを見ているだけでも楽しく、また一緒にやろうぜと気軽に誘ってくれました。休日はみんなで出かけ、それぞれの故郷の料理を交互に食べ、文化について語り合う。考え方は人それぞれなのはもちろん、国や宗教に大きく影響を受けていることを知りました。&lt;/p&gt;
 &lt;p&gt;旅行ではなかなか味わえないたくさんの貴重な経験をさせてもらいました。&lt;/p&gt;
 &lt;p&gt;海外に行ってみたい、というミーハーな理由で海外実習を選びましたが、行って本当によかったです。皆さんも是非！！&lt;/p&gt;
-&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_06.jpg"&gt;
-&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/study_abroad_figs/img_07.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="海外留学"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/voice_recognition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-03-29:/previews/refs/heads/article/bloodsugar/blog/2019/03/voice_recognition.html</id><summary type="html">&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。  思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです....</summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_06.jpg"&gt;
+&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/study_abroad_figs/img_07.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="海外留学"></category></entry><entry><title>NTT corevoチャレンジ: 話者の性別・年代識別</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/voice_recognition.html" rel="alternate"></link><published>2019-03-29T00:00:00+09:00</published><updated>2019-03-29T00:00:00+09:00</updated><author><name>佐藤</name></author><id>tag:None,2019-03-29:/previews/refs/heads/article/bloodsugar/blog/2019/03/voice_recognition.html</id><summary type="html">&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。  思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです....</summary><content type="html">&lt;p&gt;&lt;a href="https://signate.jp"&gt;Signate&lt;/a&gt;内で開催されていた上記のコンペティションに参加してきました。以下試してみたこと、感想のまとめです。&lt;/p&gt;
 &lt;div class="jetpack-video-wrapper"&gt;&lt;iframe src='https://www.slideshare.net/slideshow/embed_code/138387330' width='616' height='505' allowfullscreen webkitallowfullscreen mozallowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 &lt;p&gt;思っていたよりも良い成績を残すことができて満足です。医学とはあまり関係なさそうですが、音声は脳波や心電図等と同じく時系列データなので、その扱いに慣れたことは良かったです。コンペなどに定期的に参加することで、機械学習を学ぶモチベーションになっているので、この調子で色々なコンペに参加していきたいと思います。&lt;/p&gt;
@@ -16537,10 +16551,10 @@ gunzip。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/velocyte_figs/picture1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/velocyte_figs/picture1.png"&gt;&lt;/p&gt;
 &lt;p&gt;※それぞれの細胞における特定遺伝子の発現レベルを色で表したり、PCA 以外の次元圧縮法を用いることもできます。この場合は tSNE のほうがきれいに見えるようです。パラメータはたくさん用意されているので、各データセットで最適な条件を検討する必要があるでしょう。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/velocyte_figs/picture2.png"&gt;
-&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/velocyte_figs/picture3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/velocyte_figs/picture2.png"&gt;
+&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/velocyte_figs/picture3.png"&gt;&lt;/p&gt;
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.nature.com/articles/s41586-018-0414-6"&gt;https://www.nature.com/articles/s41586-018-0414-6&lt;/a&gt;&lt;/li&gt;
@@ -16580,7 +16594,7 @@ gunzip。&lt;/p&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/original_rnaseq_pipeline.html" rel="alternate"></link><published>2019-03-19T00:00:00+09:00</published><updated>2019-03-19T00:00:00+09:00</updated><author><name>菅波</name></author><id>tag:None,2019-03-19:/previews/refs/heads/article/bloodsugar/blog/2019/03/original_rnaseq_pipeline.html</id><summary type="html">阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等....</summary><content type="html">&lt;p&gt;阪医Python会のbioinformaticsチームの一つの成果として、RNA-seqのパイプラインのv1.0がリリースとなったので記事とさせていただきます。SRR idから遺伝子✕サンプルのテーブルにするまでには意外に大変ですが、それをすべて自動化しました。ダウンロード、詳細等は以下にあります。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/yyoshiaki/auto_counttable_maker"&gt;https://github.com/yyoshiaki/auto_counttable_maker&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;なお、以下のイラストはikraのアイコンとなっています。&lt;/p&gt;
-&lt;p&gt;&lt;img src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra.png" width="250px"&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/original_rnaseq_pipeline_figs/ikra.png" width="250px"&gt; &lt;/p&gt;
 &lt;h2&gt;特徴&lt;/h2&gt;
 &lt;p&gt;今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。&lt;/p&gt;
 &lt;ol&gt;
@@ -16649,13 +16663,13 @@ gunzip。&lt;/p&gt;
 &lt;h2&gt;idep&lt;/h2&gt;
 &lt;p&gt;本ツールは&lt;a href="http://bioinformatics.sdstate.edu/idep/"&gt;idep&lt;/a&gt;を意識した設計になっています。idepはRNA-seqの解析をinteractiveに行えるプラットフォームで、Differential expressed genes(DEGs)の検出だけではなく、遺伝子、サンプルのクラスタリング、パスウェイ解析、可視化などが行えます。idepについては以下がとても参考になります。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://kazumaxneo.hatenablog.com/entry/2018/12/29/153838"&gt;macでインフォマティクス : インタラクティブなRNA seq解析webアプリケーション iDEP&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/original_rnaseq_pipeline_figs/screenshot-from-2019-03-19-23-14-31.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/original_rnaseq_pipeline_figs/screenshot-from-2019-03-19-23-14-31.png"&gt;&lt;/p&gt;
 &lt;h2&gt;githubを用いたチーム開発&lt;/h2&gt;
 &lt;p&gt;今回、githubを用いてチーム開発を行いました。githubはエンジニアの間では当たり前のツールで、チームでのソフト開発によく用いられます。bioinformatics界隈でチーム開発を経験できることは意外に少なく、非常にいい経験になりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra_git.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/original_rnaseq_pipeline_figs/ikra_git.png"&gt;&lt;/p&gt;
 &lt;p&gt;雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Enjoy bioinformatics life!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-16T00:00:00+09:00</published><updated>2019-03-16T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-03-16:/previews/refs/heads/article/bloodsugar/blog/2019/03/julia_python_competition.html</id><summary type="html">最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。 &lt;strong&gt;Juliaってなに？&lt;/strong&gt; Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もど....</summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/original_rnaseq_pipeline_figs/ios-e381aee794bbe5838f.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>JuliaとPythonと競技プログラミング</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/03/julia_python_competition.html" rel="alternate"></link><published>2019-03-16T00:00:00+09:00</published><updated>2019-03-16T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-03-16:/previews/refs/heads/article/bloodsugar/blog/2019/03/julia_python_competition.html</id><summary type="html">最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。 &lt;strong&gt;Juliaってなに？&lt;/strong&gt; Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もど....</summary><content type="html">&lt;p&gt;最近友人と話していてJulia (&lt;a href="https://julialang.org"&gt;https://julialang.org&lt;/a&gt;)が話題になったことがあったので、少しだけ調べて試してみた話。&lt;/p&gt;
 &lt;h2&gt;Juliaってなに？&lt;/h2&gt;
 &lt;p&gt;Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。&lt;br&gt;
 &lt;s&gt;ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。&lt;/s&gt;&lt;/p&gt;
@@ -16800,18 +16814,18 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;h3&gt;安水&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://github.com/yyoshiaki/mishima_gassyuku/blob/master/README.md"&gt;三島合宿日誌&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最後に、合宿を快諾いただいた坊農さんはじめ、仲里さん、内藤さん、小野さん、大田さんには心よりお礼申し上げます。生涯忘れることない、大切な経験になりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2019/03/images/mishima_figs/img_8242.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/01/mockinbird_parclip.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-01-18:/previews/refs/heads/article/bloodsugar/blog/2019/01/mockinbird_parclip.html</id><summary type="html">今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。 &lt;strong&gt;PAR-CLIPって何？&lt;/strong&gt; PAR-CLIPは photoactivatable ribon....</summary><content type="html">&lt;p&gt;今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/mishima_figs/img_8242.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Mockinbirdを用いたPAR-CLIP解析</title><link href="/previews/refs/heads/article/bloodsugar/blog/2019/01/mockinbird_parclip.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2019-01-18:/previews/refs/heads/article/bloodsugar/blog/2019/01/mockinbird_parclip.html</id><summary type="html">今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。 &lt;strong&gt;PAR-CLIPって何？&lt;/strong&gt; PAR-CLIPは photoactivatable ribon....</summary><content type="html">&lt;p&gt;今回は &lt;strong&gt;PAR-CLIP&lt;/strong&gt; 解析のAll-in-oneパイプラインソフトウェアである、&lt;a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html"&gt;Mockinbird&lt;/a&gt;を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。&lt;/p&gt;
 &lt;h2&gt;PAR-CLIPって何？&lt;/h2&gt;
 &lt;p&gt;PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。&lt;/p&gt;
 &lt;p&gt;実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。&lt;/p&gt;
 &lt;p&gt;サンプルRNAを逆転写するときに、4SUがシトシン( C )に置換されます(misread)。そのため、リードがピークを形成し、かつT -&amp;gt; C置換が入っていた場合、RBPと結合していた可能性が高いということになります。これによりあるタンパクが、RNAのどの領域に結合するのか？結合領域間でどのような相互作用があるのかを知ることができます。特に一塩基という高い解像度での解析ができることが特徴です。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2019/01/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"&gt;&lt;/p&gt;
 &lt;h2&gt;Mockinbirdとは？&lt;/h2&gt;
 &lt;p&gt;&lt;a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”"&gt;公式ドキュメント&lt;/a&gt;、&lt;a href="//github.com/soedinglab/mockinbird)”"&gt;GitHub&lt;/a&gt;に詳細は記載されていますが、日本語での情報が少ない、というか全くない。のでまとめていきたいと思います。&lt;/p&gt;
 &lt;p&gt;PAR-CLIPの解析は生のFASTQデータから、Quality Check -&amp;gt; Trimming -&amp;gt; Mapping -&amp;gt; Downstream Analysisという流れで行いますが、それらすべての解析をMockinbirdでは一気に行ってくれます。また、MockinbirdModule（詳細は後述）を使うことでmock PAR-CLIP experimentを考慮に入れた解析を行うことができるのも大きな特徴です。&lt;/p&gt;
 &lt;p&gt;このソフトでは、２つにパイプラインが分かれており、preprocessing phaseとpostprocessing phaseと呼ばれています。タンパク結合サイトの情報が書かれたテーブルを出力するまでが、preprocessing phaseでそれ以降のDownstream解析をpostprocessing phaseと呼んでいます。それぞれにYAMLファイルが用意されており、ユーザーはYAMLファイルで解析したいサンプルデータ、使いたいリファレンスデータ、使いたいモジュール（Mappingの時にSTARやBowtieを選べたりする。）閾値などのパラメータを指定します。最後にコマンドを一行実行するだけで、解析がすべて自動で流れていきます。あるモジュールで出力されたファイルのパスが次のモジュールに自動で設定されていくシステムになっているので、慣れると非常に便利です。&lt;/p&gt;
 &lt;p&gt;ただ、ドキュメントでも、既存の解析手法に完全に取って代わるものではなく、PAR-CLIP実験のコンディションのトラブルシューティングを再現可能性が高い状態で行なったり、研究の最初の仮説づくりを短時間で行うために使ってもらうことが目的と書かれていました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2019/01/images/mockinbird_parclip_figs/library.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/mockinbird_parclip_figs/library.png"&gt;&lt;/p&gt;
 &lt;h2&gt;環境構築&lt;/h2&gt;
 &lt;p&gt;前置きが長くなりましたが、実際に環境構築から進めていきます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;conda create -n mockinbird -c bioconda -c conda-forge &lt;span class="nv"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.6 mockinbird
@@ -17074,7 +17088,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
 
 &lt;h2&gt;実行結果&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2019/01/images/twitter_automation_figs/picture1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/twitter_automation_figs/picture1.png"&gt;&lt;/p&gt;
 &lt;p&gt;成功です。語尾は適当です。&lt;/p&gt;
 &lt;p&gt;(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>【論文まとめ】医師国家試験問題自動生成AI</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/12/doctor_exam_ai.html" rel="alternate"></link><published>2018-12-20T00:00:00+09:00</published><updated>2018-12-20T00:00:00+09:00</updated><author><name>秋山</name></author><id>tag:None,2018-12-20:/previews/refs/heads/article/bloodsugar/blog/2018/12/doctor_exam_ai.html</id><summary type="html">以下の論文を軽く紹介。  Shen S, Li Y, Du N, Wu X, Xie Y, Ge S, et al. On the Generation of Medical Question-Answer Pairs. &lt;em&gt;arXiv&lt;/em&gt;. 2018. &lt;a href="http://arxiv.org/abs/1811.00681"&gt;http://arxiv.org/abs/1811.00681&lt;/a&gt;  &lt;strong&gt;概要&lt;/strong&gt; Tensent M....</summary><content type="html">&lt;p&gt;以下の論文を軽く紹介。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -17089,7 +17103,7 @@ Deep learning技術により質問文に対して回答するAI (&lt;strong&gt;q
 &lt;p&gt;質問文の各フレーズが解答の決め手となるキーフレーズであるかを評価する。キーフレーズであるかどうかは特定の解答に対して高頻度で質問文に出現するフレーズがキーフレーズであるとしてdetectorを学習させる。例えば「日本脳炎」が解答である場合「項部硬直」などがキーフレーズとなる。&lt;/p&gt;
 &lt;h3&gt;Conditional Variational Autoencoder (CVAE)&lt;/h3&gt;
 &lt;p&gt;キーフレーズは維持しつつ、それ以外のフレーズを生成モデルCVAEによって言い換える。これによって答が同じな新たな質問文が作られる。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/12/images/doctor_exam_ai_figs/doctor_exam_ai.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/doctor_exam_ai_figs/doctor_exam_ai.png"&gt;&lt;/p&gt;
 &lt;h2&gt;データ&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;中国医師国家試験18,798問&lt;/li&gt;
@@ -17279,7 +17293,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;p&gt;普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。&lt;br&gt;
 駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。&lt;br&gt;
 駒に描かれているイラストも、大変、かわいいです。  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/12/images/animalshogi_figs/1024px-doubutsu-shogi.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/animalshogi_figs/1024px-doubutsu-shogi.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;ゲーム空間の規模がそこそこ小さいため、すでに随分前に&lt;a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/"&gt;完全解析もされています&lt;/a&gt;。
 双方最善を尽くすと78手まで後手勝ち、だそうです。&lt;/p&gt;
 &lt;p&gt;今回は、&lt;a href="https://www.nature.com/articles/nature16961"&gt;AlphaGo&lt;/a&gt;
@@ -17455,7 +17469,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="KEGG map" src="/previews/refs/heads/article/bloodsugar/blog/2018/11/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="KEGG map" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/gsea_figs/null9.png"&gt;&lt;/p&gt;
 &lt;h2&gt;終わりに&lt;/h2&gt;
 &lt;p&gt;最も簡単なGSEAを体験していただく例を示しました。&lt;/p&gt;
 &lt;p&gt;追ってより進んだアンサンブル手法なども紹介できればと思っています。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>化合物データ処理ソフト RDKit</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/11/rdkit.html" rel="alternate"></link><published>2018-11-21T23:00:00+09:00</published><updated>2018-11-21T23:00:00+09:00</updated><author><name>川島</name></author><id>tag:None,2018-11-21:/previews/refs/heads/article/bloodsugar/blog/2018/11/rdkit.html</id><summary type="html">   &lt;strong&gt;RDkit&lt;/strong&gt;は化合物(低分子有機化合物)を扱うためのpythonパッケージです。&lt;strong&gt;ケモインフォマティクス(Cheminformatics)&lt;/strong&gt; という創薬系の分野でよく用いられています。今回はこれの簡単な使い方を説明します。       &lt;strong&gt;いつものパッケージのインポート&lt;a class="anchor-link" href="#いつものパッケージのインポート"&gt; &lt;/a&gt;&lt;/strong&gt;     </summary><content type="html">&lt;style type="text/css"&gt;/*!
@@ -22718,7 +22732,7 @@ height=261
 </content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>pandasのpivot_tableを用いた高速データ処理</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/11/pandas_pivot_table.html" rel="alternate"></link><published>2018-11-17T00:00:00+09:00</published><updated>2018-11-17T00:00:00+09:00</updated><author><name>金子</name></author><id>tag:None,2018-11-17:/previews/refs/heads/article/bloodsugar/blog/2018/11/pandas_pivot_table.html</id><summary type="html">&lt;strong&gt;概要&lt;/strong&gt; pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。 pivot_tableを使った計算で個人的によく使う処理をまとめたものを&lt;a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table"&gt;kaggle のkernel&lt;/a&gt;で公開しました。  このkernelでは簡単なダミーデータでpivot_tab....</summary><content type="html">&lt;h2&gt;概要&lt;/h2&gt;
 &lt;p&gt;pandasのpivot_tableは強力な機能で、カテゴリごとの集計や計算を高速に行うことができます。&lt;/p&gt;
 &lt;p&gt;pivot_tableを使った計算で個人的によく使う処理をまとめたものを&lt;a href="https://www.kaggle.com/nadare/feature-engenieering-with-pivot-table"&gt;kaggle のkernel&lt;/a&gt;で公開しました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/11/images/pandas_pivot_table_figs/pandas_pivot_table.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/pandas_pivot_table_figs/pandas_pivot_table.png"&gt;&lt;/p&gt;
 &lt;p&gt;このkernelでは簡単なダミーデータでpivot_tableに対する計算の仕方をまとめた後、実例として&lt;a href="https://www.kaggle.com/c/PLAsTiCC-2018"&gt;PLAsTiCC コンペ&lt;/a&gt;の&lt;a href="https://www.kaggle.com/michaelapers/the-plasticc-astronomy-starter-kit"&gt;Starter Kit&lt;/a&gt;にあった特徴量の計算をpandasのpivot_tableを用いて高速化しました。&lt;/p&gt;
 &lt;h2&gt;どんなことができるようになるの？&lt;/h2&gt;
 &lt;ul&gt;
@@ -23142,7 +23156,7 @@ samtools index data/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt
 
 &lt;p&gt;これでbamファイルが出来ているはず。&lt;/p&gt;
 &lt;p&gt;igvで表示してみるとこんな感じ。
-&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"&gt;&lt;/p&gt;
+&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"&gt;&lt;/p&gt;
 &lt;h3&gt;補足 prefetchのoutputを変更する方法（Yoshiharaさんより）&lt;/h3&gt;
 &lt;p&gt;デフォルトではプロジェクトのディレクトリの外にsraファイルを保存してしまう。また、データ用のストレージを分けている際もそちらに書き出してやりたい。そこでprefetchのoutputを変更したいという話になるわけだが、やり方は2つ。&lt;/p&gt;
 &lt;h4&gt;1)&lt;/h4&gt;
@@ -23211,7 +23225,7 @@ $ &lt;span class="nb"&gt;cd&lt;/span&gt; ..
 &lt;code&gt;--nomodel&lt;/code&gt;はshifting modelを作るかどうか。defaultでshiftは100。
 実際はigvにはbdgファイルも読み込めてしまうので、特にbigwigにする必要はなかった。&lt;/p&gt;
 &lt;h2&gt;deepToolsによるbwファイルの生成&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/macs2_deeptools_figs/start_workflow1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/macs2_deeptools_figs/start_workflow1.png"&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Ramírez, F. et al. deepTools2: a next generation web server for deep-sequencing data analysis. Nucleic Acids Res. 44, W160–W165 (2016).&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -23238,7 +23252,7 @@ $ bamCompare -p &lt;span class="m"&gt;22&lt;/span&gt; --operation subtract -b1 .
 
 &lt;p&gt;※ 181107 subtractのoutput fileが間違えていたので修正しました。（Yoshiharaさんより）&lt;/p&gt;
 &lt;h2&gt;igvによる比較&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"&gt;&lt;/p&gt;
 &lt;p&gt;上からmacs2, deepTools subtract, deepTools log2 fold changeになっている。macs2の結果はdeepToolsのsubtractに近いことがわかる。&lt;/p&gt;
 &lt;p&gt;macs2のsummits.bedとnarrowPeakも表示してみた（下2つ）。これはこれで取り回しが効いて良い。narrowPeakはp valueに応じて色が変わっている。&lt;/p&gt;
 &lt;p&gt;deepToolsが少しギザギザしているように見えるが、binを変えると細かくできる。&lt;/p&gt;
@@ -23258,7 +23272,7 @@ $ plotHeatmap -m matrix.mat.Treg.gz -out Heatmap.png &lt;span class="se"&gt;\&lt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/macs2_deeptools_figs/heatmap-3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/macs2_deeptools_figs/heatmap-3.png"&gt;&lt;/p&gt;
 &lt;p&gt;plotHeatmapのクラスタリングは複数のサンプルがある時は１つ目のサンプルでクラスタリングするみたい。せっかく他のサンプルもあるのだから、いろいろ混ぜてクラスタリングできたらいいな。
 colormapは&lt;a href="https://matplotlib.org/examples/color/colormaps_reference.html"&gt;matplotlibでおなじみのもの&lt;/a&gt;である。fontsizeは変更する方法は見つからなかった。これは結構困りどころ。強いて言うならissueで自分で書いてみてねとの&lt;a href="https://github.com/deeptools/deepTools/issues/444"&gt;回答&lt;/a&gt;があった。&lt;/p&gt;
 &lt;p&gt;deepToolsに関して、いつもお世話になっている&lt;a href="http://kazumaxneo.hatenablog.com/entry/2018/06/25/210934"&gt;macでインフォマティクス&lt;/a&gt;さんにも記事があった。とても詳しい。他にもいろいろな機能があったので是非。&lt;/p&gt;
@@ -23271,21 +23285,21 @@ colormapは&lt;a href="https://matplotlib.org/examples/color/colormaps_reference
 &lt;li&gt;multi-omics人材になるぞ！&lt;/li&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>GitHub desktopアプリの使い方</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/10/github_desktop.html" rel="alternate"></link><published>2018-10-28T00:00:00+09:00</published><updated>2018-10-28T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-10-28:/previews/refs/heads/article/bloodsugar/blog/2018/10/github_desktop.html</id><summary type="html">githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。 &lt;strong&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/strong&gt;  github上のレポジトリとLocal pathを指定。  これでうまくclo....</summary><content type="html">&lt;p&gt;githubとはなにかの説明は省略しています。githubについて知らない人は先にいろいろ調べてみましょう。今回は&lt;a href="https://desktop.github.com/"&gt;github desktop&lt;/a&gt;についてです。&lt;/p&gt;
 &lt;h2&gt;レポジトリの読み込み（プロジェクト開始時の一回のみ。）&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;github上のレポジトリとLocal pathを指定。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_2.png"&gt;&lt;/p&gt;
 &lt;p&gt;これでうまくcloneされていたらOK&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;毎回の流れ(基本編)&lt;/h2&gt;
 &lt;p&gt;一日の作業の初めにFetchしてきて、最新の状態に同期する。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_3.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_3.png"&gt;&lt;/p&gt;
 &lt;p&gt;ファイルを変更、加筆すると自動的にアプリに反映される&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_4.png"&gt;&lt;/p&gt;
 &lt;p&gt;作業の区切りがついたら左下のSummeryに適当にコメントを付け、commit to master。
 コメントはもうちょっと丁寧に付けましょう。。。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_5.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_5.png"&gt;&lt;/p&gt;
 &lt;p&gt;pushして変更を反映させる。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/github_desktop_figs/2018_10_6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/github_desktop_figs/2018_10_6.png"&gt;&lt;/p&gt;
 &lt;p&gt;まとめると、&lt;strong&gt;fetch(pull) -&amp;gt; commit -&amp;gt; push&lt;/strong&gt; のライフライクルです。&lt;/p&gt;
 &lt;h2&gt;CLIでの操作&lt;/h2&gt;
 &lt;p&gt;デスクトップアプリはwin,macではあるが、Ubuntuでは無いらしいので、同じ作業をCLIでやる必要がある。ただし、基本は同じで&lt;/p&gt;
@@ -23420,7 +23434,7 @@ pfastq-dump -s &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item
 
 
 &lt;p&gt;バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
-&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"&gt;&lt;/p&gt;
+&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"&gt;&lt;/p&gt;
 &lt;h3&gt;pfastq-dumpとは？&lt;/h3&gt;
 &lt;p&gt;fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。&lt;a href="https://github.com/inutanoOhta"&gt;Ohta&lt;/a&gt;さんが公開されている。&lt;/p&gt;
 &lt;h2&gt;Fastqc&lt;/h2&gt;
@@ -23445,17 +23459,17 @@ fastqcのオプションについて&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;-f&lt;/code&gt; : インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;実行結果は下記のようになる。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"&gt;&lt;/p&gt;
 &lt;p&gt;fastqcディレクトリをのぞいてみる。fastqcのなかに&lt;code&gt;fastqc_${item}&lt;/code&gt;というディレクトリが自動生成されている。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"&gt;&lt;/p&gt;
 &lt;p&gt;fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"&gt;&lt;/p&gt;
 &lt;p&gt;htmlファイルをブラウザで開くことができる。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ open ERR266335_fastqc.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"&gt;&lt;/p&gt;
 &lt;h3&gt;参照：&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;次世代シークエンサーDRY解析教本&lt;/li&gt;
@@ -23469,9 +23483,9 @@ $ open multiqc_report.html
 
 
 &lt;p&gt;multiqcの実行により、関連ファイルが下記のように自動生成される。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"&gt;&lt;/p&gt;
 &lt;p&gt;複数のリードのクオリティチェックの結果を同時に表示できる。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"&gt;&lt;/p&gt;
 &lt;h3&gt;参照：&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://multiqc.info/"&gt;https://multiqc.info/&lt;/a&gt;&lt;/li&gt;
@@ -23492,8 +23506,8 @@ $ open multiqc_report.html
 &lt;li&gt;&lt;a href="http://www.usadellab.org/cms/?page=trimmomatic"&gt;http://www.usadellab.org/cms/?page=trimmomatic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Single-end, Pair-endってなに？？&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。&lt;/p&gt;
 &lt;h2&gt;Kallisto&lt;/h2&gt;
 &lt;p&gt;RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。&lt;/p&gt;
@@ -25905,7 +25919,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;h2&gt;使用&lt;/h2&gt;
 &lt;p&gt;登録：&lt;a href="https://colab.research.google.com"&gt;https://colab.research.google.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;標準では書いたノートブックはGoogle Driveに保存されるようになっています。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="スクリーンショット" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/google_colaboratory_figs/2018-10-08-12-18-55.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="スクリーンショット" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/google_colaboratory_figs/2018-10-08-12-18-55.png"&gt;&lt;/p&gt;
 &lt;p&gt;右上の共有コマンドから、Google Documentと同じようにリンクを作ったり、他の人と共有できます。&lt;/p&gt;
 &lt;p&gt;ファイルの選択から、Google DriveやGitHubと連携ができます(すごい)。&lt;/p&gt;
 &lt;h2&gt;感想&lt;/h2&gt;
@@ -26027,7 +26041,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 
 &lt;h2&gt;結果&lt;/h2&gt;
 &lt;p&gt;こんな感じです。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/10/images/particle_filter_figs/result.gif"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/particle_filter_figs/result.gif"&gt;&lt;/p&gt;
 &lt;p&gt;最初は尤度を計算するとき以下のようにやってました。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pxnew&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choices&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;population&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;weights&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Np&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Np&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;pynew&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choices&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;population&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;weights&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Np&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Np&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -26067,7 +26081,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;/ul&gt;
 &lt;h2&gt;前処理&lt;/h2&gt;
 &lt;h4&gt;Fig. 1&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Fig. 1" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/breast_cancer_detection_figs/2352f582-60c8-486b-a9ec-c247787510f7.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;従来法の画像特徴量を用いた手法で腫瘍候補点を計算 (Fig.1, 赤点)&lt;/li&gt;
 &lt;li&gt;候補点を中心に300x300 pixels (6cm x 6cm) を切り出し (Fig.1, 緑枠)&lt;/li&gt;
@@ -26080,16 +26094,16 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;li&gt;symmetry model: 候補領域とその左右対称となる領域の2画像を入力とするCNN&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Fig.2&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Fig. 2" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/breast_cancer_detection_figs/67ac70b1-0afe-478b-b046-a2bacb1450f8.png"&gt;&lt;/p&gt;
 &lt;h2&gt;結果&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="AUC table" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="AUC table" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/breast_cancer_detection_figs/e382b9e382afe383aae383bce383b3e382b7e383a7e38383e38388-2018-09-25-17-28-58.png"&gt;&lt;/p&gt;
 &lt;p&gt;AUCがわずかに改善 (有意差なし)&lt;/p&gt;
 &lt;h4&gt;Fig.3a&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Fig. 3a" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 3a" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/breast_cancer_detection_figs/6aaac880-7ac2-4425-8be3-4d78367088e2.png"&gt;&lt;/p&gt;
 &lt;p&gt;FROC曲線(偽陽性率を横軸, 感受性を縦軸) で比較すると有意に提案手法がよかった&lt;/p&gt;
 &lt;h2&gt;考察&lt;/h2&gt;
 &lt;h4&gt;Fig. 4&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Fig. 4" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Fig. 4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/breast_cancer_detection_figs/ef07a0c8-ed1e-4127-b747-f9103aa6095e.png"&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;a) baseline modelが正常と誤判定し, symmetry modelが正しく悪性腫瘍と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;/li&gt;
 &lt;li&gt;b) baseline modelが悪性腫瘍と誤判定し, symmetry modelが正しく正常と判定した画像の例 (上下の画像が同じ患者の左右の乳房)&lt;/li&gt;
@@ -26147,7 +26161,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 
 &lt;h3&gt;結果&lt;/h3&gt;
 &lt;p&gt;縦軸がクラスタ間距離です。横軸のラベルでは、setosaをシアン、versicolorをマゼンタ、virginicaを黄色としました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/cluster_analysis_figs/dendrogram.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/cluster_analysis_figs/dendrogram.png"&gt;&lt;/p&gt;
 &lt;p&gt;setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。&lt;/p&gt;
 &lt;p&gt;イメージング画像でクラスタリングしたいなあとか思っているんですが、
 なかなかサンプル数とか特徴量の問題で難しそう。&lt;/p&gt;
@@ -26181,12 +26195,12 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 &lt;p&gt;&lt;a href="https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871"&gt;https://gist.github.com/yyoshiaki/a9a2eea1105a654e6b9beaaf2b854871&lt;/a&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>ipynb破損時の対応</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/ipynb_broken.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-09-15:/previews/refs/heads/article/bloodsugar/blog/2018/09/ipynb_broken.html</id><summary type="html">先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。 なんとか....</summary><content type="html">&lt;p&gt;先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
 なんとか復旧したのでその方法を共有します。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image01" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/ipynb_broken_figs/image01.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image01" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/ipynb_broken_figs/image01.png"&gt;&lt;/p&gt;
 &lt;p&gt;まず開こうと思ったらこんな感じでした。
 絶望感しかありません。
 ipynbファイルの弱点を見たような気がしました。&lt;/p&gt;
 &lt;p&gt;そこで、新しいipynbを作り、jsonを読んでみました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image02" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/ipynb_broken_figs/image02.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image02" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/ipynb_broken_figs/image02.png"&gt;&lt;/p&gt;
 &lt;p&gt;てことで677378行目付近を見てみる。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;less -N BAP_note.ipynb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -26194,13 +26208,13 @@ ipynbファイルの弱点を見たような気がしました。&lt;/p&gt;
 
 &lt;p&gt;Nオプションで行数が表示されます。
 そして、&lt;code&gt;677378G&lt;/code&gt; と打つと677378行目に行けます。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image03" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/ipynb_broken_figs/image03.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="image03" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/ipynb_broken_figs/image03.png"&gt;&lt;/p&gt;
 &lt;p&gt;たしかに表示が崩れているので、&lt;code&gt;v&lt;/code&gt; で編集モード（vimモード）を立ち上げ、&lt;code&gt;dd&lt;/code&gt; でけしていきました。
 &lt;code&gt;:x&lt;/code&gt; で保存できます。
 （vimじゃなくてもemacs等でも行ける。）&lt;/p&gt;
 &lt;p&gt;復活しました。
 うれしい!!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="image04" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/ipynb_broken_figs/image04.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-09-15:/previews/refs/heads/article/bloodsugar/blog/2018/09/umap.html</id><summary type="html">&lt;strong&gt;tSNEとUMAP&lt;/strong&gt; 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="image04" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/ipynb_broken_figs/image04.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>超高速次元圧縮アルゴリズムUMAP</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/umap.html" rel="alternate"></link><published>2018-09-15T00:00:00+09:00</published><updated>2018-09-15T00:00:00+09:00</updated><author><name>安水</name></author><id>tag:None,2018-09-15:/previews/refs/heads/article/bloodsugar/blog/2018/09/umap.html</id><summary type="html">&lt;strong&gt;tSNEとUMAP&lt;/strong&gt; 世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照） &lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;tSNEとUMAP&lt;/h2&gt;
 &lt;p&gt;世間では、高性能な次元圧縮アルゴリズムとしてtSNEがよく使われています。 tSNEは便利ですが、少し遅いです。（パラメーターも意外に面倒。 tSNEのパラメータについては以下のリンク参照）&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://deepage.net/machine_learning/2017/03/08/tsne.html"&gt;https://deepage.net/machine_learning/2017/03/08/tsne.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;そこで今回紹介するのは&lt;strong&gt;UMAP&lt;/strong&gt;。 arxivで今月publishされたばかりのアルゴリズムです(記事執筆時 2018年2月時点)。 試しにMNIST(手書き数字画像。28*28=764次元)70000枚の次元圧縮をしてみました。&lt;/p&gt;
@@ -26235,9 +26249,9 @@ ipynbファイルの弱点を見たような気がしました。&lt;/p&gt;
 
 &lt;h2&gt;結果&lt;/h2&gt;
 &lt;h3&gt;tSNE&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="tsne" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/umap_figs/tsne.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="tsne" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/umap_figs/tsne.png"&gt;&lt;/p&gt;
 &lt;h3&gt;UMAP&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="umap" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:None,2018-09-12:/previews/refs/heads/article/bloodsugar/blog/2018/09/regular_expression.html</id><summary type="html">   O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;&lt;img alt="umap" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/umap_figs/umap.png"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>Pythonで使える正規表現まとめ</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/regular_expression.html" rel="alternate"></link><published>2018-09-12T00:00:00+09:00</published><updated>2018-09-12T00:00:00+09:00</updated><author><name>西垣</name></author><id>tag:None,2018-09-12:/previews/refs/heads/article/bloodsugar/blog/2018/09/regular_expression.html</id><summary type="html">   O'REILLYの著書『&lt;a href="https://www.oreilly.co.jp/books/9784873117782/"&gt;退屈なことはPythonにやらせよう&lt;/a&gt;』で「正規表現」について記載されているところをまとめたノートです。 正規表現はCtrl-Fのテキスト検索でも気軽に使えて大変便利なので、以下のまとめはpython3での正規表現の初歩的な使い方をまとめたものですが、知らなか....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -28219,7 +28233,7 @@ $$&lt;/div&gt;
 &lt;p&gt;
 という関数を指定します(ブラックボックス関数)。中身は良くわかりませんが、この関数を最適化するパラメーターを見つけたいと思います。そこでBaysian Optimizationはこの関数が&lt;a href="http://www.yasuhisay.info/entry/20091011/1255189429"&gt;ガウス過程&lt;/a&gt;に従うと仮定します。&lt;/p&gt;
 &lt;p&gt;下の図ではパラメーターの組み合わせをそれぞれ2,3個とって来て、その評価値を計算して結果をプロットしたグラフです。青い曲線はこの二点から導かれる関数の事後分布で、青い部分はこの分布の95%信頼区間です。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/gaussian-process-example.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/gaussian-process-example.png"&gt;&lt;/p&gt;
 &lt;p&gt;このグラフを見ると、観測点から離れた部分は信頼区間の幅が広い(=&lt;span class="math"&gt;\(\sigma\)&lt;/span&gt;が大きい)ことがわかります。&lt;/p&gt;
 &lt;h3&gt;獲得関数(Acquisition Function)&lt;/h3&gt;
 &lt;p&gt;獲得関数は、次にどこの点を観測するか決める関数です。これにはいろいろな関数がありますが、よく使われるのが  &lt;/p&gt;
@@ -28236,7 +28250,7 @@ $$&lt;/div&gt;
 &lt;li&gt;まだ観測していない場所から選びたい( &lt;span class="math"&gt;\(\sigma\)&lt;/span&gt; が大きい)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;ということを考えて選びそうなものです。よくできてますね。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/expected-improvement-example.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/expected-improvement-example.png"&gt;&lt;/p&gt;
 &lt;h3&gt;実装&lt;/h3&gt;
 &lt;p&gt;実装には&lt;a href="https://github.com/fmfn/BayesianOptimization"&gt;Bayesian Optimization&lt;/a&gt;を使いました。&lt;/p&gt;
 &lt;p&gt;使用するデータはkaggleの&lt;a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation"&gt;Otto Group Product Classification Challenge&lt;/a&gt;のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。installはpipで入ります：&lt;code&gt;pip install bayesian-optimization&lt;/code&gt;&lt;/p&gt;
@@ -28293,8 +28307,8 @@ $$&lt;/div&gt;
 
 
 &lt;h3&gt;結果&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/result.png"&gt;
-&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/result2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/result.png"&gt;
+&lt;img alt="4" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/result2.png"&gt;&lt;/p&gt;
 &lt;p&gt;だいたい15回くらいの試行でloglossが0.46136まで下がりました。やってから気づいたんですが、max_depthとかって整数の値しかとらないですね、、、&lt;/p&gt;
 &lt;p&gt;ただし、ベイズ最適化には弱点もいくつかあって、&lt;/p&gt;
 &lt;ul&gt;
@@ -28305,15 +28319,15 @@ $$&lt;/div&gt;
 &lt;p&gt;みたいなことになるらしいです。&lt;/p&gt;
 &lt;h2&gt;Tree-structured Parzen Estimator(TPE)&lt;/h2&gt;
 &lt;p&gt;このような弱点を修正したのがTPEという最適化手法です。ベイズとコンセプトは似ていますが、手法は全く異なります。一般的な方法として、まずRandom Searchを用いていくつか点をとってきます。プロットすると下の図のようになりました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/tpe-observation-groups.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/tpe-observation-groups.png"&gt;&lt;/p&gt;
 &lt;p&gt;次に精度が良かったもの(図では上位20%)とそうでなかったものに分けます。この2群の尤度関数を求めます。あまり尤度と言っても馴染みのない人が多いと思いますが、サンプリングされたデータは様々な確率分布のうち、どの分布から得られたものとするのが一番尤もらしいかを決めようとするものです。これにより2群の確率分布が出来上がります。&lt;/p&gt;
 &lt;p&gt;TPEでもExpected Improvement関数の下のように定義します。精度良かったものを&lt;span class="math"&gt;\(l\)&lt;/span&gt;,そうではなかったものを&lt;span class="math"&gt;\(g\)&lt;/span&gt;として、&lt;/p&gt;
 &lt;div class="math"&gt;$$
 EI(x)=\frac{l(x)}{g(x)}
 $$&lt;/div&gt;
 &lt;p&gt;これをそれぞれの観測点に対して適用し、最もEIの値が大きかった場所が次の観測点になります。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/tpe-sampled-candidates.png"&gt;
-&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/tpe-expected-improvement.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="6" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/tpe-sampled-candidates.png"&gt;
+&lt;img alt="7" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/tpe-expected-improvement.png"&gt;&lt;/p&gt;
 &lt;h3&gt;実装&lt;/h3&gt;
 &lt;p&gt;こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります：&lt;code&gt;pip install hyperopt&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;hyperopt&lt;/span&gt;
@@ -28354,8 +28368,8 @@ $$&lt;/div&gt;
 
 
 &lt;h3&gt;結果&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/loss.jpg"&gt;
-&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/parameter_tuning_figs/best_param.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="8" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/loss.jpg"&gt;
+&lt;img alt="9" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/parameter_tuning_figs/best_param.png"&gt;&lt;/p&gt;
 &lt;p&gt;logloss最小値は0.4749でした。あれ、bayesian optimizaationより悪い、、、bayesianではmax_depthを整数に限定しなかったからかも、、
 でも自分で手動でやった時は0.6とかだったんで、パラメーターチューニングの時にはこれからこれ使っていこうと思います。あとこのxgboost動かすのに8コアCPU使ってそれぞれ半日くらい回しました。GPU使ってたらもうちょい早かったと思うのですが、きちんとbuildとmakeしてもうまくいきませんでした。また挑戦します。&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -28420,6 +28434,6 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="/previews/refs/heads/article/bloodsugar/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:None,2018-09-09:/previews/refs/heads/article/bloodsugar/blog/2018/09/webscraping.html</id><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/webscraping_figs/1.jpg"&gt;
-&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/webscraping_figs/2.jpg"&gt;
-&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/blog/2018/09/images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry></feed>
+&lt;p&gt;&lt;img alt="1" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/webscraping_figs/1.jpg"&gt;
+&lt;img alt="2" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/webscraping_figs/2.jpg"&gt;
+&lt;img alt="3" src="/previews/refs/heads/article/bloodsugar/articles/2018sy/blog/images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry></feed>
