@@ -160,7 +160,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-10-16(火)
+  2018-10-16(Tue)
 </abbr>       - Posted by 
 <a href="../../../author/ping-gang.html">平岡</a>    in 
     <a href="../../../blog.html">
@@ -177,54 +177,54 @@
 <p>今回は<a href="https://oumpy.github.io/articles/2018/10/kallisto_rnaseq_pipeline.html">Kallistoを用いたRNA-seq解析パイプライン</a>で使う、RNA-seq系のツールのインストールを行っていきますが、順次別の解析目的のツールインストールも紹介したいと考えております。今回の環境構築で、Kallistoを用いたRNA-seq解析パイプラインに進むことができます。</p>
 <h2>Pythonのインストール</h2>
 <p>Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。</p>
-<div class="highlight"><pre><span></span><span class="c1"># check the version of python.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># check the version of python.</span>
 $ python --version
 &gt;&gt;&gt; Python <span class="m">2</span>.7.15rc1
-</pre></div>
+</code></pre></div>
 
 
 <h2>Biocondaのインストール</h2>
 <p><a href="https://www.anaconda.com/download/#macos">Anaconda</a>のインストーラーをダウンロードします。</p>
-<div class="highlight"><pre><span></span>$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
+<div class="highlight"><pre><span></span><code>$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
 $ <span class="nb">echo</span> <span class="s1">&#39;export PATH=/home/user/anaconda3/bin:$PATH&#39;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> ~/.bashrc
 $ conda -V
-</pre></div>
+</code></pre></div>
 
 
-<div class="highlight"><pre><span></span>$ python --version
+<div class="highlight"><pre><span></span><code>$ python --version
 &gt;&gt;&gt; Python <span class="m">3</span>.6.6+
-</pre></div>
+</code></pre></div>
 
 
 <p>バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
 Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。</p>
-<div class="highlight"><pre><span></span><span class="c1"># Download a Miniconda package for linux python3</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download a Miniconda package for linux python3</span>
 $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 $ bash Miniconda3-latest-Linux-x86_64.sh
-</pre></div>
+</code></pre></div>
 
 
 <p>EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。</p>
-<div class="highlight"><pre><span></span><span class="c1"># condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）</span>
 $ conda -h
-</pre></div>
+</code></pre></div>
 
 
 <p>biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。</p>
-<div class="highlight"><pre><span></span>$ conda config --add channels conda-forge
+<div class="highlight"><pre><span></span><code>$ conda config --add channels conda-forge
 $ conda config --add channels defaults
 $ conda config --add channels r
 $ conda config --add channels bioconda
-</pre></div>
+</code></pre></div>
 
 
 <p>それでは早速ツールをインストールしていきましょう。基本 <code>conda install ???</code>でインストールが完了し正常に動作していきます。非常に便利ですね。</p>
-<div class="highlight"><pre><span></span>$ conda install parallel-fastq-dump
+<div class="highlight"><pre><span></span><code>$ conda install parallel-fastq-dump
 $ conda install fastqc
 $ conda install multiqc
 $ conda install trimmomatic
 $ conda install kallisto
-</pre></div>
+</code></pre></div>
 
 
 <h3>参照</h3>
@@ -234,15 +234,15 @@ $ conda install kallisto
 <h2>Rツールのインストール</h2>
 <p>Rのコンソールを開いて、Rのツールをインストールしていきます。
 Tximportのインストール</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;tximport&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>DESeq2のインストール</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;DESeq2&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3>参照</h3>
@@ -382,45 +382,9 @@ Tximportのインストール</p>
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -430,9 +394,75 @@ Tximportのインストール</p>
       </a>
     </span>
     <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -447,40 +477,10 @@ Tximportのインストール</p>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/news.html">
+      <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        勉強会
       </a>
     </span>
 </p>

@@ -161,7 +161,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2020-04-06(月)
+  2020-04-06(Mon)
 </abbr>       - Posted by 
 <a href="../../../author/shan-ben.html">山本</a>    in 
     <a href="../../../blog.html">
@@ -1549,9 +1549,9 @@ $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出�
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">jax</span> <span class="k">import</span> <span class="n">random</span>
-<span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="k">import</span> <span class="n">optimizers</span>
-<span class="kn">from</span> <span class="nn">jax.api</span> <span class="k">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">vmap</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="kn">import</span> <span class="n">optimizers</span>
+<span class="kn">from</span> <span class="nn">jax.api</span> <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">vmap</span>
 
 <span class="kn">import</span> <span class="nn">functools</span>
 </pre></div>
@@ -1567,7 +1567,7 @@ $$<p>これは<strong>無限時間の学習</strong>をしたときのNNの出�
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># libraries to plot </span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">set_matplotlib_formats</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">set_matplotlib_formats</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">:</span> <span class="s2">&quot;.95&quot;</span><span class="p">})</span>
@@ -1748,7 +1748,7 @@ $$<p>$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノ�
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="k">import</span> <span class="n">stax</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">jax.experimental</span> <span class="kn">import</span> <span class="n">stax</span>
 
 <span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span> <span class="o">=</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span>
     <span class="n">stax</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">),</span> <span class="n">stax</span><span class="o">.</span><span class="n">Relu</span><span class="p">,</span>
@@ -1775,7 +1775,7 @@ $$<p>$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノ�
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">neural_tangents</span> <span class="k">import</span> <span class="n">stax</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">neural_tangents</span> <span class="kn">import</span> <span class="n">stax</span>
 
 <span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span><span class="p">,</span> <span class="n">kernel_fn</span> <span class="o">=</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span>
     <span class="n">stax</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">),</span> <span class="n">stax</span><span class="o">.</span><span class="n">Relu</span><span class="p">(),</span>
@@ -1804,7 +1804,7 @@ $$<p>$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノ�
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">neural_tangents</span> <span class="k">as</span> <span class="nn">nt</span>
-<span class="kn">from</span> <span class="nn">neural_tangents</span> <span class="k">import</span> <span class="n">stax</span>
+<span class="kn">from</span> <span class="nn">neural_tangents</span> <span class="kn">import</span> <span class="n">stax</span>
 
 <span class="n">init_fn</span><span class="p">,</span> <span class="n">apply_fn</span><span class="p">,</span> <span class="n">kernel_fn</span> <span class="o">=</span> <span class="n">stax</span><span class="o">.</span><span class="n">serial</span><span class="p">(</span>
     <span class="n">stax</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">W_std</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">b_std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">stax</span><span class="o">.</span><span class="n">Erf</span><span class="p">(),</span>
@@ -2381,7 +2381,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span>
 </pre></div>
 
     </div>
@@ -2459,10 +2459,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-<div id="699a9d4a-0d79-4012-89bf-c18d4e805954"></div>
+<div id="f87a2437-0137-42e0-a307-df3d9277e05e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#699a9d4a-0d79-4012-89bf-c18d4e805954');
+var element = $('#f87a2437-0137-42e0-a307-df3d9277e05e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -2821,45 +2821,9 @@ var element = $('#699a9d4a-0d79-4012-89bf-c18d4e805954');
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -2869,9 +2833,75 @@ var element = $('#699a9d4a-0d79-4012-89bf-c18d4e805954');
       </a>
     </span>
     <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -2886,40 +2916,10 @@ var element = $('#699a9d4a-0d79-4012-89bf-c18d4e805954');
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/news.html">
+      <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        勉強会
       </a>
     </span>
 </p>

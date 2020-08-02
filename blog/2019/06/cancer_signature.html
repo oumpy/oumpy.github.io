@@ -160,7 +160,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-06-21(金)
+  2019-06-21(Fri)
 </abbr>       - Posted by 
 <a href="../../../author/shan-tian.html">山田</a>    in 
     <a href="../../../blog.html">
@@ -253,8 +253,8 @@ wordcloud自体は、文章中で出現頻度が高い単語を複数選び出�
 <img alt="6" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/6.png"></p>
 <h3>リファレンス配列の入手</h3>
 <p>今回はUCSCからhg38をダウンロードしました。</p>
-<div class="highlight"><pre><span></span>$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
+</code></pre></div>
 
 
 <p>こちらのフォーマットはfastaで、</p>
@@ -313,26 +313,26 @@ Previously observed = when the mutation has been reported as somatic previously 
 </ol>
 <p>以下実際のコードです。</p>
 <h4>ライブラリのimport</h4>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4>COSMICの変異データをpandasでDataFrameとして読み込みます。</h4>
-<div class="highlight"><pre><span></span><span class="n">mut_file</span><span class="o">=</span><span class="s1">&#39;CosmicNCV.tsv&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">mut_file</span><span class="o">=</span><span class="s1">&#39;CosmicNCV.tsv&#39;</span>
 <span class="n">ref_fasta</span><span class="o">=</span><span class="s1">&#39;hg38.fa&#39;</span><span class="n">df_cosmic</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">mut_file</span><span class="p">)</span>
 <span class="n">df_cut</span><span class="o">=</span><span class="n">df_cosmic</span><span class="p">[[</span><span class="s1">&#39;ID_SAMPLE&#39;</span><span class="p">,</span> <span class="s1">&#39;ID_tumour&#39;</span><span class="p">,</span><span class="s1">&#39;genome position&#39;</span><span class="p">,</span><span class="s1">&#39;WT_SEQ&#39;</span><span class="p">,</span> <span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">]]</span>
 <span class="n">df_cut</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="10" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/10.png"></p>
 <p>上記のようにDataFrameとしてきれいに読み込めました。</p>
 <h4>リファレンス配列の読み込み</h4>
 <p>ここではbiopythonを使って簡単に配列部分を取り出します。</p>
-<div class="highlight"><pre><span></span><span class="c1">#リファレンスファイルについて</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#リファレンスファイルについて</span>
 <span class="n">list_id</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">list_desc</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">list_seq</span><span class="o">=</span><span class="p">[]</span><span class="c1">#biopythonを用いて、idやdesc、seqを抽出</span>
@@ -344,17 +344,17 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="n">list_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">id_part</span><span class="p">)</span>
 <span class="n">list_desc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desc_part</span><span class="p">)</span>
 <span class="n">list_seq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>塩基配列はlist_seqに入っています。</p>
 <p><img alt="11" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/11.png"></p>
 <p>全てリスト形式なので、</p>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_seq</span><span class="p">[</span><span class="mi">49</span><span class="p">]))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">list_desc</span><span class="p">[</span><span class="mi">49</span><span class="p">])</span><span class="mi">19829559</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_seq</span><span class="p">[</span><span class="mi">49</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_desc</span><span class="p">[</span><span class="mi">49</span><span class="p">])</span><span class="mi">19829559</span>
 
 <span class="n">chr3</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>のように各染色体ごとに見るこができます。</p>
@@ -362,7 +362,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <ol>
 <li>df_cutのgenome_positionについて、染色体番号とゲノムの位置に分割して新しいカラムとして追加します。</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="c1">#chr、genome position用の空のリストを作成</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#chr、genome position用の空のリストを作成</span>
 
 <span class="n">list_cut_chr</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">list_cut_pos</span><span class="o">=</span><span class="p">[]</span>
@@ -376,51 +376,51 @@ Previously observed = when the mutation has been reported as somatic previously 
 
 <span class="n">df_cut</span><span class="p">[</span><span class="s1">&#39;single position&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">list_cut_pos</span><span class="p">)</span>
 <span class="n">df_cut</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="12" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/12.png"></p>
 <ol>
 <li>MUT_SEQの欠損値、chr23、24、25を除く。</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="c1">#mutのdfからchr23、24、MUT_SEQのnanを除く</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#mutのdfからchr23、24、MUT_SEQのnanを除く</span>
 <span class="n">df_cut_chr</span><span class="o">=</span><span class="n">df_cut</span><span class="p">[(</span><span class="n">df_cut</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;23&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">df_cut</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;24&#39;</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">df_cut</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;25&#39;</span><span class="p">)]</span>
-<span class="n">df_cut_chr</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="c1">#indexを振り直す</span>
+<span class="n">df_cut_chr</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1">#indexを振り直す</span>
 
 <span class="n">df_cut_chr_i</span><span class="o">=</span><span class="n">df_cut_chr</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>なぜかCOSMICのデータにchr22以上のものが含まれていたので、除きました。</p>
 <h4>リファレンス配列から、MUT_SEQの前後の配列を抽出</h4>
-<div class="highlight"><pre><span></span><span class="c1">#refから変異位置の前後の配列を抽出</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#refから変異位置の前後の配列を抽出</span>
 <span class="n">seq_before</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">seq_after</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_cut_chr_i</span><span class="p">)):</span>
 <span class="n">seq_before</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_seq</span><span class="p">[</span><span class="n">list_id</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;chr&#39;</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])][</span><span class="nb">int</span><span class="p">(</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;single position&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">seq_after</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_seq</span><span class="p">[</span><span class="n">list_id</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;chr&#39;</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;chr&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])][</span><span class="nb">int</span><span class="p">(</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;single position&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])])</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4>COSMICのdfと合わせていく。</h4>
 <ol>
 <li>変異の前後の配列について、dfに追加し、大文字に直す</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">seq_before</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">seq_before</span><span class="p">)</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_after&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">seq_after</span><span class="p">)</span><span class="c1">#大文字に変更</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_after&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_after&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <ol>
 <li>前、変異、後の3つの配列を新しいカラムの中に追加する
 （以下のようなややこしいカラムを作っているのは（＊注1）のためです）</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="c1">#3文字の配列にする（seq_forwardが鋳型）</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#3文字の配列にする（seq_forwardが鋳型）</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_forward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_after&#39;</span><span class="p">]</span><span class="c1">#鋳型鎖の順番を逆にしたもの（相補鎖を作るため）</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_forward_r&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_after&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_before&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>ここまでで以下のようになります。（dfの右側だけ）</p>
@@ -428,7 +428,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <ol>
 <li>3つの配列について、相補鎖を作ります</li>
 </ol>
-<div class="highlight"><pre><span></span><span class="c1">#辞書型で相補鎖に変換</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#辞書型で相補鎖に変換</span>
 <span class="n">dict_base</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="s2">&quot;G&quot;</span><span class="p">:</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">:</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="s2">&quot;T&quot;</span><span class="p">:</span><span class="s2">&quot;A&quot;</span><span class="p">}</span>
 
 <span class="n">list_seq_reverse</span><span class="o">=</span><span class="p">[]</span>
@@ -438,32 +438,32 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="c1">#次のために、変異の配列も変換しておきます。 list_wt_seq_reverse.append((str(df_cut_chr_i[&#39;WT_SEQ&#39;][i])).translate(str.maketrans(dict_base)))</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;seq_reverse&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">list_seq_reverse</span><span class="p">)</span>
 <span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;WT_seq_reverse&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">list_wt_seq_reverse</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4>変異の情報をテキストファイルに書き出す</h4>
 <p>いよいよ最後のステップです。</p>
-<div class="highlight"><pre><span></span><span class="c1">#ID_tumorのカウント</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#ID_tumorのカウント</span>
 <span class="n">dict_tumor_id</span><span class="o">=</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;ID_tumour&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span><span class="n">list_tumor_id</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_tumor_id</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>まずはIDをリストに格納します。</p>
-<div class="highlight"><pre><span></span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;ID_tumour&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;ID_tumour&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div>
 
 
 <p><img alt="14" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/14.png"></p>
 <p>（上はテストファイルで行ったため、実際の数値とは異なります。）</p>
 <p>いろいろな試行錯誤したコードで、テキストファイルに書き出していきます。</p>
-<div class="highlight"><pre><span></span><span class="n">df_index_for_id</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">df_index_for_id</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_tumor_id</span><span class="p">:</span>
-<span class="n">df_index_for_id</span><span class="p">[</span><span class="s1">&#39;index_{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">((</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;ID_tumour&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">df_index_for_id</span><span class="p">[</span><span class="s1">&#39;index_{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]:</span>
-<span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="bp">True</span><span class="p">:</span>
+<span class="n">df_index_for_id</span><span class="p">[</span><span class="s1">&#39;index_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">((</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="n">df_cut_chr_i</span><span class="p">[</span><span class="s1">&#39;ID_tumour&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">df_index_for_id</span><span class="p">[</span><span class="s1">&#39;index_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]:</span>
+<span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
 <span class="k">continue</span>
 <span class="k">else</span><span class="p">:</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;text_2/{}.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;text_2/</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;WT_SEQ&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;C&#39;</span><span class="ow">or</span> <span class="p">(</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;WT_SEQ&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;T&#39;</span><span class="p">:</span>
 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">((</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;WT_SEQ&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;&amp;amp;gt;&#39;</span><span class="o">+</span><span class="p">(</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;MUT_SEQ&#39;</span><span class="p">]</span><span class="o">+</span>\
 <span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="p">(</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;seq_forward&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span>\
@@ -474,7 +474,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="p">(</span><span class="n">df_cut_chr_i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)])[</span><span class="s1">&#39;seq_reverse&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
 <span class="k">continue</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>（特に速度のことは考えずに直感的にforで回したので、かなり時間がかかります。）
@@ -484,34 +484,34 @@ Previously observed = when the mutation has been reported as somatic previously 
 <p><img alt="15" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/15.png"></p>
 <p>4までの操作で各IDごとの上のように、変異データが得られました。</p>
 <p>これをトピックモデルを使って解析していきます。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gensim</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4>ディレクトリ内のファイルリストを取得する</h4>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/Users/***/test/cancer_genome&quot;</span><span class="p">)</span>
 <span class="n">list_file_name</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;./text_2/*&quot;</span><span class="p">)</span><span class="n">list_file_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h4>変異データを一つのリスト内に格納する</h4>
-<div class="highlight"><pre><span></span><span class="n">list_text</span><span class="o">=</span><span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_text</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_file_name</span><span class="p">:</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">((</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">((</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
 <span class="k">continue</span>
 <span class="k">else</span><span class="p">:</span>
-<span class="n">list_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(((</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">readlines</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-</pre></div>
+<span class="n">list_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(((</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">readlines</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</code></pre></div>
 
 
 <h4>トピックモデル</h4>
-<div class="highlight"><pre><span></span><span class="c1">#辞書を作成</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#辞書を作成</span>
 <span class="n">dictionary</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">list_text</span><span class="p">)</span>
 <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">list_text</span><span class="p">]</span><span class="c1">#トピックモデルの学習</span>
 <span class="n">num_topics</span> <span class="o">=</span> <span class="mi">20</span>
@@ -521,20 +521,20 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span>
 <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>トピック数（num_topics）については後述します。</p>
 <p>これでトピックモデルの学習ができました。ここは実行時間はそこまで長くありません。</p>
-<div class="highlight"><pre><span></span><span class="n">lda</span><span class="o">.</span><span class="n">show_topic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">lda</span><span class="o">.</span><span class="n">show_topic</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p><img alt="16" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/16.png"></p>
 <p>結果を見てみると、各トピックごとに、各変異がどれほどの割合を占めているのか、というのがわかります。</p>
 <h4>可視化</h4>
 <p>おなじみmatplotlibを使ってグラフにしてみます。</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">collections</span>
 
 <span class="n">clist</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">),</span>\
 <span class="p">(</span><span class="mi">17</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">),(</span><span class="mi">32</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">),</span>\
@@ -552,14 +552,14 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dict_topic</span><span class="p">)),</span> <span class="n">dict_topic</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">rvb</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">102</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dict_topic</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_topic</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="17" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/17.png"></p>
 <p>リストで色を指定することで、このように変異の種類（T&gt;C、T&gt;A、C&gt;Gなど）ごとに色づけすることができました。
 - 参考：<a href="https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap">https://stackoverflow.com/questions/42656585/barplot-colored-according-a-colormap</a></p>
 <p>これをトピックごとにグラフを作成し、画像として保存します。</p>
-<div class="highlight"><pre><span></span><span class="n">clist</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;aqua&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;aqua&quot;</span><span class="p">),</span>\
+<div class="highlight"><pre><span></span><code><span class="n">clist</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;aqua&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;aqua&quot;</span><span class="p">),</span>\
 <span class="p">(</span><span class="mi">17</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">),(</span><span class="mi">32</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">),</span>\
 <span class="p">(</span><span class="mi">33</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">),(</span><span class="mi">48</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">),</span>\
 <span class="p">(</span><span class="mi">49</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">),(</span><span class="mi">66</span><span class="o">/</span><span class="mi">102</span><span class="p">,</span> <span class="s2">&quot;gray&quot;</span><span class="p">),</span>\
@@ -570,11 +570,11 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="c1">#plt.subplot(lda.num_topics,2,i+1)</span>
 <span class="n">dict_topic</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">show_topic</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">102</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dict_topic</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;topic #{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;topic #</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dict_topic</span><span class="p">)),</span> <span class="n">dict_topic</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">rvb</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">102</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dict_topic</span><span class="p">)),</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_topic</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;topic_pdf/topicmodel_ms_{}.pdf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;topic_pdf/topicmodel_ms_</span><span class="si">{}</span><span class="s1">.pdf&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
 
 
 <p>（色はCOSMICのグラフのものと揃えました）</p>
@@ -672,7 +672,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <p>シグネチャーを見るだけでも、「たばこを原因とするがんは、変異の種類が多い」、「紫外線を原因とするがんは、変異の種類が少ない」という傾向も見て取れます。</p>
 <h2>おまけ -WordCloudによる可視化-</h2>
 <p>トピックモデルで単語を扱う際によく同時にやられているものとして、WordCloudがあったため、変異データでもやってみました。</p>
-<div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">num_topics</span><span class="p">):</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">show_topic</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
@@ -680,7 +680,7 @@ Previously observed = when the mutation has been reported as somatic previously 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Topic #&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><img alt="35" src="https://oumpy.github.io/blog/2019/06/images/cancer_signature_figs/35.png"></p>
@@ -835,45 +835,9 @@ Previously observed = when the mutation has been reported as somatic previously 
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -883,9 +847,75 @@ Previously observed = when the mutation has been reported as somatic previously 
       </a>
     </span>
     <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -900,40 +930,10 @@ Previously observed = when the mutation has been reported as somatic previously 
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/news.html">
+      <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        勉強会
       </a>
     </span>
 </p>
