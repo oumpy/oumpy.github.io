@@ -209,7 +209,7 @@ Rを呼び出さずに完結できたりします。</p>
 
 <p>時間のある人用に解説です。
 少し小技があります。</p>
-<h2><span id="pelican-subsections-0">1) while readの使い方</span></h2>
+<h2>1) while readの使い方</h2>
 <p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
 <div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
 </code></pre></div>
@@ -227,7 +227,7 @@ Rを呼び出さずに完結できたりします。</p>
 
 <p>を書きます。
 読みにくいですよねー。</p>
-<h2><span id="pelican-subsections-1">2) evalの使い方</span></h2>
+<h2>2) evalの使い方</h2>
 <p>今回の<code>mat_$i_$j</code>のように、変数名に変数<code>($i,$j)</code>を使って値を格納する時には、<code>eval</code>を使います。
 <code>eval</code>は、その後に書いた文をもってきて、bashスクリプトとして評価（evaluate）します。</p>
 <p>なので、<code>i=2, j=3</code> として、</p>
@@ -431,6 +431,11 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">7/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/6</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/07/officialize_accept.html"><span class="recent-posts-title">医学部公認団体として正式承認されました</span></a></td>
@@ -465,11 +470,6 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/youtube_api.html"><span class="recent-posts-title">やさしいYouTube APIのはなし</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -483,34 +483,22 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         論文まとめ
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-0">
       <a href="../../../tag/python.html">
           <span class="badge badge-primary">17</span>
         Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-1">
@@ -519,40 +507,10 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         勉強会
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -562,15 +520,63 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>

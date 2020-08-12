@@ -174,14 +174,14 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p><strong>Velocyto</strong> とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。</p>
-<h2><span id="pelican-subsections-0">RNAseq でイントロン??</span></h2>
+<h2>RNAseq でイントロン??</h2>
 <p>RNAseq においては totalRNA のうち 99%ともいわれる rRNA を除き mRNA のみを効率よくSequence する目的で、Poly(A)で成熟 mRNA を濃縮することがしばしば行われています。しかし、そのようなサンプルにおいても、実際の Sequence 結果ではイントロンにあたる配列が読まれてくることが指摘されており、この原因は Poly(A)類似モチーフの存在であると推察されています。</p>
-<h2><span id="pelican-subsections-1">結果の例</span></h2>
+<h2>結果の例</h2>
 <p>概日時間の検討ではとてもきれいな結果が得られています。関連遺伝子のunspliced(u) とspliced(s)を観察していくと、circadian timeの経過とともにu がs に変化していきます。</p>
 <p>また、未分化細胞からの分化の方向性を見積もることも可能と報告されています。マウスのオリゴデンドロサイト前駆体細胞がオリゴデンドロサイトへ分化する方向に Velocityを持っていることが示されました。</p>
-<h2><span id="pelican-subsections-2">実践編</span></h2>
+<h2>実践編</h2>
 <p>Developer の WEB(<a href="http://velocyto.org/">http://velocyto.org/</a>)の tutorial を参考に手持ちの BAM で挑戦します。R 用と Python 用とあるようですが、もちろん Python です。二部構成となっており、前半はCommand lineでBAMファイルから.loomファイルを作成、後半では作成した.loomファイルから解析を行うとのことです。</p>
-<h3><span id="pelican-subsections-3">準備</span></h3>
+<h3>準備</h3>
 <div class="highlight"><pre><span></span><code>$ conda install numpy scipy cython numba matplotlib scikit-learn h5py click
 $ pip install velocyto
 $ pip install scanpy
@@ -192,10 +192,10 @@ $ pip install -U scvelo
 <p>※pysam は Windows 環境下では仮想環境下であってもインストールできないそうです。
 - <a href="https://qiita.com/chaoi/items/6d7702cd70430610f844">https://qiita.com/chaoi/items/6d7702cd70430610f844</a></p>
 <p>これに気付かず数日はまりました。。</p>
-<h3><span id="pelican-subsections-4">Genome annotation file のダウンロード</span></h3>
+<h3>Genome annotation file のダウンロード</h3>
 <p>GENCODE のサイトから GTF ファイルをダウンロードし、適当な場所に保存して
 gunzip。</p>
-<h3><span id="pelican-subsections-5">実行</span></h3>
+<h3>実行</h3>
 <p>Sequence の手法ごとに Command を選べます。今回は smart-seq2 で行います。</p>
 <div class="highlight"><pre><span></span><code>$ velocyto run-smartseq2 -e hogehoge /*.bam annotation.gtf
 </code></pre></div>
@@ -212,39 +212,39 @@ gunzip。</p>
 </ul>
 <p>サンプルごとに BAM があることを想定して複数ファイルを*で受け付けてくれます。BAM と GTF ファイルは必須です。なお、BAM の代わりに SAM を入れてもエラーは吐かないようです。これにより、hogehoge.loom ファイルが得られました。この中には、各分子のスプライシング状態が格納されています。</p>
 <p>※TOPHAT でアラインメントしたデータはそのままではうまく行かないようです。なので、TopHat-Recondition で unmap のデータを拾ってくればいけるかもしれません。今回はHISAT2 でアラインメントし直してから velocyto をかけ、改めてhogehoge.loom ファイルを得ました。</p>
-<h3><span id="pelican-subsections-6">描画</span></h3>
+<h3>描画</h3>
 <p>Scanpy と組み合わせて使用するために scvelo を用いました。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
 <span class="kn">import</span> <span class="nn">scvelo</span> <span class="k">as</span> <span class="nn">scv</span>
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-7">データ読み込み</span></h3>
+<h3>データ読み込み</h3>
 <div class="highlight"><pre><span></span><code><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;hogehoge.loom&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-8">次元圧縮</span></h3>
+<h3>次元圧縮</h3>
 <div class="highlight"><pre><span></span><code><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-9">速度計算</span></h3>
+<h3>速度計算</h3>
 <div class="highlight"><pre><span></span><code><span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">moments</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 <span class="n">scv</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">velocity</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-10">描画</span></h3>
+<h3>描画</h3>
 <div class="highlight"><pre><span></span><code><span class="n">scv</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">velocity_embedding</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p><img alt="1" src="../../../blog/2019/03/images/velocyte_figs/picture1.png"></p>
+<p><img alt="1" src="/previews/refs/heads/page/supporters/blog/2019/03/images/velocyte_figs/picture1.png"></p>
 <p>※それぞれの細胞における特定遺伝子の発現レベルを色で表したり、PCA 以外の次元圧縮法を用いることもできます。この場合は tSNE のほうがきれいに見えるようです。パラメータはたくさん用意されているので、各データセットで最適な条件を検討する必要があるでしょう。</p>
-<p><img alt="2" src="../../../blog/2019/03/images/velocyte_figs/picture2.png">
-<img alt="3" src="../../../blog/2019/03/images/velocyte_figs/picture3.png"></p>
-<h2><span id="pelican-subsections-11">参考文献</span></h2>
+<p><img alt="2" src="/previews/refs/heads/page/supporters/blog/2019/03/images/velocyte_figs/picture2.png">
+<img alt="3" src="/previews/refs/heads/page/supporters/blog/2019/03/images/velocyte_figs/picture3.png"></p>
+<h2>参考文献</h2>
 <ul>
 <li><a href="https://www.nature.com/articles/s41586-018-0414-6">https://www.nature.com/articles/s41586-018-0414-6</a></li>
 <li><a href="http://velocyto.org/velocyto.py/index.html">http://velocyto.org/velocyto.py/index.html</a></li>
@@ -336,6 +336,11 @@ gunzip。</p>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">7/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/6</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/07/officialize_accept.html"><span class="recent-posts-title">医学部公認団体として正式承認されました</span></a></td>
@@ -370,11 +375,6 @@ gunzip。</p>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/youtube_api.html"><span class="recent-posts-title">やさしいYouTube APIのはなし</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -388,34 +388,22 @@ gunzip。</p>
         論文まとめ
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-0">
       <a href="../../../tag/python.html">
           <span class="badge badge-primary">17</span>
         Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
       </a>
     </span>
     <span class="tag-1">
@@ -424,40 +412,10 @@ gunzip。</p>
         勉強会
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -467,15 +425,63 @@ gunzip。</p>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>
