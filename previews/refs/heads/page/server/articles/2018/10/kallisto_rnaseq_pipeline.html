@@ -183,13 +183,13 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
-<h2><span id="pelican-subsections-0">リファレンスのダウンロード</span></h2>
+<h2>リファレンスのダウンロード</h2>
 <p>kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は<a href="https://www.gencodegenes.org/">GenCodeGenes</a>のヒトtranscript sequencesのデータを用いました。</p>
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
 </code></pre></div>
 
 
-<h2><span id="pelican-subsections-1">FASTQファイルをダウンロードする場合</span></h2>
+<h2>FASTQファイルをダウンロードする場合</h2>
 <p><a href="https://www.ebi.ac.uk/arrayexpress/">ArrayExpress</a>からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。</p>
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
 $ gunzip ERR266335.fastq.gz
@@ -197,11 +197,11 @@ $ gunzip ERR266335.fastq.gz
 
 
 <p>ERR266349 ERR266351 ERR266338 ERR266347についても同様に！</p>
-<h3><span id="pelican-subsections-2">参照：</span></h3>
+<h3>参照：</h3>
 <ul>
 <li>次世代シークエンサーDRY解析教本 (細胞工学別冊)</li>
 </ul>
-<h2><span id="pelican-subsections-3">SRAファイルをダウンロードする場合</span></h2>
+<h2>SRAファイルをダウンロードする場合</h2>
 <p>DDBJの<a href="https://ddbj.nig.ac.jp/DRASearch/">DRA search</a>からSRAファイルをダウンロード、SRAファイルをFASTQに変換する。pfast-dumpで .sraをペアエンド.fastqに変換。 (<strong>kallistoはsraファイルを扱えない</strong> ので、pfastq-dumpでfastqに変換する必要がある。）</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># download sra files.</span>
@@ -223,7 +223,7 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <li><code>-O</code> : 出力ファイル</li>
 </ul>
 <p>今回はSRAファイルのダウンロードとpfastq-dumpを使ってsraをfastqに変換する処理をシェルスクリプトを使って行いました。共通項のあるかつ時間のかかるterminalでの処理はシェルスクリプトを使うと便利です。</p>
-<h3><span id="pelican-subsections-4">SRAファイルとは？</span></h3>
+<h3>SRAファイルとは？</h3>
 <p>Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。<a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration">INSDC</a>、<a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EBI</a>、<a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan">DDBJ</a>が共同で運営しているデータベース<a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive">SRA</a>に保存してある。</p>
 <div class="highlight"><pre><span></span><code>$ less ERR266335.sra
 </code></pre></div>
@@ -231,9 +231,9 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 
 <p>バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
 <img alt="1" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"></p>
-<h3><span id="pelican-subsections-5">pfastq-dumpとは？</span></h3>
+<h3>pfastq-dumpとは？</h3>
 <p>fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。<a href="https://github.com/inutanoOhta">Ohta</a>さんが公開されている。</p>
-<h2><span id="pelican-subsections-6">Fastqc</span></h2>
+<h2>Fastqc</h2>
 <p>クオリティチェック。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">id</span><span class="o">=(</span>ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351<span class="o">)</span>
@@ -266,11 +266,11 @@ fastqcのオプションについて</p>
 
 
 <p><img alt="5" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
-<h3><span id="pelican-subsections-7">参照：</span></h3>
+<h3>参照：</h3>
 <ul>
 <li>次世代シークエンサーDRY解析教本</li>
 </ul>
-<h2><span id="pelican-subsections-8">Multiqc</span></h2>
+<h2>Multiqc</h2>
 <p>クオリティチェックの結果、ログファイルなどをまとめていい感じにレポートにしてくれるツール。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># After analysis, run Multiqc by commands below. You can create report.</span>
 $ multiqc .
@@ -282,11 +282,11 @@ $ open multiqc_report.html
 <p><img alt="6" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"></p>
 <p>複数のリードのクオリティチェックの結果を同時に表示できる。</p>
 <p><img alt="7" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"></p>
-<h3><span id="pelican-subsections-9">参照：</span></h3>
+<h3>参照：</h3>
 <ul>
 <li><a href="https://multiqc.info/">https://multiqc.info/</a></li>
 </ul>
-<h2><span id="pelican-subsections-10">Trimmomatic</span></h2>
+<h2>Trimmomatic</h2>
 <p>Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。</p>
 <div class="highlight"><pre><span></span><code>$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 </code></pre></div>
@@ -296,16 +296,16 @@ $ open multiqc_report.html
 <ul>
 <li>ILLUMINACLIP : 除去するアダプター配列をFASTA形式で与える。そのあとにミスマッチ許容数、palindrome clip threshold、simple clip thresholdの順に指定していく。</li>
 </ul>
-<h3><span id="pelican-subsections-11">参照</span></h3>
+<h3>参照</h3>
 <ul>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html">https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html</a></li>
 <li><a href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></li>
 </ul>
-<h2><span id="pelican-subsections-12">Single-end, Pair-endってなに？？</span></h2>
+<h2>Single-end, Pair-endってなに？？</h2>
 <p><img alt="8" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"></p>
 <p><img alt="9" src="/previews/refs/heads/page/server/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"></p>
 <p>シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。</p>
-<h2><span id="pelican-subsections-13">Kallisto</span></h2>
+<h2>Kallisto</h2>
 <p>RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。</p>
 <p>kallisto や Salmon を利用して定量したデータを使って、edgeR や DESeq2 などで発現量の群間比較を行うことができる。この際に、Bioconductor の tximport パッケージを利用することで、簡単に kallisto/Salmon の定量結果を edgeR/DESEq2 に渡すことができる。</p>
 <div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
@@ -338,17 +338,17 @@ kallisto/kallisto quant -i hsGRCh38_kallisto -o <span class="si">${</span><span 
 
 
 <p>abundance.tsv, target_id, length, eff_length, est_counts, tpm</p>
-<h3><span id="pelican-subsections-14">参照</span></h3>
+<h3>参照</h3>
 <ul>
 <li><a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto">https://scilifelab.github.io/courses/rnaseq/labs/kallisto</a></li>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html">https://bi.biopapyrus.jp/rnaseq/mapping/kallisto/kallisto-single-end-reads.html</a></li>
 <li><a href="http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503">http://kazumaxneo.hatenablog.com/entry/2018/07/14/180503</a></li>
 <li><a href="https://scilifelab.github.io/courses/rnaseq/labs/kallisto">https://scilifelab.github.io/courses/rnaseq/labs/kallisto</a></li>
 </ul>
-<h2><span id="pelican-subsections-15">FPKM, RPKM, TPMとは？</span></h2>
+<h2>FPKM, RPKM, TPMとは？</h2>
 <p>転写産物にマッピングされるリードの数は、サンプル中の総リード数（sequence depth）と転写産物の長さに影響されるので、RNA-Seq データから得られたリードカウントデータは、そのまま転写産物（遺伝子）発現量を表すわけではない。そのため、RNA-Seq データから得られるリードカウントデータを転写産物発現量として利用するには、総リード数や転写産物長で補正する必要がある。</p>
 <p>補正計算として、かつてはFPKM,RPKMが用いられてきたが、現在ではかわりにTPMが用いられている。TPMではサンプルごとの値の合計が同じになるので、比較する目的のためにはTPMの方が都合が良い。</p>
-<h3><span id="pelican-subsections-16">FPKM/RPKM の計算</span></h3>
+<h3>FPKM/RPKM の計算</h3>
 <ul>
 <li>FPKM : Fragments Per Kilobase of exon per Killion reads Mapped</li>
 <li>RPKM : Reads Per Kilobase of exon per Million mapped reads
@@ -360,7 +360,7 @@ $$</div>
 <li><span class="math">\(Y_i\)</span>: そのうち転写産物 <span class="math">\(i\)</span> の領域にマッピングされたリード数</li>
 <li><span class="math">\(L_i\)</span>: 転写産物 <span class="math">\(i\)</span> の長さ</li>
 </ul>
-<h3><span id="pelican-subsections-17">TPMの計算</span></h3>
+<h3>TPMの計算</h3>
 <ul>
 <li>TPM : Transcripts Per Kilobase Million</li>
 </ul>
@@ -376,7 +376,7 @@ $$</div>
 TPM_t = T_t \frac{10^6}{\sum_t T_t}
 $$</div>
 <p>転写産物長による補正後の総リードカウントが 100 万となるように補正</p>
-<h3><span id="pelican-subsections-18">参照</span></h3>
+<h3>参照</h3>
 <ul>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/fpkm.html">bipapyrus fpkm</a></li>
 <li><a href="https://bi.biopapyrus.jp/rnaseq/analysis/normalizaiton/tpm.html">bipapyrus tpm</a></li>
@@ -579,22 +579,16 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -604,27 +598,33 @@ $$</div>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Simulation
       </a>
     </span>
     <span class="tag-4">
@@ -634,27 +634,21 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
       </a>
     </span>
     <span class="tag-1">
@@ -664,21 +658,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
+      <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
-        勉強会
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Unix
       </a>
     </span>
 </p>
@@ -688,7 +688,7 @@ $$</div>
 <div style="display:flex; justify-content:center;">
 <ul style="list-style:none; padding-left:0;">
   <li>
-    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/page/server/donations.html">ご寄付を頂いた方々</a>)</span>
   </li>
 </ul>
 </div>

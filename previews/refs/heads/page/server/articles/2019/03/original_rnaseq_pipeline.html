@@ -186,7 +186,7 @@
 <p><strong><a href="https://github.com/yyoshiaki/auto_counttable_maker">https://github.com/yyoshiaki/auto_counttable_maker</a></strong></p>
 <p>なお、以下のイラストはikraのアイコンとなっています。</p>
 <p><img src="/previews/refs/heads/page/server/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra.png" width="250px"> </p>
-<h2><span id="pelican-subsections-0">特徴</span></h2>
+<h2>特徴</h2>
 <p>今回、自分たちの使いやすさを考えてツールの設計を行いました。他サンプルのファイル名の管理など、煩わしいところをすべて自動化することで、ミスも減らせると思います。</p>
 <ol>
 <li>準備するのは簡単なCSVファイル（テーブルだけ）で、極力パラメーターを減らした。</li>
@@ -195,7 +195,7 @@
 <li>outputは<a href="http://bioinformatics.sdstate.edu/idep/">idep</a>に対応。</li>
 <li>もちろんマルチスレッド対応。</li>
 </ol>
-<h2><span id="pelican-subsections-1">使い方</span></h2>
+<h2>使い方</h2>
 <p>必要なテーブルは</p>
 <table>
 <thead>
@@ -241,7 +241,7 @@
 
 
 <p>なお、自前のfastq filesからの実行はv1.1で載せようと思っています。また、出力はscaled TPMを採用。(Soneson, C., Love, M. I. &amp; Robinson, M. D. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research 4, 1521 (2015).)。</p>
-<h2><span id="pelican-subsections-2">pipelineの構成</span></h2>
+<h2>pipelineの構成</h2>
 <ol>
 <li>fasterq-dump : シーケンスデータの取得</li>
 <li>fastqc : QC</li>
@@ -251,11 +251,11 @@
 <li>tximport : 遺伝子テーブルの生成</li>
 </ol>
 <p>となっています。各ツールの説明は省きますが、今時のツールの選定になっていると思います。</p>
-<h2><span id="pelican-subsections-3">idep</span></h2>
+<h2>idep</h2>
 <p>本ツールは<a href="http://bioinformatics.sdstate.edu/idep/">idep</a>を意識した設計になっています。idepはRNA-seqの解析をinteractiveに行えるプラットフォームで、Differential expressed genes(DEGs)の検出だけではなく、遺伝子、サンプルのクラスタリング、パスウェイ解析、可視化などが行えます。idepについては以下がとても参考になります。</p>
 <p><a href="http://kazumaxneo.hatenablog.com/entry/2018/12/29/153838">macでインフォマティクス : インタラクティブなRNA seq解析webアプリケーション iDEP</a></p>
 <p><img alt="2" src="/previews/refs/heads/page/server/blog/2019/03/images/original_rnaseq_pipeline_figs/screenshot-from-2019-03-19-23-14-31.png"></p>
-<h2><span id="pelican-subsections-4">githubを用いたチーム開発</span></h2>
+<h2>githubを用いたチーム開発</h2>
 <p>今回、githubを用いてチーム開発を行いました。githubはエンジニアの間では当たり前のツールで、チームでのソフト開発によく用いられます。bioinformatics界隈でチーム開発を経験できることは意外に少なく、非常にいい経験になりました。</p>
 <p><img alt="3" src="/previews/refs/heads/page/server/blog/2019/03/images/original_rnaseq_pipeline_figs/ikra_git.png"></p>
 <p>雑多にはなりましたが、阪医Python会bioinformaticsチームの成果をアナウンスさせていただきました。完成までには3ヶ月ほどを要し、各人のアイデアや努力が詰まっております。今後もどんどん開発を進めていこうと思います。また、皆様のissue, Pull Requestもお待ちしております。</p>
@@ -392,22 +392,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -417,27 +411,33 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Simulation
       </a>
     </span>
     <span class="tag-4">
@@ -447,27 +447,21 @@
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
       </a>
     </span>
     <span class="tag-1">
@@ -477,21 +471,27 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
+      <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
-        勉強会
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Unix
       </a>
     </span>
 </p>
@@ -501,7 +501,7 @@
 <div style="display:flex; justify-content:center;">
 <ul style="list-style:none; padding-left:0;">
   <li>
-    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/page/server/donations.html">ご寄付を頂いた方々</a>)</span>
   </li>
 </ul>
 </div>

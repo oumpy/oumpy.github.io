@@ -185,20 +185,20 @@
 	<p>Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！</p>
 <p>これを読めばそんなあなたも簡単にいい感じのグラフがかける！</p>
 <p>この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、複数グラフ表示が簡単にできるラッパーであるholoviewsの簡単な解説をします。</p>
-<h2><span id="pelican-subsections-0">Pythonの可視化ライブラリ</span></h2>
-<h3><span id="pelican-subsections-1">matplotlib：<u><a href="https://seaborn.pydata.org/">https://matplotlib.org/</a></u>(公式)</span></h3>
+<h2>Pythonの可視化ライブラリ</h2>
+<h3>matplotlib：<u><a href="https://seaborn.pydata.org/">https://matplotlib.org/</a></u>(公式)</h3>
 <p>定番のmatplotlibです。まずはギャラリー ( <u><a href="https://matplotlib.org/gallery/index.html">https://matplotlib.org/gallery/index.html</a></u>)でいろいろなグラフを見てみましょう。グラフがたくさん並んでいて楽しいですね！</p>
-<h3><span id="pelican-subsections-2">seaborn：<u><a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></u>(公式)</span></h3>
+<h3>seaborn：<u><a href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></u>(公式)</h3>
 <p>matplotlibをベースにしたseabornです。こちらもギャラリー(<u><a href="https://seaborn.pydata.org/examples/index.html">https://seaborn.pydata.org/examples/index.htm</a><a href="https://seaborn.pydata.org/examples/index.html">l</a></u>)を見てみましょう。ヒートマップがおしゃれですね！</p>
-<h3><span id="pelican-subsections-3">pandas：<u><a href="https://pandas.pydata.org/index.html">https://pandas.pydata.org/index.html</a></u>(公式)</span></h3>
+<h3>pandas：<u><a href="https://pandas.pydata.org/index.html">https://pandas.pydata.org/index.html</a></u>(公式)</h3>
 <p>表計算で便利なpandasです。DataFrame形式のデータをpandas.DataFrame.plot(<u><a href="http://pandas.pydata.org/pandas-docs/stable/visualization.html">http://pandas.pydata.org/pandas-docs/stable/visualization.html</a></u>)でグラフを書くのが一番手間がかからない気がします。bar(棒グラフ)やhistogramやscatter(散布図)を作るならこれで十分なことが多いです。DataFrameの.describe (<u><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html</a></u>)で統計量が簡単に計算できるので、グラフがあっているかの確認も一連の流れでできます。</p>
-<h3><span id="pelican-subsections-4">plotly：<u><a href="https://plot.ly/">https://plot.ly/</a></u>(公式)</span></h3>
+<h3>plotly：<u><a href="https://plot.ly/">https://plot.ly/</a></u>(公式)</h3>
 <p>インタラクティブに動かせるplotlyです。<u><a href="https://plot.ly/python/">https://plot.ly/python/</a></u>(Python用) を見てみると、なんとグラフを動かせます！楽しい！Kaggleでもよく見ます。データ構造を調べるのに便利だからかもしれないですね。(例<u><a href="https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=Weekly-Kernel-Awards">https://www.kaggle.com/andresionek/what-makes-a-kaggler-valuable?utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=Weekly-Kernel-Awards</a></u>) Dashと組み合わせると ( <u><a href="https://plot.ly/products/dash/">https://plot.ly/products/dash/</a></u>) 簡単にWebアプリにできます。</p>
-<h3><span id="pelican-subsections-5">holoview：<u><a href="http://holoviews.org/">http://holoviews.org/</a></u>(公式)</span></h3>
+<h3>holoview：<u><a href="http://holoviews.org/">http://holoviews.org/</a></u>(公式)</h3>
 <p>Pythonの可視化ツールはHoloViewsが標準になるかもしれない(<u><a href="https://qiita.com/driller/items/53be86cea3c3201e7e0f">https://qiita.com/driller/items/53be86cea3c3201e7e0f</a></u>)とまで言われるholoviewは、matplotlibやplotly、bokehを簡単に使えるようにするラッパーです。特筆すべき機能として、introduction(<u><a href="http://holoviews.org/getting_started/Introduction.html">http://holoviews.org/getting_started/Introduction.html</a></u>)をみるとわかるのですが、複数グラフ表示は足し算(例：<code>Compositional Layouts layout =scatter +hv.Histogram</code>)、オーバーレイは掛け算(例：<code>Compositional Overlays image +image*points</code>)で定義できとてもシンプルに書くことができます。</p>
 <p>可視化のまとめ(kaggle：<u><a href="https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial">https://www.kaggle.com/maheshdadhich/strength-of-visualization-python-visuals-tutorial</a></u>)もよくまとまっていて非常に勉強になります。</p>
 <p>そのほかにも、tensorflowの embedding <u><a href="https://www.tensorflow.org/guide/embedding">https://www.tensorflow.org/guide/embedding</a></u>から Mnist や Word2Vecのデモ <u><a href="http://projector.tensorflow.org/">http://projector.tensorflow.org/</a></u>(重いかも) や <u><a href="https://distill.pub/">https://distill.pub/</a></u>も動かしてみると楽しいです！</p>
-<h2><span id="pelican-subsections-6">まとめ</span></h2>
+<h2>まとめ</h2>
 <ul>
 <li>holoview最強説(plotlyも使えるラッパーなので)</li>
 <li>楽にしたいならpandasのplot、動かしたければplotly！</li>
@@ -335,22 +335,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -360,27 +354,33 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Simulation
       </a>
     </span>
     <span class="tag-4">
@@ -390,27 +390,21 @@
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
         検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
       </a>
     </span>
     <span class="tag-1">
@@ -420,21 +414,27 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
+      <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
-        勉強会
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Unix
       </a>
     </span>
 </p>
@@ -444,7 +444,7 @@
 <div style="display:flex; justify-content:center;">
 <ul style="list-style:none; padding-left:0;">
   <li>
-    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/page/server/donations.html">ご寄付を頂いた方々</a>)</span>
   </li>
 </ul>
 </div>
