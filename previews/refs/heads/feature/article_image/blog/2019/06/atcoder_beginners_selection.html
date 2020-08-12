@@ -183,25 +183,25 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>プログラミング初心者の加藤です。勉強会の時に、とりあえずやってみたらいいよと言われたので、よく分からないままやってみました。その概要と雑感です。</p>
-<h2><span id="pelican-subsections-0">AtCoderとは？</span></h2>
+<h2>AtCoderとは？</h2>
 <p>まず始めにAtCoderの説明から。AtCoderとは、オンライン上で競技プログラミングのコンテストを提供しているサイトのことです(<a href="https://atcoder.jp/?lang=ja">https://atcoder.jp/?lang=ja</a>)。  </p>
 <p>定期的にコンテストを主催していたり、企業から(広告や人材獲得戦略の一環として) コンテストが開かれることもあります。コンテストに参加する以外にも、コンテストで使用された問題を解くこともでき、初心者でも、「プログラミング勉強したいけど本をなぞるだけじゃつまらない！」っていう僕みたいなわがままな人にはちょうどいいモチベーションアッパーになると思います。</p>
-<h2><span id="pelican-subsections-1">AtCoder Beginners Selectionを解こう！</span></h2>
+<h2>AtCoder Beginners Selectionを解こう！</h2>
 <p>チュートリアルを読むと、「何をすれば良いか分からない人は、<a href="https://atcoder.jp/contests/abs">AtCoder Beginners Selection</a>から、まずいくつかの問題を解いてみましょう。」と書いてあります。ページに飛んでみると、さらに、「このコンテストは、『AtCoderに登録したけど何をしていいか分からない・・・！』という人に向けて作られた初心者向け問題集です。」とも書いてます。</p>
 <p>何も分かってない子羊ちゃんは素直に優しい言葉に付いて行くのでした。 以下いくつかの問題をピックアップしてみます。</p>
-<h3><span id="pelican-subsections-2">問題０：はじめてのあっとこーだー</span></h3>
+<h3>問題０：はじめてのあっとこーだー</h3>
 <p>わざわざ平仮名で表記しちゃってまあどんな接待をしてくれるのやら...。問題文を読みます。</p>
 <hr>
 
-<h4><span id="pelican-subsections-3">問題文</span></h4>
+<h4>問題文</h4>
 <p>高橋君はデータの加工が行いたいです。
 整数 <span class="math">\(a,b,c\)</span>と、文字列 <span class="math">\(s\)</span> が与えられます。整数 <span class="math">\(a+b+c\)</span> の計算結果と、文字列 <span class="math">\(s\)</span> を並べて表示しなさい。</p>
-<h4><span id="pelican-subsections-4">制約</span></h4>
+<h4>制約</h4>
 <ul>
 <li><span class="math">\(1\leq a, b, c \leq 1,000\)</span></li>
 <li><span class="math">\(1\leq | s | \leq 100\)</span></li>
 </ul>
-<h4><span id="pelican-subsections-5">入力</span></h4>
+<h4>入力</h4>
 <p>入力は次の形式で与えられる。
 </p>
 <div class="math">$$
@@ -211,7 +211,7 @@
 &amp;s
 \end{align*}
 $$</div>
-<h4><span id="pelican-subsections-6">出力</span></h4>
+<h4>出力</h4>
 <p><span class="math">\(a+b+c\)</span>と<span class="math">\(s\)</span>を空白区切りで1行に出力せよ。</p>
 <hr>
 
@@ -236,14 +236,14 @@ $$</div>
 
 <p>いまさらですが言語はPython3です。 なるほど、入力が複数行に分かれているのは文字列にエンターが含まれているからなのか、input１回だけで全て読み込めるのではないのだな。行が分かれているというのは本質的ではなく、入力をそのまま表示した結果なのか。いつものインタプリタと同じだ。というのがこの問題で一番印象に残った事です。</p>
 <p>map とかフォーマットとか、多分見るのが２ヶ月ぶりとかで、ああそういえばそんなのあったな状態です。</p>
-<h3><span id="pelican-subsections-7">問題４：Coins</span></h3>
+<h3>問題４：Coins</h3>
 <p>コンピューターっぽくて印象的な問題です。よくみる整数問題ですね。これは簡単に解けると思いきや...？こういう問題は受験数学的にはパパッと場合分けが浮かびますが、その条件分けを実装するのは面倒です。そう、受験問題では入力が１つだけですが、競技プログラミングでは複数の入力がなされるため、全ての場合分けに対応しないといけません。できないことはないですが、正直言ってかなり面倒です。</p>
 <hr>
 
-<h4><span id="pelican-subsections-8">問題文</span></h4>
+<h4>問題文</h4>
 <p>あなたは、500円玉を<span class="math">\(A\)</span>枚、100円玉を<span class="math">\(B\)</span>枚、50円玉を<span class="math">\(C\)</span>枚持っています。これらの硬貨の中から何枚かを選び、合計金額をちょうど<span class="math">\(X\)</span>円にする方法は何通りありますか。
 同じ種類の硬貨同士は区別できません。２通りの硬貨の選び方は、ある種類の硬貨についてその硬貨を選ぶ枚数が異なるとき区別されます。</p>
-<h4><span id="pelican-subsections-9">制約</span></h4>
+<h4>制約</h4>
 <ul>
 <li><span class="math">\(0 \leq A, B, C \leq 50\)</span></li>
 <li><span class="math">\(A+B+C \geq 1\)</span></li>
@@ -251,7 +251,7 @@ $$</div>
 <li><span class="math">\(A,B,C\)</span> は整数である</li>
 <li><span class="math">\(X\)</span>は50の倍数である</li>
 </ul>
-<h4><span id="pelican-subsections-10">入力</span></h4>
+<h4>入力</h4>
 <p>入力は以下の形式で標準入力から与えられる。
 </p>
 <div class="math">$$
@@ -262,7 +262,7 @@ $$</div>
 　&amp;X
 \end{align*}
 $$</div>
-<h4><span id="pelican-subsections-11">出力</span></h4>
+<h4>出力</h4>
 <p>硬貨を選ぶ方法の個数を出力せよ。
 <hr></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
@@ -279,22 +279,22 @@ $$</div>
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)</p>
 <p>しばらく場合分けを考えていましたが、ギブアップして答えを検索。ABSは有名らしく色んな人が色んな言語で解答をあげています。
 このコードはつまるところ、総当たりをして条件を満たすものをカウントしてるんですね。なるほど！ヒトが計算するならこんな面倒なことはしないけれどコンピューターならできる。はっとしました。</p>
-<h3><span id="pelican-subsections-12">問題７：Kagami Mochi</span></h3>
+<h3>問題７：Kagami Mochi</h3>
 <hr>
 
-<h4><span id="pelican-subsections-13">問題文</span></h4>
+<h4>問題文</h4>
 <p><span class="math">\(X\)</span>段重ねの鏡餅(<span class="math">\(X\geq 1\)</span>) とは<span class="math">\(X\)</span>枚の円形の餅を縦に積み重ねたものであって、どの餅もその真下の餅より直径が小さい（一番下の餅を除く）もののことです。
 例えば、直径10、8、6センチメートルの餅をこの順に下から積み重ねると3段重ねの鏡餅になり、
 餅を一枚だけ置くと1段重ねの鏡餅になります。
 ダックスフンドのルンルンは<span class="math">\(N\)</span>枚の円形の餅を持っていて、そのうち<span class="math">\(i\)</span> 枚目の餅の直径は<span class="math">\(d_i\)</span>センチメートルです。これらの餅のうち一部または全部を使って鏡餅を作るとき、
 最大で何段重ねの鏡餅を作ることができるでしょうか。</p>
-<h4><span id="pelican-subsections-14">制約</span></h4>
+<h4>制約</h4>
 <ul>
 <li><span class="math">\(1 \leq N \leq 100\)</span></li>
 <li><span class="math">\(1 \leq d_i \leq 100\)</span></li>
 <li>入力値は全て整数である。</li>
 </ul>
-<h4><span id="pelican-subsections-15">入力</span></h4>
+<h4>入力</h4>
 <p>入力は以下の形式で標準入力から与えられる。
 </p>
 <div class="math">$$
@@ -305,11 +305,11 @@ $$</div>
 &amp;d_N
 \end{align*}
 $$</div>
-<h4><span id="pelican-subsections-16">出力</span></h4>
+<h4>出力</h4>
 <p>作ることのできる鏡餅の最大の段数を出力せよ。</p>
 <hr>
 
-<h4><span id="pelican-subsections-17">普通の解法</span></h4>
+<h4>普通の解法</h4>
 <div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]))))</span>
 </code></pre></div>
@@ -317,7 +317,7 @@ $$</div>
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
 入力をリストにしてからセットにして要素数を数える。当然ですね。僕はセットの存在を思い出せなかったので、次のようにしました。</p>
-<h4><span id="pelican-subsections-18">僕の解法</span></h4>
+<h4>僕の解法</h4>
 <p>ソートしてからリストのままでなんとか数えあげました。明らかに汚いですね。長いですし、n=1で場合分けしてますし。こんな初心者じみた答えでも合ってたらいいんです。</p>
 <div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="p">[</span><span class="nb">input</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])))</span>
@@ -330,28 +330,28 @@ $$</div>
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-19">問題９：Daydream</span></h3>
+<h3>問題９：Daydream</h3>
 <p>問題文の通りに、後ろから４単語のどれかを検索していくのが一番わかりやすいと思われます。が、わざわざeraseという単語を選んできたということは、こういうことでしょう。</p>
 <hr>
 
-<h4><span id="pelican-subsections-20">問題文</span></h4>
+<h4>問題文</h4>
 <p>英小文字からなる文字列<span class="math">\(S\)</span> が与えられます。 <span class="math">\(T\)</span>が空文字列である状態から始め、
 以下の操作を好きな回数繰り返すことで <span class="math">\(S=T\)</span> とすることができるか判定してください。
 - <span class="math">\(T\)</span>の末尾に<code>dream dreamer erase eraser</code> のいずれかを追加する。</p>
-<h4><span id="pelican-subsections-21">制約</span></h4>
+<h4>制約</h4>
 <ul>
 <li><span class="math">\(1\leq |S|\leq 10^5\)</span></li>
 <li><span class="math">\(S\)</span>は英小文字からなる。</li>
 </ul>
-<h4><span id="pelican-subsections-22">入力</span></h4>
+<h4>入力</h4>
 <p>入力は以下の形式で標準入力から与えられる。
 </p>
 <div class="math">$$S$$</div>
-<h4><span id="pelican-subsections-23">出力</span></h4>
+<h4>出力</h4>
 <p><span class="math">\(S=T\)</span>とすることができる場合<code>'YES'</code>を、そうでない場合<code>'NO'</code>を出力せよ。</p>
 <hr>
 
-<h4><span id="pelican-subsections-24">僕の解法</span></h4>
+<h4>僕の解法</h4>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
@@ -367,7 +367,7 @@ $$</div>
 
 <p>文字列の後ろからだけでなく、途中から抜いても、抜く単語の順番をうまく決めれば問題ないはずです。<br>
 変数をいちいち置いているのが恥ずかしいですが、通ればいいんです。  </p>
-<h4><span id="pelican-subsections-25">別解答</span></h4>
+<h4>別解答</h4>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;erase&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dreamer&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;dream&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">s</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
@@ -378,7 +378,7 @@ $$</div>
 
 <p>(<a href="http://delta114514.hatenablog.jp/entry/2018/03/15/014555">http://delta114514.hatenablog.jp/entry/2018/03/15/014555</a> より引用)<br>
 通ればなんでもいいはずなんですが、これはどうでしょう。この解答例だと、<code>'d erase r erase e erase a erase m'</code> という文字列(スペースは抜いてください)もYESになってしまうはずなのですが、試しにこのコードを提出してみるとacceptされました。(嘘解法なんでしょうか？にしては同じような答えを書いてる人が大勢います。)</p>
-<h2><span id="pelican-subsections-26">初学者にとっての競技プログラミング</span></h2>
+<h2>初学者にとっての競技プログラミング</h2>
 <p>解いてみた感想ですが、やはり考えるのは楽しいです。久々に数学的な頭の使い方をして懐かしさも覚えました。 また、何より、競技プログラミングは初学者にかなり便利なものだと感じました。ほんとに基礎的な部分しか学習してなくても解けるというのは取り組みやすいですし、結果がだせることは嬉しいです。過去問ならネット上にたくさん解説があるのでつまってもなんとかなります。</p>
 <p>他の人のコードを見ることができ、考え方の幅も広がります。上手く書けなかったコードを見直したり、異なった方針で書かれたコードを見るのはいい刺激になります。 特に基礎の文法に慣れるという点では一番だと思います。基礎を洗練させることは必ずこの先モジュールやパッケージを使っていくにしても、理解して扱えることができ役に立つことでしょう。</p>
 <p>もちろん万能ではありません。競技プログラミングの内容はプログラミング一般から見て偏っているらしいです。「競技プログラミング　デメリット」で調べると批判がたくさん出てきます。</p>
@@ -577,34 +577,10 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-1">
@@ -614,27 +590,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
       <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
         GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">1</span>
-        Unix
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -644,21 +620,15 @@ $$</div>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -668,15 +638,45 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-0">
       <a href="../../../tag/python.html">
           <span class="badge badge-primary">17</span>
         Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>
@@ -686,7 +686,7 @@ $$</div>
 <div style="display:flex; justify-content:center;">
 <ul style="list-style:none; padding-left:0;">
   <li>
-    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/feature/article_image/donations.html">ご寄付を頂いた方々</a>)</span>
   </li>
 </ul>
 </div>

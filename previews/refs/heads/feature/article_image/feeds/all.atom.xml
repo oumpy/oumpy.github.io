@@ -1113,14 +1113,14 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;"&gt;&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&lt;a class="anchor-link" href="#&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&lt;a class="anchor-link" href="#&amp;#34880;&amp;#31958;&amp;#20516;&amp;#12398;&amp;#25968;&amp;#29702;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1143,7 +1143,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;"&gt;&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;&lt;a class="anchor-link" href="#&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;&lt;a class="anchor-link" href="#&amp;#25968;&amp;#29702;&amp;#12514;&amp;#12487;&amp;#12523;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1184,7 +1184,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;&lt;a class="anchor-link" href="#&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;&lt;a class="anchor-link" href="#&amp;#24335;&amp;#12398;&amp;#35299;&amp;#35500;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1207,7 +1207,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;&lt;a class="anchor-link" href="#&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;&lt;a class="anchor-link" href="#&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#26465;&amp;#20214;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1254,7 +1254,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#12467;&amp;#12540;&amp;#12489;&lt;a class="anchor-link" href="#&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&lt;span id="pelican-subsections-5"&gt;&amp;#12467;&amp;#12540;&amp;#12489;&lt;a class="anchor-link" href="#&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1462,7 +1462,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;"&gt;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;&lt;a class="anchor-link" href="#&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;&lt;a class="anchor-link" href="#&amp;#12471;&amp;#12511;&amp;#12517;&amp;#12524;&amp;#12540;&amp;#12471;&amp;#12519;&amp;#12531;&amp;#12398;&amp;#32080;&amp;#26524;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1485,7 +1485,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;"&gt;&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#38555;&amp;#12399;&amp;#12393;&amp;#12358;&amp;#12394;&amp;#12398;&amp;#12363;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1541,7 +1541,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#32080;&amp;#35542;"&gt;&amp;#32080;&amp;#35542;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#35542;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#32080;&amp;#35542;"&gt;&lt;span id="pelican-subsections-8"&gt;&amp;#32080;&amp;#35542;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#35542;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1556,7 +1556,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#21442;&amp;#32771;"&gt;&amp;#21442;&amp;#32771;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#21442;&amp;#32771;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#21442;&amp;#32771;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1619,7 +1619,7 @@ Bolieの元論文です。&lt;/p&gt;
 }
 &lt;/script&gt;
 </content><category term="技術ブログ"></category><category term="Simulation"></category></entry><entry><title>医学部公認団体として正式承認されました</title><link href="/previews/refs/heads/feature/article_image/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-07-06:/previews/refs/heads/feature/article_image/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。  &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/feature/article_image/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。
-&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
 &lt;h2&gt;公認許可&lt;/h2&gt;
 &lt;p&gt;「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7/6) 付で交付されました。
 以下はその全文です。&lt;/p&gt;
@@ -2887,7 +2887,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Anscombe&amp;#12398;&amp;#20363;"&gt;Anscombe&amp;#12398;&amp;#20363;&lt;a class="anchor-link" href="#Anscombe&amp;#12398;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、このAnscombeの4つの例は簡単に描画することができます。&lt;/p&gt;
+&lt;h2 id="Anscombe&amp;#12398;&amp;#20363;"&gt;&lt;span id="pelican-subsections-0"&gt;Anscombe&amp;#12398;&amp;#20363;&lt;a class="anchor-link" href="#Anscombe&amp;#12398;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;平均や標準偏差、相関係数といった基本統計量は重要ですが、散布図の外観が全く異なっていてもこれらの基本統計量が(ほぼ)同一となることは起こりえます。このような例として&lt;strong&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%B3%E3%82%B9%E3%82%B3%E3%83%A0%E3%81%AE%E4%BE%8B"&gt;Anscombeの例 (Anscombe's quartet)&lt;/a&gt;&lt;/strong&gt; が有名です。Seabornを用いると、このAnscombeの4つの例は簡単に描画することができます。&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://seaborn.pydata.org/examples/anscombes_quartet.html"&gt;Anscombe’s quartet — seaborn 0.10.1 documentation&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -2963,7 +2963,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Same-Stats,-Different-Graphs"&gt;Same Stats, Different Graphs&lt;a class="anchor-link" href="#Same-Stats,-Different-Graphs"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;論文は&lt;/p&gt;
+&lt;h2 id="Same-Stats,-Different-Graphs"&gt;&lt;span id="pelican-subsections-1"&gt;Same Stats, Different Graphs&lt;a class="anchor-link" href="#Same-Stats,-Different-Graphs"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;論文は&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Matejka J, Fitzmaurice G. Same stats, different graphs: generating datasets with varied appearance and identical statistics through simulated annealing. &lt;em&gt;CHI'17 Conference proceedings&lt;/em&gt;. 2017.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;です。論文を紹介するWebサイト (&lt;a href="https://www.autodeskresearch.com/publications/samestats"&gt;The Datasaurus Dozen&lt;/a&gt;)は必見と言えるほど興味深い図が多いので先に見ることをお勧めします。&lt;/p&gt;
@@ -2975,7 +2975,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;まず使用するライブラリをimportします。&lt;/p&gt;
+&lt;h3 id="&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;まず使用するライブラリをimportします。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2999,7 +2999,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;変換元となるデータセットをランダムに生成します。&lt;/p&gt;
+&lt;h3 id="&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;変換元となるデータセットをランダムに生成します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3166,7 +3166,7 @@ Pearson correlation:  0.10235266202058498
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;今回は円とバツ印、縞模様に近づけます。それぞれの形を表す配列(&lt;code&gt;X_circle&lt;/code&gt;, &lt;code&gt;X_cross&lt;/code&gt;, &lt;code&gt;X_stripe&lt;/code&gt;)を作成します。このとき、点の数はデータセットのサンプルサイズと異なっていても問題はありません。&lt;/p&gt;
+&lt;h3 id="&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;今回は円とバツ印、縞模様に近づけます。それぞれの形を表す配列(&lt;code&gt;X_circle&lt;/code&gt;, &lt;code&gt;X_cross&lt;/code&gt;, &lt;code&gt;X_stripe&lt;/code&gt;)を作成します。このとき、点の数はデータセットのサンプルサイズと異なっていても問題はありません。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3255,7 +3255,7 @@ Pearson correlation:  0.10235266202058498
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;"&gt;&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;まず、データセット(&lt;code&gt;X&lt;/code&gt;)と目標図形 (&lt;code&gt;X_target&lt;/code&gt;)の間の距離を計算する関数を作成します。&lt;/p&gt;
+&lt;h3 id="&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;"&gt;&lt;span id="pelican-subsections-5"&gt;&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#21021;&amp;#26399;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#30446;&amp;#27161;&amp;#22259;&amp;#24418;&amp;#12395;&amp;#36817;&amp;#12389;&amp;#12369;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;まず、データセット(&lt;code&gt;X&lt;/code&gt;)と目標図形 (&lt;code&gt;X_target&lt;/code&gt;)の間の距離を計算する関数を作成します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3449,10 +3449,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="cc012ea6-819f-469a-ab58-7739b78e6ebe"&gt;&lt;/div&gt;
+&lt;div id="68078280-1ea4-47b3-91d0-fd9e8a268d8a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#cc012ea6-819f-469a-ab58-7739b78e6ebe');
+var element = $('#68078280-1ea4-47b3-91d0-fd9e8a268d8a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -3510,10 +3510,10 @@ var element = $('#cc012ea6-819f-469a-ab58-7739b78e6ebe');
 
  
  
-&lt;div id="fdcfbee3-f5a1-42dd-9bdc-eaab061cacf1"&gt;&lt;/div&gt;
+&lt;div id="b8c563e3-f4d8-43f6-9fa8-3c8bb00c7096"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fdcfbee3-f5a1-42dd-9bdc-eaab061cacf1');
+var element = $('#b8c563e3-f4d8-43f6-9fa8-3c8bb00c7096');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -3571,10 +3571,10 @@ var element = $('#fdcfbee3-f5a1-42dd-9bdc-eaab061cacf1');
 
  
  
-&lt;div id="8bfdfc3c-2245-4e9d-ab17-6aece07daa4b"&gt;&lt;/div&gt;
+&lt;div id="75e33b6b-fc8f-4f67-aa90-010b774f240b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8bfdfc3c-2245-4e9d-ab17-6aece07daa4b');
+var element = $('#75e33b6b-fc8f-4f67-aa90-010b774f240b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -3769,11 +3769,11 @@ var element = $('#8bfdfc3c-2245-4e9d-ab17-6aece07daa4b');
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;これまで見てきたように同じ基本統計量であっても生データの外観が全く異なる場合が数多く存在します。このような場合に重要なことは、当然ながら&lt;strong&gt;生データを確認する&lt;/strong&gt;ことです。また、グラフにするときは棒グラフや箱ひげ図を用いずに&lt;strong&gt;violin plot&lt;/strong&gt;や&lt;strong&gt;cloud plot&lt;/strong&gt;を用いる、あるいは&lt;strong&gt;生データと箱ひげ図等を組み合わせる&lt;/strong&gt;ことが重要です。&lt;/p&gt;
+&lt;h2 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#21487;&amp;#35222;&amp;#21270;&amp;#12395;&amp;#12362;&amp;#12356;&amp;#12390;&amp;#27880;&amp;#24847;&amp;#12377;&amp;#12427;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;これまで見てきたように同じ基本統計量であっても生データの外観が全く異なる場合が数多く存在します。このような場合に重要なことは、当然ながら&lt;strong&gt;生データを確認する&lt;/strong&gt;ことです。また、グラフにするときは棒グラフや箱ひげ図を用いずに&lt;strong&gt;violin plot&lt;/strong&gt;や&lt;strong&gt;cloud plot&lt;/strong&gt;を用いる、あるいは&lt;strong&gt;生データと箱ひげ図等を組み合わせる&lt;/strong&gt;ことが重要です。&lt;/p&gt;
 &lt;p&gt;詳しくは以下の論文などを参照するとよいでしょう。&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Weissgerber TL, Winham SJ, Heinzen EP, et al. Reveal, Don't Conceal: Transforming Data Visualization to Improve Transparency. Circulation. 2019;140(18):1506-1518. &lt;a href="https://www.ahajournals.org/doi/full/10.1161/CIRCULATIONAHA.118.037777"&gt;doi:10.1161/CIRCULATIONAHA.118.037777&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id="Cloud-plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;"&gt;Cloud plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;&lt;a class="anchor-link" href="#Cloud-plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Cloud plotはviolin plotとscatter plotを合わせたものです。violin plotはmatplotlibやseabornのみでも可能ですが、cloud plotに関しては専用のライブラリを用いるのがよいでしょう。以下に描画する手法のリンクを列挙します。&lt;/p&gt;
+&lt;h3 id="Cloud-plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;"&gt;&lt;span id="pelican-subsections-7"&gt;Cloud plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;&lt;a class="anchor-link" href="#Cloud-plot&amp;#12434;&amp;#25551;&amp;#30011;&amp;#12377;&amp;#12427;&amp;#26041;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Cloud plotはviolin plotとscatter plotを合わせたものです。violin plotはmatplotlibやseabornのみでも可能ですが、cloud plotに関しては専用のライブラリを用いるのがよいでしょう。以下に描画する手法のリンクを列挙します。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/jorvlan/open-visualizations"&gt;open-visualizations&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/RainCloudPlots/RainCloudPlots"&gt;Raincloud Plots&lt;/a&gt;&lt;/li&gt;
@@ -4928,7 +4928,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232; : Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;&lt;a class="anchor-link" href="#&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Python会勉強会第7回 (2020.07.01 小川)&lt;/p&gt;
+&lt;h1 id="&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232; : Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;&lt;a class="anchor-link" href="#&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;Python会勉強会第7回 (2020.07.01 小川)&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4953,7 +4953,7 @@ PyTorchをやってみたい人にも配慮？して、今回やることは概�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&amp;#28310;&amp;#20633; (&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)&lt;a class="anchor-link" href="#&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;自分で使う場合は、前準備としてKeras本体などのインストールが必要です。&lt;/p&gt;
+&lt;h2 id="&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#28310;&amp;#20633; (&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)&lt;a class="anchor-link" href="#&amp;#28310;&amp;#20633;-(&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;自分で使う場合は、前準備としてKeras本体などのインストールが必要です。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4973,7 +4973,7 @@ PyTorchをやってみたい人にも配慮？して、今回やることは概�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;&lt;a class="anchor-link" href="#Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;おまじないです。とりあえずコピペで問題ありません。&lt;/p&gt;
+&lt;h2 id="Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;&lt;span id="pelican-subsections-2"&gt;Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;&lt;a class="anchor-link" href="#Tensoflow&amp;#12392;Keras&amp;#12398;&amp;#21021;&amp;#26399;&amp;#21270;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;おまじないです。とりあえずコピペで問題ありません。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5035,7 +5035,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;まずはデータが必要です。&lt;/p&gt;
+&lt;h2 id="&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;まずはデータが必要です。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5056,7 +5056,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;CIFAR-10 &amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&lt;a class="anchor-link" href="#CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;今回は練習なので、もっと簡単なものを使います。&lt;/p&gt;
+&lt;h3 id="CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;&lt;span id="pelican-subsections-4"&gt;CIFAR-10 &amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&lt;a class="anchor-link" href="#CIFAR-10-&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;今回は練習なので、もっと簡単なものを使います。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5088,7 +5088,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Kerasには、CIFARなどの実験用データを自動的にダウンロードして読み込んでくれる機能があります。&lt;/p&gt;
+&lt;h4 id="Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;&lt;span id="pelican-subsections-5"&gt;Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#33258;&amp;#21205;&amp;#35501;&amp;#12415;&amp;#36796;&amp;#12415;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;Kerasには、CIFARなどの実験用データを自動的にダウンロードして読み込んでくれる機能があります。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5154,7 +5154,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;学習と評価のため、データは適切な分割が必要です。&lt;/p&gt;
+&lt;h4 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#21106;&amp;#12539;&amp;#25972;&amp;#24418;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;学習と評価のため、データは適切な分割が必要です。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5245,14 +5245,14 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#28145;&amp;#23652;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463; : Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;データが用意できたので、それを学習・分類する深層ネットワークの構造を作ります。&lt;/p&gt;
+&lt;h3 id="&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&lt;span id="pelican-subsections-8"&gt;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463; : Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;-:-Keras&amp;#12395;&amp;#12424;&amp;#12427;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;データが用意できたので、それを学習・分類する深層ネットワークの構造を作ります。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5335,7 +5335,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;できあがった &lt;code&gt;net&lt;/code&gt; の構造は &lt;code&gt;net.summary()&lt;/code&gt; で表示できます。&lt;/p&gt;
+&lt;h3 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#27083;&amp;#36896;&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;できあがった &lt;code&gt;net&lt;/code&gt; の構造は &lt;code&gt;net.summary()&lt;/code&gt; で表示できます。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5368,7 +5368,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ここから後半です。
+&lt;h2 id="&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&lt;span id="pelican-subsections-10"&gt;&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;&lt;a class="anchor-link" href="#&amp;#12493;&amp;#12483;&amp;#12488;&amp;#12527;&amp;#12540;&amp;#12463;&amp;#12514;&amp;#12487;&amp;#12523;&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#21033;&amp;#29992;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;ここから後半です。
 前半で作ったモデルのパラメータを学習していきます。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -5377,7 +5377,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;&lt;a class="anchor-link" href="#&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;ですがその前に、&lt;strong&gt;そもそも学習とは&lt;/strong&gt;？？&lt;/p&gt;
+&lt;h3 id="&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&lt;span id="pelican-subsections-11"&gt;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;&lt;a class="anchor-link" href="#&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12392;&amp;#23398;&amp;#32722;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;ですがその前に、&lt;strong&gt;そもそも学習とは&lt;/strong&gt;？？&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5403,7 +5403,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Kerasで学習を行わせる時は、「どういう方法で」「どういう尺度を使って」行うか、をまず設定します。&lt;/p&gt;
+&lt;h3 id="&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&lt;span id="pelican-subsections-12"&gt;&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#26041;&amp;#27861;&amp;#12289;&amp;#23610;&amp;#24230;&amp;#12398;&amp;#35373;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Kerasで学習を行わせる時は、「どういう方法で」「どういう尺度を使って」行うか、をまず設定します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5432,7 +5432,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;いよいよ本当の学習！！！！&lt;/p&gt;
+&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&lt;span id="pelican-subsections-13"&gt;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#12398;&amp;#23455;&amp;#34892;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;いよいよ本当の学習！！！！&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5479,7 +5479,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;大事な学習済パラメータはまとめてちゃんと保存しておきます。&lt;/p&gt;
+&lt;h4 id="&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&lt;span id="pelican-subsections-14"&gt;&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#28168;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#20445;&amp;#23384;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;大事な学習済パラメータはまとめてちゃんと保存しておきます。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5509,7 +5509,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;学習が終わったら、実際に期待したような関数が高精度でできているかどうか、テストデータを使って評価します。&lt;/p&gt;
+&lt;h3 id="&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&lt;span id="pelican-subsections-15"&gt;&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;&lt;a class="anchor-link" href="#&amp;#23398;&amp;#32722;&amp;#24460;&amp;#24615;&amp;#33021;&amp;#12398;&amp;#35413;&amp;#20385;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;学習が終わったら、実際に期待したような関数が高精度でできているかどうか、テストデータを使って評価します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5517,7 +5517,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;&lt;a class="anchor-link" href="#&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;学習後のモデルで、テストデータに対する予測結果を出力します。&lt;/p&gt;
+&lt;h4 id="&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&lt;span id="pelican-subsections-16"&gt;&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;&lt;a class="anchor-link" href="#&amp;#20104;&amp;#28204;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#21462;&amp;#24471;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;学習後のモデルで、テストデータに対する予測結果を出力します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5576,7 +5576,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;とりあえず最初のいくつかを手動で確認して、予測性能の雰囲気をつかんでみます。&lt;/p&gt;
+&lt;h4 id="&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&lt;span id="pelican-subsections-17"&gt;&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#26524;&amp;#12434;&amp;#30446;&amp;#35222;&amp;#12375;&amp;#12390;&amp;#12415;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;とりあえず最初のいくつかを手動で確認して、予測性能の雰囲気をつかんでみます。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5646,7 +5646,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;1万問題全てを採点します。&lt;/p&gt;
+&lt;h4 id="&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&lt;span id="pelican-subsections-18"&gt;&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#26368;&amp;#32066;&amp;#25505;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;1万問題全てを採点します。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5676,14 +5676,14 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-19"&gt;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-20"&gt;Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#Keras&amp;#12391;&amp;#12398;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#12398;&amp;#22522;&amp;#26412;&amp;#30340;&amp;#25163;&amp;#38918;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5708,7 +5708,7 @@ Google Colabで実行した場合、&lt;code&gt;1&lt;/code&gt; と出ると思�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&amp;#12381;&amp;#12398;&amp;#20182;&lt;a class="anchor-link" href="#&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&lt;span id="pelican-subsections-21"&gt;&amp;#12381;&amp;#12398;&amp;#20182;&lt;a class="anchor-link" href="#&amp;#12381;&amp;#12398;&amp;#20182;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7578,10 +7578,10 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#35201;&amp;#28857;"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#35201;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。&lt;/p&gt;
+&lt;h2 id="&amp;#35201;&amp;#28857;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#35201;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Neural Tangents&lt;/strong&gt;はGoogle AIが開発した&lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;のラッパーライブラリです。&lt;strong&gt;無限幅&lt;/strong&gt; (中間層のユニット数$\to \infty$)のニューラルネットワーク (以後, &lt;strong&gt;NN&lt;/strong&gt;: neural networks)を高速かつ簡単に構築及び学習させることを目的としています。&lt;/p&gt;
 &lt;p&gt;Neural Tangentsでは無限幅のNNを学習させる手法として&lt;strong&gt;NNGP&lt;/strong&gt; (Neural Network Gaussian Process)と &lt;strong&gt;NTK&lt;/strong&gt; (Neural Tangent Kernel)の2つを実装しています。&lt;/p&gt;
 &lt;p&gt;この記事ではNNGPとNTKの要点を紹介し、Neural Tangentsを用いた実装について紹介していきます。&lt;/p&gt;
-&lt;h3 id="Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;"&gt;Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id="Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;"&gt;&lt;span id="pelican-subsections-1"&gt;Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#Neural-Tangents&amp;#12395;&amp;#38306;&amp;#36899;&amp;#12377;&amp;#12427;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Paper :  &lt;a href="https://arxiv.org/abs/1912.02803"&gt;https://arxiv.org/abs/1912.02803&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;OpenReview : &lt;a href="https://openreview.net/forum?id=SklD9yrFPS"&gt;https://openreview.net/forum?id=SklD9yrFPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Github : &lt;a href="https://github.com/google/neural-tangents"&gt;https://github.com/google/neural-tangents&lt;/a&gt;&lt;/li&gt;
@@ -7596,7 +7596,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Neural-Network-Gaussian-Process-(NNGP)"&gt;Neural Network Gaussian Process (NNGP)&lt;a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (&lt;a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf"&gt;Neal, 1994&lt;/a&gt;)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を&lt;strong&gt;Neural Network GP&lt;/strong&gt;といいます)。&lt;/p&gt;
+&lt;h2 id="Neural-Network-Gaussian-Process-(NNGP)"&gt;&lt;span id="pelican-subsections-2"&gt;Neural Network Gaussian Process (NNGP)&lt;a class="anchor-link" href="#Neural-Network-Gaussian-Process-(NNGP)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;隠れ層が1層で無限幅 (各層のユニット数 $\to \infty$)のニューラルネットワークがガウス過程(Gaussian process; GP)と等価であることについては (&lt;a href="https://www.cs.toronto.edu/~radford/ftp/pin.pdf"&gt;Neal, 1994&lt;/a&gt;)で示されました。近年では、多層のニューラルネットワークにおいても再帰的にカーネル (共分散行列)を計算することで等価なガウス過程が得られることが示されました (この手法で得られたガウス過程を&lt;strong&gt;Neural Network GP&lt;/strong&gt;といいます)。&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Lee et al., Deep Neural Networks as Gaussian Processes. ICLR 2018. &lt;a href="https://arxiv.org/abs/1711.00165"&gt;https://arxiv.org/abs/1711.00165&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;NNGP kernelの構築とそれを用いたベイズ予測について、要点を書いておきます。訓練データ $(x, y)$ の集合を $\mathcal{D}$ とし、$\mathcal{D}$ に含まれる入力 $x$ の集合を $\mathcal{X}$, 出力 (教師データ) $y$ の集合を $\mathcal{Y}$とします。 またデータの数を $N:=|\mathcal{D}|$ とします。さらに $\mathcal{GP}(\mu, \mathcal{K})$ を平均 $\mu(\cdot)$, 共分散 $\mathcal{K}(\cdot, \cdot)$ のガウス過程とします。&lt;/p&gt;
@@ -7607,7 +7607,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;"&gt;NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;NNを次のように定義します。ただし、入力を0層、出力を$L$層とします。&lt;/p&gt;
+&lt;h3 id="NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&lt;span id="pelican-subsections-3"&gt;NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#NN&amp;#12392;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;NNを次のように定義します。ただし、入力を0層、出力を$L$層とします。&lt;/p&gt;
 $$
 \begin{align*}
 z^{(l)}_i(\boldsymbol{x}) &amp;amp;= \phi (a^{(l)}_i(\boldsymbol{x}))\\
@@ -7621,7 +7621,7 @@ $$&lt;p&gt;ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP"&gt;&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP&lt;a class="anchor-link" href="#&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;NNのパラメータは正規分布から独立に生成されているので、$n_l \to \infty$のとき、中心極限定理より$a_i(l)$は正規分布に従い、$l$層目の出力$z_i^{(l)}$も$\phi$に関わらず正規分布に従います (重みもバイアスも平均は0なので、$z_i^{(l)}$が従う分布の平均も0となります)。これを帰納的に行うことで0から$L$層までの出力がガウス過程に従うことを示すことができます。$l$層の出力がガウス過程に従えば$l$層目の共分散行列 (カーネル) $\mathcal{K}^{l}$を計算することができます。なお、この場合 $z_{i}^{l-1}\sim\mathcal{GP}(0,\mathcal{K}^{l-1})$です。&lt;/p&gt;
+&lt;h3 id="&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP&lt;a class="anchor-link" href="#&amp;#28961;&amp;#38480;&amp;#24133;NN&amp;#12392;GP"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;NNのパラメータは正規分布から独立に生成されているので、$n_l \to \infty$のとき、中心極限定理より$a_i(l)$は正規分布に従い、$l$層目の出力$z_i^{(l)}$も$\phi$に関わらず正規分布に従います (重みもバイアスも平均は0なので、$z_i^{(l)}$が従う分布の平均も0となります)。これを帰納的に行うことで0から$L$層までの出力がガウス過程に従うことを示すことができます。$l$層の出力がガウス過程に従えば$l$層目の共分散行列 (カーネル) $\mathcal{K}^{l}$を計算することができます。なお、この場合 $z_{i}^{l-1}\sim\mathcal{GP}(0,\mathcal{K}^{l-1})$です。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://ai.googleblog.com/2020/03/fast-and-easy-infinitely-wide-networks.html"&gt;Google AIのblog&lt;/a&gt;では次のようなアニメーションを掲載しています。このアニメーションは各層のユニット数が増えるほど（幅が広がるほど）出力$\boldsymbol{y}=(y_1, y_2)$の同時分布$p(\boldsymbol{y})$が中心極限定理により多変量ガウス分布に近づくことを表しています。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -7638,7 +7638,7 @@ $$&lt;p&gt;ただし、$\phi(\cdot)$は活性化関数、$w_{ij}^{(l)}, b_i^{(l)
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NNGP-kernel&amp;#12398;&amp;#35336;&amp;#31639;"&gt;NNGP kernel&amp;#12398;&amp;#35336;&amp;#31639;&lt;a class="anchor-link" href="#NNGP-kernel&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;$\mathcal{K}^{l}$の計算式を見てみましょう。以下では$x, x' \in \mathcal{X}, x\neq x' $であるとします。&lt;/p&gt;
+&lt;h3 id="NNGP-kernel&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&lt;span id="pelican-subsections-5"&gt;NNGP kernel&amp;#12398;&amp;#35336;&amp;#31639;&lt;a class="anchor-link" href="#NNGP-kernel&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;$\mathcal{K}^{l}$の計算式を見てみましょう。以下では$x, x' \in \mathcal{X}, x\neq x' $であるとします。&lt;/p&gt;
 $$
 \begin{align*}
 \mathcal{K}^{l}(x,x')&amp;amp;:=\mathbb{E}[z_{i}^{l}(x)z_{i}^{l}(x')]\\
@@ -7653,7 +7653,7 @@ $$&lt;p&gt;(1)式により、帰納的に$\mathcal{K}^{l-1}$から$\mathcal{K}^{
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;"&gt;NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;&lt;a class="anchor-link" href="#NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;ベイズ推論を行う場合は次のようにします。あるテストデータ$x^*$に対する予測$y^*$が従う分布は正規分布$\mathcal{N}(\mu(x^*), \sigma^2(x^*))$であり、スカラー値$\mu(x^*)$, $\sigma^2(x^*)$はそれぞれ、&lt;/p&gt;
+&lt;h3 id="NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;"&gt;&lt;span id="pelican-subsections-6"&gt;NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;&lt;a class="anchor-link" href="#NNGP&amp;#12395;&amp;#12424;&amp;#12427;&amp;#25512;&amp;#35542;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;ベイズ推論を行う場合は次のようにします。あるテストデータ$x^*$に対する予測$y^*$が従う分布は正規分布$\mathcal{N}(\mu(x^*), \sigma^2(x^*))$であり、スカラー値$\mu(x^*)$, $\sigma^2(x^*)$はそれぞれ、&lt;/p&gt;
 $$
 \begin{align*}
 \mu(x^*)&amp;amp;=\mathcal{K}(x^*, \mathcal{X})\ \mathcal{K}(\mathcal{X}, \mathcal{X})^{-1}\ \mathcal{Y}\\
@@ -7667,7 +7667,7 @@ $$&lt;p&gt;として求められます。&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Neural-Tangent-Kernel-(NTK)"&gt;Neural Tangent Kernel (NTK)&lt;a class="anchor-link" href="#Neural-Tangent-Kernel-(NTK)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;この説ではNeural Tangent Kernel (NTK)を扱います。NNGPとの違いは勾配法により(関数空間における)最適化過程も記述するという点です。要するにNTKで構成されるNNは連続時間の勾配法によって訓練された無限幅のネットワークに対応します。NTKは一般のNNの解析において、有限幅であってもユニット数が十分に大きければ極小解が大域解となる、などの定理を提供します。&lt;/p&gt;
+&lt;h2 id="Neural-Tangent-Kernel-(NTK)"&gt;&lt;span id="pelican-subsections-7"&gt;Neural Tangent Kernel (NTK)&lt;a class="anchor-link" href="#Neural-Tangent-Kernel-(NTK)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;この説ではNeural Tangent Kernel (NTK)を扱います。NNGPとの違いは勾配法により(関数空間における)最適化過程も記述するという点です。要するにNTKで構成されるNNは連続時間の勾配法によって訓練された無限幅のネットワークに対応します。NTKは一般のNNの解析において、有限幅であってもユニット数が十分に大きければ極小解が大域解となる、などの定理を提供します。&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Jacot et al. Neural Tangent Kernel: Convergence and Generalization in Neural Networks. NIPS. 2018.
 &lt;a href="https://arxiv.org/abs/1806.07572"&gt;https://arxiv.org/abs/1806.07572&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7679,7 +7679,7 @@ $$&lt;p&gt;として求められます。&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NN&amp;#12398;&amp;#23450;&amp;#32681;"&gt;NN&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;全結合のNNを考えます。NNは入力(0層目)から出力($L$層目)まであるとし、$l$番目の層のユニット数を$n_l (l=0, \cdots, L)$とします。NNを構成するパラメータ $\theta\in \mathbb{R}^{P}$ は重み行列 $W^{(l)}\in \mathbb{R}^{n_l \times n_{l+1}}$, およびバイアス $b \in \mathbb{R}^{n_l}$をまとめたベクトルとします。ただし、$P$はパラメータ空間の次元で$P=\sum_{l=0}^L (n_l + 1)n_{l+1}$です。また、パラメータの初期化は$W^{(l)}, b^{(l)} \sim \mathcal{N}(0, 1)$とします。&lt;/p&gt;
+&lt;h3 id="NN&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&lt;span id="pelican-subsections-8"&gt;NN&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;全結合のNNを考えます。NNは入力(0層目)から出力($L$層目)まであるとし、$l$番目の層のユニット数を$n_l (l=0, \cdots, L)$とします。NNを構成するパラメータ $\theta\in \mathbb{R}^{P}$ は重み行列 $W^{(l)}\in \mathbb{R}^{n_l \times n_{l+1}}$, およびバイアス $b \in \mathbb{R}^{n_l}$をまとめたベクトルとします。ただし、$P$はパラメータ空間の次元で$P=\sum_{l=0}^L (n_l + 1)n_{l+1}$です。また、パラメータの初期化は$W^{(l)}, b^{(l)} \sim \mathcal{N}(0, 1)$とします。&lt;/p&gt;
 &lt;p&gt;NNの中身が以下のようであるとします。
 $$
 \begin{align*}
@@ -7700,7 +7700,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK"&gt;NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;訓練データの入力を$x \in \mathcal{X}$、出力 (教師信号)を$y \in \mathcal{Y}$とします。MSEを損失関数$\mathcal{L}$とすると、次のようになります。&lt;/p&gt;
+&lt;h3 id="NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK"&gt;&lt;span id="pelican-subsections-9"&gt;NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#23398;&amp;#32722;&amp;#12392;NTK"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;訓練データの入力を$x \in \mathcal{X}$、出力 (教師信号)を$y \in \mathcal{Y}$とします。MSEを損失関数$\mathcal{L}$とすると、次のようになります。&lt;/p&gt;
 $$
 \mathcal{L}:=\frac{1}{2}\|f(\mathcal{X}; \theta)-\mathcal{Y}\|^2
 $$&lt;p&gt;この損失関数を最小化するようにNNを学習することを考えます。学習率を$\eta$として勾配法によりパラメータを更新する際、その変化量を$\Delta \theta$とすると次式のようになります。&lt;/p&gt;
@@ -7738,7 +7738,7 @@ $$&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;"&gt;NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;NNを1次のTaylor展開により線形化します。また、NNへの入力は訓練データ $x \in \mathcal{X}$とします。&lt;/p&gt;
+&lt;h3 id="NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;"&gt;&lt;span id="pelican-subsections-10"&gt;NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;&lt;a class="anchor-link" href="#NN&amp;#12398;&amp;#32218;&amp;#24418;&amp;#21270;&amp;#12392;&amp;#38306;&amp;#25968;&amp;#31354;&amp;#38291;&amp;#12391;&amp;#12398;&amp;#12480;&amp;#12452;&amp;#12490;&amp;#12511;&amp;#12463;&amp;#12473;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;NNを1次のTaylor展開により線形化します。また、NNへの入力は訓練データ $x \in \mathcal{X}$とします。&lt;/p&gt;
 $$
 f_t^{\text{lin}}(x; \theta_t)\approx f_0(x;\theta_0)+ \nabla_\theta f_0(x;\theta_0)^T (\theta_t-\theta_0) \tag{5}
 $$&lt;p&gt;$\omega_t:=\theta_t-\theta_0$とおき、時間微分します (式(2), (3)参照)。&lt;/p&gt;
@@ -7788,8 +7788,8 @@ $$&lt;p&gt;これは&lt;strong&gt;無限時間の学習&lt;/strong&gt;をした�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Tutorial-of-Neural-Tangents"&gt;Tutorial of Neural Tangents&lt;a class="anchor-link" href="#Tutorial-of-Neural-Tangents"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;前置きが長くなりましたが、実際にNeural tangentsで無限幅のNNを学習させてみましょう。なお、コードの大半は&lt;a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb"&gt;Tutorial in Colab Notebook&lt;/a&gt;から引用しています。また、不明な点は&lt;a href="#Neural-Tangentsに関連する文献"&gt;Neural Tangentsに関連する文献&lt;/a&gt;を参考にしてください。&lt;/p&gt;
-&lt;h3 id="&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;"&gt;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&lt;a class="anchor-link" href="#&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Neural Tangentsはjax依存なのでjaxを先にインストールします：&lt;code&gt;pip install jaxlib jax --upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="Tutorial-of-Neural-Tangents"&gt;&lt;span id="pelican-subsections-11"&gt;Tutorial of Neural Tangents&lt;a class="anchor-link" href="#Tutorial-of-Neural-Tangents"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;前置きが長くなりましたが、実際にNeural tangentsで無限幅のNNを学習させてみましょう。なお、コードの大半は&lt;a href="https://colab.research.google.com/github/google/neural-tangents/blob/master/notebooks/neural_tangents_cookbook.ipynb"&gt;Tutorial in Colab Notebook&lt;/a&gt;から引用しています。また、不明な点は&lt;a href="#Neural-Tangentsに関連する文献"&gt;Neural Tangentsに関連する文献&lt;/a&gt;を参考にしてください。&lt;/p&gt;
+&lt;h3 id="&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;"&gt;&lt;span id="pelican-subsections-12"&gt;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&lt;a class="anchor-link" href="#&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Neural Tangentsはjax依存なのでjaxを先にインストールします：&lt;code&gt;pip install jaxlib jax --upgrade&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;JAXは現在(2020/3/26), LinuxとMacでのみbuild可能のようです(&lt;a href="https://github.com/google/jax/issues/507"&gt;https://github.com/google/jax/issues/507&lt;/a&gt;)。本記事ではUbuntu 18.04 で動作確認しました。Windows OSしかない場合はColabで実行するとよいでしょう。&lt;/p&gt;
 &lt;p&gt;次にNeural Tangentsをインストールします：&lt;code&gt;pip install neural-tangents&lt;/code&gt;&lt;/p&gt;
 
@@ -7799,7 +7799,7 @@ $$&lt;p&gt;これは&lt;strong&gt;無限時間の学習&lt;/strong&gt;をした�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;必要なライブラリを&lt;code&gt;import&lt;/code&gt;していきます (初めのcellは無視してください)。&lt;/p&gt;
+&lt;h3 id="&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&lt;span id="pelican-subsections-13"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;必要なライブラリを&lt;code&gt;import&lt;/code&gt;していきます (初めのcellは無視してください)。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -7874,7 +7874,7 @@ $$&lt;p&gt;これは&lt;strong&gt;無限時間の学習&lt;/strong&gt;をした�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;回帰を実行するためにToy データセットを作成します。まず、予測したい真の関数を次のように定義します。&lt;/p&gt;
+&lt;h3 id="Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&lt;span id="pelican-subsections-14"&gt;Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;&lt;a class="anchor-link" href="#Toy&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12398;&amp;#20316;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;回帰を実行するためにToy データセットを作成します。まず、予測したい真の関数を次のように定義します。&lt;/p&gt;
 $$
 y = f(x) + \epsilon
 $$&lt;p&gt;$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussianノイズです。訓練時の入力$x$は一様分布$\text{Uniform}(-\pi, \pi)$から5点サンプリングします。推論時は$y = f(x)$とし、入力$x$は$[-\pi, \pi]$から一定間隔で50点取得します。&lt;/p&gt;
@@ -8021,7 +8021,7 @@ $$&lt;p&gt;$f(x) = \sin(x)$とし、$\epsilon\sim\mathcal N(0, \sigma)$はGaussi
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Neural-Network&amp;#12398;&amp;#23450;&amp;#32681;"&gt;Neural Network&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#Neural-Network&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Neural-Network&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&lt;span id="pelican-subsections-15"&gt;Neural Network&amp;#12398;&amp;#23450;&amp;#32681;&lt;a class="anchor-link" href="#Neural-Network&amp;#12398;&amp;#23450;&amp;#32681;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8254,7 +8254,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NNGP&amp;#12398;&amp;#22580;&amp;#21512;"&gt;NNGP&amp;#12398;&amp;#22580;&amp;#21512;&lt;a class="anchor-link" href="#NNGP&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="NNGP&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&lt;span id="pelican-subsections-16"&gt;NNGP&amp;#12398;&amp;#22580;&amp;#21512;&lt;a class="anchor-link" href="#NNGP&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8345,7 +8345,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NTK&amp;#12398;&amp;#22580;&amp;#21512;"&gt;NTK&amp;#12398;&amp;#22580;&amp;#21512;&lt;a class="anchor-link" href="#NTK&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="NTK&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&lt;span id="pelican-subsections-17"&gt;NTK&amp;#12398;&amp;#22580;&amp;#21512;&lt;a class="anchor-link" href="#NTK&amp;#12398;&amp;#22580;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8431,7 +8431,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;"&gt;NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;&lt;a class="anchor-link" href="#NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;NNGPとNTKの推論の比較をしてみます。殆ど似たような出力であることがわかります。&lt;/p&gt;
+&lt;h3 id="NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&lt;span id="pelican-subsections-18"&gt;NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;&lt;a class="anchor-link" href="#NNGP&amp;#12392;NTK&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;NNGPとNTKの推論の比較をしてみます。殆ど似たような出力であることがわかります。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8495,7 +8495,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot"&gt;NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot&lt;a class="anchor-link" href="#NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot"&gt;&lt;span id="pelican-subsections-19"&gt;NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot&lt;a class="anchor-link" href="#NTK&amp;#12398;&amp;#23398;&amp;#32722;&amp;#26354;&amp;#32218;&amp;#12398;plot"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8613,7 +8613,7 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;&lt;a class="anchor-link" href="#&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;次に有限幅のNNを複数 (n=100) 訓練し、そのアンサンブルの学習曲線や出力(の平均や分散)をNTKと比較してみましょう。ここで用いる&lt;code&gt;apply_fn&lt;/code&gt;は上でNNを定義したときのものです (ユニット数の情報はここで使用されます)。&lt;/p&gt;
+&lt;h3 id="&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&lt;span id="pelican-subsections-20"&gt;&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;&lt;a class="anchor-link" href="#&amp;#26377;&amp;#38480;&amp;#24133;NN&amp;#12392;&amp;#12398;&amp;#27604;&amp;#36611;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;次に有限幅のNNを複数 (n=100) 訓練し、そのアンサンブルの学習曲線や出力(の平均や分散)をNTKと比較してみましょう。ここで用いる&lt;code&gt;apply_fn&lt;/code&gt;は上でNNを定義したときのものです (ユニット数の情報はここで使用されます)。&lt;/p&gt;
 &lt;p&gt;まず、NNを訓練するためのoptimizerを定義します。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -8749,10 +8749,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="358f0756-c1ad-44ac-b423-00dc34c309f1"&gt;&lt;/div&gt;
+&lt;div id="273b2fe2-b16f-448c-8520-108f23bb9622"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#358f0756-c1ad-44ac-b423-00dc34c309f1');
+var element = $('#273b2fe2-b16f-448c-8520-108f23bb9622');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -8924,7 +8924,7 @@ var element = $('#358f0756-c1ad-44ac-b423-00dc34c309f1');
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="NNGP"&gt;NNGP&lt;a class="anchor-link" href="#NNGP"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&lt;span id="pelican-subsections-21"&gt;&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h3 id="NNGP"&gt;&lt;span id="pelican-subsections-22"&gt;NNGP&lt;a class="anchor-link" href="#NNGP"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Lee et al., &lt;a href="https://arxiv.org/abs/1711.00165"&gt;Deep Neural Networks as Gaussian Processes&lt;/a&gt;. &lt;em&gt;ICLR&lt;/em&gt; 2018.&lt;/li&gt;
 &lt;li&gt;持橋 大地, 大羽 成征. 『&lt;a href="http://chasen.org/~daiti-m/gpbook/"&gt;ガウス過程と機械学習&lt;/a&gt;』 講談社. 2019.&lt;/li&gt;
 &lt;li&gt;須山 敦志. 『ベイズ深層学習』 講談社. 2019. &lt;/li&gt;
@@ -8932,7 +8932,7 @@ var element = $('#358f0756-c1ad-44ac-b423-00dc34c309f1');
 &lt;li&gt;&lt;a href="https://hackmd.io/@FF/BypA3l_BQ?type=view"&gt;Deep Neural Networks as Gaussian Processes - HackMD&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.slideshare.net/DeepLearningJP2016/dldeep-neural-networks-as-gaussian-processes"&gt;[DL輪読会]Deep Neural Networks as Gaussian Processes&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="NTK"&gt;NTK&lt;a class="anchor-link" href="#NTK"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id="NTK"&gt;&lt;span id="pelican-subsections-23"&gt;NTK&lt;a class="anchor-link" href="#NTK"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Jacot et al. &lt;a href="https://arxiv.org/abs/1806.07572"&gt;Neural Tangent Kernel: Convergence and Generalization in Neural Networks&lt;/a&gt;. &lt;em&gt;NIPS&lt;/em&gt;. 2018.&lt;/li&gt;
 &lt;li&gt;Lee et al. &lt;a href="https://arxiv.org/abs/1902.06720"&gt;Wide Neural Networks of Any Depth Evolve as Linear Models Under Gradient Descent&lt;/a&gt;. &lt;em&gt;NeurIPS.&lt;/em&gt; 2019.&lt;/li&gt;
 &lt;li&gt;甘利 俊一. 『新版 情報幾何学の新展開』. サイエンス社. 2019.&lt;/li&gt;
@@ -10097,7 +10097,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。
+&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;脳の機能解析に使用されるEEG(脳波計)やMEG(脳磁図)の計測結果（つまり、電圧や磁場の時系列データ）には色々なノイズがのります。例えばEEGでは電源ノイズ、筋電、まばたき、などが主要なノイズとして知られています。
 電源ノイズのように周波数が分かっていればフィルタでノイズを除去できますが、筋電やまばたきのような周波数が分からないものでは難しいです。
 そこで、計測信号を欲しい信号（例えば脳波信号）とノイズに分離するために、2000年前後から独立成分分析Independent Component Analysis(ICA)という方法が使われており、これが脳波計測に限らずけっこう便利なので、紹介します（音声認識分野での応用が盛んなようです）。&lt;/p&gt;
 &lt;p&gt;詳細な原理や数式は[1]にあるのでそちらを見てほしいのですが、基本コンセプトは、「ある点で観測される信号が複数の信号源から発せられる各信号の線形結合で表されると仮定したとき、観測した各信号を無相関にするような線形変換が存在する」ということです。わかりやすくいえば、「ある仮定を置き、ある条件を満たせたとき、混ざりあった信号を元の信号に分離できる」ということです。&lt;/p&gt;
@@ -10110,7 +10110,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#23455;&amp;#35013;"&gt;&amp;#23455;&amp;#35013;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#35013;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Scikit-LearnのFastICAという関数を使います。&lt;/p&gt;
+&lt;h2 id="&amp;#23455;&amp;#35013;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#23455;&amp;#35013;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#35013;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Scikit-LearnのFastICAという関数を使います。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -10413,7 +10413,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#21442;&amp;#32771;"&gt;&amp;#21442;&amp;#32771;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;[1]「独立成分解析の信号処理への応用」, 池田, さきがけ研究21「情報と知」領域&lt;/p&gt;
+&lt;h2 id="&amp;#21442;&amp;#32771;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#21442;&amp;#32771;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;[1]「独立成分解析の信号処理への応用」, 池田, さきがけ研究21「情報と知」領域&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;原理と数式が書いてあります。&lt;/li&gt;
 &lt;/ul&gt;
@@ -10695,7 +10695,7 @@ $ emacs
 キーワード：相対/絶対パス&lt;/li&gt;
 &lt;li&gt;エディタとは？&lt;br&gt;
 emacs/vim/atom/vscode...&lt;/li&gt;
-&lt;/ol&gt;</content><category term="技術ブログ"></category><category term="Shell script"></category></entry><entry><title>deeplabcutの使い方まとめ</title><link href="/previews/refs/heads/feature/article_image/blog/2019/12/deeplabcut.html" rel="alternate"></link><published>2019-12-16T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>味岡</name></author><id>tag:None,2019-12-16:/previews/refs/heads/feature/article_image/blog/2019/12/deeplabcut.html</id><summary type="html">&lt;strong&gt;DeepLabCut とは&lt;/strong&gt; deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。 package化されているので簡単に使うことができます。 googlecolabでもできるそうです。 詳しい使い方は下記の資料が参考になります。 日本語資料： &lt;a href="https://qiita.com/riichirohira/items/b92723278ba92fb42db9"&gt;https://qiit&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;DeepLabCut とは&lt;/h2&gt;
+&lt;/ol&gt;</content><category term="技術ブログ"></category><category term="Unix"></category><category term="Shell script"></category></entry><entry><title>deeplabcutの使い方まとめ</title><link href="/previews/refs/heads/feature/article_image/blog/2019/12/deeplabcut.html" rel="alternate"></link><published>2019-12-16T00:00:00+09:00</published><updated>2020-05-16T00:00:00+09:00</updated><author><name>味岡</name></author><id>tag:None,2019-12-16:/previews/refs/heads/feature/article_image/blog/2019/12/deeplabcut.html</id><summary type="html">&lt;strong&gt;DeepLabCut とは&lt;/strong&gt; deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。 package化されているので簡単に使うことができます。 googlecolabでもできるそうです。 詳しい使い方は下記の資料が参考になります。 日本語資料： &lt;a href="https://qiita.com/riichirohira/items/b92723278ba92fb42db9"&gt;https://qiit&lt;/a&gt;....</summary><content type="html">&lt;h2&gt;DeepLabCut とは&lt;/h2&gt;
 &lt;p&gt;deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。
 package化されているので簡単に使うことができます。
 googlecolabでもできるそうです。
@@ -10771,7 +10771,7 @@ googlecolabでもできるそうです。
 &lt;ul&gt;
 &lt;li&gt;生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。&lt;/li&gt;
 &lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="/previews/refs/heads/feature/article_image/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-12-11:/previews/refs/heads/feature/article_image/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。
-&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
 &lt;h2&gt;模範解答 (?)&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -12263,7 +12263,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM"&gt;&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM&lt;a class="anchor-link" href="#&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM&lt;a class="anchor-link" href="#&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;CAM"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12279,7 +12279,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;"&gt;&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#&amp;#36578;&amp;#31227;&amp;#23398;&amp;#32722;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12296,7 +12296,7 @@ CNNによる画像分類では、転移学習はよく使用されます。な�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;"&gt;&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#29872;&amp;#22659;&amp;#35373;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12318,7 +12318,7 @@ CNNによる画像分類では、転移学習はよく使用されます。な�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;"&gt;&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;&lt;a class="anchor-link" href="#&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Kaggleのdog vs catです。&lt;a href="https://www.kaggle.com/c/dogs-vs-cats/data"&gt;https://www.kaggle.com/c/dogs-vs-cats/data&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;&lt;a class="anchor-link" href="#&amp;#20351;&amp;#29992;&amp;#12375;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Kaggleのdog vs catです。&lt;a href="https://www.kaggle.com/c/dogs-vs-cats/data"&gt;https://www.kaggle.com/c/dogs-vs-cats/data&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12326,7 +12326,7 @@ CNNによる画像分類では、転移学習はよく使用されます。な�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#12467;&amp;#12540;&amp;#12489;&lt;a class="anchor-link" href="#&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;以下は転移学習のコードです。パラメーター設定の部分を変えれば、様々な画像の分類に使えるようにしました。パラメータの[#training dataの場所]と[#validation dataの場所]には、分類された画像を入れたフォルダが入ります。今回は「dog」フォルダと「cat」フォルダにそれぞれ犬、猫の画像を入れました。trainingにはそれぞれ1000枚ずつ、validationにはそれぞれ400枚ずつ入れました。&lt;/p&gt;
+&lt;h3 id="&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#12467;&amp;#12540;&amp;#12489;&lt;a class="anchor-link" href="#&amp;#12467;&amp;#12540;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;以下は転移学習のコードです。パラメーター設定の部分を変えれば、様々な画像の分類に使えるようにしました。パラメータの[#training dataの場所]と[#validation dataの場所]には、分類された画像を入れたフォルダが入ります。今回は「dog」フォルダと「cat」フォルダにそれぞれ犬、猫の画像を入れました。trainingにはそれぞれ1000枚ずつ、validationにはそれぞれ400枚ずつ入れました。&lt;/p&gt;
 &lt;p&gt;追記：VGG16の入力形式に合わせて、ImageGeneratorの部分をrescale=1.0/255ではなく、preprocessing_function=preprocess_input_vggにする例もあります。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -12605,7 +12605,7 @@ Epoch 30/30
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="CAM-(Class-Activation-Map)"&gt;CAM (Class Activation Map)&lt;a class="anchor-link" href="#CAM-(Class-Activation-Map)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="CAM-(Class-Activation-Map)"&gt;&lt;span id="pelican-subsections-5"&gt;CAM (Class Activation Map)&lt;a class="anchor-link" href="#CAM-(Class-Activation-Map)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -12870,7 +12870,7 @@ Epoch 30/30
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#24863;&amp;#24819;"&gt;&amp;#24863;&amp;#24819;&lt;a class="anchor-link" href="#&amp;#24863;&amp;#24819;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;deep learningライブラリの中でもKerasは初心者でも使いやすいライブラリだなと思いました。ImageDataGeneratorが便利ですね。&lt;/p&gt;
+&lt;h2 id="&amp;#24863;&amp;#24819;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#24863;&amp;#24819;&lt;a class="anchor-link" href="#&amp;#24863;&amp;#24819;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;deep learningライブラリの中でもKerasは初心者でも使いやすいライブラリだなと思いました。ImageDataGeneratorが便利ですね。&lt;/p&gt;
 &lt;p&gt;CAMに関してはExplainable AI（説明可能なAI）に繋がる素晴らしい技術だと思いました。医療AIにも応用されていくのかなと思います。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -12879,7 +12879,7 @@ Epoch 30/30
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VGG16の転移学習&lt;/p&gt;
+&lt;h2 id="&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;&amp;#25991;&amp;#29486;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;VGG16の転移学習&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://aidiary.hatenablog.com/entry/20170108/1483876657"&gt;http://aidiary.hatenablog.com/entry/20170108/1483876657&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://qiita.com/yampy/items/6f1f48fee16db7888f07"&gt;https://qiita.com/yampy/items/6f1f48fee16db7888f07&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;CAMについて&lt;/p&gt;
@@ -15678,8 +15678,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。&lt;/p&gt;
-&lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。&lt;/p&gt;
-&lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。&lt;/p&gt;
+&lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです。&lt;/p&gt;
+&lt;h2 id="&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;&lt;a class="anchor-link" href="#&amp;#12525;&amp;#12540;&amp;#12524;&amp;#12531;&amp;#12484;&amp;#26354;&amp;#32218;&amp;#12398;&amp;#20351;&amp;#29992;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;何か「これには偏りがあるのではないか？」と思ったら試しに書いてみるといいでしょう。&lt;/p&gt;
 &lt;p&gt;今回は日本人の年収に偏りがあるのかローレンツ曲線を使って見てみたいと思います。
 &lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/index.html"&gt;厚生労働省のHPから&lt;/a&gt;から、&lt;a href="https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa15/xls/13.xls"&gt;世帯別年収データ&lt;/a&gt;をダウンロードして、jupyter labで作業をするディレクトリに置きます。私はnumbersで一度開いて、csvに変換しました。データは&lt;a href="/previews/refs/heads/feature/article_image/blog/2019/03/data/income.csv"&gt;こちら&lt;/a&gt;にあります。コードを動かす際にはデータをダウンロードして&lt;code&gt;data/income.csv&lt;/code&gt;のように配置してください。&lt;/p&gt;
 
@@ -18781,7 +18781,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#&amp;#12356;&amp;#12388;&amp;#12418;&amp;#12398;&amp;#12497;&amp;#12483;&amp;#12465;&amp;#12540;&amp;#12472;&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -18806,7 +18806,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;miniconda環境かAnaconda環境を入れた後、&lt;code&gt;conda install rdkit&lt;/code&gt;でインストールできると思います。&lt;/p&gt;
+&lt;h2 id="RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&lt;span id="pelican-subsections-1"&gt;RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;&lt;a class="anchor-link" href="#RDKit&amp;#12398;&amp;#12452;&amp;#12531;&amp;#12473;&amp;#12488;&amp;#12540;&amp;#12523;&amp;#12392;&amp;#12452;&amp;#12531;&amp;#12509;&amp;#12540;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;miniconda環境かAnaconda環境を入れた後、&lt;code&gt;conda install rdkit&lt;/code&gt;でインストールできると思います。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -18854,7 +18854,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="SMILES&amp;#35352;&amp;#27861;"&gt;SMILES&amp;#35352;&amp;#27861;&lt;a class="anchor-link" href="#SMILES&amp;#35352;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;有機化合物の構造をグラフ構造を元に線形表現したものがSMILES記法です。これによって、文字列データのみで分子を表現することが可能になりました。
+&lt;h2 id="SMILES&amp;#35352;&amp;#27861;"&gt;&lt;span id="pelican-subsections-2"&gt;SMILES&amp;#35352;&amp;#27861;&lt;a class="anchor-link" href="#SMILES&amp;#35352;&amp;#27861;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;有機化合物の構造をグラフ構造を元に線形表現したものがSMILES記法です。これによって、文字列データのみで分子を表現することが可能になりました。
 詳しい書き方は &lt;a href="http://opensmiles.org/opensmiles.html"&gt;http://opensmiles.org/opensmiles.html&lt;/a&gt; で厳密に定義されているので参考にすると良いと思います。&lt;/p&gt;
 &lt;p&gt;ただ、自分で書くのはしんどいので、wikipediaの該当化合物のページの横に書いてあるやつ(英語版の方が書いてる確率が高い)を使ったり、SMILESを出力するためのソフトウェアなどを使います。&lt;/p&gt;
 
@@ -20195,12 +20195,12 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
+&lt;h2 id="&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12394;&amp;#12380;&amp;#20837;&amp;#35430;&amp;#25968;&amp;#23398;&amp;#12434;Python&amp;#12391;&amp;#65311;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。&lt;/p&gt;
 &lt;p&gt;コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。&lt;/p&gt;
-&lt;h2 id="&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。&lt;/p&gt;
+&lt;h2 id="&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;&lt;a class="anchor-link" href="#&amp;#12393;&amp;#12398;&amp;#21839;&amp;#38988;&amp;#12434;&amp;#35299;&amp;#12367;&amp;#12363;&amp;#65311;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。&lt;/p&gt;
 &lt;p&gt;ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。&lt;/p&gt;
 &lt;p&gt;※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。&lt;/p&gt;
-&lt;h2 id="&amp;#29872;&amp;#22659;"&gt;&amp;#29872;&amp;#22659;&lt;a class="anchor-link" href="#&amp;#29872;&amp;#22659;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#29872;&amp;#22659;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#29872;&amp;#22659;&lt;a class="anchor-link" href="#&amp;#29872;&amp;#22659;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Python3.6.1&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;sympy&lt;/code&gt;：sympyはPythonのライブラリの一つで、記号計算を行うものです。&lt;/li&gt;
 &lt;/ul&gt;
@@ -20229,7 +20229,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180;-&amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398;-&amp;#31532;&amp;#65297;&amp;#21839;"&gt;&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180; &amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398; &amp;#31532;&amp;#65297;&amp;#21839;&lt;a class="anchor-link" href="#&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180;-&amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398;-&amp;#31532;&amp;#65297;&amp;#21839;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180;-&amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398;-&amp;#31532;&amp;#65297;&amp;#21839;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180; &amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398; &amp;#31532;&amp;#65297;&amp;#21839;&lt;a class="anchor-link" href="#&amp;#22823;&amp;#38442;&amp;#22823;&amp;#23398;2018&amp;#24180;-&amp;#29702;&amp;#31995;&amp;#25968;&amp;#23398;-&amp;#31532;&amp;#65297;&amp;#21839;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -20244,7 +20244,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="(1)"&gt;(1)&lt;a class="anchor-link" href="#(1)"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;&lt;方針&gt;&lt;/h4&gt;
+&lt;h3 id="(1)"&gt;&lt;span id="pelican-subsections-4"&gt;(1)&lt;a class="anchor-link" href="#(1)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;h4&gt;&lt;span id="pelican-subsections-5"&gt;&lt;方針&gt;&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;普通に解くなら、$y=$(真ん中)$-$(左)、$y=$(右)$-$(真ん中)、とおいて、&lt;br&gt;
 微分 → 増減表 → グラフ → $x&amp;gt;0$で$y&amp;gt;0$&lt;br&gt;
 という流れで示すのが一般的だと思いますが、&lt;code&gt;sympy&lt;/code&gt;では、簡単にグラフが書けるので、一気にグラフを描いて示します。&lt;/p&gt;
@@ -20588,7 +20588,7 @@ $\displaystyle \frac{x}{\sqrt{x + 1}} - \log{\left(x + 1 \right)}$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="(2)"&gt;(2)&lt;a class="anchor-link" href="#(2)"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;h4 id="&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;"&gt;&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;&lt;a class="anchor-link" href="#&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;"&gt;&amp;#182;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;これも普通に解くなら、(1)の誘導を利用して、はさみうちやら微分やらで解けますが、今回は最大値・最小値・極限＋グラフで求めます。&lt;/p&gt;
+&lt;h3 id="(2)"&gt;&lt;span id="pelican-subsections-6"&gt;(2)&lt;a class="anchor-link" href="#(2)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;h4 id="&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;"&gt;&lt;span id="pelican-subsections-7"&gt;&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;&lt;a class="anchor-link" href="#&amp;#65308;&amp;#26041;&amp;#37341;&amp;#65310;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h4&gt;&lt;p&gt;これも普通に解くなら、(1)の誘導を利用して、はさみうちやら微分やらで解けますが、今回は最大値・最小値・極限＋グラフで求めます。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -20925,7 +20925,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#31572;&amp;#12360;"&gt;&amp;#31572;&amp;#12360;&lt;a class="anchor-link" href="#&amp;#31572;&amp;#12360;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;(1)上記のグラフより&lt;br&gt;
+&lt;h3 id="&amp;#31572;&amp;#12360;"&gt;&lt;span id="pelican-subsections-8"&gt;&amp;#31572;&amp;#12360;&lt;a class="anchor-link" href="#&amp;#31572;&amp;#12360;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;(1)上記のグラフより&lt;br&gt;
 (2) $0&amp;lt;y&amp;lt;\frac{1}{2}$&lt;/p&gt;
 
 &lt;/div&gt;
@@ -20934,7 +20934,7 @@ $\displaystyle \frac{1}{\log{\left(x + 1 \right)}} - \frac{1}{x}$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#24863;&amp;#24819;"&gt;&amp;#24863;&amp;#24819;&lt;a class="anchor-link" href="#&amp;#24863;&amp;#24819;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#24863;&amp;#24819;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#24863;&amp;#24819;&lt;a class="anchor-link" href="#&amp;#24863;&amp;#24819;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;今回は時間の都合で大問１しか解けませんでしたが、今後他のものにも挑戦したいと思います。（第4問の空間図形とか3次元で難しそうですが…）&lt;/li&gt;
 &lt;li&gt;僕はPythonの文法の勉強がまだ終わっていない状態での今回の記事でしたが、実際に簡単目なコマンドを実行してみる、というのはとても良い練習になり、今後の勉強の理解の助けになると思いました。Jupyterに慣れることができたのも良かったです。&lt;/li&gt;
 &lt;li&gt;（入試問題を見ていると、急に去年の受験時代が思い出され、良くも悪くも感傷に浸ってしまいます。去年のやる気に負けないようにしたい…！）&lt;/li&gt;
@@ -22089,9 +22089,9 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
+&lt;h2 id="&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;&lt;a class="anchor-link" href="#&amp;#12399;&amp;#12376;&amp;#12417;&amp;#12395;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h3 id="&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;&lt;a class="anchor-link" href="#&amp;#26360;&amp;#12371;&amp;#12358;&amp;#12392;&amp;#24605;&amp;#12387;&amp;#12383;&amp;#12365;&amp;#12387;&amp;#12363;&amp;#12369;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;実習中論文を頂いて読む機会が多いが、医学論文は薬は新しい治療方法の成績を比較しているのが多い。
 だいたい &lt;strong&gt;Kaplan-Meier曲線&lt;/strong&gt; が使われているので(偏見)、論文を読むときにはもちろん、将来自分が論文を執筆するときに、何が行われているのか少しでも理解できていればいいかなと思いまとめてみた。&lt;/p&gt;
-&lt;h3 id="Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;Kaplan-Meier &amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
+&lt;h3 id="Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&lt;span id="pelican-subsections-2"&gt;Kaplan-Meier &amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#Kaplan-Meier-&amp;#26354;&amp;#32218;&amp;#12392;&amp;#12399;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href="https://ja.wikipedia.org/wiki/%E7%94%9F%E5%AD%98%E7%8E%87%E6%9B%B2%E7%B7%9A"&gt;Wikipedia&lt;/a&gt;によると「治療を行った後の患者の生存率をグラフにしたもの」ということらしい。ただ、実際には問題がいくつかあって&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;観察期間は限られている(患者さんを何年もフォローすることはできない)&lt;/li&gt;
 &lt;li&gt;観察不能になることがある(病院移った、他の要因で死亡したなど)&lt;/li&gt;
@@ -22111,7 +22111,7 @@ pythonのライブラリにlifelinesという便利なライブラリがある�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
+&lt;h2 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#28310;&amp;#20633;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;ある病気に対する治療法の予後のKaplan-Meier曲線を描きたいとします。
 ある期間内に観察された患者の経過をみることになると思いますが、患者さんによって発症する時間も様々なので、イメージとして下の図のようになると思います。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -22264,7 +22264,7 @@ height=278
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、&lt;/p&gt;
+&lt;h2 id="&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#38555;&amp;#12398;&amp;#35336;&amp;#31639;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;さっき作ったデータを使って、累積生存率を計算していきます。たとえばt=5における累積生存率を計算するとき、&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -22395,7 +22395,7 @@ $$&lt;p&gt;となります。&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;"&gt;&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ここら辺の計算と描画はライブラリに任せます。&lt;/p&gt;
+&lt;h2 id="&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;"&gt;&lt;span id="pelican-subsections-5"&gt;&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;&lt;a class="anchor-link" href="#&amp;#32080;&amp;#26524;&amp;#12398;&amp;#12503;&amp;#12525;&amp;#12483;&amp;#12488;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;ここら辺の計算と描画はライブラリに任せます。&lt;/p&gt;
 &lt;p&gt;やってることは各期間の点における累積生存率をプロットして線を横に伸ばすだけです。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -22456,7 +22456,7 @@ height=277
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;"&gt;&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;&lt;a class="anchor-link" href="#&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。&lt;/p&gt;
+&lt;h2 id="&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;"&gt;&lt;span id="pelican-subsections-6"&gt;&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;&lt;a class="anchor-link" href="#&amp;#20083;&amp;#12364;&amp;#12435;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#12475;&amp;#12483;&amp;#12488;&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#35299;&amp;#26512;&amp;#12434;&amp;#34892;&amp;#12387;&amp;#12383;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;一応これで生存曲線は描けた訳ですが、もし治療の有効性を示すのであれば、他の治療群と比較して、有効性を示さなければいけません。&lt;/p&gt;
 &lt;p&gt;ここから使われる統計手法はLog-rank検定、一般化wilcoxon検定など様々ですが、ここではcox比例ハザードを使った回帰分析を例にして解析を進めていきます。なお、cox比例ハザードモデルに関する説明は&lt;a href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/Cox.pdf"&gt;このpdf&lt;/a&gt;がわかりやすかったです。&lt;/p&gt;
 &lt;p&gt;lifelinesライブラリに乳がんの予後のデータセットがあるのでそれを用います。調べたいことは、乳がんの治療でどのような因子が予後に影響を及ぼすのかということです。&lt;/p&gt;
 
@@ -22466,7 +22466,7 @@ height=277
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="hormone-therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;"&gt;hormone therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;&lt;a class="anchor-link" href="#hormone-therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="hormone-therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;"&gt;&lt;span id="pelican-subsections-7"&gt;hormone therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;&lt;a class="anchor-link" href="#hormone-therapy&amp;#12398;&amp;#26377;&amp;#28961;&amp;#12391;2&amp;#32676;&amp;#12395;&amp;#20998;&amp;#12369;Kaplan-Meier&amp;#26354;&amp;#32218;&amp;#12434;&amp;#25551;&amp;#12356;&amp;#12383;&amp;#20363;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -22523,7 +22523,7 @@ height=277
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH-model)&amp;#12398;&amp;#36969;&amp;#24540;"&gt;Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH model)&amp;#12398;&amp;#36969;&amp;#24540;&lt;a class="anchor-link" href="#Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH-model)&amp;#12398;&amp;#36969;&amp;#24540;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH-model)&amp;#12398;&amp;#36969;&amp;#24540;"&gt;&lt;span id="pelican-subsections-8"&gt;Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH model)&amp;#12398;&amp;#36969;&amp;#24540;&lt;a class="anchor-link" href="#Cox&amp;#27604;&amp;#20363;&amp;#12495;&amp;#12470;&amp;#12540;&amp;#12489;&amp;#12514;&amp;#12487;&amp;#12523;(CoxPH-model)&amp;#12398;&amp;#36969;&amp;#24540;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -22871,12 +22871,12 @@ height=261
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Kaplan-Meier曲線がどのように作られているか分かった。&lt;/li&gt;
 &lt;li&gt;pythonを用いて割と簡単に統計解析ができた。&lt;/li&gt;
 &lt;li&gt;統計モデルについても定義からもう少し詳しく説明できたらよかったが、latex使うのめんどくさくて諦めた。リンク参考にしてください。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="&amp;#21442;&amp;#32771;HP"&gt;&amp;#21442;&amp;#32771;HP&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;HP"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#21442;&amp;#32771;HP"&gt;&lt;span id="pelican-subsections-10"&gt;&amp;#21442;&amp;#32771;HP&lt;a class="anchor-link" href="#&amp;#21442;&amp;#32771;HP"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://lifelines.readthedocs.io/en/latest/index.html"&gt;lifelines公式HP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://istat.co.jp/sk_commentary/kaplan_meier"&gt;相関、検定の手法別解説&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.emalliance.org/%E6%9C%AA%E5%88%86%E9%A1%9E/%E7%AC%AC%EF%BC%97%E5%9B%9Eema-jc%E3%80%80%E8%A7%A3%E8%AA%AC%E3%80%80%E3%82%AB%E3%83%97%E3%83%A9%E3%83%B3%E3%83%9E%E3%82%A4%E3%83%A4%E3%83%BC%E7%94%9F%E5%AD%98%E6%9B%B2%E7%B7%9A"&gt;EM Aliance&lt;/a&gt;&lt;/li&gt;
@@ -24953,7 +24953,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;ここ最近pymcを使ったベイズ推論のことをずっと考えています(2018年6月執筆当時)。pymc3を扱った本(&lt;a href="http://amzn.asia/1TWcfTI"&gt;http://amzn.asia/1TWcfTI&lt;/a&gt;)が先週発売されて買ってしまったのですが、まだ前のpymc本(&lt;a href="http://amzn.asia/8CPISDp"&gt;http://amzn.asia/8CPISDp&lt;/a&gt;)を読み切っていなかったので急いで読み切りました。読み切った記念に一個面白そうなものがあったのでまとめました。&lt;/p&gt;
-&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。&lt;/p&gt;
+&lt;h2 id="&amp;#27010;&amp;#35201;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#27010;&amp;#35201;&lt;a class="anchor-link" href="#&amp;#27010;&amp;#35201;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;2群の平均値に差があるかどうか比べたいというよくある問いに対しては一般にt検定が使われます。当分散性が言えるとき（2郡の分散が同じである確信が持てるとき）はStudent's t-testを使います。&lt;/p&gt;
 &lt;p&gt;当分散性が言えないときは（自信がないときも保守的に）Welch's t-testを使います。余談ですが、どちらのt-testも平均値が正規分布に従うことを仮定しているので、その仮定が怪しいときはノンパラメトリックな検定を選びます。この辺りは誰かがコード付きでまとめてくれると信じてます。&lt;/p&gt;
 &lt;p&gt;このt検定ですが、ベイズ風のアレンジの論文が存在するようです。
 &lt;strong&gt;BEST&lt;/strong&gt;(Bayesian estimation supersedes the t-test)
@@ -24969,7 +24969,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;Bayesian estimation supersedes the t-test (BEST)&lt;a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：&lt;code&gt;pip install pymc3&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;&lt;span id="pelican-subsections-1"&gt;Bayesian estimation supersedes the t-test (BEST)&lt;a class="anchor-link" href="#Bayesian-estimation-supersedes-the-t-test-(BEST)"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;以下ではpymc3を用いてBESTを行います。まず、pymc3をpipでインストールしておきましょう：&lt;code&gt;pip install pymc3&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;(参考)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://docs.pymc.io/notebooks/BEST.html"&gt;https://docs.pymc.io/notebooks/BEST.html&lt;/a&gt;&lt;/li&gt;
@@ -25337,7 +25337,7 @@ $$
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;"&gt;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;&lt;a class="anchor-link" href="#&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;t分布は３つのパラメータ$\mu$, $\sigma$, $\nu$　がある。&lt;/p&gt;
+&lt;h3 id="&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;&lt;a class="anchor-link" href="#&amp;#12497;&amp;#12521;&amp;#12513;&amp;#12540;&amp;#12479;&amp;#12398;&amp;#35299;&amp;#37320;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;t分布は３つのパラメータ$\mu$, $\sigma$, $\nu$　がある。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$\mu$ : 平均値。正規分布からサンプルする。&lt;/li&gt;
 &lt;li&gt;$\sigma$ : 分散。一様分布からサンプルする。&lt;/li&gt;
@@ -25827,7 +25827,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;"&gt;&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;サンプルしたパラメーターを用いてt分布の事後分布を作成する。&lt;code&gt;pm.sample_posterior_predictive&lt;/code&gt;を使う。&lt;/p&gt;
+&lt;h3 id="&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;&lt;a class="anchor-link" href="#&amp;#20107;&amp;#24460;&amp;#20998;&amp;#24067;&amp;#12398;&amp;#29983;&amp;#25104;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;サンプルしたパラメーターを用いてt分布の事後分布を作成する。&lt;code&gt;pm.sample_posterior_predictive&lt;/code&gt;を使う。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://docs.pymc.io/notebooks/posterior_predictive.html"&gt;https://docs.pymc.io/notebooks/posterior_predictive.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
@@ -25911,7 +25911,7 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;"&gt;&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;分散が違うことがわかっているのでWelch's t-testをやってみます。&lt;/p&gt;
+&lt;h3 id="&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;&lt;a class="anchor-link" href="#&amp;#26222;&amp;#36890;&amp;#12398;T&amp;#26908;&amp;#23450;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;分散が違うことがわかっているのでWelch's t-testをやってみます。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27561,7 +27561,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#35201;&amp;#28857;"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#35201;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;"&gt;&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;&lt;a class="anchor-link" href="#&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#35201;&amp;#28857;"&gt;&lt;span id="pelican-subsections-0"&gt;&amp;#35201;&amp;#28857;&lt;a class="anchor-link" href="#&amp;#35201;&amp;#28857;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;h3 id="&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;"&gt;&lt;span id="pelican-subsections-1"&gt;&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;&lt;a class="anchor-link" href="#&amp;#12513;&amp;#12479;&amp;#25991;&amp;#23383;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;?&lt;/code&gt;は、直前のグループの0回か1回の出現にマッチする。（任意のマッチ）&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;*&lt;/code&gt;は、直前のグループの0回以上の出現にマッチする。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;+&lt;/code&gt;は、直前のグループの1回以上の出現にマッチする。&lt;/li&gt;
@@ -27570,7 +27570,7 @@ h6:hover .anchor-link {
 &lt;li&gt;&lt;code&gt;{,m}&lt;/code&gt;は、直前のグループの0~m回の出現にマッチする。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;{n,m}?&lt;/code&gt;、&lt;code&gt;?&lt;/code&gt;、&lt;code&gt;+?&lt;/code&gt;は直前のグループの非貪欲マッチを行う。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;"&gt;&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;&lt;a class="anchor-link" href="#&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id="&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;"&gt;&lt;span id="pelican-subsections-2"&gt;&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;&lt;a class="anchor-link" href="#&amp;#25991;&amp;#23383;&amp;#38598;&amp;#21512;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;\d&lt;/code&gt;：0~9の数字&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\D&lt;/code&gt;：0~9の数字以外&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\w&lt;/code&gt;：文字、数字、下線（単語wordのw）&lt;/li&gt;
@@ -27578,7 +27578,7 @@ h6:hover .anchor-link {
 &lt;li&gt;&lt;code&gt;\s&lt;/code&gt;：スペース、タブ、改行（空白spaceのs）&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\S&lt;/code&gt;：スペース、タブ、改行以外&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id="&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&lt;span id="pelican-subsections-3"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;&lt;a class="anchor-link" href="#&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#12398;&amp;#12414;&amp;#12392;&amp;#12417;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;re&lt;/code&gt;モジュール&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;re.compile()&lt;/code&gt;関数&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;search()&lt;/code&gt;メソッド&lt;/li&gt;
@@ -27592,7 +27592,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="&amp;#23455;&amp;#36341;"&gt;&amp;#23455;&amp;#36341;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#36341;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="&amp;#23455;&amp;#36341;"&gt;&lt;span id="pelican-subsections-4"&gt;&amp;#23455;&amp;#36341;&lt;a class="anchor-link" href="#&amp;#23455;&amp;#36341;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27614,7 +27614,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;"&gt;'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&lt;a class="anchor-link" href="#'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;\d&lt;/code&gt;を用いて、あるtextから、電話番号パターンにマッチする部分を検索しましょう。
+&lt;h3 id="'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;"&gt;&lt;span id="pelican-subsections-5"&gt;'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&lt;a class="anchor-link" href="#'\d'&amp;#12399;1&amp;#25991;&amp;#23383;&amp;#12398;&amp;#25968;&amp;#23383;&amp;#12434;&amp;#34920;&amp;#12377;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;\d&lt;/code&gt;を用いて、あるtextから、電話番号パターンにマッチする部分を検索しましょう。
 &lt;code&gt;re.compile()&lt;/code&gt;に正規表現パターンを表す文字列を渡すと、Regexオブジェクトが返ります。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -27637,7 +27637,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;文字列の前の&lt;code&gt;r&lt;/code&gt;はraw文字列を指定し、文字をエスケープせずに簡潔に表現しています。&lt;/p&gt;
-&lt;h3 id="search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Regexオブジェクトの&lt;code&gt;search()&lt;/code&gt;メソッドは、渡された文字列の中から正規表現にマッチするパターンが見つかれば、Matchオブジェクトを返します。
+&lt;h3 id="search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&lt;span id="pelican-subsections-6"&gt;search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#search()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&amp;#12392;group()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Regexオブジェクトの&lt;code&gt;search()&lt;/code&gt;メソッドは、渡された文字列の中から正規表現にマッチするパターンが見つかれば、Matchオブジェクトを返します。
 Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあり、実際にマッチしたテキストを返します&lt;/p&gt;
 
 &lt;/div&gt;
@@ -27678,7 +27678,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;"&gt;'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;&lt;a class="anchor-link" href="#'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;"&gt;&lt;span id="pelican-subsections-7"&gt;'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;&lt;a class="anchor-link" href="#'()'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12500;&amp;#12531;&amp;#12464;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27736,7 +27736,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;例えば&lt;code&gt;r'Batman|Spiderman'&lt;/code&gt;という正規表現は、&lt;code&gt;'Batman'&lt;/code&gt;or&lt;code&gt;'Spiderman'&lt;/code&gt;にマッチします。&lt;/p&gt;
+&lt;h3 id="'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&lt;span id="pelican-subsections-8"&gt;'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'|'&amp;#12434;&amp;#20351;&amp;#12387;&amp;#12390;&amp;#35079;&amp;#25968;&amp;#12398;&amp;#12464;&amp;#12523;&amp;#12540;&amp;#12503;&amp;#12392;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;例えば&lt;code&gt;r'Batman|Spiderman'&lt;/code&gt;という正規表現は、&lt;code&gt;'Batman'&lt;/code&gt;or&lt;code&gt;'Spiderman'&lt;/code&gt;にマッチします。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27821,7 +27821,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;"&gt;&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;&lt;a class="anchor-link" href="#&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;"&gt;&lt;span id="pelican-subsections-9"&gt;&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;&lt;a class="anchor-link" href="#&amp;#20024;&amp;#12459;&amp;#12483;&amp;#12467;&amp;#12392;&amp;#32294;&amp;#32218;&amp;#12392;&amp;#12434;&amp;#24540;&amp;#29992;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27863,7 +27863,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&lt;span id="pelican-subsections-10"&gt;'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'?'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;&amp;#20219;&amp;#24847;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -27939,7 +27939,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&lt;span id="pelican-subsections-11"&gt;'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'*'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;0&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -28015,7 +28015,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&lt;span id="pelican-subsections-12"&gt;'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;&lt;a class="anchor-link" href="#'+'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;1&amp;#22238;&amp;#20197;&amp;#19978;&amp;#12398;&amp;#12510;&amp;#12483;&amp;#12481;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -28091,7 +28091,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;"&gt;'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;&lt;a class="anchor-link" href="#'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;例：&lt;code&gt;(Ha){3} = (HaHaHa) , (Ha){3,5} = (HaHaHa|HaHaHaHa|HaHaHaHaHa)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;"&gt;&lt;span id="pelican-subsections-13"&gt;'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;&lt;a class="anchor-link" href="#'{}'&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12390;&amp;#32368;&amp;#12426;&amp;#36820;&amp;#12375;&amp;#22238;&amp;#25968;&amp;#12434;&amp;#25351;&amp;#23450;&amp;#12377;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;例：&lt;code&gt;(Ha){3} = (HaHaHa) , (Ha){3,5} = (HaHaHa|HaHaHaHa|HaHaHaHaHa)&lt;/code&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -28168,7 +28168,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;"&gt;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;&lt;a class="anchor-link" href="#&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Pythonの正規表現は、デフォルトでは貪欲マッチです。つまり、複数の可能性があると最も長い方にマッチします。&lt;/p&gt;
+&lt;h3 id="&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;"&gt;&lt;span id="pelican-subsections-14"&gt;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;&lt;a class="anchor-link" href="#&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#12472;&amp;#12515;&amp;#12460;&amp;#12499;&amp;#12540;&amp;#12399;&amp;#19968;&amp;#30058;&amp;#38263;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&amp;#12290;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Pythonの正規表現は、デフォルトでは貪欲マッチです。つまり、複数の可能性があると最も長い方にマッチします。&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -28211,7 +28211,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;"&gt;&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;閉じカッコの後に&lt;code&gt;?&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;"&gt;&lt;span id="pelican-subsections-15"&gt;&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;&lt;a class="anchor-link" href="#&amp;#38750;&amp;#36010;&amp;#27442;&amp;#12510;&amp;#12483;&amp;#12481;&amp;#65306;&amp;#36960;&amp;#24942;&amp;#12375;&amp;#12390;&amp;#19968;&amp;#30058;&amp;#30701;&amp;#12356;&amp;#12418;&amp;#12398;&amp;#12434;&amp;#12392;&amp;#12427;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;閉じカッコの後に&lt;code&gt;?&lt;/code&gt;&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -28254,7 +28254,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;search()&lt;/code&gt;が最初に見つかった文字列を返すのに対し、&lt;code&gt;findall()&lt;/code&gt;は見つかったすべての文字列を返します。
+&lt;h3 id="findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&lt;span id="pelican-subsections-16"&gt;findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;&lt;a class="anchor-link" href="#findall()&amp;#12513;&amp;#12477;&amp;#12483;&amp;#12489;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;search()&lt;/code&gt;が最初に見つかった文字列を返すのに対し、&lt;code&gt;findall()&lt;/code&gt;は見つかったすべての文字列を返します。
 &lt;code&gt;findall()&lt;/code&gt;はタプルのリストを返すことに注意。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -28334,7 +28334,7 @@ Matchオブジェクトには&lt;code&gt;group()&lt;/code&gt;メソッドがあ�
 &lt;p&gt;続きはありますが、あまり出しすぎるとネタが無くなるので、今回はここまでにしておきます。
 また書きます。&lt;/p&gt;
 &lt;p&gt;上記の内容をうまく利用して、自分で電子メールアドレスの正規表現を作ってみてもおもしろいと思います。&lt;/p&gt;
-&lt;h2 id="&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;&lt;a class="anchor-link" href="#&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id="&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;"&gt;&lt;span id="pelican-subsections-17"&gt;&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;&lt;a class="anchor-link" href="#&amp;#27491;&amp;#35215;&amp;#34920;&amp;#29694;&amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&amp;#12289;&amp;#12373;&amp;#12425;&amp;#12395;&amp;#35443;&amp;#12375;&amp;#12367;"&gt;&amp;#182;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href="https://docs.python.jp/3/library/re.html"&gt;6.2. re — 正規表現操作 — Python 3.6.3 ドキュメント&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://qiita.com/dongri/items/2a0a18e253eb5bf9edba"&gt;よく使う正規表現はもうググりたくない！ - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
