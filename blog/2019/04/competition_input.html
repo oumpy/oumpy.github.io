@@ -174,24 +174,24 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>入力のパターン</h2>
+	<h2><span id="pelican-subsections-0">入力のパターン</span></h2>
 <p><strong>Python会競プロ部（？）へようこそ！</strong></p>
 <p>はじめての方には<strong>入力</strong>が最初の鬼門だと思います。<br>
 <a href="https://atcoder.jp">AtCoder</a> のABCで、<strong>これさえ覚えれば大丈夫！</strong>な入力パターンは以下の通り。
 最初は説明の意味がわからなくても、とりあえずコピペすれば動きます（何）。</p>
 <p><strong>言語</strong>は <code>Python3 (3.4.3)</code> (または <code>PyPy3 (2.4.0)</code>) を選択してね。</p>
-<h3>文字列を入力</h3>
+<h3><span id="pelican-subsections-1">文字列を入力</span></h3>
 <div class="highlight"><pre><span></span><code><span class="n">S</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 </code></pre></div>
 
 
-<h3>整数ひとつを入力</h3>
+<h3><span id="pelican-subsections-2">整数ひとつを入力</span></h3>
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 </code></pre></div>
 
 
 <p><code>int()</code> が、文字列を整数 (integer) に変換する<strong>呪文</strong>です。</p>
-<h3>整数2つ〜を一行（空白区切り）で入力</h3>
+<h3><span id="pelican-subsections-3">整数2つ〜を一行（空白区切り）で入力</span></h3>
 <div class="highlight"><pre><span></span><code><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 </code></pre></div>
 
@@ -202,14 +202,14 @@
 
 <p>まず <code>split()</code> で文字列を分割。
 次に <code>map()</code> で <code>int()</code> をそれぞれに適用しています。</p>
-<h3>多数の整数を一行で入力</h3>
+<h3><span id="pelican-subsections-4">多数の整数を一行で入力</span></h3>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 </code></pre></div>
 
 
 <p><code>x</code> は0番目から始まる配列になる。n番目は <code>x[n]</code> で参照します。</p>
-<h2>使用例</h2>
-<h3>問題1</h3>
+<h2><span id="pelican-subsections-5">使用例</span></h2>
+<h3><span id="pelican-subsections-6">問題1</span></h3>
 <p>整数A, Bが1行 (空白区切り) で</p>
 <div class="highlight"><pre><span></span><code><span class="err">A B</span>
 </code></pre></div>
@@ -222,7 +222,7 @@
 </code></pre></div>
 
 
-<h3>問題2</h3>
+<h3><span id="pelican-subsections-7">問題2</span></h3>
 <p>1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目にN個の整数 <code>x1,..,xN</code> が、</p>
 <div class="highlight"><pre><span></span><code><span class="err">N K</span>
 <span class="err">x1 x2 x3 ... xN</span>
@@ -241,7 +241,7 @@
 <p>配列が0番目からであることに注意。
 <code>N</code> は実は使わなくてよい。<br>
 ちょっと難しいパターンだが、B問題ではちょくちょく出てくる。</p>
-<h3>問題3</h3>
+<h3><span id="pelican-subsections-8">問題3</span></h3>
 <p><s>(このパターンはたぶんC問題以降のみ。)</s> B問題にも時々出ます。<br>
 1行目に自然数 <code>N</code>, <code>K</code> (<code>N&gt;=K</code>)、2行目〜N+1行目に <code>N</code>個の整数 <code>x1,..,xN</code> が、</p>
 <div class="highlight"><pre><span></span><code><span class="err">N K</span>
@@ -398,40 +398,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
@@ -441,9 +417,51 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-1">
@@ -459,15 +477,9 @@
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-0">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
-        Python
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">7</span>
+        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -476,28 +488,16 @@
         Shell script
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-0">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">17</span>
+        Python
       </a>
     </span>
 </p>
@@ -507,7 +507,7 @@
 <div style="display:flex; justify-content:center;">
 <ul style="list-style:none; padding-left:0;">
   <li>
-    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="https://oumpy.github.io/donations.html">ご寄付を頂いた方々</a>)</span>
   </li>
 </ul>
 </div>
