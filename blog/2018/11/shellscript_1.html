@@ -179,7 +179,7 @@
 始めたばかりの人は参考にしてください。
 経験者の方、変なとこあったらどしどし突っ込みください！
 そして皆さんの自己流も教えてもらえると嬉しいです。</p>
-<h2><span id="pelican-subsections-0">1) scriptに起こす前</span></h2>
+<h2>1) scriptに起こす前</h2>
 <p>shell scriptに書き起こす前に、プロンプト画面（Mac,Ubuntuならterminal）でテストします。
 僕はいつもcatでファイルにつないで、パイプの後に試したいコマンドを打ちます。
 その後にパイプでheadにつないで、頭だけ出力してみます。たいていファイル重いので。
@@ -195,7 +195,7 @@ zcat hoge.gz <span class="p">|</span> cut –f1（試したいコマンド）<sp
 </code></pre></div>
 
 
-<h2><span id="pelican-subsections-1">2) scriptを書く</span></h2>
+<h2>2) scriptを書く</h2>
 <p>うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
 結局他のファイルも同じ処理をするはめになり、scriptに残しておけば・・と後悔することが多いからです。</p>
 <div class="highlight"><pre><span></span><code>touch test.sh <span class="c1"># ファイルつくって、</span>
@@ -212,7 +212,7 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 </code></pre></div>
 
 
-<h2><span id="pelican-subsections-2">3) 実行</span></h2>
+<h2>3) 実行</h2>
 <p>書けたら、処理したいファイルを渡して実行してみます。
 <code>&amp;</code>はバックグラウンド実行です。</p>
 <div class="highlight"><pre><span></span><code>bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
@@ -234,7 +234,7 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 
 
 <p>どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。</p>
-<h2><span id="pelican-subsections-3">5) 応用編</span></h2>
+<h2>5) 応用編</h2>
 <p>あとはひたすらコマンドを駆使して書き上げていきます。
 以下の基本コマンドでだいたいのことはできるかと。
 特にawkはたくさんのことができます。joinも重宝します。</p>
@@ -373,6 +373,11 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -407,11 +412,6 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -419,22 +419,94 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">4</span>
         自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -449,76 +521,10 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
         Bioinformatics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Neuroscience
       </a>
     </span>
     <span class="tag-3">

@@ -179,30 +179,30 @@
 	<p>2020.05.19に開催したオンライン勉強会の資料を公開します。</p>
 <p>今回のみ、会外部の一般の方々にも参加頂く形で行われました。
 次回からは会内部のみとなりますが、資料は公開してゆく予定です。</p>
-<h2><span id="pelican-subsections-0">スライド</span></h2>
+<h2>スライド</h2>
 <p><p><span class="videobox">
   <iframe width=640" height="390"
     src="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01/200519_python会入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
   </iframe></span></p></p>
-<h2><span id="pelican-subsections-1">Pythonの環境構築</span></h2>
+<h2>Pythonの環境構築</h2>
 <ul>
 <li><a href="https://www.python.org/">Pythonの公式サイト</a>からPythonだけをinstallしても使えるが、パッケージ管理や環境管理のためにAnacondaを使うと便利（ここで不要じゃという声が飛んでくる）。</li>
 <li>少なくともWindowsだと使った方が楽</li>
 <li>Anacondaそのままは全部盛りに近い（＝要らないものなども自動でinstallされる）ので、最小限のパッケージに留めたMinicondaをinstallする方がよい</li>
 <li>Miniconda入れる前にpyenv入れた方が良いという話もある(MacOS, Linux)</li>
 </ul>
-<h2><span id="pelican-subsections-2">Pythonファイルの実行</span></h2>
+<h2>Pythonファイルの実行</h2>
 <div class="highlight"><pre><span></span><code>python hoge.py
 </code></pre></div>
 
 
 <p>で実行可能。
 IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手法も。</p>
-<h2><span id="pelican-subsections-3">Python Tutorial</span></h2>
+<h2>Python Tutorial</h2>
 <p><a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_01/Python_tutorial.ipynb">Jupyter Notebook</a></p>
 <p>コードのみ以下に掲載します。</p>
-<h3><span id="pelican-subsections-4">NumPyで数値計算</span></h3>
+<h3>NumPyで数値計算</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -211,7 +211,7 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-5">Matplotlibで図を描画する</span></h3>
+<h3>Matplotlibで図を描画する</h3>
 <p>Matplotlibは図を描画するためのライブラリ。
 どんな図が描画できるかは公式ドキュメントの<a href="https://matplotlib.org/gallery/index.html">ギャラリー</a>を参照。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -225,7 +225,7 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-6">Seabornによる回帰直線の描画</span></h3>
+<h3>Seabornによる回帰直線の描画</h3>
 <p>SeabornはMatplotlibがベースのライブラリ。
 より綺麗で複雑な図を簡単に描画できる。
 公式ドキュメントの<a href="https://seaborn.pydata.org/examples/index.html">ギャラリー</a>を参照。</p>
@@ -244,13 +244,13 @@ IDEでは簡単に実行出来たり、他にはJupyter notebookを用いる手�
 </code></pre></div>
 
 
-<h3><span id="pelican-subsections-7">Markdownについて</span></h3>
+<h3>Markdownについて</h3>
 <p>Markdownはプレーンテキスト形式で手軽に書いた文書からHTMLを生成するための言語
 - 書き方は<a href="https://qiita.com/tbpgr/items/989c6badefff69377da7">Markdown記法サンプル集</a>等を見るとよい
 - 普段から使う場合は<a href="https://typora.io/">Typora</a>を使うのがおススメ。
 TeX形式の数式も書ける。
 PandocをインストールすればWordやLaTeXなどに変換可能。</p>
-<h3><span id="pelican-subsections-8">Google Colabについて</span></h3>
+<h3>Google Colabについて</h3>
 <p><a href="https://colab.research.google.com">Google Colaboratory</a>はJupyter Notebookをブラウザ上で使えるようにGoogleが提供しているサービス。
 Pythonをインストールする必要はありません。
 また、Python会の一部のブログは記事をそのままGoogle Colabで開くことができます(GitHubにアップロードしたJupyter Notebookファイル(.ipynb)はURLを修正するだけでColabで開くことができます)。</p>
@@ -291,7 +291,7 @@ Pythonをインストールする必要はありません。
     <ul>
         <li><a href="../../../blog/2020/06/studymeeting2020_04.html">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</a></li>
         <li><a href="../../../blog/2020/05/studymeeting2020_02.html">【勉強会資料 2020 第2回】Pythonの基本文法</a></li>
-        <li><a href="../../../blog/2020/07/studymeeting2020_07.html">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</a></li>
+        <li><a href="../../../blog/2020/08/studymeeting2020_08.html">【勉強会資料 2020 第8回】 視覚とSparse coding</a></li>
     </ul>
 </div>
 
@@ -340,6 +340,11 @@ Pythonをインストールする必要はありません。
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -374,11 +379,6 @@ Pythonをインストールする必要はありません。
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -386,22 +386,94 @@ Pythonをインストールする必要はありません。
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">4</span>
         自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -416,76 +488,10 @@ Pythonをインストールする必要はありません。
         Bioinformatics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Neuroscience
       </a>
     </span>
     <span class="tag-3">

@@ -176,7 +176,7 @@
   <div class="content-body" itemprop="text articleBody">
 	<p>こんばんは、医学部5年の淡田です。</p>
 <p>自粛につぐ自粛でどうぶつの森で魚ばっか釣ってる日々であんま話すことがなかったのでちょっと競プロの話</p>
-<h2><span id="pelican-subsections-0">競プロって？</span></h2>
+<h2>競プロって？</h2>
 <p>競技プログラミングの略で、問題が与えられてそれをプログラミングで解決していくコンテスト。</p>
 <p>問題によって縛りがあって
 「○○時間内に解けよ」
@@ -185,12 +185,12 @@
 「あなたの書いたコードは終わるのに5秒も掛かっちゃってます！遅すぎ！」
 ってなる。
 よって問題によっては工夫が必要になる。</p>
-<h2><span id="pelican-subsections-1">アルゴリズム</span></h2>
+<h2>アルゴリズム</h2>
 <p>他にも単純に問題むずくて工夫しないと汗、パターンもあるので難易度が上がると手の込んだ手法・手順が必要となる。</p>
 <p>それがアルゴリズム（ざっくりしすぎ・・・？）</p>
 <p>今回はその中で幅優先探索というやり方を説明する。
 といってもそんなに難しくないので気軽に聞いてくださいまし。</p>
-<h2><span id="pelican-subsections-2">実際の問題</span></h2>
+<h2>実際の問題</h2>
 <p><a href="https://atcoder.jp/contests/abc168/tasks/abc168_d">https://atcoder.jp/contests/abc168/tasks/abc168_d</a></p>
 <p>↑問題はこれ。
 詳しい説明は省きますが、ざっくり言うと</p>
@@ -203,12 +203,12 @@
 複数あったら一個でいいぞ」</p>
 <p>って問題。
 なんとなくやることはわかるけど実際にプログラミングじゃどう書くのだろうってなる。</p>
-<h2><span id="pelican-subsections-3">幅優先探索について</span></h2>
+<h2>幅優先探索について</h2>
 <p>結論からいうとこれは幅優先探索を使えば簡単に解ける。</p>
 <p>はじめの状態→最短1回の遷移 (移動) でたどり着ける状態を探す→最短2回の遷移 (移動) でたどり着ける状態探す・・・</p>
 <p>を上の例で行けば「①から1回で移動できるのは②、⑤→②、⑤から1回で移動できるのは④・・・という風に探索していく。</p>
 <p>イメージ数学の問題で出てきた「点Aから点Bへの最短で行くのは何通りか？」みたいなのと似ている。</p>
-<h2><span id="pelican-subsections-4">実装</span></h2>
+<h2>実装</h2>
 <p>実際にコードを書いてみる
 (初めて書いたからスマートでないところはあるかも・・・。
 悪しからず)</p>
@@ -279,7 +279,7 @@
 そして <code>temp</code> を改めて更新していく。</p>
 <p>もう行ってない部屋ないよってなったら <code>break</code> で処理終了。
 以上でOK</p>
-<h2><span id="pelican-subsections-5">まとめ</span></h2>
+<h2>まとめ</h2>
 <p>なんか言葉で説明するとグダってしまった感がある・・・。
 申し訳ねぇ。</p>
 <p>こういうのって習うより慣れろなんでしょうかね？</p>
@@ -288,7 +288,7 @@
 ただC++で書かれているので、pythonで説明してくれてる<a href="https://juppy.hatenablog.com">サイト</a>も載っけときます。
 よければどうぞ。</p>
 <p>という訳でもっと競プロ、勉強します。</p>
-<h2><span id="pelican-subsections-6">(編集注記)</span></h2>
+<h2>(編集注記)</h2>
 <p>発展的な話となりますが、今回の本文コードで使われている</p>
 <div class="highlight"><pre><span></span><code><span class="n">list_tonari</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">get</span><span class="p">)</span>
 </code></pre></div>
@@ -400,6 +400,11 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -434,11 +439,6 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -446,22 +446,94 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">4</span>
         自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -476,76 +548,10 @@ AtCoderのテストデータでは実際に本文のコードで正解と判定�
         Bioinformatics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+        Neuroscience
       </a>
     </span>
     <span class="tag-3">
