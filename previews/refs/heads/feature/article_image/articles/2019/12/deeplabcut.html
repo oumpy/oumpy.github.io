@@ -102,8 +102,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -124,6 +124,16 @@
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
 </div>
 </li>
 <li class="nav-item">
@@ -183,7 +193,7 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>DeepLabCut とは</h2>
+	<h2><span id="pelican-subsections-0">DeepLabCut とは</span></h2>
 <p>deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。
 package化されているので簡単に使うことができます。
 googlecolabでもできるそうです。
@@ -194,8 +204,8 @@ googlecolabでもできるそうです。
 <p>公式サイト(github)：<br>
 <a href="https://github.com/AlexEMG/DeepLabCut">https://github.com/AlexEMG/DeepLabCut</a></p>
 <p>以下は資料にはない僕が使っていく中で気づいた点のメモ書きです。</p>
-<h2>各OSでのインストールの時に気をつけること</h2>
-<h3>Windows</h3>
+<h2><span id="pelican-subsections-1">各OSでのインストールの時に気をつけること</span></h2>
+<h3><span id="pelican-subsections-2">Windows</span></h3>
 <ul>
 <li>インストールはできる (yamlなしでも) 。</li>
 <li>プロジェクトを作るのに管理者権限が必要。</li>
@@ -204,7 +214,7 @@ googlecolabでもできるそうです。
 (hdf5ファイルが出来ない、numpy import errorなど)</li>
 </ul>
 <p>(追記：2019/12/9時点 最新版のdeeplabcutではwindowsでも実装できた（研究室の先輩談）)</p>
-<h3>Mac OS</h3>
+<h3><span id="pelican-subsections-3">Mac OS</span></h3>
 <ul>
 <li>インストールは、<code>dlc-macOS-CPU.yaml</code> をダウンロードして、</li>
 </ul>
@@ -216,11 +226,11 @@ googlecolabでもできるそうです。
 <ul>
 <li>GUIでのROI取りをするため、<code>python</code> ではなく、「<code>pythonw</code>」で起動</li>
 </ul>
-<h3>Linux (Ubuntu)</h3>
+<h3><span id="pelican-subsections-4">Linux (Ubuntu)</span></h3>
 <ul>
 <li>pipでもインストール可能、普通に起動すればOK</li>
 </ul>
-<h2>補足情報</h2>
+<h2><span id="pelican-subsections-5">補足情報</span></h2>
 <ul>
 <li>日本語資料には動画はAVIではないといけないとあったが、実際はMPEGでもMP4でも大丈夫だった。
 また、tensorflow-gpuは1.4.0でも大丈夫だった。(cuda8.0、cuDNN6、python3.5)</li>
@@ -228,8 +238,8 @@ googlecolabでもできるそうです。
 <li>学習はlossが0.01以下で一定になってきたらOK</li>
 <li>ROIとり枚数の基準としては、20～50枚くらいが良さそう</li>
 </ul>
-<h2>ソースコードの例 (Ubuntuの場合)</h2>
-<h3>トレーニング (train.py)</h3>
+<h2><span id="pelican-subsections-6">ソースコードの例 (Ubuntuの場合)</span></h2>
+<h3><span id="pelican-subsections-7">トレーニング (train.py)</span></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
 <span class="n">deeplabcut</span><span class="o">.</span><span class="n">create_new_project</span><span class="p">(</span><span class="s1">&#39;日付&#39;</span><span class="p">,</span><span class="s1">&#39;名前&#39;</span><span class="p">,[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">])</span>
 <span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;生成されたconfig.yamlのパス&quot;</span>
@@ -246,7 +256,7 @@ googlecolabでもできるそうです。
 <li><code>deeplabcut.label_frames</code> の部分でGUIが起動してROI取りできるようになります。</li>
 <li>走らせると学習がずっと進むので、十分学習できたらCtrl+Cで止めましょう。</li>
 </ul>
-<h3>推論 (inference.py)</h3>
+<h3><span id="pelican-subsections-8">推論 (inference.py)</span></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">deeplabcut</span>
 <span class="n">path_config</span> <span class="o">=</span> <span class="s2">&quot;使いたいモデルのconfig.yamlのパス&quot;</span>
 <span class="n">videofile_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ファイル名.avi&#39;</span><span class="p">]</span>
@@ -294,8 +304,8 @@ googlecolabでもできるそうです。
     <h2>関連記事</h2>
     <ul>
         <li><a href="../../../blog/2020/07/pythonparty_and_python.html">Python会とPythonとPython会で使われているPython</a></li>
-        <li><a href="../../../blog/2020/06/youtube_api.html">やさしいYouTube APIのはなし</a></li>
         <li><a href="../../../blog/2020/06/studymeeting2020_04.html">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_02.html">【勉強会資料 2020 第2回】Pythonの基本文法</a></li>
     </ul>
 </div>
 
@@ -344,6 +354,11 @@ googlecolabでもできるそうです。
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -378,11 +393,6 @@ googlecolabでもできるそうです。
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -391,15 +401,9 @@ googlecolabでもできるそうです。
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -409,9 +413,9 @@ googlecolabでもできるそうです。
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-1">
@@ -420,22 +424,16 @@ googlecolabでもできるそうです。
         Statistics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -444,16 +442,16 @@ googlecolabでもできるそうです。
         Simulation
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -468,16 +466,40 @@ googlecolabでもできるそうです。
         海外留学
       </a>
     </span>
-    <span class="tag-0">
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
+          <span class="badge badge-primary">13</span>
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-4">
@@ -486,10 +508,10 @@ googlecolabでもできるそうです。
         論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>

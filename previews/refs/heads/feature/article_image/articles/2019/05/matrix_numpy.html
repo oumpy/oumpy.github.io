@@ -102,8 +102,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -124,6 +124,16 @@
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
 </div>
 </li>
 <li class="nav-item">
@@ -190,8 +200,8 @@
 <p>引用表記の部分</p>
 </blockquote>
 <p>はやや発展的な内容なので、初めて読むときは飛ばしてOKです。</p>
-<h2>ベクトルの積</h2>
-<h3>定義</h3>
+<h2><span id="pelican-subsections-0">ベクトルの積</span></h2>
+<h3><span id="pelican-subsections-1">定義</span></h3>
 <p>まず、<strong>ベクトルの積</strong>を以下のように定義します。<br>
 (Python流に0-index記法を採用。)</p>
 <div class="math">$$
@@ -217,7 +227,7 @@ $$</div>
 列ベクトル同士・行ベクトル同士で内積が定義できるのは、列ベクトルと行ベクトルを互いに変換する写像 (計量) が定義された<strong>計量ベクトル空間</strong>に限られます。<br>
 高校で習うベクトル空間に内積がしれっと入っているのは、空間上に自然なユークリッド計量が暗黙に仮定されているからです。</p>
 </blockquote>
-<h2>行列：ベクトルを並べたもの</h2>
+<h2><span id="pelican-subsections-2">行列：ベクトルを並べたもの</span></h2>
 <p>行列は、このように成分を2次元状 (<span class="math">\(E\times D\)</span>) に並べたもの。
 </p>
 <div class="math">$$
@@ -237,7 +247,7 @@ $$</div>
 (2)「<span class="math">\(E\)</span>次元列ベクトルを横に<span class="math">\(D\)</span>個並べたもの」<br>
 です。<br>
 <strong>どちらの解釈をしても構いません</strong>。</p>
-<h3>(1) 列ベクトルとの掛け算</h3>
+<h3><span id="pelican-subsections-3">(1) 列ベクトルとの掛け算</span></h3>
 <p>前者(1)の解釈をすると、上の列ベクトル<span class="math">\(y\)</span>と掛け算ができます。
 </p>
 <div class="math">$$
@@ -253,12 +263,12 @@ $$</div>
 <p>
 結果は<strong>E次元列ベクトル</strong>になりました。</p>
 <p><strong>列ベクトルに (正しい次元の) 行列を左から掛ければ列ベクトルに</strong>なります。</p>
-<h3>(2) 行ベクトルとの掛け算</h3>
+<h3><span id="pelican-subsections-4">(2) 行ベクトルとの掛け算</span></h3>
 <p>一方で解釈(2) をとると、<span class="math">\(E\)</span> 次元行ベクトル <span class="math">\(z=(z_0,z_1,\dots,z_{E-1})\)</span> に対して、<strong>右からの掛け算</strong>  <span class="math">\(z\cdot X\)</span> を行うことができます。
 結果は <strong>D次元行ベクトル</strong> になります。</p>
 <p>つまり、<strong>行ベクトルに（正しい次元の）行列を右から掛ければ行ベクトルになる</strong>ことがわかります。</p>
 <blockquote>
-<h3>掛け算の結合則</h3>
+<h3><span id="pelican-subsections-5">掛け算の結合則</span></h3>
 <p>行列に対して、(1)(2) どちらの解釈をしても構わない、と言いました。
 この意味は例えば
 <div class="math">$$
@@ -270,7 +280,7 @@ $$</div>
 これは後述の行列積にも拡張でき、行列積は全て順序によりません。
 ただし<strong>交換則は成立しない</strong> (<span class="math">\(X\cdot Y\ne Y\cdot X\)</span>) ので注意。</p>
 </blockquote>
-<h2>行列同士の掛け算</h2>
+<h2><span id="pelican-subsections-6">行列同士の掛け算</span></h2>
 <p>ここまでくると、掛け算をさらに拡張できる。
 <span class="math">\(D\times F\)</span> 行列 <span class="math">\(Y\)</span> を
 </p>
@@ -302,7 +312,7 @@ $$</div>
 左の <span class="math">\(X\)</span> から行ベクトル、右の <span class="math">\(Y\)</span> から列ベクトルを取り出して、それぞれ掛け算したものを順番に並べる。  </p>
 <p><span class="math">\(E\times D\)</span> と <span class="math">\(D\times F\)</span> を掛けると真ん中の <span class="math">\(D\)</span> が潰れて <span class="math">\(E\times F\)</span> 行列、と覚えればいいです。
 もちろん <span class="math">\(D\)</span> が揃っていないと掛け算できない。</p>
-<h2>ベクトル、行列、掛け算の意味</h2>
+<h2><span id="pelican-subsections-7">ベクトル、行列、掛け算の意味</span></h2>
 <ul>
 <li>ベクトルは通常、「データ」とか「状態」などの、比較的直接的な意味を持ちます。
 特に数式として書く場合、普通は列ベクトルにその役割を持たせます。</li>
@@ -315,7 +325,7 @@ $$</div>
 <li>行列の掛け算は合成関数のようなもの。掛け算の結合則があるので、ベクトル<span class="math">\(x\)</span>に順番に変換を施す操作 <span class="math">\(A\cdot(B\cdot x)\)</span> は、<span class="math">\(=(A\cdot B)\cdot x\)</span> のように予め左側を先に計算しておけます。
 これにより、<span class="math">\(x\)</span> を様々に取り替えて計算する場合に計算量を低減できます。</li>
 </ul>
-<h2>NumPyによる行列演算</h2>
+<h2><span id="pelican-subsections-8">NumPyによる行列演算</span></h2>
 <p>Python の NumPy パッケージは強力な行列演算機能を備えています。
 行列の定義は <code>np.array()</code>、掛け算は <code>np.dot()</code> で行えます。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -436,8 +446,8 @@ $$</div>
     <h2>関連記事</h2>
     <ul>
         <li><a href="../../../blog/2020/07/pythonparty_and_python.html">Python会とPythonとPython会で使われているPython</a></li>
-        <li><a href="../../../blog/2020/06/youtube_api.html">やさしいYouTube APIのはなし</a></li>
         <li><a href="../../../blog/2020/06/studymeeting2020_04.html">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</a></li>
+        <li><a href="../../../blog/2020/05/studymeeting2020_02.html">【勉強会資料 2020 第2回】Pythonの基本文法</a></li>
     </ul>
 </div>
 
@@ -486,6 +496,11 @@ $$</div>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -520,11 +535,6 @@ $$</div>
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -533,15 +543,9 @@ $$</div>
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -551,9 +555,9 @@ $$</div>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-1">
@@ -562,22 +566,16 @@ $$</div>
         Statistics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -586,16 +584,16 @@ $$</div>
         Simulation
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -610,16 +608,40 @@ $$</div>
         海外留学
       </a>
     </span>
-    <span class="tag-0">
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
+          <span class="badge badge-primary">13</span>
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-4">
@@ -628,10 +650,10 @@ $$</div>
         論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>

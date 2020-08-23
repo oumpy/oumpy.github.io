@@ -103,8 +103,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -125,6 +125,16 @@
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
 </div>
 </li>
 <li class="nav-item">
@@ -184,26 +194,26 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>Rasberry pi</h2>
+	<h2><span id="pelican-subsections-0">Rasberry pi</span></h2>
 <p>シングルボードコンピュータ。手のひらサイズで値段も５０００円とリーズナブルだが一人前のコンピューター。Linuxの練習にもうってつけ。クアッドコアだが機械学習としてはすこし非力。GPUもつかえない。電池で動く。何台もつなげてクラスター化する強者も。</p>
 <ul>
 <li><a href="http://www.cenav.org/raspi2/">計算工学ナビ : RaspberryPiでスパコンを作ろう</a></li>
 <li><a href="https://qiita.com/kazunori279/items/bb58f0b3095f3c65b2a1">Qiita : RasPiとディープラーニングで我が家のトイレ問題を解決する</a></li>
 </ul>
-<h2>スマホ</h2>
+<h2><span id="pelican-subsections-1">スマホ</span></h2>
 <p>やはり今の時代にハードとしてスマホに注目しないわけにはいかない。Tensorflowならスマホ組み込みも。まだ開発版のみだが、アンドロイドもiosもどちらも遊べるらしい。</p>
 <ul>
 <li><a href="https://www.sejuku.net/blog/55188">侍エンジニア塾 : 【TensorFlow】スマホで動かせるLiteとは？</a></li>
 </ul>
-<h2>GPU</h2>
+<h2><span id="pelican-subsections-2">GPU</span></h2>
 <p>おなじみ。Deep Learning等は大量の行列演算を必要とする。GPUはもともとグラフィックスにフォーカスして作られていた演算回路だが、グラフィックス自体大量の行列演算だったため、Deep Learningに転用することで超高速な学習が可能になった。Deep learningやるなら必需品。ただ、これ自体を持ち出すのは困難。市販最速のNVIDIA GTX 1080 tiで１０万円くらい。</p>
-<h2>FPGA</h2>
+<h2><span id="pelican-subsections-3">FPGA</span></h2>
 <p>Field Programmable Gate Arrayの略。デジタル回路を自分で設計できる集積回路。集積回路といえば単一タスクを低電力低コストで高速な演算が可能だが、専門家しか作れなかったし、そもそも作ること自体が大変だった。FPGAは集積回路の設計をソフトで行うことで、柔軟に専門設計が可能になった。ちっちゃいので組み込みにも向いている。最近Scienceにのって話題になったGohst CytometryもFPGA使ってるそうな。（阪大、東大、理研AIPのコラボ。下で書くjetson化も視野に入れているらしい。）最近では各社がFPGAに取り組みだしている。Tensorflowも動かせるらしい。ただしやはり専門外ではとっつきにくい。ピンキリだがやすいので１万５千円くらい。論理回路設計がもとめられるのでぶっちゃけよくわからん。</p>
 <ul>
 <li><a href="https://qiita.com/kazunori279/items/a9e97a4463cab7dda8b9">Qiita : そろそろプログラマーもFPGAを触ってみよう！</a></li>
 <li><a href="http://science.sciencemag.org/content/360/6394/1246.full">Science : Gohst Cytometry</a></li>
 </ul>
-<h2>jetson</h2>
+<h2><span id="pelican-subsections-4">jetson</span></h2>
 <p>NVIDIA組み込みモジュール。安価かつ高速でポータブルなGPUが使える。NVIDIA製ということで、Tensorflowも使えるのが嬉しい。値段は開発キットが599ドル（1ドル＝114円換算で、6万8286円）で、製品に組み込んで出荷可能なProduction Moduleは1000個ロット時で399ドル（同、4万5486円）。256 CUDAコア（GTX 1080 tiで3584 cuda cores）なので、やはり学習済みモデルの運用がメインと思われる。</p>
 <ul>
 <li><a href="https://qiita.com/ababa893/items/57b43e788d684c380866">Qiita : NVIDIA Jetson TX2でTensorFlowによる人体姿勢推定プログラムを動かせるようになるまで</a></li>
@@ -295,6 +305,11 @@
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -329,11 +344,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -342,15 +352,9 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -360,9 +364,9 @@
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-1">
@@ -371,22 +375,16 @@
         Statistics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -395,16 +393,16 @@
         Simulation
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -419,16 +417,40 @@
         海外留学
       </a>
     </span>
-    <span class="tag-0">
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
+          <span class="badge badge-primary">13</span>
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-4">
@@ -437,10 +459,10 @@
         論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>

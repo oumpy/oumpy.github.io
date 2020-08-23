@@ -102,8 +102,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-16">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -124,6 +124,16 @@
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
 </div>
 </li>
 <li class="nav-item">
@@ -183,13 +193,13 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>Python会が管理する医学科学生用計算サーバ (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
+	<p>Python会が管理する<a href="/previews/refs/heads/feature/article_image/student_server.html">医学科学生用計算サーバ</a> (以下、医学科計算サーバ) が本格的に使える状態に (ほぼ) なりました。
 OS は Ubuntu 18.04 LTS です。</p>
 <p>計算サーバのようにUNIX系OSをマルチユーザで使う場合、ファイルの所有権／アクセス権の理解が必須です。
 本稿ではその基本と、その拡張であるACL (Access Control List) を<strong>とても雑に</strong>説明します。</p>
 <p>Ubuntu 18.04を念頭に置きますが、他のLinuxでもほぼ同じです。
 macOSでのACL操作は方法が少し異なりますが、基本の仕組みは全て同じです。</p>
-<h2>ファイルの所有者とアクセス権</h2>
+<h2><span id="pelican-subsections-0">ファイルの所有者とアクセス権</span></h2>
 <p>医学科計算サーバでは、一人ひとりに独立のアカウントを発行します。
 このような環境では、自分のデータは自分だけが読み書きできるようにしたりできます。
 以下がその仕組みです。</p>
@@ -230,7 +240,7 @@ macOSでのACL操作は方法が少し異なりますが、基本の仕組みは
 
 <p>とすれば、ファイル <code>hogehoge.py</code> は自分のみ読み書き実行全て可能、他人は一切アクセス不可となります。
 Ubuntuなどではホームディレクトリの初期パーミッションが <code>755</code> だったりするため、気になる場合はこのように変更するのもおすすめです。</p>
-<h2>データ共有／共同作業／共同研究がしたい</h2>
+<h2><span id="pelican-subsections-1">データ共有／共同作業／共同研究がしたい</span></h2>
 <p>では、共同研究などで「特定の人」にだけアクセスを許すにはどうしたらいいか？</p>
 <p>一つの方法は、一緒に作業したい仲間を含むグループを作り、ファイルの所有グループとアクセス権を適当に設定することです。
 しかしグループを作るには<strong>システム管理者にその都度依頼</strong>しなければならず、あまり良い方法ではありません。</p>
@@ -326,6 +336,11 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
@@ -360,11 +375,6 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -373,15 +383,9 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -391,9 +395,9 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-1">
@@ -402,22 +406,16 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         Statistics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -426,16 +424,16 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         Simulation
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -450,16 +448,40 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         海外留学
       </a>
     </span>
-    <span class="tag-0">
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/python.html">
-          <span class="badge badge-primary">17</span>
+          <span class="badge badge-primary">13</span>
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-4">
@@ -468,10 +490,10 @@ Ubuntuなどではホームディレクトリの初期パーミッションが <
         論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
 </p>
