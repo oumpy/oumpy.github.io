@@ -183,15 +183,15 @@
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2>経時測定データ解析</h2>
+	<h2><span id="pelican-subsections-0">経時測定データ解析</span></h2>
 <p>複数の対象者に対して、ある反応変数を時間の経過とともに繰り返し測定したデータを、<strong>経時測定データ</strong>（longitudinal data）という。経済学分野では、パネルデータ解析として知られている。</p>
-<h3>経時測定データ解析の特徴</h3>
+<h3><span id="pelican-subsections-1">経時測定データ解析の特徴</span></h3>
 <ul>
 <li>個体間誤差だけでなく、個体内誤差も考慮する必要がある。</li>
 <li>個体内の各観測値は独立ではない為、相関を考慮する必要がある。</li>
 <li>ランダム化比較試験 (RCT) では個体毎の測定回数は同じであることが多いが、観察研究では個体毎に測定回数がバラバラであることが多い。</li>
 </ul>
-<h2>線形混合効果モデル</h2>
+<h2><span id="pelican-subsections-2">線形混合効果モデル</span></h2>
 <ul>
 <li><span class="math">\(N\)</span>人 (<span class="math">\(i=1, 2, \cdots, N\)</span>)の被験者を対象とする。</li>
 <li><span class="math">\(i\)</span> 番目の被験者は <span class="math">\(n_i\)</span> 回測定されるとする。</li>
@@ -207,16 +207,16 @@ $$</div>
 Y_{ij}=\beta_1+\beta_2 t_{ij}+b_{1i}+b_{2i}t_{ij}+\epsilon_{ij}\qquad (j=1, 2, \cdots, n_i)
 $$</div>
 <p>ただし、<span class="math">\(t_{ij}\)</span>は<span class="math">\(i\)</span>番目の被験者の<span class="math">\(j\)</span>番目の(イベント)時点である。以下ではモデルを図で表す。</p>
-<p><img alt="1" src="https://oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/001.JPG"></p>
-<p><img alt="2" src="https://oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/002.JPG"></p>
-<p><img alt="3" src="https://oumpy.github.io/blog/2020/04/images/linear_mixed_model_figs/003.JPG"></p>
-<h2>固定効果とランダム効果</h2>
+<p><img alt="1" src="../../../articles/2020sy/blog/images/linear_mixed_model_figs/001.JPG"></p>
+<p><img alt="2" src="../../../articles/2020sy/blog/images/linear_mixed_model_figs/002.JPG"></p>
+<p><img alt="3" src="../../../articles/2020sy/blog/images/linear_mixed_model_figs/003.JPG"></p>
+<h2><span id="pelican-subsections-3">固定効果とランダム効果</span></h2>
 <p>線形混合効果モデルは、<strong>固定効果</strong>（fixed effect）と <strong>ランダム効果</strong>（random effect）から構成される。</p>
 <ul>
 <li>固定効果（fixed effect）: population characteristics shared by all individuals</li>
 <li>ランダム効果（random effect）: specific effects that are unique to particular individual</li>
 </ul>
-<h2>非線形混合効果モデル</h2>
+<h2><span id="pelican-subsections-4">非線形混合効果モデル</span></h2>
 <ul>
 <li>データが線形モデルで表せない際に用いる。</li>
 <li>母集団薬物動態解析、動物の成長曲線等の解析で用いられる。</li>
@@ -226,7 +226,7 @@ $$</div>
 Y_{ij}=f(t_{ij}, \boldsymbol{\beta}, \boldsymbol{b_i})+\epsilon_{ij}
 $$</div>
 <p>ここで<span class="math">\(\boldsymbol{\beta}\)</span>は 固定効果、<span class="math">\(\boldsymbol{b_i}\)</span>はランダム効果（変量効果）を表すベクトルとした。また、<span class="math">\(f(\cdot)\)</span>は非線形関数であり、データの性状に応じて適切な関数を当てはめる</p>
-<h2>引用文献</h2>
+<h2><span id="pelican-subsections-5">引用文献</span></h2>
 <ul>
 <li>船渡川伊久子、船渡川隆（2015）統計解析スタンダート　経時データ解析. 朝倉書店.</li>
 <li>田中豊、森川敏彦、山中竹春、冨田誠（2008）一般化線形モデル入門（原著第2版）. 共立出版.</li>
@@ -425,22 +425,22 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -449,40 +449,16 @@ $$</div>
         海外留学
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-4">
@@ -491,10 +467,34 @@ $$</div>
         Neuroscience
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -504,39 +504,39 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
 </p>

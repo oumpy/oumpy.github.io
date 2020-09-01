@@ -185,7 +185,7 @@
   <div class="content-body" itemprop="text articleBody">
 	<p>今回は<strong>パーティクルフィルター</strong>の紹介をしたいと思います。
 といってもやり始めたばっかなので、間違っていたらご指摘お願いします。</p>
-<h2>手順</h2>
+<h2><span id="pelican-subsections-0">手順</span></h2>
 <p>基本は以下の４つのサイクルを繰り返すだけです。  </p>
 <ol>
 <li>リサンプリング  </li>
@@ -209,7 +209,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 <p>ちなみにパーティクルフィルターでの一番の肝は、↑の4．尤度関数の設定の仕方です。
 今回は色の尤度の他に、距離でも尤度を設定して（つまりある時点で散らばっている粒子の重心からの距離を考えるということ）それらをかけたものを最終の尤度のしました。
 ブラウン運動ではなく、今回のように細胞の動きを追う場合では、次のフレームで動きそうなところの尤度を大きくすればもっと正確に動きを追いかけられるみたいです。難しい。。。</p>
-<h2>実装</h2>
+<h2><span id="pelican-subsections-1">実装</span></h2>
 <p>以下、<a href="https://www.udemy.com/pythonopencv/">『Udemy 【Pythonで学ぶ】OpenCVでの画像処理入門』</a>のコードを参考にさせていただきました。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -290,9 +290,9 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 </code></pre></div>
 
 
-<h2>結果</h2>
+<h2><span id="pelican-subsections-2">結果</span></h2>
 <p>こんな感じです。</p>
-<p><img alt="1" src="https://oumpy.github.io/blog/2018/10/images/particle_filter_figs/result.gif"></p>
+<p><img alt="1" src="../../../blog/2018/10/images/particle_filter_figs/result.gif"></p>
 <p>最初は尤度を計算するとき以下のようにやってました。</p>
 <div class="highlight"><pre><span></span><code><span class="n">pxnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">px</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
 <span class="n">pynew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">population</span><span class="o">=</span><span class="n">py</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">Np</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">Np</span><span class="p">)</span>
@@ -309,7 +309,7 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 </code></pre></div>
 
 
-<h2>参考文献</h2>
+<h2><span id="pelican-subsections-3">参考文献</span></h2>
 <ul>
 <li><a href="https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E5%85%88%E7%AB%AF%E3%82%AC%E3%82%A4%E3%83%891-CVIM%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%80%89%E7%88%AA-%E4%BA%AE/dp/4915851346">コンピュータビジョン最先端ガイド</a></li>
 </ul>
@@ -444,22 +444,22 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -468,40 +468,16 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
         海外留学
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-4">
@@ -510,10 +486,34 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
         Neuroscience
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -523,39 +523,39 @@ Opencvをpythonで使えるようになったのは結構最近なので、な�
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
 </p>

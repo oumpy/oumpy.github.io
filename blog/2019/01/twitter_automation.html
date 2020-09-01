@@ -184,13 +184,13 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<p>突如TwitterのBotを作ってみたくなり試行錯誤した結果をまとめてみました。</p>
-<h2>きっかけ</h2>
+<h2><span id="pelican-subsections-0">きっかけ</span></h2>
 <ul>
 <li>講義棟の音出し禁止時間を毎日6時に通知してくれるBOTが欲しい。</li>
 <li>幸い音出し禁止時間はネット上に記載されているので、毎日取得して呟くだけなら実装は簡単そう。</li>
 <li>何よりPython会の記事のネタになる。</li>
 </ul>
-<h2>Twitter APIの取得</h2>
+<h2><span id="pelican-subsections-1">Twitter APIの取得</span></h2>
 <p>Botを作るにはAPI （アプリケーション・プログラミング・インタフェイス）が必要です。</p>
 <p>まあアカウント作ったら一発やろーと高を括っていたのですが、最近Twitter APIの使用申請が厳格化されたらしくなんだか不安。</p>
 <p><a href="https://developer.twitter.com/">https://developer.twitter.com/</a></p>
@@ -217,7 +217,7 @@
 
 
 <p>上のようにしてconfig.pyとしてまとめておくと後々楽です。</p>
-<h2>書く</h2>
+<h2><span id="pelican-subsections-2">書く</span></h2>
 <p>事前に<code>pip install requests</code>と<code>pip install requests_oauthlib</code>しておきます。</p>
 <p>先ほど取得した4つのKeyはconfig.pyとして同じ階層に忘れずに置いておきます。</p>
 <p>内容は1.取ってきて 2.整形して 3.ツイートする という流れです。シンプルですね。</p>
@@ -256,8 +256,8 @@
 </code></pre></div>
 
 
-<h2>実行結果</h2>
-<p><img alt="1" src="https://oumpy.github.io/blog/2019/01/images/twitter_automation_figs/picture1.png"></p>
+<h2><span id="pelican-subsections-3">実行結果</span></h2>
+<p><img alt="1" src="../../../blog/2019/01/images/twitter_automation_figs/picture1.png"></p>
 <p>成功です。語尾は適当です。</p>
 <p>(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)</p>
   </div>
@@ -391,22 +391,22 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -415,40 +415,16 @@
         海外留学
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-4">
@@ -457,10 +433,34 @@
         Neuroscience
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -470,39 +470,39 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
 </p>

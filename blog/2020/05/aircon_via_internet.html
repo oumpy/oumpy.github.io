@@ -187,23 +187,23 @@
 	<p>著者Twitter：<a href="https://twitter.com/y7tsy">https://twitter.com/y7tsy</a></p>
 <p>注:この記事は、作成の時間の都合と読みやすさを優先するために論文のフォーマットは採用していません。
 また、新規性に欠けるところはおよそリンクを貼るだけとしております。</p>
-<h2><span id="sec01"></span>システム概要</h2>
+<h2><span id="pelican-subsections-0"><span id="sec01"></span>システム概要</span></h2>
 <p><figure id="fig11">
-  <img src="https://oumpy.github.io/blog/2020/05/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" />
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig1-1.png" alt="図1-1 システム概略" />
   <figcaption>図1-1 システム概略</figcaption>
 </figure></p>
 <p>システムの概略を上<a href="#fig11">図1-1</a>に示す。
 スマートフォンやパソコンで、特定のサイトを開くこと、また、google assistantに「OK google,冷房/除湿/暖房をいれて」「OK google、エアコンを止めて」と指示することで、IFTTT、beebotte、rapsberry pi、ESP32を経由し、ESP32が特定の赤外線のシグナルを発信する。
 これによってエアコンを操作するのである。
 なお、ラインへの通知はおよそデバッグ用である。</p>
-<h2>ブラウザでの情報処理について</h2>
+<h2><span id="pelican-subsections-1">ブラウザでの情報処理について</span></h2>
 <p>多くのインターネット上のブログでは、スマートスピーカから情報を送信するものが多くみられる。
 しかし、外出先からの動作を考慮し、また、拡張性の高さを求め、ブラウザからの指令を行えるように設計した。
 もちろん、このブラウザは作成者しかリンクを知らないため、第三者は利用できない。
 それに加え、パスワードも実装してある。</p>
 <p>執筆時のブラウザ画面を下図1-2に載せる。
 <figure id="fig12">
-  <img src="https://oumpy.github.io/blog/2020/05/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" />
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig1-2.png" alt="図1-2 ブラウザ画面" />
   <figcaption>図1-2 ブラウザ画面</figcaption>
 </figure></p>
 <p>ここで、サーバーはXSERVERを利用している。
@@ -217,7 +217,7 @@
 ブラウザから操作されたタイミングをテキストファイルで保存しており、その最新の日時を表示させているのである。
 これはrapberry piにサーバを担わせていた仕様の名残でもある。
 この情報を機械学習などを用いて解析することで、エアコンを操作するタイミングの特徴を抽出し、ラインなどに「冷房をつけましょうか」といった通知を送るような機能の実装を計画していた。</p>
-<h2>google assistant、IFTTT及びbeebotteの処理について</h2>
+<h2><span id="pelican-subsections-2">google assistant、IFTTT及びbeebotteの処理について</span></h2>
 <p>先に述べておくが、開発はIFTTTよりもbeebotteの設定を先に行った。
 これは、IFTTTの設定時にbeebotteの情報が必要だからである。</p>
 <p>さて、google assistantとIFTTTの連携は非常にシンプルに構成できる。
@@ -295,7 +295,7 @@
 </tbody>
 </table>
 <p><span id="table31">表3-1</span> IFTTTの設定</p>
-<h2>MQTT及びrapsberry piのプログラムについて</h2>
+<h2><span id="pelican-subsections-3">MQTT及びrapsberry piのプログラムについて</span></h2>
 <p>raspberry piがMQTT通信を用いて、beebotteからの情報を受け取る。
 pythonで処理できるため、処理が簡単になる。
 <a href="https://qiita.com/msquare33/items/9f0312585bb4707c686b">https://qiita.com/msquare33/items/9f0312585bb4707c686b</a>
@@ -305,7 +305,7 @@ raspberry piは数千円で購入できる、linux様のコンピュータであ
 wifiやbluetooth、usbなどインターフェースも申し分なく、サーバーコンピュータとしては省電力である。
 詳しくはこちらを参考にされたい。
 今回、常に起動させておく必要があり省エネであることが求められ、また、スレーブの増設への対応の設定を行うためのユーザーインターフェースが整っており、安価であるという点からこのraspberry piを選定した。 </p>
-<h2>pythonからbluetoothを用いたESP32との通信</h2>
+<h2><span id="pelican-subsections-4">pythonからbluetoothを用いたESP32との通信</span></h2>
 <p>raspberry piはサーバであり、そこから複数の距離の離れたスレーブに情報を送信する。
 そしてそのスレーブが各々の家電を操作するのである。サーバとスレーブ(クライアント)間の無線通信は技適を取得している製品を用いるのが望ましい。
 また、電子回路を制御するためのマイコンがあれば、赤外線LEDを制御しやすい。
@@ -314,7 +314,7 @@ wifiやbluetooth、usbなどインターフェースも申し分なく、サー�
 その中でも扱いやすくなったこのモジュールを利用した。
 bluetoothを利用するにあたって、raspberry piはpythonで、ESP32がarduino IDEというC++様な言語を用いた。
 <a href="#appendix02">附録2</a>として、pythonでbluetoothを送信するプログラムを、<a href="#appendix03">附録3</a>としてESP32でbluetoothを受信するプログラムを載せる。</p>
-<h2>赤外線LED及び受信機の回路設計とプログラムについて</h2>
+<h2><span id="pelican-subsections-5">赤外線LED及び受信機の回路設計とプログラムについて</span></h2>
 <p>どのような赤外線信号を出せばエアコンが動くかは、その付属のリモコンの信号を解析するのが正確である。
 ここで、それぞれ受信と送信を行う回路を組まなければならない。
 受信機の回路は
@@ -328,24 +328,24 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
 プログラム6-AはサンプルスケッチのIRrecvDumpV2のピン番号を設定し直したプログラムである。
 これを書き込み、シリアルモニタを起動させ、リモコンのボタンを押すと赤外線のシグナルの構造データを得られる。
 プログラム6-BはサンプルスケッチのIRsendDEMOにプログラム6-Aで得られたデータを書き込んだものである。</p>
-<h2>今後の展望</h2>
+<h2><span id="pelican-subsections-6">今後の展望</span></h2>
 <p><a href="#sec01">1章</a>でも述べたように、それぞれの操作と時間の関係を解析し、ユーザに提案するようなシステムを構築したい。</p>
 <p>また、寝室の蛍光灯やカーテンの開閉をこのシステムに組み込みたい(下<a href="#fig71">図7-1</a>)。
 これは起床を促進させる可能性があると考えている。そして、<a href="#fig12">図1-2</a>のブラウザ画面のような見た目が良くないものを、CSSを用いて扱いやすく、視覚的に好印象を与えるようなものに改良したい。</p>
 <p>今、新型コロナウイルスにより加工機械が利用できないため、新しい端末の開発の速度が低迷している。</p>
 <figure id="fig71">
-  <img src="https://oumpy.github.io/blog/2020/05/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" />
+  <img src="../../../blog/2020/05/images/aircon_via_internet_figs/fig7-1.png" alt="図7-1 今後の展望" />
   <figcaption>図7-1 今後の展望</figcaption>
 </figure>
 
-<h2>附録</h2>
-<h3><span id="appendix01">附録1</span> : PHPからwebhookを介してIFTTTTのトリガーを起動させるプログラム</h3>
+<h2><span id="pelican-subsections-7">附録</span></h2>
+<h3><span id="pelican-subsections-8"><span id="appendix01">附録1</span> : PHPからwebhookを介してIFTTTTのトリガーを起動させるプログラム</span></h3>
 <p>参考にしたサイト <a href="https://amg-solution.jp/blog/14245">https://amg-solution.jp/blog/14245</a></p>
 <p>＜著作権を鑑み、消去しました＞</p>
-<h3><span id="appendix02">附録2</span> : pythonでbluetoothを用いてテキストデータを送信するプログラム</h3>
+<h3><span id="pelican-subsections-9"><span id="appendix02">附録2</span> : pythonでbluetoothを用いてテキストデータを送信するプログラム</span></h3>
 <p>参考にしたサイト <a href="https://stackoverrun.com/ja/q/10556918">https://stackoverrun.com/ja/q/10556918</a></p>
 <p>＜著作権を鑑み、消去しました＞</p>
-<h3><span id="appendix03">附録3</span> : arduino IDEでbluetoothを用いてテキストデータを受信するプログラム</h3>
+<h3><span id="pelican-subsections-10"><span id="appendix03">附録3</span> : arduino IDEでbluetoothを用いてテキストデータを受信するプログラム</span></h3>
 <p>以下はセミコロン(;)までを読み込むプログラムである。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;BluetoothSerial.h&quot;</span><span class="cp"></span>
 
@@ -498,22 +498,22 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">5</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -522,40 +522,16 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
         海外留学
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-4">
@@ -564,10 +540,34 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
         Neuroscience
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -577,39 +577,39 @@ ESP32で赤外線LEDを利用するためのライブラリであるIRremoteESP8
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">5</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
 </p>
