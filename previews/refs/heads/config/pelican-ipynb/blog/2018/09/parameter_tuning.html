@@ -212,7 +212,7 @@ $$</div>
 <li>まだ観測していない場所から選びたい( <span class="math">\(\sigma\)</span> が大きい)</li>
 </ul>
 <p>ということを考えて選びそうなものです。よくできてますね。</p>
-<p><img alt="2" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/expected-improvement-example.png"></p>
+<p><img alt="2" src="../../../blog/2018/09/images/parameter_tuning_figs/expected-improvement-example.png"></p>
 <h3><span id="pelican-subsections-2">実装</span></h3>
 <p>実装には<a href="https://github.com/fmfn/BayesianOptimization">Bayesian Optimization</a>を使いました。</p>
 <p>使用するデータはkaggleの<a href="https://www.kaggle.com/c/otto-group-product-classification-challenge#evaluation">Otto Group Product Classification Challenge</a>のデータで評価指標はmulti-class loglossです。定番のXGBoostのパラメータを最適化します。installはpipで入ります：<code>pip install bayesian-optimization</code></p>
@@ -269,8 +269,8 @@ $$</div>
 
 
 <h3><span id="pelican-subsections-3">結果</span></h3>
-<p><img alt="3" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/result.png">
-<img alt="4" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/result2.png"></p>
+<p><img alt="3" src="../../../blog/2018/09/images/parameter_tuning_figs/result.png">
+<img alt="4" src="../../../blog/2018/09/images/parameter_tuning_figs/result2.png"></p>
 <p>だいたい15回くらいの試行でloglossが0.46136まで下がりました。やってから気づいたんですが、max_depthとかって整数の値しかとらないですね、、、</p>
 <p>ただし、ベイズ最適化には弱点もいくつかあって、</p>
 <ul>
@@ -281,15 +281,15 @@ $$</div>
 <p>みたいなことになるらしいです。</p>
 <h2><span id="pelican-subsections-4">Tree-structured Parzen Estimator(TPE)</span></h2>
 <p>このような弱点を修正したのがTPEという最適化手法です。ベイズとコンセプトは似ていますが、手法は全く異なります。一般的な方法として、まずRandom Searchを用いていくつか点をとってきます。プロットすると下の図のようになりました。</p>
-<p><img alt="5" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/tpe-observation-groups.png"></p>
+<p><img alt="5" src="../../../blog/2018/09/images/parameter_tuning_figs/tpe-observation-groups.png"></p>
 <p>次に精度が良かったもの(図では上位20%)とそうでなかったものに分けます。この2群の尤度関数を求めます。あまり尤度と言っても馴染みのない人が多いと思いますが、サンプリングされたデータは様々な確率分布のうち、どの分布から得られたものとするのが一番尤もらしいかを決めようとするものです。これにより2群の確率分布が出来上がります。</p>
 <p>TPEでもExpected Improvement関数の下のように定義します。精度良かったものを<span class="math">\(l\)</span>,そうではなかったものを<span class="math">\(g\)</span>として、</p>
 <div class="math">$$
 EI(x)=\frac{l(x)}{g(x)}
 $$</div>
 <p>これをそれぞれの観測点に対して適用し、最もEIの値が大きかった場所が次の観測点になります。</p>
-<p><img alt="6" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/tpe-sampled-candidates.png">
-<img alt="7" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/tpe-expected-improvement.png"></p>
+<p><img alt="6" src="../../../blog/2018/09/images/parameter_tuning_figs/tpe-sampled-candidates.png">
+<img alt="7" src="../../../blog/2018/09/images/parameter_tuning_figs/tpe-expected-improvement.png"></p>
 <h3><span id="pelican-subsections-5">実装</span></h3>
 <p>こっちも実装してみます。Pythonではhyperoptというライブラリがあってpipで入ります：<code>pip install hyperopt</code></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hyperopt</span>
@@ -330,8 +330,8 @@ $$</div>
 
 
 <h3><span id="pelican-subsections-6">結果</span></h3>
-<p><img alt="8" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/loss.jpg">
-<img alt="9" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/best_param.png"></p>
+<p><img alt="8" src="../../../blog/2018/09/images/parameter_tuning_figs/loss.jpg">
+<img alt="9" src="../../../blog/2018/09/images/parameter_tuning_figs/best_param.png"></p>
 <p>logloss最小値は0.4749でした。あれ、bayesian optimizaationより悪い、、、bayesianではmax_depthを整数に限定しなかったからかも、、
 でも自分で手動でやった時は0.6とかだったんで、パラメーターチューニングの時にはこれからこれ使っていこうと思います。あとこのxgboost動かすのに8コアCPU使ってそれぞれ半日くらい回しました。GPU使ってたらもうちょい早かったと思うのですが、きちんとbuildとmakeしてもうまくいきませんでした。また挑戦します。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -430,9 +430,9 @@ $$</div>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2020/07/studymeeting2020_07.html">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</a></li>
         <li><a href="../../../blog/2020/06/studymeeting2020_06.html">【勉強会資料 2020 第6回】 機械学習とCNN入門</a></li>
-        <li><a href="../../../blog/2019/10/gpus_for_ml.html">機械学習のための最新GPU比較</a></li>
-        <li><a href="../../../blog/2019/05/unet_cells_recognition.html">U-Netで細胞認識</a></li>
+        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
     </ul>
 </div>
 
@@ -491,6 +491,11 @@ $$</div>
     <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
   </tr>
   <tr>
+    <td class="recent-posts-date">7/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">7/6</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
     <td><a href="../../../news/2020/07/officialize_accept.html"><span class="recent-posts-title">医学部公認団体として正式承認されました</span></a></td>
@@ -501,24 +506,19 @@ $$</div>
     <td><a href="../../../blog/2020/07/pythonparty_and_python.html"><span class="recent-posts-title">Python会とPythonとPython会で使われているPython</span></a></td>
   </tr>
   <tr>
+    <td class="recent-posts-date">7/1</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/samestats.html"><span class="recent-posts-title">同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">7/1</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">6/27</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/25</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/youtube_api.html"><span class="recent-posts-title">やさしいYouTube APIのはなし</span></a></td>
   </tr>
 </table>
 </div>
@@ -527,28 +527,10 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">11</span>
-        Python
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -557,28 +539,10 @@ $$</div>
         海外留学
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">11</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -593,28 +557,22 @@ $$</div>
         News
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">4</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -623,16 +581,64 @@ $$</div>
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">12</span>
+          <span class="badge badge-primary">15</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
 </p>
