@@ -1326,11 +1326,11 @@ $$<p>のように記述できます。これでは多層にする意味がない
 <li>(<a href="https://arxiv.org/abs/1905.13655">Arora et al., <em>NeurIPS' 19</em>. 2019</a>)では深層線形ニューラルネットワークが低ランクの解を導出できることを理論的及び実験的に実証しています。</li>
 <li>(<a href="https://arxiv.org/abs/1806.00468">Gunasekar et al., <em>NeurIPS' 18</em>. 2018</a>)では、線形畳み込みニューラルネットワークにおいて勾配降下が正則化作用を持つことを示しています。</li>
 </ul>
-<p>証明は省略しますが、(<a href="https://arxiv.org/abs/1905.13655">Arora et al., <em>NeurIPS' 19</em>. 2019</a>)におけるTheorem 3.を紹介します。まず、$N$層の線形多層ニューラルネットワークを考え、$W_j \in \mathbb{R}^{d_i \times d_{j−1}}$を$j$層の重みとします(バイアスは省略します)。$t$を学習のタイムステップとし、$W(t) \in \mathbb{R}^{d \times d^\prime}$を重み行列を全て乗じた行列とします (ただし$d := d_N, d^\prime := d_0$)。つまり$W(t):=\prod_{j=1}^N W_j(t)$です。</p>
+<p>証明は省略しますが、(<a href="https://arxiv.org/abs/1905.13655">Arora et al., <em>NeurIPS' 19</em>. 2019</a>)におけるTheorem 3.を紹介します。まず、$N$層の線形多層ニューラルネットワークを考え、$W_j \in \mathbb{R}^{d_j \times d_{j−1}}$を$j$層の重みとします(バイアスは省略します)。$t$を学習のタイムステップとし、$W(t) \in \mathbb{R}^{d \times d^\prime}$を重み行列を全て乗じた行列とします (ただし$d := d_N, d^\prime := d_0$)。つまり$W(t):=\prod_{j=1}^N W_j(t)$です。</p>
 <p>ここで$W(t)$を特異値分解し、$W(t) = U(t)S(t)V^T(t)$と表現します。$S(t)$は対角行列で、その要素を$\sigma_1(t), \cdots , \sigma_{\min\{d, d^\prime\}}(t),$とします。これが$W(t)$の特異値となります。さらに$U(t), V (t)$の列ベクトルをそれぞれ $\mathbf{u}_1(t), \cdots, \mathbf{u}_{\min\{d, d^\prime\}}(t)$, および $\mathbf{v}_1(t), \cdots, \mathbf{v}_{\min\{d,d^\prime \}}(t)$とします。このとき、特異値$ \sigma_r(t)\ (r=1, \cdots, \min\{d,d^\prime \})$の損失関数$\mathcal{L}(W(t))$に対する勾配降下法による変化は</p>
 $$
-\frac{d \sigma_r(t)}{dt} = - N \cdot (\sigma_r(t))^{1 - \frac{1}{N}} \cdot \left\langle \nabla \mathcal{L}(W(t)) , \mathbf{u}_r(t) \mathbf{v}_r^T(t) \right\rangle \tag{1}
-$$<p>と表されます (Arora et al., 2019; Theorem 3)。(1)式で重要なのは$(\sigma_r(t))^{1 - \frac{1}{N}}$の項です。これは$N\geq 2$のときに<strong>特異値$\sigma_r(t)\ (\geq 0)$を小さくするような正則化作用が生じる</strong>ことを意味しています。一方で、1層のニューラルネットワーク ($N=1$)の場合 (1)式は</p>
+\frac{d \sigma_r(t)}{dt} = - N \cdot \left[\sigma_r(t)\right]^{1 - \frac{1}{N}} \cdot \left\langle \nabla \mathcal{L}(W(t)) , \mathbf{u}_r(t) \mathbf{v}_r^T(t) \right\rangle \tag{1}
+$$<p>と表されます (Arora et al., 2019; Theorem 3)。(1)式で重要なのは$\left[\sigma_r(t)\right]^{1 - \frac{1}{N}}$の項です。これは$N\geq 2$のときに<strong>特異値$\sigma_r(t)\ (\geq 0)$を小さくするような正則化作用が生じる</strong>ことを意味しています。一方で、1層のニューラルネットワーク ($N=1$)の場合 (1)式は</p>
 $$
 \frac{d \sigma_r(t)}{dt} = - \left\langle \nabla \mathcal{L}(W(t)) , \mathbf{u}_r(t) \mathbf{v}_r^T(t) \right\rangle \tag{2}
 $$<p>となり、正則化作用は消失します。</p>
@@ -1812,7 +1812,7 @@ $$<p>となり、正則化作用は消失します。</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>AEよりもIRMAEの方が2枚の画像を綺麗に補間できていることが分かります。JingらはさらにVAEとの比較も行っていますが、決定論的かつ事前分布の仮定をしていないにも関わらず、VAEと遜色ない潜在空間が獲得されています。</p>
+<p>AEよりもIRMAEの方が2枚の画像を綺麗に補間できていることが分かります。Jingらは生成画像を確率的モデルであるVAEと比較しています。VAEには生成画像がぼやけるという欠点がありますが、IRMAEはCelebAデータセットにおいてVAEよりも良質な画像 (FID scoreの小さい画像) を生成するという結果が報告されています。なお、Jingらは純粋なVAEのみと比較しており、例えばNVAE (<a href="https://arxiv.org/abs/2007.03898">Vahdat &amp; Kautz, <em>NeurIPS' 20</em>, 2020</a>) などとは比較していません。</p>
 
 </div>
 </div>
@@ -1822,7 +1822,7 @@ $$<p>となり、正則化作用は消失します。</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#12414;&#12392;&#12417;"><span id="pelican-subsections-7">&#12414;&#12392;&#12417;<a class="anchor-link" href="#&#12414;&#12392;&#12417;">&#182;</a></span></h2><ul>
 <li>線形層を挿入するという簡単な操作はネットワークの陰的正則化作用を生み出す。</li>
-<li>上記の理論をAEに応用したIRMAEは、事前分布を仮定したVAEと遜色ない潜在空間を獲得する。</li>
+<li>上記の理論をAEに応用したIRMAEは、潜在空間の分布として多変量標準正規分布を仮定するといった明示的な正則化なしでVAEのような潜在空間を獲得できる。</li>
 </ul>
 
 </div>
@@ -2006,22 +2006,22 @@ $$<p>となり、正則化作用は消失します。</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        Simulation
+        論文関連
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -2031,15 +2031,9 @@ $$<p>となり、正則化作用は消失します。</p>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -2048,46 +2042,10 @@ $$<p>となり、正則化作用は消失します。</p>
         GitHub
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
           <span class="badge badge-primary">16</span>
         Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
       </a>
     </span>
     <span class="tag-1">
@@ -2097,15 +2055,39 @@ $$<p>となり、正則化作用は消失します。</p>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-3">
@@ -2115,9 +2097,27 @@ $$<p>となり、正則化作用は消失します。</p>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
 </p>
