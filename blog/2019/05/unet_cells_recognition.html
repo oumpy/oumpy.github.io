@@ -198,8 +198,9 @@
 <a href="http://ni4muraano.hatenablog.com/entry/2017/08/10/101053">http://ni4muraano.hatenablog.com/entry/2017/08/10/101053</a></p>
 <p>以下にコードを載せます。</p>
 <h3><span id="pelican-subsections-2">unet.py</span></h3>
-<p>まずU-Net処理を表した関数です。
-<details><summary>unet.py の中身を見る</summary></p>
+<p>まずU-Net処理を表した関数です。</p>
+<details><summary>unet.py の中身を見る</summary>
+
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
@@ -311,8 +312,9 @@
 </details>
 
 <h3><span id="pelican-subsections-3">main.py</span></h3>
-<p>次に、実際に動かすスクリプトです。
-<details><summary>main.py の中身を見る</summary></p>
+<p>次に、実際に動かすスクリプトです。</p>
+<details><summary>main.py の中身を見る</summary>
+
 <div class="highlight"><pre><span></span><code><span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="c1"># 値を-1から1に正規化する関数</span>
 <span class="k">def</span> <span class="nf">normalize_x</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
@@ -484,9 +486,9 @@ linuxのサーバーにつないで行うみたいです。
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2020/11/irmae.html">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</a></li>
         <li><a href="../../../blog/2020/07/studymeeting2020_07.html">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</a></li>
         <li><a href="../../../blog/2020/06/studymeeting2020_06.html">【勉強会資料 2020 第6回】 機械学習とCNN入門</a></li>
-        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
     </ul>
 </div>
 
@@ -535,6 +537,11 @@ linuxのサーバーにつないで行うみたいです。
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -569,11 +576,6 @@ linuxのサーバーにつないで行うみたいです。
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -588,27 +590,9 @@ linuxのサーバーにつないで行うみたいです。
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -617,10 +601,34 @@ linuxのサーバーにつないで行うみたいです。
         Simulation
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -630,45 +638,45 @@ linuxのサーバーにつないで行うみたいです。
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -677,22 +685,16 @@ linuxのサーバーにつないで行うみたいです。
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>

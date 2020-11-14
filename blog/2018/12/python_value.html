@@ -196,14 +196,12 @@ Pythonでの<strong>変数への代入とは、変数の参照するメモリ（
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 1を出力</span>
 </code></pre></div>
 
-
 <p>C++で書き換えると、</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
 <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
 </code></pre></div>
-
 
 <p>なのか？？
 （#include\とかint main(void){...}とかは全部省略。）  </p>
@@ -216,7 +214,6 @@ C++の方では<code>a</code>で表されるメモリ領域を一つ確保し、
 <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 1を出力</span>
 </code></pre></div>
-
 
 <p>のようになります。<br>
 （C++に参照定数はあるが参照変数がないため、ポインタで書いた。）</p>
@@ -231,7 +228,6 @@ C++の方では<code>a</code>で表されるメモリ領域を一つ確保し、
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 何が出る？</span>
 </code></pre></div>
 
-
 <p><strong>答えは「<code>0</code>」</strong>です。<br>
 C++で書いた似たようなコード、</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C++</span>
@@ -240,7 +236,6 @@ C++で書いた似たようなコード、</p>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 出力は「0」</span>
 </code></pre></div>
-
 
 <p>も結果は同じなのですが、内部動作は全く異なります。<strong>Pythonでの変数代入は参照の切り替え</strong>であることがやはりポイントです。</p>
 <p>一方で、過程は違えどPythonもC++も結果は変わりません。<strong>気にしなくても大抵はうまくいく</strong>、というのも大事なところです(笑)。</p>
@@ -257,7 +252,6 @@ C++で書いた似たようなコード、</p>
 <span class="c1"># ここまで。このprint()は何を出力するか？0？1？</span>
 </code></pre></div>
 
-
 <p>「参照渡し」を知っている人ほど、「1」と答えたくなりそうですが、、  </p>
 <p><strong>答えは「0」</strong>です。何故か？<br>
 <code>func(a)</code>を呼び出した時点では、<strong><code>a</code>と<code>x</code>の指すメモリは同じ<code>0</code></strong>ですが、<code>x = 1</code>で<code>x</code>の指すメモリは<strong>別に確保された<code>1</code></strong>に切り替わります。<strong><code>a</code>および、<code>a</code>の指す<code>0</code>には何の変化も無い</strong>のです。このあたりは前項の問題とほとんど同じです。</p>
@@ -270,7 +264,6 @@ C++で書いた似たようなコード、</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 出力は[2,1]</span>
 </code></pre></div>
 
-
 <p>3行目で<code>b</code>と<code>a</code>は同じリストを参照するようになります。4行目では、そのリスト（これも参照の列みたいなもの）の最初の成分を、<code>0</code>でなく<code>2</code>のメモリを参照するように切り替えます。全体として見れば<code>a</code>と<code>b</code>が同じリストを参照していることに変わりはないので、この変更は<code>b</code>にも反映されています。</p>
 <p>これは、前項の関数引数で若干の問題を引き起こします。<br>
 次のコード、前項で見たものにそっくりですが、、、</p>
@@ -282,7 +275,6 @@ C++で書いた似たようなコード、</p>
 <span class="n">func2</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
-
 
 <p><strong>前項とは違い、この出力は「<code>1</code>」</strong>です。<br>
 関数が呼び出されると<strong><code>a</code>と<code>x</code>の指すリストは一貫して同じ</strong>で、その一部が書き換えられるからです。これは<strong>リストでなくnumpy配列の場合もほぼ同じ</strong>です。</p>
@@ -376,6 +368,11 @@ C++で書いた似たようなコード、</p>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -410,11 +407,6 @@ C++で書いた似たようなコード、</p>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -429,27 +421,9 @@ C++で書いた似たようなコード、</p>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -458,10 +432,34 @@ C++で書いた似たようなコード、</p>
         Simulation
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -471,45 +469,45 @@ C++で書いた似たようなコード、</p>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -518,22 +516,16 @@ C++で書いた似たようなコード、</p>
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>

@@ -197,7 +197,6 @@ Rを呼び出さずに完結できたりします。</p>
 <span class="err">d    e    f</span>
 </code></pre></div>
 
-
 <p>これの各要素を、<code>$mat_i_j</code> に格納していきます。
 一例として、以下のスクリプトでできます。
 配列つかったりしてもっといいスクリプトもきっとあります。</p>
@@ -216,14 +215,12 @@ Rを呼び出さずに完結できたりします。</p>
 <span class="c1">### 変数mat_$i_$j を使った処理が続く。</span>
 </code></pre></div>
 
-
 <p>時間のある人用に解説です。
 少し小技があります。</p>
 <h2><span id="pelican-subsections-0">1) while readの使い方</span></h2>
 <p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
 <div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
 </code></pre></div>
-
 
 <p>ファイルを一行ずつ読んで、各列の要素を<code>read</code>の後ろに置いた変数名<code>（x1,x2,x3）</code>に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
 各行ごとに、<code>do</code>～<code>done</code>の間で、<code>$x1</code>,<code>$x2</code>,<code>$x3</code>が使えるようになります。</p>
@@ -233,7 +230,6 @@ Rを呼び出さずに完結できたりします。</p>
 <code>done</code>の後ろに</p>
 <div class="highlight"><pre><span></span><code><span class="k">done</span>&lt;table.txt
 </code></pre></div>
-
 
 <p>を書きます。
 読みにくいですよねー。</p>
@@ -251,7 +247,6 @@ Rを呼び出さずに完結できたりします。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
 </code></pre></div>
 
-
 <p>と書けば、まず、<code>eval</code>が<code>$col</code>の中身を出してからスクリプトとして評価するので、
 （xの<span class="math">\(には\がかかってるので無視されます）
 <code>echo $x1</code>
@@ -268,7 +263,6 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <div class="highlight"><pre><span></span><code><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$k</span><span class="sb">`</span>
 </code></pre></div>
 
-
 <p>とすれば、<code>$k</code>の中身が出力されて、<code>test</code>に格納されます。
 <code>row</code>に1ずつ足していくとこでも使ってます。よく見る方法です。
 <code>for</code>文使わなくていいので、見た目がすっきりします。</p>
@@ -276,13 +270,11 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
 </code></pre></div>
 
-
 <p>と書けば、<code>mat_2_3</code>に<code>$x1</code>の中身が代入されるはず！
 となるのですが、不完全です。</p>
 <p>アクサングラーブでの評価で、<code>\</code>が一個消費されてしまうので、実行する<code>eval echo</code>の文が、</p>
 <div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
 </code></pre></div>
-
 
 <p>となるので、<code>eval</code>での評価時に<code>$x</code>の中身（設定してないので空っぽ）と<code>$col</code>が出されてしまって、
 <code>echo (空)1</code>
@@ -290,7 +282,6 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <p>なので、</p>
 <div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
 </code></pre></div>
-
 
 <p>と、\を一個増やして書けば、目的達成です。
 めでたしめでたし。</p>
@@ -441,6 +432,11 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -475,11 +471,6 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -494,27 +485,9 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -523,10 +496,34 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         Simulation
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -536,45 +533,45 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -583,22 +580,16 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>

@@ -198,12 +198,10 @@
 zcat hoge.gz <span class="p">|</span> cut –f1（試したいコマンド）<span class="p">|</span> head
 </code></pre></div>
 
-
 <p>一行が長くて確認しづらい！と思ったら、headからless –Sにつなぎます。
 別画面で折り返しなしで見ることができます。</p>
 <div class="highlight"><pre><span></span><code>cat hogehoge <span class="p">|</span> sed 1d（試したいコマンド）<span class="p">|</span> head <span class="p">|</span> less -S
 </code></pre></div>
-
 
 <h2><span id="pelican-subsections-1">2) scriptを書く</span></h2>
 <p>うまくいきそうで、だいたい流れが思い描けたらshell scriptに書き起こします。
@@ -211,7 +209,6 @@ zcat hoge.gz <span class="p">|</span> cut –f1（試したいコマンド）<sp
 <div class="highlight"><pre><span></span><code>touch test.sh <span class="c1"># ファイルつくって、</span>
 emacs test.sh <span class="c1"># emacsで開く。</span>
 </code></pre></div>
-
 
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash # おまじない。</span>
 <span class="nv">$1</span><span class="o">=</span>filename <span class="c1"># ファイルはいつも外から入れれるようにしてます。</span>
@@ -221,19 +218,16 @@ mkdir ./folder <span class="c1"># 散らからないように専用フォルダ�
 cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> sed 1d &gt; <span class="s2">&quot;</span><span class="nv">$dir1</span><span class="s2">&quot;</span>/hogehoge2.txt <span class="c1">#目的のコマンドで処理して保存。</span>
 </code></pre></div>
 
-
 <h2><span id="pelican-subsections-2">3) 実行</span></h2>
 <p>書けたら、処理したいファイルを渡して実行してみます。
 <code>&amp;</code>はバックグラウンド実行です。</p>
 <div class="highlight"><pre><span></span><code>bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
 </code></pre></div>
 
-
 <p>時間がかかりそうで家に帰りたいときは、nohupでサーバーと切れても大丈夫なように。
 screenを使うこともあります。</p>
 <div class="highlight"><pre><span></span><code>nohup bash ./test.sh ./hogehoge.txt <span class="p">&amp;</span>
 </code></pre></div>
-
 
 <p>4)　修正</p>
 <p>scriptを修正するときは、元の文は#をつけてコメントアウトしときます。
@@ -241,7 +235,6 @@ screenを使うこともあります。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># cat &quot;$filename&quot; | sed 1d &gt; &quot;$dir1&quot;/hogehoge2.txt # コメントアウトして置いておく。</span>
 cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;blahblah&quot;</span> &gt; <span class="s2">&quot;</span><span class="nv">$dir1</span><span class="s2">&quot;</span>/hogehoge2.txt <span class="c1"># 新しい文。</span>
 </code></pre></div>
-
 
 <p>どこでバグってるか分からない時は、とりあえずechoで変数を出してみたりしてチェックしてます。</p>
 <h2><span id="pelican-subsections-3">5) 応用編</span></h2>
@@ -383,6 +376,11 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -417,11 +415,6 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -436,27 +429,9 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -465,10 +440,34 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
         Simulation
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -478,45 +477,45 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -525,22 +524,16 @@ cat <span class="s2">&quot;</span><span class="nv">$filename</span><span class="
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>

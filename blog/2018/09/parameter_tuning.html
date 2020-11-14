@@ -222,7 +222,6 @@ $$</div>
 <span class="kn">from</span> <span class="nn">bayes_opt</span> <span class="kn">import</span> <span class="n">BayesianOptimization</span>
 </code></pre></div>
 
-
 <p>調整したいパラメーターを引数にとる評価関数の指定、クロスバリデーション。bayesian-optimizationには評価関数の最大化のライブラリしかないので、小さい値ほどいいloglossは返り値に-1をかけます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xgb_evaluate</span><span class="p">(</span><span class="n">min_child_weight</span><span class="p">,</span> <span class="n">colsample_bytree</span><span class="p">,</span>
                  <span class="n">max_depth</span><span class="p">,</span> <span class="n">subsample</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
@@ -239,7 +238,6 @@ $$</div>
 
     <span class="k">return</span> <span class="o">-</span><span class="n">cv_result</span><span class="p">[</span><span class="s1">&#39;test-mlogloss-mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
-
 
 <p>いよいよ最適化！</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -266,7 +264,6 @@ $$</div>
 
     <span class="n">xgbBO</span><span class="o">.</span><span class="n">maximize</span><span class="p">(</span><span class="n">init_points</span><span class="o">=</span><span class="n">init_points</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="n">num_iter</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3><span id="pelican-subsections-3">結果</span></h3>
 <p><img alt="3" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/result.png">
@@ -296,7 +293,6 @@ $$</div>
 <span class="kn">from</span> <span class="nn">hyperopt</span> <span class="kn">import</span> <span class="n">hp</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">Trials</span><span class="p">,</span> <span class="n">fmin</span>
 </code></pre></div>
 
-
 <p>最適化するパラメータはbayesian optimizationと同じやつにしてみました。</p>
 <div class="highlight"><pre><span></span><code><span class="n">hyperopt_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;min_child_weight&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
                        <span class="s1">&#39;colsample_bytree&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;colsample_bytree&#39;</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
@@ -306,7 +302,6 @@ $$</div>
                        <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">hp</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),}</span>
 </code></pre></div>
 
-
 <p>最適化する関数の指定</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
     <span class="n">classifier</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
@@ -314,7 +309,6 @@ $$</div>
     <span class="n">result</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;target&#39;</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">stratifiedkfold</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_log_loss&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">result</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div>
-
 
 <p>実行！</p>
 <div class="highlight"><pre><span></span><code><span class="n">max_evals</span> <span class="o">=</span> <span class="mi">50</span>
@@ -327,7 +321,6 @@ $$</div>
             <span class="n">trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">,</span>
             <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3><span id="pelican-subsections-6">結果</span></h3>
 <p><img alt="8" src="../../../articles/2018sy/blog/images/parameter_tuning_figs/loss.jpg">
@@ -430,9 +423,9 @@ $$</div>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
+        <li><a href="../../../blog/2020/11/irmae.html">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</a></li>
         <li><a href="../../../blog/2020/07/studymeeting2020_07.html">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</a></li>
         <li><a href="../../../blog/2020/06/studymeeting2020_06.html">【勉強会資料 2020 第6回】 機械学習とCNN入門</a></li>
-        <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
     </ul>
 </div>
 
@@ -481,6 +474,11 @@ $$</div>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -515,11 +513,6 @@ $$</div>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -534,27 +527,9 @@ $$</div>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -563,10 +538,34 @@ $$</div>
         Simulation
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-1">
@@ -576,45 +575,45 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
@@ -623,22 +622,16 @@ $$</div>
         論文関連
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
       </a>
     </span>
 </p>
