@@ -187,25 +187,25 @@
 	<p>先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
 なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
 なんとか復旧したのでその方法を共有します。</p>
-<p><img alt="image01" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image01.png"></p>
+<p><img alt="image01" src="../../../blog/2018/09/images/ipynb_broken_figs/image01.png"></p>
 <p>まず開こうと思ったらこんな感じでした。
 絶望感しかありません。
 ipynbファイルの弱点を見たような気がしました。</p>
 <p>そこで、新しいipynbを作り、jsonを読んでみました。</p>
-<p><img alt="image02" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image02.png"></p>
+<p><img alt="image02" src="../../../blog/2018/09/images/ipynb_broken_figs/image02.png"></p>
 <p>てことで677378行目付近を見てみる。</p>
 <div class="highlight"><pre><span></span><code>less -N BAP_note.ipynb
 </code></pre></div>
 
 <p>Nオプションで行数が表示されます。
 そして、<code>677378G</code> と打つと677378行目に行けます。</p>
-<p><img alt="image03" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image03.png"></p>
+<p><img alt="image03" src="../../../blog/2018/09/images/ipynb_broken_figs/image03.png"></p>
 <p>たしかに表示が崩れているので、<code>v</code> で編集モード（vimモード）を立ち上げ、<code>dd</code> でけしていきました。
 <code>:x</code> で保存できます。
 （vimじゃなくてもemacs等でも行ける。）</p>
 <p>復活しました。
 うれしい!!</p>
-<p><img alt="image04" src="../../../articles/2018sy/blog/images/ipynb_broken_figs/image04.png"></p>
+<p><img alt="image04" src="../../../blog/2018/09/images/ipynb_broken_figs/image04.png"></p>
   </div>
   
 <div class="article-tag-list">
@@ -337,28 +337,10 @@ ipynbファイルの弱点を見たような気がしました。</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-1">
@@ -368,27 +350,15 @@ ipynbファイルの弱点を見たような気がしました。</p>
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+        論文まとめ
       </a>
     </span>
     <span class="tag-2">
@@ -398,15 +368,21 @@ ipynbファイルの弱点を見たような気がしました。</p>
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        論文関連
+        海外留学
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-1">
@@ -421,12 +397,6 @@ ipynbファイルの弱点を見たような気がしました。</p>
         GitHub
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">4</span>
@@ -434,9 +404,21 @@ ipynbファイルの弱点を見たような気がしました。</p>
       </a>
     </span>
     <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">9</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
           <span class="badge badge-primary">16</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-4">
@@ -446,9 +428,27 @@ ipynbファイルの弱点を見たような気がしました。</p>
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
 </p>
