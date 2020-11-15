@@ -5174,10 +5174,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="ad379814-8e3e-41be-b0ff-e7ef6a0e2ec2"&gt;&lt;/div&gt;
+&lt;div id="a071eeea-cd53-4c80-8a5b-6cc46b2797d2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ad379814-8e3e-41be-b0ff-e7ef6a0e2ec2');
+var element = $('#a071eeea-cd53-4c80-8a5b-6cc46b2797d2');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -5235,10 +5235,10 @@ var element = $('#ad379814-8e3e-41be-b0ff-e7ef6a0e2ec2');
 
  
  
-&lt;div id="3317c8ad-a420-4a7a-a7c1-bac76e821191"&gt;&lt;/div&gt;
+&lt;div id="9c8e2dfe-d891-45cc-ab91-9478e65f4b41"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3317c8ad-a420-4a7a-a7c1-bac76e821191');
+var element = $('#9c8e2dfe-d891-45cc-ab91-9478e65f4b41');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -5296,10 +5296,10 @@ var element = $('#3317c8ad-a420-4a7a-a7c1-bac76e821191');
 
  
  
-&lt;div id="c84f6126-5084-4640-b76a-5ae7663aab63"&gt;&lt;/div&gt;
+&lt;div id="8b86804b-6b2f-43f6-a998-a8dd538f3a4f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c84f6126-5084-4640-b76a-5ae7663aab63');
+var element = $('#8b86804b-6b2f-43f6-a998-a8dd538f3a4f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -5539,7 +5539,7 @@ var element = $('#c84f6126-5084-4640-b76a-5ae7663aab63');
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</title><link href="https://oumpy.github.io/blog/2020/07/studymeeting2020_07.html" rel="alternate"></link><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-02T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2020-07-01:/blog/2020/07/studymeeting2020_07.html</id><summary type="html">   &lt;strong&gt;機械学習実践編 : Kerasで作る深層学習画像分類器&lt;a class="anchor-link" href="#機械学習実践編-:-Kerasで作る深層学習画像分類器"&gt; &lt;/a&gt;&lt;/strong&gt;Python会勉強会第7回 (2020.07.01 小川)       今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。 深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</content><category term="技術ブログ"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</title><link href="https://oumpy.github.io/blog/2020/07/studymeeting2020_07.html" rel="alternate"></link><published>2020-07-01T00:00:00+09:00</published><updated>2020-07-02T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2020-07-01:/blog/2020/07/studymeeting2020_07.html</id><summary type="html">   今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。 深層学習は「ゼロから作る」のもとても勉強になってよいのですが、実用的に使う場合には通常は何らかのライブラリを使います。GPUを動かすための処理なども全て組み込まれていて、慣れればとても楽ちんです....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6651,14 +6651,6 @@ h6:hover .anchor-link {
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232; : Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;&lt;a class="anchor-link" href="#&amp;#27231;&amp;#26800;&amp;#23398;&amp;#32722;&amp;#23455;&amp;#36341;&amp;#32232;-:-Keras&amp;#12391;&amp;#20316;&amp;#12427;&amp;#28145;&amp;#23652;&amp;#23398;&amp;#32722;&amp;#30011;&amp;#20687;&amp;#20998;&amp;#39006;&amp;#22120;"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Python会勉強会第7回 (2020.07.01 小川)&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;今回は機械学習の実践編として、&lt;strong&gt;深層学習を使った画像分類器を実際に作って動かして&lt;/strong&gt;みます。&lt;/p&gt;
@@ -10456,10 +10448,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="5109c88c-bd2f-4921-807c-a664a5db264d"&gt;&lt;/div&gt;
+&lt;div id="ae6a1973-4fc9-44b9-b868-2aa5488d0a16"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5109c88c-bd2f-4921-807c-a664a5db264d');
+var element = $('#ae6a1973-4fc9-44b9-b868-2aa5488d0a16');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
