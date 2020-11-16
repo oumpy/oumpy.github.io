@@ -8,7 +8,7 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="データ解析における仮説の弊害"/>
+    <meta property="og:title" content="仮説に基づいたデータ解析における先入観の弊害"/>
     <meta property="og:url" content="../../../blog/2020/11/hypothesis_liability.html"/>
       <meta property="article:section" content="技術ブログ"/>
         <meta property="article:tag" content="Statistics"/>
@@ -17,7 +17,7 @@
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="データ解析における仮説の弊害">
+    <meta name="twitter:title" content="仮説に基づいたデータ解析における先入観の弊害">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>データ解析における仮説の弊害 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
+    <title>仮説に基づいたデータ解析における先入観の弊害 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -165,8 +165,8 @@
   <header class="article-header">
 <h1>
   <a href="../../../blog/2020/11/hypothesis_liability.html" rel="bookmark"
-     title="Permalink to データ解析における仮説の弊害">
-    データ解析における仮説の弊害
+     title="Permalink to 仮説に基づいたデータ解析における先入観の弊害">
+    仮説に基づいたデータ解析における先入観の弊害
   </a>
 </h1><div class="article-header-info">
   <p>
@@ -1730,7 +1730,7 @@ c) 男性では正の相関である</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>結論は仮説は危険だという話です。これまで解析してきたのは実際に行われた研究 (<a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1">Yanai &amp; Lercher, 2020</a>) で用いられたデータセットであり、Yanaiらはある大学の学生にデータを渡し、2つの群に分けて解析をしてもらいました。</p>
+<p>結論から言えば、これは<strong>先入観を持ってデータ解析を行うと注意力が低下する</strong>という話です。これまで解析してきたのは実際に行われた研究 (<a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1">Yanai &amp; Lercher, 2020</a>) で用いられたデータセットであり、Yanaiらはある大学の学生にデータを渡し、2つの群に分けて解析をしてもらいました。</p>
 <p>一つの群（仮説あり群）にはこれまで考えてきた3つの仮説が正しいか検証せよと説明しました。（以下は実際の指示です）</p>
 <blockquote><p>Download the two files data9b_w.txt and data9b_m.txt. Each row in both files contains for one person (women in data9b_w.txt, men in data9b_m.txt9) the number of steps that this person took on a particular day (steps) and the body mass index (bmi). Assume that both traits are normally distributed for males and for females. Consider the following (alternative, not null)
 hypotheses:<br>
@@ -1742,7 +1742,7 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 <p>もう片方の群（仮説なし群）の学生にはただこのデータを解析しなさいと伝えました。（以下は実際の指示です）</p>
 <blockquote><p>Download the two files data9b_w.txt and data9b_m.txt. Each row in both files contains for one person (women in data9b_w.txt, men in data9b_m.txt9) the number of steps that this person took on a particular day (steps) and the body mass index (bmi). Assume that both traits are normally distributed for males and for females. Examine the data appropriately! What do you notice? What conclusions can you draw from the data?</p>
 </blockquote>
-<p>データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。仮説で視野を狭めるというのは非常に危険であることを示していますね。</p>
+<p>データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。もちろん仮説を立てず、むやみやたらにデータ解析を行うということは通常行うことではありません。しかし、仮説を設定すると先入観が生じてしまいデータ解析における視野を狭めてしまう可能性がある、という点には注意した方がよいということですね。</p>
 <p>ちなみになぜゴリラかというと、恐らく<a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">The Invisible Gorilla</a>が元になっていると思われます。The Invisible Gorillaは注意力を測る心理実験で、複数人でバスケットボールをパスし合う動画を見せ、白いシャツを着たプレーヤーがボールをパスした回数を被験者に数えさせます。実は動画の途中でゴリラが乱入してくるのですが、これに気づかない人が多く存在するようです (自動車教習所で自分は見せられた記憶があります。自分は既知だったので暇でしたが…)。</p>
 
 </div>
@@ -1879,7 +1879,7 @@ Think about which test to use and calculate the corresponding P-value.Which othe
   <tr>
     <td class="recent-posts-date">11/16</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">データ解析における仮説の弊害</span></a></td>
+    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">仮説に基づいたデータ解析における先入観の弊害</span></a></td>
   </tr>
   <tr>
     <td class="recent-posts-date">11/14</td>
@@ -1923,94 +1923,16 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">10</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">12</span>
         Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -2020,9 +1942,27 @@ Think about which test to use and calculate the corresponding P-value.Which othe
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        論文まとめ
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-3">
@@ -2031,10 +1971,70 @@ Think about which test to use and calculate the corresponding P-value.Which othe
         検定試験
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">10</span>
+        Statistics
       </a>
     </span>
 </p>

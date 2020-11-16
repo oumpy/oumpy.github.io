@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/origin/article/hypothesis_liability/" rel="alternate"></link><link href="/previews/refs/heads/origin/article/hypothesis_liability/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/origin/article/hypothesis_liability/</id><updated>2020-11-16T23:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>データ解析における仮説の弊害</title><link href="/previews/refs/heads/origin/article/hypothesis_liability/blog/2020/11/hypothesis_liability.html" rel="alternate"></link><published>2020-11-16T23:00:00+09:00</published><updated>2020-11-16T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-11-16:/previews/refs/heads/origin/article/hypothesis_liability/blog/2020/11/hypothesis_liability.html</id><summary type="html">   &lt;strong&gt;データ解析における仮説の弊害&lt;a class="anchor-link" href="#データ解析における仮説の弊害"&gt; &lt;/a&gt;&lt;/strong&gt;       まず、以下のリンクから2つのデータをダウンロードしましょう。  data9b_m.txt：&lt;a href="https://www.dropbox.com/s/r3wyn2ex20glsoa/data9b_m.txt?dl=0"&gt;https://www.dropbox.com/s/r3wyn2ex20glsoa/data9b_m.txt?dl=0&lt;/a&gt; data9b_w.txt：&lt;a href="https://www.dropbox.com/s/685pkte3n3879mn/data9b_w.txt?dl=0"&gt;https://www&lt;/a&gt;....</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link href="/previews/refs/heads/origin/article/hypothesis_liability/" rel="alternate"></link><link href="/previews/refs/heads/origin/article/hypothesis_liability/feeds/all.atom.xml" rel="self"></link><id>/previews/refs/heads/origin/article/hypothesis_liability/</id><updated>2020-11-16T23:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>仮説に基づいたデータ解析における先入観の弊害</title><link href="/previews/refs/heads/origin/article/hypothesis_liability/blog/2020/11/hypothesis_liability.html" rel="alternate"></link><published>2020-11-16T23:00:00+09:00</published><updated>2020-11-16T23:00:00+09:00</updated><author><name>山本</name></author><id>tag:None,2020-11-16:/previews/refs/heads/origin/article/hypothesis_liability/blog/2020/11/hypothesis_liability.html</id><summary type="html">   &lt;strong&gt;仮説に基づいたデータ解析における先入観の弊害&lt;a class="anchor-link" href="#仮説に基づいたデータ解析における先入観の弊害"&gt; &lt;/a&gt;&lt;/strong&gt;       まず、以下のリンクから2つのデータをダウンロードしましょう。  data9b_m.txt：&lt;a href="https://www.dropbox.com/s/r3wyn2ex20glsoa/data9b_m.txt?dl=0"&gt;https://www.dropbox.com/s/r3wyn2ex20glsoa/data9b_m.txt?dl=0&lt;/a&gt; data9b_w.txt：&lt;a href="https://www.dropbox.com/s/685pkte3n3879mn/data9b_w.txt?dl=0"&gt;htt&lt;/a&gt;....</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1113,7 +1113,7 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;body&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20206;&amp;#35500;&amp;#12398;&amp;#24330;&amp;#23475;"&gt;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20206;&amp;#35500;&amp;#12398;&amp;#24330;&amp;#23475;&lt;a class="anchor-link" href="#&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20206;&amp;#35500;&amp;#12398;&amp;#24330;&amp;#23475;"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="&amp;#20206;&amp;#35500;&amp;#12395;&amp;#22522;&amp;#12389;&amp;#12356;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20808;&amp;#20837;&amp;#35251;&amp;#12398;&amp;#24330;&amp;#23475;"&gt;&amp;#20206;&amp;#35500;&amp;#12395;&amp;#22522;&amp;#12389;&amp;#12356;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20808;&amp;#20837;&amp;#35251;&amp;#12398;&amp;#24330;&amp;#23475;&lt;a class="anchor-link" href="#&amp;#20206;&amp;#35500;&amp;#12395;&amp;#22522;&amp;#12389;&amp;#12356;&amp;#12383;&amp;#12487;&amp;#12540;&amp;#12479;&amp;#35299;&amp;#26512;&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;&amp;#20808;&amp;#20837;&amp;#35251;&amp;#12398;&amp;#24330;&amp;#23475;"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1545,7 +1545,7 @@ c) 男性では正の相関である&lt;/p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;結論は仮説は危険だという話です。これまで解析してきたのは実際に行われた研究 (&lt;a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1"&gt;Yanai &amp;amp; Lercher, 2020&lt;/a&gt;) で用いられたデータセットであり、Yanaiらはある大学の学生にデータを渡し、2つの群に分けて解析をしてもらいました。&lt;/p&gt;
+&lt;p&gt;結論から言えば、これは&lt;strong&gt;先入観を持ってデータ解析を行うと注意力が低下する&lt;/strong&gt;という話です。これまで解析してきたのは実際に行われた研究 (&lt;a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1"&gt;Yanai &amp;amp; Lercher, 2020&lt;/a&gt;) で用いられたデータセットであり、Yanaiらはある大学の学生にデータを渡し、2つの群に分けて解析をしてもらいました。&lt;/p&gt;
 &lt;p&gt;一つの群（仮説あり群）にはこれまで考えてきた3つの仮説が正しいか検証せよと説明しました。（以下は実際の指示です）&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Download the two files data9b_w.txt and data9b_m.txt. Each row in both files contains for one person (women in data9b_w.txt, men in data9b_m.txt9) the number of steps that this person took on a particular day (steps) and the body mass index (bmi). Assume that both traits are normally distributed for males and for females. Consider the following (alternative, not null)
 hypotheses:&lt;br&gt;
@@ -1557,7 +1557,7 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 &lt;p&gt;もう片方の群（仮説なし群）の学生にはただこのデータを解析しなさいと伝えました。（以下は実際の指示です）&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Download the two files data9b_w.txt and data9b_m.txt. Each row in both files contains for one person (women in data9b_w.txt, men in data9b_m.txt9) the number of steps that this person took on a particular day (steps) and the body mass index (bmi). Assume that both traits are normally distributed for males and for females. Examine the data appropriately! What do you notice? What conclusions can you draw from the data?&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。仮説で視野を狭めるというのは非常に危険であることを示していますね。&lt;/p&gt;
+&lt;p&gt;データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。もちろん仮説を立てず、むやみやたらにデータ解析を行うということは通常行うことではありません。しかし、仮説を設定すると先入観が生じてしまいデータ解析における視野を狭めてしまう可能性がある、という点には注意した方がよいということですね。&lt;/p&gt;
 &lt;p&gt;ちなみになぜゴリラかというと、恐らく&lt;a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla"&gt;The Invisible Gorilla&lt;/a&gt;が元になっていると思われます。The Invisible Gorillaは注意力を測る心理実験で、複数人でバスケットボールをパスし合う動画を見せ、白いシャツを着たプレーヤーがボールをパスした回数を被験者に数えさせます。実は動画の途中でゴリラが乱入してくるのですが、これに気づかない人が多く存在するようです (自動車教習所で自分は見せられた記憶があります。自分は既知だったので暇でしたが…)。&lt;/p&gt;
 
 &lt;/div&gt;
@@ -6781,10 +6781,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="6e1fa92b-bfb6-4c8a-bbdc-bd6511e2e259"&gt;&lt;/div&gt;
+&lt;div id="89ce9b06-186b-4ab7-980c-23ff1dfd1c66"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6e1fa92b-bfb6-4c8a-bbdc-bd6511e2e259');
+var element = $('#89ce9b06-186b-4ab7-980c-23ff1dfd1c66');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -6842,10 +6842,10 @@ var element = $('#6e1fa92b-bfb6-4c8a-bbdc-bd6511e2e259');
 
  
  
-&lt;div id="64b64081-69be-464a-b150-af1be369e25c"&gt;&lt;/div&gt;
+&lt;div id="c0b39ba4-3302-46f3-b4b8-bca108d72829"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#64b64081-69be-464a-b150-af1be369e25c');
+var element = $('#c0b39ba4-3302-46f3-b4b8-bca108d72829');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -6903,10 +6903,10 @@ var element = $('#64b64081-69be-464a-b150-af1be369e25c');
 
  
  
-&lt;div id="815823f1-fb82-4825-9f6a-3bff77eafb88"&gt;&lt;/div&gt;
+&lt;div id="529ca0a0-2903-4b79-aada-89732112e16a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#815823f1-fb82-4825-9f6a-3bff77eafb88');
+var element = $('#529ca0a0-2903-4b79-aada-89732112e16a');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -12055,10 +12055,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="ddf35234-c0c0-4892-80a0-5647b0c7d838"&gt;&lt;/div&gt;
+&lt;div id="82a6b413-2303-4db2-8295-72b4fb5fbc3f"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ddf35234-c0c0-4892-80a0-5647b0c7d838');
+var element = $('#82a6b413-2303-4db2-8295-72b4fb5fbc3f');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
