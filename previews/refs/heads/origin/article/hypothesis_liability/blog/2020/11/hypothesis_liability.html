@@ -1591,7 +1591,7 @@ c) 男性では正の相関である</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>男性の方が歩行t検定を用いて歩数の平均に有意差が存在するか検討します。</p>
+<p>男性の方が一日平均歩数の平均は多いです。次にt検定を用いて歩数の平均に有意差が存在するか検討します。</p>
 
 </div>
 </div>
@@ -1667,8 +1667,8 @@ c) 男性では正の相関である</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#27497;&#25968;&#12392;BMI&#12398;&#30456;&#38306;"><span id="pelican-subsections-3">&#27497;&#25968;&#12392;BMI&#12398;&#30456;&#38306;<a class="anchor-link" href="#&#27497;&#25968;&#12392;BMI&#12398;&#30456;&#38306;">&#182;</a></span></h3><p>次に歩数とBMIの相関を調べましょう。歩数が多ければそれだけ運動しているということでBMIは減少しそうです。そのため、どちらも負の相関がでるのではという予想は立てられます。</p>
-<p>ただし、ここで<code>np.corrcoef</code>などの相関係数を求める関数をいきなり使うべきではありません。自分は相関係数を出す際には必ず生データを見るようにしています。これは相関や平均値などの基本統計量が同じでもデータの分布が大きく異なるということが起こりえるからです (cf. <a href="https://oumpy.github.io/blog/2020/07/samestats.html">同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</a>)</p>
-<p>そのため先に生データを描画をしてみましょう。生データを描画し、相関を見るには<code>sns.regplot</code>が便利です。</p>
+<p>ただし、ここで<code>np.corrcoef</code>などの相関係数を求める関数をいきなり使うべきではありません。自分は相関を出す際には必ず生データを見るようにしています。これは外れ値の存在や非線形の関係が無いかを確認しなければ相関を出すことに意味がないためです (cf. <a href="https://oumpy.github.io/blog/2020/07/samestats.html">同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</a>)。</p>
+<p>そのため先に生データを描画してみましょう。これには<code>sns.regplot</code>が便利です。</p>
 
 </div>
 </div>
@@ -1715,7 +1715,7 @@ c) 男性では正の相関である</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>歩数とBMIは男女共に負の相関となりそうですが、明らかにゴリラが見えます。この辺りでこのデータは実際のデータではなく人工データであることに気づくわけです。</p>
+<p>歩数とBMIは男女共に負の相関となりそうですが、<strong>明らかにゴリラが見えます</strong>。この辺りでこのデータは実際のデータではなく人工データであることに気づくわけです。</p>
 
 </div>
 </div>
@@ -1742,8 +1742,8 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 <p>もう片方の群（仮説なし群）の学生にはただこのデータを解析しなさいと伝えました。（以下は実際の指示です）</p>
 <blockquote><p>Download the two files data9b_w.txt and data9b_m.txt. Each row in both files contains for one person (women in data9b_w.txt, men in data9b_m.txt9) the number of steps that this person took on a particular day (steps) and the body mass index (bmi). Assume that both traits are normally distributed for males and for females. Examine the data appropriately! What do you notice? What conclusions can you draw from the data?</p>
 </blockquote>
-<p>データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。</p>
-<p>仮説で視野を狭めるというのは非常に危険であることを示していますね。ちなみになぜゴリラかというと、恐らく<a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">The Invisible Gorilla</a>が元になっていると思われます。The Invisible Gorillaは注意力を測る心理実験で、複数人でバスケットボールをパスし合う動画を見せ、白いシャツを着たプレーヤーがボールをパスした回数を被験者に数えさせます。実は動画の途中でゴリラが乱入してくるのですが、これに気づかない人が多く存在するようです (自動車教習所で自分は見せられた記憶があります。自分は既知だったので暇でしたが…)。</p>
+<p>データ点をplotすると上で見たようにゴリラが隠れているのですが、仮説を与えられた群の学生は与えられていない学生に比べて有意に発見した学生が少なかったようです。仮説で視野を狭めるというのは非常に危険であることを示していますね。</p>
+<p>ちなみになぜゴリラかというと、恐らく<a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">The Invisible Gorilla</a>が元になっていると思われます。The Invisible Gorillaは注意力を測る心理実験で、複数人でバスケットボールをパスし合う動画を見せ、白いシャツを着たプレーヤーがボールをパスした回数を被験者に数えさせます。実は動画の途中でゴリラが乱入してくるのですが、これに気づかない人が多く存在するようです (自動車教習所で自分は見せられた記憶があります。自分は既知だったので暇でしたが…)。</p>
 
 </div>
 </div>
@@ -1753,8 +1753,8 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-5">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><ul>
 <li>データのリンクは著者(@ItaiYanai氏)のツイッターより取得：<a href="https://twitter.com/ItaiYanai/status/1301977485693931521?s=20">https://twitter.com/ItaiYanai/status/1301977485693931521?s=20</a></li>
-<li>Yanai, I. &amp; Lercher, M. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1">Selective attention in hypothesis-driven data analysis</a>. bioRxiv. 2020.</li>
-<li>Yanai, I. &amp; Lercher, M. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02133-w">A hypothesis is a liability</a>. Genome Biology. 2020.</li>
+<li>Yanai, I. &amp; Lercher, M. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1">Selective attention in hypothesis-driven data analysis</a>. <em>bioRxiv</em>. 2020.</li>
+<li>Yanai, I. &amp; Lercher, M. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02133-w">A hypothesis is a liability</a>. <em>Genome Biology</em>. 2020.</li>
 </ul>
 
 </div>
@@ -1923,88 +1923,16 @@ Think about which test to use and calculate the corresponding P-value.Which othe
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">10</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
@@ -2014,15 +1942,45 @@ Think about which test to use and calculate the corresponding P-value.Which othe
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">10</span>
-        Statistics
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-1">
@@ -2031,10 +1989,52 @@ Think about which test to use and calculate the corresponding P-value.Which othe
         Python
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">6</span>
         競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
 </p>
