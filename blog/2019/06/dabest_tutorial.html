@@ -219,11 +219,11 @@
 </code></pre></div>
 
 <p>以下のようなグラフが出力されれば成功です。<br>
-<img alt="quick_start" src="../../../articles/2019sy/blog/images/DABEST_tutorial_figs/quick_start.png"></p>
+<img alt="quick_start" src="../../../blog/2019/06/images/DABEST_tutorial_figs/quick_start.png"></p>
 <p>このグラフは <strong>Cumming plot</strong> という可視化の方法です。Estimation statisticsにおける可視化の方法としてはもう1つ <strong>Gardner-Altman plot</strong> というものがあります。以下ではこの2つの可視化方法の見方とコードについて紹介します。</p>
 <h3><span id="pelican-subsections-5">Gardner-Altman plot</span></h3>
 <p><strong>Gardner-Altman plot</strong> はM. GardnerとD. Altmanによって提案された描画法です。以下はGardner-Altman plotの例です。図の左側では両方の群のすべての観測値をJitter plotにより表示しています。右側にあるのは効果量の軸で、効果量の点推定(黒丸)と信頼区間(縦の黒棒)を表示しています。この効果量の信頼区間ですが、これは <strong>Bootstrap法</strong> を用いて算出しています。なお、Bootstrap法に関しては後で詳しく述べます。<br>
-<img alt="ga1" src="../../../articles/2019sy/blog/images/DABEST_tutorial_figs/ga1.png"></p>
+<img alt="ga1" src="../../../blog/2019/06/images/DABEST_tutorial_figs/ga1.png"></p>
 <p>コードは次のようになっています。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -246,7 +246,7 @@
 </code></pre></div>
 
 <p>Gardner-Altman plotには <strong>対応のある2群(paired)</strong> のためのバージョンもあります。<br>
-<img alt="ga2" src="../../../articles/2019sy/blog/images/DABEST_tutorial_figs/ga2.png"></p>
+<img alt="ga2" src="../../../blog/2019/06/images/DABEST_tutorial_figs/ga2.png"></p>
 <p>ここでは効果量として <strong>Cohen's d</strong> を用いています。コードは次のようになります(ライブラリのインポートは省略)。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Generate toy dataset</span>
 <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
@@ -267,7 +267,7 @@
 
 <h3><span id="pelican-subsections-6">Cumming plot</span></h3>
 <p><strong>Cumming plot</strong> はG. Cummingによって提案された描画法です。複数の群に対して2つ以上の効果量およびそれらの信頼区間を、今度は観測データの下に描画しています。<br>
-<img alt="cumming" src="../../../articles/2019sy/blog/images/DABEST_tutorial_figs/cumming.png"></p>
+<img alt="cumming" src="../../../blog/2019/06/images/DABEST_tutorial_figs/cumming.png"></p>
 <p>ここでは効果量として <strong>hedges' g</strong> を用いています。コードは次のようになります(ライブラリのインポートは省略)。  </p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Generate toy dataset</span>
 <span class="n">size1</span> <span class="o">=</span> <span class="mi">20</span>
@@ -342,7 +342,7 @@
 </code></pre></div>
 
 <p>結果は次のようになります。<br>
-<img alt="bootstrap_ci" src="../../../articles/2019sy/blog/images/DABEST_tutorial_figs/bootstrap_ci.png"></p>
+<img alt="bootstrap_ci" src="../../../blog/2019/06/images/DABEST_tutorial_figs/bootstrap_ci.png"></p>
 <p>横軸が平均の差、縦軸が密度です。黒破線は0, 赤破線は真の分布の平均の差(今回であれば10)、緑実線は効果量の点推定(要は平均値)です。黒実線は第1, 3四分位数で、この間を95%信頼区間と近似しています(この信頼区間の算出手法を <strong>パーセンタイル法</strong> といいます)。これは簡易な手法ですが、他にも算出方法はあります。</p>
 <h2><span id="pelican-subsections-8">まとめ</span></h2>
 <ul>
@@ -489,16 +489,10 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -513,16 +507,10 @@
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-2">
@@ -531,10 +519,10 @@
         競技プログラミング
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-3">
@@ -543,34 +531,10 @@
         Unix
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
@@ -585,22 +549,58 @@
         ハードウェア
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
 </p>
