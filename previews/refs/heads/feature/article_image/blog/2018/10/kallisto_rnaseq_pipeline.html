@@ -102,8 +102,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-19">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -123,12 +123,13 @@
 <div class="dropdown-menu" aria-labelledby="dropdown23">
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
-<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <small>[2020.07更新]</small></a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2020年度</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover">
-<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
-<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="nav-link dropdown-toggle" id="dropdown27" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown27">
 <a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
@@ -198,13 +199,11 @@
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
 </code></pre></div>
 
-
 <h2><span id="pelican-subsections-1">FASTQファイルをダウンロードする場合</span></h2>
 <p><a href="https://www.ebi.ac.uk/arrayexpress/">ArrayExpress</a>からFASTQファイルをダウンロード、解凍する。今回のデータは、ヒトES細胞と成熟膵島細胞のデータ。single-end readとなっている。</p>
 <div class="highlight"><pre><span></span><code>$ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR266/ERR266335/ERR266335.fastq.gz
 $ gunzip ERR266335.fastq.gz
 </code></pre></div>
-
 
 <p>ERR266349 ERR266351 ERR266338 ERR266347についても同様に！</p>
 <h3><span id="pelican-subsections-2">参照：</span></h3>
@@ -225,7 +224,6 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <span class="k">done</span>
 </code></pre></div>
 
-
 <p>pfastq-dumpのオプション</p>
 <ul>
 <li><code>-s</code> : SRAファイルのID</li>
@@ -237,7 +235,6 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 <p>Sequence Read Archiveの略。（かつてはNGSにリードが短い特徴があったのでShort Read Archiveと呼ばれていた。）NGSの登場により配列の品質情報を塩基配列とともに記述形式であるFASTQ形式が使用されるようになった時にできたバイナリ形式のデータフォーマット。よってpfastq-dumpなどのツールでFASTQに変換することができる。<a href="https://en.wikipedia.org/wiki/International_Nucleotide_Sequence_Database_Collaboration">INSDC</a>、<a href="https://en.wikipedia.org/wiki/European_Bioinformatics_Institute">EBI</a>、<a href="https://en.wikipedia.org/wiki/DNA_Data_Bank_of_Japan">DDBJ</a>が共同で運営しているデータベース<a href="https://en.wikipedia.org/wiki/Sequence_Read_Archive">SRA</a>に保存してある。</p>
 <div class="highlight"><pre><span></span><code>$ less ERR266335.sra
 </code></pre></div>
-
 
 <p>バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
 <img alt="1" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"></p>
@@ -256,7 +253,6 @@ fastqc -t <span class="m">8</span> -o fastqc/fastqc_<span class="si">${</span><s
 <span class="k">done</span>
 </code></pre></div>
 
-
 <p><code>sra-fastq/${item}.fastq</code>がインプットファイル。
 fastqcのオプションについて</p>
 <ul>
@@ -274,7 +270,6 @@ fastqcのオプションについて</p>
 <div class="highlight"><pre><span></span><code>$ open ERR266335_fastqc.html
 </code></pre></div>
 
-
 <p><img alt="5" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
 <h3><span id="pelican-subsections-7">参照：</span></h3>
 <ul>
@@ -286,7 +281,6 @@ fastqcのオプションについて</p>
 $ multiqc .
 $ open multiqc_report.html
 </code></pre></div>
-
 
 <p>multiqcの実行により、関連ファイルが下記のように自動生成される。</p>
 <p><img alt="6" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"></p>
@@ -300,7 +294,6 @@ $ open multiqc_report.html
 <p>Java で書かれているアダプタートリミングツールである。 Trimmomatic はアダプターの除去のみならず、リードの末端から一定数の塩基をトリムしたりする、簡単なクオリティフィルタリングも行える。</p>
 <div class="highlight"><pre><span></span><code>$ trimmomatic SE -phred33 ERR266335.fastq output_ERR266335.fastq ILLUMINACLIP:adapters.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 </code></pre></div>
-
 
 <p><code>SE</code>オプションでsingle-end readを指定している。pair-end readでは、オプションでPEとかき、paired outputとunpaired outputの出力先２つを指定する必要がある。</p>
 <ul>
@@ -321,7 +314,6 @@ $ open multiqc_report.html
 <div class="highlight"><pre><span></span><code>$ <span class="nb">time</span> kallisto/kallisto index -i hsGRCh38_kallisto Homo_sapiens.GRCh38.rna.fa.gz
 $ <span class="nb">time</span> kallisto/kallisto quant -i hsGRCh38_kallisto sra_fastqc/ERR266335.fastq -o ERR266335exp_kallisto
 </code></pre></div>
-
 
 <p>kallisto quantにおいて、<strong>-iと-oのオプションは強制</strong> である。</p>
 <ul>
@@ -345,7 +337,6 @@ ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に<code>kallisto_quan
 kallisto/kallisto quant -i hsGRCh38_kallisto -o <span class="si">${</span><span class="nv">item</span><span class="si">}</span> --single -l <span class="m">200</span> -s <span class="m">20</span> -b <span class="m">100</span> sra_fastqc/<span class="si">${</span><span class="nv">item</span><span class="si">}</span>.fastq
 <span class="k">done</span>
 </code></pre></div>
-
 
 <p>abundance.tsv, target_id, length, eff_length, est_counts, tpm</p>
 <h3><span id="pelican-subsections-14">参照</span></h3>
@@ -543,6 +534,21 @@ $$</div>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">12/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/12/ptitprince_tutorial.html"><span class="recent-posts-title">PtitPrinceによるPythonでのRaincloud plotの描画</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">11/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">仮説に基づいたデータ解析における先入観の弊害</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -551,6 +557,11 @@ $$</div>
     <td class="recent-posts-date">8/21</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">7/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
   </tr>
   <tr>
     <td class="recent-posts-date">7/6</td>
@@ -562,26 +573,6 @@ $$</div>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/pythonparty_and_python.html"><span class="recent-posts-title">Python会とPythonとPython会で使われているPython</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/25</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2020/06/formalname.html"><span class="recent-posts-title">会正式名称の制定等について</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/studymeeting2020_06.html"><span class="recent-posts-title">【勉強会資料 2020 第6回】 機械学習とCNN入門</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/youtube_api.html"><span class="recent-posts-title">やさしいYouTube APIのはなし</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -589,73 +580,13 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">11</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">7</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">11</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">2</span>
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
+    <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">6</span>
         競技プログラミング
@@ -668,15 +599,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        海外留学
+        Neuroscience
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">12</span>
-        Machine Learning
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -685,16 +628,76 @@ $$</div>
         自動化
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
-    <span class="tag-2">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">4</span>
+          <span class="badge badge-primary">11</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">1</span>
+        勉学支援
       </a>
     </span>
 </p>
@@ -728,7 +731,7 @@ $$</div>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2020 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2021 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
