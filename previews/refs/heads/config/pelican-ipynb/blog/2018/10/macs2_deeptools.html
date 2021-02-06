@@ -102,8 +102,8 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-17">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-21">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-19">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -123,12 +123,13 @@
 <div class="dropdown-menu" aria-labelledby="dropdown23">
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
-<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">新歓2020年度</a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <small>[2020.07更新]</small></a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2020年度</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover">
-<a class="nav-link dropdown-toggle" id="dropdown26" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
-<div class="dropdown-menu" aria-labelledby="dropdown26">
+<a class="nav-link dropdown-toggle" id="dropdown27" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown27">
 <a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
@@ -199,7 +200,6 @@ $ conda install -c bioconda ucsc-bedgraphtobigwig
 $ conda install -c bioconda ucsc-bedclip
 </code></pre></div>
 
-
 <p>condaでmacs2を入れようとするとxonshとdependency conflictしてしまった。諦めて仮想環境を作る。condaは入ってる前提。MACS2はいまだにpython2な時点で腰が引けるが、先に進む。</p>
 <p>※ python2.7.4以前だとエラーを吐くらしいので、python2.7.5にしてある。今考えると2.7.15でも良かったかもしれない。</p>
 <h2><span id="pelican-subsections-3">今回使うsample</span></h2>
@@ -255,7 +255,6 @@ $ fastqc -t <span class="m">22</span> -o data data/*.trimmed.fastq
 $ multiqc -n multiqc_report_trimmed.html ./data
 </code></pre></div>
 
-
 <h3><span id="pelican-subsections-4">pdf.sh</span></h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
@@ -265,7 +264,6 @@ $ multiqc -n multiqc_report_trimmed.html ./data
 pfastq-dump --threads <span class="m">22</span> --outdir data ~/ncbi/public/sra/<span class="si">${</span><span class="nv">s</span><span class="si">}</span>.sra
 <span class="k">done</span>
 </code></pre></div>
-
 
 <h3><span id="pelican-subsections-5">make_bam.sh</span></h3>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
@@ -290,7 +288,6 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 <span class="k">done</span>
 </code></pre></div>
 
-
 <p>改行とコメントがうまく共存できなかったので、以下に注釈付きを示す。より詳しいことはおなじみ<a href="https://bi.biopapyrus.jp/rnaseq/qc/trimmomatic.html">biopnpyrus</a>を参照。</p>
 <div class="highlight"><pre><span></span><code>trimmomatic \
     SE                  \  # single-end
@@ -305,7 +302,6 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
     MINLEN: 30   # 30bp を満たさないリードを除去
 </code></pre></div>
 
-
 <p>これでbamファイルが出来ているはず。</p>
 <p>igvで表示してみるとこんな感じ。
 <img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"></p>
@@ -317,7 +313,6 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 <h4><span id="pelican-subsections-8">2)</span></h4>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> ‘/repository/user/main/public/root <span class="o">=</span> “/outputDir”‘ &gt; ~/.ncbi/user-settings.mkfg
 </code></pre></div>
-
 
 <p>こっちのほうが簡単。outputDirに指定してやって下さい。
 この例だとpfastq-dumpでは<code>~/ncbi/public/sra/${s}.sra</code> が <code>/outputDir/sra/${s}.sra</code>になりますね。</p>
@@ -331,7 +326,6 @@ samtools index data/<span class="si">${</span><span class="nv">s</span><span cla
 $ chmod <span class="m">755</span> ~/Programs/bdg2bw
 $ wget http://hgdownload.cse.ucsc.edu/goldenPath/mm10/database/chromInfo.txt.gz
 </code></pre></div>
-
 
 <p><code>bdg2bw</code>の中身は以下。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
@@ -361,7 +355,6 @@ bedGraphToBigWig <span class="si">${</span><span class="nv">F</span><span class=
 rm -f <span class="si">${</span><span class="nv">F</span><span class="si">}</span>.clip <span class="si">${</span><span class="nv">F</span><span class="si">}</span>.sort.clip
 </code></pre></div>
 
-
 <p>これで実行準備が整った。</p>
 <div class="highlight"><pre><span></span><code>$ conda activate py27_macs2
 $ mkdir macs2 <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">cd</span> macs2
@@ -371,7 +364,6 @@ $ macs2 callpeak -t ../data/SRR5385346.trimmed.bam -c ../data/SRR5385260.trimmed
 $ macs2 callpeak -t ../data/SRR5385347.trimmed.bam -c ../data/SRR5385260.trimmed.bam -g mm -n Tconv_H3K27ac_2 -p 1e-5 -f BAM -B --nomodel <span class="p">&amp;</span>gt<span class="p">;&amp;</span>amp<span class="p">;</span> macs.SRR5385347.out <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> bdg2bw Tconv_H3K27ac_2_treat_pileup.bdg ../chromInfo.txt
 $ <span class="nb">cd</span> ..
 </code></pre></div>
-
 
 <p><code>-B</code>でbdgというbedgraphファイルを保存するかどうか。
 <code>--nomodel</code>はshifting modelを作るかどうか。defaultでshiftは100。
@@ -401,7 +393,6 @@ $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR538
 $ bamCompare -p <span class="m">22</span> --operation subtract -b1 ./data/SRR5385347.trimmed.bam -b2 ./data/SRR5385260.trimmed.bam -o deepTools/Tconv_H3K27ac_2_subtract.bw
 </code></pre></div>
 
-
 <p>※ 181107 subtractのoutput fileが間違えていたので修正しました。（Yoshiharaさんより）</p>
 <h2><span id="pelican-subsections-11">igvによる比較</span></h2>
 <p><img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"></p>
@@ -422,7 +413,6 @@ $ plotHeatmap -m matrix.mat.Treg.gz -out Heatmap.png <span class="se">\</span>
 --colorMap RdYlBu_r --zMin -3 --zMax <span class="m">3</span> <span class="se">\</span>
 --kmeans <span class="m">4</span> --samplesLabel Treg_H3K27ac_1  Treg_H3K27ac_2
 </code></pre></div>
-
 
 <p><img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/heatmap-3.png"></p>
 <p>plotHeatmapのクラスタリングは複数のサンプルがある時は１つ目のサンプルでクラスタリングするみたい。せっかく他のサンプルもあるのだから、いろいろ混ぜてクラスタリングできたらいいな。
@@ -521,6 +511,21 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
+    <td class="recent-posts-date">12/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/12/ptitprince_tutorial.html"><span class="recent-posts-title">PtitPrinceによるPythonでのRaincloud plotの描画</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">11/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">仮説に基づいたデータ解析における先入観の弊害</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">11/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
@@ -545,21 +550,6 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2020/07/pythonparty_and_python.html"><span class="recent-posts-title">Python会とPythonとPython会で使われているPython</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">7/1</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/07/samestats.html"><span class="recent-posts-title">同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">7/1</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/07/studymeeting2020_07.html"><span class="recent-posts-title">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">6/27</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/06/competition_bfs.html"><span class="recent-posts-title">幅優先探索の話 (競プロの話)</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -573,16 +563,46 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
         ハードウェア
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
         論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
     <span class="tag-3">
@@ -603,16 +623,16 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
         Bioinformatics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
         Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">1</span>
+        勉学支援
       </a>
     </span>
     <span class="tag-3">
@@ -621,39 +641,15 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
         論文まとめ
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">9</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">15</span>
+          <span class="badge badge-primary">16</span>
         Machine Learning
       </a>
     </span>
@@ -663,22 +659,22 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
         Data Science Competition
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        海外留学
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
 </p>
@@ -712,7 +708,7 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2020 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2021 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
