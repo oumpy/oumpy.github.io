@@ -1555,7 +1555,7 @@ $$<p>として解ける．例えば<a href="https://ja.wikipedia.org/wiki/%E3%83
 $$
 \begin{align}
 &amp; (I^\top \otimes A)\text{vec}(X) + (\bar{A} \otimes I)\text{vec}(X) =-\text{vec}(Q)\\
-&amp; X = \text{vec}^{-1}\left((I^\top \otimes A + \bar{A} \otimes I)^{-1}\text{vec}(E)\right)
+&amp; X = -\text{vec}^{-1}\left((I^\top \otimes A + \bar{A} \otimes I)^{-1}\text{vec}(Q)\right)
 \end{align}
 $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各成分を複素共役で置き換えた行列，$I$は単位行列である．他には<a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AB%E3%83%99%E3%82%B9%E3%82%BF%E3%83%BC%E6%96%B9%E7%A8%8B%E5%BC%8F">シルベスター方程式 (Sylvester equation)</a> $AX+XB=C$も同様に解ける．残念ながら<a href="https://en.wikipedia.org/wiki/Algebraic_Riccati_equation">代数的リカッチ方程式 (algebraic Riccati equations)</a>などはこの方法では解けない．</p>
 <p>以下では$PZQ + SZT = R$の解$Z$を求める．</p>
@@ -1600,7 +1600,7 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[ 0.  1.  2.  3.]
+<pre>[[-0.  1.  2.  3.]
  [ 4.  5.  6.  7.]
  [ 8.  9. 10. 11.]
  [12. 13. 14. 15.]]
@@ -1615,9 +1615,71 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-7">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><ul>
+<h3 id="4.-XAX-=-B"><span id="pelican-subsections-7">4. XAX = B<a class="anchor-link" href="#4.-XAX-=-B">&#182;</a></span></h3><p>クロネッカー積は使わないが，$XAX=B$の解法を記載しておく．$A$が正定値であると仮定すると，$A^{1/2}$が求まり，両辺の両側から$A^{1/2}$をかけることで，$\left(A^{1/2}X A^{1/2}\right)^2 = A^{1/2}B A^{1/2}$が得られる．よって，</p>
+$$
+X = A^{-1/2}\left(A^{1/2}B A^{1/2}\right)^{1/2}A^{-1/2}
+$$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を用いる．以下では$XPX=R$を解く．</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">sqrtm</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Psqrt</span> <span class="o">=</span> <span class="n">sqrtm</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">Pinvsqrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Psqrt</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">Pinvsqrt</span> <span class="o">@</span> <span class="n">sqrtm</span><span class="p">(</span><span class="n">Psqrt</span> <span class="o">@</span> <span class="n">R</span> <span class="o">@</span> <span class="n">Psqrt</span><span class="p">)</span> <span class="o">@</span> <span class="n">Pinvsqrt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">P</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[ 0.+0.j  1.+0.j  2.+0.j  3.+0.j]
+ [ 4.-0.j  5.-0.j  6.-0.j  7.+0.j]
+ [ 8.-0.j  9.+0.j 10.-0.j 11.+0.j]
+ [12.-0.j 13.-0.j 14.-0.j 15.+0.j]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-8">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><ul>
 <li><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%8D%E3%83%83%E3%82%AB%E3%83%BC%E7%A9%8D">クロネッカー積 - Wikipedia</a></li>
-<li><a href="http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000">クロネッカー積とvec作用素とRoth's column lemma - でかいチーズをベーグルする</a></li>
+<li>[クロネッカー積とvec作用素とRoth's column lemma - でかいチーズをベーグルする](<a href="http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000">http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000</a></li>
+<li><a href="https://math.stackexchange.com/questions/3326534/quadratic-matrix-equation-xax-b">matrices - Quadratic matrix equation $XAX=B$ - Mathematics Stack Exchange</a></li>
 </ul>
 
 </div>
@@ -1788,57 +1850,27 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
         GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">1</span>
+        勉学支援
       </a>
     </span>
     <span class="tag-4">
@@ -1848,39 +1880,15 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        勉学支援
+        論文関連
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -1889,10 +1897,64 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
         論文まとめ
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">8</span>
         勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -1901,10 +1963,10 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
         Neuroscience
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
       </a>
     </span>
 </p>
