@@ -172,7 +172,7 @@
   </p>
 </div> <!-- /.article-header-info -->
       <div class="summary">
-		         運動制御モデルの論文を読んでいた際に，ある行列方程式の解法を忘却していたのでメモとして記事を書きました．       <strong>クロネッカー積<a class="anchor-link" href="#クロネッカー積"> </a></strong><strong>定義と例<a class="anchor-link" href="#定義と例"> </a></strong>以下，Wikipediaの説明から引用する． $A = (a_{ij})$ を $m \times n$ 行列，$B = (b_{kl})$ を $p \times q$ 行列とすると....
+		         運動制御モデルの論文を読んでいた際に，行列方程式$AXB + CXD = E$の解法を忘却していたので，メモとして記事を書いた．結論から言えばクロネッカー積を用いて解くことができる．以下ではクロネッカー積の定義について触れ，簡単な行列方程式$AXB=C$に対してクロネッカー積を用いた解法....
 		<p class="content-emphasis"><a href="../blog/2021/02/kronecker_product_solving_matrix_equations.html">
 			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
 		</a></p>
@@ -476,15 +476,9 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+      <a href="../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
@@ -500,21 +494,9 @@
       </a>
     </span>
     <span class="tag-4">
-      <a href="../tag/simulation.html">
+      <a href="../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -523,40 +505,10 @@
         論文まとめ
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
+      <a href="../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
@@ -565,16 +517,40 @@
         競技プログラミング
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
-      <a href="../tag/data-science-competition.html">
+      <a href="../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-3">
@@ -583,16 +559,40 @@
         ハードウェア
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
         Neuroscience
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../tag/jian-ding-shi-yan.html">
+      <a href="../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        Unix
       </a>
     </span>
 </p>

@@ -1305,7 +1305,8 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>運動制御モデルの論文を読んでいた際に，ある行列方程式の解法を忘却していたのでメモとして記事を書きました．</p>
+<p>運動制御モデルの論文を読んでいた際に，行列方程式$AXB + CXD = E$の解法を忘却していたので，メモとして記事を書いた．結論から言えばクロネッカー積を用いて解くことができる．以下ではクロネッカー積の定義について触れ，簡単な行列方程式$AXB=C$に対してクロネッカー積を用いた解法を用いた後，$AXB + CXD = E$の解き方について説明する．</p>
+<p>なお，これに基づいて執筆した記事が<a href="https://compneuro-julia.github.io/chap13/13-4_infinite_horizon_ofc.html">無限時間最適制御モデル (infinite-horizon optimal feedback control model)</a>である．</p>
 
 </div>
 </div>
@@ -1394,48 +1395,7 @@ $$<p>のような計算が成り立つ．</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-AX-=-B"><span id="pelican-subsections-4">1. AX = B<a class="anchor-link" href="#1.-AX-=-B">&#182;</a></span></h3><p>$AX=B$の時は簡単で，Aの逆行列を求めることができれば$X=A^{-1}B$となる．</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">@</span> <span class="n">B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[0. 5.]
- [6. 7.]]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-AXB-=-C"><span id="pelican-subsections-5">2. AXB = C<a class="anchor-link" href="#2.-AXB-=-C">&#182;</a></span></h3><p>この記事の本題，<strong>Roth's column lemma</strong> (vec-trick)を用いる．Roth's column lemmaは，例えば，$A, B, C$が与えられていて，$X$を未知とするときの方程式 $AXB = C$を考えると，この方程式は</p>
+<h3 id="1.-AXB-=-C"><span id="pelican-subsections-4">1. AXB = C<a class="anchor-link" href="#1.-AXB-=-C">&#182;</a></span></h3><p>$A, B, C$が与えられていて，$X$を未知とするときの方程式 $AXB = C$を考える．この場合，$A, B$は正則であると仮定すると，$X=A^{-1}CB^{-1}$と求まる．ただし，以下では後の問題のために<strong>Roth's column lemma</strong> (vec-trick)を用いた方法について考えよう．Roth's column lemmaは，先程と同様の方程式 $AXB = C$を考えると，この方程式は</p>
 $$
 (B^\top \otimes A)\text{vec}(X) = \text{vec}(AXB)=\text{vec}(C)
 $$<p>の形に書き下すことができる，というものである．$\text{vec}(\cdot)$はvec作用素（行列を列ベクトル化する作用素）である．numpyだと<code>flatten()</code>で実現できる．Roth's column lemmaを用いれば，$AXB = C$の解は</p>
@@ -1455,7 +1415,7 @@ $$<p>であり，$\text{vec}^{−1}\left(\text{vec}(X)\right)=X\ (\text{for all}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">4</span>
@@ -1501,7 +1461,7 @@ $$<p>であり，$\text{vec}^{−1}\left(\text{vec}(X)\right)=X\ (\text{for all}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">))</span> <span class="o">@</span> <span class="n">R</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
@@ -1537,27 +1497,62 @@ $$<p>であり，$\text{vec}^{−1}\left(\text{vec}(X)\right)=X\ (\text{for all}
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>少々元の式と実装が異なるが，計算はできているので良しとしておく．</p>
+<p>少々元の式と実装が異なるが，計算はできているので良しとしておく．また，$Y=P^{-1}RQ^{-1}$としても解けることも示す．</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">@</span> <span class="n">R</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span> <span class="o">@</span> <span class="n">Y2</span> <span class="o">@</span> <span class="n">Q</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[-0.  1.  2.  3.]
+ [ 4.  5.  6.  7.]
+ [ 8.  9. 10. 11.]
+ [12. 13. 14. 15.]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-AXB-+-CXD-=-E"><span id="pelican-subsections-6">3. AXB + CXD = E<a class="anchor-link" href="#3.-AXB-+-CXD-=-E">&#182;</a></span></h3><p>$A, B, C, D, E$が与えられていて，$X$を未知とするときの方程式 $AXB + CXD = E$を考えると，この方程式は</p>
+<h3 id="2.-AXB-+-CXD-=-E"><span id="pelican-subsections-5">2. AXB + CXD = E<a class="anchor-link" href="#2.-AXB-+-CXD-=-E">&#182;</a></span></h3><p>この記事の本題．$A, B, C, D, E$が与えられていて，$X$を未知とするときの方程式 $AXB + CXD = E$を考えると，この方程式は</p>
 $$
 \begin{align}
 &amp; (B^\top \otimes A)\text{vec}(X) + (D^\top \otimes C)\text{vec}(X) =\text{vec}(E)\\
 &amp; X = \text{vec}^{-1}\left((B^\top \otimes A + D^\top \otimes C)^{-1}\text{vec}(E)\right)
 \end{align}
-$$<p>として解ける．例えば<a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%A2%E3%83%97%E3%83%8E%E3%83%95%E6%96%B9%E7%A8%8B%E5%BC%8F">連続的リアプノフ方程式 (continuous Lyapunov equation)</a> $AX+XA^{H}+Q=0$も同様に解けて，</p>
+$$<p>として解ける．例えば<a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%A2%E3%83%97%E3%83%8E%E3%83%95%E6%96%B9%E7%A8%8B%E5%BC%8F">連続的リアプノフ方程式 (continuous Lyapunov equation)</a> $AX+XA^{H}+Q=0$は$AXB + CXD = E$の特別な場合であるので，</p>
 $$
 \begin{align}
 &amp; (I^\top \otimes A)\text{vec}(X) + (\bar{A} \otimes I)\text{vec}(X) =-\text{vec}(Q)\\
 &amp; X = -\text{vec}^{-1}\left((I^\top \otimes A + \bar{A} \otimes I)^{-1}\text{vec}(Q)\right)
 \end{align}
-$$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各成分を複素共役で置き換えた行列，$I$は単位行列である．他には<a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AB%E3%83%99%E3%82%B9%E3%82%BF%E3%83%BC%E6%96%B9%E7%A8%8B%E5%BC%8F">シルベスター方程式 (Sylvester equation)</a> $AX+XB=C$も同様に解ける．残念ながら<a href="https://en.wikipedia.org/wiki/Algebraic_Riccati_equation">代数的リカッチ方程式 (algebraic Riccati equations)</a>などはこの方法では解けない．</p>
+$$<p>と解ける．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各成分を複素共役で置き換えた行列，$I$は単位行列である．他には<a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%AB%E3%83%99%E3%82%B9%E3%82%BF%E3%83%BC%E6%96%B9%E7%A8%8B%E5%BC%8F">シルベスター方程式 (Sylvester equation)</a> $AX+XB=C$も同様に解ける．</p>
 <p>以下では$PZQ + SZT = R$の解$Z$を求める．</p>
 
 </div>
@@ -1600,7 +1595,7 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[-0.  1.  2.  3.]
+<pre>[[ 0.  1.  2.  3.]
  [ 4.  5.  6.  7.]
  [ 8.  9. 10. 11.]
  [12. 13. 14. 15.]]
@@ -1615,10 +1610,10 @@ $$<p>となる．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の各�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.-XAX-=-B"><span id="pelican-subsections-7">4. XAX = B<a class="anchor-link" href="#4.-XAX-=-B">&#182;</a></span></h3><p>クロネッカー積は使わないが，$XAX=B$の解法を記載しておく．$A$が正定値であると仮定すると，$A^{1/2}$が求まり，両辺の両側から$A^{1/2}$をかけることで，$\left(A^{1/2}X A^{1/2}\right)^2 = A^{1/2}B A^{1/2}$が得られる．よって，</p>
+<h3 id="3.-XAX-=-B"><span id="pelican-subsections-6">3. XAX = B<a class="anchor-link" href="#3.-XAX-=-B">&#182;</a></span></h3><p>クロネッカー積は使わないが，$XAX=B$の解法を記載しておく．$A$が正定値であると仮定すると，行列平方根$A^{1/2}$が求まり，両辺の両側から$A^{1/2}$をかけることで，$\left(A^{1/2}X A^{1/2}\right)^2 = A^{1/2}B A^{1/2}$が得られる．よって，</p>
 $$
 X = A^{-1/2}\left(A^{1/2}B A^{1/2}\right)^{1/2}A^{-1/2}
-$$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を用いる．以下では$XPX=R$を解く．</p>
+$$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を用いる．なお，一般に$n$次正則行列の場合に行列平方根の数値解は$2^n$個存在する．以下では$XPX=R$を解く．</p>
 
 </div>
 </div>
@@ -1661,10 +1656,10 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[ 0.+0.j  1.+0.j  2.+0.j  3.+0.j]
- [ 4.-0.j  5.-0.j  6.-0.j  7.+0.j]
- [ 8.-0.j  9.+0.j 10.-0.j 11.+0.j]
- [12.-0.j 13.-0.j 14.-0.j 15.+0.j]]
+<pre>[[-0.-0.j  1.-0.j  2.+0.j  3.-0.j]
+ [ 4.-0.j  5.-0.j  6.+0.j  7.-0.j]
+ [ 8.+0.j  9.+0.j 10.-0.j 11.-0.j]
+ [12.-0.j 13.+0.j 14.+0.j 15.+0.j]]
 </pre>
 </div>
 </div>
@@ -1676,9 +1671,9 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-8">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><ul>
+<h2 id="&#21442;&#32771;&#25991;&#29486;"><span id="pelican-subsections-7">&#21442;&#32771;&#25991;&#29486;<a class="anchor-link" href="#&#21442;&#32771;&#25991;&#29486;">&#182;</a></span></h2><ul>
 <li><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%83%8D%E3%83%83%E3%82%AB%E3%83%BC%E7%A9%8D">クロネッカー積 - Wikipedia</a></li>
-<li>[クロネッカー積とvec作用素とRoth's column lemma - でかいチーズをベーグルする](<a href="http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000">http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000</a></li>
+<li><a href="http://yamaguchiyuto.hatenablog.com/entry/2016/11/16/100000">クロネッカー積とvec作用素とRoth's column lemma - でかいチーズをベーグルする</a></li>
 <li><a href="https://math.stackexchange.com/questions/3326534/quadratic-matrix-equation-xax-b">matrices - Quadratic matrix equation $XAX=B$ - Mathematics Stack Exchange</a></li>
 </ul>
 
@@ -1850,15 +1845,9 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
       </a>
     </span>
     <span class="tag-1">
@@ -1874,21 +1863,9 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
+        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -1897,40 +1874,10 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
         論文まとめ
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
@@ -1939,16 +1886,40 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
         競技プログラミング
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-3">
@@ -1957,16 +1928,40 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
         ハードウェア
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
         Neuroscience
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        検定試験
+        Unix
       </a>
     </span>
 </p>
