@@ -1306,7 +1306,7 @@ h6:hover .anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>運動制御モデルの論文を読んでいた際に，行列方程式$AXB + CXD = E$の解法を忘却していたので，メモとして記事を書いた．結論から言えばクロネッカー積を用いて解くことができる．以下ではクロネッカー積の定義について触れ，簡単な行列方程式$AXB=C$に対してクロネッカー積を用いた解法を用いた後，$AXB + CXD = E$の解き方について説明する．</p>
-<p>なお，これに基づいて執筆した記事が<a href="https://compneuro-julia.github.io/chap13/13-4_infinite_horizon_ofc.html">無限時間最適制御モデル (infinite-horizon optimal feedback control model)</a>である．</p>
+<p>なお，これに基づいて筆者が執筆した記事が<a href="https://compneuro-julia.github.io/chap13/13-4_infinite_horizon_ofc.html">無限時間最適制御モデル (infinite-horizon optimal feedback control model)</a>[外部リンク] である．</p>
 
 </div>
 </div>
@@ -1610,10 +1610,10 @@ $$<p>と解ける．ただし，$A^H$は$A$の随伴行列，$\bar{A}$は$A$の�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-XAX-=-B"><span id="pelican-subsections-6">3. XAX = B<a class="anchor-link" href="#3.-XAX-=-B">&#182;</a></span></h3><p>クロネッカー積は使わないが，$XAX=B$の解法を記載しておく．$A$が正定値であると仮定すると，行列平方根$A^{1/2}$が求まり，両辺の両側から$A^{1/2}$をかけることで，$\left(A^{1/2}X A^{1/2}\right)^2 = A^{1/2}B A^{1/2}$が得られる．よって，</p>
+<h3 id="3.-XAX-=-B"><span id="pelican-subsections-6">3. XAX = B<a class="anchor-link" href="#3.-XAX-=-B">&#182;</a></span></h3><p>クロネッカー積は使わないが，$XAX=B$の解法を記載しておく．$A$が正則であると仮定すると，行列平方根（の一つ）$A^{1/2}$が求まり，両辺の両側から$A^{1/2}$をかけることで，$\left(A^{1/2}X A^{1/2}\right)^2 = A^{1/2}B A^{1/2}$が得られる．よって，</p>
 $$
 X = A^{-1/2}\left(A^{1/2}B A^{1/2}\right)^{1/2}A^{-1/2}
-$$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を用いる．なお，一般に$n$次正則行列の場合に行列平方根の数値解は$2^n$個存在する．以下では$XPX=R$を解く．</p>
+$$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を用いる．なお，一般に$n$次正則行列の場合に行列平方根は（よって$XAX = B$の解も）$2^n$個存在する．以下では$XPX=R$を解く．</p>
 
 </div>
 </div>
@@ -1844,16 +1844,28 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-4">
@@ -1869,87 +1881,15 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+        ハードウェア
       </a>
     </span>
     <span class="tag-1">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
         News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
       </a>
     </span>
     <span class="tag-4">
@@ -1959,9 +1899,69 @@ $$<p>と求まる．$A^{1/2}$の計算には<code>scipy.linalg.sqrtm()</code>を
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>
