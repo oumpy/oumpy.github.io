@@ -245,7 +245,7 @@
 <p><strong>クラスとして実装</strong>しました。というか他のやり方が事実上思いつかない。
 （なので、言語選択肢の中でもCは勘弁願いたいです。）<br>
 課題が進む毎に、<strong>前課題のクラスを継承して機能追加</strong>した<strong>派生クラス</strong>を作っていきます。</p>
-<h3><span id="pelican-subsections-5">課題1 集約と読み出し</span></h3>
+<h3><span id="pelican-subsections-5">課題1 : 集約と読み出し</span></h3>
 <blockquote>
 <p><strong>課題1</strong>：行列<span class="math">\(W\)</span>を固定として、与えられたグラフ<span class="math">\(G\)</span>に対して<span class="math">\(h_G\)</span>を求めるGNN関数またはクラスを実装してテストせよ。</p>
 </blockquote>
@@ -279,7 +279,7 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
         <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-<h3><span id="pelican-subsections-6">課題2 勾配降下</span></h3>
+<h3><span id="pelican-subsections-6">課題2 : 勾配降下</span></h3>
 <blockquote>
 <p><strong>課題2</strong>：グラフに対する二値分類問題 <span class="math">\((y=0, 1)\)</span> を解くため、陽性確率を <span class="math">\(p=\mathrm{Sigmoid}(s)\)</span>、<span class="math">\(s=A\cdot h_G+b\)</span>、学習パラメータセットを <span class="math">\(\theta=\{W,A,b\}\)</span> として（ <span class="math">\(A\)</span>は<span class="math">\(D\)</span>次元ベクトル、<span class="math">\(b\)</span>はスカラー）、単一データ <span class="math">\((G,y)\)</span> に対する勾配降下法を実装してテストせよ。<br>
 （勾配は数値微分、損失関数はbinary crossentropyとする。)</p>
@@ -705,10 +705,76 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-0">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">17</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">2</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
@@ -724,15 +790,21 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        Simulation
       </a>
     </span>
-    <span class="tag-0">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">17</span>
-        Machine Learning
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-1">
@@ -747,82 +819,10 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
         Bioinformatics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">2</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
       </a>
     </span>
 </p>
