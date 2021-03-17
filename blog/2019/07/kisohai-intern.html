@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Mockinbirdを用いたPAR-CLIP解析"/>
-    <meta property="og:url" content="../../../blog/2019/01/mockinbird_parclip.html"/>
+    <meta property="og:title" content="基礎配属と企業インターン"/>
+    <meta property="og:url" content="../../../blog/2019/07/kisohai-intern.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Bioinformatics"/>
+        <meta property="article:tag" content="企業インターン"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="Mockinbirdを用いたPAR-CLIP解析">
+    <meta name="twitter:title" content="基礎配属と企業インターン">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>Mockinbirdを用いたPAR-CLIP解析 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>基礎配属と企業インターン - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -153,10 +153,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="mockinbird_parclip">
+    <meta name="article:slug" property="og:article:slug" content="kisohai-intern">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-01-18">
+    <meta name="article:date" property="og:article:date" content="2019-07-14">
+    <meta name="article:modified" property="og:article:modified" content="2021-03-15">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -164,199 +165,103 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/01/mockinbird_parclip.html" rel="bookmark"
-     title="Permalink to Mockinbirdを用いたPAR-CLIP解析">
-    Mockinbirdを用いたPAR-CLIP解析
+  <a href="../../../blog/2019/07/kisohai-intern.html" rel="bookmark"
+     title="Permalink to 基礎配属と企業インターン">
+    基礎配属と企業インターン
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-01-18(Fri)
+  2019-07-14(Sun)
 </abbr>       - Posted by 
-<a href="../../../author/ping-gang.html">平岡</a>    in 
+<a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></img></a>
+        <a href="../../../tag/qi-ye-intan.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E4%BC%81%E6%A5%AD%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3&labelColor=black&color=blue" alt="tag:企業インターン" title="tag:企業インターン"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>今回は <strong>PAR-CLIP</strong> 解析のAll-in-oneパイプラインソフトウェアである、<a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html">Mockinbird</a>を紹介します。日本語での情報がほぼなく、説明が長くなってしまいそうなので、２回に分けて書きます。</p>
-<h2><span id="pelican-subsections-0">PAR-CLIPって何？</span></h2>
-<p>PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。</p>
-<p>実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。</p>
-<p>サンプルRNAを逆転写するときに、4SUがシトシン( C )に置換されます(misread)。そのため、リードがピークを形成し、かつT -&gt; C置換が入っていた場合、RBPと結合していた可能性が高いということになります。これによりあるタンパクが、RNAのどの領域に結合するのか？結合領域間でどのような相互作用があるのかを知ることができます。特に一塩基という高い解像度での解析ができることが特徴です。</p>
-<p><img alt="1" src="../../../blog/2019/01/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
-<h2><span id="pelican-subsections-1">Mockinbirdとは？</span></h2>
-<p><a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”">公式ドキュメント</a>、<a href="//github.com/soedinglab/mockinbird)”">GitHub</a>に詳細は記載されていますが、日本語での情報が少ない、というか全くない。のでまとめていきたいと思います。</p>
-<p>PAR-CLIPの解析は生のFASTQデータから、Quality Check -&gt; Trimming -&gt; Mapping -&gt; Downstream Analysisという流れで行いますが、それらすべての解析をMockinbirdでは一気に行ってくれます。また、MockinbirdModule（詳細は後述）を使うことでmock PAR-CLIP experimentを考慮に入れた解析を行うことができるのも大きな特徴です。</p>
-<p>このソフトでは、２つにパイプラインが分かれており、preprocessing phaseとpostprocessing phaseと呼ばれています。タンパク結合サイトの情報が書かれたテーブルを出力するまでが、preprocessing phaseでそれ以降のDownstream解析をpostprocessing phaseと呼んでいます。それぞれにYAMLファイルが用意されており、ユーザーはYAMLファイルで解析したいサンプルデータ、使いたいリファレンスデータ、使いたいモジュール（Mappingの時にSTARやBowtieを選べたりする。）閾値などのパラメータを指定します。最後にコマンドを一行実行するだけで、解析がすべて自動で流れていきます。あるモジュールで出力されたファイルのパスが次のモジュールに自動で設定されていくシステムになっているので、慣れると非常に便利です。</p>
-<p>ただ、ドキュメントでも、既存の解析手法に完全に取って代わるものではなく、PAR-CLIP実験のコンディションのトラブルシューティングを再現可能性が高い状態で行なったり、研究の最初の仮説づくりを短時間で行うために使ってもらうことが目的と書かれていました。</p>
-<p><img alt="2" src="../../../blog/2019/01/images/mockinbird_parclip_figs/library.png"></p>
-<h2><span id="pelican-subsections-2">環境構築</span></h2>
-<p>前置きが長くなりましたが、実際に環境構築から進めていきます。</p>
-<div class="highlight"><pre><span></span><code>conda create -n mockinbird -c bioconda -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 mockinbird
-</code></pre></div>
-
-<p>Anacondaでmockinbirdという名前の仮想環境を作ります。mockinbirdが仮想環境にインストールされることになり、これにより、下記のライブラリとツールが環境内で使えるようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> activate mockinbird
-</code></pre></div>
-
-<p>でmockinbirdの仮想環境を立ち上げ、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> deactivate mockinbird
-</code></pre></div>
-
-<p>で仮想環境を閉じます。</p>
-<div class="highlight"><pre><span></span><code>conda remove --all -n mockinbird
-</code></pre></div>
-
-<p>で環境を削除します。</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/soedinglab/mockinbird.git
-</code></pre></div>
-
-<p>でgithubからクローンします。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> mockinbird/mockinbird/data
-</code></pre></div>
-
-<p>とディレクトリを進めていくと、<code>preprocess.yaml</code>, <code>postprocess.yaml</code>というファイルがあります。基本はこの二つのYAMLファイルを調整していくことになります。terminalでコマンドを出すときも <code>mockinbird/mockinbird/data</code>ディレクトリで実行するのが個人的にはおすすめです（ファイルの構成が綺麗になる。パスの調整も楽）。</p>
-<p><a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/getting_started.html#tutorial">Tutorialデータ</a>がドキュメントの方に書かれていましたが、私が見たときはリンクがNotFoundになっていました。ので、私は<a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/">公式ドキュメント</a>や<a href="https://github.com/soedinglab/mockinbird">GitHub</a>を参考にYAMLファイルの調整などを行いました。</p>
-<p><code>preprocess</code>, <code>postprocess</code>の実行のコードは以下のようになっています。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># mockinbird preprocess [parclip_fastq] [output_dir] [prefix] [config_file]</span>
-$ mockinbird preprocess nrd1.fastq nrd1 nrd1 preprocess.yaml
-
-<span class="c1"># mockinbird postprocess {{genomefasta}} {{output_dir}} {{output_dir}} {{script_dir}}</span>
-$ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
-</code></pre></div>
-
-<p>ですが、コードの実行はYAMLの設定ができてからになります。ということでYAMLの中身について説明していきます。</p>
-<h3><span id="pelican-subsections-3">preprocess.yaml</span></h3>
-<p>preprocess.yamlの４つの区画から構成されています。</p>
+	<h2><span id="pelican-subsections-0">概要</span></h2>
+<p>来年以降に<a href="http://www.edu.med.osaka-u.ac.jp/assignment/">基礎配属</a>の1-2年生向けです。
+基礎配属を利用して中期の企業インターンに行く、という多分そんなに例のないことを試みているので、参考までに。</p>
+<p>要はいろいろ可能性があるので前例に縛られずに考えてみると良い、ということです。</p>
+<h2><span id="pelican-subsections-1">夏季休暇・基礎配属の予定</span></h2>
 <ul>
-<li>① 変数設定。</li>
-<li>② general. 必須情報の設定。</li>
-<li>③ reads. リードについての情報。</li>
-<li>④ pipeline. 使うモジュールと各引数の設定。</li>
+<li>8月・9月：<a href="https://www.preferred.jp">Preferred Networks株式会社</a>（PFN社）の東京本社でインターン。
+医療系機械学習の研究開発をする予定。</li>
+<li>10月・11月：所属研究室（生命機能/CiNet）でのんびり研究。</li>
 </ul>
-<p>① 変数設定
-下記のコードはドキュメントから引用していますが、モジュールで使う、ディレクトリの変数化と、mock_processing をFalseに設定しています。（ここ重要！）</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set data_dir = &quot;data&quot; %</span><span class="p p-Indicator">}</span>
-
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set genome_fasta = data_dir + &quot;/genome.fa&quot; %</span><span class="p p-Indicator">}</span>
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set mock_pileup = data_dir + &quot;/mock.mpileup&quot; %</span><span class="p p-Indicator">}</span>
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set mock_statistics = data_dir + &quot;/mock_stat.json&quot; %</span><span class="p p-Indicator">}</span>
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set norm_pileup = data_dir + &quot;/normalization.mpileup&quot; %</span><span class="p p-Indicator">}</span>
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set bowtie_index = data_dir + &quot;/bowtie_index/genome&quot; %</span><span class="p p-Indicator">}</span>
-
-<span class="c1"># setting mock_processing to True will only process the mock. Setting to `False` will run the full</span>
-<span class="c1"># pipeline</span>
-<span class="p p-Indicator">{</span><span class="err">%</span> <span class="nv">set mock_processing = False %</span><span class="p p-Indicator">}</span>
-</code></pre></div>
-
-<p>② general. 必須情報の設定
-アダプター配列の指定、リファレンスデータの指定、UMI(Unique molecular identifiers)の有無、スレッド数の指定。</p>
-<p>③ reads. リードについての情報
-リードの最短長、T -&gt; C mutationの指定</p>
-<div class="highlight"><pre><span></span><code><span class="nt">general</span><span class="p">:</span>
-    <span class="nt">adapter5prime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">GTTCAGAGTTCTACAGTCCGACGATC</span>
-    <span class="nt">adapter3prime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TGGAATTCTCGGGTGCCAAGG</span>
-    <span class="nt">genomefasta</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">genome_fasta</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">normalization_pileup</span><span class="p">:</span> <span class="p p-Indicator">{{</span> <span class="nv">norm_pileup</span> <span class="p p-Indicator">}}</span>
-    <span class="nt">rmTemp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-    <span class="nt">n_threads</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-
-<span class="nt">reads</span><span class="p">:</span>
-    <span class="nt">bc_5prime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-    <span class="nt">bc_3prime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">min_len</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
-    <span class="nt">reference_nucleotide</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">T</span>
-    <span class="nt">mutation_nucleotide</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-</code></pre></div>
-
-<p>④ pipeline. 使うモジュールと各引数の設定
-クオリティチェック -&gt; トリミング -&gt; マッピング</p>
-<div class="highlight"><pre><span></span><code><span class="x">pipeline:</span>
-<span class="x">  - FastQCModule:</span>
-<span class="x">      outdir_name: fastQC_raw</span>
-
-<span class="x">  - UmiToolsExtractModule</span>
-
-<span class="x">  - SkewerAdapterClippingModule</span>
-
-<span class="x">  - ClippyAdapterClippingModule:</span>
-<span class="x">      clipped_5prime_bc: True</span>
-
-<span class="x">  - FastQCModule:</span>
-<span class="x">      outdir_name: fastQC_clipped</span>
-<span class="x">      genome_index: </span><span class="cp">{{</span> <span class="nv">bowtie_index</span> <span class="cp">}}</span><span class="x"></span>
-
-<span class="x">  - BamPPModule:</span>
-<span class="x">      remove_n_edge_mut: 2</span>
-<span class="x">      max_mut_per_read: 1</span>
-<span class="x">      min_mismatch_quality: 20</span>
-
-<span class="x">  - SortIndexModule:</span>
-<span class="x">     keep_all: yes</span>
-
-<span class="x">  - UmiToolsDedupModule</span>
-
-<span class="x">  - SortIndexModule:</span>
-<span class="x">     keep_all: yes</span>
-
-<span class="x">  - PileupModule:</span>
-<span class="x">     keep_all: yes</span>
-
-<span class="x">  - BamStatisticsModule</span>
-</code></pre></div>
-
-<p>MockinbirdModuleを使うことでmock PAR-CLIP experimentを考慮に入れた解析ができますと、すでに書きましたが、Mock Experimentの結果をバックグラウンドとして処理して、PAR-CLIP Experimentの結果を出すことができます。</p>
-<p>具体的な方法としては、まず
-<code>mock_processing = True</code>とし、
-<code>mockinbird preprocess nrd1_mock.fastq nrd1_mock nrd1_mock preprocess.yaml</code>を実行します。これで<code>{% if not mock_processing %}</code>までで解析がストップします。</p>
-<p>PileupModule, BamStatisticsModuleによって、Mock Experimentの.mpileupファイルと_stat.jsonファイルがそれぞれ生成されます。（この二つのファイルを次に使うことになります。）</p>
-<p>次に<code>mock_processing = False</code>に戻し、
-<code>$ mockinbird preprocess nrd1.fastq nrd1 nrd1 preprocess.yaml</code>を実行します。すると下記のコードも一緒に実行されます。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">mock_processing</span> <span class="cp">%}</span><span class="x"></span>
-
-<span class="x">    - PredictionSitesModule:</span>
-<span class="x">        sites_file: </span><span class="cp">{{</span> <span class="nv">data_dir</span> <span class="cp">}}</span><span class="x">/genome.sites</span>
-<span class="x">        fasta_file: </span><span class="cp">{{</span> <span class="nv">genome_fasta</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">        transition_nucleotide: T</span>
-
-<span class="x">    - MockTableModule:</span>
-<span class="x">        mock_table: </span><span class="cp">{{</span> <span class="nv">data_dir</span> <span class="cp">}}</span><span class="x">/mock.table</span>
-<span class="x">        mock_pileup: </span><span class="cp">{{</span> <span class="nv">mock_pileup</span> <span class="cp">}}</span><span class="x"></span>
-
-<span class="x">    - TransitionTableModule</span>
-
-<span class="x">    - LearnMockModule:</span>
-<span class="x">        mock_model: mock_model/model.pkl</span>
-<span class="x">        mock_statistics: </span><span class="cp">{{</span> <span class="nv">mock_statistics</span> <span class="cp">}}</span><span class="x"></span>
-<span class="x">        n_mixture_components: 5</span>
-<span class="x">        em_iterations: 250</span>
-
-<span class="x">    - MockinbirdModule</span>
-
-<span class="x">    - NormalizationModule</span>
-<span class="x">    - QuantileCapModule</span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</code></pre></div>
-
-<p>これによって、Mock Experimentの<code>.mpileupファイル</code>と<code>_stat.jsonファイル</code>を受け取りつつ、最終的なCLIP-seqのテーブルを作ることができ、preprocessは終了となります。下記のようなテーブルが出力され、これをもとにpostprocessに進んでいくことになります。</p>
-<div class="highlight"><pre><span></span><code><span class="err">seqid   position        transitions     coverage        score   strand  occupancy       posterior</span>
-<span class="err">chrI    32601   4       4       6.352710158543762       -       0.15384615384615385     0.772109761967</span>
-<span class="err">chrI    35562   4       5       5.292152965717071       +       0.0223463687150838      0.539841709238</span>
-<span class="err">chrI    35805   5       5       9.376254703871467       +       0.03184713375796178     0.98585024515</span>
-</code></pre></div>
-
-<p>長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。</p>
+<h2><span id="pelican-subsections-2">これまでの準備日程</span></h2>
+<ul>
+<li><strong>2019.03下旬</strong><br>
+和佐教授（教育センター長）にメールで問い合わせ。<br>
+Q.「基礎配属で企業に行ってもいいですか」→ A.「受入研究室からの派遣ならOKです」</li>
+<li><strong>2019.04.16(火)</strong><br>
+基礎配属期間でインターンを行うことについて、PFN社に問い合わせる。
+基本的に問題ないとの返事。</li>
+<li><strong>2019.04.18(木)</strong><br>
+PFN社のインターンに応募。</li>
+<li><strong>2019.05.06(月)</strong><br>
+応募直後に送られてきた<a href="https://oumpy.github.io/blog/2019/05/gnnfrom0.html">コーディング課題の提出</a>締切。<br>
+なんだかんだで実質2日くらいしか掛けられなかった。そして風邪をひいた。</li>
+<li><strong>2019.05.17(金)</strong><br>
+一次選考の通過通知。
+面接の日程調整。</li>
+<li><strong>2019.05.31(金)</strong><br>
+面接。
+オンラインも可だったが、ちょうど翌日に東京で研究会参加予定だったので、この日夕方の対面を希望した。
+午後の講義をさぼったことは秘密。</li>
+<li><strong>2019.06.11(火)</strong><br>
+基礎配属説明会。
+教室インタビュー申込は6/28(金)まで。</li>
+<li><strong>2019.06.25(火)</strong><br>
+インターン採用通知。</li>
+<li><strong>2019.06.28(金)</strong><br>
+教室インタビュー申込締切。
+実質2ヶ月になる説明を添えて4研究室に打診、うち1つは不可だったので3つ。</li>
+<li><strong>2019.06.30(日)</strong><br>
+インターン日程を8/7(水)-9/27(金)に確定。</li>
+<li><strong>2019.07.02(火)-04(木)</strong><br>
+教室インタビュー。<br>
+この頃、東京の宿舎（マンスリーマンション）の予約・契約もする。</li>
+<li><strong>2019.07.10(水)</strong><br>
+基礎配属希望提出締切。<br>
+結局、インタビューに行ったところではなく普段の研究室でのんびりやることにした。
+夏休みもないからね。</li>
+</ul>
+<h2><span id="pelican-subsections-3">コメント</span></h2>
+<ul>
+<li>先例は全く聞いたことがなかったが、3月にまず学内で問い合わせをしたのは正解。
+条件付きでOKと即答を頂けたので、企業側にも堂々と説明することができた（どこの企業もだと思うが、学期中に学業をさぼって参加することは認められていない）。</li>
+<li>結局PFNのみ、1社しか応募しなかった。
+正直面倒で風邪もひいて気力がわかなかっただけなので、真似はしないでください(笑)。
+準備や問い合わせももっと早めにした方がきっといいです。</li>
+<li>上記の通り、採用通知と基礎配選択の日程がかなり詰まっていて、ずれこむと面倒になるのでちょっと不安だった。
+結果的には遅延もなくぎりぎりセーフ。</li>
+<li>PFNのインターンは2ヶ月までだけど、社によっては3ヶ月以上などのところもあります。
+基礎配をフルに使えばそういうものもおそらく可能。あるいは2社以上に行くこともできるでしょう。
+（僕はあんまり無理しないことにした。）</li>
+<li>今回程度であれば外部実習を認めてくれる研究室は上記の通り少なくないようなので、そこはさほど心配しなくてよい。
+それ以上の長期になると不明。
+普段繋がりのある研究室に形式的に所属する形をとるのが最も簡単ではあると思う。</li>
+</ul>
+<h2><span id="pelican-subsections-4">後日談など</span></h2>
+<p>(2021年3月追記)</p>
+<p>インターンも基礎配属も、結果的に予定通り問題なく終えることができました。
+9月上旬には<a href="https://oumpy.github.io/blog/2019/09/exam_vs_python.html">試験</a>のために東京大阪の複数回とんぼ返りを強いられたりしましたが、、どうにか落ちることもなく（試験日程は確認しておいた方がいいでしょう）。</p>
+<p>ともあれ、3月から色々と頑張ってやりくりした以上の価値は間違いなくあったと言い切れます。</p>
+<p>研究室配属期間の利用は中期以上の企業インターンに医学生が参加するほぼ唯一の方法でもあり、今はまだマイナーですが、もっと広がらないかなと個人的には思っています。
+興味を持ったら、ぜひ積極的に動いてみてください。</p>
+<p>おしまい。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
+	<a href="../../../tag/qi-ye-intan.html"><i class="fa fa-tag"></i>企業インターン</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -370,7 +275,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/01/mockinbird_parclip.html" 
+        data-href="../../../blog/2019/07/kisohai-intern.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -386,9 +291,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
-        <li><a href="../../../blog/2019/06/cancer_signature.html">がんゲノム変異シグネチャー解析</a></li>
-        <li><a href="../../../blog/2019/03/velocyto.html">VELOCYTO</a></li>
+        <li><a href="../../../blog/2019/05/gnnfrom0.html">Graph Neural Network (GNN)をゼロから実装した話</a></li>
     </ul>
 </div>
 
