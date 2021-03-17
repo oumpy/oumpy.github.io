@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2021-03-17T14:33:18-00:00</lastmod>
+<lastmod>2021-03-17T15:40:49-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2021-03-17T14:33:18-00:00</lastmod>
+<lastmod>2021-03-17T15:40:49-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/categories.html</loc>
-<lastmod>2021-03-17T14:33:18-00:00</lastmod>
+<lastmod>2021-03-17T15:40:49-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2021-03-17T14:33:18-00:00</lastmod>
+<lastmod>2021-03-17T15:40:49-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/archives.html</loc>
-<lastmod>2021-03-17T14:33:18-00:00</lastmod>
+<lastmod>2021-03-17T15:40:49-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -559,6 +559,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/blog/2018/11/shellscript_2.html</loc>
 <lastmod>2018-11-16T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/blog/2018/11/tcgabiolinks.html</loc>
+<lastmod>2018-11-11T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
