@@ -194,21 +194,23 @@
 <p>zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります。
 そんなときは授業動画を録画してmp4ファイルを準備すれば、自動でpdfを作ってくれる、というものです。</p>
 <h2><span id="pelican-subsections-0">仕組み</span></h2>
-<p>流れとしては、
-- mp4を一定時間（10秒など）ごとの画像に分割
-- それぞれの画像に対して、opencvで1つ前の画像との差分を取る
-- 差分を数値化してある値以上のものをはじく
-- 残った画像をpdfに変換して、まとめる</p>
+<p>流れとしては、</p>
+<ul>
+<li>mp4を一定時間（10秒など）ごとの画像に分割</li>
+<li>それぞれの画像に対して、opencvで1つ前の画像との差分を取る</li>
+<li>差分を数値化してある値以上のものをはじく</li>
+<li>残った画像をpdfに変換して、まとめる</li>
+</ul>
 <p>という感じです。詳しくはコードを見てみて下さい。
 実行時間は数分なので、待てないほどではないです。</p>
 <h2><span id="pelican-subsections-1">OCR</span></h2>
-<p>OCRを付けたい場合は、<strong>ocrmypdf</strong>が無料で使える中では精度がいいので、学習データを少しいじって、スライド向けのオプションにすればそれなりに認識してくれます。
-https://github.com/jbarlow83/OCRmyPDF</p>
+<p>OCRを付けたい場合は、<strong>ocrmypdf</strong>が無料で使える中では精度がいいので、学習データを少しいじって、スライド向けのオプションにすればそれなりに認識してくれます。</p>
+<p><a href="https://github.com/jbarlow83/OCRmyPDF">https://github.com/jbarlow83/OCRmyPDF</a></p>
 <h2><span id="pelican-subsections-2">コーデックの変換</span></h2>
 <p>mp4についても、コーデックをH.265に変換してあげると、画質はほとんど変わらず容量がかなり削減されます。<br>
 もしmp4も残しておきたいといった場合は、変換はffmpegで簡単にできるので、おすすめです。
 （この変換はかなり時間がかかりますが...）</p>
-<p>参考：https://life.craftz.dog/entry/save-storage-with-h265-ffmpeg</p>
+<p>参考：<a href="https://life.craftz.dog/entry/save-storage-with-h265-ffmpeg">https://life.craftz.dog/entry/save-storage-with-h265-ffmpeg</a></p>
 <h2><span id="pelican-subsections-3">プログラム</span></h2>
 <p>プログラムを載せておくので、使い方が分からない時は聞いて下さい。</p>
 <h3><span id="pelican-subsections-4">movie2pdf.py</span></h3>
@@ -538,28 +540,22 @@ mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<sp
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">3</span>
-        論文まとめ
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
+        Simulation
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-1">
@@ -568,16 +564,22 @@ mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<sp
         Python
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">3</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -587,15 +589,15 @@ mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<sp
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        企業インターン
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        論文関連
+        Neuroscience
       </a>
     </span>
     <span class="tag-1">
@@ -604,46 +606,34 @@ mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<sp
         Bioinformatics
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">5</span>
         自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -658,10 +648,22 @@ mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<sp
         Machine Learning
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">3</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
 </p>
