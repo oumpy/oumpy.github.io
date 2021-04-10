@@ -186,16 +186,20 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2><span id="pelican-subsections-0">TeXの処理動作</span></h2>
-<p>TeXは前からソースコードを認識し，<code>\textbackslash（英字）</code>というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．従って，日本語の混ざった制御綴も作れる．<code>\relax␣あ</code>の場合は，<code>\relax</code>という制御綴と「あ」という文字として認識されるが，<code>\relaxあ</code>の場合は，<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く）を一つの制御綴（コントロールシークエンス）として処理します．</p>
+<p>TeXは前からソースコードを認識し，<code>\textbackslash（英字）</code>というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．
+従って，日本語の混ざった制御綴も作れる．
+<code>\relax␣あ</code>の場合は，<code>\relax</code>という制御綴と「あ」という文字として認識されるが，<code>\relaxあ</code>の場合は，<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く）を一つの制御綴（コントロールシークエンス）として処理します．</p>
 <div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 </code></pre></div>
 
 <p>この場合の制御綴は<code>\csone</code>, <code>\cstwo</code>, <code>\csthree</code>です（空白は制御綴に使われない）．</p>
 <p>TeXは制御綴を認識した後，前から順番に展開（定義の代入）を行います．
-例えば，次の制御綴を用意します．
-- <code>\csone</code>の定義：one;
-- <code>\cstwo</code>の定義：two;
-- <code>\csthree</code>の定義：three;</p>
+例えば，次の制御綴を用意します．</p>
+<ul>
+<li><code>\csone</code>の定義：one;</li>
+<li><code>\cstwo</code>の定義：two;</li>
+<li><code>\csthree</code>の定義：three;</li>
+</ul>
 <p>この場合は，</p>
 <div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 <span class="k">\csone\cstwo\csthree</span>
@@ -207,10 +211,12 @@ one;two;three;
 <p>と展開されます（複数の空白は1個の空白として処理され，制御綴の直後の空白は無視される）．</p>
 <h2><span id="pelican-subsections-1">展開の制御</span></h2>
 <p>先程の例の通り，TeXは基本的に前から展開を行いますが，時には展開の順序を入れ替えたりしたい場合があります．
-そのために，いくつかの命令が存在します：
-- <code>\expandafter</code>．直後の制御綴の展開を一回遅らせる，
-- <code>\edef</code>．制御綴の中身を全て展開して定義，
-- <code>\noexpand</code>．<code>\edef</code>中で使用すると，定義の際に展開されない（実行時は展開される）．</p>
+そのために，いくつかの命令が存在します：</p>
+<ul>
+<li><code>\expandafter</code>．直後の制御綴の展開を一回遅らせる，</li>
+<li><code>\edef</code>．制御綴の中身を全て展開して定義，</li>
+<li><code>\noexpand</code>．<code>\edef</code>中で使用すると，定義の際に展開されない（実行時は展開される）．</li>
+</ul>
 <p>例として，次の制御綴を用意します．</p>
 <div class="highlight"><pre><span></span><code><span class="k">\def\A</span>#1#2<span class="nb">{</span>#1 is #2<span class="nb">}</span>
 <span class="k">\def\B</span><span class="nb">{</span><span class="k">\BB\BB</span><span class="nb">}</span>
@@ -218,11 +224,13 @@ one;two;three;
 <span class="k">\def\C</span><span class="nb">{</span>bar<span class="nb">}</span>
 </code></pre></div>
 
-<p>それぞれの制御綴の意味は，
-- <code>\A</code>：引数は2個（#1, #2）で，展開すると「#1 is #2」（#1, #2が制御綴なら展開される）
-- <code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）
-- <code>\BB</code>：展開すると「foo」（それ以上展開されない）
-- <code>\C</code>：展開すると「bar」（それ以上展開されない）</p>
+<p>それぞれの制御綴の意味は，</p>
+<ul>
+<li><code>\A</code>：引数は2個（#1, #2）で，展開すると「#1 is #2」（#1, #2が制御綴なら展開される）</li>
+<li><code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）</li>
+<li><code>\BB</code>：展開すると「foo」（それ以上展開されない）</li>
+<li><code>\C</code>：展開すると「bar」（それ以上展開されない）</li>
+</ul>
 <h3><span id="pelican-subsections-2">例1</span></h3>
 <p><code>\A\B\C</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">\A\B\C</span>
@@ -426,21 +434,9 @@ one;two;three;
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
       </a>
     </span>
     <span class="tag-2">
@@ -449,16 +445,16 @@ one;two;three;
         検定試験
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">3</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
@@ -467,16 +463,28 @@ one;two;three;
         論文まとめ
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">1</span>
-        その他言語
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
           <span class="badge badge-primary">19</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-1">
@@ -486,15 +494,39 @@ one;two;three;
       </a>
     </span>
     <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">1</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">4</span>
+        自動化
       </a>
     </span>
     <span class="tag-2">
@@ -504,27 +536,15 @@ one;two;three;
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        勉学支援
+        GitHub
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">13</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
@@ -533,28 +553,16 @@ one;two;three;
         競技プログラミング
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+    <span class="tag-4">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">1</span>
+        その他言語
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+        Neuroscience
       </a>
     </span>
 </p>
