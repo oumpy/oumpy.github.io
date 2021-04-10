@@ -8,16 +8,17 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="ipynb破損時の対応"/>
-    <meta property="og:url" content="../../../blog/2018/09/ipynb_broken.html"/>
+    <meta property="og:title" content="プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける"/>
+    <meta property="og:url" content="../../../blog/2021/03/movie2pdf.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Python"/>
+        <meta property="article:tag" content="自動化"/>
+        <meta property="article:tag" content="勉学支援"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="ipynb破損時の対応">
+    <meta name="twitter:title" content="プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>ipynb破損時の対応 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -153,11 +154,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="ipynb_broken">
+    <meta name="article:slug" property="og:article:slug" content="movie2pdf">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-09-15">
-    <meta name="article:modified" property="og:article:modified" content="2020-05-16">
+    <meta name="article:date" property="og:article:date" content="2021-03-23">
+    <meta name="article:modified" property="og:article:modified" content="2021-03-31">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -165,53 +166,253 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/09/ipynb_broken.html" rel="bookmark"
-     title="Permalink to ipynb破損時の対応">
-    ipynb破損時の対応
+  <a href="../../../blog/2021/03/movie2pdf.html" rel="bookmark"
+     title="Permalink to プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける">
+    プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-09-15(Sat)
+  2021-03-23(Tue)
 </abbr>       - Posted by 
-<a href="../../../author/an-shui.html">安水</a>    in 
+<a href="../../../author/shan-tian.html">山田</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
+        <a href="../../../tag/zi-dong-hua.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%87%AA%E5%8B%95%E5%8C%96&labelColor=black&color=green" alt="tag:自動化" title="tag:自動化"></img></a>
+        <a href="../../../tag/mian-xue-zhi-yuan.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E5%8B%89%E5%AD%A6%E6%94%AF%E6%8F%B4&labelColor=black&color=blue" alt="tag:勉学支援" title="tag:勉学支援"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>先日１ヶ月以上を費やしてまとめていたipynbファイルが破損して開けなくなってしまい、やさぐれていました。
-なんとかならないか調べても、壊れたファイルは戻ってこないよ的な塩対応しかなかったので絶望していたのですが、pythonでなんとかできるのではないかとあがいてみました。
-なんとか復旧したのでその方法を共有します。</p>
-<p><img alt="image01" src="../../../blog/2018/09/images/ipynb_broken_figs/image01.png"></p>
-<p>まず開こうと思ったらこんな感じでした。
-絶望感しかありません。
-ipynbファイルの弱点を見たような気がしました。</p>
-<p>そこで、新しいipynbを作り、jsonを読んでみました。</p>
-<p><img alt="image02" src="../../../blog/2018/09/images/ipynb_broken_figs/image02.png"></p>
-<p>てことで677378行目付近を見てみる。</p>
-<div class="highlight"><pre><span></span><code>less -N BAP_note.ipynb
+	<p>昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
+中でも、
+「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」
+はかなり役立っています。</p>
+<p>zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります。
+そんなときは授業動画を録画してmp4ファイルを準備すれば、自動でpdfを作ってくれる、というものです。</p>
+<h2><span id="pelican-subsections-0">仕組み</span></h2>
+<p>流れとしては、</p>
+<ul>
+<li>mp4を一定時間（10秒など）ごとの画像に分割</li>
+<li>それぞれの画像に対して、opencvで1つ前の画像との差分を取る</li>
+<li>差分を数値化してある値以上のものをはじく</li>
+<li>残った画像をpdfに変換して、まとめる</li>
+</ul>
+<p>という感じです。詳しくはコードを見てみて下さい。
+実行時間は数分なので、待てないほどではないです。</p>
+<h2><span id="pelican-subsections-1">OCR</span></h2>
+<p>OCRを付けたい場合は、<strong>ocrmypdf</strong>が無料で使える中では精度がいいので、学習データを少しいじって、スライド向けのオプションにすればそれなりに認識してくれます。</p>
+<p><a href="https://github.com/jbarlow83/OCRmyPDF">https://github.com/jbarlow83/OCRmyPDF</a></p>
+<h2><span id="pelican-subsections-2">コーデックの変換</span></h2>
+<p>mp4についても、コーデックをH.265に変換してあげると、画質はほとんど変わらず容量がかなり削減されます。<br>
+もしmp4も残しておきたいといった場合は、変換はffmpegで簡単にできるので、おすすめです。
+（この変換はかなり時間がかかりますが...）</p>
+<p>参考：<a href="https://life.craftz.dog/entry/save-storage-with-h265-ffmpeg">https://life.craftz.dog/entry/save-storage-with-h265-ffmpeg</a></p>
+<h2><span id="pelican-subsections-3">プログラム</span></h2>
+<p>プログラムを載せておくので、使い方が分からない時は聞いて下さい。</p>
+<h3><span id="pelican-subsections-4">movie2pdf.py</span></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 使い方</span>
+<span class="c1"># python movie2pdf.py -dir 実行フォルダのパス</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># pdfへ変換</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">img2pdf</span>
+<span class="c1"># pdfをまとめる</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="kn">from</span> <span class="nn">send2trash</span> <span class="kn">import</span> <span class="n">send2trash</span>
+
+<span class="c1"># コマンドライン引数の取得</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-dir&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-num_f&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="n">base_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">dir</span>
+<span class="n">num_frames</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">num_f</span>
+<span class="c1"># floatに変換</span>
+<span class="n">num_frames</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)</span>
+
+<span class="c1"># avi→mp4へ変換</span>
+<span class="n">input_avi</span> <span class="o">=</span> <span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;input.avi&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">input_avi</span><span class="p">):</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;ffmpeg -i </span><span class="si">{0}</span><span class="s1"> -vcodec libx265 -tag:v hvc1 </span><span class="si">{1}</span><span class="s1">input.mp4&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">input_avi</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">)</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done! - avi2mp4&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Avi file&quot;</span><span class="p">)</span>
+
+<span class="c1"># mp4→連番のpng</span>
+<span class="n">input_mp4</span> <span class="o">=</span> <span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;input.mp4&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;photo&quot;</span><span class="p">)</span>
+<span class="c1"># 5秒に1枚のpngへ</span>
+<span class="c1"># -rは1秒あたりのコマ数</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;ffmpeg -i </span><span class="si">{0}</span><span class="s1"> -vcodec png -r </span><span class="si">{1}</span><span class="s1"> </span><span class="si">{2}</span><span class="s1">photo/</span><span class="si">%05d</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">input_mp4</span><span class="p">,</span> <span class="n">num_frames</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">)</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done! - mp4topng&quot;</span><span class="p">)</span>
+
+<span class="c1"># 連番png→重複除いてpdf作成</span>
+<span class="c1"># ２値化</span>
+
+
+<span class="k">def</span> <span class="nf">binarization</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img</span>
+
+<span class="c1"># 関数</span>
+<span class="c1"># 差分を数値化</span>
+
+
+<span class="k">def</span> <span class="nf">getDiff</span><span class="p">(</span><span class="n">path1</span><span class="p">,</span> <span class="n">path2</span><span class="p">):</span>
+    <span class="c1"># 画像の読み込み</span>
+    <span class="n">img1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path1</span><span class="p">)</span>
+    <span class="n">img2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
+    <span class="c1"># グレースケール変換</span>
+    <span class="n">img1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="n">img2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    <span class="c1"># 差分取得</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">absdiff</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span> <span class="n">img2</span><span class="p">)</span>
+    <span class="c1"># ２値化</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">binarization</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">countNonZero</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>  <span class="c1"># 白の要素数</span>
+
+
+<span class="c1"># 重複を除く</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;photo/*.png&quot;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+
+<span class="n">list_frame_save</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># 保存する画像のリスト</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># しきい値</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="n">getDiff</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">diff</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">list_frame_save</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="n">list_frame_save</span> <span class="o">=</span> <span class="n">list_frame_save</span> <span class="o">+</span> <span class="n">files</span>
+
+<span class="c1"># ファイルのコピー</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;save&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_frame_save</span><span class="p">:</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;save/&quot;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># pdfへ変換</span>
+<span class="c1"># png→jpg</span>
+<span class="c1"># 保存先のディレクトリを作成</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;jpg&quot;</span><span class="p">)</span>
+
+<span class="n">list_png</span> <span class="o">=</span> <span class="n">list_frame_save</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_png</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">name_png</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.jpg&quot;</span>
+    <span class="c1"># 変換</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">rgb_im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span>
+    <span class="n">rgb_im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;jpg/&quot;</span> <span class="o">+</span> <span class="n">name_png</span><span class="p">)</span>
+
+<span class="c1"># jpg→pdf</span>
+<span class="n">path_jpg</span> <span class="o">=</span> <span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;jpg/*.jpg&quot;</span>
+<span class="n">list_jpg</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path_jpg</span><span class="p">)</span>
+<span class="c1"># 保存先のディレクトリを作成</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_jpg</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">name_pdf</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.pdf&quot;</span>
+    <span class="c1"># 変換</span>
+    <span class="c1"># Pillowモジュールを使用し画像の読み込み</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># 画像→pdfファイルに変換</span>
+    <span class="n">cov_pdf</span> <span class="o">=</span> <span class="n">img2pdf</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># pdfファイルを読み込み（pdf_nameで指定したpdfがない場合、pdf_nameをファイル名として新規にpdfファイルを作成）</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;pdf/&quot;</span> <span class="o">+</span> <span class="n">name_pdf</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+    <span class="c1"># pdfファイルを書き込み</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cov_pdf</span><span class="p">)</span>
+
+    <span class="c1"># 開いているファイルを閉じる</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 複数のpdfファイルを結合する</span>
+<span class="n">pdf_path</span> <span class="o">=</span> <span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;pdf/&quot;</span>
+
+<span class="n">merge</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileMerger</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">pdf_path</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())):</span>
+    <span class="n">merge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pdf_path</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">merge</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s1">&#39;slide.pdf&#39;</span><span class="p">)</span>
+<span class="n">merge</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># フォルダとファイルを削除</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;jpg&quot;</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">send2trash</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;photo&quot;</span><span class="p">)</span>  <span class="c1"># photoフォルダはごみ箱へ移動</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">input_avi</span><span class="p">):</span>
+    <span class="n">send2trash</span><span class="p">(</span><span class="n">base_dir</span> <span class="o">+</span> <span class="s2">&quot;input.avi&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done! All&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>Nオプションで行数が表示されます。
-そして、<code>677378G</code> と打つと677378行目に行けます。</p>
-<p><img alt="image03" src="../../../blog/2018/09/images/ipynb_broken_figs/image03.png"></p>
-<p>たしかに表示が崩れているので、<code>v</code> で編集モード（vimモード）を立ち上げ、<code>dd</code> でけしていきました。
-<code>:x</code> で保存できます。
-（vimじゃなくてもemacs等でも行ける。）</p>
-<p>復活しました。
-うれしい!!</p>
-<p><img alt="image04" src="../../../blog/2018/09/images/ipynb_broken_figs/image04.png"></p>
+<p>実行方法</p>
+<div class="highlight"><pre><span></span><code>python movie2pdf.py -dir 実行フォルダのパス
+</code></pre></div>
+
+<h3><span id="pelican-subsections-5">movie2pdf_folder_ocr.sh</span></h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> file <span class="k">in</span> *.mp4<span class="p">;</span> <span class="k">do</span>
+<span class="c1"># echo $file</span>
+<span class="nv">name</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$file</span> .mp4<span class="k">)</span>
+<span class="nb">echo</span> <span class="nv">$name</span>
+<span class="c1"># タイトルのフォルダを作成</span>
+mkdir <span class="nv">$name</span>
+<span class="c1"># mp4を移動＆名前変更</span>
+mv <span class="nv">$file</span> <span class="nv">$name</span>/input.mp4
+
+<span class="c1"># 変換実行</span>
+python ~/python/program/201214_mp4pdf/script/movie2pdf.py -dir ./<span class="nv">$name</span>/ -num_f <span class="m">0</span>.5
+<span class="c1"># OCR</span>
+ocrmypdf -l jpn --output-type pdfa --tesseract-pagesegmode <span class="m">6</span> --sidecar <span class="nv">$name</span>/output.txt <span class="nv">$name</span>/slide.pdf <span class="nv">$name</span>/slide_ocr.pdf
+<span class="c1"># outputのslide.pdfのタイトル変更</span>
+mv <span class="nv">$name</span>/slide.pdf <span class="nv">$name</span>/<span class="nv">$name</span>.pdf
+mv <span class="nv">$name</span>/slide_ocr.pdf <span class="nv">$name</span>/<span class="nv">$name_ocr</span>.pdf
+<span class="k">done</span>
+</code></pre></div>
+
+<p>指定のフォルダ内にて、  </p>
+<div class="highlight"><pre><span></span><code>sh movie2pdf_folder_ocr.sh
+</code></pre></div>
+
+<h2><span id="pelican-subsections-6">注意事項</span></h2>
+<p>授業の録画は禁止されている場合もあると思うので、プログラムの利用は全て自己責任でお願いします。</p>
+<p>オンライン授業はテックに強いと快適に過ごせるため、今後もずっとオンラインでいいなと思ってしまいます。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
+	<a href="../../../tag/zi-dong-hua.html"><i class="fa fa-tag"></i>自動化</a>&nbsp;
+	<a href="../../../tag/mian-xue-zhi-yuan.html"><i class="fa fa-tag"></i>勉学支援</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -225,7 +426,7 @@ ipynbファイルの弱点を見たような気がしました。</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/09/ipynb_broken.html" 
+        data-href="../../../blog/2021/03/movie2pdf.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -241,9 +442,9 @@ ipynbファイルの弱点を見たような気がしました。</p>
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2021/02/kronecker_product_solving_matrix_equations.html">行列方程式のクロネッカー積による解法</a></li>
-        <li><a href="../../../blog/2020/07/pythonparty_and_python.html">Python会とPythonとPython会で使われているPython</a></li>
-        <li><a href="../../../blog/2020/06/studymeeting2020_04.html">【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</a></li>
+        <li><a href="../../../blog/2020/06/youtube_api.html">やさしいYouTube APIのはなし</a></li>
+        <li><a href="../../../blog/2020/05/aircon_via_internet.html">赤外線対応エアコンをインターネットを用いて操作する方法</a></li>
+        <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
     </ul>
 </div>
 
