@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="PythonとKerasでどうぶつしょうぎ"/>
-    <meta property="og:url" content="../../../blog/2018/12/animalshogi.html"/>
+    <meta property="og:title" content="LaTeX の展開"/>
+    <meta property="og:url" content="../../../blog/2021/03/tex_expand.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="その他言語"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="PythonとKerasでどうぶつしょうぎ">
+    <meta name="twitter:title" content="LaTeX の展開">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>PythonとKerasでどうぶつしょうぎ - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>LaTeX の展開 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -153,10 +153,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="animalshogi">
+    <meta name="article:slug" property="og:article:slug" content="tex_expand">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-12-06">
+    <meta name="article:date" property="og:article:date" content="2021-03-30">
+    <meta name="article:modified" property="og:article:modified" content="2021-03-30">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -164,146 +165,147 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/12/animalshogi.html" rel="bookmark"
-     title="Permalink to PythonとKerasでどうぶつしょうぎ">
-    PythonとKerasでどうぶつしょうぎ
+  <a href="../../../blog/2021/03/tex_expand.html" rel="bookmark"
+     title="Permalink to LaTeX の展開">
+    LaTeX の展開
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-12-06(Thu)
+  2021-03-30(Tue)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/he-cun.html">河村</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../../../tag/sonota-yan-yu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%81%9D%E3%81%AE%E4%BB%96%E8%A8%80%E8%AA%9E&labelColor=black&color=green" alt="tag:その他言語" title="tag:その他言語"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">はじめに</span></h2>
-<p><strong>「どうぶつしょうぎ」</strong> というゲームをご存知でしょうか。（<a href="https://ja.wikipedia.org/wiki/どうぶつしょうぎ">wikipediaの解説</a>）</p>
-<p>普及・教育用のミニ将棋として考案されたもので、本将棋が盤9x9、駒8種のところを盤3x4、駒4種までコンパクトにしたものです。<br>
-駒の名前もひよこ（歩）、ぞう（弱い角）、きりん（弱い飛車）、ライオン（玉）、にわとり（ひよこの成り駒＝と金）、のように、かわいいです。<br>
-駒に描かれているイラストも、大変、かわいいです。  </p>
-<p><img alt="1" src="../../../blog/2018/12/images/animalshogi_figs/1024px-doubutsu-shogi.jpg"></p>
-<p>ゲーム空間の規模がそこそこ小さいため、すでに随分前に<a href="https://www.tanaka.ecc.u-tokyo.ac.jp/ktanaka/dobutsushogi/">完全解析もされています</a>。
-双方最善を尽くすと78手まで後手勝ち、だそうです。</p>
-<p>今回は、<a href="https://www.nature.com/articles/nature16961">AlphaGo</a>
-(<a href="https://www.nature.com/articles/nature24270">Zero</a>)
-を部分的に真似した深層強化学習で、PythonとKeras（初心者向けの深層学習フレームワーク）を使い、<strong>どうぶつしょうぎをプレイするプログラム</strong> を作ってみました。<br>
-ひとまず先読みは無しで、目の前の局面に対して直感的に手を選び、そこそこ強いもの、を目指します。</p>
-<p>今更な話題で研究としての価値はほぼないと思いますが、ただ論文を読むだけよりも実際に手を動かしてみると、色々とわかることもあるものです。  （たぶん。）</p>
-<h2><span id="pelican-subsections-1">つくりかた概要</span></h2>
-<p>「プレイするプログラム」と大層なことを書きましたが、核心部分は「与えられた局面に対して次の指し手を返す」、これだけです。<br>
-この部分を、深層ニューラルネットワーク「だけ」で作ります。  </p>
-<p>実はこれ、<strong>画像カテゴリ認識と殆ど同じ</strong> です。
-例えば手書き数字認識と対比すると、数字画像の代わりに局面データ、0-9の代わりに何番目の指し手か、が対応します。<br>
-入力として局面を与え、各指し手のスコア（指す確率）を出力する、順伝搬型の深層ネットワークを作ればいいわけです。</p>
-<h2><span id="pelican-subsections-2">ネットワーク構成</span></h2>
-<h3><span id="pelican-subsections-3">入力：盤面と持駒の表現</span></h3>
-<p>どうぶつしょうぎの盤面は3x4。各マスを考えるとそれぞれ11通りの状態がありえます。
-（駒が成駒含めて5種類、自分と相手の駒があり、空白マスとあわせて5x2+1=11です。）<br>
-なので、盤面はサイズ(3,4,11)の3次元整数配列として与えましょう。
-各マスで11チャネルのうち1つだけが1、残りは0をとるようにします。</p>
-<p>次に持駒ですが、持駒になるのはひよこ、ぞう、きりんの3種のみ。各最大2枚。<br>
-こちらは(2,3,2)の3次元配列とします。次元は順に、自分か相手か、駒の種類、持駒の1枚目または2枚目、を表し、値はいずれも0または1です。</p>
-<p>入力は合わせて144ノード。ちょっと冗長すぎる気はしますが、ひとまず気にせず進めましょう。</p>
-<h3><span id="pelican-subsections-4">出力：可能な指し手を網羅する</span></h3>
-<p>どうぶつしょうぎの指し手は、(1)駒の移動、(2)駒打ち、の2種類があります。<br>
-これらは任意の局面に対して、<br>
-(1)「動かす駒の位置」「移動後の位置」「成るか、成らないか」<br>
-(2)「打つ駒の種類」「打つ位置」<br>
-を与えると一意に決められます。<br>
-一番強い駒であるライオンでも、盤の端から端まで一手で移動などはできないため、(1)には制限があります。実際に合法でありうる動きは61通り。(2)は単純に、打てる駒3種（ひよこ、ぞう、きりん）と打ち場所3x4で36通り。<br>
-合わせて<strong>合法手の可能性は97通り</strong>です。
-ですからネットワークは、<strong>97ノードのソフトマックスを出力とすればよい</strong> ことになります。</p>
-<h3><span id="pelican-subsections-5">今回使ったネットワーク</span></h3>
-<p>入力と出力が決まったので、あとは工夫しだい。
-今回は適当に、こんなネットワークでやってみます。</p>
-<div class="highlight"><pre><span></span><code>____________________________________________________________________________________________________
-Layer (type)                     Output Shape          Param #     Connected to                     
-====================================================================================================
-input_1 (InputLayer)             (None, 3, 4, 11)      0                                            
-____________________________________________________________________________________________________
-input_2 (InputLayer)            (None, 2, 3, 2)       0                                            
-____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    
-____________________________________________________________________________________________________
-flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   
-____________________________________________________________________________________________________
-concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  
-                                                                   flatten_2[0][0]                 
-____________________________________________________________________________________________________
-dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              
-____________________________________________________________________________________________________
-dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   
-____________________________________________________________________________________________________
-dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   
-____________________________________________________________________________________________________
-dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   
-____________________________________________________________________________________________________
-dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   
-____________________________________________________________________________________________________
-dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   
-____________________________________________________________________________________________________
-dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   
-====================================================================================================
-Total params: 113,633
-Trainable params: 113,633
-Non-trainable params: 0
-____________________________________________________________________________________________________
+	<h2><span id="pelican-subsections-0">TeXの処理動作</span></h2>
+<p>TeXは前からソースコードを認識し，<code>\textbackslash（英字）</code>というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．従って，日本語の混ざった制御綴も作れる．<code>\relax␣あ</code>の場合は，<code>\relax</code>という制御綴と「あ」という文字として認識されるが，<code>\relaxあ</code>の場合は，<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く）を一つの制御綴（コントロールシークエンス）として処理します．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 </code></pre></div>
 
-<p>input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。<br>
-盤が小さいので、畳み込みも使わず全て全結合にしています。本将棋に拡張する場合は、畳み込みを使った方がいいでしょう。</p>
-<h2><span id="pelican-subsections-6">強化学習：自己対戦と指し手評価</span></h2>
-<p>さて、ようやく本番の学習。基本は、自己対戦の結果による指し手評価です。</p>
-<p>そのためには、<strong>審判・履歴機能付きのどうぶつしょうぎ盤セット</strong> をPythonのクラスとして実装することが必要です。実は全体の中でここが一番面倒なのですが、別に面白くはないので割愛。数時間頑張れば、動くものは作れます。そう、Pythonならね。</p>
-<p>自己対戦学習は多少試行錯誤して、いくつか工夫しました。これが良いかはよくわかりませんが。</p>
-<ul>
-<li>初期配置からいきなり自己対戦するのではなく、勝負がつかない範囲でランダムに数手〜数十手進めた局面から開始。</li>
-<li>出力中の反則手は無視し、合法手の中で、スコアに比例した確率で指す。</li>
-<li>自己対戦の終局後、勝者側の指し手全てを教師信号としてネットワークを学習する。</li>
-<li>敗者側の指し手は無視し、減点しない。また反則スコアが高くても減点しない。<br>
-  （褒めて伸ばす。初期局面が敗勢だとどうしようもないから、という理由もあり。）</li>
-</ul>
-<p>今回は2^17局の自己対戦を行い、終局ごとに学習させました。1局あたりの平均手数は20手、このうち勝者側のみを学習するので、延べ130万局面程度を学習したことになります。<br>
-計算は全てノートPC上で行い、計算時間は45分程度でした。</p>
-<h2><span id="pelican-subsections-7">学習結果</span></h2>
-<h3><span id="pelican-subsections-8">ルールの習得</span></h3>
-<p>まず、学習したネットワークはどうぶつしょうぎのルール（合法手の規則）をどれくらい学んでいるのか？を検証してみます。<br>
-ランダムに指して生成した局面で、ルールの制限を外して自由に指させてみたところ、じつに <strong>合法手が98.7%</strong> となりました。1.3%の指し手が反則です。<br>
-これら局面での合法手は、平均して局面あたり6.5手程度しかありません。97手からランダムに指せば殆どが反則、合法手は7%にも満たないはず。<br>
-ルールについてはかなり良く習得してきていることがわかります。</p>
-<h3><span id="pelican-subsections-9">どれくらい強い？</span></h3>
-<p>自分で対戦してみたいところなのですが、インターフェースを作っていないのと客観性のため、学習前のランダムなネットワークと対戦させてみます。揺らぎが1%程度未満になるように、2^14局連続で対戦。先手後手はランダムです。  </p>
-<p>結果は、、、</p>
-<p><strong>勝率 53% !!!!!!</strong> (´･ω･`)</p>
-<p>んと、、、まず、この数字は十分に有意であるといえます（ｷﾘｯ）。<br>
-ランダムに指すのと比べて、確実に強いです。<br>
-しかし、、この程度では、まだ人間と勝負できるレベルでないことも明らかでしょう。</p>
-<p>原因についてはネットワーク設計に問題がある可能性もありますが、おそらく学習量が全然足りないのだと思われます。<br>
-強化学習の成長はゆっくりで、少しづつ高度な好手を順番に見出していく必要があります。  </p>
-<p>例えばまず最初に、ライオンが取れるときは取るのが好手だ、ということを学ぶ。すると、駒が多いとライオンを取れる機会も増えるので、駒を取るのがいいことを学ぶ。多分まだ、最初の段階の途中くらいと想像できます。<br>
-そういうことを考えると、130万局面を評価した段階での勝率53%は、それなりに納得できる数字かもしれません。</p>
-<p>今回はノートPC上で1時間足らずの学習なので、また時間ができたらもっと大規模にやってみたいと思います。
-自己対戦部分をCythonで高速化して、GPUサーバ上で学習するとか。</p>
-<p>ひとまず今回はここまで。おしまい。</p>
-<h3><span id="pelican-subsections-10">追記1</span></h3>
-<p>強化学習をさらに2倍、総計2<sup>18</sup>局の自己対戦まで行わせたところ、合法手率86.0%、学習前ネットワークに対する勝率51.7%までそれぞれ暴落。何が起こっているのか、やっぱりよくわかりません。学習方法をもう少し検討するとか、あとはやはりもっと計算資源を投入する必要はありそうですかね。</p>
-<h3><span id="pelican-subsections-11">追記2</span></h3>
-<p>強化学習の方法についてですが、碁と将棋の違いとして、特に棋力が低い場合、将棋では終盤（終局間際）の指し手が勝敗に圧倒的に重要、ということがあるかもしれません。<br>
-今の場合、最初はライオン取りを学ぶことが必要なのですが、最後にライオンを取るまでにライオン取りを見逃した手なども教師信号になってしまいます。<br>
-最初は最終手だけ学ぶなどと人為的に重みをいじった方が、今のレベルでは良い結果が出るかも。王道は、マシンパワーの力尽くなのでしょうが。。</p>
+<p>この場合の制御綴は<code>\csone</code>, <code>\cstwo</code>, <code>\csthree</code>です（空白は制御綴に使われない）．</p>
+<p>TeXは制御綴を認識した後，前から順番に展開（定義の代入）を行います．
+例えば，次の制御綴を用意します．
+- <code>\csone</code>の定義：one;
+- <code>\cstwo</code>の定義：two;
+- <code>\csthree</code>の定義：three;</p>
+<p>この場合は，</p>
+<div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
+<span class="k">\csone\cstwo\csthree</span>
+one;<span class="k">\cstwo\csthree</span>
+one;two;<span class="k">\csthree</span>
+one;two;three;
+</code></pre></div>
+
+<p>と展開されます（複数の空白は1個の空白として処理され，制御綴の直後の空白は無視される）．</p>
+<h2><span id="pelican-subsections-1">展開の制御</span></h2>
+<p>先程の例の通り，TeXは基本的に前から展開を行いますが，時には展開の順序を入れ替えたりしたい場合があります．
+そのために，いくつかの命令が存在します：
+- <code>\expandafter</code>．直後の制御綴の展開を一回遅らせる，
+- <code>\edef</code>．制御綴の中身を全て展開して定義，
+- <code>\noexpand</code>．<code>\edef</code>中で使用すると，定義の際に展開されない（実行時は展開される）．</p>
+<p>例として，次の制御綴を用意します．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\def\A</span>#1#2<span class="nb">{</span>#1 is #2<span class="nb">}</span>
+<span class="k">\def\B</span><span class="nb">{</span><span class="k">\BB\BB</span><span class="nb">}</span>
+<span class="k">\def\BB</span><span class="nb">{</span>foo<span class="nb">}</span>
+<span class="k">\def\C</span><span class="nb">{</span>bar<span class="nb">}</span>
+</code></pre></div>
+
+<p>それぞれの制御綴の意味は，
+- <code>\A</code>：引数は2個（#1, #2）で，展開すると「#1 is #2」（#1, #2が制御綴なら展開される）
+- <code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）
+- <code>\BB</code>：展開すると「foo」（それ以上展開されない）
+- <code>\C</code>：展開すると「bar」（それ以上展開されない）</p>
+<h3><span id="pelican-subsections-2">例1</span></h3>
+<p><code>\A\B\C</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">\A\B\C</span>
+<span class="c">% -&gt; \B is \C</span>
+<span class="c">% -&gt; \BB\BB is \C</span>
+<span class="c">% -&gt; foo\BB is \C</span>
+<span class="c">% -&gt; foofoo is \C</span>
+<span class="c">% -&gt; foofoo is bar</span>
+</code></pre></div>
+
+<p>1行目で<code>\A</code>を展開する際の，<code>\A</code>の引数は<code>\B</code>, <code>\C</code>です．</p>
+<h3><span id="pelican-subsections-3">例2</span></h3>
+<p><code>\expandafter\A\B\C</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">\expandafter\A\B\C</span>
+<span class="c">% -&gt; \A\BB\BB\C</span>
+<span class="c">% -&gt; \BB is \BB\C</span>
+<span class="c">% -&gt; foo is \BB\C</span>
+<span class="c">% -&gt; foo is foo\C</span>
+<span class="c">% -&gt; foo is foobar</span>
+</code></pre></div>
+
+<p>先ず，<code>\expandafter\A</code>によって，<code>\A</code>の展開は抑制され，先に<code>\B</code>が展開されます．</p>
+<h3><span id="pelican-subsections-4">例3</span></h3>
+<p><code>\expandafter\expandafter\A\B\C</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\A\B\C</span>
+<span class="c">% -&gt; \expandafter\B is \C</span>
+<span class="c">% -&gt; \B is \C</span>
+<span class="c">% -&gt; \BB\BB is \C</span>
+<span class="c">% -&gt; foo\BB is \C</span>
+<span class="c">% -&gt; foofoo is \C</span>
+<span class="c">% -&gt; foofoo is bar</span>
+</code></pre></div>
+
+<p>1行目で，先頭の<code>\expandafter</code>は直後の<code>\expandafter</code>を抑制するため，先に<code>\A</code>が展開されます．
+2行目で，<code>\expandafter\B</code>の\textbf{直後}は制御綴でないため，特に効果はありません．</p>
+<h3><span id="pelican-subsections-5">例4</span></h3>
+<p><code>\expandafter\expandafter\expandafter\A\B\C</code>．<code>\expandafter</code>が3連続の場合は次のように，2つ後の制御綴が先ず展開されます．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\expandafter\A\B\C</span>
+<span class="c">% -&gt; \expandafter\A\BB\BB\C</span>
+<span class="c">% -&gt; \Afoo\BB\C</span>
+<span class="c">% -&gt; f is oo\BB\C</span>
+<span class="c">% -&gt; f is oofoo\C</span>
+<span class="c">% -&gt; f is oofoobar</span>
+</code></pre></div>
+
+<p>3行目で<code>\A</code>の第1引数は<code>f</code>，第2引数は<code>o</code>です．</p>
+<h3><span id="pelican-subsections-6">例5</span></h3>
+<p>さらに命令を追加してみます．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\def\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span>
+<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
+<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\B\C -&gt; foofoo is bar</span>
+</code></pre></div>
+
+<p><code>\A\hoge</code>は<code>\A</code>の第2引数が存在しないので，エラーとなります．</p>
+<h3><span id="pelican-subsections-7">例6</span></h3>
+<p><code>\def</code>の代わりに<code>\edef</code>で<code>\hoge</code>を定義します．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{foofoobar}</span>
+<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
+<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \Afoofoobar -&gt; f is oofoobar</span>
+</code></pre></div>
+
+<h3><span id="pelican-subsections-8">例7</span></h3>
+<p><code>\edef</code>中で<code>\noexpand</code>をつければ，その直後の制御綴は（定義の際には）展開されません．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\noexpand\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{\Bbar}</span>
+<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
+<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\Bbar -&gt; \B is bar -&gt; \BB\BB is bar -&gt; foofoo is bar</span>
+</code></pre></div>
+
+<p><code>\A\Bbar</code>で，第1引数は<code>\B</code>，第1引数は<code>b</code>です．</p>
+<h3><span id="pelican-subsections-9">例8</span></h3>
+<p>別の例．</p>
+<div class="highlight"><pre><span></span><code><span class="k">\def\twice</span>#1<span class="nb">{</span>#1#1<span class="nb">}</span>
+<span class="k">\twice\twice</span> hoge <span class="c">% -&gt; error</span>
+<span class="k">\expandafter\twice\twice</span><span class="nb">{</span>ho<span class="nb">}</span>ge <span class="c">% -&gt; \twicehohoge -&gt; hhohoge</span>
+<span class="k">\expandafter\twice\twice</span><span class="nb">{{</span>ho<span class="nb">}}</span>ge <span class="c">% -&gt; \twice{ho}hoge -&gt; hohohoge</span>
+</code></pre></div>
+
+<p>1つ目は無限ループになります．</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/sonota-yan-yu.html"><i class="fa fa-tag"></i>その他言語</a>&nbsp;
 </div>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
     <!-- Twitter -->
@@ -317,7 +319,7 @@ ________________________________________________________________________________
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/12/animalshogi.html" 
+        data-href="../../../blog/2021/03/tex_expand.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
@@ -330,15 +332,7 @@ ________________________________________________________________________________
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><div class="related-posts">
-    <h2>関連記事</h2>
-    <ul>
-        <li><a href="../../../blog/2021/03/studymeeting_attention25.html">attention勉強会2.5</a></li>
-        <li><a href="../../../blog/2021/03/studymeeting_attention2.html">attention勉強会2</a></li>
-        <li><a href="../../../blog/2020/11/irmae.html">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</a></li>
-    </ul>
-</div>
-
+</script>
 </article>
         </div><!-- /content -->
 
