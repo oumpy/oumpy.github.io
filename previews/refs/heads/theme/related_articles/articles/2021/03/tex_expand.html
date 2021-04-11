@@ -186,17 +186,20 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2><span id="pelican-subsections-0">TeXの処理動作</span></h2>
-<p>TeXは前からソースコードを認識し，<code>\textbackslash（英字）</code>というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．従って，日本語の混ざった制御綴も作れる．<code>\relax␣あ</code>の場合は，<code>\relax</code>という制御綴と「あ」という文字として認識されるが，<code>\relaxあ</code>の場合は，<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く）を一つの制御綴（コントロールシークエンス）として処理します．</p>
+<p>TeXは前からソースコードを認識し、<code>\textbackslash（英字）</code>というカタマリ<sup id="sf-tex_expand-1-back"><a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 ">1</a></sup>
+を一つの制御綴（コントロールシークエンス）として処理します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 </code></pre></div>
 
-<p>この場合の制御綴は<code>\csone</code>, <code>\cstwo</code>, <code>\csthree</code>です（空白は制御綴に使われない）．</p>
-<p>TeXは制御綴を認識した後，前から順番に展開（定義の代入）を行います．
-例えば，次の制御綴を用意します．
-- <code>\csone</code>の定義：one;
-- <code>\cstwo</code>の定義：two;
-- <code>\csthree</code>の定義：three;</p>
-<p>この場合は，</p>
+<p>この場合の制御綴は<code>\csone</code>, <code>\cstwo</code>, <code>\csthree</code>です（空白は制御綴に使われない）。</p>
+<p>TeXは制御綴を認識した後、前から順番に展開（定義の代入）を行います。
+例えば、次の制御綴を用意します。</p>
+<ul>
+<li><code>\csone</code>の定義：one;</li>
+<li><code>\cstwo</code>の定義：two;</li>
+<li><code>\csthree</code>の定義：three;</li>
+</ul>
+<p>この場合は、</p>
 <div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 <span class="k">\csone\cstwo\csthree</span>
 one;<span class="k">\cstwo\csthree</span>
@@ -204,25 +207,29 @@ one;two;<span class="k">\csthree</span>
 one;two;three;
 </code></pre></div>
 
-<p>と展開されます（複数の空白は1個の空白として処理され，制御綴の直後の空白は無視される）．</p>
+<p>と展開されます（複数の空白は1個の空白として処理され、制御綴の直後の空白は無視される）。</p>
 <h2><span id="pelican-subsections-1">展開の制御</span></h2>
-<p>先程の例の通り，TeXは基本的に前から展開を行いますが，時には展開の順序を入れ替えたりしたい場合があります．
-そのために，いくつかの命令が存在します：
-- <code>\expandafter</code>．直後の制御綴の展開を一回遅らせる，
-- <code>\edef</code>．制御綴の中身を全て展開して定義，
-- <code>\noexpand</code>．<code>\edef</code>中で使用すると，定義の際に展開されない（実行時は展開される）．</p>
-<p>例として，次の制御綴を用意します．</p>
+<p>先程の例の通り、TeXは基本的に前から展開を行いますが、時には展開の順序を入れ替えたりしたい場合があります。
+そのために、いくつかの命令が存在します：</p>
+<ul>
+<li><code>\expandafter</code>。直後の制御綴の展開を一回遅らせる、</li>
+<li><code>\edef</code>。制御綴の中身を全て展開して定義、</li>
+<li><code>\noexpand</code>。<code>\edef</code>中で使用すると、定義の際に展開されない（実行時は展開される）。</li>
+</ul>
+<p>例として、次の制御綴を用意します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\def\A</span>#1#2<span class="nb">{</span>#1 is #2<span class="nb">}</span>
 <span class="k">\def\B</span><span class="nb">{</span><span class="k">\BB\BB</span><span class="nb">}</span>
 <span class="k">\def\BB</span><span class="nb">{</span>foo<span class="nb">}</span>
 <span class="k">\def\C</span><span class="nb">{</span>bar<span class="nb">}</span>
 </code></pre></div>
 
-<p>それぞれの制御綴の意味は，
-- <code>\A</code>：引数は2個（#1, #2）で，展開すると「#1 is #2」（#1, #2が制御綴なら展開される）
-- <code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）
-- <code>\BB</code>：展開すると「foo」（それ以上展開されない）
-- <code>\C</code>：展開すると「bar」（それ以上展開されない）</p>
+<p>それぞれの制御綴の意味は、</p>
+<ul>
+<li><code>\A</code>：引数は2個（#1, #2）で、展開すると「#1 is #2」（#1, #2が制御綴なら展開される）</li>
+<li><code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）</li>
+<li><code>\BB</code>：展開すると「foo」（それ以上展開されない）</li>
+<li><code>\C</code>：展開すると「bar」（それ以上展開されない）</li>
+</ul>
 <h3><span id="pelican-subsections-2">例1</span></h3>
 <p><code>\A\B\C</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">\A\B\C</span>
@@ -233,7 +240,7 @@ one;two;three;
 <span class="c">% -&gt; foofoo is bar</span>
 </code></pre></div>
 
-<p>1行目で<code>\A</code>を展開する際の，<code>\A</code>の引数は<code>\B</code>, <code>\C</code>です．</p>
+<p>1行目で<code>\A</code>を展開する際の、<code>\A</code>の引数は<code>\B</code>, <code>\C</code>です。</p>
 <h3><span id="pelican-subsections-3">例2</span></h3>
 <p><code>\expandafter\A\B\C</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">\expandafter\A\B\C</span>
@@ -244,7 +251,7 @@ one;two;three;
 <span class="c">% -&gt; foo is foobar</span>
 </code></pre></div>
 
-<p>先ず，<code>\expandafter\A</code>によって，<code>\A</code>の展開は抑制され，先に<code>\B</code>が展開されます．</p>
+<p>先ず、<code>\expandafter\A</code>によって、<code>\A</code>の展開は抑制され、先に<code>\B</code>が展開されます。</p>
 <h3><span id="pelican-subsections-4">例3</span></h3>
 <p><code>\expandafter\expandafter\A\B\C</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\A\B\C</span>
@@ -256,10 +263,10 @@ one;two;three;
 <span class="c">% -&gt; foofoo is bar</span>
 </code></pre></div>
 
-<p>1行目で，先頭の<code>\expandafter</code>は直後の<code>\expandafter</code>を抑制するため，先に<code>\A</code>が展開されます．
-2行目で，<code>\expandafter\B</code>の\textbf{直後}は制御綴でないため，特に効果はありません．</p>
+<p>1行目で、先頭の<code>\expandafter</code>は直後の<code>\expandafter</code>を抑制するため、先に<code>\A</code>が展開されます。
+2行目で、<code>\expandafter\B</code>の\textbf{直後}は制御綴でないため、特に効果はありません。</p>
 <h3><span id="pelican-subsections-5">例4</span></h3>
-<p><code>\expandafter\expandafter\expandafter\A\B\C</code>．<code>\expandafter</code>が3連続の場合は次のように，2つ後の制御綴が先ず展開されます．</p>
+<p><code>\expandafter\expandafter\expandafter\A\B\C</code>。<code>\expandafter</code>が3連続の場合は次のように、2つ後の制御綴が先ず展開されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\expandafter\A\B\C</span>
 <span class="c">% -&gt; \expandafter\A\BB\BB\C</span>
 <span class="c">% -&gt; \Afoo\BB\C</span>
@@ -268,39 +275,44 @@ one;two;three;
 <span class="c">% -&gt; f is oofoobar</span>
 </code></pre></div>
 
-<p>3行目で<code>\A</code>の第1引数は<code>f</code>，第2引数は<code>o</code>です．</p>
+<p>3行目で<code>\A</code>の第1引数は<code>f</code>、第2引数は<code>o</code>です。</p>
 <h3><span id="pelican-subsections-6">例5</span></h3>
-<p>さらに命令を追加してみます．</p>
+<p>さらに命令を追加してみます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\def\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span>
 <span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
 <span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\B\C -&gt; foofoo is bar</span>
 </code></pre></div>
 
-<p><code>\A\hoge</code>は<code>\A</code>の第2引数が存在しないので，エラーとなります．</p>
+<p><code>\A\hoge</code>は<code>\A</code>の第2引数が存在しないので、エラーとなります。</p>
 <h3><span id="pelican-subsections-7">例6</span></h3>
-<p><code>\def</code>の代わりに<code>\edef</code>で<code>\hoge</code>を定義します．</p>
+<p><code>\def</code>の代わりに<code>\edef</code>で<code>\hoge</code>を定義します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{foofoobar}</span>
 <span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
 <span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \Afoofoobar -&gt; f is oofoobar</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-8">例7</span></h3>
-<p><code>\edef</code>中で<code>\noexpand</code>をつければ，その直後の制御綴は（定義の際には）展開されません．</p>
+<p><code>\edef</code>中で<code>\noexpand</code>をつければ、その直後の制御綴は（定義の際には）展開されません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\noexpand\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{\Bbar}</span>
 <span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
 <span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\Bbar -&gt; \B is bar -&gt; \BB\BB is bar -&gt; foofoo is bar</span>
 </code></pre></div>
 
-<p><code>\A\Bbar</code>で，第1引数は<code>\B</code>，第1引数は<code>b</code>です．</p>
+<p><code>\A\Bbar</code>で、第1引数は<code>\B</code>、第1引数は<code>b</code>です。</p>
 <h3><span id="pelican-subsections-9">例8</span></h3>
-<p>別の例．</p>
+<p>別の例。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\def\twice</span>#1<span class="nb">{</span>#1#1<span class="nb">}</span>
 <span class="k">\twice\twice</span> hoge <span class="c">% -&gt; error</span>
 <span class="k">\expandafter\twice\twice</span><span class="nb">{</span>ho<span class="nb">}</span>ge <span class="c">% -&gt; \twicehohoge -&gt; hhohoge</span>
 <span class="k">\expandafter\twice\twice</span><span class="nb">{{</span>ho<span class="nb">}}</span>ge <span class="c">% -&gt; \twice{ho}hoge -&gt; hohohoge</span>
 </code></pre></div>
 
-<p>1つ目は無限ループになります．</p>
+<p>1つ目は無限ループになります。</p>
+<h2><span id="pelican-subsections-10">脚注</span></h2><ol class="simple-footnotes"><li id="sf-tex_expand-1">
+制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
+従って、日本語の混ざった制御綴も作れる。
+<code>\relax␣あ</code>の場合は、<code>\relax</code>という制御綴と「あ」という文字として認識されるが、<code>\relaxあ</code>の場合は、<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く。
+ <a href="#sf-tex_expand-1-back" class="simple-footnote-back">↩</a></li></ol>
   </div>
   
 <div class="article-tag-list">
@@ -404,26 +416,26 @@ one;two;three;
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2021/03/studymeeting_attention2.html"><span class="recent-posts-title">attention勉強会2</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">2/9</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/02/kronecker_product_solving_matrix_equations.html"><span class="recent-posts-title">行列方程式のクロネッカー積による解法</span></a></td>
-  </tr>
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
   <tr>
-    <td class="recent-posts-date">12/16</td>
+    <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/12/ptitprince_tutorial.html"><span class="recent-posts-title">PtitPrinceによるPythonでのRaincloud plotの描画</span></a></td>
+    <td><a href="../../../blog/2020/09/atcoder_green.html"><span class="recent-posts-title">Atcoder 緑になりました</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">11/16</td>
+    <td class="recent-posts-date">8/21</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">仮説に基づいたデータ解析における先入観の弊害</span></a></td>
+    <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">11/14</td>
+    <td class="recent-posts-date">7/6</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/07/officialize_accept.html"><span class="recent-posts-title">医学部公認団体として正式承認されました</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">7/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
+    <td><a href="../../../blog/2020/07/pythonparty_and_python.html"><span class="recent-posts-title">Python会とPythonとPython会で使われているPython</span></a></td>
   </tr>
 </table>
 </div>
@@ -438,46 +450,28 @@ one;two;three;
         競技プログラミング
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+    <span class="tag-2">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
-    <span class="tag-2">
+    <span class="tag-1">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
         News
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -487,45 +481,21 @@ one;two;three;
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-4">
       <a href="../../../tag/sonota-yan-yu.html">
           <span class="badge badge-primary">1</span>
         その他言語
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
+        海外留学
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
     <span class="tag-4">
@@ -535,21 +505,39 @@ one;two;three;
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-1">
       <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
+          <span class="badge badge-primary">12</span>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">19</span>
-        Machine Learning
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">3</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
@@ -559,9 +547,27 @@ one;two;three;
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">4</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">9</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
 </p>
