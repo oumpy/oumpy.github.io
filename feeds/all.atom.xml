@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2021-03-31T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>LaTeX の展開</title><link href="https://oumpy.github.io/blog/2021/03/tex_expand.html" rel="alternate"></link><published>2021-03-30T00:00:00+09:00</published><updated>2021-03-30T00:00:00+09:00</updated><author><name>河村</name></author><id>tag:oumpy.github.io,2021-03-30:/blog/2021/03/tex_expand.html</id><summary type="html">&lt;strong&gt;TeXの処理動作&lt;/strong&gt; TeXは前からソースコードを認識し，\textbackslash（英字）というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．従って，日本語の混ざった制御綴も作れる．\relax␣あの場合は，\relaxという制御綴と「あ」という文字とし....</summary><content type="html">&lt;h2&gt;TeXの処理動作&lt;/h2&gt;
-&lt;p&gt;TeXは前からソースコードを認識し，&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ（制御綴に使える文字はcatcodeが11の文字（英字・日本語）．従って，日本語の混ざった制御綴も作れる．&lt;code&gt;\relax␣あ&lt;/code&gt;の場合は，&lt;code&gt;\relax&lt;/code&gt;という制御綴と「あ」という文字として認識されるが，&lt;code&gt;\relaxあ&lt;/code&gt;の場合は，&lt;code&gt;\relaxあ&lt;/code&gt;という制御綴として認識され（定義しない限り）エラーを吐く）を一つの制御綴（コントロールシークエンス）として処理します．&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2021-03-31T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>LaTeX の展開</title><link href="https://oumpy.github.io/blog/2021/03/tex_expand.html" rel="alternate"></link><published>2021-03-30T00:00:00+09:00</published><updated>2021-03-30T00:00:00+09:00</updated><author><name>河村</name></author><id>tag:oumpy.github.io,2021-03-30:/blog/2021/03/tex_expand.html</id><summary type="html">&lt;strong&gt;TeXの処理動作&lt;/strong&gt; TeXは前からソースコードを認識し、\textbackslash（英字）というカタマリ&lt;a class="simple-footnote" href="#sf-tex_expand-1" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 "&gt;1&lt;/a&gt; を一つの制御綴（コントロールシークエンス）として処理します。 \csone\cstwo \csthree  この場合の制御綴は\csone, \cstwo, \csthreeです（空白は制....</summary><content type="html">&lt;h2&gt;TeXの処理動作&lt;/h2&gt;
+&lt;p&gt;TeXは前からソースコードを認識し、&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ[ref]
+制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
+従って、日本語の混ざった制御綴も作れる。
+&lt;code&gt;\relax␣あ&lt;/code&gt;の場合は、&lt;code&gt;\relax&lt;/code&gt;という制御綴と「あ」という文字として認識されるが、&lt;code&gt;\relaxあ&lt;/code&gt;の場合は、&lt;code&gt;\relaxあ&lt;/code&gt;という制御綴として認識され（定義しない限り）エラーを吐く。
+[/ref]
+を一つの制御綴（コントロールシークエンス）として処理します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\csone\cstwo&lt;/span&gt;            &lt;span class="k"&gt;\csthree&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;この場合の制御綴は&lt;code&gt;\csone&lt;/code&gt;, &lt;code&gt;\cstwo&lt;/code&gt;, &lt;code&gt;\csthree&lt;/code&gt;です（空白は制御綴に使われない）．&lt;/p&gt;
-&lt;p&gt;TeXは制御綴を認識した後，前から順番に展開（定義の代入）を行います．
-例えば，次の制御綴を用意します．
-- &lt;code&gt;\csone&lt;/code&gt;の定義：one;
-- &lt;code&gt;\cstwo&lt;/code&gt;の定義：two;
-- &lt;code&gt;\csthree&lt;/code&gt;の定義：three;&lt;/p&gt;
-&lt;p&gt;この場合は，&lt;/p&gt;
+&lt;p&gt;この場合の制御綴は&lt;code&gt;\csone&lt;/code&gt;, &lt;code&gt;\cstwo&lt;/code&gt;, &lt;code&gt;\csthree&lt;/code&gt;です（空白は制御綴に使われない）。&lt;/p&gt;
+&lt;p&gt;TeXは制御綴を認識した後、前から順番に展開（定義の代入）を行います。
+例えば、次の制御綴を用意します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\csone&lt;/code&gt;の定義：one;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\cstwo&lt;/code&gt;の定義：two;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\csthree&lt;/code&gt;の定義：three;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この場合は、&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\csone\cstwo&lt;/span&gt;            &lt;span class="k"&gt;\csthree&lt;/span&gt;
 &lt;span class="k"&gt;\csone\cstwo\csthree&lt;/span&gt;
 one;&lt;span class="k"&gt;\cstwo\csthree&lt;/span&gt;
@@ -18,25 +25,29 @@ one;two;&lt;span class="k"&gt;\csthree&lt;/span&gt;
 one;two;three;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;と展開されます（複数の空白は1個の空白として処理され，制御綴の直後の空白は無視される）．&lt;/p&gt;
+&lt;p&gt;と展開されます（複数の空白は1個の空白として処理され、制御綴の直後の空白は無視される）。&lt;/p&gt;
 &lt;h2&gt;展開の制御&lt;/h2&gt;
-&lt;p&gt;先程の例の通り，TeXは基本的に前から展開を行いますが，時には展開の順序を入れ替えたりしたい場合があります．
-そのために，いくつかの命令が存在します：
-- &lt;code&gt;\expandafter&lt;/code&gt;．直後の制御綴の展開を一回遅らせる，
-- &lt;code&gt;\edef&lt;/code&gt;．制御綴の中身を全て展開して定義，
-- &lt;code&gt;\noexpand&lt;/code&gt;．&lt;code&gt;\edef&lt;/code&gt;中で使用すると，定義の際に展開されない（実行時は展開される）．&lt;/p&gt;
-&lt;p&gt;例として，次の制御綴を用意します．&lt;/p&gt;
+&lt;p&gt;先程の例の通り、TeXは基本的に前から展開を行いますが、時には展開の順序を入れ替えたりしたい場合があります。
+そのために、いくつかの命令が存在します：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\expandafter&lt;/code&gt;。直後の制御綴の展開を一回遅らせる、&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\edef&lt;/code&gt;。制御綴の中身を全て展開して定義、&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\noexpand&lt;/code&gt;。&lt;code&gt;\edef&lt;/code&gt;中で使用すると、定義の際に展開されない（実行時は展開される）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例として、次の制御綴を用意します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\def\A&lt;/span&gt;#1#2&lt;span class="nb"&gt;{&lt;/span&gt;#1 is #2&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;\def\B&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\BB\BB&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;\def\BB&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;foo&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;\def\C&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;bar&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;それぞれの制御綴の意味は，
-- &lt;code&gt;\A&lt;/code&gt;：引数は2個（#1, #2）で，展開すると「#1 is #2」（#1, #2が制御綴なら展開される）
-- &lt;code&gt;\B&lt;/code&gt;：展開すると「&lt;code&gt;\BB``\BB&lt;/code&gt;」（&lt;code&gt;\BB&lt;/code&gt;は展開される）
-- &lt;code&gt;\BB&lt;/code&gt;：展開すると「foo」（それ以上展開されない）
-- &lt;code&gt;\C&lt;/code&gt;：展開すると「bar」（それ以上展開されない）&lt;/p&gt;
+&lt;p&gt;それぞれの制御綴の意味は、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\A&lt;/code&gt;：引数は2個（#1, #2）で、展開すると「#1 is #2」（#1, #2が制御綴なら展開される）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\B&lt;/code&gt;：展開すると「&lt;code&gt;\BB``\BB&lt;/code&gt;」（&lt;code&gt;\BB&lt;/code&gt;は展開される）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\BB&lt;/code&gt;：展開すると「foo」（それ以上展開されない）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\C&lt;/code&gt;：展開すると「bar」（それ以上展開されない）&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;例1&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;\A\B\C&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\A\B\C&lt;/span&gt;
@@ -47,7 +58,7 @@ one;two;three;
 &lt;span class="c"&gt;% -&amp;gt; foofoo is bar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;1行目で&lt;code&gt;\A&lt;/code&gt;を展開する際の，&lt;code&gt;\A&lt;/code&gt;の引数は&lt;code&gt;\B&lt;/code&gt;, &lt;code&gt;\C&lt;/code&gt;です．&lt;/p&gt;
+&lt;p&gt;1行目で&lt;code&gt;\A&lt;/code&gt;を展開する際の、&lt;code&gt;\A&lt;/code&gt;の引数は&lt;code&gt;\B&lt;/code&gt;, &lt;code&gt;\C&lt;/code&gt;です。&lt;/p&gt;
 &lt;h3&gt;例2&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;\expandafter\A\B\C&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\expandafter\A\B\C&lt;/span&gt;
@@ -58,7 +69,7 @@ one;two;three;
 &lt;span class="c"&gt;% -&amp;gt; foo is foobar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;先ず，&lt;code&gt;\expandafter\A&lt;/code&gt;によって，&lt;code&gt;\A&lt;/code&gt;の展開は抑制され，先に&lt;code&gt;\B&lt;/code&gt;が展開されます．&lt;/p&gt;
+&lt;p&gt;先ず、&lt;code&gt;\expandafter\A&lt;/code&gt;によって、&lt;code&gt;\A&lt;/code&gt;の展開は抑制され、先に&lt;code&gt;\B&lt;/code&gt;が展開されます。&lt;/p&gt;
 &lt;h3&gt;例3&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;\expandafter\expandafter\A\B\C&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\expandafter\expandafter\A\B\C&lt;/span&gt;
@@ -70,10 +81,10 @@ one;two;three;
 &lt;span class="c"&gt;% -&amp;gt; foofoo is bar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;1行目で，先頭の&lt;code&gt;\expandafter&lt;/code&gt;は直後の&lt;code&gt;\expandafter&lt;/code&gt;を抑制するため，先に&lt;code&gt;\A&lt;/code&gt;が展開されます．
-2行目で，&lt;code&gt;\expandafter\B&lt;/code&gt;の\textbf{直後}は制御綴でないため，特に効果はありません．&lt;/p&gt;
+&lt;p&gt;1行目で、先頭の&lt;code&gt;\expandafter&lt;/code&gt;は直後の&lt;code&gt;\expandafter&lt;/code&gt;を抑制するため、先に&lt;code&gt;\A&lt;/code&gt;が展開されます。
+2行目で、&lt;code&gt;\expandafter\B&lt;/code&gt;の\textbf{直後}は制御綴でないため、特に効果はありません。&lt;/p&gt;
 &lt;h3&gt;例4&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;\expandafter\expandafter\expandafter\A\B\C&lt;/code&gt;．&lt;code&gt;\expandafter&lt;/code&gt;が3連続の場合は次のように，2つ後の制御綴が先ず展開されます．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\expandafter\expandafter\expandafter\A\B\C&lt;/code&gt;。&lt;code&gt;\expandafter&lt;/code&gt;が3連続の場合は次のように、2つ後の制御綴が先ず展開されます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\expandafter\expandafter\expandafter\A\B\C&lt;/span&gt;
 &lt;span class="c"&gt;% -&amp;gt; \expandafter\A\BB\BB\C&lt;/span&gt;
 &lt;span class="c"&gt;% -&amp;gt; \Afoo\BB\C&lt;/span&gt;
@@ -82,39 +93,40 @@ one;two;three;
 &lt;span class="c"&gt;% -&amp;gt; f is oofoobar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;3行目で&lt;code&gt;\A&lt;/code&gt;の第1引数は&lt;code&gt;f&lt;/code&gt;，第2引数は&lt;code&gt;o&lt;/code&gt;です．&lt;/p&gt;
+&lt;p&gt;3行目で&lt;code&gt;\A&lt;/code&gt;の第1引数は&lt;code&gt;f&lt;/code&gt;、第2引数は&lt;code&gt;o&lt;/code&gt;です。&lt;/p&gt;
 &lt;h3&gt;例5&lt;/h3&gt;
-&lt;p&gt;さらに命令を追加してみます．&lt;/p&gt;
+&lt;p&gt;さらに命令を追加してみます。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\def\hoge&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\B\C&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; error&lt;/span&gt;
 &lt;span class="k"&gt;\expandafter\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; \A\B\C -&amp;gt; foofoo is bar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code&gt;\A\hoge&lt;/code&gt;は&lt;code&gt;\A&lt;/code&gt;の第2引数が存在しないので，エラーとなります．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\A\hoge&lt;/code&gt;は&lt;code&gt;\A&lt;/code&gt;の第2引数が存在しないので、エラーとなります。&lt;/p&gt;
 &lt;h3&gt;例6&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;\def&lt;/code&gt;の代わりに&lt;code&gt;\edef&lt;/code&gt;で&lt;code&gt;\hoge&lt;/code&gt;を定義します．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\def&lt;/code&gt;の代わりに&lt;code&gt;\edef&lt;/code&gt;で&lt;code&gt;\hoge&lt;/code&gt;を定義します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\edef\hoge&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\B\C&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; \def\hoge{foofoobar}&lt;/span&gt;
 &lt;span class="k"&gt;\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; error&lt;/span&gt;
 &lt;span class="k"&gt;\expandafter\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; \Afoofoobar -&amp;gt; f is oofoobar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h3&gt;例7&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;\edef&lt;/code&gt;中で&lt;code&gt;\noexpand&lt;/code&gt;をつければ，その直後の制御綴は（定義の際には）展開されません．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\edef&lt;/code&gt;中で&lt;code&gt;\noexpand&lt;/code&gt;をつければ、その直後の制御綴は（定義の際には）展開されません。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\edef\hoge&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;&lt;span class="k"&gt;\noexpand\B\C&lt;/span&gt;&lt;span class="nb"&gt;}&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; \def\hoge{\Bbar}&lt;/span&gt;
 &lt;span class="k"&gt;\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; error&lt;/span&gt;
 &lt;span class="k"&gt;\expandafter\A\hoge&lt;/span&gt; &lt;span class="c"&gt;% -&amp;gt; \A\Bbar -&amp;gt; \B is bar -&amp;gt; \BB\BB is bar -&amp;gt; foofoo is bar&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code&gt;\A\Bbar&lt;/code&gt;で，第1引数は&lt;code&gt;\B&lt;/code&gt;，第1引数は&lt;code&gt;b&lt;/code&gt;です．&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\A\Bbar&lt;/code&gt;で、第1引数は&lt;code&gt;\B&lt;/code&gt;、第1引数は&lt;code&gt;b&lt;/code&gt;です。&lt;/p&gt;
 &lt;h3&gt;例8&lt;/h3&gt;
-&lt;p&gt;別の例．&lt;/p&gt;
+&lt;p&gt;別の例。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\def\twice&lt;/span&gt;#1&lt;span class="nb"&gt;{&lt;/span&gt;#1#1&lt;span class="nb"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;\twice\twice&lt;/span&gt; hoge &lt;span class="c"&gt;% -&amp;gt; error&lt;/span&gt;
 &lt;span class="k"&gt;\expandafter\twice\twice&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;ho&lt;span class="nb"&gt;}&lt;/span&gt;ge &lt;span class="c"&gt;% -&amp;gt; \twicehohoge -&amp;gt; hhohoge&lt;/span&gt;
 &lt;span class="k"&gt;\expandafter\twice\twice&lt;/span&gt;&lt;span class="nb"&gt;{{&lt;/span&gt;ho&lt;span class="nb"&gt;}}&lt;/span&gt;ge &lt;span class="c"&gt;% -&amp;gt; \twice{ho}hoge -&amp;gt; hohohoge&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;1つ目は無限ループになります．&lt;/p&gt;</content><category term="技術ブログ"></category><category term="その他言語"></category></entry><entry><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link href="https://oumpy.github.io/blog/2021/03/movie2pdf.html" rel="alternate"></link><published>2021-03-23T00:00:00+09:00</published><updated>2021-03-31T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2021-03-23:/blog/2021/03/movie2pdf.html</id><summary type="html">昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。 中でも、 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」 はかなり役立っています。 zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります....</summary><content type="html">&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
+&lt;p&gt;1つ目は無限ループになります。&lt;/p&gt;
+&lt;h2&gt;脚注&lt;/h2&gt;</content><category term="技術ブログ"></category><category term="その他言語"></category></entry><entry><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link href="https://oumpy.github.io/blog/2021/03/movie2pdf.html" rel="alternate"></link><published>2021-03-23T00:00:00+09:00</published><updated>2021-03-31T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2021-03-23:/blog/2021/03/movie2pdf.html</id><summary type="html">昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。 中でも、 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」 はかなり役立っています。 zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります....</summary><content type="html">&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
 中でも、
 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」
 はかなり役立っています。&lt;/p&gt;
@@ -395,7 +407,7 @@ mv &lt;span class="nv"&gt;$name&lt;/span&gt;/slide_ocr.pdf &lt;span class="nv"&g
 &lt;p&gt;発表者が作成しているサイトに、Sparse codingモデルの生成モデルとしての解説を掲載しています (Julia実装)。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://compneuro-julia.github.io/11-2_sparse-coding.html"&gt;11.2 Sparse coding (Olshausen &amp;amp; Field, 1996) モデル — Juliaで学ぶ計算論的神経科学&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Neuroscience"></category></entry><entry><title>医学部公認団体として正式承認されました</title><link href="https://oumpy.github.io/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-07-06:/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。  &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Neuroscience"></category></entry><entry><title>医学部公認団体として正式承認されました</title><link href="https://oumpy.github.io/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:oumpy.github.io,2020-07-06:/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。 &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。&lt;/p&gt;
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h2&gt;公認許可&lt;/h2&gt;
@@ -816,7 +828,7 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
   &lt;iframe width=640" height="500"
     src="{attach}./attach/studymeeting2020_05/第5回勉強会_統計入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:oumpy.github.io,2020-06-10:/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="https://oumpy.github.io/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:oumpy.github.io,2020-06-10:/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="https://oumpy.github.io/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;def&lt;/code&gt; による関数の定義&lt;/li&gt;
@@ -831,7 +843,7 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
   &lt;iframe width=640" height="500"
     src="{attach}./attach/studymeeting2020_04/第4回勉強会_ライブラリを用いたデータ処理.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:oumpy.github.io,2020-06-03:/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="https://oumpy.github.io/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="https://oumpy.github.io/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:oumpy.github.io,2020-06-03:/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="https://oumpy.github.io/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。&lt;/p&gt;
 &lt;h2&gt;使用したNotebook&lt;/h2&gt;
 &lt;p&gt;&lt;a href="{attach}./attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
@@ -855,7 +867,7 @@ AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標と�
 &lt;a href="https://twitter.com/oumed_python"&gt;Twitter&lt;/a&gt;
 にてお伝えする予定です。
 ご意見ご感想なども歓迎します。
-何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:oumpy.github.io,2020-05-27:/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="https://oumpy.github.io/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
+何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="https://oumpy.github.io/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:oumpy.github.io,2020-05-27:/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="https://oumpy.github.io/articles/2020sy/blog/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
 &lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
@@ -1537,7 +1549,7 @@ googlecolabでもできるそうです。
 
 &lt;ul&gt;
 &lt;li&gt;生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。 &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 &lt;h2&gt;模範解答 (?)&lt;/h2&gt;
 &lt;table&gt;
@@ -6581,7 +6593,7 @@ $$&lt;/div&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="https://oumpy.github.io/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/webscraping.html</id><summary type="html">安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。   </summary><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
+&lt;/script&gt;</content><category term="技術ブログ"></category><category term="Machine Learning"></category></entry><entry><title>食べログのWebScraping</title><link href="https://oumpy.github.io/blog/2018/09/webscraping.html" rel="alternate"></link><published>2018-09-09T00:00:00+09:00</published><updated>2018-09-09T00:00:00+09:00</updated><author><name>平岡</name></author><id>tag:oumpy.github.io,2018-09-09:/blog/2018/09/webscraping.html</id><content type="html">&lt;p&gt;安水さんに教えてもらい、先週からpythonで遊んでいます。食べログをweb scrapingして大阪市のラーメン屋さんの評価点数とコメント数の相関係数と離散分布図を作成しました。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="1" src="{attach}images/webscraping_figs/1.jpg"&gt;
 &lt;img alt="2" src="{attach}images/webscraping_figs/2.jpg"&gt;
 &lt;img alt="3" src="{attach}images/webscraping_figs/3.jpg"&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry></feed>
