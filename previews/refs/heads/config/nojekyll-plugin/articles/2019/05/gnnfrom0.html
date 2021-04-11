@@ -480,8 +480,8 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <p>与えられたN=2000のデータセットで、(学習,検証)=(1600,400) に分割してとりあえず描いてみた学習曲線。
 とにかくAdamの性能が圧倒的にいいですね。
 このグラフは1-shotだけど、反復しても傾向は同じ。</p>
-<p><a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03.png"></a>
-<a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03a.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03a.png"></a></p>
+<p><a href="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03.png"></a>
+<a href="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03a.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03a.png"></a></p>
 <h3><span id="pelican-subsections-13">多層化GNNの性能評価</span></h3>
 <ul>
 <li>単層<code>GNN3</code>と<code>Nw=2</code>の<code>GNN4</code>で比較（Adamを使用）。
@@ -489,17 +489,17 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 どちらも正答率(vacc)は60%程度。
 （図のaccはvaccの意味。）</li>
 </ul>
-<p><a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04.png"></a>
-<a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04a.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04a.png"></a></p>
+<p><a href="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04.png"></a>
+<a href="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04a.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04a.png"></a></p>
 <ul>
 <li>補足と反省<ul>
 <li>後で試したところ、実は <code>Nw=6</code> くらいまで深層化すると <strong>vacc&gt;=0.65</strong> くらいにはなることがわかった。
 やはり多層化は無駄ではないらしい。</li>
+<li>ちゃんと評価するなら、データセットを (train,valid,test) に3分割し、validのスコアが高いパラメータセットを選んでtestを評価、という手順を踏むべきである。
+今回はそこまでやっていない。</li>
+<li>さらに本気で学習＆パラメータ探索をするなら、cupy版を作ってGPUを使う方がいい。</li>
 </ul>
 </li>
-<li>ちゃんと評価するなら、データセットを (train,valid,test) に3分割し、validのスコアが高いパラメータセットを選んでtestを評価、という手順を踏むべきである。
-   今回はそこまでやっていない。</li>
-<li>さらに本気で学習＆パラメータ探索をするなら、cupy版を作ってGPUを使う方がいい。</li>
 </ul>
 <h2><span id="pelican-subsections-14">まとめ</span></h2>
 <p>GNNを一通り、少なくとも明白なバグなく、ミニバッチ学習までちゃんと動かすことができました。
@@ -612,9 +612,9 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 </script><div class="related-posts">
     <h2>関連記事</h2>
     <ul>
-        <li><a href="../../../blog/2021/03/attention.html">attent勉強</a></li>
-        <li><a href="../../../blog/2020/11/irmae.html">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</a></li>
-        <li><a href="../../../blog/2020/07/studymeeting2020_07.html">【勉強会資料 2020 第7回】機械学習実践編 : Kerasで作る深層学習画像分類器</a></li>
+        <li><a href="../../../blog/2021/03/studymeeting_attention25.html">attention勉強会2.5</a></li>
+        <li><a href="../../../blog/2021/03/studymeeting_attention2.html">attention勉強会2</a></li>
+        <li><a href="../../../blog/2020/06/studymeeting2020_06.html">【勉強会資料 2020 第6回】 機械学習とCNN入門</a></li>
     </ul>
 </div>
 
@@ -663,31 +663,26 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2021</span></td></tr>
   <tr>
+    <td class="recent-posts-date">3/30</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/tex_expand.html"><span class="recent-posts-title">LaTeX の展開</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/movie2pdf.html"><span class="recent-posts-title">プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/studymeeting_attention25.html"><span class="recent-posts-title">attention勉強会2.5</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">3/14</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/03/attention.html"><span class="recent-posts-title">attent勉強</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">2/9</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/02/kronecker_product_solving_matrix_equations.html"><span class="recent-posts-title">行列方程式のクロネッカー積による解法</span></a></td>
+    <td><a href="../../../blog/2021/03/studymeeting_attention2.html"><span class="recent-posts-title">attention勉強会2</span></a></td>
   </tr>
   <tr><td colspan="3"><span class="recent-posts-year">2020</span></td></tr>
-  <tr>
-    <td class="recent-posts-date">12/16</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/12/ptitprince_tutorial.html"><span class="recent-posts-title">PtitPrinceによるPythonでのRaincloud plotの描画</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">11/16</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/11/hypothesis_liability.html"><span class="recent-posts-title">仮説に基づいたデータ解析における先入観の弊害</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">11/14</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/11/irmae.html"><span class="recent-posts-title">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</span></a></td>
-  </tr>
   <tr>
     <td class="recent-posts-date">9/25</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -699,9 +694,14 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
     <td><a href="../../../blog/2020/08/studymeeting2020_08.html"><span class="recent-posts-title">【勉強会資料 2020 第8回】 視覚とSparse coding</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">7/14</td>
+    <td class="recent-posts-date">7/6</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2020/07/officialize_accept.html"><span class="recent-posts-title">医学部公認団体として正式承認されました</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">7/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2020/07/bloodsugar_simulation.html"><span class="recent-posts-title">血糖値の数理シミュレーション</span></a></td>
+    <td><a href="../../../blog/2020/07/pythonparty_and_python.html"><span class="recent-posts-title">Python会とPythonとPython会で使われているPython</span></a></td>
   </tr>
 </table>
 </div>
@@ -710,52 +710,22 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">3</span>
-        Shell script
+        Data Science Competition
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">3</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-1">
@@ -770,16 +740,76 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
         海外留学
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">2</span>
-        Data Science Competition
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">9</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">4</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">15</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">3</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">3</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">1</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">11</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-2">
@@ -789,51 +819,21 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">4</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">1</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">18</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">9</span>
-        勉強会
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
         GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
 </p>
