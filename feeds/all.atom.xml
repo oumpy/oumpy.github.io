@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link href="https://oumpy.github.io/" rel="alternate"></link><link href="https://oumpy.github.io/feeds/all.atom.xml" rel="self"></link><id>https://oumpy.github.io/</id><updated>2021-03-31T00:00:00+09:00</updated><subtitle>Now is better than never.</subtitle><entry><title>LaTeX の展開</title><link href="https://oumpy.github.io/blog/2021/03/tex_expand.html" rel="alternate"></link><published>2021-03-30T00:00:00+09:00</published><updated>2021-03-30T00:00:00+09:00</updated><author><name>河村</name></author><id>tag:oumpy.github.io,2021-03-30:/blog/2021/03/tex_expand.html</id><summary type="html">&lt;strong&gt;TeXの処理動作&lt;/strong&gt; TeXは前からソースコードを認識し、\textbackslash（英字）というカタマリ&lt;a class="simple-footnote" href="#sf-tex_expand-1" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 "&gt;1&lt;/a&gt; を一つの制御綴（コントロールシークエンス）として処理します。 \csone\cstwo \csthree  この場合の制御綴は\csone, \cstwo, \csthreeです（空白は制....</summary><content type="html">&lt;h2&gt;TeXの処理動作&lt;/h2&gt;
-&lt;p&gt;TeXは前からソースコードを認識し、&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ[ref]
-制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
-従って、日本語の混ざった制御綴も作れる。
-&lt;code&gt;\relax␣あ&lt;/code&gt;の場合は、&lt;code&gt;\relax&lt;/code&gt;という制御綴と「あ」という文字として認識されるが、&lt;code&gt;\relaxあ&lt;/code&gt;の場合は、&lt;code&gt;\relaxあ&lt;/code&gt;という制御綴として認識され（定義しない限り）エラーを吐く。
-[/ref]
+&lt;p&gt;TeXは前からソースコードを認識し、&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ&lt;sup id="sf-tex_expand-1-back"&gt;&lt;a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 "&gt;1&lt;/a&gt;&lt;/sup&gt;
 を一つの制御綴（コントロールシークエンス）として処理します。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\csone\cstwo&lt;/span&gt;            &lt;span class="k"&gt;\csthree&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -126,7 +122,11 @@ one;two;three;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;1つ目は無限ループになります。&lt;/p&gt;
-&lt;h2&gt;脚注&lt;/h2&gt;</content><category term="技術ブログ"></category><category term="その他言語"></category></entry><entry><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link href="https://oumpy.github.io/blog/2021/03/movie2pdf.html" rel="alternate"></link><published>2021-03-23T00:00:00+09:00</published><updated>2021-03-31T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2021-03-23:/blog/2021/03/movie2pdf.html</id><summary type="html">昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。 中でも、 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」 はかなり役立っています。 zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります....</summary><content type="html">&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
+&lt;h2&gt;脚注&lt;/h2&gt;&lt;ol class="simple-footnotes"&gt;&lt;li id="sf-tex_expand-1"&gt;
+制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
+従って、日本語の混ざった制御綴も作れる。
+&lt;code&gt;\relax␣あ&lt;/code&gt;の場合は、&lt;code&gt;\relax&lt;/code&gt;という制御綴と「あ」という文字として認識されるが、&lt;code&gt;\relaxあ&lt;/code&gt;の場合は、&lt;code&gt;\relaxあ&lt;/code&gt;という制御綴として認識され（定義しない限り）エラーを吐く。
+ &lt;a href="#sf-tex_expand-1-back" class="simple-footnote-back"&gt;↩&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content><category term="技術ブログ"></category><category term="その他言語"></category></entry><entry><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link href="https://oumpy.github.io/blog/2021/03/movie2pdf.html" rel="alternate"></link><published>2021-03-23T00:00:00+09:00</published><updated>2021-03-31T00:00:00+09:00</updated><author><name>山田</name></author><id>tag:oumpy.github.io,2021-03-23:/blog/2021/03/movie2pdf.html</id><summary type="html">昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。 中でも、 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」 はかなり役立っています。 zoomなどで授業がある際、教員によってはレジュメを配ってくれない場合もあります....</summary><content type="html">&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
 中でも、
 「プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける」
 はかなり役立っています。&lt;/p&gt;
