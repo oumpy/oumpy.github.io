@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2021-04-12T14:09:00-00:00</lastmod>
+<lastmod>2021-04-12T14:10:11-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2021-04-12T14:09:00-00:00</lastmod>
+<lastmod>2021-04-12T14:10:11-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2021-04-12T14:09:00-00:00</lastmod>
+<lastmod>2021-04-12T14:10:11-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -481,7 +481,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/blog/2019/03/julia_python_competition.html</loc>
-<lastmod>2019-03-16T00:00:00+09:00</lastmod>
+<lastmod>2019-03-21T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
