@@ -192,7 +192,7 @@
 <p>Caron, Mathilde, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, and Armand Joulin. 2021. “Emerging Properties in Self-Supervised Vision Transformers.” arXiv [cs.CV].  <a href="http://arxiv.org/abs/2104.14294">http://arxiv.org/abs/2104.14294</a>.</p>
 </blockquote>
 <p>(cf.) <a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>, <a href="https://github.com/facebookresearch/dino">GitHub</a>, <a href="https://www.youtube.com/watch?v=h3ij3F3cPIk">Yannic Kilcherの解説動画</a></p>
-<p><strong>要点</strong>：画像モデル (e.g. ResNet, Vision transformers)における，ラベル無しの自己教師あり学習の新しい手法DINOを考案したよ．画像モデルの最終層の出力は物体の種類ごとにクラスター化し，線形変換あるいはkNNを適応するだけで教師あり学習に匹敵する精度の物体認識ができたよ．特に画像モデルにVision Transformersを用いたとき，そのAttention mapは物体を識別し，segmentationのようなことができていたよ．</p>
+<p><strong>要点</strong>：画像モデル (e.g. ResNet, Vision transformers)における，ラベル無しの自己教師あり学習の新しい手法DINOを考案したよ．ImageNetの画像をDINOで学習されたモデルを用いて特徴空間に埋め込むと，物体の種類ごとにクラスターが生まれ，線形変換あるいはkNNを適応するだけで教師あり学習に匹敵する精度の物体認識ができたよ．特に画像モデルにVision Transformersを用いたとき，そのAttention mapは物体を識別し，segmentationのようなことができていたよ．</p>
 <p><img alt="fig1" src="../../../blog/2021/05/images/dino_figs/fig1_dino.jpg"></p>
 <h2><span id="pelican-subsections-0">背景</span></h2>
 <h3><span id="pelican-subsections-1">Self-supervised learning</span></h3>
@@ -252,7 +252,7 @@
     <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="c1"># teacher output n-by-K</span>
 </code></pre></div>
 
-<h3><span id="pelican-subsections-6">sharpeningとcentering</span></h3>
+<h3><span id="pelican-subsections-6">Sharpeningとcentering</span></h3>
 <p>モデルの崩壊（e.g. 出力が一様分布化）を避けるためにモデルの出力に<strong>sharpening</strong>と<strong>centering</strong>の2つの操作を行うことが提案されています．生徒モデルにはsharpeningのみ，教師モデルには両方の操作を適応します．</p>
 <p>まず，sharpeningは通常使われるSoftmax関数を修正することで実装されます．</p>
 <div class="math">$$
@@ -270,9 +270,9 @@ $$</div>
 <span class="n">t</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span> <span class="o">/</span> <span class="n">tpt</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># center + sharpen</span>
 </code></pre></div>
 
-<p>それぞれの効果をnumpyで見ると次のようになります．</p>
+<p>それぞれの効果は次のようになります．</p>
 <p><img alt="sharpening_centering" src="../../../blog/2021/05/images/dino_figs/sharpening_centering.png"></p>
-<p>コードは以下の通りです．</p>
+<p>上図を描画するPythonコードは以下の通りです．</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -280,21 +280,21 @@ $$</div>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">ex</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
 
-<span class="n">K</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.07</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">K</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.07</span> <span class="c1"># output dims, batch size, temp param</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">K</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># input, center</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># for bar plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x  \in \mathbb</span><span class="si">{R}</span><span class="s2">^K$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">tau</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sharpen: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x/\tau)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">C</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;centering: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x-C)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">tau</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sharpening: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x/\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">C</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Centering: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x-C)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-7">損失関数とパラメータの更新</span></h3>
 <p>以下は損失関数の計算とパラメータの更新の概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用および改変）．</p>
 <p><img alt="model2" src="../../../blog/2021/05/images/dino_figs/model2.jpg"></p>
-<p>生徒モデルの出力 <span class="math">\(P_s\)</span>と教師モデルの出力 <span class="math">\(P_t\)</span>を用い，<span class="math">\(H(P_s, P_t):=-P_t\log P_s\)</span>を最小化するように生徒モデルのパラメータ <span class="math">\(\theta_s\)</span> をbackpropで更新します．</p>
+<p>まず，生徒モデルの出力 <span class="math">\(P_s\)</span>と教師モデルの出力 <span class="math">\(P_t\)</span>を用い，損失関数 <span class="math">\(H(P_s, P_t):=-P_t\log P_s\)</span>を計算します．次に損失関数を最小化するように生徒モデルのパラメータ <span class="math">\(\theta_s\)</span> をbackpropで更新します．なお，損失関数および生徒モデルの最適化問題は，Augmentationの節で述べたglobal画像<span class="math">\(x_1^g, x_2^g\)</span>とlocal画像<span class="math">\(x_j^\ell\ (\ell = 1, 2, \ldots)\)</span>，および全体の画像集合 <span class="math">\(V\)</span>を用いると次のように表されます．</p>
 <div class="math">$$
 \min _{\theta_{s}} \sum_{x \in\left\{x_{1}^{g}, x_{2}^{g}\right\}} \sum_{x^{\prime} \in V \atop x^{\prime} \neq x} H\left(P_{t}(x), P_{s}\left(x^{\prime}\right)\right)
 $$</div>
@@ -302,6 +302,20 @@ $$</div>
 <div class="math">$$
 \theta_t \leftarrow \lambda \theta_t + (1-\lambda) \theta_s
 $$</div>
+<p>なお，<span class="math">\(\theta_t\)</span>の初期値は<span class="math">\(\theta_s\)</span>とします．これに対応する擬似コードは以下の部分です．</p>
+<div class="highlight"><pre><span></span><code><span class="n">loss</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">H</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span> <span class="c1"># back-propagate</span>
+<span class="n">update</span><span class="p">(</span><span class="n">gs</span><span class="p">)</span> <span class="c1"># SGD</span>
+<span class="n">gt</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">l</span><span class="o">*</span><span class="n">gt</span><span class="o">.</span><span class="n">params</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="n">gs</span><span class="o">.</span><span class="n">params</span>
+</code></pre></div>
+
+<h3><span id="pelican-subsections-8">学習後のDINOモデルの特徴</span></h3>
+<p>学習後のDINOモデルの特徴としては，次の2点があります．</p>
+<ol>
+<li>ImageNetの画像をDINOで学習されたモデルを用いて特徴空間に埋め込むと，物体の種類ごとにクラスターが生まれ，線形変換あるいはkNNを適応するだけで教師あり学習に匹敵する精度の物体認識ができた．</li>
+<li>画像モデルにViTを用いたとき，そのAttention mapは物体を識別し，segmentationのようなことができた．</li>
+</ol>
+<p><img alt="model2" src="../../../blog/2021/05/images/dino_figs/model2.jpg"></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -504,22 +518,10 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">20</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
     <span class="tag-3">
@@ -528,58 +530,10 @@ $$</div>
         ハードウェア
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">10</span>
         勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
       </a>
     </span>
     <span class="tag-3">
@@ -588,22 +542,22 @@ $$</div>
         勉学支援
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">20</span>
+        Machine Learning
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
@@ -613,9 +567,27 @@ $$</div>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-1">
@@ -625,15 +597,57 @@ $$</div>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">3</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
 </p>
