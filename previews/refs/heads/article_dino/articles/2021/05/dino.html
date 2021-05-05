@@ -158,7 +158,7 @@
     <meta name="article:slug" property="og:article:slug" content="dino">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2021-05-06">
+    <meta name="article:date" property="og:article:date" content="2021-05-07">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -173,7 +173,7 @@
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2021-05-06(Thu)
+  2021-05-07(Fri)
 </abbr>       - Posted by 
 <a href="../../../author/shan-ben.html">山本</a>    in 
     <a href="../../../blog.html">
@@ -209,26 +209,17 @@
 <p><strong>Vision Transformer (ViT）</strong> は言語モデルにおいてRNNを置き換えるモジュールとして考案されたTransformerを画像モデルに適応したモデルのことです (<a href="https://openreview.net/forum?id=YicbFdNTTy">Dosovitskiy et al., ICLR. 2021</a>)．ViTはビタミンの略称でないことに注意しましょう．</p>
 <p>ViTでは，入力画像をパッチに分割（基本的に16×16のような格子状に分割）し，画像パッチをベクトルに埋め込んだ後，Transformerのencoderに入力するという操作をします（下図参照: Dosovitskiy et al., 2021; Fig.1）．</p>
 <p><img alt="vit" src="../../../blog/2021/05/images/dino_figs/vit.jpg"></p>
-<p>この記事ではViTに関して詳しい解説はしませんが，以下の資料が参考になります．
-- <a href="https://www.slideshare.net/cvpaperchallenge/transformer-247407256">Transformer メタサーベイ - Slideshare</a> 
-- <a href="https://qiita.com/omiita/items/0049ade809c4817670d7">画像認識の大革命。AI界で話題爆発中の「Vision Transformer」を解説！ - Qiita</a></p>
+<p>この記事ではViTに関して詳しい解説はしませんが，以下の資料が参考になります．</p>
+<ul>
+<li><a href="https://www.slideshare.net/cvpaperchallenge/transformer-247407256">Transformer メタサーベイ - Slideshare</a> </li>
+<li><a href="https://qiita.com/omiita/items/0049ade809c4817670d7">画像認識の大革命。AI界で話題爆発中の「Vision Transformer」を解説！ - Qiita</a></li>
+</ul>
 <h2><span id="pelican-subsections-3">DINO : self-<em>di</em>stillation with <em>no</em> labels</span></h2>
 <h3><span id="pelican-subsections-4">モデル構造</span></h3>
 <p>Caronらが提案するDINO (self-<strong>di</strong>stillation with <strong>no</strong> labels) とは「<strong>ラベル無しでの自己蒸留</strong>」を意味します．ここでの<strong>蒸留 (distillation) </strong>とは，枝刈り (pruning) や量子化 (quantization)に並ぶニューラルネットワークのモデル圧縮手法です．通常の蒸留では，ラベル付きデータセットとパラメータ数が多いモデル（<strong>教師モデル; teacher model</strong>）を用意し，ラベルと教師モデルの出力を教師信号 (hard &amp; soft target) としてパラメータ数が少ないモデル（<strong>生徒モデル; student model</strong>）を訓練します (<a href="https://arxiv.org/abs/1503.02531">Hinton, Vinyals &amp; Dean, NIPS, 2014</a>)．データセットだけでscratchから生徒モデルを訓練するより，教師モデルを用いた方が生徒モデルの性能は高くなるということが知られています．</p>
-<p>DINOは教師モデルと生徒モデルを用いるところは通常の蒸留と同じですが，ラベル付きデータは用いず，<strong>教師モデルは生徒モデルから</strong>作られるという違いがあります．このことを念頭に置いて，モデルの構造を見てみましょう．以下はモデルの概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用）．</p>
+<p>DINOは教師モデルと生徒モデルを用いるところは通常の蒸留と同じですが，ラベル付きデータは用いず，<strong>教師モデルは生徒モデルから</strong>作られるという違いがあります．このことを念頭に置いて，モデルの構造を見てみましょう．以下はモデルの概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用および改変）．生徒モデルを<span class="math">\(g _ {\theta s}\)</span>，教師モデルを <span class="math">\(g _ {\theta t}\)</span>とし，入力画像を <span class="math">\(\mathbf{x}\)</span>とします．</p>
 <p><img alt="model1" src="../../../blog/2021/05/images/dino_figs/model1.jpg"></p>
-<p>生徒モデルを<span class="math">\(g _ {\theta s}\)</span>，教師モデルを <span class="math">\(g _ {\theta t}\)</span>とします．入力画像を <span class="math">\(\mathbf{x}\)</span>，画像 <span class="math">\(\mathbf{x}\)</span> を切り出す(crop)ようなaugmentationをした画像を<span class="math">\(\mathbf{x}_1, \mathbf{x}_2\)</span>とします．globalな画像 (e.g. 元画像の50%以上)とlocalな画像 (e.g. 元画像の50%未満)を生成します．生徒モデルにはglobalとlocalの両方を入力するが，教師モデルにはglobalのみを入力します．こうすることで，“local-to-global”の対応が生成されます．</p>
-<p>モデルの崩壊を避けるために教師モデルの出力にcenteringとsharpenの2つの操作を行います．</p>
-<h3><span id="pelican-subsections-5">損失関数とパラメータの更新</span></h3>
-<p>以下は損失関数の計算とパラメータの更新の概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用）．</p>
-<p><img alt="model2" src="../../../blog/2021/05/images/dino_figs/model2.jpg"></p>
-<p>生徒モデルの出力 <span class="math">\(P_s\)</span>と教師モデルの出力 <span class="math">\(P_t\)</span>を用い，<span class="math">\(H(P_s, P_t):=-P_t\log P_s\)</span>を最小化するように生徒モデルのパラメータ <span class="math">\(\theta_s\)</span> をbackpropで更新します．一方，教師モデルのパラメータ <span class="math">\(\theta_t\)</span> は<span class="math">\(\theta_s\)</span> を<strong>指数移動平均 (exponential moving average; EMA)</strong> することにより生成されます．
-</p>
-<div class="math">$$
-\theta_t \leftarrow \lambda \theta_t + (1-\lambda) \theta_s
-$$</div>
-<h3><span id="pelican-subsections-6">実装</span></h3>
-<p>Pytorch-likeな擬似コードが掲載されています (Caron et al., 2021; Algorithm 1)．</p>
+<p>論文中には次のようなPytorch-likeな擬似コードが掲載されています (Caron et al., 2021; Algorithm 1)．以下ではこの擬似コードを用いながら解説を行います．</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># gs, gt: student and teacher networks</span>
 <span class="c1"># C: center (K)</span>
 <span class="c1"># tps, tpt: student and teacher temperatures</span>
@@ -252,6 +243,65 @@ $$</div>
     <span class="k">return</span> <span class="o">-</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div>
 
+<h3><span id="pelican-subsections-5">Augmentation</span></h3>
+<p>各モデルに対して<span class="math">\(\mathbf{x}\)</span>はそのまま入力せず，画像 <span class="math">\(\mathbf{x}\)</span> を切り出す(crop)ようなaugmentationした画像を入力します．切り出し方は，入力画像 <span class="math">\(\mathbf{x}\)</span>から2つのglobal 画像 <span class="math">\(x_1^g, x_2^g\)</span>，および複数のlocal画像 <span class="math">\(x_j^\ell\ (\ell = 1, 2, \ldots)\)</span>を生成するようにします．Global画像とlocal画像は切り出す範囲（解像度）が異なり，例えばglobal画像は元画像の50%以上，local画像は元画像の50%未満などとします．さらに切り出した画像全ての集合を <span class="math">\(V = \left\{x_1^g, x_2^g, x_j^\ell\right\} \ (\ell = 1, 2, \ldots)\)</span>とします．ここで，生徒モデルには集合 <span class="math">\(V\)</span>の全ての要素，すなわちglobal画像とlocal画像の両方を入力しますが，教師モデルにはglobal画像 <span class="math">\(x_1^g, x_2^g\)</span> のみを入力します．こうすることで，localからglobal (local-to-global)への対応関係が生み出されると，Caronらは述べています．</p>
+<p>擬似コードで対応する部分は以下のようになっています．この擬似コードでは両方のモデルに<code>x1, x2</code>を入力しているので，<code>x1, x2</code>はglobal画像であると思われます（誤解している可能性があります）．</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span> <span class="c1"># load a minibatch x with n samples</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">augment</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">augment</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># random views</span>
+    <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">gs</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">gs</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="c1"># student output n-by-K</span>
+    <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">gt</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">gt</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="c1"># teacher output n-by-K</span>
+</code></pre></div>
+
+<h3><span id="pelican-subsections-6">sharpeningとcentering</span></h3>
+<p>モデルの崩壊（e.g. 出力が一様分布化）を避けるためにモデルの出力に<strong>sharpening</strong>と<strong>centering</strong>の2つの操作を行うことが提案されています．生徒モデルにはsharpeningのみ，教師モデルには両方の操作を適応します．</p>
+<p>まず，sharpeningは通常使われるSoftmax関数を修正することで実装されます．</p>
+<div class="math">$$
+P(x)^{(i)}=\frac{\exp \left(g_{\theta}(x)^{(i)} / \tau\right)}{\sum_{k=1}^{K} \exp \left(g_{\theta}(x)^{(k)} / \tau \right)}
+$$</div>
+<p>ここで<span class="math">\(\tau\)</span>は温度のパラメータ（Softmaxの元となったカノニカル分布に由来する名称）であり，分布の鋭さ (sharpness)に影響します．DINOでは生徒，教師モデルで異なる温度パラメータ <span class="math">\(\tau_{s}, \tau_{t}\)</span>をそれぞれ用います．なお，<span class="math">\(\tau&gt;1\)</span>の場合，分布はむしろ緩やかになるので，<span class="math">\(0&lt;\tau&lt;1\)</span>の値が用いられます．</p>
+<p>次に，centeringは教師モデルの出力から<span class="math">\(C\)</span>を除算することで出力の分布を平均に近づける操作です．ここで<span class="math">\(C\)</span>はスカラーではなく，出力と同じサイズのベクトルであることに注意してください（softmaxの入力からスカラーを除算しても同じ値しか出力されません）．<span class="math">\(C\)</span>はゼロベクトルで初期化され，次のように<span class="math">\(g_{\theta_{t}}\)</span>の出力の指数移動平均で更新されます．</p>
+<div class="math">$$
+c \leftarrow m c+(1-m) \frac{1}{B} \sum_{i=1}^{B} g_{\theta_{t}}\left(x_{i}\right)
+$$</div>
+<p>なお，<span class="math">\(B\)</span>はバッチサイズです．擬似コードでは次のように実装されます．</p>
+<div class="highlight"><pre><span></span><code><span class="n">C</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">cat</span><span class="p">([</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="n">tps</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">C</span><span class="p">)</span> <span class="o">/</span> <span class="n">tpt</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># center + sharpen</span>
+</code></pre></div>
+
+<p>それぞれの効果をnumpyで見ると次のようになります．</p>
+<p><img alt="sharpening_centering" src="../../../blog/2021/05/images/dino_figs/sharpening_centering.png"></p>
+<p>コードは以下の通りです．</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ex</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+
+<span class="n">K</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.07</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># for bar plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x  \in \mathbb</span><span class="si">{R}</span><span class="s2">^K$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">tau</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;sharpen: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x/\tau)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">C</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;centering: softmax&quot;</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;$(x-C)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</code></pre></div>
+
+<h3><span id="pelican-subsections-7">損失関数とパラメータの更新</span></h3>
+<p>以下は損失関数の計算とパラメータの更新の概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用および改変）．</p>
+<p><img alt="model2" src="../../../blog/2021/05/images/dino_figs/model2.jpg"></p>
+<p>生徒モデルの出力 <span class="math">\(P_s\)</span>と教師モデルの出力 <span class="math">\(P_t\)</span>を用い，<span class="math">\(H(P_s, P_t):=-P_t\log P_s\)</span>を最小化するように生徒モデルのパラメータ <span class="math">\(\theta_s\)</span> をbackpropで更新します．</p>
+<div class="math">$$
+\min _{\theta_{s}} \sum_{x \in\left\{x_{1}^{g}, x_{2}^{g}\right\}} \sum_{x^{\prime} \in V \atop x^{\prime} \neq x} H\left(P_{t}(x), P_{s}\left(x^{\prime}\right)\right)
+$$</div>
+<p>一方，教師モデルのパラメータ <span class="math">\(\theta_t\)</span> は<span class="math">\(\theta_s\)</span> を<strong>指数移動平均 (exponential moving average; EMA)</strong> することにより生成されます．</p>
+<div class="math">$$
+\theta_t \leftarrow \lambda \theta_t + (1-\lambda) \theta_s
+$$</div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -407,7 +457,7 @@ $$</div>
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2021</span></td></tr>
   <tr>
-    <td class="recent-posts-date">5/6</td>
+    <td class="recent-posts-date">5/7</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2021/05/dino.html"><span class="recent-posts-title">【論文まとめ】DINO: Emerging Properties in Self-Supervised Vision Transformers</span></a></td>
   </tr>
@@ -454,64 +504,28 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">20</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">7</span>
         News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-3">
@@ -527,27 +541,21 @@ $$</div>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-1">
@@ -556,22 +564,64 @@ $$</div>
         勉強会
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">20</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">3</span>
         Data Science Competition
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">13</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
@@ -580,10 +630,10 @@ $$</div>
         自動化
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
 </p>
