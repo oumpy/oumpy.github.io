@@ -193,7 +193,7 @@
 </blockquote>
 <p>(cf.) <a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>, <a href="https://github.com/facebookresearch/dino">GitHub</a>, <a href="https://www.youtube.com/watch?v=h3ij3F3cPIk">Yannic Kilcherの解説動画</a></p>
 <p><strong>要点</strong>：画像モデル (e.g. ResNet, Vision transformers)における，ラベル無しの自己教師あり学習の新しい手法DINOを考案したよ．画像モデルの最終層の出力は物体の種類ごとにクラスター化し，線形変換あるいはkNNを適応するだけで教師あり学習に匹敵する精度の物体認識ができたよ．特に画像モデルにVision Transformersを用いたとき，そのAttention mapは物体を識別し，segmentationのようなことができていたよ．</p>
-<p><img alt="fig1" src="../../../blog/2021/05/images/dino_figs/fig1.jpg"></p>
+<p><img alt="fig1" src="../../../blog/2021/05/images/dino_figs/fig1_dino.jpg"></p>
 <h2><span id="pelican-subsections-0">背景</span></h2>
 <h3><span id="pelican-subsections-1">Self-supervised learning</span></h3>
 <p><strong>自己教師あり学習 (Self-supervised learning; SSL)</strong> は機械学習モデルの訓練方法の一種です．自己教師あり学習では，欠損のないデータを用意し，データの一部分（欠損したデータ）だけをモデルに入力し，残りのデータを予測するようにモデルを訓練します．下図は自己教師あり学習の概念図です (<a href="https://ai.facebook.com/blog/self-supervised-learning-the-dark-matter-of-intelligence/">Self-supervised learning: The dark matter of intelligence</a>から引用)．</p>
@@ -454,34 +454,52 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">20</span>
-        Machine Learning
+    <span class="tag-2">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">13</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
+        Unix
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-1">
@@ -496,28 +514,16 @@ $$</div>
         News
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/sonota-yan-yu.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        その他言語
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+        GitHub
       </a>
     </span>
     <span class="tag-2">
@@ -526,10 +532,10 @@ $$</div>
         論文まとめ
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-2">
@@ -544,40 +550,34 @@ $$</div>
         海外留学
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">10</span>
         勉強会
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">20</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        勉学支援
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">3</span>
-        検定試験
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
     <span class="tag-3">
