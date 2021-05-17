@@ -1227,8 +1227,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -2220,8 +2225,8 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 <span class="c1"># sns.kdeplot(ppc[&#39;placebo&#39;].flatten(), bw = 10)</span>
 <span class="c1"># plt.hist(ppc[&#39;drug&#39;], bins=1000, density=True, label=&#39;drug&#39;, alpha=.5)</span>
 <span class="c1"># plt.hist(ppc[&#39;placebo&#39;], bins=1000, density=True, label=&#39;placebo&#39;, alpha=.5)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ppc</span><span class="p">[</span><span class="s1">&#39;drug&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;drug&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ppc</span><span class="p">[</span><span class="s1">&#39;placebo&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;placebo&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ppc</span><span class="p">[</span><span class="s1">&#39;drug&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;drug&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ppc</span><span class="p">[</span><span class="s1">&#39;placebo&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;placebo&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2568,9 +2573,69 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">10</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
@@ -2585,58 +2650,16 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
         検定試験
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">10</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
@@ -2645,10 +2668,10 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
         自動化
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -2657,28 +2680,10 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
         GitHub
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
         Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
       </a>
     </span>
 </p>

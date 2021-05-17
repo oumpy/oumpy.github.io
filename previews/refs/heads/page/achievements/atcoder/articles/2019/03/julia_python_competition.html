@@ -254,7 +254,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <span class="k">end</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">+</span><span class="n">C</span>
-<span class="k">for</span> <span class="n">d</span> <span class="kp">in</span> <span class="n">D</span>
+<span class="k">for</span> <span class="n">d</span> <span class="k">in</span> <span class="n">D</span>
   <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span>
     <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
   <span class="k">end</span>
@@ -273,12 +273,12 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
 <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
   <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
 <span class="k">end</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">sortrows</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
   <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">M</span>
     <span class="n">ans</span> <span class="o">+=</span> <span class="n">M</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">break</span>
@@ -452,9 +452,69 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        Data Science Competition
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">16</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">8</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">2</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">12</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">10</span>
+        Statistics
       </a>
     </span>
     <span class="tag-4">
@@ -469,58 +529,16 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
         検定試験
       </a>
     </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">13</span>
+        Python
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">10</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">8</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">2</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">16</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
@@ -529,10 +547,10 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
         自動化
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">12</span>
-        Bioinformatics
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">2</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-4">
@@ -541,28 +559,10 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
         GitHub
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">13</span>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
       <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
         Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
       </a>
     </span>
 </p>

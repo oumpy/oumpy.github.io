@@ -1042,8 +1042,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -1372,7 +1377,7 @@ c) 男性では正の相関である&lt;/p&gt;
     &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;boxplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;steps&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stripplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;steps&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.25&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stripplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;sex&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;steps&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;.25&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tight_layout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2649,8 +2654,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -4374,8 +4384,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -4950,7 +4965,7 @@ Bolieの元論文です。&lt;/p&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="技術ブログ"></category><category term="Simulation"></category></entry><entry><title>医学部公認団体として正式承認されました</title><link href="/previews/refs/heads/page/achievements/atcoder/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-07-06:/previews/refs/heads/page/achievements/atcoder/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/page/achievements/atcoder/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。  &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/page/achievements/atcoder/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。&lt;/p&gt;
+</content><category term="技術ブログ"></category><category term="Simulation"></category></entry><entry><title>医学部公認団体として正式承認されました</title><link href="/previews/refs/heads/page/achievements/atcoder/news/2020/07/officialize_accept.html" rel="alternate"></link><published>2020-07-06T00:00:00+09:00</published><updated>2020-07-08T00:00:00+09:00</updated><author><name>Python会</name></author><id>tag:None,2020-07-06:/previews/refs/heads/page/achievements/atcoder/news/2020/07/officialize_accept.html</id><summary type="html">これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/page/achievements/atcoder/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。 &lt;strong&gt;公認許可&lt;/strong&gt; 「&lt;strong&gt;医学部公認学生団体結成届の審議結果について&lt;/strong&gt;」と題する医学科学生支援委員会委員長名の文書が、本日 (7....</summary><content type="html">&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="/previews/refs/heads/page/achievements/atcoder/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。&lt;/p&gt;
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h2&gt;公認許可&lt;/h2&gt;
@@ -6148,8 +6163,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -6781,10 +6801,10 @@ Pearson correlation:  0.10235266202058498
 
  
  
-&lt;div id="693f1410-e52e-40de-ab35-178dcff60c29"&gt;&lt;/div&gt;
+&lt;div id="53ef9359-d116-47ff-8484-20c350a49c10"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#693f1410-e52e-40de-ab35-178dcff60c29');
+var element = $('#53ef9359-d116-47ff-8484-20c350a49c10');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "f7558e7ee6674a9a97af06c25e12b448", "version_major": 2, "version_minor": 0}
@@ -6842,10 +6862,10 @@ var element = $('#693f1410-e52e-40de-ab35-178dcff60c29');
 
  
  
-&lt;div id="fec0c10f-b3ec-44a3-8aa7-972f379a7afa"&gt;&lt;/div&gt;
+&lt;div id="699bf216-d64c-485b-ab43-db342d294662"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#fec0c10f-b3ec-44a3-8aa7-972f379a7afa');
+var element = $('#699bf216-d64c-485b-ab43-db342d294662');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "cb4162f575ea4c2b9075d80ecac0b71f", "version_major": 2, "version_minor": 0}
@@ -6903,10 +6923,10 @@ var element = $('#fec0c10f-b3ec-44a3-8aa7-972f379a7afa');
 
  
  
-&lt;div id="86a5115c-9806-41ac-9801-6459884e02df"&gt;&lt;/div&gt;
+&lt;div id="ddffb942-6097-461a-a2dd-187f8f73f20b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#86a5115c-9806-41ac-9801-6459884e02df');
+var element = $('#ddffb942-6097-461a-a2dd-187f8f73f20b');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "02ba22efbe794e4ab2b2ab34c1eb2b65", "version_major": 2, "version_minor": 0}
@@ -8189,8 +8209,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -9357,7 +9382,7 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
   &lt;iframe width=640" height="500"
     src="{attach}./attach/studymeeting2020_05/第5回勉強会_統計入門.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/articles/2020sy/blog/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Statistics"></category></entry><entry><title>【勉強会資料 2020 第4回】 ライブラリを用いたデータ処理</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_04.html" rel="alternate"></link><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-12T00:00:00+09:00</updated><author><name>山崎</name></author><id>tag:None,2020-06-10:/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_04.html</id><summary type="html">2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。  def による関数の定義 Numpy：arrayを使ってみよう Pandasによるデータ処理とその可視化 演習問題  &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/attach/studymeeting2020_04/勉強会第4回.ipynb"&gt;&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.10に行われた第4回勉強会のオンライン勉強会の資料を公開します。
 ライブラリを用いたデータ処理を主題とし、以下のようなことを行いました。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;def&lt;/code&gt; による関数の定義&lt;/li&gt;
@@ -9372,7 +9397,7 @@ Googleアカウントでログイン認証する際には、 &lt;strong&gt;OAuth
   &lt;iframe width=640" height="500"
     src="{attach}./attach/studymeeting2020_04/第4回勉強会_ライブラリを用いたデータ処理.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
-  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/articles/2020sy/blog/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;</content><category term="技術ブログ"></category><category term="勉強会"></category><category term="Python"></category></entry><entry><title>【勉強会資料 2020 第3回】 競プロの基礎</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_03.html" rel="alternate"></link><published>2020-06-03T00:00:00+09:00</published><updated>2020-06-05T00:00:00+09:00</updated><author><name>梅田</name></author><id>tag:None,2020-06-03:/previews/refs/heads/page/achievements/atcoder/blog/2020/06/studymeeting2020_03.html</id><summary type="html">2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。 &lt;strong&gt;使用したNotebook&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/blog/2020/06/attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Not&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.06.03に行われた第3回勉強会では、プログラミングを書く練習の手段としての競技プログラミング紹介と、その基礎の内容を扱いました。
 AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標としています。&lt;/p&gt;
 &lt;h2&gt;使用したNotebook&lt;/h2&gt;
 &lt;p&gt;&lt;a href="{attach}./attach/studymeeting2020_03/勉強会第3回.ipynb"&gt;Jupyter Notebook&lt;/a&gt;&lt;/p&gt;
@@ -9396,7 +9421,7 @@ AtCoder Beginner ContestでA,B問題が解ける程度のレベルを目標と�
 &lt;a href="https://twitter.com/oumed_python"&gt;Twitter&lt;/a&gt;
 にてお伝えする予定です。
 ご意見ご感想なども歓迎します。
-何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:/previews/refs/heads/page/achievements/atcoder/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/articles/2020sy/blog/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
+何卒よろしくお願いいたします。&lt;/p&gt;</content><category term="お知らせ"></category><category term="News"></category></entry><entry><title>【勉強会資料 2020 第2回】Pythonの基本文法</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2020/05/studymeeting2020_02.html" rel="alternate"></link><published>2020-05-27T00:00:00+09:00</published><updated>2020-05-28T00:00:00+09:00</updated><author><name>富田</name></author><id>tag:None,2020-05-27:/previews/refs/heads/page/achievements/atcoder/blog/2020/05/studymeeting2020_02.html</id><summary type="html">2020.05.27開催のオンライン勉強会の資料を公開します。 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。 &lt;strong&gt;Pythonの基本文法&lt;/strong&gt; &lt;a href="/previews/refs/heads/page/achievements/atcoder/blog/2020/05/attach/studymeeting2020_02/勉強会_python基本文法.ipynb"&gt;Jupyter Noteboo&lt;/a&gt;....</summary><content type="html">&lt;p&gt;2020.05.27開催のオンライン勉強会の資料を公開します。
 内容としては、intとstring、配列、if、forなどの非常に初歩的なお話です。
 リストやwhileを用いた変則的なFizzBuzzが組めることをゴールとしています。&lt;/p&gt;
 &lt;h2&gt;Pythonの基本文法&lt;/h2&gt;
@@ -10813,8 +10838,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -12055,10 +12085,10 @@ $$\operatorname {erf}\left(x\right)={\frac  {2}{{\sqrt  {\pi }}}}\int _{0}^{x}e^
 
  
  
-&lt;div id="2bee5a4b-d6b5-4c74-9758-983e0d2075a8"&gt;&lt;/div&gt;
+&lt;div id="08bb9e96-37cd-45a3-9d0a-856be88ae2e5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2bee5a4b-d6b5-4c74-9758-983e0d2075a8');
+var element = $('#08bb9e96-37cd-45a3-9d0a-856be88ae2e5');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "c54f462217bb43c6ac3a158cf20c2b9e", "version_major": 2, "version_minor": 0}
@@ -13332,8 +13362,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -14069,7 +14104,7 @@ googlecolabでもできるそうです。
 
 &lt;ul&gt;
 &lt;li&gt;生成物として、h5ファイル、ラベルがついた動画ファイル、追跡の座標のcsvファイルが作られます。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-12-11:/previews/refs/heads/page/achievements/atcoder/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。  &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="技術ブログ"></category><category term="Python"></category></entry><entry><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2019/12/bioinfoexam2019_answer.html" rel="alternate"></link><published>2019-12-11T00:00:00+09:00</published><updated>2019-12-23T00:00:00+09:00</updated><author><name>小川</name></author><id>tag:None,2019-12-11:/previews/refs/heads/page/achievements/atcoder/blog/2019/12/bioinfoexam2019_answer.html</id><summary type="html">先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。 &lt;strong&gt;模範解答 (?)&lt;/strong&gt;     1 2 3 4 5 6 7 8 9 10     &lt;strong&gt;0&lt;/strong&gt; 4 4 3 3 2 2 4 1 2 2   &lt;strong&gt;10&lt;/strong&gt; 2 1 3 3 4 2 4 3 1 3   &lt;strong&gt;20&lt;/strong&gt; 3 4 2 2 4 1 2 1 4 3   &lt;strong&gt;30&lt;/strong&gt; 1 1 1 2 1 2 3 4 1 4   &lt;strong&gt;40&lt;/strong&gt; 3 4 4 3 2 2 3 1 ....</summary><content type="html">&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 &lt;h2&gt;模範解答 (?)&lt;/h2&gt;
 &lt;table&gt;
@@ -15491,8 +15526,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -17733,7 +17773,7 @@ linuxのサーバーにつないで行うみたいです。
 &lt;h2&gt;使用例&lt;/h2&gt;
 &lt;h3&gt;問題1&lt;/h3&gt;
 &lt;p&gt;整数A, Bが1行 (空白区切り) で&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;A B&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;A B
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;のように与えられる。和 &lt;code&gt;A+B&lt;/code&gt; を出力せよ。&lt;/p&gt;
@@ -17744,8 +17784,8 @@ linuxのサーバーにつないで行うみたいです。
 
 &lt;h3&gt;問題2&lt;/h3&gt;
 &lt;p&gt;1行目に自然数 &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;K&lt;/code&gt; (&lt;code&gt;N&amp;gt;=K&lt;/code&gt;)、2行目にN個の整数 &lt;code&gt;x1,..,xN&lt;/code&gt; が、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;N K&lt;/span&gt;
-&lt;span class="err"&gt;x1 x2 x3 ... xN&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;N K
+x1 x2 x3 ... xN
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;のように与えられる。
@@ -17762,13 +17802,13 @@ linuxのサーバーにつないで行うみたいです。
 &lt;h3&gt;問題3&lt;/h3&gt;
 &lt;p&gt;&lt;s&gt;(このパターンはたぶんC問題以降のみ。)&lt;/s&gt; B問題にも時々出ます。&lt;br&gt;
 1行目に自然数 &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;K&lt;/code&gt; (&lt;code&gt;N&amp;gt;=K&lt;/code&gt;)、2行目〜N+1行目に &lt;code&gt;N&lt;/code&gt;個の整数 &lt;code&gt;x1,..,xN&lt;/code&gt; が、&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;N K&lt;/span&gt;
-&lt;span class="err"&gt;x1&lt;/span&gt;
-&lt;span class="err"&gt;x2&lt;/span&gt;
-&lt;span class="err"&gt;x3&lt;/span&gt;
-&lt;span class="err"&gt;...&lt;/span&gt;
-&lt;span class="err"&gt;...&lt;/span&gt;
-&lt;span class="err"&gt;xN&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;N K
+x1
+x2
+x3
+...
+...
+xN
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;のように与えられる。
@@ -18882,8 +18922,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -20097,10 +20142,10 @@ gunzip。&lt;/p&gt;
 &lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;human&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;or&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
 &lt;span class="nl"&gt;Options&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;--test test mode(MAX_SPOT_ID=100000).(dafault : False)&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--udocker&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--without-docker&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--threads&lt;/span&gt;
+&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MAX_SPOT_ID&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100000&lt;/span&gt;&lt;span class="p"&gt;).(&lt;/span&gt;&lt;span class="n"&gt;dafault&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;udocker&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;without&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;docker&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;threads&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--help Show usage.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -20194,7 +20239,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt;
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
     &lt;span class="n"&gt;ans&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
@@ -20213,12 +20258,12 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;Array&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="kt"&gt;Int&lt;/span&gt;&lt;span class="p"&gt;}(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
   &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;inpl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sortrows&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
 &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="kp"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;
     &lt;span class="n"&gt;ans&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
     &lt;span class="k"&gt;break&lt;/span&gt;
@@ -20427,10 +20472,10 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;これによって、Mock Experimentの&lt;code&gt;.mpileupファイル&lt;/code&gt;と&lt;code&gt;_stat.jsonファイル&lt;/code&gt;を受け取りつつ、最終的なCLIP-seqのテーブルを作ることができ、preprocessは終了となります。下記のようなテーブルが出力され、これをもとにpostprocessに進んでいくことになります。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;seqid   position        transitions     coverage        score   strand  occupancy       posterior&lt;/span&gt;
-&lt;span class="err"&gt;chrI    32601   4       4       6.352710158543762       -       0.15384615384615385     0.772109761967&lt;/span&gt;
-&lt;span class="err"&gt;chrI    35562   4       5       5.292152965717071       +       0.0223463687150838      0.539841709238&lt;/span&gt;
-&lt;span class="err"&gt;chrI    35805   5       5       9.376254703871467       +       0.03184713375796178     0.98585024515&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;seqid   position        transitions     coverage        score   strand  occupancy       posterior
+chrI    32601   4       4       6.352710158543762       -       0.15384615384615385     0.772109761967
+chrI    35562   4       5       5.292152965717071       +       0.0223463687150838      0.539841709238
+chrI    35805   5       5       9.376254703871467       +       0.03184713375796178     0.98585024515
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;長くなってしまったので、モジュールとpostprocessの説明は次回に回したいと思います。長い間お付き合いいただきありがとうございました。&lt;/p&gt;</content><category term="技術ブログ"></category><category term="Bioinformatics"></category></entry><entry><title>Pythonで可視化入門</title><link href="/previews/refs/heads/page/achievements/atcoder/blog/2019/01/python_visualization.html" rel="alternate"></link><published>2019-01-18T00:00:00+09:00</published><updated>2019-01-18T00:00:00+09:00</updated><author><name>宮崎</name></author><id>tag:None,2019-01-18:/previews/refs/heads/page/achievements/atcoder/blog/2019/01/python_visualization.html</id><summary type="html">Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！ これを読めばそんなあなたも簡単にいい感じのグラフがかける！ この記事では、Pythonのライブラリである、定番のmatplotlibとseaborn、pandasを使った可視化、インタラクティブなplotly、....</summary><content type="html">&lt;p&gt;Pythonでいい感じのグラフを書いてみたい！でも面倒！よくわからない！&lt;/p&gt;
@@ -20480,10 +20525,10 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 &lt;p&gt;しかしドキドキする間もなく一瞬で申請が通りました。どうしてでしょうか。&lt;/p&gt;
 &lt;p&gt;実は「chat bot」など自動化に関する単語が含まれていると検閲に引っかかりやすいらしく、婉曲表現を用いて危険なワードを巧みに回避していたのでした。下調べは大切ですね。&lt;/p&gt;
 &lt;p&gt;晴れて使用権限を得たので早速使っていきます。BOT作成に必要な値は次の4つです。ログインすれば見ることができます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;CONSUMER_KEY = &amp;quot;***********************************************&amp;quot;&lt;/span&gt;
-&lt;span class="err"&gt;CONSUMER_SECRET = &amp;quot;********************************************&amp;quot;&lt;/span&gt;
-&lt;span class="err"&gt;ACCESS_TOKEN = &amp;quot;**********************************************&amp;quot;&lt;/span&gt;
-&lt;span class="err"&gt;ACCESS_TOKEN_SECRET = &amp;quot;******************************************&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;CONSUMER_KEY = &amp;quot;***********************************************&amp;quot;
+CONSUMER_SECRET = &amp;quot;********************************************&amp;quot;
+ACCESS_TOKEN = &amp;quot;**********************************************&amp;quot;
+ACCESS_TOKEN_SECRET = &amp;quot;******************************************&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;上のようにしてconfig.pyとしてまとめておくと後々楽です。&lt;/p&gt;
@@ -20757,38 +20802,38 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;h3&gt;今回使ったネットワーク&lt;/h3&gt;
 &lt;p&gt;入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;Layer (type)                     Output Shape          Param #     Connected to                     &lt;/span&gt;
-&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
-&lt;span class="err"&gt;input_1 (InputLayer)             (None, 3, 4, 11)      0                                            &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;input_2 (InputLayer)            (None, 2, 3, 2)       0                                            &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  &lt;/span&gt;
-&lt;span class="err"&gt;                                                                   flatten_2[0][0]                 &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
-&lt;span class="err"&gt;dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   &lt;/span&gt;
-&lt;span class="err"&gt;====================================================================================================&lt;/span&gt;
-&lt;span class="err"&gt;Total params: 113,633&lt;/span&gt;
-&lt;span class="err"&gt;Trainable params: 113,633&lt;/span&gt;
-&lt;span class="err"&gt;Non-trainable params: 0&lt;/span&gt;
-&lt;span class="err"&gt;____________________________________________________________________________________________________&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;____________________________________________________________________________________________________
+Layer (type)                     Output Shape          Param #     Connected to                     
+====================================================================================================
+input_1 (InputLayer)             (None, 3, 4, 11)      0                                            
+____________________________________________________________________________________________________
+input_2 (InputLayer)            (None, 2, 3, 2)       0                                            
+____________________________________________________________________________________________________
+flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    
+____________________________________________________________________________________________________
+flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   
+____________________________________________________________________________________________________
+concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  
+                                                                   flatten_2[0][0]                 
+____________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              
+____________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   
+____________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   
+____________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   
+____________________________________________________________________________________________________
+dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   
+____________________________________________________________________________________________________
+dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   
+____________________________________________________________________________________________________
+dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   
+====================================================================================================
+Total params: 113,633
+Trainable params: 113,633
+Non-trainable params: 0
+____________________________________________________________________________________________________
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。&lt;br&gt;
@@ -20891,7 +20936,7 @@ C++で書いた似たようなコード、&lt;/p&gt;
 &lt;li&gt;p.adjust, qvalueは多重検定に伴う補正後のpvalueになり小さいほど確からしいことを示します。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;入力&lt;code&gt;gene&lt;/code&gt;に含まれる遺伝子がKEGG pathway上のどのgene productにmapされるかを可視化するには下記を実行します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;browseKEGG(kk, &amp;#39;hsa04110&amp;#39;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;browseKEGG(kk, &amp;#39;hsa04110&amp;#39;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img alt="KEGG map" src="{attach}images/gsea_figs/null9.png"&gt;&lt;/p&gt;
@@ -21940,8 +21985,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -23362,8 +23412,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -25256,8 +25311,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -26177,9 +26237,9 @@ height=261
 Rを呼び出さずに完結できたりします。&lt;/p&gt;
 &lt;p&gt;要は、&lt;code&gt;$ mat_i_j=i行j列目の要素&lt;/code&gt;で変数を格納していきます。&lt;/p&gt;
 &lt;p&gt;対象ファイル名を、table.txtで、タブ区切り、中身は以下みたいの。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;a    b    c&lt;/span&gt;
-&lt;span class="err"&gt;1    2    3&lt;/span&gt;
-&lt;span class="err"&gt;d    e    f&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;a    b    c
+1    2    3
+d    e    f
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;これの各要素を、&lt;code&gt;$mat_i_j&lt;/code&gt; に格納していきます。
@@ -26191,7 +26251,7 @@ Rを呼び出さずに完結できたりします。&lt;/p&gt;
 &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; x1 x2 x3 &lt;span class="c1"&gt;## 解説①&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
     &lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;expr &lt;span class="nv"&gt;$row&lt;/span&gt; + &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 1行ずつ読んでくので、1ずつ足していく。&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; col in &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 今読んでる行での列番号をfor文で回す。&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; col &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;seq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 今読んでる行での列番号をfor文で回す。&lt;/span&gt;
     &lt;span class="k"&gt;do&lt;/span&gt;
         &lt;span class="nb"&gt;eval&lt;/span&gt; mat_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;row&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="nv"&gt;$x&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;col&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="c1"&gt;## 解説②&lt;/span&gt;
     &lt;span class="k"&gt;done&lt;/span&gt;
@@ -26515,7 +26575,7 @@ $ multiqc -n multiqc_report_trimmed.html ./data
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SRR5385260&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385344&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385345&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385346&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385347&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; s in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; s &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
 pfastq-dump --threads &lt;span class="m"&gt;22&lt;/span&gt; --outdir data ~/ncbi/public/sra/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.sra
 &lt;span class="k"&gt;done&lt;/span&gt;
@@ -26525,7 +26585,7 @@ pfastq-dump --threads &lt;span class="m"&gt;22&lt;/span&gt; --outdir data ~/ncbi
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SRR5385260&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385344&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385345&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385346&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;SRR5385347&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; s in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; s &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;sras&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
 trimmomatic &lt;span class="se"&gt;\&lt;/span&gt;
     SE                  &lt;span class="se"&gt;\&lt;/span&gt;
@@ -26797,7 +26857,7 @@ $ gunzip ERR266335.fastq.gz
 &lt;span class="c1"&gt;# download sra files.&lt;/span&gt;
 mkdir sra-fastq
 &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; start download &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.sra
 wget ftp://ftp.ddbj.nig.ac.jp/ddbj_database/dra/sralite/ByExp/litesra/ERX/ERX182/ERX182652/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.sra
@@ -26826,7 +26886,7 @@ pfastq-dump -s &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266338 ERR266347 ERR266349 ERR266351&lt;span class="o"&gt;)&lt;/span&gt;
 mkdir fastqc
-&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; start quality check &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 mkdir fastqc/fastqc_&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
@@ -26911,7 +26971,7 @@ $ &lt;span class="nb"&gt;time&lt;/span&gt; kallisto/kallisto quant -i hsGRCh38_k
 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347も同様に&lt;code&gt;kallisto_quant.sh&lt;/code&gt;というシェルスクリプトを書き実行した。今回に限らず、時間がかかるかつ繰り返しの処理はシェルスクリプトを書くと良い（私もこれから練習します）。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;ERR266335 ERR266337 ERR266349 ERR266351 ERR266338 ERR266347&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; item &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; start mapping &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; with Kallisto
 &lt;span class="nv"&gt;result_dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;item&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_exp_kallisto
@@ -28072,8 +28132,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -29065,8 +29130,8 @@ Sampling 2 chains, 0 divergences: 100%|█████████████�
 &lt;span class="c1"&gt;# sns.kdeplot(ppc[&amp;#39;placebo&amp;#39;].flatten(), bw = 10)&lt;/span&gt;
 &lt;span class="c1"&gt;# plt.hist(ppc[&amp;#39;drug&amp;#39;], bins=1000, density=True, label=&amp;#39;drug&amp;#39;, alpha=.5)&lt;/span&gt;
 &lt;span class="c1"&gt;# plt.hist(ppc[&amp;#39;placebo&amp;#39;], bins=1000, density=True, label=&amp;#39;placebo&amp;#39;, alpha=.5)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ppc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;drug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;bins&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;density&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;drug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ppc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;placebo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;bins&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;density&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;placebo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ppc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;drug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;bins&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;density&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;drug&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ppc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;placebo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][:,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;bins&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;density&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;placebo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;alpha&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -30666,8 +30731,13 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 &lt;/style&gt;
-&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+&lt;style type="text/css"&gt;pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
