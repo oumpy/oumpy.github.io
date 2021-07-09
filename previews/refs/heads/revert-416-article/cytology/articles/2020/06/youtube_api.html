@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="やさしいYouTube APIのはなし"/>
+    <meta property="og:url" content="../../../blog/2020/06/youtube_api.html"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="自動化"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="やさしいYouTube APIのはなし">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>やさしいYouTube APIのはなし - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</title>
+
+   
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh" crossorigin="anonymous"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/revert-416-article/cytology/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/revert-416-article/cytology/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand py-0 fixed-top">
+      <div class="container">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">会規約</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-12">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-19">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">出版記事等</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2021年度</a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-2">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown28" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown28">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+        </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
+      </div> <!-- /navbar-collapse -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span> (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="youtube_api">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2020-06-24">
+    <meta name="article:modified" property="og:article:modified" content="2020-06-24">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2020/06/youtube_api.html" rel="bookmark"
+     title="Permalink to やさしいYouTube APIのはなし">
+    やさしいYouTube APIのはなし
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2020-06-24(Wed)
+</abbr>       - Posted by 
+<a href="../../../author/chuan-qi.html">川崎</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/zi-dong-hua.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%87%AA%E5%8B%95%E5%8C%96&labelColor=black&color=green" alt="tag:自動化" title="tag:自動化"></img></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<p><a href="/previews/refs/heads/revert-416-article/cytology/blog/2019/01/twitter_automation.html">前回</a>は Twitter API を取得して定期ツイートする方法について書きましたが、今回の記事では <strong>YouTube API</strong> を試してみたいと思います。</p>
+<h2><span id="pelican-subsections-0">APIとは？</span></h2>
+<p>APIとは何かざっくり説明いたしますと、<br>
+あるアプリケーションにまつわる操作を、<br>
+プログラミングを通じて自動化やらなんやら、といったものです。<br>
+例えば Twitter ならツイート検索や投稿などがPythonで実行できます。</p>
+<p><img alt="image9" src="../../../articles/2020sy/blog/images/youtube_api_figs/image9.jpg"></p>
+<p>Youtube にまつわるAPIは様々ありますが今回は <strong>YouTube Data API v3</strong> を使っていきます。
+YouTube Data API v3 は、動画、プレイリスト、チャンネルなどのYouTubeデータへのアクセスを提供するAPIです。</p>
+<h2><span id="pelican-subsections-1">準備</span></h2>
+<p>まずは
+<a href="https://www.google.com">Google</a>
+が提供しているクラウドコンピューティングサービスである、
+Google Cloud Platform (<a href="https://console.cloud.google.com">https://console.cloud.google.com</a>)
+にアクセスし、「プロジェクトの選択」から新しいプロジェクトを作成します。
+次に「スタートガイド」の「APIを探索して有効にする」をクリック。</p>
+<p><img alt="image7" src="../../../articles/2020sy/blog/images/youtube_api_figs/image7.jpg"></p>
+<p>左側のタブからライブラリを選んでAPIが検索できます。
+検索窓に YouTube と入力し、 "YouTube Data API v3" を選択して「有効にする」ボタンをクリック。
+「認証情報」の画面から「認証情報作成」のボタンを押下し、APIキーを取得しておきます。</p>
+<p><img alt="image6" src="../../../articles/2020sy/blog/images/youtube_api_figs/image5.jpg"></p>
+<p>今回は「<a href="https://colab.research.google.com"><strong>Google Colabotratory</strong></a>」での実装を試してみます。
+「Google Colabotratory」は Google ドライブ上で使えるJupyter Notebookのようなものです。
+ドライブ上にコードを保管できるほか、予め構築されたGoogleの仮想環境上で動かすことができるので大変便利です。
+<code>google-api-python-client</code> モジュールを用いますが、これは Google Colab に始めからインストールされているようです。
+<code>!pip list</code> を実行して確認できます。</p>
+<p><img alt="image6" src="../../../articles/2020sy/blog/images/youtube_api_figs/image6.jpg"></p>
+<h2><span id="pelican-subsections-2">実際に動かしてみる</span></h2>
+<p>早速YouTube APIで動画の情報を収集してみましょう。
+例えば、ある投稿者の最新の動画を調べたい場合にも、APIを使って検索が可能です。
+今回は<strong>HIKAKINさんのチャンネルで新しく投稿された動画</strong>について調べてみたいと思います。</p>
+<p>さて、実は Youtube ではチャンネル毎に固有の ID が割り振られています。</p>
+<p><img alt="image4" src="../../../articles/2020sy/blog/images/youtube_api_figs/image4.jpg"></p>
+<p>これを <code>search()</code> 関数に与えることでAPI上で動画の検索ができます。
+早速試してみます。
+先程取得したAPIキーを使って、YouTubeにAPI経由でアクセスします。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">apiclient.discovery</span> <span class="kn">import</span> <span class="n">build</span>
+<span class="kn">from</span> <span class="nn">apiclient.errors</span> <span class="kn">import</span> <span class="n">HttpError</span>
+
+<span class="n">YOUTUBE_API_KEY</span> <span class="o">=</span> <span class="s2">&quot;AI*************************************&quot;</span>
+
+<span class="n">youtube</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="s2">&quot;youtube&quot;</span><span class="p">,</span> <span class="s2">&quot;v3&quot;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">YOUTUBE_API_KEY</span><span class="p">)</span>
+
+<span class="n">search_response</span> <span class="o">=</span> <span class="n">youtube</span><span class="o">.</span><span class="n">search</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
+<span class="n">part</span><span class="o">=</span><span class="s2">&quot;snippet&quot;</span><span class="p">,</span>
+<span class="n">channelId</span><span class="o">=</span> <span class="s2">&quot;UCZf__ehlCEBPop-_sldpBUQ&quot;</span><span class="p">,</span>
+<span class="n">maxResults</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="n">order</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;snippet&quot;</span><span class="p">][</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">search_response</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">]]</span>
+<span class="n">titles</span>
+</code></pre></div>
+
+<p>出力結果は以下のようになりました。</p>
+<p><img alt="image8" src="../../../articles/2020sy/blog/images/youtube_api_figs/image8.jpg"></p>
+<p>HIKAKINさんの新着動画のタイトルが取得出来ています。</p>
+<p>このようにYouTubeのサイトに直接アクセスしなくても、APIを叩くだけでちょっとした調べものが出来てしまいます。</p>
+<h2><span id="pelican-subsections-3">自動化とOAuth2.0認証の実装</span></h2>
+<p>さらにAPIはプログラミング言語で動かすことが出来るという特性上、一連の操作をすべて自動でできるという利点があります。
+例えば <strong>自分が登録しているチャンネルを全て取得して、そのどれかが新しく動画をアップロードし、それが特定のワードを含む場合にメールでお知らせしてくれるようなシステム</strong> を作りたいとします。</p>
+<p>まずは自分が登録しているチャンネルの一覧を取得してみましょう。
+登録チャンネルは非公開情報ですので、取得するにはログイン権限が必要です。
+Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オーオースツー) 認証方式</strong> が使われています。
+下のような画面に見覚えがある方も多いと思います。</p>
+<p><img alt="image2" src="../../../articles/2020sy/blog/images/youtube_api_figs/image2.png"></p>
+<p>この画面を作ることで、自分の Google アカウントにログインし登録チャンネルを取得します。
+幸いPythonには <strong><code>oauth2client</code></strong> というモジュールが存在し、これを使えば <strong>OAuth2認証</strong> が簡単に実装できるようになっています。
+早速やってみましょう。</p>
+<p>まずはプログラムにOAuth認証を組み込むのに必要な、 <strong>クライアントIDとクライアントシークレット</strong> を取得します。
+これは先程のAPI認証情報のページから容易に手に入ります。
+これを使用してOAuth2認証を実装してみた結果が以下になります。</p>
+<p><img alt="image3" src="../../../articles/2020sy/blog/images/youtube_api_figs/image3.png"></p>
+<p><strong>エラーが出ています。</strong>
+何がいけなかったのでしょうか。</p>
+<p><img alt="image1" src="../../../articles/2020sy/blog/images/youtube_api_figs/image1.png"></p>
+<p>公式サイト
+(<a href="https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription">https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription</a>)
+にAPI実装のサンプルコードが載っていました。
+自力では無理でもこのサンプルをコピペすれば…</p>
+<div class="highlight"><pre><span></span><code><span class="n">CLIENT_SECRETS_FILE</span> <span class="o">=</span> <span class="s2">&quot;client_secrets.json&quot;</span>
+</code></pre></div>
+
+<p><strong>json</strong>？？？
+その json はどっから出てきたんや？？？</p>
+<p><img alt="image12" src="../../../articles/2020sy/blog/images/youtube_api_figs/image12.png"></p>
+<p><strong>storage</strong>？？？
+そんなものは無いが？？？</p>
+<p>……。</p>
+<p><img alt="image10" src="../../../articles/2020sy/blog/images/youtube_api_figs/image10.png"></p>
+<p>というわけでまったくやさしくないOAuth2認証のお話でした。</p>
+<p><img alt="image11" src="../../../articles/2020sy/blog/images/youtube_api_figs/image11.png">
+<em>↑ 未知のモノを実装するにはその構造を理解する必要がある</em></p>
+<h2><span id="pelican-subsections-4">まとめ</span></h2>
+<p>残念ながら今回はYouTube APIを使いこなすことが出来ませんでした。</p>
+<p>プログラミングを学ぶ中で分からない概念に出会って心が折れてしまったこと、誰でも一度は経験があると思います。</p>
+<p>そんな時には<strong>見極め</strong>が大事です。
+本当に使う必要があるのか？
+別のルートで迂回は出来ないか？
+それを覚える時間は無駄にならないか？
+自身のスキルアップに繋がるか？
+などなど……</p>
+<p>見極めた上で本当に必要だと思った知識は、是非時間を掛け学んで自分の武器にしてみてください。</p>
+<p>次回は「<strong>やさしいOAuth2認証のはなし</strong>」について投稿予定です。</p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/zi-dong-hua.html"><i class="fa fa-tag"></i>自動化</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2020/06/studymeeting2020_05.html">
+                【勉強会資料 2020 第5回】 統計入門
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2020/06/studymeeting2020_06.html">
+                【勉強会資料 2020 第6回】 機械学習とCNN入門
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2021/03/movie2pdf.html">プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</a></li>
+                <li><a href="../../../blog/2020/05/aircon_via_internet.html">赤外線対応エアコンをインターネットを用いて操作する方法</a></li>
+                <li><a href="../../../blog/2019/01/twitter_automation.html">Twitter自動投稿あれこれ</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+    <!-- Twitter -->
+    <a href="https://twitter.com/share" class="twitter-share-button" 
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="../../../blog/2020/06/youtube_api.html" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">
+  <li><a href="https://twitter.com/oumed_python" target="_blank" title="Twitter">
+    <span style="color:#1DA1F2; font-size:larger;"><i class="fab fa-twitter"></i><span>
+  </a></li>
+  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail">
+    <span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i><span>
+  </a></li>
+  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization">
+    <span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i><span>
+  </a></li>
+  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
+    <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
+  </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
+  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed">
+    <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
+  </a></li>
+  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed">
+    <span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i><span>
+  </a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2021</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">5/7</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/05/dino.html"><span class="recent-posts-title">【論文まとめ】DINO: Emerging Properties in Self-Supervised Vision Transformers</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">5/6</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/05/jisyukenkyu.html"><span class="recent-posts-title">令和2年度自主研究奨励事業『眼底画像から緑内障か否か判断する深層学習モデル開発』</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">5/5</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/05/ikra_v2.html"><span class="recent-posts-title">RNA-seq pipeline ikra v2.0 リリース</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/30</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/tex_expand.html"><span class="recent-posts-title">LaTeX の展開</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/movie2pdf.html"><span class="recent-posts-title">プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/studymeeting_attention25.html"><span class="recent-posts-title">attention勉強会2.5</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/14</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/03/studymeeting_attention2.html"><span class="recent-posts-title">attention勉強会2</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">2/9</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/02/kronecker_product_solving_matrix_equations.html"><span class="recent-posts-title">行列方程式のクロネッカー積による解法</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">21</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">3</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/revert-416-article/cytology/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-xs-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=600 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        © 2021 大阪大学医学部 情報医科学研究会 (Python会)
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px"></img>';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px"></img>';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (url_base.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var site_url = document.getElementsByName('siteurl')[0].content;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+$(function() {
+  const myhost = $(location).attr('hostname'); /* hogehoge.github.io */
+  /* in order to work only on github pages, add:
+  if (! myhost.match(/^[^\.]+\.github\.io$/)) {
+    return;
+  }
+  */
+  const account = myhost.split('.')[0]; /* hogehoge */
+  const repo = account + '/' + myhost + '/blob/master';
+  const root = 'https://colab.research.google.com/github/' + repo;
+  $('a').each(function() {
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
+      let target_split = target.split('/');
+      upper_split.pop();
+      let head = true;
+      while (true) {
+        if (head && target_split[0] == '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      colablink = upper_split.join('/') + '/' + target_split.join('/');
+      $(this).after(' <a href='+colablink+'>'+colab_img+'</a>');
+    }
+  });
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+!function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
+</script>
+<script>
+$(function(){
+  $('a[href*="#"]').on('click',function() {
+    var container = $('.container');
+    var add_move = container.height() + 50
+    var speed = 400;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top - add_move;
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});
+</script>
+<script type="text/javascript">
+    $("#toc").toc({headings: "h2,h3"});
+    if( $('#toc').is(':empty') ) {
+      $('.toc_box').remove();
+    }
+</script><p class="pagetop" id="pagetop"><a href="#wrap"></a></p>
+<script>
+$(document).ready(function() {
+    var pagetop = $('#pagetop');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+            }
+        });
+        pagetop.click(function () {
+            $('body, html').animate({ scrollTop: 0 }, 500);
+                return false;
+    });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+});
+</script>  </body>
+</html>
