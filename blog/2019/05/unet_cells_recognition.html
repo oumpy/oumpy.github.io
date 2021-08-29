@@ -190,7 +190,7 @@
 今回は、deep learningの中でも画像から物体の領域を検出する「セマンティックセグメンテーション」といわれる手法についてです。
 医療系の画像では、U-Netといわれるネットワークが有名です。</p>
 <h2><span id="pelican-subsections-0">U-Netの特徴は？</span></h2>
-<p><img alt="img01" src="../../../articles/2019sy/blog/images/UNet_cells_recognition_figs/image01.png">(U-Netの処理の概要、<a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/</a> からの画像)</p>
+<p><img alt="img01" src="../../../blog/2019/05/images/UNet_cells_recognition_figs/image01.png">(U-Netの処理の概要、<a href="https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/">https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/</a> からの画像)</p>
 <p>セマンティックセグメンテーションは、CNNによるエンコードと、trans-convolutionによるデコードからなりますが、U-Netの特徴としてはCNNによる畳み込みの途中の画像を結合して処理に使用している点です。
 そのため、処理のフローチャートは上の図のようにU字型になります。だからU-Netと呼ばれているんですね。</p>
 <h2><span id="pelican-subsections-1">U-Netの実装</span></h2>
@@ -434,14 +434,14 @@
 <p>コメントを見るとわかる通り、trainingDataフォルダやtestDataフォルダなどを作ってそこに使用する画像を入れる仕組みです。</p>
 <h2><span id="pelican-subsections-4">コードを細胞の画像に適用してみる</span></h2>
 <p>細胞の画像は以下です。2枚のトレーニング画像です。左が実際の画像、右がセグメンテーションの正解を表す2値画像となります。</p>
-<p><img alt="img02" src="../../../articles/2019sy/blog/images/UNet_cells_recognition_figs/image02.jpg">
-<img alt="img03" src="../../../articles/2019sy/blog/images/UNet_cells_recognition_figs/image03.jpg"></p>
+<p><img alt="img02" src="../../../blog/2019/05/images/UNet_cells_recognition_figs/image02.jpg">
+<img alt="img03" src="../../../blog/2019/05/images/UNet_cells_recognition_figs/image03.jpg"></p>
 <p>今回は学習したモデルで、二つ目の画像をテスト画像としてセグメンテーションしてみました。</p>
 <p>200エポック回した時のモデルでの結果が以下です。</p>
-<p><img alt="img04" src="../../../articles/2019sy/blog/images/UNet_cells_recognition_figs/image04.png">
+<p><img alt="img04" src="../../../blog/2019/05/images/UNet_cells_recognition_figs/image04.png">
 メッシュのようになっていてうまくいってないですね。もう少しエポック数が必要なのでしょうか。</p>
 <p>1000エポック回した時のモデルでの結果が以下です。</p>
-<p><img alt="img05" src="../../../articles/2019sy/blog/images/UNet_cells_recognition_figs/image05.png"></p>
+<p><img alt="img05" src="../../../blog/2019/05/images/UNet_cells_recognition_figs/image05.png"></p>
 <p>だいぶセグメンテーションが出来てきました。
 十分にエポック数を回すことが重要なようですね。
 これでセマンティックセグメンテーションは一応成功しました。
@@ -475,9 +475,9 @@ linuxのサーバーにつないで行うみたいです。
         <li>    
             関連記事 :
             <ul>
+                <li><a href="../../../blog/2021/08/seti.html">宇宙人コンペ</a></li>
                 <li><a href="../../../blog/2021/06/cytology.html">甲状腺細胞診分類モデル＠日本臨床細胞学会</a></li>
                 <li><a href="../../../blog/2021/05/dino.html">【論文まとめ】DINO: Emerging Properties in Self-Supervised Vision Transformers</a></li>
-                <li><a href="../../../blog/2021/05/jisyukenkyu.html">令和2年度自主研究奨励事業『眼底画像から緑内障か否か判断する深層学習モデル開発』</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -552,6 +552,11 @@ linuxのサーバーにつないで行うみたいです。
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2021</span></td></tr>
   <tr>
+    <td class="recent-posts-date">8/28</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2021/08/seti.html"><span class="recent-posts-title">宇宙人コンペ</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">6/24</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2021/06/cytology.html"><span class="recent-posts-title">甲状腺細胞診分類モデル＠日本臨床細胞学会</span></a></td>
@@ -586,11 +591,6 @@ linuxのサーバーにつないで行うみたいです。
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2021/03/studymeeting_attention25.html"><span class="recent-posts-title">attention勉強会2.5</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/14</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/03/studymeeting_attention2.html"><span class="recent-posts-title">attention勉強会2</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -598,22 +598,16 @@ linuxのサーバーにつないで行うみたいです。
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-2">
@@ -622,22 +616,58 @@ linuxのサーバーにつないで行うみたいです。
         競技プログラミング
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
     <span class="tag-1">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">3</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">4</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-3">
@@ -648,8 +678,14 @@ linuxのサーバーにつないで行うみたいです。
     </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">22</span>
+          <span class="badge badge-primary">23</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -658,22 +694,28 @@ linuxのサーバーにつないで行うみたいです。
         Unix
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">7</span>
-        News
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">10</span>
         勉強会
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">7</span>
+        News
       </a>
     </span>
     <span class="tag-4">
@@ -683,51 +725,9 @@ linuxのサーバーにつないで行うみたいです。
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">3</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+        論文関連
       </a>
     </span>
 </p>
