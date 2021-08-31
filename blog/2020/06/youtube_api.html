@@ -193,7 +193,7 @@
 あるアプリケーションにまつわる操作を、<br>
 プログラミングを通じて自動化やらなんやら、といったものです。<br>
 例えば Twitter ならツイート検索や投稿などがPythonで実行できます。</p>
-<p><img alt="image9" src="../../../blog/2020/06/images/youtube_api_figs/image9.jpg"></p>
+<p><img alt="image9" src="../../../articles/2020sy/blog/images/youtube_api_figs/image9.jpg"></p>
 <p>Youtube にまつわるAPIは様々ありますが今回は <strong>YouTube Data API v3</strong> を使っていきます。
 YouTube Data API v3 は、動画、プレイリスト、チャンネルなどのYouTubeデータへのアクセスを提供するAPIです。</p>
 <h2><span id="pelican-subsections-1">準備</span></h2>
@@ -203,23 +203,23 @@ YouTube Data API v3 は、動画、プレイリスト、チャンネルなどの
 Google Cloud Platform (<a href="https://console.cloud.google.com">https://console.cloud.google.com</a>)
 にアクセスし、「プロジェクトの選択」から新しいプロジェクトを作成します。
 次に「スタートガイド」の「APIを探索して有効にする」をクリック。</p>
-<p><img alt="image7" src="../../../blog/2020/06/images/youtube_api_figs/image7.jpg"></p>
+<p><img alt="image7" src="../../../articles/2020sy/blog/images/youtube_api_figs/image7.jpg"></p>
 <p>左側のタブからライブラリを選んでAPIが検索できます。
 検索窓に YouTube と入力し、 "YouTube Data API v3" を選択して「有効にする」ボタンをクリック。
 「認証情報」の画面から「認証情報作成」のボタンを押下し、APIキーを取得しておきます。</p>
-<p><img alt="image6" src="../../../blog/2020/06/images/youtube_api_figs/image5.jpg"></p>
+<p><img alt="image6" src="../../../articles/2020sy/blog/images/youtube_api_figs/image5.jpg"></p>
 <p>今回は「<a href="https://colab.research.google.com"><strong>Google Colabotratory</strong></a>」での実装を試してみます。
 「Google Colabotratory」は Google ドライブ上で使えるJupyter Notebookのようなものです。
 ドライブ上にコードを保管できるほか、予め構築されたGoogleの仮想環境上で動かすことができるので大変便利です。
 <code>google-api-python-client</code> モジュールを用いますが、これは Google Colab に始めからインストールされているようです。
 <code>!pip list</code> を実行して確認できます。</p>
-<p><img alt="image6" src="../../../blog/2020/06/images/youtube_api_figs/image6.jpg"></p>
+<p><img alt="image6" src="../../../articles/2020sy/blog/images/youtube_api_figs/image6.jpg"></p>
 <h2><span id="pelican-subsections-2">実際に動かしてみる</span></h2>
 <p>早速YouTube APIで動画の情報を収集してみましょう。
 例えば、ある投稿者の最新の動画を調べたい場合にも、APIを使って検索が可能です。
 今回は<strong>HIKAKINさんのチャンネルで新しく投稿された動画</strong>について調べてみたいと思います。</p>
 <p>さて、実は Youtube ではチャンネル毎に固有の ID が割り振られています。</p>
-<p><img alt="image4" src="../../../blog/2020/06/images/youtube_api_figs/image4.jpg"></p>
+<p><img alt="image4" src="../../../articles/2020sy/blog/images/youtube_api_figs/image4.jpg"></p>
 <p>これを <code>search()</code> 関数に与えることでAPI上で動画の検索ができます。
 早速試してみます。
 先程取得したAPIキーを使って、YouTubeにAPI経由でアクセスします。</p>
@@ -242,7 +242,7 @@ Google Cloud Platform (<a href="https://console.cloud.google.com">https://consol
 </code></pre></div>
 
 <p>出力結果は以下のようになりました。</p>
-<p><img alt="image8" src="../../../blog/2020/06/images/youtube_api_figs/image8.jpg"></p>
+<p><img alt="image8" src="../../../articles/2020sy/blog/images/youtube_api_figs/image8.jpg"></p>
 <p>HIKAKINさんの新着動画のタイトルが取得出来ています。</p>
 <p>このようにYouTubeのサイトに直接アクセスしなくても、APIを叩くだけでちょっとした調べものが出来てしまいます。</p>
 <h2><span id="pelican-subsections-3">自動化とOAuth2.0認証の実装</span></h2>
@@ -252,17 +252,17 @@ Google Cloud Platform (<a href="https://console.cloud.google.com">https://consol
 登録チャンネルは非公開情報ですので、取得するにはログイン権限が必要です。
 Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オーオースツー) 認証方式</strong> が使われています。
 下のような画面に見覚えがある方も多いと思います。</p>
-<p><img alt="image2" src="../../../blog/2020/06/images/youtube_api_figs/image2.png"></p>
+<p><img alt="image2" src="../../../articles/2020sy/blog/images/youtube_api_figs/image2.png"></p>
 <p>この画面を作ることで、自分の Google アカウントにログインし登録チャンネルを取得します。
 幸いPythonには <strong><code>oauth2client</code></strong> というモジュールが存在し、これを使えば <strong>OAuth2認証</strong> が簡単に実装できるようになっています。
 早速やってみましょう。</p>
 <p>まずはプログラムにOAuth認証を組み込むのに必要な、 <strong>クライアントIDとクライアントシークレット</strong> を取得します。
 これは先程のAPI認証情報のページから容易に手に入ります。
 これを使用してOAuth2認証を実装してみた結果が以下になります。</p>
-<p><img alt="image3" src="../../../blog/2020/06/images/youtube_api_figs/image3.png"></p>
+<p><img alt="image3" src="../../../articles/2020sy/blog/images/youtube_api_figs/image3.png"></p>
 <p><strong>エラーが出ています。</strong>
 何がいけなかったのでしょうか。</p>
-<p><img alt="image1" src="../../../blog/2020/06/images/youtube_api_figs/image1.png"></p>
+<p><img alt="image1" src="../../../articles/2020sy/blog/images/youtube_api_figs/image1.png"></p>
 <p>公式サイト
 (<a href="https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription">https://developers.google.com/youtube/v3/code_samples/python?hl=ja#add_a_channel_subscription</a>)
 にAPI実装のサンプルコードが載っていました。
@@ -272,13 +272,13 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
 
 <p><strong>json</strong>？？？
 その json はどっから出てきたんや？？？</p>
-<p><img alt="image12" src="../../../blog/2020/06/images/youtube_api_figs/image12.png"></p>
+<p><img alt="image12" src="../../../articles/2020sy/blog/images/youtube_api_figs/image12.png"></p>
 <p><strong>storage</strong>？？？
 そんなものは無いが？？？</p>
 <p>……。</p>
-<p><img alt="image10" src="../../../blog/2020/06/images/youtube_api_figs/image10.png"></p>
+<p><img alt="image10" src="../../../articles/2020sy/blog/images/youtube_api_figs/image10.png"></p>
 <p>というわけでまったくやさしくないOAuth2認証のお話でした。</p>
-<p><img alt="image11" src="../../../blog/2020/06/images/youtube_api_figs/image11.png">
+<p><img alt="image11" src="../../../articles/2020sy/blog/images/youtube_api_figs/image11.png">
 <em>↑ 未知のモノを実装するにはその構造を理解する必要がある</em></p>
 <h2><span id="pelican-subsections-4">まとめ</span></h2>
 <p>残念ながら今回はYouTube APIを使いこなすことが出来ませんでした。</p>
@@ -435,28 +435,22 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
         企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
       </a>
     </span>
     <span class="tag-4">
@@ -466,21 +460,9 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">23</span>
-        Machine Learning
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-2">
@@ -490,27 +472,15 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">4</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+        Unix
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">23</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-4">
@@ -519,10 +489,22 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
         論文関連
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-4">
@@ -532,21 +514,9 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/sonota-yan-yu.html">
           <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+        その他言語
       </a>
     </span>
     <span class="tag-2">
@@ -556,15 +526,45 @@ Googleアカウントでログイン認証する際には、 <strong>OAuth2 (オ
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
-        その他言語
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">3</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">4</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
       </a>
     </span>
 </p>

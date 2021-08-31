@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2021-08-29T10:28:29-00:00</lastmod>
+<lastmod>2021-08-31T14:02:20-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2021-08-29T10:28:29-00:00</lastmod>
+<lastmod>2021-08-31T14:02:20-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2021-08-29T10:28:29-00:00</lastmod>
+<lastmod>2021-08-31T14:02:20-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -89,7 +89,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/blog/2021/08/seti.html</loc>
-<lastmod>2021-08-28T00:00:00+09:00</lastmod>
+<lastmod>2021-08-30T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -754,7 +754,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/blog.html</loc>
-<lastmod>2021-08-28T00:00:00+09:19</lastmod>
+<lastmod>2021-08-30T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -768,14 +768,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/tag/machine-learning.html</loc>
-<lastmod>2021-08-28T00:00:00+09:19</lastmod>
+<lastmod>2021-08-30T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tag/data-science-competition.html</loc>
-<lastmod>2021-08-28T00:00:00+09:19</lastmod>
+<lastmod>2021-08-30T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -922,14 +922,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/author/an-bu.html</loc>
-<lastmod>2021-06-24T00:00:00+09:19</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.1</priority>
-</url>
-
-<url>
-<loc>https://oumpy.github.io/author/an-bu-zheng-jun.html</loc>
-<lastmod>2021-08-28T00:00:00+09:19</lastmod>
+<lastmod>2021-08-30T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
