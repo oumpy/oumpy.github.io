@@ -194,11 +194,11 @@
 </blockquote>
 <p>(cf.) <a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>, <a href="https://github.com/facebookresearch/dino">GitHub</a>, <a href="https://www.youtube.com/watch?v=h3ij3F3cPIk">Yannic Kilcher氏の解説動画</a></p>
 <p><strong>要点</strong>：画像モデル (e.g. ResNet, Vision transformers)における，ラベル無しの自己教師あり学習の新しい手法DINOを考案したよ．ImageNetの画像をDINOで学習されたモデルを用いて特徴空間に埋め込むと，物体の種類ごとにクラスターが生まれ，線形回帰あるいはkNNを適応するだけで教師あり学習に匹敵する精度の物体認識ができたよ．特に画像モデルにVision Transformersを用いたとき，各headのself-attention mapは物体を識別し，segmentationのようなことができていたよ （下図参照: Caron et al., 2021; Fig.1）．</p>
-<p><img alt="fig1" src="../../../blog/2021/05/images/dino_figs/fig1_dino.jpg"></p>
+<p><img alt="fig1" src="../../../articles/2021sy/blog/images/dino_figs/fig1_dino.jpg"></p>
 <h2><span id="pelican-subsections-0">背景</span></h2>
 <h3><span id="pelican-subsections-1">Self-supervised learning</span></h3>
 <p><strong>自己教師あり学習 (Self-supervised learning; SSL)</strong> は機械学習モデルの訓練方法の一種です．自己教師あり学習では，欠損のないデータを用意し，データの一部分（欠損したデータ）だけをモデルに入力し，残りのデータを予測するようにモデルを訓練します．下図は自己教師あり学習の概念図です (<a href="https://ai.facebook.com/blog/self-supervised-learning-the-dark-matter-of-intelligence/">Self-supervised learning: The dark matter of intelligence</a>から引用)．</p>
-<p><img alt="ssl" src="../../../blog/2021/05/images/dino_figs/ssl.png"></p>
+<p><img alt="ssl" src="../../../articles/2021sy/blog/images/dino_figs/ssl.png"></p>
 <p>データ全体を大きな直方体に見立てたとき，入力されるデータは緑色の部分，予測するデータは残りの灰色の部分となります．自己教師あり学習の例として，言語モデルではある単語から周囲の単語を予測するSkip-gramや，文中の隠された単語を残りの単語から予測するCBOWやBERT (<a href="https://arxiv.org/abs/1810.04805">Devlin et al., 2018</a>) などがあります (CBOWとBERTに差異はありますが割愛します)．画像モデルでは，画像の一部を塗りつぶして残りの部分から塗りつぶされた部分を予測するInpainting (e.g. DeepFill; <a href="https://arxiv.org/abs/1801.07892">Yu et al., CVPR. 2018</a>; <a href="https://arxiv.org/abs/1806.03589">Yu et al., CVPR. 2019</a>)や，現在のフレームから未来のフレームを予測する動画予測 (e.g. PredNet; <a href="https://arxiv.org/abs/1605.08104">Lotter et al., ICLR. 2017</a>)などがあります．計算論的神経科学における視覚モデルとしても，こうした自己教師あり学習/教師なし学習のモデルは生物学的妥当性 (biologically plausible)があるとされて研究が進められています (<a href="https://www.pnas.org/content/118/3/e2014196118.long">Zhuang et al., PNAS. 2021</a>)．</p>
 <p>この記事で紹介するDINOは<strong>自己教師あり表現学習 (Self-supervised representation learning)</strong> の一種と言えます．自己教師あり表現学習には多数の研究がありますが，2つの系統について説明します．まず，<strong>対照学習 (contrastive learning) </strong>を用いた手法としては，MoCo (<a href="https://arxiv.org/abs/1911.05722">He et al., 2019</a>), SimCLR (<a href="https://arxiv.org/abs/2002.05709">Chen et al., 2020</a>)などが代表的です．対照学習を用いた手法では，元画像とそれをaugmentした画像 (positive sample)，関係ない画像 (negative sample)の3つの画像を入力し，元画像とpositive sampleとの表現の類似度が小さく，negative sampleとの表現の類似度が大きくなるように学習を進めます．次に，2020年後半頃より，<strong>非対称的な2つのネットワークを用いる手法</strong>が複数考案されてきました．<strong>BYOL</strong> (<a href="https://arxiv.org/abs/2006.07733">Grill et al., 2020</a>), SimSiam (<a href="https://arxiv.org/abs/2011.10566">Chen &amp; He, 2020</a>), Barlow Twins (<a href="https://arxiv.org/abs/2103.03230">Zbontar et al., 2021</a>) などが該当します．これらの手法ではaugmentationを用いた非対称的な入力と，stop-gradientを用いた非対称的な重み更新による2つの非対称性を生み出し，2つのネットワークの出力の類似度を小さくするように学習を行います．この記事で紹介するDINOはBYOLに似た手法ですが，以下の3つが異なります．</p>
 <ol>
@@ -209,7 +209,7 @@
 <h3><span id="pelican-subsections-2">Vision Transformers</span></h3>
 <p><strong>Vision Transformer (ViT）</strong> は言語モデルにおいてRNNを置き換えるモジュールとして考案されたTransformerを画像モデルに適応したモデルのことです (<a href="https://openreview.net/forum?id=YicbFdNTTy">Dosovitskiy et al., ICLR. 2021</a>)．医学系の方は，ViTはビタミンの略称でないことに注意しましょう．</p>
 <p>ViTでは，入力画像をパッチに分割（基本的に16×16のような格子状に分割）し，画像パッチをベクトルに埋め込んだ後，Transformerのencoderに入力するという操作をします（下図参照: Dosovitskiy et al., 2021; Fig.1）．</p>
-<p><img alt="vit" src="../../../blog/2021/05/images/dino_figs/vit.jpg"></p>
+<p><img alt="vit" src="../../../articles/2021sy/blog/images/dino_figs/vit.jpg"></p>
 <p>この記事ではViTに関して詳しい解説はしませんが，以下の資料が参考になります．</p>
 <ul>
 <li><a href="https://www.slideshare.net/cvpaperchallenge/transformer-247407256">Transformer メタサーベイ - Slideshare</a> </li>
@@ -219,7 +219,7 @@
 <h3><span id="pelican-subsections-4">モデル構造</span></h3>
 <p>Caronらが提案するDINO (self-<strong>di</strong>stillation with <strong>no</strong> labels) とは「<strong>ラベル無しでの自己蒸留</strong>」を意味します．ここでの<strong>蒸留 (distillation) </strong>とは，枝刈り (pruning) や量子化 (quantization)に並ぶニューラルネットワークのモデル圧縮手法です．通常の蒸留では，ラベル付きデータセットとパラメータ数が多いモデル（<strong>教師モデル; teacher model</strong>）を用意し，ラベルと教師モデルの出力を教師信号 (hard &amp; soft target) としてパラメータ数が少ないモデル（<strong>生徒モデル; student model</strong>）を訓練します (<a href="https://arxiv.org/abs/1503.02531">Hinton, Vinyals &amp; Dean, NIPS, 2014</a>)．データセットだけでscratchから生徒モデルを訓練するより，教師モデルを用いた方が生徒モデルの性能は高くなるということが知られています．</p>
 <p>DINOは教師モデルと生徒モデルを用いるところは通常の蒸留と同じですが，ラベル付きデータは用いず，<strong>教師モデルは生徒モデルから</strong>作られるという違いがあります．このことを念頭に置いて，モデルの構造を見てみましょう．以下はモデルの概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用および改変）．生徒モデルを<span class="math">\(g _ {\theta s}\)</span>，教師モデルを <span class="math">\(g _ {\theta t}\)</span>とし，入力画像を <span class="math">\(\mathbf{x}\)</span>とします．</p>
-<p><img alt="model1" src="../../../blog/2021/05/images/dino_figs/model1.jpg"></p>
+<p><img alt="model1" src="../../../articles/2021sy/blog/images/dino_figs/model1.jpg"></p>
 <p>論文中には次のようなPytorch-likeな擬似コードが掲載されています (Caron et al., 2021; Algorithm 1)．以下ではこの擬似コードを用いながら解説を行います．</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># gs, gt: student and teacher networks</span>
 <span class="c1"># C: center (K)</span>
@@ -271,7 +271,7 @@ $$</div>
 </code></pre></div>
 
 <p>それぞれの効果は次のようになります．</p>
-<p><img alt="sharpening_centering" src="../../../blog/2021/05/images/dino_figs/sharpening_centering.png"></p>
+<p><img alt="sharpening_centering" src="../../../articles/2021sy/blog/images/dino_figs/sharpening_centering.png"></p>
 <p>上図を描画するPythonコードは以下の通りです．</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -293,7 +293,7 @@ $$</div>
 
 <h3><span id="pelican-subsections-7">損失関数とパラメータの更新</span></h3>
 <p>以下は損失関数の計算とパラメータの更新の概略図です（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用および改変）．</p>
-<p><img alt="model2" src="../../../blog/2021/05/images/dino_figs/model2.jpg"></p>
+<p><img alt="model2" src="../../../articles/2021sy/blog/images/dino_figs/model2.jpg"></p>
 <p>まず，生徒モデルの出力 <span class="math">\(P_s\)</span>と教師モデルの出力 <span class="math">\(P_t\)</span>を用い，損失関数 <span class="math">\(H(P_s, P_t):=-P_t\log P_s\)</span>を計算します．次に損失関数を最小化するように生徒モデルのパラメータ <span class="math">\(\theta_s\)</span> をbackpropで更新します．なお，損失関数および生徒モデルの最適化問題は，Augmentationの節で述べたglobal画像<span class="math">\(x_1^g, x_2^g\)</span>とlocal画像<span class="math">\(x_j^\ell\ (\ell = 1, 2, \ldots)\)</span>，および切り出した画像全ての集合 <span class="math">\(V = \left\{x_1^g, x_2^g, x_j^\ell\right\} \ (\ell = 1, 2, \ldots)\)</span> を用いると次のように表されます．</p>
 <div class="math">$$
 \min _{\theta_{s}} \sum_{x \in\left\{x_{1}^{g}, x_{2}^{g}\right\}} \sum_{x^{\prime} \in V \atop x^{\prime} \neq x} H\left(P_{t}(x), P_{s}\left(x^{\prime}\right)\right)
@@ -316,14 +316,14 @@ $$</div>
 <li>画像モデルにViTを用いたとき，各headのself-attention mapは物体を識別し，segmentationのようなことができた．</li>
 </ol>
 <p>1番目の特徴ですが，ImageNetの画像を特徴空間に埋め込んだときの結果は次図のようになります（<a href="https://ai.facebook.com/blog/dino-paws-computer-vision-with-self-supervised-transformers-and-10x-more-efficient-training">Facebook ブログ</a>より引用）．</p>
-<p><img alt="output_clusters" src="../../../blog/2021/05/images/dino_figs/output_clusters.jpg"></p>
+<p><img alt="output_clusters" src="../../../articles/2021sy/blog/images/dino_figs/output_clusters.jpg"></p>
 <p>物体の種類ごとにクラスター化していることがわかります．この結果を線形回帰 (linear regression)あるいはkNNで分類すると，全てのパラメータを教師あり学習で最適化したモデルに匹敵する分類精度が得られました（論文中Table2参照）．</p>
 <p>2番目の特徴ですが，画像モデルにViTを用いた場合，画像中最も注目される物体（視覚系の用語で言うところの<strong>core object</strong>）上にself-attentionがかかっており，segmentationのようなことができていたということです（本記事最上部の画像参照）．特に，教師あり学習を行ったViTモデルのself-attention mapと比較すると，DINOで学習したモデルの方がより物体を捉えることができていました（下図参照: Caron et al., 2021; Fig.4）．</p>
-<p><img alt="fig4_dino" src="../../../blog/2021/05/images/dino_figs/fig4_dino.jpg"></p>
+<p><img alt="fig4_dino" src="../../../articles/2021sy/blog/images/dino_figs/fig4_dino.jpg"></p>
 <h3><span id="pelican-subsections-9">Self-attentionを可視化するColab notebook</span></h3>
 <p>今回，<a href="https://github.com/facebookresearch/dino">DINOのGitHubリポジトリ</a>の<code>visualize_attention.py</code>コードを元に，<strong>Self-attentionを可視化するnotebookを作成</strong>しました：<a href="https://colab.research.google.com/github/oumpy/hp_management/blob/master/content/articles/2021sy/blog/attach/dino/dino_visualize_attention.ipynb"><strong>Colab notebook link</strong></a></p>
 <p>実行結果は次図のようになります．</p>
-<p><img alt="notebook" src="../../../blog/2021/05/images/dino_figs/notebook.png"></p>
+<p><img alt="notebook" src="../../../articles/2021sy/blog/images/dino_figs/notebook.png"></p>
 <p>一番左が入力画像（よく見ると中央に鳥がいます），中央が各headのself-attention map，一番右がself-attention mapの平均値となっています．ヒト（少なくとも私）でも鳥がいるか見分けづらいにも関わらず，その形状を捉えられていることが分かります．</p>
 <h3><span id="pelican-subsections-10">DINOが学習可能である理由についての仮説</span></h3>
 <p>DINOを含め，自己教師あり表現学習が可能である理由について，<a href="https://www.youtube.com/watch?v=h3ij3F3cPIk">Yannic Kilcher氏の解説動画</a>中で「AugmentationとDatasetが帰納バイアスになっている」という仮説が述べられていました．</p>
@@ -545,22 +545,46 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/sonota-yan-yu.html">
           <span class="badge badge-primary">2</span>
         その他言語
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-1">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-1">
@@ -570,93 +594,9 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">23</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">4</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+        ハードウェア
       </a>
     </span>
     <span class="tag-3">
@@ -666,15 +606,75 @@ $$</div>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">6</span>
         競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">4</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">23</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
 </p>
