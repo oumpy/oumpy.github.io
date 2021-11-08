@@ -192,31 +192,52 @@
 	
 <p>2021/10/01~2021/10/27にsignateで開催された<a href="https://signate.jp/competitions/550">SIGNATE Student Cup 2021秋【予測部門】</a>で377人中26位になり銀メダルを獲得しました。</p>
 <h2><span id="pelican-subsections-0">コンペの概要</span></h2>
-<p>予測する日以前のデータを使用し、予測当日での70ヶ所の駐輪場での利用可能な自転車数を予測する回帰問題。時系列データで1時間ごとの値が与えられた。<br>
-予測する日は複数あり、それらは全てが連続しているわけではなく前後に訓練に回せるデータがある場合もある。しかし、上記に書いた通り予測する日に対し翌日からのデータを使用するのは禁止。リークに注意する必要があった。<br>
+<p>予測する日以前のデータを使用し、予測当日での70ヶ所の駐輪場での利用可能な自転車数を予測する回帰問題。
+時系列データで1時間ごとの値が与えられた。<br>
+予測する日は複数あり、それらは全てが連続しているわけではなく前後に訓練に回せるデータがある場合もある。
+しかし、上記に書いた通り予測する日に対し翌日からのデータを使用するのは禁止。
+リークに注意する必要があった。<br>
 利用可能な自転車数から気候など様々な特徴量が4つのテーブルから与えられた。<br>
 評価指標はRMSE(root mean squared error)</p>
 <h2><span id="pelican-subsections-1">したこと</span></h2>
-<p>今回は単独での参加だったのでEDAからモデリングまで自分でやりました。<br>
-1. feature engineering
-平日、祝日、休日や春夏秋冬の季節を作成しました。
-2. train&amp;validation
-予測する日以前のデータの全てをtrainにまわしました。欠損したところはその直前の予測日以前のデータでtrainしたモデルでの予測値を代入し、pseudo labelingをしました。120個のlgbmをtrainすることになりましたが、結局は月毎で12個つくった方が精度が出るみたいです。validationを上記の訓練する状況に似せようと1日だけにしたのが悪手なのかも...
+<p>今回は単独での参加だったのでEDAからモデリングまで自分でやりました。</p>
+<ol>
+<li>
+<p>feature engineering
+平日、祝日、休日や春夏秋冬の季節を作成しました。</p>
+</li>
+<li>
+<p>train&amp;validation
+予測する日以前のデータの全てをtrainにまわしました。欠損したところはその直前の予測日以前のデータでtrainしたモデルでの予測値を代入し、pseudo labelingをしました。
 1つ目のlgbmでoptunaを使いハイパーパラメータを最適化し、他にも流用しました。
+120個のlgbmをtrainすることになりましたが、結局は月毎で12個つくった方が精度が出るみたいです。
+validationを上記の訓練する状況に似せようと1日だけにしたのが悪手なのかも...
 seed値を変えた３つの120個のlgbmのセットをensambleに使いました。</p>
+</li>
+</ol>
 <h2><span id="pelican-subsections-2">他にやりたかったこと</span></h2>
-<p>LSTMやTabnetなどのNNも試してみたかった。<br>
-ラグ特徴量のような時系列データで効果的な特徴量も作りたかった。<br>
-RFのハイパーパラメータを最適化し使おうとしたが何時間たっても終わる気配がせず断念。最適化しなかった場合、lgbmとensambleするとlgbmのRandom Seed Averageよりも精度が低かった。<br>
-station毎にモデルを訓練させたかった。</p>
+<ul>
+<li>LSTMやTabnetなどのNNも試してみたかった。</li>
+<li>ラグ特徴量のような時系列データで効果的な特徴量も作りたかった。</li>
+<li>RFのハイパーパラメータを最適化し使おうとしたが何時間たっても終わる気配がせず断念。
+最適化しなかった場合、lgbmとensambleするとlgbmのRandom Seed Averageよりも精度が低かった。</li>
+<li>station毎にモデルを訓練させたかった。</li>
+</ul>
 <h2><span id="pelican-subsections-3">反省点</span></h2>
-<p>多くありますが、最初にEDAがあまく、予測フラグが立っていない行の目的変数がNaNであることがありえることに気付かず、精度が出ませんでした。EDAは大切！<br>
-train用のデータの説明変数に目的変数を入れたままなのに気付かず、お手上げ状況になった。GBDTへの理解が足らず、リークした際の状況を推測できなかったのが原因。<br>
-カテゴリ変数のencodingを一切関数を使わずに行ったため、次からは使いたい。</p>
+<p>多くありますが、</p>
+<ul>
+<li>最初にEDAがあまく、予測フラグが立っていない行の目的変数がNaNであることがありえることに気付かず、精度が出ませんでした。
+EDAは大切！  </li>
+<li>train用のデータの説明変数に目的変数を入れたままなのに気付かず、お手上げ状況になった。
+GBDTへの理解が足らず、リークした際の状況を推測できなかったのが原因。  </li>
+<li>カテゴリ変数のencodingを一切関数を使わずに行ったため、次からは使いたい。</li>
+</ul>
 <h2><span id="pelican-subsections-4">とても参考になったもの</span></h2>
-<p><a href="https://www.amazon.co.jp/Kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93-%E9%96%80%E8%84%87-%E5%A4%A7%E8%BC%94/dp/4297108437/ref=sr_1_1?adgrpid=109872001568&amp;dchild=1&amp;gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2fQg-LTS200pIygImVOdjg50nrlrsEpo_AZNS3GSV43BlV3ZLwrJgaArUyEALw_wcB&amp;hvadid=553921514572&amp;hvdev=c&amp;hvlocphy=1009543&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=11529920702029821113&amp;hvtargid=kwd-818170082585&amp;hydadcr=27492_14478797&amp;jp-ad-ap=0&amp;keywords=kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93&amp;qid=1635941789&amp;sr=8-1">Kaggleで勝つデータ分析の技術</a><br>
-<a href="https://www.coursera.org/learn/competitive-data-science">How to Win a Data Science Competition: Learn from Top Kagglers</a><br>
-使ったコードは<a href="https://github.com/yumezu121/signate_bikes/tree/main">こちら</a> です。</p>
+<ul>
+<li><a href="https://www.amazon.co.jp/Kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93-%E9%96%80%E8%84%87-%E5%A4%A7%E8%BC%94/dp/4297108437/">Kaggleで勝つデータ分析の技術</a></li>
+<li><a href="https://www.coursera.org/learn/competitive-data-science">How to Win a Data Science Competition: Learn from Top Kagglers</a></li>
+</ul>
+<p>使ったコードは<a href="https://github.com/yumezu121/signate_bikes/tree/main">こちら</a>です。</p>
   </div>
   
 <div class="article-tag-list">
@@ -356,10 +377,70 @@ train用のデータの説明変数に目的変数を入れたままなのに気
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">24</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">6</span>
         競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">4</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">14</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
       </a>
     </span>
     <span class="tag-2">
@@ -369,15 +450,27 @@ train用のデータの説明変数に目的変数を入れたままなのに気
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
-        論文まとめ
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-4">
@@ -386,10 +479,10 @@ train用のデータの説明変数に目的変数を入れたままなのに気
         海外留学
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
       </a>
     </span>
     <span class="tag-2">
@@ -410,82 +503,10 @@ train用のデータの説明変数に目的変数を入れたままなのに気
         Data Science Competition
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">24</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
 </p>
