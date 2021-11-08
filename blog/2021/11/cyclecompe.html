@@ -8,16 +8,17 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="必要n数の決定～研究計画～"/>
-    <meta property="og:url" content="../../../blog/2019/03/n_number.html"/>
+    <meta property="og:title" content="自転車コンペ"/>
+    <meta property="og:url" content="../../../blog/2021/11/cyclecompe.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Statistics"/>
+        <meta property="article:tag" content="Data Science Competition"/>
+        <meta property="article:tag" content="Machine Learning"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="必要n数の決定～研究計画～">
+    <meta name="twitter:title" content="自転車コンペ">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>必要n数の決定～研究計画～ - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>自転車コンペ - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -155,10 +156,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="n_number">
+    <meta name="article:slug" property="og:article:slug" content="cyclecompe">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-03-22">
+    <meta name="article:date" property="og:article:date" content="2021-11-08">
+    <meta name="article:modified" property="og:article:modified" content="2021-11-08">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -166,81 +168,74 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/03/n_number.html" rel="bookmark"
-     title="Permalink to 必要n数の決定～研究計画～">
-    必要n数の決定～研究計画～
+  <a href="../../../blog/2021/11/cyclecompe.html" rel="bookmark"
+     title="Permalink to 自転車コンペ">
+    自転車コンペ
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-22(Fri)
+  2021-11-08(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/yi-teng.html">依藤</a>    in 
+<a href="../../../author/mei-jin.html">梅津</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/statistics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Statistics&labelColor=black&color=darkorange" alt="tag:Statistics" title="tag:Statistics"></img></a>
+        <a href="../../../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data%20Science%20Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">シングルセル解析での細胞数</span></h2>
-<p>① <strong>実現可能性</strong>：金銭面、使用機器のスループットを考慮した細胞数<br>
-② <strong>検出力</strong>：統計学的検討により細胞種間の差が充分に検出される症例数であるか<br>
-③ <strong>倫理面</strong>：ヒトサンプル、あるいはモデル動物サンプルの取り扱い  </p>
-<p>とくに②に関して：</p>
-<ul>
-<li>分類するclusterに関して過去の文献から予測する。</li>
-<li>想定されるcluster数</li>
-<li>1clusterあたりの最低細胞数</li>
-</ul>
-<p>上記の見積もりができれば、ウェブサイトでの計算が可能。</p>
-<h2><span id="pelican-subsections-1">臨床研究での症例数</span></h2>
-<p>① <strong>実現可能性</strong>：それだけの症例数を集めることができるか<br>
-② <strong>検出力</strong>：統計学的検討によりoutcomeの差が充分に検出される症例数であるか<br>
-③ <strong>倫理面</strong>：不必要に多くの被験者を研究に参加させるべきではない  </p>
-<p>とくに②に関して：</p>
-<p>症例数の予測に必要なものを過去の文献やパイロット研究を行うことで予測する。</p>
-<ul>
-<li>outcomeの差</li>
-<li>データのばらつき(標準偏差)</li>
-</ul>
-<p>上記の見積もりができれば、ソフトウェアでの計算が可能。 (cf.) <a href="http://biostat.mc.vanderbilt.edu/wiki/Main/PowerSampleSize">Power and Sample Size Calculation (PS)</a></p>
-<h2><span id="pelican-subsections-2">まとめ</span></h2>
-<p>シングルセル解析では、やはり値段や機器の問題が大きくなってくるでしょうか。特に細胞種がかなり希少な場合に、細胞数(n)をどんどん増やすしかないとなると、その点が一番気になります。</p>
-<p>一方で臨床研究では、単施設で可能なのか、多施設共同でないと症例数(n)が集まらないのかという問題は切実です。そしてヒトを対象にする以上、症例数決定の明確な理由が必要です。<a href="http://www.consort-statement.org/media/default/downloads/consort%202010%20checklist.pdf">CONSORT2010 checklist</a>にも記載があります。</p>
-<p>いずれにせよ、事前の文献調査やプレ実験・パイロット研究によって着地点を明確にしておかないと、途中で頓挫してしまい、出るはずの結果がでない事態になりそうです。今後はシングルセル解析で前提となる統計手法に関しても勉強していこうと思っています。</p>
-<h2><span id="pelican-subsections-3">参考文献</span></h2>
-<ul>
-<li>今日から使える医療統計　(新谷歩, 2015年, 医学書院)</li>
-<li>Tutorial: guidelines for the experimental design of single-cell RNA sequencing studies　(Atefeh Lafzi et el., Nature Protocols volume 13, pages2742–2757 (2018))</li>
-</ul>
+	
+<p>2021/10/01~2021/10/27にsignateで開催された<a href="https://signate.jp/competitions/550">SIGNATE Student Cup 2021秋【予測部門】</a>で377人中26位になり銀メダルを獲得しました。</p>
+<h2><span id="pelican-subsections-0">コンペの概要</span></h2>
+<p>予測する日以前のデータを使用し、予測当日での70ヶ所の駐輪場での利用可能な自転車数を予測する回帰問題。時系列データで1時間ごとの値が与えられた。\
+予測する日は複数あり、それらは全てが連続しているわけではなく前後に訓練に回せるデータがある場合もある。しかし、上記に書いた通り予測する日に対し翌日からのデータを使用するのは禁止。リークに注意する必要があった。\
+利用可能な自転車数から気候など様々な特徴量が4つのテーブルから与えられた。\
+評価指標はRMSE(root mean squared error)</p>
+<h2><span id="pelican-subsections-1">したこと</span></h2>
+<p>今回は単独での参加だったのでEDAからモデリングまで自分でやりました。
+* feature engineering
+平日、祝日、休日や春夏秋冬の季節を作成しました。
+* train&amp;validation
+予測する日以前のデータの全てをtrainにまわしました。欠損したところはその直前の予測日以前のデータでtrainしたモデルでの予測値を代入し、pseudo labelingをしました。120個のlgbmをtrainすることになりましたが、結局は月毎で12個つくった方が精度が出るみたいです。validationを上記の訓練する状況に似せようと1日だけにしたのが悪手なのかも...
+1つ目のlgbmでoptunaを使いハイパーパラメータを最適化し、他にも流用しました。
+seed値を変えた３つの120個のlgbmのセットをensambleに使いました。</p>
+<h2><span id="pelican-subsections-2">他にやりたかったこと</span></h2>
+<p>LSTMやTabnetなどのNNも試してみたかった。\
+ラグ特徴量のような時系列データで効果的な特徴量も作りたかった。\
+RFのハイパーパラメータを最適化し使おうとしたが何時間たっても終わる気配がせず断念。最適化しなかった場合、lgbmとensambleするとlgbmのRandom Seed Averageよりも精度が低かった。\
+station毎にモデルを訓練させたかった。</p>
+<h2><span id="pelican-subsections-3">反省点</span></h2>
+<p>多くありますが、最初にEDAがあまく、予測フラグが立っていない行の目的変数がNaNであることがありえることに気付かず、精度が出ませんでした。EDAは大切！\
+train用のデータの説明変数に目的変数を入れたままなのに気付かず、お手上げ状況になった。GBDTへの理解が足らず、リークした際の状況を推測できなかったのが原因。\
+カテゴリ変数のencodingを一切関数を使わずに行ったため、次からは使いたい。</p>
+<h2><span id="pelican-subsections-4">とても参考になったもの</span></h2>
+<p><a href="https://www.amazon.co.jp/Kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93-%E9%96%80%E8%84%87-%E5%A4%A7%E8%BC%94/dp/4297108437/ref=sr_1_1?adgrpid=109872001568&amp;dchild=1&amp;gclid=Cj0KCQjw5oiMBhDtARIsAJi0qk2fQg-LTS200pIygImVOdjg50nrlrsEpo_AZNS3GSV43BlV3ZLwrJgaArUyEALw_wcB&amp;hvadid=553921514572&amp;hvdev=c&amp;hvlocphy=1009543&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=11529920702029821113&amp;hvtargid=kwd-818170082585&amp;hydadcr=27492_14478797&amp;jp-ad-ap=0&amp;keywords=kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93&amp;qid=1635941789&amp;sr=8-1">Kaggleで勝つデータ分析の技術</a><br>
+<a href="https://www.coursera.org/learn/competitive-data-science">How to Win a Data Science Competition: Learn from Top Kagglers</a><br>
+使ったコードは<a href="https://github.com/yumezu121/signate_bikes/tree/main">こちら</a> です。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/statistics.html"><i class="fa fa-tag"></i>Statistics</a>&nbsp;
+	<a href="../../../tag/data-science-competition.html"><i class="fa fa-tag"></i>Data Science Competition</a>&nbsp;
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
-            <a href="../../../blog/2019/03/original_rnaseq_pipeline.html">
-                阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース
-            </a>
-        </li>
-        <li>
-            次の記事 :
-            <a href="../../../blog/2019/03/velocyto.html">
-                VELOCYTO
+            <a href="../../../blog/2021/08/seti.html">
+                宇宙人コンペ
             </a>
         </li>
         <li>    
             関連記事 :
             <ul>
-                <li><a href="../../../blog/2020/12/ptitprince_tutorial.html">PtitPrinceによるPythonでのRaincloud plotの描画</a></li>
-                <li><a href="../../../blog/2020/11/hypothesis_liability.html">仮説に基づいたデータ解析における先入観の弊害</a></li>
-                <li><a href="../../../blog/2020/07/samestats.html">同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</a></li>
+                <li><a href="../../../blog/2021/08/seti.html">宇宙人コンペ</a></li>
+                <li><a href="../../../blog/2021/03/studymeeting_attention25.html">attention勉強会2.5</a></li>
+                <li><a href="../../../blog/2019/03/voice_recognition.html">NTT corevoチャレンジ: 話者の性別・年代識別</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -256,7 +251,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/03/n_number.html" 
+        data-href="../../../blog/2021/11/cyclecompe.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
