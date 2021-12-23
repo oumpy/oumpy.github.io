@@ -1,0 +1,592 @@
+.navbar {
+  background-color: #1d2113;
+	border-color: #1d2113;
+  position: sticky;
+}
+
+.navbar .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar .navbar-nav>li>a:hover {
+    color: #999;
+    background: #072A24;
+}
+
+.navbar .navbar-nav>.active>a, .navbar .navbar-nav>.active>a:focus, .navbar .navbar-nav>.active>a:hover {
+    color: #1d2113;
+    background-color: #e7e7e7;
+}
+
+.jumbotron {
+    padding-top: 1.25rem;
+    padding-bottom: 0.1rem;
+    margin-top: 0rem;
+    margin-bottom: 1.25rem;
+    background-color: #0f5889;
+    border-radius: 0rem;
+}
+
+.jumbotron a {
+	 color: #fff;
+	 text-decoration: none!important;
+	 font-weight: bolder;
+	 /*font-size: 70%;*/
+}
+
+.jumbotron h1 {
+  font-size: 3.0rem;
+}
+
+p.lead{
+	color: #d3d3d3;
+	font-style: italic;
+}
+
+/*
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+*/
+
+img{
+	padding: 10px 5px 20px;
+	max-width: 90%;
+	display: block;
+	margin: auto;
+}
+
+img.notebook-badge-image {
+	margin-right: 10px!important;
+  display: inline!important;
+}
+
+body{
+	font-size: 16px;
+}
+
+#content {
+    padding-right: 20px;
+    line-height: 26px;
+}
+
+#content p {
+      margin-bottom: 24px;
+  }
+
+p.standfirst {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#site-colophon {
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.article-header-date, .article-header-info {
+	color: #999;
+}
+
+.modified-date, .page-header-info {
+  text-align: right;
+  color: #999;
+}
+
+.social-links {
+	font-size: 18px;
+}
+
+.category-links {
+	font-size: 18px;
+}
+
+.tag-1 {
+	font-size: 12pt;
+}
+.tag-2 {
+	font-size: 10pt;
+}
+.tag-3 {
+	font-size: 9pt;
+}
+.tag-4 {
+	font-size: 8pt;
+}
+
+.tag-cloud {
+    line-height: 12px;
+}
+
+.article-tag-list {
+    padding-top: 15px;
+}
+
+.home-top {
+	margin-top: 20px;
+}
+
+#sidebar h4 {
+    margin-top: 20px;
+}
+
+#site-footer {
+    background: #eee;
+    border-top: 1px dotted #999;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+/*
+ * My preference for code blocks is no line wraps and horizontal scrolling.
+ */
+
+dt {
+  margin-top: 10px;
+}
+
+/*広告を非表示に*/
+#overlay1area{
+	display:none!important;
+}
+
+#tce_ov_area1{
+	display:none!important;
+}
+
+header h1{
+  font-weight:bold;
+  font-size: 1.7rem;
+  padding: .5em .75em;
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0.75rem;
+}
+
+article h1{
+	color: #333333;
+  font-size: 1.7rem;
+}
+
+article h1 a{
+  color: #333333;
+}
+
+#content p {
+    margin-bottom: 10px;
+}
+
+.content-body h2{
+	font-weight:bold;
+	font-size: 1.6rem;
+  padding: 0rem 1rem;
+  margin: 1.5rem 0 1rem 0;
+  text-align: left;
+  border-left: 6px solid #126ca7;
+  border-bottom: 3px solid #126ca7;
+}
+
+.content-body h3{
+	font-weight:bold;
+	font-size: 1.4rem;
+	padding: .25em 0 .25em .75em;
+  border-left: 6px solid #ccc;
+}
+
+.content-body h4 {
+  font-weight: bold;
+  font-size: 1.2rem;
+	padding: .25em 0 .25em 1em;
+}
+
+/*topへ戻るボタン*/
+.pagetop{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+	display: none;
+  right: 5px;
+  bottom: 0;
+  background: #c8c8c8;
+  border-radius: 5px;
+  border: 1px solid #323232;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 768px) {
+  .pagetop{
+	right: 20px;
+	bottom: 10px;
+  }
+}
+
+.pagetop a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+
+.pagetop a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+	bottom: 10px;
+	right: 1px;
+	left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.pagetop:hover{
+  background-color:#969696;
+}
+
+.sidebar_box {
+    margin: 1em 0;
+    background: #fff;
+    border: 3px solid #126ca7;
+    border-radius: 0.5rem;
+}
+.sidebar_box .box-title {
+    font-size: 1.2em;
+    background: #126ca7;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.sidebar_box .box-contents {
+    padding: 15px 5px 5px 15px;
+    margin: 0;
+}
+
+.sidebar_box p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.sidebar_box a {
+	color: #333333;
+}
+
+.social-links {
+    font-size: 16px;
+}
+
+.category-links {
+    font-size: 16px;
+}
+
+.tag-cloud a {
+  display: inline-block;
+  padding: 5px;
+  margin: 3px 1px 3px 1px;
+  text-decoration: none;
+  color: #333333;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  background: #ECECEC;
+  transition: .4s;
+}
+
+.tag-cloud a:hover {
+  background: #787878;
+  color: white;
+}
+
+/*syntax highlight*/
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #252525;
+    background-color: rgba(0,0,0,.03);
+    border: 0px;
+    border-radius: 0px;
+		white-space: unset!important;
+}
+
+div.input_area {
+    border: 1px solid #cfcfcf;
+    background: #364549!important;
+}
+
+div.input_area > div.highlight {
+    margin: 0px!important;
+}
+
+div.output_subarea {
+    max-width: 100%!important;
+}
+
+#content pre {
+  background-color: #364549;
+  color: #dddddd;
+  border-left: none;
+  overflow-x: auto;
+	border-radius: 2px;
+  padding: 6px;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.highlight .n {color: #dddddd!important;}
+.highlight .nf {color: #8bdf4c!important;}
+.highlight .nt {color: #8bdf4c!important;}
+.highlight .m {color: #dddddd!important;}
+.highlight .bp {color: #dddddd!important;}
+.highlight .nn {color: #dddddd!important;}
+.highlight .nc {color: #8bdf4c!important;}
+.highlight .fm {color: #8bdf4c!important;}
+.highlight .nb {color: #ebd247!important;}
+.highlight .o {color: #e18095!important;}
+.highlight .ow {color: #e18095!important;}
+.highlight .p {color: #dddddd!important;}
+.highlight .mf {color: #dddddd!important;}
+.highlight .k {color: #ebd247!important;}
+.highlight .kc {color: #ebd247!important;}
+.highlight .kn {color: #e18095!important;}
+.highlight .kt {color: #ebd247!important;}
+.highlight .kp {color: #ebd247!important;}
+.highlight .mi {color: #a980f5!important;}
+.highlight .m {color: #a980f5!important;}
+.highlight .s {color: #41b7d7!important;}
+.highlight .si {color: #41b7d7!important;}
+.highlight .sb {color: #41b7d7!important;}
+.highlight .se {color: #a980f5!important;}
+.highlight .s1 {color: #41b7d7!important;}
+.highlight .s2 {color: #41b7d7!important;}
+.highlight .c {color: #9dabae!important;}
+.highlight .cp {color: #ebd247!important;}
+.highlight .c1 {color: #9dabae!important;}
+.highlight .err {color: #dddddd!important;background:none!important}
+
+/*blog tag一覧のstyle*/
+.blog_box p{
+	font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Tables : copied from github theme of Typora. */
+table {
+  padding: 0;
+  word-break: initial;
+}
+table tr {
+  border-top: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+  background-color: #f8f8f8;
+}
+table tr th {
+  font-weight: bold;
+  border: 1px solid #dfe2e5;
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr td {
+  border: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+
+/* for open in colab or github*/
+div#colablink{
+	margin: 10px 0px 0px 10px;
+}
+
+img.notebook-badge-image{
+	padding: 2px;
+}
+
+/* for toc*/
+ul#toc {
+    padding: 5px 0px 0px 0px;
+    margin: 5px 0px 5px 20px;
+}
+
+.toc_box {
+	position: relative;
+	margin: 2em 2em 2em 2em;
+	padding: 0.5em 1em;
+	border: solid 3px #126ca7;
+	border-radius: 10px;
+}
+
+.toc_box .box-title {
+  font-family: "Ludica Sans";
+  position: absolute;
+  display: inline-block;
+  top: -10px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 16px;
+  background: #FFF;
+  color: #333333;
+  font-weight: bold;
+}
+
+/* responsive youtube iframe */
+.videobox iframe {
+  position: relative;
+  max-width: 90vw!important;
+  max-height: calc(90vw * 0.75)!important;
+  display: block;
+  margin: auto;
+}
+
+.horizontal-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+ul.group_taglist {
+  list-style:none;
+  padding-left:0;
+}
+ul.group_taglist > li {
+  display:inline;
+  font-size: 18px;
+  font-weight: 500;
+}
+ul.group_taglist > li:not(:nth-child(1)):before {
+  content:"\0a0\0a0/\0a0\0a0\0a0";
+}
+ul.group_taglist .article-numbers {
+  font-size: 16px;
+}
+
+ul.social-links {
+  list-style:none;
+  padding-left:0;
+}
+ul.social-links > li {
+  display:inline;
+  font-size: 1.5em;
+}
+
+table.recent-posts {
+  border-style: hidden;
+  margin: 0px;
+  padding: 0px;
+  border-spacing: 0px;
+  font-size: smaller;
+}
+table.recent-posts > tr {
+  padding: 0px;
+  border-style: hidden;
+}
+table.recent-posts td {
+  padding: 1px 3px;
+  border-style: hidden;
+}
+td.recent-posts-date {
+  padding-left: 0px;
+}
+.recent-posts-year {
+  font-style: italic;
+}
+.recent-posts-prefix-category {
+  font-size: smaller;
+}
+.recent-posts-title {
+  font-weight: bolder;
+}
+
+/* デスクトップ表示ではホバー操作でドロップダウンを表示 */
+@media only screen and (min-width : 768px) {
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+}
+
+/*blockquote*/
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    box-sizing: border-box;
+    font-style: italic;
+    background: #efefef;
+    color: #555;
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: -3px;
+    content: "“";
+    font-family: arial;
+    color: #cfcfcf;
+    font-size: 90px;
+    line-height: 1;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+
+/* Reduce spaces for articles converted from jupyter notebook*/
+div.prompt{
+	padding: 0!important;
+	min-width: 10ex!important;
+}
+
+div.text_cell_render{
+	padding: 0em 0.5em 0em 0.4em!important;
+}
+
+/* font-size for donators : fs = 1.0 + (log10(x)-1)^3 / 50 */
+.donator-E2 {
+  font-size: 1.02rem;
+}
+.donator-E3 {
+  font-size: 1.16rem;
+}
+.donator-E4 {
+  font-size: 1.54rem;
+}
+.donator-E5 {
+  font-size: 2.28rem;
+}
+.donator-E6 {
+  font-size: 3.5rem;
+}
