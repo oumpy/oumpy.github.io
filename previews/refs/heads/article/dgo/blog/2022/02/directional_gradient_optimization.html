@@ -1314,11 +1314,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には誤差情報は各ニューロンにフィードバックする必要があるということには注意してください (順伝播すればすべて学習できる魔法のような手法ではありません)．</p>
 <h2 id="&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;"><span id="pelican-subsections-0">&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;<a class="anchor-link" href="#&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;">&#182;</a></span></h2><p>やや外れた話題ですが，摂動による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを$\boldsymbol{\theta} \in \mathbb{R}^p$, データサンプルを$\mathbf{x}$，損失関数を$L(\boldsymbol{\theta}, \mathbf{x})$とします．また，パラメータへの摂動を$\mathbf{v}\in \mathbb{R}^p$とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
 $$
-\begin{align}
+\begin{align*}
 &amp;\Delta L = L(\boldsymbol{\theta}+\mathbf{v}, \mathbf{x}) - L(\boldsymbol{\theta}, \mathbf{x})\\
 &amp;\textbf{if}\ \Delta L &lt; 0\ \text{:}\\
 &amp;\quad \boldsymbol{\theta} \leftarrow \boldsymbol{\theta}+\mathbf{v}
-\end{align}
+\end{align*}
 $$<p>一応学習は進みますが，効率的ではありません．誤差逆伝播法を用いない学習法の研究においてベースラインとしてよく用いられます．</p>
 <h2 id="&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;"><span id="pelican-subsections-1">&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector product&#12398;&#35336;&#31639;<a class="anchor-link" href="#&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;">&#182;</a></span></h2><p>関数$f$について点$\mathbf{u}$における方向$\mathbf{v}$の方向微分(directional gradient)は</p>
 $$
@@ -1404,14 +1404,14 @@ $$
 \boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \cdot \nabla L(\boldsymbol{\theta}, \mathbf{x})
 $$<p>とパラメータを更新します．一方，FGDとDODGEでは以下のようにパラメータを更新します．</p>
 $$
-\begin{align}
+\begin{align*}
 &amp;\textbf{if}\ \text{FGD:}\\
 &amp;\quad \mathbf{v} \sim \mathcal{N}(0, \mathbf{I})\\
 &amp;\textbf{else if}\ \text{DODGE:}\\
 &amp;\quad \mathbf{v} \sim \{-1, 1\}^p\\
 &amp;g(\boldsymbol{\theta}, \mathbf{x}) = (\nabla L(\boldsymbol{\theta}, \mathbf{x})\cdot \mathbf{v})\cdot \mathbf{v}\\
 &amp;\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \cdot g(\boldsymbol{\theta}, \mathbf{x})
-\end{align}
+\end{align*}
 $$<p>2つの手法は摂動をサンプリングする分布が異なるだけと言えます．ここで$\nabla L(\boldsymbol{\theta}, \mathbf{x})\cdot \mathbf{v}$の計算の際に$\nabla L(\boldsymbol{\theta}, \mathbf{x})$を計算する必要がないことに注意してください．また，$g(\boldsymbol{\theta}, \mathbf{x})$が$\nabla L(\boldsymbol{\theta}, \mathbf{x})$の<strong>不偏推定量(unbiased estimator)</strong> になるということが最も重要な点です．これについての証明はそれぞれの論文に書いてあるのでそちらを参照してください．</p>
 <p>以下では数値計算を用いてこの手法で勾配が近似できることを説明します．先ほどの続きとしてcos関数のuにおける勾配を計算します．</p>
 
@@ -1513,10 +1513,10 @@ $$<p>2つの手法は摂動をサンプリングする分布が異なるだけ�
 
  
  
-<div id="3874614f-fd1b-446e-8d4a-8eee1e0230fb"></div>
+<div id="72b839a8-2961-4396-80bf-81c3efab2558"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#3874614f-fd1b-446e-8d4a-8eee1e0230fb');
+var element = $('#72b839a8-2961-4396-80bf-81c3efab2558');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "d298914d6a224438ab2d80e432477741", "version_major": 2, "version_minor": 0}
@@ -3116,99 +3116,15 @@ Test Error:
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">5</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+        Shell script
       </a>
     </span>
     <span class="tag-3">
@@ -3218,9 +3134,75 @@ Test Error:
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">15</span>
-        Python
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -3229,16 +3211,34 @@ Test Error:
         競技プログラミング
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
           <span class="badge badge-primary">26</span>
         Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>
