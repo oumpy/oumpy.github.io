@@ -1312,7 +1312,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>この記事では(<a href="https://openreview.net/forum?id=5i7lJLuhTm">Silver, et al., "Learning by Directional Gradient Descent." ICLR. 2021</a>)および(<a href="http://arxiv.org/abs/2202.08587">Baydin, et al., "Gradients without Backpropagation", arXiv, 2022</a>)の解説&amp;実装を行います．</p>
 <p>両者とも<strong>摂動 (perturbation)</strong> と<strong>方向微分(directional gradient)</strong> を用いて勾配を近似することで，誤差逆伝播法 (backpropagation)を用いずにニューラルネットワークを訓練するという手法を提案しています．gradient-free optimizationの一種とも言えるでしょう．以後，Silverらの提案手法を<strong>DODGE</strong>(Deep Online Directional Gradient Estimate), Baydinらの提案手法を<strong>FGD</strong> (Forward gradient descent)と呼ぶことにします．</p>
 <p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には損失の情報は各ニューロンにフィードバックする必要があるということには注意してください (順伝播すればすべて学習できる魔法のような手法ではありません)．</p>
-<h2 id="&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;"><span id="pelican-subsections-0">&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;<a class="anchor-link" href="#&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;">&#182;</a></span></h2><p>やや外れた話題ですが，摂動による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを$\boldsymbol{\theta} \in \mathbb{R}^p$, データサンプルを$\mathbf{x}$，損失関数を$L(\boldsymbol{\theta}, \mathbf{x})$とします．また，パラメータへの摂動を$\mathbf{v}\in \mathbb{R}^p$とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
+<h2 id="&#19979;&#28310;&#20633;1:-&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;"><span id="pelican-subsections-0">&#19979;&#28310;&#20633;1: &#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;<a class="anchor-link" href="#&#19979;&#28310;&#20633;1:-&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;">&#182;</a></span></h2><p>やや外れた話題ですが，先に摂動による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを$\boldsymbol{\theta} \in \mathbb{R}^p$, データサンプルを$\mathbf{x}$，損失関数を$L(\boldsymbol{\theta}, \mathbf{x})$とします．また，パラメータへの摂動を$\mathbf{v}\in \mathbb{R}^p$とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
 $$
 \begin{align*}
 &amp;\Delta L = L(\boldsymbol{\theta}+\mathbf{v}, \mathbf{x}) - L(\boldsymbol{\theta}, \mathbf{x})\\
@@ -1320,17 +1320,17 @@ $$
 &amp;\quad \boldsymbol{\theta} \leftarrow \boldsymbol{\theta}+\mathbf{v}
 \end{align*}
 $$<p>一応学習は進みますが，効率的ではありません．誤差逆伝播法を用いない学習法の研究においてベースラインとしてよく用いられます．</p>
-<h2 id="&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;"><span id="pelican-subsections-1">&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector product&#12398;&#35336;&#31639;<a class="anchor-link" href="#&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;">&#182;</a></span></h2><p>関数$f$について点$\mathbf{u}$における方向$\mathbf{v}$の方向微分(directional gradient)は</p>
+<h2 id="&#19979;&#28310;&#20633;2:-&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;"><span id="pelican-subsections-1">&#19979;&#28310;&#20633;2: &#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector product&#12398;&#35336;&#31639;<a class="anchor-link" href="#&#19979;&#28310;&#20633;2:-&#26041;&#21521;&#24494;&#20998;&#12392;Jacobian-vector-product&#12398;&#35336;&#31639;">&#182;</a></span></h2><p>本記事で紹介する学習則では方向微分というものが用いられます．関数$f$について点$\mathbf{u}$における方向$\mathbf{v}$の方向微分は</p>
 $$
 \nabla_\mathbf{v}f(\mathbf{u})= \lim_{h\to 0} \frac{f(\mathbf{u}+h\mathbf{v}) - f(\mathbf{u})}{h}
 $$<p>として定義されます．また$f$が点$\mathbf{u}$において微分可能なら</p>
 $$
 \nabla_\mathbf{v}f(\mathbf{u})=\nabla f(\mathbf{u})\cdot \mathbf{v}
 $$<p>が成り立ちます．ここで右辺を<strong>Jacobian-vector product</strong> (JVP) と呼びます．JVPを計算する上でSilverらはForward Mode ADで計算できる<a href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jvp.html#jax.jvp"><code>jax.jvp</code></a>を用いています．BaydinらはPytorch実装かつ自動微分部分は自前実装したようです．Pytorchにも<a href="https://pytorch.org/docs/stable/generated/torch.autograd.functional.jvp.html"><code>torch.autograd.functional.jvp</code></a>がありますが，"double backwards trick"というbackwardsを2回用いる手法を用いているので勾配が必要になります．</p>
-<p>妥協案として有限差分(finite difference)を用いてJacobian-vector productを近似計算します ($\epsilon$は小さい値です)．2回forward計算が必要なので効率は悪いことに注意してください．</p>
+<p>妥協案として有限差分(finite difference)を用いてJacobian-vector productを近似計算します ($\epsilon$は小さい値です)．</p>
 $$
 \nabla f(\mathbf{u})\cdot \mathbf{v} \approx \frac{f(\mathbf{u}+\epsilon \mathbf{v}) - f(\mathbf{u})}{\epsilon}
-$$<p>なお，$f(\mathbf{u})\in \mathbb{R}$の場合，$\nabla f(\mathbf{u})\cdot \mathbf{v}\in \mathbb{R}$となります．有限差分法で近似計算ができることを簡単な関数 (cos)で確かめてみましょう．</p>
+$$<p>なお，$f(\mathbf{u})\in \mathbb{R}$の場合，$\nabla f(\mathbf{u})\cdot \mathbf{v}\in \mathbb{R}$となります．有限差分法で近似計算ができることを簡単な関数 (cos)で確かめてみましょう．先に今回使うライブラリを全てimportしておきます．</p>
 
 </div>
 </div>
@@ -1395,6 +1395,14 @@ finite diff.: tensor([-0.0126], grad_fn=&lt;DivBackward0&gt;)
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>自動微分の結果と有限差分法による結果が概ね一致していることがわかります．以後，有限差分法を用いますが，今回紹介する学習則に適応する場合，2回forward計算が必要なので効率は悪いことに注意してください．</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -1513,10 +1521,10 @@ $$<p>2つの手法は摂動をサンプリングする分布が異なるだけ�
 
  
  
-<div id="aeb38fd3-45d3-4446-8f96-cd5a75da935e"></div>
+<div id="7704bf1e-cc89-43e4-90e8-46c4da33e127"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#aeb38fd3-45d3-4446-8f96-cd5a75da935e');
+var element = $('#7704bf1e-cc89-43e4-90e8-46c4da33e127');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "d298914d6a224438ab2d80e432477741", "version_major": 2, "version_minor": 0}
@@ -2115,7 +2123,7 @@ Test Error:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#23398;&#32722;"><span id="pelican-subsections-5">&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#23398;&#32722;<a class="anchor-link" href="#&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#23398;&#32722;">&#182;</a></span></h3><p>モデルを2種類 <code>model</code>, <code>model_v</code>を用意します．<code>model_v</code>には<code>model</code>のパラメータ$\boldsymbol{\theta}$に摂動$\mathbf{v}$を加えたパラメータを入れます．この際，パラメータを辞書形式 <code>model.state_dict()</code>で取得し，別のパラメータの辞書を作成した後に<code>model.load_state_dict()</code>で更新するというややこしい手法を用いています．</p>
+<h3 id="&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#35347;&#32244;"><span id="pelican-subsections-5">&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#35347;&#32244;<a class="anchor-link" href="#&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#35347;&#32244;">&#182;</a></span></h3><p>モデルを2種類 <code>model</code>, <code>model_v</code>を用意します．<code>model_v</code>には<code>model</code>のパラメータ$\boldsymbol{\theta}$に摂動$\mathbf{v}$を加えたパラメータを入れます．この際，パラメータを辞書形式 <code>model.state_dict()</code>で取得し，別のパラメータの辞書を作成した後に<code>model.load_state_dict()</code>で更新するというややこしい手法を用いています．</p>
 <p>前節のシミュレーションでは<code>num_directions</code>を増やさないと推定された勾配が真の勾配に近づきませんでしたが，<code>num_directions=1</code>でも学習は進行します．もちろん増やしてもいいですが，計算量が増えます．</p>
 <p>なお，数値的に不安定だったのでgradient clippingを<code>torch.clamp()</code>を用いて入れています．学習率$lr$は0.001とbackpropの0.01よりも小さいものを用いていますが，これは<code>lr</code>を0.01にすると発散したためです．</p>
 
@@ -2178,7 +2186,7 @@ Test Error:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="DODGE"><span id="pelican-subsections-6">DODGE<a class="anchor-link" href="#DODGE">&#182;</a></span></h4>
+<h4 id="DODGE&#12398;&#22580;&#21512;"><span id="pelican-subsections-6">DODGE&#12398;&#22580;&#21512;<a class="anchor-link" href="#DODGE&#12398;&#22580;&#21512;">&#182;</a></span></h4>
 </div>
 </div>
 </div>
@@ -2529,7 +2537,7 @@ Test Error:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="FGD"><span id="pelican-subsections-7">FGD<a class="anchor-link" href="#FGD">&#182;</a></span></h4>
+<h4 id="FGD&#12398;&#22580;&#21512;"><span id="pelican-subsections-7">FGD&#12398;&#22580;&#21512;<a class="anchor-link" href="#FGD&#12398;&#22580;&#21512;">&#182;</a></span></h4>
 </div>
 </div>
 </div>
@@ -2880,7 +2888,7 @@ Test Error:
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#12514;&#12487;&#12523;&#12398;&#27604;&#36611;"><span id="pelican-subsections-8">&#12514;&#12487;&#12523;&#12398;&#27604;&#36611;<a class="anchor-link" href="#&#12514;&#12487;&#12523;&#12398;&#27604;&#36611;">&#182;</a></span></h3><p>最後に各モデルの損失を比較してみましょう．</p>
+<h3 id="&#23398;&#32722;&#21063;&#12398;&#27604;&#36611;"><span id="pelican-subsections-8">&#23398;&#32722;&#21063;&#12398;&#27604;&#36611;<a class="anchor-link" href="#&#23398;&#32722;&#21063;&#12398;&#27604;&#36611;">&#182;</a></span></h3><p>最後に各学習則の訓練誤差を比較してみましょう．</p>
 
 </div>
 </div>
@@ -3109,34 +3117,10 @@ Test Error:
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/bioinformatics.html">
           <span class="badge badge-primary">14</span>
         Bioinformatics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">5</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
       </a>
     </span>
     <span class="tag-4">
@@ -3145,46 +3129,22 @@ Test Error:
         Simulation
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">26</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">6</span>
         競技プログラミング
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        企業インターン
       </a>
     </span>
     <span class="tag-3">
@@ -3194,21 +3154,27 @@ Test Error:
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
       </a>
     </span>
     <span class="tag-2">
@@ -3217,10 +3183,10 @@ Test Error:
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-4">
@@ -3230,15 +3196,57 @@ Test Error:
       </a>
     </span>
     <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">5</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">26</span>
+        Machine Learning
       </a>
     </span>
 </p>
