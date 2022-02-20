@@ -1311,7 +1311,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>この記事では(<a href="https://openreview.net/forum?id=5i7lJLuhTm">Silver, et al., "Learning by Directional Gradient Descent." ICLR. 2021</a>)および(<a href="http://arxiv.org/abs/2202.08587">Baydin, et al., "Gradients without Backpropagation", arXiv, 2022</a>)の解説&amp;実装を行います．</p>
 <p>両者とも<strong>摂動 (perturbation)</strong> と<strong>方向微分(directional gradient)</strong> を用いて勾配を近似することで，誤差逆伝播法 (backpropagation)を用いずにニューラルネットワークを訓練するという手法を提案しています．gradient-free optimizationの一種とも言えるでしょう．以後，Silverらの提案手法を<strong>DODGE</strong>(Deep Online Directional Gradient Estimate), Baydinらの提案手法を<strong>FGD</strong> (Forward gradient descent)と呼ぶことにします．</p>
-<p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には誤差情報は各ニューロンにフィードバックする必要があるということには注意してください (順伝播すればすべて学習できる魔法のような手法ではありません)．</p>
+<p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には損失の情報は各ニューロンにフィードバックする必要があるということには注意してください (順伝播すればすべて学習できる魔法のような手法ではありません)．</p>
 <h2 id="&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;"><span id="pelican-subsections-0">&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;<a class="anchor-link" href="#&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;">&#182;</a></span></h2><p>やや外れた話題ですが，摂動による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを$\boldsymbol{\theta} \in \mathbb{R}^p$, データサンプルを$\mathbf{x}$，損失関数を$L(\boldsymbol{\theta}, \mathbf{x})$とします．また，パラメータへの摂動を$\mathbf{v}\in \mathbb{R}^p$とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
 $$
 \begin{align*}
@@ -1402,7 +1402,7 @@ finite diff.: tensor([-0.0126], grad_fn=&lt;DivBackward0&gt;)
 <h2 id="&#25666;&#21205;&#12392;&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#21246;&#37197;&#36817;&#20284;"><span id="pelican-subsections-2">&#25666;&#21205;&#12392;&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#21246;&#37197;&#36817;&#20284;<a class="anchor-link" href="#&#25666;&#21205;&#12392;&#26041;&#21521;&#24494;&#20998;&#12395;&#12424;&#12427;&#21246;&#37197;&#36817;&#20284;">&#182;</a></span></h2><p>それでは本題の説明をしましょう．まず，誤差逆伝播法と確率的勾配降下法(SGD)で学習する場合，誤差逆伝播法で$\nabla L(\boldsymbol{\theta}, \mathbf{x})=\dfrac{\partial L(\boldsymbol{\theta}, \mathbf{x})}{\partial \boldsymbol{\theta}}$を計算し，SGDにより</p>
 $$
 \boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \cdot \nabla L(\boldsymbol{\theta}, \mathbf{x})
-$$<p>とパラメータを更新します．一方，FGDとDODGEでは以下のようにパラメータを更新します．</p>
+$$<p>とパラメータを更新します．ただし，$\eta$は学習率です．一方，FGDとDODGEでは以下のようにパラメータを更新します．</p>
 $$
 \begin{align*}
 &amp;\textbf{if}\ \text{FGD:}\\
@@ -1513,10 +1513,10 @@ $$<p>2つの手法は摂動をサンプリングする分布が異なるだけ�
 
  
  
-<div id="72b839a8-2961-4396-80bf-81c3efab2558"></div>
+<div id="aeb38fd3-45d3-4446-8f96-cd5a75da935e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#72b839a8-2961-4396-80bf-81c3efab2558');
+var element = $('#aeb38fd3-45d3-4446-8f96-cd5a75da935e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "d298914d6a224438ab2d80e432477741", "version_major": 2, "version_minor": 0}
@@ -3109,6 +3109,18 @@ Test Error:
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">10</span>
@@ -3122,93 +3134,15 @@ Test Error:
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
         勉学支援
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+        Simulation
       </a>
     </span>
     <span class="tag-1">
@@ -3218,9 +3152,63 @@ Test Error:
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">5</span>
         論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
       </a>
     </span>
     <span class="tag-2">
@@ -3229,16 +3217,28 @@ Test Error:
         Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        論文関連
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
 </p>
