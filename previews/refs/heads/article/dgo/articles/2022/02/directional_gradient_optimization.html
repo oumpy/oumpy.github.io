@@ -1311,7 +1311,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>この記事では(<a href="https://openreview.net/forum?id=5i7lJLuhTm">Silver, et al., "Learning by Directional Gradient Descent." ICLR. 2021</a>)および(<a href="http://arxiv.org/abs/2202.08587">Baydin, et al., "Gradients without Backpropagation", arXiv, 2022</a>)の解説&amp;実装を行います．</p>
 <p>両者とも<strong>摂動 (perturbation)</strong> と<strong>方向微分(directional gradient)</strong> を用いて勾配を近似することで，誤差逆伝播法 (backpropagation)を用いずにニューラルネットワークを訓練するという手法を提案しています．gradient-free optimizationの一種とも言えるでしょう．以後，Silverらの提案手法を<strong>DODGE</strong>(Deep Online Directional Gradient Estimate), Baydinらの提案手法を<strong>FGD</strong> (Forward gradient descent)と呼ぶことにします．</p>
-<p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には損失の情報は各ニューロンにフィードバックする必要があるということには注意してください．とは言え，各シナプスにおいてシナプス伝達強度の変化方向を記憶しておき，損失の方向微分の値というglobal factorを乗じる，ということで解釈できます．(この当たりの話題を期待して読み始めた方は一度以下の解説を読んだ上でここに戻ってきてください)．</p>
+<p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播(forward)のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．論文中には脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込む際には損失の情報は各ニューロンにフィードバックする必要があるということには注意してください．とは言え，各シナプスにおいて微小なシナプス伝達強度の変化方向を記憶しておき，損失の方向微分の値というglobal factorを乗じて再度シナプス伝達強度を変化させる，ということで一応解釈はできます (実現可能かは微妙なところですが)．</p>
 <h2 id="&#19979;&#28310;&#20633;1:-&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;"><span id="pelican-subsections-0">&#19979;&#28310;&#20633;1: &#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;<a class="anchor-link" href="#&#19979;&#28310;&#20633;1:-&#25666;&#21205;&#12395;&#12424;&#12427;&#23398;&#32722;&#27861;">&#182;</a></span></h2><p>やや外れた話題ですが，先に<strong>摂動 (perturbation)</strong> による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを$\boldsymbol{\theta} \in \mathbb{R}^p$, データサンプルを$\mathbf{x}$，損失関数を$L(\boldsymbol{\theta}, \mathbf{x})$とします．また，パラメータへの摂動を$\mathbf{v}\in \mathbb{R}^p$とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
 $$
 \begin{align*}
@@ -2876,28 +2876,10 @@ Test Error:
         Python
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">5</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-3">
@@ -2906,76 +2888,16 @@ Test Error:
         勉学支援
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">26</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
     <span class="tag-2">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">8</span>
         News
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-4">
@@ -2985,9 +2907,57 @@ Test Error:
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">5</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        その他言語
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">6</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
@@ -2997,9 +2967,39 @@ Test Error:
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        Neuroscience
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">26</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
 </p>
