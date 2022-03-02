@@ -201,21 +201,21 @@
 <span class="math">\(f\)</span>全体から<span class="math">\(g\)</span>全体を計算するというものです。</p>
 <p>②包除原理</p>
 <p><span class="math">\(f\)</span>のある要素は、<span class="math">\(g\)</span>のいくつかの要素を求めてそれらを足したり引いたりすることで求めることができます。
-たとえば<span class="math">\(f\)</span>が2次元配列とすると、<span class="math">\(f[2][5]=g[2][5]-g[1][5]-g[2][4]+g[1][4]\)</span>となります。</p>
+たとえば<span class="math">\(f\)</span>が<span class="math">\(2\)</span>次元配列とすると、<span class="math">\(f[2][5]=g[2][5]-g[1][5]-g[2][4]+g[1][4]\)</span>となります。</p>
 <p><span class="math">\(g[i]=\sum_{j|i}f[i]\)</span></p>
 <p>という変換はゼータ変換に相当しており、この場合の包除原理にはメビウスの反転公式という名前がついています。</p>
-<p>③max(またはmin)に相当する畳み込みの高速化</p>
-<p>長さ<span class="math">\(N\)</span>の2つの配列<span class="math">\(A,B\)</span>に対して、</p>
+<p>③<span class="math">\(max\)</span>(または<span class="math">\(min\)</span>)に相当する畳み込みの高速化</p>
+<p>長さ<span class="math">\(N\)</span>の<span class="math">\(2\)</span>つの配列<span class="math">\(A,B\)</span>に対して、</p>
 <p><span class="math">\(C[k]=\sum_{\max(i,j)=k}A[i]B[j]\)</span></p>
 <p>となる<span class="math">\(C\)</span>を計算したいとします。
 愚直に計算すると<span class="math">\(O(N^2)\)</span>ですが、<span class="math">\(A,B,C\)</span>をそれぞれ<span class="math">\(A',B',C'\)</span>とすると</p>
 <p><span class="math">\(A'[i]*B'[i]=C'[i] (i=1,2,...,N)\)</span></p>
-<p>が成り立つので、<span class="math">\(A,B\)</span>をゼータ変換した<span class="math">\(A',B'\)</span>から<span class="math">\(C'\)</span>を求め、さらにそれをメビウス変換することでCを<span class="math">\(O(N)\)</span>で求めることができます。
-lcmやorはmaxに相当するので、</p>
+<p>が成り立つので、<span class="math">\(A,B\)</span>をゼータ変換した<span class="math">\(A',B'\)</span>から<span class="math">\(C'\)</span>を求め、さらにそれをメビウス変換することで<span class="math">\(C\)</span>を<span class="math">\(O(N)\)</span>で求めることができます。
+<span class="math">\(lcm\)</span>や<span class="math">\(or\)</span>は<span class="math">\(max\)</span>に相当するので、</p>
 <p><span class="math">\(C[k]=\sum_{\mathrm{lcm}(i,j)=k}A[i]B[j]\)</span></p>
 <p><span class="math">\(C[k]=\sum_{i\,\mathrm{or}\,j=k}A[i]B[j]\)</span></p>
 <p>も高速に求めることができます。
-同様に、minに相当する演算についての畳み込みも高速に計算できます。</p>
+同様に、<span class="math">\(min\)</span>に相当する演算についての畳み込みも高速に計算できます。</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -417,40 +417,10 @@ lcmやorはmaxに相当するので、</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
+        ハードウェア
       </a>
     </span>
     <span class="tag-4">
@@ -460,15 +430,51 @@ lcmやorはmaxに相当するので、</p>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">5</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-3">
@@ -483,10 +489,16 @@ lcmやorはmaxに相当するので、</p>
         競技プログラミング
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
       </a>
     </span>
     <span class="tag-3">
@@ -495,34 +507,10 @@ lcmやorはmaxに相当するので、</p>
         論文まとめ
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">15</span>
-        Python
-      </a>
-    </span>
     <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+        GitHub
       </a>
     </span>
     <span class="tag-4">
@@ -531,10 +519,10 @@ lcmやorはmaxに相当するので、</p>
         海外留学
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
       </a>
     </span>
     <span class="tag-1">
@@ -543,10 +531,22 @@ lcmやorはmaxに相当するので、</p>
         Machine Learning
       </a>
     </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
       </a>
     </span>
 </p>
