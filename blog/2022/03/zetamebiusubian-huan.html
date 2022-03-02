@@ -159,7 +159,7 @@
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
     <meta name="article:date" property="og:article:date" content="2022-03-01">
-    <meta name="article:modified" property="og:article:modified" content="2022-03-01">
+    <meta name="article:modified" property="og:article:modified" content="2022-03-02">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -190,29 +190,29 @@
 	<p>競技プログラミングにおいて、ゼータ・メビウス変換はよく用いられる手法です。
 この言葉はいくつかの文脈(用途)で使われるので、それを分類します。
 以下では、<span class="math">\(f\)</span>を多次元配列として、<span class="math">\(f\)</span>をゼータ変換したものを<span class="math">\(g\)</span>と表します。</p>
-<p>①累積和と差分
-ゼータ変換は多次元累積和、メビウス変換は多次元差分をとることに相当します。
-たとえば<span class="math">\(f\)</span>という<span class="math">\(N\)</span>次元配列<span class="math">\(np.array\)</span>は</p>
+<p>①累積和と差分</p>
+<p>ゼータ変換は多次元累積和、メビウス変換は多次元差分をとることに相当します。
+たとえば<span class="math">\(f\)</span>という<span class="math">\(N\)</span>次元配列<code>np.array</code>は</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
   <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="n">i</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div>
 
 <p>とすることでゼータ変換できます。
 <span class="math">\(f\)</span>全体から<span class="math">\(g\)</span>全体を計算するというものです。</p>
-<p>②包除原理
-<span class="math">\(f\)</span>のある要素は、<span class="math">\(g\)</span>のいくつかの要素を求めてそれらを足したり引いたりすることで求めることができます。
-たとえば<span class="math">\(f\)</span>が2次元配列とすると、<span class="math">\(f[2][5]=g[2][5]-g[1][5]-g[2][4]+g[1][4]\)</span>となります。</p>
-<p><span class="math">\(g[i]=\sum_{\j|i}f[i]\)</span></p>
+<p>②包除原理</p>
+<p><span class="math">\(f\)</span>のある要素は、<span class="math">\(g\)</span>のいくつかの要素を求めてそれらを足したり引いたりすることで求めることができます。
+たとえば<span class="math">\(f\)</span>が<span class="math">\(2\)</span>次元配列とすると、<span class="math">\(f[2][5]=g[2][5]-g[1][5]-g[2][4]+g[1][4]\)</span>となります。</p>
+<p><span class="math">\(g[i]=\sum_{j|i}f[i]\)</span></p>
 <p>という変換はゼータ変換に相当しており、この場合の包除原理にはメビウスの反転公式という名前がついています。</p>
-<p>③<span class="math">\(max\)</span>(または<span class="math">\(min\)</span>)に相当する畳み込みの高速化
-長さ<span class="math">\(N\)</span>の2つの配列<span class="math">\(A,B\)</span>に対して、</p>
+<p>③<span class="math">\(max\)</span>(または<span class="math">\(min\)</span>)に相当する畳み込みの高速化</p>
+<p>長さ<span class="math">\(N\)</span>の<span class="math">\(2\)</span>つの配列<span class="math">\(A,B\)</span>に対して、</p>
 <p><span class="math">\(C[k]=\sum_{\max(i,j)=k}A[i]B[j]\)</span></p>
 <p>となる<span class="math">\(C\)</span>を計算したいとします。
 愚直に計算すると<span class="math">\(O(N^2)\)</span>ですが、<span class="math">\(A,B,C\)</span>をそれぞれ<span class="math">\(A',B',C'\)</span>とすると</p>
 <p><span class="math">\(A'[i]*B'[i]=C'[i] (i=1,2,...,N)\)</span></p>
-<p>が成り立つので、<span class="math">\(A,B\)</span>をゼータ変換した<span class="math">\(A',B'\)</span>から<span class="math">\(C'\)</span>を求め、さらにそれをメビウス変換することでCをO(N)で求めることができます。
+<p>が成り立つので、<span class="math">\(A,B\)</span>をゼータ変換した<span class="math">\(A',B'\)</span>から<span class="math">\(C'\)</span>を求め、さらにそれをメビウス変換することで<span class="math">\(C\)</span>を<span class="math">\(O(N)\)</span>で求めることができます。
 <span class="math">\(lcm\)</span>や<span class="math">\(or\)</span>は<span class="math">\(max\)</span>に相当するので、</p>
-<p><span class="math">\(C[k]=\sum_{\lcm(i,j)=k}A[i]B[j]\)</span></p>
+<p><span class="math">\(C[k]=\sum_{\mathrm{lcm}(i,j)=k}A[i]B[j]\)</span></p>
 <p><span class="math">\(C[k]=\sum_{i\,\mathrm{or}\,j=k}A[i]B[j]\)</span></p>
 <p>も高速に求めることができます。
 同様に、<span class="math">\(min\)</span>に相当する演算についての畳み込みも高速に計算できます。</p>
@@ -418,33 +418,9 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/lun-wen-guan-lian.html">
           <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
+        論文関連
       </a>
     </span>
     <span class="tag-3">
@@ -454,15 +430,105 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
           <span class="badge badge-primary">5</span>
-        Data Science Competition
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
         勉学支援
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">26</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">15</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
       </a>
     </span>
     <span class="tag-2">
@@ -478,75 +544,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
+      <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">15</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">26</span>
-        Machine Learning
+        Data Science Competition
       </a>
     </span>
 </p>
