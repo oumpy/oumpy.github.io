@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0900</lastBuildDate><item><title>ゼータ・メビウス変換</title><link>https://oumpy.github.io/blog/2022/03/zetamebiusubian-huan.html</link><description>&lt;p&gt;競技プログラミングにおいて、ゼータ・メビウス変換はよく用いられる手法です。
+<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0900</lastBuildDate><item><title>Kaggle Tabular Playground Series - Dec 2021</title><link>https://oumpy.github.io/blog/2022/03/kaggle-tabular-playground-series-dec-2021.html</link><description>&lt;h2&gt;やったこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;baseline作成（&lt;a href="https://www.kaggle.com/chryzal/features-engineering-for-you"&gt;参考記事&lt;/a&gt;）　public score = 0.95102&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sequential モデル&lt;/strong&gt;を使用&lt;/li&gt;
+&lt;li&gt;データフレームからあまり重要でなさそうな行や列を削除&lt;/li&gt;
+&lt;li&gt;Aspect …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">石本</dc:creator><pubDate>Thu, 10 Mar 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2022-03-10:/blog/2022/03/kaggle-tabular-playground-series-dec-2021.html</guid><category>技術ブログ</category><category>Data Science Competition</category></item><item><title>ゼータ・メビウス変換</title><link>https://oumpy.github.io/blog/2022/03/zetamebiusubian-huan.html</link><description>&lt;p&gt;競技プログラミングにおいて、ゼータ・メビウス変換はよく用いられる手法です。
 この言葉はいくつかの文脈(用途)で …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">富本</dc:creator><pubDate>Tue, 01 Mar 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2022-03-01:/blog/2022/03/zetamebiusubian-huan.html</guid><category>技術ブログ</category><category>競技プログラミング</category></item><item><title>方向微分によるニューラルネットワークの勾配近似</title><link>https://oumpy.github.io/blog/2022/02/directional_gradient_optimization.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;

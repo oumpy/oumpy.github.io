@@ -8,17 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="JuliaとPythonと競技プログラミング"/>
-    <meta property="og:url" content="../../../blog/2019/03/julia_python_competition.html"/>
+    <meta property="og:title" content="Kaggle Tabular Playground Series - Dec 2021"/>
+    <meta property="og:url" content="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="競技プログラミング"/>
-        <meta property="article:tag" content="その他言語"/>
+        <meta property="article:tag" content="Data Science Competition"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="JuliaとPythonと競技プログラミング">
+    <meta name="twitter:title" content="Kaggle Tabular Playground Series - Dec 2021">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -26,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>JuliaとPythonと競技プログラミング - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>Kaggle Tabular Playground Series - Dec 2021 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -156,11 +155,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="julia_python_competition">
+    <meta name="article:slug" property="og:article:slug" content="kaggle-tabular-playground-series-dec-2021">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-03-16">
-    <meta name="article:modified" property="og:article:modified" content="2019-03-21">
+    <meta name="article:date" property="og:article:date" content="2022-03-10">
+    <meta name="article:modified" property="og:article:modified" content="2022-03-10">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -168,188 +167,66 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/03/julia_python_competition.html" rel="bookmark"
-     title="Permalink to JuliaとPythonと競技プログラミング">
-    JuliaとPythonと競技プログラミング
+  <a href="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html" rel="bookmark"
+     title="Permalink to Kaggle Tabular Playground Series - Dec 2021">
+    Kaggle Tabular Playground Series - Dec 2021
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-16(Sat)
+  2022-03-10(Thu)
 </abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
+<a href="../../../author/shi-ben.html">石本</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/jing-ji-puroguramingu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0&labelColor=black&color=green" alt="tag:競技プログラミング" title="tag:競技プログラミング"></img></a>
-        <a href="../../../tag/sonota-yan-yu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%81%9D%E3%81%AE%E4%BB%96%E8%A8%80%E8%AA%9E&labelColor=black&color=green" alt="tag:その他言語" title="tag:その他言語"></img></a>
+        <a href="../../../tag/data-science-competition.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Data%20Science%20Competition&labelColor=black&color=darkorange" alt="tag:Data Science Competition" title="tag:Data Science Competition"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>最近友人と話していてJulia (<a href="https://julialang.org">https://julialang.org</a>)が話題になったことがあったので、少しだけ調べて試してみた話。</p>
-<h2><span id="pelican-subsections-0">Juliaってなに？</span></h2>
-<p>Pythonのような動的型付けのスクリプト言語です。実行時にコンパイルを行いC言語にも迫る実行速度、科学技術系の数値計算もどんと来い、という触れ込みで、人気上昇中らしいです。Pythonを含む他言語のライブラリを読み込む仕組みを備えているのもすごいところ。<br>
-<s>ただ、コードの見た目が激しくMatlab風味で思わず目を背けたくなります。</s></p>
-<h2><span id="pelican-subsections-1">AtCoderでのJulia</span></h2>
-<p>ご多分に漏れず、実行速度に惹かれました。半年ほど前から参加している競技プログラミングサイト<strong>AtCoder</strong> (<a href="https://atcoder.jp">https://atcoder.jp</a>)で、常用しているPython（← Python会だからね！）で実行時間切れ、C/C++に書き換えると正答、という経験を何度かしてきたので。</p>
-<p>そういうわけで、ここでは最近の<strong>第121回 AtCoder Beginner Contest (ABC121)</strong> (<a href="https://atcoder.jp/contests/abc121/">https://atcoder.jp/contests/abc121/</a>)の問題で、Juliaのパフォーマンスを実際に見てみます。<br>
-（言語知識0から数十分調べて書いたコードのため、動きはするが思わぬところで非効率、ということはあるかもしれません。）</p>
-<h3><span id="pelican-subsections-2">AtCoder Beginner Contest 121 問題A "White Cells"</span></h3>
-<p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_a">https://atcoder.jp/contests/abc121/tasks/abc121_a</a>）</p>
-<p>入力値4個を読み込んで簡単な演算結果を返すだけの問題です。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">println</span><span class="p">((</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">-</span><span class="n">w</span><span class="p">))</span>
-</code></pre></div>
-
-<p>所要時間が入力にほぼ依存しない問題ですが、、各言語でのAtCoder上実行結果。</p>
-<table>
-<thead>
-<tr>
-<th align="center">言語</th>
-<th align="right">実行時間</th>
-<th align="right">消費メモリ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><strong>Julia</strong></td>
-<td align="right"><strong>360 ms</strong></td>
-<td align="right"><strong>110 MB</strong></td>
-</tr>
-<tr>
-<td align="center">PyPy3</td>
-<td align="right">180 ms</td>
-<td align="right">40 MB</td>
-</tr>
-<tr>
-<td align="center">Python3</td>
-<td align="right">17 ms</td>
-<td align="right">3 MB</td>
-</tr>
-<tr>
-<td align="center">C++</td>
-<td align="right">1 ms</td>
-<td align="right">256 kB</td>
-</tr>
-</tbody>
-</table>
-<p>C++にもPythonにも、実行時間と消費メモリ双方で惨敗。 <br>
-おそらくですが、<strong>実行ごとにまずコンパイルを行う</strong>ので、簡単な問題だとそれが相対的に巨大なオーバーヘッドになってしまうようです。<br>
-Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でした。</p>
-<!---
-
-### AtCoder Beginner Contest 121-B
-
-問題はこちら → <https://atcoder.jp/contests/abc121/tasks/abc121_b>
-
-
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-B by Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">input</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="k">end</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">+</span><span class="n">C</span>
-<span class="k">for</span> <span class="n">d</span> <span class="k">in</span> <span class="n">D</span>
-  <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
-
-
-
---->
-
-<h3><span id="pelican-subsections-3">AtCoder Beginner Contest 121 問題C "Energy Drink Collector"</span></h3>
-<p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_c">https://atcoder.jp/contests/abc121/tasks/abc121_c</a>）</p>
-<p>読み込んだ値の列をソートして、条件判定をしながら順番に足し上げていく問題。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span>
-<span class="n">inpl</span><span class="p">()</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-  <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="k">end</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">sortrows</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span>
-  <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">M</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">M</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">break</span>
-  <span class="k">else</span>
-    <span class="n">M</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
-
-<p>なんと、テスト16個中15個でタイムアウト（2000ms以上）。。。</p>
-<p>Pythonのコードはこちら：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ABC121-C &quot;Energy Drink Collector&quot; in Python3</span>
-<span class="n">inpl</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
-<span class="n">N</span><span class="p">,</span><span class="n">M</span> <span class="o">=</span> <span class="n">inpl</span><span class="p">()</span>
-<span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-  <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inpl</span><span class="p">())</span>
-<span class="n">A</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-  <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">M</span>
-    <span class="k">break</span>
-  <span class="k">else</span><span class="p">:</span>
-    <span class="n">M</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">ans</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
-</code></pre></div>
-
-<p>こちらは最大466msでクリア（同一コードのPyPy3では733ms）。ここで134msのテストもJuliaではタイムアウト。悲しい。</p>
-<p>今回Juliaでタイムアウトになったのは、言語の特性や正しいコーディングの仕方を知らないから、という可能性は高いです。ただ実際にこの問題でJuliaを使って提出されている答案は、最速クリアのものでも1724ms（そもそもJuliaでの提出数自体が少ないですが）。やはり上の安直なPythonコードが圧勝しています。</p>
-<h2><span id="pelican-subsections-4">Juliaは競技プログラミングに向かない？</span></h2>
-<p>Juliaの実行速度が速いこと自体は（今回検証していませんが、きっと）本当なんだと思います。しかしそれは時間のかかる複雑・大規模な処理の場合であって、競技プログラミングのような高々2-3秒の計算にはコンパイルのオーバーヘッドがやはり大きいのかな、という印象です。  </p>
-<p>AtCoderなどでは、C++などのあからさまなコンパイル型言語はコンパイル時間が実行時間に算入されず、一方でJuliaに対しては算入されます。やや理不尽な感じはしなくもないけれど、このルール下でJuliaの高速性能を生かすことは（あくまでAtCoderのような短時間型競技プログラミングの話ですが）なかなか難しそう。残念ながら、普通にやるとPythonよりもずっと遅い。  </p>
-<p>なので、当面の競技プログラミング用言語は<strong>やっぱりPython</strong>（とC/C++）、と個人的には結論づけたところです。おしまい。</p>
-<p><strong>&lt; History &gt;</strong><br>
-2019.03.21 ver1.0<br>
-2019.03.21 ver1.1 微修正、PyPy3の成績を追記<br>
-2019.03.21 ver1.2 JuliaとPythonのコードが対応するよう修正</p>
+	<h2><span id="pelican-subsections-0">やったこと</span></h2>
+<ul>
+<li>baseline作成（<a href="https://www.kaggle.com/chryzal/features-engineering-for-you">参考記事</a>）　public score = 0.95102<ul>
+<li><strong>Sequential モデル</strong>を使用</li>
+<li>データフレームからあまり重要でなさそうな行や列を削除</li>
+<li>Aspectはコンパスの方向のことなので0~359の範囲に入っていないものは±360して<strong>正規化</strong></li>
+<li>x_dist_hydrlgy, y_dist_hydrlgyをマンハッタン距離とユークリッド距離に変換</li>
+<li>hilshadeが0~255に入っていない場合は外れ値とみなして0または255に<strong>正規化</strong></li>
+<li>RobustScalerでデータのスケール変換・移動</li>
+<li><strong>メモリ節約</strong>のためにデータフレームのデータ型を変換</li>
+<li>試運転のため、epoch数を200 -&gt; 1に変更</li>
+</ul>
+</li>
+<li>soil_typeの合計とwilderness_areaの合計を特徴量に加えた。（<a href="https://www.kaggle.com/c/tabular-playground-series-dec-2021/discussion/292823">参考記事</a>）</li>
+<li>進捗を見ながら学習を進めるために、tqdmを導入した。</li>
+<li>epoch数を1 -&gt; 200に変更　public score = 0.95664</li>
+</ul>
+<h2><span id="pelican-subsections-1">結果・感想</span></h2>
+<p>結果は、273位でした。baselineに手を加えられたのは初めてだったので成長を感じることができました。とはいえ、baselineのモデルを完全に理解できたわけではなかったので有効な改善ができたかは不明です。
+これからも積極的にコンペに参加していきたいです。</p>
+<h2><span id="pelican-subsections-2">参考にした本</span></h2>
+<p>今回のコンペでは<a href="https://www.amazon.co.jp/Kaggle%E3%81%A7%E5%8B%9D%E3%81%A4%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90%E3%81%AE%E6%8A%80%E8%A1%93-%E9%96%80%E8%84%87-%E5%A4%A7%E8%BC%94/dp/4297108437">『kaggleで勝つデータ分析の技術』</a>を参考にし、モデルの改善に取り組みました。特に、「特徴量の作成」の項が参考になりました。部分的にしか読めていないので、今後コンペに参加していく中で完読を目指していきます。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/jing-ji-puroguramingu.html"><i class="fa fa-tag"></i>競技プログラミング</a>&nbsp;
-	<a href="../../../tag/sonota-yan-yu.html"><i class="fa fa-tag"></i>その他言語</a>&nbsp;
+	<a href="../../../tag/data-science-competition.html"><i class="fa fa-tag"></i>Data Science Competition</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
-            <a href="../../../blog/2019/03/mishima.html">
-                Bioinformatics春合宿@三島
-            </a>
-        </li>
-        <li>
-            次の記事 :
-            <a href="../../../blog/2019/03/original_rnaseq_pipeline.html">
-                阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース
+            <a href="../../../blog/2022/03/zetamebiusubian-huan.html">
+                ゼータ・メビウス変換
             </a>
         </li>
         <li>    
             関連記事 :
             <ul>
-                <li><a href="../../../blog/2022/03/zetamebiusubian-huan.html">ゼータ・メビウス変換</a></li>
-                <li><a href="../../../blog/2020/09/atcoder_green.html">Atcoder 緑になりました</a></li>
-                <li><a href="../../../blog/2020/06/competition_bfs.html">幅優先探索の話 (競プロの話)</a></li>
+                <li><a href="../../../blog/2021/11/cyclecompe.html">自転車コンペ</a></li>
+                <li><a href="../../../blog/2021/08/seti.html">宇宙人コンペ</a></li>
+                <li><a href="../../../blog/2021/03/studymeeting_attention25.html">attention勉強会2.5</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -365,7 +242,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/03/julia_python_competition.html" 
+        data-href="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
