@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="LaTeX の展開"/>
-    <meta property="og:url" content="../../../blog/2021/03/tex_expand.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="その他言語"/>
+    <meta property="og:title" content="株式会社GramEyeが資金調達を実施"/>
+    <meta property="og:url" content="../../../news/2022/04/grameye.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="LaTeX の展開">
+    <meta name="twitter:title" content="株式会社GramEyeが資金調達を実施">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>LaTeX の展開 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
+    <title>株式会社GramEyeが資金調達を実施 - 大阪大学医学部 Python会 <span style="font-size:smaller;">(情報医科学研究会)</span></title>
 
    
         <link rel="stylesheet"
@@ -106,16 +106,16 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-27">出版記事等</a>
 </div>
 </li>
-<li class="nav-item dropdown dropdown-hover active">
+<li class="nav-item dropdown dropdown-hover">
 <a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
 <div class="dropdown-menu" aria-labelledby="dropdown18">
-<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<a class="dropdown-item" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
 <a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
 </div>
 </li>
-<li class="nav-item">
+<li class="nav-item active">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -155,11 +155,10 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="tex_expand">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2021-03-30">
-    <meta name="article:modified" property="og:article:modified" content="2021-03-30">
+    <meta name="article:slug" property="og:article:slug" content="grameye">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="news">
+    <meta name="article:date" property="og:article:date" content="2022-04-04">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -167,176 +166,47 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2021/03/tex_expand.html" rel="bookmark"
-     title="Permalink to LaTeX の展開">
-    LaTeX の展開
+  <a href="../../../news/2022/04/grameye.html" rel="bookmark"
+     title="Permalink to 株式会社GramEyeが資金調達を実施">
+    株式会社GramEyeが資金調達を実施
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2021-03-30(Tue)
+  2022-04-04(Mon)
 </abbr>       - Posted by 
-<a href="../../../author/he-cun.html">河村</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/sonota-yan-yu.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E3%81%9D%E3%81%AE%E4%BB%96%E8%A8%80%E8%AA%9E&labelColor=black&color=green" alt="tag:その他言語" title="tag:その他言語"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">TeXの処理動作</span></h2>
-<p>TeXは前からソースコードを認識し、<code>\textbackslash（英字）</code>というカタマリ<sup id="sf-tex_expand-1-back"><a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 ">1</a></sup>
-を一つの制御綴（コントロールシークエンス）として処理します。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
-</code></pre></div>
-
-<p>この場合の制御綴は<code>\csone</code>, <code>\cstwo</code>, <code>\csthree</code>です（空白は制御綴に使われない）。</p>
-<p>TeXは制御綴を認識した後、前から順番に展開（定義の代入）を行います。
-例えば、次の制御綴を用意します。</p>
-<ul>
-<li><code>\csone</code>の定義：one;</li>
-<li><code>\cstwo</code>の定義：two;</li>
-<li><code>\csthree</code>の定義：three;</li>
-</ul>
-<p>この場合は、</p>
-<div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
-<span class="k">\csone\cstwo\csthree</span>
-one;<span class="k">\cstwo\csthree</span>
-one;two;<span class="k">\csthree</span>
-one;two;three;
-</code></pre></div>
-
-<p>と展開されます（複数の空白は1個の空白として処理され、制御綴の直後の空白は無視される）。</p>
-<h2><span id="pelican-subsections-1">展開の制御</span></h2>
-<p>先程の例の通り、TeXは基本的に前から展開を行いますが、時には展開の順序を入れ替えたりしたい場合があります。
-そのために、いくつかの命令が存在します：</p>
-<ul>
-<li><code>\expandafter</code>。直後の制御綴の展開を一回遅らせる、</li>
-<li><code>\edef</code>。制御綴の中身を全て展開して定義、</li>
-<li><code>\noexpand</code>。<code>\edef</code>中で使用すると、定義の際に展開されない（実行時は展開される）。</li>
-</ul>
-<p>例として、次の制御綴を用意します。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\def\A</span>#1#2<span class="nb">{</span>#1 is #2<span class="nb">}</span>
-<span class="k">\def\B</span><span class="nb">{</span><span class="k">\BB\BB</span><span class="nb">}</span>
-<span class="k">\def\BB</span><span class="nb">{</span>foo<span class="nb">}</span>
-<span class="k">\def\C</span><span class="nb">{</span>bar<span class="nb">}</span>
-</code></pre></div>
-
-<p>それぞれの制御綴の意味は、</p>
-<ul>
-<li><code>\A</code>：引数は2個（#1, #2）で、展開すると「#1 is #2」（#1, #2が制御綴なら展開される）</li>
-<li><code>\B</code>：展開すると「<code>\BB``\BB</code>」（<code>\BB</code>は展開される）</li>
-<li><code>\BB</code>：展開すると「foo」（それ以上展開されない）</li>
-<li><code>\C</code>：展開すると「bar」（それ以上展開されない）</li>
-</ul>
-<h3><span id="pelican-subsections-2">例1</span></h3>
-<p><code>\A\B\C</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">\A\B\C</span>
-<span class="c">% -&gt; \B is \C</span>
-<span class="c">% -&gt; \BB\BB is \C</span>
-<span class="c">% -&gt; foo\BB is \C</span>
-<span class="c">% -&gt; foofoo is \C</span>
-<span class="c">% -&gt; foofoo is bar</span>
-</code></pre></div>
-
-<p>1行目で<code>\A</code>を展開する際の、<code>\A</code>の引数は<code>\B</code>, <code>\C</code>です。</p>
-<h3><span id="pelican-subsections-3">例2</span></h3>
-<p><code>\expandafter\A\B\C</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">\expandafter\A\B\C</span>
-<span class="c">% -&gt; \A\BB\BB\C</span>
-<span class="c">% -&gt; \BB is \BB\C</span>
-<span class="c">% -&gt; foo is \BB\C</span>
-<span class="c">% -&gt; foo is foo\C</span>
-<span class="c">% -&gt; foo is foobar</span>
-</code></pre></div>
-
-<p>先ず、<code>\expandafter\A</code>によって、<code>\A</code>の展開は抑制され、先に<code>\B</code>が展開されます。</p>
-<h3><span id="pelican-subsections-4">例3</span></h3>
-<p><code>\expandafter\expandafter\A\B\C</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\A\B\C</span>
-<span class="c">% -&gt; \expandafter\B is \C</span>
-<span class="c">% -&gt; \B is \C</span>
-<span class="c">% -&gt; \BB\BB is \C</span>
-<span class="c">% -&gt; foo\BB is \C</span>
-<span class="c">% -&gt; foofoo is \C</span>
-<span class="c">% -&gt; foofoo is bar</span>
-</code></pre></div>
-
-<p>1行目で、先頭の<code>\expandafter</code>は直後の<code>\expandafter</code>を抑制するため、先に<code>\A</code>が展開されます。
-2行目で、<code>\expandafter\B</code>の\textbf{直後}は制御綴でないため、特に効果はありません。</p>
-<h3><span id="pelican-subsections-5">例4</span></h3>
-<p><code>\expandafter\expandafter\expandafter\A\B\C</code>。<code>\expandafter</code>が3連続の場合は次のように、2つ後の制御綴が先ず展開されます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\expandafter\A\B\C</span>
-<span class="c">% -&gt; \expandafter\A\BB\BB\C</span>
-<span class="c">% -&gt; \Afoo\BB\C</span>
-<span class="c">% -&gt; f is oo\BB\C</span>
-<span class="c">% -&gt; f is oofoo\C</span>
-<span class="c">% -&gt; f is oofoobar</span>
-</code></pre></div>
-
-<p>3行目で<code>\A</code>の第1引数は<code>f</code>、第2引数は<code>o</code>です。</p>
-<h3><span id="pelican-subsections-6">例5</span></h3>
-<p>さらに命令を追加してみます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\def\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span>
-<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
-<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\B\C -&gt; foofoo is bar</span>
-</code></pre></div>
-
-<p><code>\A\hoge</code>は<code>\A</code>の第2引数が存在しないので、エラーとなります。</p>
-<h3><span id="pelican-subsections-7">例6</span></h3>
-<p><code>\def</code>の代わりに<code>\edef</code>で<code>\hoge</code>を定義します。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{foofoobar}</span>
-<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
-<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \Afoofoobar -&gt; f is oofoobar</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-8">例7</span></h3>
-<p><code>\edef</code>中で<code>\noexpand</code>をつければ、その直後の制御綴は（定義の際には）展開されません。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\edef\hoge</span><span class="nb">{</span><span class="k">\noexpand\B\C</span><span class="nb">}</span> <span class="c">% -&gt; \def\hoge{\Bbar}</span>
-<span class="k">\A\hoge</span> <span class="c">% -&gt; error</span>
-<span class="k">\expandafter\A\hoge</span> <span class="c">% -&gt; \A\Bbar -&gt; \B is bar -&gt; \BB\BB is bar -&gt; foofoo is bar</span>
-</code></pre></div>
-
-<p><code>\A\Bbar</code>で、第1引数は<code>\B</code>、第1引数は<code>b</code>です。</p>
-<h3><span id="pelican-subsections-9">例8</span></h3>
-<p>別の例。</p>
-<div class="highlight"><pre><span></span><code><span class="k">\def\twice</span>#1<span class="nb">{</span>#1#1<span class="nb">}</span>
-<span class="k">\twice\twice</span> hoge <span class="c">% -&gt; error</span>
-<span class="k">\expandafter\twice\twice</span><span class="nb">{</span>ho<span class="nb">}</span>ge <span class="c">% -&gt; \twicehohoge -&gt; hhohoge</span>
-<span class="k">\expandafter\twice\twice</span><span class="nb">{{</span>ho<span class="nb">}}</span>ge <span class="c">% -&gt; \twice{ho}hoge -&gt; hohohoge</span>
-</code></pre></div>
-
-<p>1つ目は無限ループになります。</p>
-<h2><span id="pelican-subsections-10">脚注</span></h2><ol class="simple-footnotes"><li id="sf-tex_expand-1">
-制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
-従って、日本語の混ざった制御綴も作れる。
-<code>\relax␣あ</code>の場合は、<code>\relax</code>という制御綴と「あ」という文字として認識されるが、<code>\relaxあ</code>の場合は、<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く。
- <a href="#sf-tex_expand-1-back" class="simple-footnote-back">↩</a></li></ol>
+	<p>弊団体OB平岡悠の起業した大阪大学発ベンチャー株式会社GramEyeが2度目プレシリーズA資金調達を実施いたしました。</p>
+<p>詳細は<a href="https://prtimes.jp/main/html/rd/p/000000002.000098814.html">こちら</a>です。</p>
+<p>おめでとうございます！</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/sonota-yan-yu.html"><i class="fa fa-tag"></i>その他言語</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
-            <a href="../../../blog/2021/03/movie2pdf.html">
-                プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける
-            </a>
-        </li>
-        <li>
-            次の記事 :
-            <a href="../../../blog/2021/05/ikra_v2.html">
-                RNA-seq pipeline ikra v2.0 リリース
+            <a href="../../../news/2021/09/server_news.html">
+                医学科学生用計算機の管理委員長変更
             </a>
         </li>
         <li>    
             関連記事 :
             <ul>
-                <li><a href="../../../blog/2019/03/julia_python_competition.html">JuliaとPythonと競技プログラミング</a></li>
+                <li><a href="../../../news/2021/09/server_news.html">医学科学生用計算機の管理委員長変更</a></li>
+                <li><a href="../../../news/2020/07/officialize_accept.html">医学部公認団体として正式承認されました</a></li>
+                <li><a href="../../../news/2020/06/formalname.html">会正式名称の制定等について</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -352,7 +222,7 @@ one;two;three;
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2021/03/tex_expand.html" 
+        data-href="../../../news/2022/04/grameye.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">

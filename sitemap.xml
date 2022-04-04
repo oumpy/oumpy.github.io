@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2022-04-04T00:31:06-00:00</lastmod>
+<lastmod>2022-04-04T02:01:25-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2022-04-04T00:31:06-00:00</lastmod>
+<lastmod>2022-04-04T02:01:25-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2022-04-04T00:31:06-00:00</lastmod>
+<lastmod>2022-04-04T02:01:25-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -85,6 +85,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2021-09-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/news/2022/04/grameye.html</loc>
+<lastmod>2022-04-04T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
 </url>
 
 <url>
@@ -824,7 +831,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/news.html</loc>
-<lastmod>2021-09-22T00:00:00+09:19</lastmod>
+<lastmod>2022-04-04T00:00:00+09:19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.1</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/tag/news.html</loc>
+<lastmod>2022-04-04T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -874,13 +888,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/tag/lun-wen-matome.html</loc>
 <lastmod>2022-02-20T23:00:00+09:19</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.1</priority>
-</url>
-
-<url>
-<loc>https://oumpy.github.io/tag/news.html</loc>
-<lastmod>2021-09-22T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -1132,7 +1139,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/author/pythonhui.html</loc>
-<lastmod>2021-09-22T00:00:00+09:19</lastmod>
+<lastmod>2022-04-04T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
