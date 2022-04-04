@@ -206,14 +206,14 @@
 <p>今回の主なテーマはこの再挑戦トーナメントです。
 あとのない潰し合いになるわけですが、実際の主要メンバーを見ていきます。</p>
 <p>まずは<strong>1回戦負けトーナメント（32名）</strong>。
-レート最上位は清水市代女流七段（15位）。
+レート最上位は清水市代女流七段（14位タイ）。
 すでに準決勝まで終わり、決勝は【清水女流七段 vs 中澤沙耶女流初段（24位）】です。</p>
-<p><strong>2回戦負けトーナメント（16名）</strong>は石本さくら女流二段（11位）、中井広恵女流六段（12位） <a href="#note02">[注2]</a>、加藤圭女流二段（13位）、中村真梨花女流三段（14位）が4トップで、決勝【中井女流六段 vs 中村女流三段】を残すところまで進みました。</p>
+<p><strong>2回戦負けトーナメント（16名）</strong>は石本さくら女流二段（11位）、中井広恵女流六段（12位） <a href="#note02">[注2]</a>、加藤圭女流二段（13位）、中村真梨花女流三段（14位タイ）が4トップで、決勝【中井女流六段 vs 中村女流三段】を残すところまで進みました。</p>
 <p>そして本予選3回戦（ベスト16）では【里見香奈女流四冠（1位） vs 西山朋佳白玲・女王（2位）】、【甲斐智美女流五段（6位） vs 渡部愛女流三段（10位） <a href="#note03">[注3]</a>】、がありました。
 <strong>3回戦負けトーナメント（8名）</strong>の1回戦はその敗者同士、【里見四冠 vs 渡部女流三段】で、渡部女流三段の予選敗退が決定。
 鈴木環那女流三段（9位）も同じく別の山で敗退。</p>
-<p>さらに上にいくと、<strong>4回戦（準々決勝）敗退トーナメント（4名）</strong>は西山白玲、上田初美女流四段（8位） <a href="#note04">[注4]</a>、
-香川愛生女流四段（7位）、本田小百合女流三段（19位）。</p>
+<p>さらに上にいくと、<strong>4回戦（準々決勝）敗退トーナメント（4名）</strong>は西山白玲、上田初美女流四段（7位タイ） <a href="#note04">[注4]</a>、
+香川愛生女流四段（7位タイ）、本田小百合女流三段（19位）。</p>
 <p><strong>準決勝敗退</strong>は、【甲斐女流五段 vs 伊藤沙恵女流名人（4位）】の決戦です。</p>
 <p><strong>本予選決勝</strong>は【山根ことみ女流二段（5位） vs 山口恵梨子女流二段（20位）】になりました。
 山口女流二段の活躍が光ります。</p>
@@ -306,7 +306,7 @@
     <span class="n">players</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">rates</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="c1"># 強い順に並べる</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">i</span><span class="p">)[:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># iの2進数標記を逆順に並べる</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">i</span><span class="p">)[:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># iの2進数表記を逆順に並べる</span>
         <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s1">&#39;0&#39;</span><span class="o">*</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 桁数が足りない分は0埋め</span>
         <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">players</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">ret</span>
@@ -840,12 +840,12 @@
 <p>実力の上位下位に関わらず、負けても良いことは何もありません。
 <strong>常に全力の真剣勝負が、理論上も清麗戦の最適戦略である</strong>ことが明らかになりました。
 とても喜ばしい結果だと思います。</p>
-<p>清麗戦の主催者である<a href="https://www.shogi.or.jp">社団法人日本将棋連盟</a>様、<a href="https://www.taisei.co.jp">大成建設株式会社</a>様、第2期までの主催者である<a href="https://www.hulic.co.jp">ヒューリック株式会社</a>様には、謹んでお詫び申し上げます。</p>
+<p>清麗戦の主催者である<a href="https://www.shogi.or.jp">公益社団法人日本将棋連盟</a>様、<a href="https://www.taisei.co.jp">大成建設株式会社</a>様、第2期までの主催者である<a href="https://www.hulic.co.jp">ヒューリック株式会社</a>様には、謹んでお詫び申し上げます。</p>
 <p>「疑ってごめんなさい。」</p>
 <p>今後も清麗戦を楽しみにしております。
 またより一層の発展を祈念致しております。</p>
 <h2><span id="pelican-subsections-24">謝辞</span></h2>
-<p>本研究の数値結果はすべて<a href="https://oumpy.github.io/student_server.html">大阪大学医学部医学科学生用計算機</a>上で、延べ約500CPU時間以上をかけて計算されました。</p>
+<p>本研究の数値結果はすべて<a href="https://oumpy.github.io/student_server.html">大阪大学医学部医学科学生用計算機</a>上で、延べ500CPU時間以上かけて計算されました。</p>
 <h2><span id="pelican-subsections-25">注記</span></h2>
 <h3><span id="pelican-subsections-26"><span id="note01">注1</span> : レーティングの順位と値</span></h3>
 <p>初見でもわかりやすいよう順位だけ表示していますが、レーティングの値は</p>
@@ -1078,82 +1078,16 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
         勉学支援
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">16</span>
+        Python
       </a>
     </span>
     <span class="tag-2">
@@ -1162,22 +1096,16 @@
         Bioinformatics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">26</span>
-        Machine Learning
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        Simulation
+        Unix
       </a>
     </span>
     <span class="tag-3">
@@ -1187,9 +1115,57 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">26</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-2">
@@ -1199,15 +1175,39 @@
       </a>
     </span>
     <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
       <a href="../../../tag/data-science-competition.html">
           <span class="badge badge-primary">6</span>
         Data Science Competition
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">16</span>
-        Python
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
 </p>
