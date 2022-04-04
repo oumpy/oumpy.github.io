@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2022-04-02T06:25:50-00:00</lastmod>
+<lastmod>2022-04-04T00:31:06-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2022-04-02T06:25:50-00:00</lastmod>
+<lastmod>2022-04-04T00:31:06-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2022-04-02T06:25:50-00:00</lastmod>
+<lastmod>2022-04-04T00:31:06-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -85,6 +85,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2021-09-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/blog/2022/04/crohn.html</loc>
+<lastmod>2022-04-02T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
 </url>
 
 <url>
@@ -810,7 +817,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/blog.html</loc>
-<lastmod>2022-03-31T00:00:00+09:19</lastmod>
+<lastmod>2022-04-02T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -818,6 +825,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/news.html</loc>
 <lastmod>2021-09-22T00:00:00+09:19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.1</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/tag/machine-learning.html</loc>
+<lastmod>2022-04-02T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -853,13 +867,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/tag/data-science-competition.html</loc>
 <lastmod>2022-03-10T00:00:00+09:19</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.1</priority>
-</url>
-
-<url>
-<loc>https://oumpy.github.io/tag/machine-learning.html</loc>
-<lastmod>2022-03-05T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -978,7 +985,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/author/an-bu.html</loc>
-<lastmod>2022-03-13T00:00:00+09:19</lastmod>
+<lastmod>2022-04-02T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
