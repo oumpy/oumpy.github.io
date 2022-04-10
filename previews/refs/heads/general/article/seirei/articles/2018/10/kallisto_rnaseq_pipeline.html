@@ -230,7 +230,7 @@ pfastq-dump -s <span class="si">${</span><span class="nv">item</span><span class
 </code></pre></div>
 
 <p>バイナリデータなので、SRAファイルの中をのぞいてみると下のようになる。
-<img alt="1" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"></p>
+<img alt="1" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"></p>
 <h3><span id="pelican-subsections-5">pfastq-dumpとは？</span></h3>
 <p>fastq-dumpを並列処理するbashスクリプト。Sequence Read Archive（wiki）からダウンロードされたシーケンスデータ（SRAフォーマット ）をfastq-dumpの並列処理で素早くfastqに変換することができる。<a href="https://github.com/inutanoOhta">Ohta</a>さんが公開されている。</p>
 <h2><span id="pelican-subsections-6">Fastqc</span></h2>
@@ -254,16 +254,16 @@ fastqcのオプションについて</p>
 <li><code>-f</code> : インプットファイルのフォーマット。bam, samにも対応。.fastq.gzもfastqで指定する。</li>
 </ul>
 <p>実行結果は下記のようになる。</p>
-<p><img alt="2" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"></p>
+<p><img alt="2" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-58-17.png"></p>
 <p>fastqcディレクトリをのぞいてみる。fastqcのなかに<code>fastqc_${item}</code>というディレクトリが自動生成されている。</p>
-<p><img alt="3" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"></p>
+<p><img alt="3" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-05-02.png"></p>
 <p>fastqc_ERR266335の中をのぞいてみると。htmlファイルとzipファイルが生成されている。</p>
-<p><img alt="4" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"></p>
+<p><img alt="4" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-07-03.png"></p>
 <p>htmlファイルをブラウザで開くことができる。</p>
 <div class="highlight"><pre><span></span><code>$ open ERR266335_fastqc.html
 </code></pre></div>
 
-<p><img alt="5" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
+<p><img alt="5" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-09-37.png"></p>
 <h3><span id="pelican-subsections-7">参照：</span></h3>
 <ul>
 <li>次世代シークエンサーDRY解析教本</li>
@@ -276,9 +276,9 @@ $ open multiqc_report.html
 </code></pre></div>
 
 <p>multiqcの実行により、関連ファイルが下記のように自動生成される。</p>
-<p><img alt="6" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"></p>
+<p><img alt="6" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-22-at-21-20-18.png"></p>
 <p>複数のリードのクオリティチェックの結果を同時に表示できる。</p>
-<p><img alt="7" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"></p>
+<p><img alt="7" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-20-02-17.png"></p>
 <h3><span id="pelican-subsections-9">参照：</span></h3>
 <ul>
 <li><a href="https://multiqc.info/">https://multiqc.info/</a></li>
@@ -298,8 +298,8 @@ $ open multiqc_report.html
 <li><a href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></li>
 </ul>
 <h2><span id="pelican-subsections-12">Single-end, Pair-endってなに？？</span></h2>
-<p><img alt="8" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"></p>
-<p><img alt="9" src="../../../blog/2018/10/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"></p>
+<p><img alt="8" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/img_1051.jpg"></p>
+<p><img alt="9" src="../../../articles/2018sy/blog/images/kallisto_rnaseq_pipeline_figs/img_1050.jpg"></p>
 <p>シーケンスする機器によって、cDNAのかた方のみ読む(single-end read)方法と両端を読む(pair-end read)方法があります。トリミング、アラインメントにおいて、single-endなのか、pair-endなのかを指定しあげる必要があります。</p>
 <h2><span id="pelican-subsections-13">Kallisto</span></h2>
 <p>RNA-Seqデータ、またはより一般的にはハイスループットシーケンシングリードを用いて転写産物の量を定量化するためのプログラムである。</p>
@@ -587,10 +587,28 @@ $$</div>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        勉学支援
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-1">
@@ -600,93 +618,9 @@ $$</div>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">26</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">6</span>
         自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
       </a>
     </span>
     <span class="tag-2">
@@ -701,22 +635,88 @@ $$</div>
         Data Science Competition
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">26</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">8</span>
+        News
+      </a>
+    </span>
     <span class="tag-4">
       <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">1</span>
         Neuroscience
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        海外留学
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
 </p>
