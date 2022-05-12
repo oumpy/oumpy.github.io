@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Tue, 26 Apr 2022 23:00:00 +0900</lastBuildDate><item><title>非負値行列因子分解(NMF)を用いたグリッドパターンの創発</title><link>https://oumpy.github.io/blog/2022/04/grid_patten_nmf.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Thu, 12 May 2022 23:00:00 +0900</lastBuildDate><item><title>Tensorpacによる位相-振幅カップリング (PAC) 推定</title><link>https://oumpy.github.io/blog/2022/05/tensorpac.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Tensorpacによる位相-振幅カップリング-(PAC)-推定"&gt;Tensorpac&amp;#12395;&amp;#12424;&amp;#12427;&amp;#20301;&amp;#30456;-&amp;#25391;&amp;#24133;&amp;#12459;&amp;#12483;&amp;#12503;&amp;#12522;&amp;#12531;&amp;#12464; (PAC) &amp;#25512;&amp;#23450;&lt;a class="anchor-link" href="#Tensorpacによる位相-振幅カップリング-(PAC)-推定"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="周波数間カップリング-(CFC)-について"&gt;&amp;#21608;&amp;#27874;&amp;#25968;&amp;#38291;&amp;#12459;&amp;#12483;&amp;#12503;&amp;#12522;&amp;#12531;&amp;#12464; (CFC) &amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&lt;a class="anchor-link" href="#周波数間カップリング-(CFC)-について"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;近接する神経細胞の集団活動によって生じる電位変化を&lt;strong&gt;電場電位(field potential)&lt;/strong&gt; といい，脳波計(EEG), 皮質脳波(ECoG), 脳磁図(MEG)等で計測できる．細胞集団の同期した活動は様々な周波数の振動として計測される．その周波数が属する周波数帯域に応じて，次のような名称がついている．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;周波数帯域&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Gamma ($\gamma$)&lt;/td&gt;
+&lt;td&gt;&amp;gt; 30 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beta ($\beta$)&lt;/td&gt;
+&lt;td&gt;12-30 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alpha ($\alpha$)&lt;/td&gt;
+&lt;td&gt;8-12 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Theta ($\theta$)&lt;/td&gt;
+&lt;td&gt;4-8 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Delta ($\delta$)&lt;/td&gt;
+&lt;td&gt;0.5-4 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;周波数間カップリング (cross-frequency coupling; CFC)&lt;/strong&gt; とは，異なる周波数帯域の振動の間における相互作用の総称である．次の図は(&lt;a href="https://www.frontiersin.org/articles/10.3389/fncom.2013.00078/full"&gt;Jirsa &amp;amp; Müller. &lt;em&gt;Frontiers in Computational Neuroscience.&lt;/em&gt; 2013&lt;/a&gt;)からの引用であり，様々なCFCを示している．Aでは振動Xの振幅(amplitude)の2乗(=power)が赤線，位相(phase)の基準が縦点線で示されている．B-FはXの振幅や位相に対してY1-Y5の振幅や位相，周波数が変調されている様子を表している．ここで因果関係は明らかでないので各YからXが変調されている場合もある．GはY5-Y6間での周波数における変調を示している．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山本</dc:creator><pubDate>Thu, 12 May 2022 23:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2022-05-12:/blog/2022/05/tensorpac.html</guid><category>技術ブログ</category><category>Python</category><category>Neuroscience</category></item><item><title>非負値行列因子分解(NMF)を用いたグリッドパターンの創発</title><link>https://oumpy.github.io/blog/2022/04/grid_patten_nmf.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="非負値行列因子分解(NMF)を用いたGrid-likeパターンの創発"&gt;&amp;#38750;&amp;#36000;&amp;#20516;&amp;#34892;&amp;#21015;&amp;#22240;&amp;#23376;&amp;#20998;&amp;#35299;(NMF)&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;Grid-like&amp;#12497;&amp;#12479;&amp;#12540;&amp;#12531;&amp;#12398;&amp;#21109;&amp;#30330;&lt;a class="anchor-link" href="#非負値行列因子分解(NMF)を用いたGrid-likeパターンの創発"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;内側嗅内皮質(MEC)にある&lt;strong&gt;グリッド細胞 (grid cells)&lt;/strong&gt; は六角形格子状の発火パターンにより自己位置等を符号化するのに貢献している．この発火パターンを生み出すモデルは多数あるが，その中でもシンプルなのが(&lt;a href="https://elifesciences.org/articles/10094"&gt;Dordek et al., eLife, 2016&lt;/a&gt;)である．&lt;strong&gt;場所細胞(place cells)&lt;/strong&gt; の発火パターンを&lt;strong&gt;非負主成分分析(nonnegative principal component analysis)&lt;/strong&gt; で次元削減するとグリッド細胞のパターンが生まれる，という内容である．このモデルはfeedforwardであり，場所細胞→グリッド細胞という逆向きの投射を考えているので完璧ではないが，グリッドパターンは最速で出すことができる．(&lt;a href="https://proceedings.neurips.cc/paper/2019/hash/6e7d5d259be7bf56ed79029c4e621f44-Abstract.html"&gt;Sorscher et al., NeurIPS2019, 2019&lt;/a&gt;)では&lt;strong&gt;非負値行列因子分解 (NMF: nonnegative matrix factorization)&lt;/strong&gt; で問題ないと書いてあったのでお手軽に実行できるコードを書こうと思い今回の記事を書いた．&lt;/p&gt;
@@ -324,7 +363,8 @@ $$
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">奥田</dc:creator><pubDate>Tue, 14 Jul 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-07-14:/blog/2020/07/bloodsugar_simulation.html</guid><category>技術ブログ</category><category>Simulation</category></item><item><title>医学部公認団体として正式承認されました</title><link>https://oumpy.github.io/news/2020/07/officialize_accept.html</link><description>&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Python会</dc:creator><pubDate>Mon, 06 Jul 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-07-06:/news/2020/07/officialize_accept.html</guid><category>お知らせ</category><category>News</category></item><item><title>Python会とPythonとPython会で使われているPython</title><link>https://oumpy.github.io/blog/2020/07/pythonparty_and_python.html</link><description>&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">奥田</dc:creator><pubDate>Tue, 14 Jul 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-07-14:/blog/2020/07/bloodsugar_simulation.html</guid><category>技術ブログ</category><category>Simulation</category></item><item><title>医学部公認団体として正式承認されました</title><link>https://oumpy.github.io/news/2020/07/officialize_accept.html</link><description>&lt;p&gt;これまでのお知らせの通り、本会 (情報医科学研究会) は大阪大学医学部に&lt;a href="https://oumpy.github.io/news/2020/05/officialize_request.html"&gt;公認団体申請&lt;/a&gt;を行っていましたが、このたび&lt;strong&gt;その承認が正式に決定&lt;/strong&gt;した旨の通知を受けましたのでお知らせします。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Python会</dc:creator><pubDate>Mon, 06 Jul 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-07-06:/news/2020/07/officialize_accept.html</guid><category>お知らせ</category><category>News</category></item><item><title>Python会とPythonとPython会で使われているPython</title><link>https://oumpy.github.io/blog/2020/07/pythonparty_and_python.html</link><description>&lt;p&gt;Python会は、Pythonを主に勉強したり研究に使ったりしています。
 また、会の運営上の道具としてもPythonを利用しています。&lt;/p&gt;
 &lt;p&gt;なぜPython …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Fri, 03 Jul 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-07-03:/blog/2020/07/pythonparty_and_python.html</guid><category>技術ブログ</category><category>Python</category></item><item><title>同じ基本統計量・異なる散布図のデータセットを焼きなまし法で生成する</title><link>https://oumpy.github.io/blog/2020/07/samestats.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -441,7 +481,8 @@ OS は Ubuntu 18 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.or
 &lt;p&gt;詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
 - コマ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山田</dc:creator><pubDate>Wed, 26 Feb 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2020-02-26:/blog/2020/02/shellscript_tutorial.html</guid><category>技術ブログ</category><category>Unix</category><category>Shell script</category></item><item><title>deeplabcutの使い方まとめ</title><link>https://oumpy.github.io/blog/2019/12/deeplabcut.html</link><description>&lt;h2&gt;DeepLabCut とは&lt;/h2&gt;
 &lt;p&gt;deeplabcutは、動物の行動実験などに使える動画のトラッキングツールです。
-package化されているので簡単に使うことがで …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">味岡</dc:creator><pubDate>Mon, 16 Dec 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2019-12-16:/blog/2019/12/deeplabcut.html</guid><category>技術ブログ</category><category>Python</category></item><item><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link>https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html</link><description>&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Wed, 11 Dec 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</guid><category>技術ブログ</category><category>Bioinformatics</category><category>検定試験</category></item><item><title>水色コーダー vs 応用情報技術者試験</title><link>https://oumpy.github.io/blog/2019/10/ipa_ap.html</link><description>&lt;h2&gt;国家試験&lt;/h2&gt;
+package化されているので簡単に使うことがで …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">味岡</dc:creator><pubDate>Mon, 16 Dec 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2019-12-16:/blog/2019/12/deeplabcut.html</guid><category>技術ブログ</category><category>Python</category></item><item><title>バイオインフォマティクス技術者認定試験2019 解答速報？</title><link>https://oumpy.github.io/blog/2019/12/bioinfoexam2019_answer.html</link><description>&lt;p&gt;先日受験したバイオインフォマティクス認定試験をあらためて復習して、ついでに解答速報（全然速くない）と備忘録程度の解説を書きました。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Wed, 11 Dec 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2019-12-11:/blog/2019/12/bioinfoexam2019_answer.html</guid><category>技術ブログ</category><category>Bioinformatics</category><category>検定試験</category></item><item><title>水色コーダー vs 応用情報技術者試験</title><link>https://oumpy.github.io/blog/2019/10/ipa_ap.html</link><description>&lt;h2&gt;国家試験&lt;/h2&gt;
 &lt;p&gt;情報処理技術者試験は、IPA/経産省による国家試験です。
 &lt;strong&gt;いわゆる国試&lt;/strong&gt;です。&lt;/p&gt;
 &lt;p&gt;情報処理技術者試験のうち、分野を …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Mon, 21 Oct 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2019-10-21:/blog/2019/10/ipa_ap.html</guid><category>技術ブログ</category><category>検定試験</category></item><item><title>機械学習のための最新GPU比較</title><link>https://oumpy.github.io/blog/2019/10/gpus_for_ml.html</link><description>&lt;p&gt;某所でGPU調達の必要があって、いまどきの事情を調べました。
