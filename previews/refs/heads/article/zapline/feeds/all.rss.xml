@@ -2,17 +2,16 @@
 <rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link>/previews/refs/heads/article/zapline/</link><description>Now is better than never.</description><lastBuildDate>Sat, 21 May 2022 23:00:00 +0900</lastBuildDate><item><title>ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</title><link>/previews/refs/heads/article/zapline/blog/2022/05/zapline.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;ZapLine&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;LFP&amp;#12395;&amp;#23550;&amp;#12377;&amp;#12427;&amp;#38651;&amp;#28304;&amp;#30001;&amp;#26469;&amp;#12398;&amp;#12450;&amp;#12540;&amp;#12486;&amp;#12451;&amp;#12501;&amp;#12449;&amp;#12463;&amp;#12488;&amp;#38500;&amp;#21435; (Python)&lt;a class="anchor-link" href="#ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;LFPのノイズ除去のアルゴリズムを色々調べていたら&lt;strong&gt;ZapLine&lt;/strong&gt; という手法を見つけたので紹介する．とは言え，アルゴリズムの詳細は割愛し，この記事ではPythonでZapLineを使う方法を紹介する．&lt;/p&gt;
-&lt;h2 id="ZapLineとは"&gt;ZapLine&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#ZapLineとは"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineの論文：&lt;/p&gt;
+&lt;h1 id="ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;ZapLine&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;LFP&amp;#12395;&amp;#23550;&amp;#12377;&amp;#12427;&amp;#38651;&amp;#28304;&amp;#30001;&amp;#26469;&amp;#12398;&amp;#12450;&amp;#12540;&amp;#12486;&amp;#12451;&amp;#12501;&amp;#12449;&amp;#12463;&amp;#12488;&amp;#38500;&amp;#21435; (Python)&lt;a class="anchor-link" href="#ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="ZapLineとは"&gt;ZapLine&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#ZapLineとは"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineはEEGやMEGなどのデータにおける&lt;strong&gt;電力系統 (power line)に由来するアーティファクトを除去&lt;/strong&gt;するアルゴリズムである．アーティファクトの周波数を指定し（残念ながら指定が必要），アーティファクト成分のみを除去する時空間的フィルタを求めることを目的とする．やや手法が込み入っていたので詳細は論文のmethodを読んでほしい．&lt;/p&gt;
+&lt;p&gt;ZapLineの論文：&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;&lt;a href="https://www.sciencedirect.com/science/article/pii/S1053811919309474"&gt;Cheveigné, Alain de. 2020. “ZapLine: A Simple and Effective Method to Remove Power Line Artifacts.” &lt;em&gt;NeuroImage&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;ZapLineは&lt;strong&gt;電力系統 (power line)に由来するアーティファクトを除去&lt;/strong&gt;するアルゴリズムである．アーティファクトの周波数を指定し（残念ながら指定が必要），アーティファクト成分のみを除去する時空間的フィルタを求めることを目的とする．やや手法が込み入っていたので詳細は論文のmethodを読んでほしい．&lt;/p&gt;
-&lt;h2 id="meegkitにおけるZapLineの実装"&gt;meegkit&amp;#12395;&amp;#12362;&amp;#12369;&amp;#12427;ZapLine&amp;#12398;&amp;#23455;&amp;#35013;&lt;a class="anchor-link" href="#meegkitにおけるZapLineの実装"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineはMATLABでの実装が著者により公開されている．&lt;/p&gt;
+&lt;h2 id="meegkitでZapLineを使用する"&gt;meegkit&amp;#12391;ZapLine&amp;#12434;&amp;#20351;&amp;#29992;&amp;#12377;&amp;#12427;&lt;a class="anchor-link" href="#meegkitでZapLineを使用する"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineはMATLABでの実装が著者により公開されている．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://audition.ens.fr/adc/NoiseTools/src/NoiseTools/EXAMPLES/zapline/"&gt;http://audition.ens.fr/adc/NoiseTools/src/NoiseTools/EXAMPLES/zapline/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/MariusKlug/zapline-plus"&gt;https://github.com/MariusKlug/zapline-plus&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;この記事では&lt;code&gt;meegkit&lt;/code&gt;というPythonライブラリにおける実装を使用する．&lt;/p&gt;
+&lt;p&gt;この記事では&lt;code&gt;meegkit&lt;/code&gt;というPythonライブラリにおける実装を使用する．documentとgithubへのリンクは次の通り：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;doc: &lt;a href="https://nbara.github.io/python-meegkit/index.html"&gt;https://nbara.github.io/python-meegkit/index.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;github: &lt;a href="https://github.com/nbara/python-meegkit"&gt;https://github.com/nbara/python-meegkit&lt;/a&gt;&lt;/li&gt;
@@ -23,8 +22,7 @@ pip install pyriemann
 pip install git+https://github.com/nbara/python-meegkit.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://pyedflib.readthedocs.io/en/latest/"&gt;&lt;code&gt;pyedflib&lt;/code&gt;&lt;/a&gt;は.bdfファイルを読み込むために使用する．&lt;code&gt;pyriemann&lt;/code&gt;は&lt;code&gt;meegkit&lt;/code&gt;で使用されており，別途installが必要となった．&lt;/p&gt;
-&lt;h3 id="ライブラリのimport"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#ライブラリのimport"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;以下では&lt;code&gt;meegkit&lt;/code&gt;の&lt;a href="https://nbara.github.io/python-meegkit/auto_examples/example_dss_line.html#sphx-glr-auto-examples-example-dss-line-py"&gt;example&lt;/a&gt;を参考にしてZapLineの使用法を見ていく．&lt;/p&gt;
-&lt;p&gt;まずライブラリをimportする．&lt;/p&gt;
+&lt;h3 id="ライブラリのimport"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#ライブラリのimport"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;以下では&lt;code&gt;meegkit&lt;/code&gt;の&lt;a href="https://nbara.github.io/python-meegkit/auto_examples/example_dss_line.html#sphx-glr-auto-examples-example-dss-line-py"&gt;example&lt;/a&gt;を参考にしてZapLineの使用法を見ていく．まずライブラリをimportする．&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
