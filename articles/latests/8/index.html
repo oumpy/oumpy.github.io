@@ -149,6 +149,32 @@
         <div class="col-md-9" id="content">
     <article>
 <h1>
+  <a href="../../../blog/2019/03/lorenz.html" rel="bookmark"
+     title="Permalink to ローレンツ曲線とPythonで日本人の年収の偏りを示そう！">
+    ローレンツ曲線とPythonで日本人の年収の偏りを示そう！
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2019-03-25(Mon)
+</abbr>       - Posted by 
+<a href="../../../author/ping-gang.html">平岡</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/statistics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Statistics&labelColor=black&color=darkorange" alt="tag:Statistics" title="tag:Statistics"></img></a>
+  </p>
+</div> <!-- /.article-header-info -->  
+      <div class="summary">
+		   このページでは統計初学者向けにローレンツ曲線とその意味、使い所について説明し、Pythonを使って実際にデータ解析を行ってみます。 <strong>ローレンツ曲線とは<a class="anchor-link" href="#ローレンツ曲線とは"> </a></strong>ローレンツ曲線とは、横軸にも縦軸にも累積相対度数を使って、描いたグラフのことです。何かの偏りを示したいときに利用されることが多いです....
+		<p class="content-emphasis"><a href="../../../blog/2019/03/lorenz.html">
+			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
+		</a></p>
+      </div>    </article>
+
+    <hr />
+    <article>
+<h1>
   <a href="../../../blog/2019/03/velocyto.html" rel="bookmark"
      title="Permalink to VELOCYTO">
     VELOCYTO
@@ -383,32 +409,6 @@
       </div>    </article>
 
     <hr />
-    <article>
-<h1>
-  <a href="../../../blog/2018/12/python_value.html" rel="bookmark"
-     title="Permalink to Pythonの変数と代入について">
-    Pythonの変数と代入について
-  </a>
-</h1><div class="article-header-info">
-  <p>
-<abbr class="article-header-date">
-  2018-12-20(Thu)
-</abbr>       - Posted by 
-<a href="../../../author/xiao-chuan.html">小川</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
-    &nbsp;&nbsp;
-        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
-  </p>
-</div> <!-- /.article-header-info -->  
-      <div class="summary">
-		Pythonの変数、ふだん何気なく使っていますが、やっていることは実は結構複雑です。主にC/C++と対比しつつ簡単にまとめてみます。 実際のところ、よく知らなくてもあまり影響がない場合が殆どです。が、複雑な操作を行ったり何か変数の挙動が不審な場合などは、思い出してみるのもよさそうで....
-		<p class="content-emphasis"><a href="../../../blog/2018/12/python_value.html">
-			Read more... <i class="fa fa-arrow-circle-right fa-fw fa-lg"></i> 
-		</a></p>
-      </div>    </article>
-
-    <hr />
 
 <nav class="index-pager">
 	<ul class="pagination">
@@ -502,6 +502,11 @@
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
   <tr>
+    <td class="recent-posts-date">5/21</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/05/zapline.html"><span class="recent-posts-title">ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">5/12</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/05/tensorpac.html"><span class="recent-posts-title">Tensorpacによる位相-振幅カップリング (PAC) 推定</span></a></td>
@@ -536,11 +541,6 @@
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html"><span class="recent-posts-title">Kaggle Tabular Playground Series - Dec 2021</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/1</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/03/zetamebiusubian-huan.html"><span class="recent-posts-title">ゼータ・メビウス変換</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -549,27 +549,51 @@
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
     <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">6</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
+        検定試験
       </a>
     </span>
     <span class="tag-2">
@@ -579,21 +603,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">3</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -603,39 +615,9 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">27</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
@@ -644,28 +626,16 @@
         競技プログラミング
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
     <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">18</span>
-        Python
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">27</span>
+        Machine Learning
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-2">
@@ -674,10 +644,40 @@
         News
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">19</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">6</span>
-        Data Science Competition
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
 </p>
