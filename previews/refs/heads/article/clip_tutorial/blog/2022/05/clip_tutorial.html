@@ -202,7 +202,7 @@ CLIPでは、従来のようなラベル付き画像データセットを用い�
 CLIPは大きく画像をEmbeddingするImage Encoderと、文章をEmbeddingするText Encoderから構成されています。<br>
 Embeddingとは、自然言語を計算が可能な形、すなわちベクトル表現に変換することを言います。CLIPのImage EncoderやText Encoderでは、1つの画像や文章をそれぞれ512次元のベクトルに変換しています。
 Embeddingの詳しい説明に関しては<a href="https://qiita.com/sakabe/items/5f14999ded1de087c9b5">こちら</a>を参考にしてください。</p>
-<p><img alt="" src="https://github.com/openai/CLIP/raw/main/CLIP.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/openai/CLIP/main/CLIP.png"></p>
 <h3><span id="pelican-subsections-4">2. Text Encoder</span></h3>
 <p>CLIPのTextEncoderとしては、TransformerのEncoderが用いられています。<br>
 Transformerは自然言語処理では必須のモデルで、全体として以下のようなアーキテクチャを持つモデルです。
@@ -217,71 +217,71 @@ TransformerのEncoderでは、次のように入力テキストの処理が行�
 <p><img alt="" src="https://user-images.githubusercontent.com/57289763/160270884-e1901241-a1e6-4890-a5e8-165e87f0c4da.png"></p>
 <p>TransformerのEncoderBlockの実装は次のようになります。<br>
 ただし、CLIP内のTransformerのEncoderBlockでは、元のTransformerのものと異なり、LayerNormalizationをMultiHeadAttentionやFeedForwardNetwork層の後(=Post-Norm)ではなく前(=Pre-Norm)で行っています。  (参考：<a href="https://twitter.com/hillbig/status/1182438709095854080?s=19">Pre-Normを採用する理由</a>)</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">TransformerEncoderBlock</span>(<span class="n">nn</span>.<span class="n">Module</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(
-        <span class="nb">self</span>,
-        <span class="n">width:</span> <span class="n">int</span>,
-        <span class="n">heads:</span> <span class="n">int</span>,
-        <span class="n">attn_mask:</span> <span class="n">torch</span>.<span class="n">Tensor</span> = <span class="n">None</span>
-        ) -&gt; <span class="n">None:</span>
-        <span class="n">super</span>().<span class="n">__init__</span>()
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TransformerEncoderBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">attn_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="nb">self</span>.<span class="n">multi_head_attention</span> = <span class="n">nn</span>.<span class="n">MultiheadAttention</span>(<span class="n">width</span>, <span class="n">heads</span>)
-        <span class="nb">self</span>.<span class="n">layer_norm_1</span> = <span class="n">nn</span>.<span class="n">LayerNorm</span>(<span class="n">width</span>)
+        <span class="bp">self</span><span class="o">.</span><span class="n">multi_head_attention</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MultiheadAttention</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">heads</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
 
-        <span class="nb">self</span>.<span class="n">ffn</span> = <span class="n">nn</span>.<span class="n">Sequential</span>(
-            <span class="n">nn</span>.<span class="n">Linear</span>(<span class="n">width</span>, <span class="n">width</span> * <span class="mi">4</span>),
-            <span class="n">nn</span>.<span class="n">GELU</span>(),
-            <span class="n">nn</span>.<span class="n">Linear</span>(<span class="n">width</span> * <span class="mi">4</span>, <span class="n">width</span>)
-        )
-        <span class="nb">self</span>.<span class="n">layer_norm_2</span> = <span class="n">nn</span>.<span class="n">LayerNorm</span>(<span class="n">width</span>)
-        <span class="nb">self</span>.<span class="n">attn_mask</span> = <span class="n">attn_mask</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attn_mask</span> <span class="o">=</span> <span class="n">attn_mask</span>
 
-    <span class="n">def</span> <span class="n">forward</span>(<span class="nb">self</span>, <span class="o">x</span>: <span class="n">torch</span>.<span class="n">Tensor</span>):
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
         <span class="c1"># Layer正規化した後にMultiHeadAttentionに入力し、その出力と元の値を足し合わせる</span>
-        <span class="nb">x</span> = <span class="nb">x</span> + <span class="nb">self</span>.<span class="n">multi_head_attention</span>(
-            <span class="nb">self</span>.<span class="n">layer_norm_1</span>(<span class="nb">x</span>),
-            <span class="nb">self</span>.<span class="n">layer_norm_1</span>(<span class="nb">x</span>),
-            <span class="nb">self</span>.<span class="n">layer_norm_1</span>(<span class="nb">x</span>),
-            <span class="nb">self</span>.<span class="n">attn_mask</span>)[<span class="mi">0</span>]
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">multi_head_attention</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attn_mask</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="c1"># Layerした後にFeedForwardNetworkに入力し、その出力と元の値を足し合わせる</span>
-        <span class="nb">x</span> = <span class="nb">x</span> + <span class="nb">self</span>.<span class="n">ffn</span>(
-            <span class="nb">self</span>.<span class="n">layer_norm_2</span>(<span class="nb">x</span>)
-            ) <span class="c1"># LayerNorm-&gt;FeedForwardNetwork-&gt;Add</span>
-        <span class="k">return</span> <span class="nb">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">)</span> <span class="c1"># LayerNorm-&gt;FeedForwardNetwork-&gt;Add</span>
+        <span class="k">return</span> <span class="n">x</span>
 </code></pre></div>
 
 <p>TransformerのEncoderは、上で定義した<code>TransformerEncoderBlock</code>を用いて以下のように実装できます。ただし、オリジナルのTransformerでは、Positional Encodingはsin関数やcos関数を用いていますが、実装では0~1の一様分布からランダムに選択した値を持つ学習可能なパラメータとなっています。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">TransformerEncoder</span>(<span class="n">nn</span>.<span class="n">Module</span>):
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TransformerEncoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 
-    <span class="n">def</span> <span class="n">__init__</span>(
-        <span class="nb">self</span>,
-        <span class="n">context_length:</span> <span class="n">int</span>,
-        <span class="n">vocab_size:</span> <span class="n">int</span>,
-        <span class="n">width:</span> <span class="n">int</span>,
-        <span class="n">layers:</span> <span class="n">int</span>,
-        <span class="n">heads:</span> <span class="n">int</span>,
-        <span class="n">attn_mask:</span> <span class="n">torch</span>.<span class="n">Tensor</span>=<span class="n">None</span>
-    ) -&gt; <span class="n">None:</span>
-        <span class="n">super</span>().<span class="n">__init__</span>()
-        <span class="nb">self</span>.<span class="n">token_embedding</span> = <span class="n">nn</span>.<span class="n">Embedding</span>(<span class="n">vocab_size</span>, <span class="n">width</span>)
-        <span class="nb">self</span>.<span class="n">positional_embedding</span> = <span class="n">nn</span>.<span class="nb">Parameter</span>(<span class="n">torch</span>.<span class="n">randn</span>(<span class="n">context_length</span>, <span class="n">width</span>))
-        <span class="nb">self</span>.<span class="n">width</span> = <span class="n">width</span>
-        <span class="nb">self</span>.<span class="n">n_layers</span> = <span class="n">layers</span>
-        <span class="nb">self</span>.<span class="n">transformer_encoder_blocks</span> = <span class="n">nn</span>.<span class="n">Sequential</span>(
-            *[<span class="n">TransformerEncoderBlock</span>(<span class="n">width</span>, <span class="n">heads</span>, <span class="n">attn_mask</span>) <span class="k">for</span> <span class="n">_</span> <span class="nb">in</span> <span class="nb">range</span>(<span class="n">layers</span>)]
-            ) 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">context_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">attn_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positional_embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">context_length</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="n">layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformer_encoder_blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">[</span><span class="n">TransformerEncoderBlock</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">heads</span><span class="p">,</span> <span class="n">attn_mask</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">layers</span><span class="p">)]</span>
+            <span class="p">)</span> 
 
-    <span class="n">def</span> <span class="n">forward</span>(
-        <span class="nb">self</span>,
-        <span class="o">x</span>: <span class="n">torch</span>.<span class="n">Tensor</span>
-    ) -&gt; <span class="n">torch</span>.<span class="n">Tensor:</span>
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">token_embedding</span>(<span class="nb">x</span>)  <span class="c1"># 1. トークン化された文章をベクトル表現に変換</span>
-        <span class="nb">x</span> = <span class="nb">x</span> + <span class="nb">self</span>.<span class="n">positional_embedding</span>  <span class="c1"># 2. Positional Encodingにより位置情報を付与</span>
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">permute</span>(<span class="mi">1</span>, <span class="mi">0</span>, <span class="mi">2</span>)
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">transformer_encoder_blocks</span>(<span class="nb">x</span>) <span class="c1"># 3+4. TransformerEncoderBlockでの処理をN回くり返す</span>
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">permute</span>(<span class="mi">1</span>, <span class="mi">0</span>, <span class="mi">2</span>)
-        <span class="k">return</span> <span class="nb">x</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 1. トークン化された文章をベクトル表現に変換</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">positional_embedding</span>  <span class="c1"># 2. Positional Encodingにより位置情報を付与</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformer_encoder_blocks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 3+4. TransformerEncoderBlockでの処理をN回くり返す</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-5">3. Image Encoderの実装</span></h3>
@@ -301,163 +301,163 @@ VisionTransformerでは以下のような順番で画像の処理が行われま
 </ol>
 <p><img alt="" src="https://storage.googleapis.com/zenn-user-upload/aa5ae6bcb822784d6021ea6a.png"></p>
 <p>Image Encoderでは、画像1枚1枚に対して通常のVisionTransformerと同様に1~4の処理を行います。具体的な実装は以下の通りです。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">VisionTransformer</span>(<span class="n">nn</span>.<span class="n">Module</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(
-        <span class="nb">self</span>,
-        <span class="n">image_size:</span> <span class="n">int</span>,
-        <span class="n">patch_size:</span> <span class="n">int</span>,
-        <span class="n">width:</span> <span class="n">int</span>,
-        <span class="n">layers:</span> <span class="n">int</span>,
-        <span class="n">heads:</span> <span class="n">int</span>,
-        <span class="n">output_dim:</span> <span class="n">int</span>
-    ) -&gt; <span class="n">None:</span>
-        <span class="n">super</span>().<span class="n">__init__</span>()
-        <span class="n">image_height</span>, <span class="n">image_width</span> = <span class="n">image_size</span>, <span class="n">image_size</span>
-        <span class="n">patch_height</span>, <span class="n">patch_width</span> = <span class="n">patch_size</span>, <span class="n">patch_size</span>
-        <span class="n">num_patches</span> = (<span class="n">image_height</span> // <span class="n">patch_height</span>) * (<span class="n">image_width</span> // <span class="n">patch_width</span>)
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">VisionTransformer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">image_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">patch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">output_dim</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">image_height</span><span class="p">,</span> <span class="n">image_width</span> <span class="o">=</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span>
+        <span class="n">patch_height</span><span class="p">,</span> <span class="n">patch_width</span> <span class="o">=</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span>
+        <span class="n">num_patches</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_height</span> <span class="o">//</span> <span class="n">patch_height</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">image_width</span> <span class="o">//</span> <span class="n">patch_width</span><span class="p">)</span>
 
-        <span class="nb">self</span>.<span class="n">conv1</span> = <span class="n">nn</span>.<span class="n">Conv2d</span>(<span class="n">in_channels</span>=<span class="mi">3</span>, <span class="n">out_channels</span>=<span class="n">width</span>, <span class="n">kernel_size</span>=<span class="n">patch_size</span>, <span class="n">stride</span>=<span class="n">patch_size</span>)
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">patch_size</span><span class="p">)</span>
 
-        <span class="nb">self</span>.<span class="n">class_embedding</span> = <span class="n">nn</span>.<span class="nb">Parameter</span>(<span class="n">torch</span>.<span class="n">randn</span>(<span class="mi">1</span>, <span class="mi">1</span>, <span class="n">width</span>)) <span class="c1"># class_tokenのEmbeddingに相当</span>
-        <span class="nb">self</span>.<span class="n">positional_embedding</span> = <span class="n">nn</span>.<span class="nb">Parameter</span>(<span class="n">torch</span>.<span class="n">randn</span>(<span class="mi">1</span>, <span class="n">num_patches</span> + <span class="mi">1</span>, <span class="n">width</span>)) <span class="c1"># num_pathes + 1 = patch数+class_embedding</span>
-        <span class="nb">self</span>.<span class="n">layer_norm_pre</span> = <span class="n">nn</span>.<span class="n">LayerNorm</span>(<span class="n">width</span>)
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span> <span class="c1"># class_tokenのEmbeddingに相当</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positional_embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_patches</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span> <span class="c1"># num_pathes + 1 = patch数+class_embedding</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_pre</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
 
-        <span class="nb">self</span>.<span class="n">transformer_encoder</span> = <span class="n">nn</span>.<span class="n">Sequential</span>(
-            *[<span class="n">TransformerEncoderBlock</span>(<span class="n">width</span>, <span class="n">heads</span>) <span class="k">for</span> <span class="n">_</span> <span class="nb">in</span> <span class="nb">range</span>(<span class="n">layers</span>)]
-        )
-        <span class="nb">self</span>.<span class="n">layers</span> = <span class="n">layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transformer_encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">[</span><span class="n">TransformerEncoderBlock</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">heads</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">layers</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">layers</span>
 
-        <span class="nb">self</span>.<span class="n">layer_norm_post</span> = <span class="n">nn</span>.<span class="n">LayerNorm</span>(<span class="n">width</span>)
-        <span class="nb">self</span>.<span class="n">proj</span> = <span class="n">nn</span>.<span class="nb">Parameter</span>(<span class="n">torch</span>.<span class="n">randn</span>(<span class="n">width</span>, <span class="n">output_dim</span>))
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_post</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">))</span>
 
-    <span class="n">def</span> <span class="n">__image_to_patch</span>(
-        <span class="nb">self</span>,
-        <span class="o">x</span>: <span class="n">torch</span>.<span class="n">Tensor</span>
-    ) -&gt; <span class="n">torch</span>.<span class="n">Tensor:</span>
-        ```
-            <span class="n">入力画像をパッチに変換する</span>。
-        ```
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">conv1</span>(<span class="nb">x</span>)
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">reshape</span>(<span class="nb">x</span>.<span class="nb">shape</span>[<span class="mi">0</span>], <span class="nb">x</span>.<span class="nb">shape</span>[<span class="mi">1</span>], -<span class="mi">1</span>)
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">permute</span>(<span class="mi">0</span>, <span class="mi">2</span>, <span class="mi">1</span>)
-        <span class="k">return</span> <span class="nb">x</span>
+    <span class="k">def</span> <span class="nf">__image_to_patch</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="err">```</span>
+            <span class="n">入力画像をパッチに変換する</span><span class="err">。</span>
+        <span class="err">```</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
 
-    <span class="n">def</span> <span class="n">forward</span>(
-        <span class="nb">self</span>,
-        <span class="o">x</span>: <span class="n">torch</span>.<span class="n">Tensor</span>
-    ) -&gt; <span class="n">torch</span>.<span class="n">Tensor:</span>
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">__image_to_patch</span>(<span class="nb">x</span>)  <span class="c1"># 1. 画像をパッチに変換しEmbeddingする</span>
-        <span class="nb">x</span> = <span class="n">torch</span>.<span class="n">cat</span>([<span class="nb">self</span>.<span class="n">class_embedding</span>.<span class="n">expand</span>(<span class="nb">x</span>.<span class="nb">shape</span>[<span class="mi">0</span>], -<span class="mi">1</span>, -<span class="mi">1</span>), <span class="nb">x</span>], <span class="n">dim</span>=<span class="mi">1</span>)  <span class="c1"># 2. class tokenのembeddingをパッチの先頭に追加</span>
-        <span class="nb">x</span> = <span class="nb">x</span> + <span class="nb">self</span>.<span class="n">positional_embedding</span>.<span class="n">expand</span>(<span class="nb">x</span>.<span class="nb">shape</span>[<span class="mi">0</span>], -<span class="mi">1</span>, -<span class="mi">1</span>)  <span class="c1"># 3. positional encodingで位置情報を追加</span>
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">layer_norm_pre</span>(<span class="nb">x</span>) 
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__image_to_patch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 1. 画像をパッチに変換しEmbeddingする</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">class_embedding</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2. class tokenのembeddingをパッチの先頭に追加</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">positional_embedding</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 3. positional encodingで位置情報を追加</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer_norm_pre</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
 
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">permute</span>(<span class="mi">1</span>, <span class="mi">0</span>, <span class="mi">2</span>)
-        <span class="nb">x</span> = <span class="nb">self</span>.<span class="n">transformer_encoder</span>(<span class="nb">x</span>)  <span class="c1"># 4. パッチのembeddingをTransformerEncoderに入力</span>
-        <span class="nb">x</span> = <span class="nb">x</span>.<span class="n">permute</span>(<span class="mi">1</span>, <span class="mi">0</span>, <span class="mi">2</span>)
-        <span class="k">return</span> <span class="nb">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transformer_encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 4. パッチのembeddingをTransformerEncoderに入力</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-6">4. CLIPの実装</span></h3>
 <p>次に、上の1,2で実装した<code>TransformerEncoder</code>や<code>VisionTransformer</code>を用いて、CLIPを実装していきます。<br>
 CLIPの実装は以下のようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">CLIP</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="k">Module</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">image_size</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">224</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">patch_size</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">width</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">768</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">layers</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">heads</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">context_length</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">77</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">vocab_size</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">49408</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nl">output_dim</span><span class="p">:</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CLIP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">image_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">224</span><span class="p">,</span>
+        <span class="n">patch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">768</span><span class="p">,</span>
+        <span class="n">layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="n">heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="n">context_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">77</span><span class="p">,</span>
+        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">49408</span><span class="p">,</span>
+        <span class="n">output_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nc">image</span><span class="w"> </span><span class="n">encoder</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">image_encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VisionTransformer</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">image_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image_size</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">patch_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">patch_size</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layers</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">heads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heads</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">output_dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output_dim</span><span class="w"></span>
-<span class="w">            </span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">image_projection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nn</span><span class="p">.</span><span class="k">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">output_dim</span><span class="p">))</span><span class="w"></span>
+        <span class="c1"># image encoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">VisionTransformer</span><span class="p">(</span>
+            <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span><span class="p">,</span>
+            <span class="n">patch_size</span> <span class="o">=</span> <span class="n">patch_size</span><span class="p">,</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span>
+            <span class="n">layers</span> <span class="o">=</span> <span class="n">layers</span><span class="p">,</span>
+            <span class="n">heads</span> <span class="o">=</span> <span class="n">heads</span><span class="p">,</span>
+            <span class="n">output_dim</span> <span class="o">=</span> <span class="n">output_dim</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">))</span>
 
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nc">text</span><span class="w"> </span><span class="n">encoder</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">context_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context_length</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">text_encoder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransformerEncoder</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">context_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context_length</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">vocab_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vocab_size</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">layers</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">heads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heads</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">text_projection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nn</span><span class="p">.</span><span class="k">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">output_dim</span><span class="p">))</span><span class="w"></span>
+        <span class="c1"># text encoder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_length</span> <span class="o">=</span> <span class="n">context_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_encoder</span> <span class="o">=</span> <span class="n">TransformerEncoder</span><span class="p">(</span>
+            <span class="n">context_length</span> <span class="o">=</span> <span class="n">context_length</span><span class="p">,</span>
+            <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">vocab_size</span><span class="p">,</span>
+            <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span>
+            <span class="n">layers</span> <span class="o">=</span> <span class="n">layers</span><span class="p">,</span>
+            <span class="n">heads</span> <span class="o">=</span> <span class="n">heads</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_projection</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">))</span>
 
-<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">temperature_parameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nn</span><span class="p">.</span><span class="k">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="err">[]</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">0.07</span><span class="p">))</span><span class="w"></span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature_parameter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">([])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">0.07</span><span class="p">))</span>
 
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">encode_image</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">images</span><span class="p">:</span><span class="w"> </span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
-<span class="ss">            Image Encoderを用いて画像をImage Embeddingに変換</span>
-<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">images</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="n">:, 0, :</span><span class="o">]</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">image_projection</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">encode_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Image Encoderを用いて画像をImage Embeddingに変換</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_projection</span>
+        <span class="k">return</span> <span class="n">x</span>
 
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">encode_text</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">texts</span><span class="p">:</span><span class="w"> </span><span class="n">Tuple</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
-<span class="ss">            Text Encoderを用いてテキストをText Embeddingに変換</span>
-<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">__tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">text_encoder</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="n">torch.arange(x.shape[0</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="err">]</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">EOT</span><span class="w"> </span><span class="n">tokenのembeddingのみ使用する</span><span class="w"></span>
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">text_projection</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">encode_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Text Encoderを用いてテキストをText Embeddingに変換</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_encoder</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="c1"># print(x)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span> <span class="c1"># EOT tokenのembeddingのみ使用する</span>
+        <span class="c1"># print(x[0])</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_projection</span>
+        <span class="k">return</span> <span class="n">x</span>
 
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__tokenize</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">texts</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">truncate</span><span class="err">:</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
-<span class="ss">            byte-pair Encodingの手法を用いて、テキストをtokenに変換する。</span>
-<span class="ss">            byte-pair Encodingの詳細は本記事では省略する。</span>
-<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">_tokenizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_Tokenizer</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="n">sot_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_tokenizer</span><span class="p">.</span><span class="n">encoder</span><span class="o">[</span><span class="n">&quot;&lt;|startoftext|&gt;&quot;</span><span class="o">]</span><span class="w"></span>
-<span class="w">        </span><span class="n">eot_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_tokenizer</span><span class="p">.</span><span class="n">encoder</span><span class="o">[</span><span class="n">&quot;&lt;|endoftext|&gt;&quot;</span><span class="o">]</span><span class="w"></span>
-<span class="w">        </span><span class="n">all_tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">[sot_token</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">_tokenizer</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="nc">text</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">[</span><span class="n">eot_token</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nc">text</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="err">]</span><span class="w"></span>
-<span class="w">        </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">),</span><span class="w"> </span><span class="n">context_length</span><span class="p">,</span><span class="w"> </span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="p">.</span><span class="nc">int</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nl">context_length</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="k">truncate</span><span class="err">:</span><span class="w"></span>
-<span class="w">                    </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tokens</span><span class="o">[</span><span class="n">:context_length</span><span class="o">]</span><span class="w"></span>
-<span class="w">                    </span><span class="n">tokens</span><span class="o">[</span><span class="n">-1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eot_token</span><span class="w"></span>
-<span class="w">                </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
-<span class="w">                    </span><span class="n">raise</span><span class="w"> </span><span class="n">RuntimeError</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;Input {texts[i]} is too long for context length {context_length}&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="k">result</span><span class="o">[</span><span class="n">i, :len(tokens)</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">result</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">__tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            byte-pair Encodingの手法を用いて、テキストをtokenに変換する。</span>
+<span class="sd">            byte-pair Encodingの詳細は本記事では省略する。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_tokenizer</span> <span class="o">=</span> <span class="n">_Tokenizer</span><span class="p">()</span>
+        <span class="n">sot_token</span> <span class="o">=</span> <span class="n">_tokenizer</span><span class="o">.</span><span class="n">encoder</span><span class="p">[</span><span class="s2">&quot;&lt;|startoftext|&gt;&quot;</span><span class="p">]</span>
+        <span class="n">eot_token</span> <span class="o">=</span> <span class="n">_tokenizer</span><span class="o">.</span><span class="n">encoder</span><span class="p">[</span><span class="s2">&quot;&lt;|endoftext|&gt;&quot;</span><span class="p">]</span>
+        <span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[[</span><span class="n">sot_token</span><span class="p">]</span> <span class="o">+</span> <span class="n">_tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">eot_token</span><span class="p">]</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">texts</span><span class="p">)]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">),</span> <span class="n">context_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tokens</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">context_length</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">truncate</span><span class="p">:</span>
+                    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[:</span><span class="n">context_length</span><span class="p">]</span>
+                    <span class="n">tokens</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">eot_token</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input </span><span class="si">{</span><span class="n">texts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> is too long for context length </span><span class="si">{</span><span class="n">context_length</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
 
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__l2_normalization</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;&quot;&quot; L2正規化を行うメソッド &quot;&quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">x_l2_norm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="w"></span>
-<span class="w">        </span><span class="n">x_l2_norm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_l2_norm</span><span class="p">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">expand</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">512</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">x_l2_norm</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">__l2_normalization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; L2正規化を行うメソッド &quot;&quot;&quot;</span>
+        <span class="n">x_l2_norm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">x_l2_norm</span> <span class="o">=</span> <span class="n">x_l2_norm</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x_l2_norm</span>
 
-<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">forward</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">images</span><span class="p">,</span><span class="w"> </span><span class="n">texts</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
-<span class="ss">            logitsを計算する。</span>
-<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span><span class="n">Normalization</span><span class="w"></span>
-<span class="w">        </span><span class="n">image_embeddings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">__l2_normalization</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">encode_image</span><span class="p">(</span><span class="n">images</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="n">text_embeddings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">__l2_normalization</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">texts</span><span class="p">))</span><span class="w"></span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">images</span><span class="p">,</span> <span class="n">texts</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            logitsを計算する。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># L2 Normalization</span>
+        <span class="n">image_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__l2_normalization</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encode_image</span><span class="p">(</span><span class="n">images</span><span class="p">))</span>
+        <span class="n">text_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__l2_normalization</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">texts</span><span class="p">))</span>
 
-<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">logitsを計算</span><span class="w"></span>
-<span class="w">        </span><span class="n">logits_per_image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">image_embeddings</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">text_embeddings</span><span class="p">.</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">temperature_parameter</span><span class="p">.</span><span class="nf">exp</span><span class="p">()</span><span class="w"></span>
-<span class="w">        </span><span class="n">logits_per_text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">text_embeddings</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">image_embeddings</span><span class="p">.</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">temperature_parameter</span><span class="p">.</span><span class="nf">exp</span><span class="p">()</span><span class="w"></span>
+        <span class="c1"># logitsを計算</span>
+        <span class="n">logits_per_image</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_embeddings</span> <span class="o">@</span> <span class="n">text_embeddings</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_parameter</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
+        <span class="n">logits_per_text</span> <span class="o">=</span> <span class="p">(</span><span class="n">text_embeddings</span> <span class="o">@</span> <span class="n">image_embeddings</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_parameter</span><span class="o">.</span><span class="n">exp</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">logits_per_image</span><span class="p">,</span><span class="w"> </span><span class="n">logits_per_text</span><span class="w"></span>
+        <span class="k">return</span> <span class="n">logits_per_image</span><span class="p">,</span> <span class="n">logits_per_text</span>
 </code></pre></div>
 
 <p><code>encode_image</code>では、<code>VisionTransformer</code>の<code>TransformerEncoder</code>の最終出力のうち、class_token、すなわち<code>index==0</code>の位置にあるEmbeddingを取り出します。その後、<code>image_projection</code>により512次元のベクトルに変換し、最終的なCLIPの画像特徴量とします。<br>
@@ -472,17 +472,17 @@ CLIPの実装は以下のようになります。</p>
 論文中では以下のような疑似コードが掲載されていました。この疑似コードに関しては<a href="https://data-analytics.fun/2021/03/24/understanding-openai-clip/">こちらの記事</a>で詳しく解説されています。</p>
 <p><img alt="" src="https://data-analytics.fun/wp-content/uploads/2021/01/image-58.png"></p>
 <p>また、この疑似コードを元にSymmetric Lossの実装を行ってみました。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">SymmetricLoss</span>(<span class="n">nn</span>.<span class="n">Module</span>):
-    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>):
-        <span class="n">super</span>().<span class="n">__init__</span>()
-        <span class="nb">self</span>.<span class="n">criterion</span> = <span class="n">nn</span>.<span class="n">CrossEntropyLoss</span>()
-        <span class="nb">self</span>.<span class="n">device</span> = <span class="s">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span>.<span class="n">cuda</span>.<span class="n">is_available</span>() <span class="k">else</span> <span class="s">&quot;cpu&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SymmetricLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
 
-    <span class="n">def</span> <span class="n">forward</span>(<span class="nb">self</span>, <span class="n">logits_per_image</span>, <span class="n">logits_per_text</span>, <span class="n">labels</span>):
-        <span class="n">labels</span> = <span class="n">labels</span>.<span class="nb">to</span>(<span class="nb">self</span>.<span class="n">device</span>)
-        <span class="n">loss_i</span> = <span class="nb">self</span>.<span class="n">criterion</span>(<span class="n">logits_per_image</span>, <span class="n">labels</span>) <span class="c1"># 画像に対するloss</span>
-        <span class="n">loss_t</span> = <span class="nb">self</span>.<span class="n">criterion</span>(<span class="n">logits_per_text</span>, <span class="n">labels</span>) <span class="c1"># テキストに対するloss</span>
-        <span class="n">loss</span> = (<span class="n">loss_i</span> + <span class="n">loss_t</span>) / <span class="mi">2</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logits_per_image</span><span class="p">,</span> <span class="n">logits_per_text</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">loss_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span><span class="p">(</span><span class="n">logits_per_image</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="c1"># 画像に対するloss</span>
+        <span class="n">loss_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span><span class="p">(</span><span class="n">logits_per_text</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="c1"># テキストに対するloss</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss_i</span> <span class="o">+</span> <span class="n">loss_t</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="k">return</span> <span class="n">loss</span>
 </code></pre></div>
 
@@ -635,16 +635,16 @@ CLIPの実装は以下のようになります。</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">19</span>
+        Python
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
       </a>
     </span>
     <span class="tag-1">
@@ -659,28 +659,58 @@ CLIPの実装は以下のようになります。</p>
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
           <span class="badge badge-primary">2</span>
-        その他言語
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">6</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-2">
@@ -696,15 +726,15 @@ CLIPの実装は以下のようになります。</p>
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
       </a>
     </span>
     <span class="tag-2">
@@ -713,58 +743,28 @@ CLIPの実装は以下のようになります。</p>
         Bioinformatics
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/neuroscience.html">
           <span class="badge badge-primary">4</span>
         Neuroscience
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">19</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">6</span>
-        Data Science Competition
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
 </p>
