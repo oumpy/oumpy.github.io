@@ -1,5 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link>/previews/refs/heads/article/clip_tutorial/</link><description>Now is better than never.</description><lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0900</lastBuildDate><item><title>株式会社GramEyeが資金調達を実施</title><link>/previews/refs/heads/article/clip_tutorial/news/2022/04/grameye.html</link><description>&lt;p&gt;弊団体OB平岡悠の起業した大阪大学発ベンチャー株式会社GramEyeが2度目プレシリーズA資金調達を実施いたしまし …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Python会</dc:creator><pubDate>Mon, 04 Apr 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-04-04:/previews/refs/heads/article/clip_tutorial/news/2022/04/grameye.html</guid><category>お知らせ</category><category>News</category></item><item><title>クローン病の予後予測と脂肪組織萎縮の関係</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/04/crohn.html</link><description>&lt;p&gt;共同第一著者として携わった研究がthe American Journal of Pathologyに受理されました。&lt;/p&gt;
+<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link>/previews/refs/heads/article/clip_tutorial/</link><description>Now is better than never.</description><lastBuildDate>Sat, 21 May 2022 23:00:00 +0900</lastBuildDate><item><title>ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/05/zapline.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;ZapLine&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;LFP&amp;#12395;&amp;#23550;&amp;#12377;&amp;#12427;&amp;#38651;&amp;#28304;&amp;#30001;&amp;#26469;&amp;#12398;&amp;#12450;&amp;#12540;&amp;#12486;&amp;#12451;&amp;#12501;&amp;#12449;&amp;#12463;&amp;#12488;&amp;#38500;&amp;#21435; (Python)&lt;a class="anchor-link" href="#ZapLineを用いたLFPに対する電源由来のアーティファクト除去-(Python)"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="ZapLineとは"&gt;ZapLine&amp;#12392;&amp;#12399;&lt;a class="anchor-link" href="#ZapLineとは"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineはEEGやMEGなどのデータにおける&lt;strong&gt;電力系統 (power line)に由来するアーティファクトを除去&lt;/strong&gt;するアルゴリズムである．アーティファクトの周波数を指定し（残念ながら指定が必要），アーティファクト成分のみを除去する時空間的フィルタを求めることを目的とする．やや手法が込み入っていたので詳細は論文のmethodを読んでほしい．&lt;/p&gt;
+&lt;p&gt;ZapLineの論文：&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;a href="https://www.sciencedirect.com/science/article/pii/S1053811919309474"&gt;Cheveigné, Alain de. 2020. “ZapLine: A Simple and Effective Method to Remove Power Line Artifacts.” &lt;em&gt;NeuroImage&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="meegkitでZapLineを使用する"&gt;meegkit&amp;#12391;ZapLine&amp;#12434;&amp;#20351;&amp;#29992;&amp;#12377;&amp;#12427;&lt;a class="anchor-link" href="#meegkitでZapLineを使用する"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ZapLineはMATLABでの実装が著者により公開されている．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://audition.ens.fr/adc/NoiseTools/src/NoiseTools/EXAMPLES/zapline/"&gt;http://audition.ens.fr/adc/NoiseTools/src/NoiseTools/EXAMPLES/zapline/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/MariusKlug/zapline-plus"&gt;https://github.com/MariusKlug/zapline-plus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この記事では&lt;code&gt;meegkit&lt;/code&gt;というPythonライブラリにおける実装を使用する．documentとgithubへのリンクは次の通り：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;doc: &lt;a href="https://nbara.github.io/python-meegkit/index.html"&gt;https://nbara.github.io/python-meegkit/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;github: &lt;a href="https://github.com/nbara/python-meegkit"&gt;https://github.com/nbara/python-meegkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="必要なライブラリのinstall"&gt;&amp;#24517;&amp;#35201;&amp;#12394;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;install&lt;a class="anchor-link" href="#必要なライブラリのinstall"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;pipにより，&lt;code&gt;pyedflib&lt;/code&gt;, &lt;code&gt;pyriemann&lt;/code&gt;, &lt;code&gt;meegkit&lt;/code&gt;をinstallする．&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install pyedflib
+pip install pyriemann
+pip install git+https://github.com/nbara/python-meegkit.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://pyedflib.readthedocs.io/en/latest/"&gt;&lt;code&gt;pyedflib&lt;/code&gt;&lt;/a&gt;は.bdfファイルを読み込むために使用する．&lt;code&gt;pyriemann&lt;/code&gt;は&lt;code&gt;meegkit&lt;/code&gt;で使用されており，別途installが必要となった．&lt;/p&gt;
+&lt;h3 id="ライブラリのimport"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#ライブラリのimport"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;以下では&lt;code&gt;meegkit&lt;/code&gt;の&lt;a href="https://nbara.github.io/python-meegkit/auto_examples/example_dss_line.html#sphx-glr-auto-examples-example-dss-line-py"&gt;example&lt;/a&gt;を参考にしてZapLineの使用法を見ていく．まずライブラリをimportする．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山本</dc:creator><pubDate>Sat, 21 May 2022 23:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-05-21:/previews/refs/heads/article/clip_tutorial/blog/2022/05/zapline.html</guid><category>技術ブログ</category><category>Python</category><category>Neuroscience</category></item><item><title>Tensorpacによる位相-振幅カップリング (PAC) 推定</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/05/tensorpac.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Tensorpacによる位相-振幅カップリング-(PAC)-推定"&gt;Tensorpac&amp;#12395;&amp;#12424;&amp;#12427;&amp;#20301;&amp;#30456;-&amp;#25391;&amp;#24133;&amp;#12459;&amp;#12483;&amp;#12503;&amp;#12522;&amp;#12531;&amp;#12464; (PAC) &amp;#25512;&amp;#23450;&lt;a class="anchor-link" href="#Tensorpacによる位相-振幅カップリング-(PAC)-推定"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="周波数間カップリング-(CFC)-について"&gt;&amp;#21608;&amp;#27874;&amp;#25968;&amp;#38291;&amp;#12459;&amp;#12483;&amp;#12503;&amp;#12522;&amp;#12531;&amp;#12464; (CFC) &amp;#12395;&amp;#12388;&amp;#12356;&amp;#12390;&lt;a class="anchor-link" href="#周波数間カップリング-(CFC)-について"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;近接する神経細胞の集団活動によって生じる電位変化を&lt;strong&gt;電場電位(field potential)&lt;/strong&gt; といい，脳波計(EEG), 皮質脳波(ECoG), 脳磁図(MEG)等で計測できる．細胞集団の同期した活動は様々な周波数の振動として計測される．その周波数が属する周波数帯域に応じて，次のような名称がついている．&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;周波数帯域&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Gamma ($\gamma$)&lt;/td&gt;
+&lt;td&gt;&amp;gt; 30 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Beta ($\beta$)&lt;/td&gt;
+&lt;td&gt;12-30 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alpha ($\alpha$)&lt;/td&gt;
+&lt;td&gt;8-12 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Theta ($\theta$)&lt;/td&gt;
+&lt;td&gt;4-8 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Delta ($\delta$)&lt;/td&gt;
+&lt;td&gt;0.5-4 Hz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;周波数間カップリング (cross-frequency coupling; CFC)&lt;/strong&gt; とは，異なる周波数帯域の振動の間における相互作用の総称である．次の図は(&lt;a href="https://www.frontiersin.org/articles/10.3389/fncom.2013.00078/full"&gt;Jirsa &amp;amp; Müller. &lt;em&gt;Frontiers in Computational Neuroscience.&lt;/em&gt; 2013&lt;/a&gt;)からの引用であり，様々なCFCを示している．Aでは振動Xの振幅(amplitude)の2乗(=power)が赤線，位相(phase)の基準が縦点線で示されている．B-FはXの振幅や位相に対してY1-Y5の振幅や位相，周波数が変調されている様子を表している．ここで因果関係は明らかでないので各YからXが変調されている場合もある．GはY5-Y6間での周波数における変調を示している．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山本</dc:creator><pubDate>Thu, 12 May 2022 23:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-05-12:/previews/refs/heads/article/clip_tutorial/blog/2022/05/tensorpac.html</guid><category>技術ブログ</category><category>Python</category><category>Neuroscience</category></item><item><title>非負値行列因子分解(NMF)を用いたグリッドパターンの創発</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/04/grid_patten_nmf.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="非負値行列因子分解(NMF)を用いたGrid-likeパターンの創発"&gt;&amp;#38750;&amp;#36000;&amp;#20516;&amp;#34892;&amp;#21015;&amp;#22240;&amp;#23376;&amp;#20998;&amp;#35299;(NMF)&amp;#12434;&amp;#29992;&amp;#12356;&amp;#12383;Grid-like&amp;#12497;&amp;#12479;&amp;#12540;&amp;#12531;&amp;#12398;&amp;#21109;&amp;#30330;&lt;a class="anchor-link" href="#非負値行列因子分解(NMF)を用いたGrid-likeパターンの創発"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;内側嗅内皮質(MEC)にある&lt;strong&gt;グリッド細胞 (grid cells)&lt;/strong&gt; は六角形格子状の発火パターンにより自己位置等を符号化するのに貢献している．この発火パターンを生み出すモデルは多数あるが，その中でもシンプルなのが(&lt;a href="https://elifesciences.org/articles/10094"&gt;Dordek et al., eLife, 2016&lt;/a&gt;)である．&lt;strong&gt;場所細胞(place cells)&lt;/strong&gt; の発火パターンを&lt;strong&gt;非負主成分分析(nonnegative principal component analysis)&lt;/strong&gt; で次元削減するとグリッド細胞のパターンが生まれる，という内容である．このモデルはfeedforwardであり，場所細胞→グリッド細胞という逆向きの投射を考えているので完璧ではないが，グリッドパターンは最速で出すことができる．(&lt;a href="https://proceedings.neurips.cc/paper/2019/hash/6e7d5d259be7bf56ed79029c4e621f44-Abstract.html"&gt;Sorscher et al., NeurIPS2019, 2019&lt;/a&gt;)では&lt;strong&gt;非負値行列因子分解 (NMF: nonnegative matrix factorization)&lt;/strong&gt; で問題ないと書いてあったのでお手軽に実行できるコードを書こうと思い今回の記事を書いた．&lt;/p&gt;
+&lt;p&gt;ちなみに今回の内容は&lt;a href="https://compneuro-julia.github.io/"&gt;Juliaで学ぶ計算論的神経科学&lt;/a&gt;に書く予定だが，あちらではライブラリを必要最低限なものにある程度縛っているのでどういう構成にするか悩み中である．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="場所細胞の発火パターン"&gt;&amp;#22580;&amp;#25152;&amp;#32048;&amp;#32990;&amp;#12398;&amp;#30330;&amp;#28779;&amp;#12497;&amp;#12479;&amp;#12540;&amp;#12531;&lt;a class="anchor-link" href="#場所細胞の発火パターン"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;訓練データとなる場所細胞の発火パターンを人工的に作成する．まずライブラリを読み込む．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山本</dc:creator><pubDate>Tue, 26 Apr 2022 23:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-04-26:/previews/refs/heads/article/clip_tutorial/blog/2022/04/grid_patten_nmf.html</guid><category>技術ブログ</category><category>Python</category><category>Neuroscience</category></item><item><title>株式会社GramEyeが資金調達を実施</title><link>/previews/refs/heads/article/clip_tutorial/news/2022/04/grameye.html</link><description>&lt;p&gt;弊団体OB平岡悠の起業した大阪大学発ベンチャー株式会社GramEyeが2度目プレシリーズA資金調達を実施いたしまし …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Python会</dc:creator><pubDate>Mon, 04 Apr 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-04-04:/previews/refs/heads/article/clip_tutorial/news/2022/04/grameye.html</guid><category>お知らせ</category><category>News</category></item><item><title>クローン病の予後予測と脂肪組織萎縮の関係</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/04/crohn.html</link><description>&lt;p&gt;共同第一著者として携わった研究がthe American Journal of Pathologyに受理されました。&lt;/p&gt;
 &lt;p&gt;テーマは『&lt;strong&gt;手術時に取得した切片からクローン病 …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">安部</dc:creator><pubDate>Sat, 02 Apr 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-04-02:/previews/refs/heads/article/clip_tutorial/blog/2022/04/crohn.html</guid><category>技術ブログ</category><category>Machine Learning</category></item><item><title>清麗戦の研究：早く負けるが得か？</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/03/seirei.html</link><description>&lt;p&gt;本稿は第2期以降の&lt;a href="https://www.shogi.or.jp/match/seirei/"&gt;清麗戦&lt;/a&gt;の予選方式「再挑戦トーナメント」の妥当性に関する研究です。
 敗退回別に敗者トーナメン …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Thu, 31 Mar 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:None,2022-03-31:/previews/refs/heads/article/clip_tutorial/blog/2022/03/seirei.html</guid><category>技術ブログ</category><category>Simulation</category><category>Python</category></item><item><title>”車割り”を最適化</title><link>/previews/refs/heads/article/clip_tutorial/blog/2022/03/car_allocate_linebot.html</link><description>&lt;p&gt;”車割り”という作業を競プロ力で自動化→lineのbotで運用　ということをやってみました。&lt;/p&gt;
 &lt;h3&gt;車割り　とは&lt;/h3&gt;
