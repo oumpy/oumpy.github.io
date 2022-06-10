@@ -189,10 +189,10 @@
   <div class="content-body" itemprop="text articleBody">
 	<h2><span id="pelican-subsections-0">この記事の趣旨</span></h2>
 <p>医学生かつ技術がある程度わかる人としてkaggleに関わる機会を得た。
-その経験を通して学んだことなど今から書く。臨床を学んだ医師がコーディング以外の強みを活かしてテクノロジーに関わっていくとはどういった形のものなのか、イメージが着くようになってもらえたら嬉しい。なお、今回は自然言語処理周りの専門家の方と行なったのでモデル周りのことは全く把握していない。悪しからず。</p>
+その経験を通して学んだことなど今から書く。臨床を学んだ医師がコーディング以外の強みを活かしてテクノロジーに関わっていくとはどういった形のものなのか、イメージがつくようになってもらえたら嬉しい。なお、今回は自然言語処理周りの専門家の方と行ったのでモデル周りのことは全く把握していない。悪しからず。</p>
 <h2><span id="pelican-subsections-1">コンペのタスクの概要</span></h2>
 <p>アメリカの医師試験で行われる、模擬診察の時の学生が書いたメモを扱ったコンペになる。
-この医学生が書いたメモの自動採点をするためにその症例でこぼしてはならない重要な情報や症状を固有表現抽出 (NER) タスクをして抽出することを行う。
+この医学生が書いたメモの自動採点をするために、その症例でこぼしてはならない重要な情報や症状を固有表現抽出 (NER) タスクをして抽出することを行う。
 <a href="https://www.kaggle.com/code/yufuin/nbme-japanese/notebook">詳しくはこちら</a></p>
 <h2><span id="pelican-subsections-2">やったことと考えたこと</span></h2>
 <ol>
@@ -200,12 +200,12 @@
 <p>教師データと現状のモデルでの出力結果を眺める
 <img alt="fig1" src="../../../blog/2022/05/images/sugihara_figs/sugiharacompe_fig1.png">
 上記のデータは上が教師データ、下が<a href="https://github.com/noroka/uth_bert">uth-bert</a>を元に学習させて出力したデータになる。
-そもそも教師データ自体に何の法則性もなく年齢が含まれていたり性別が含まれていなかったりした。
+そもそも教師データ自体に何の法則性もなく、年齢が含まれていたり性別が含まれていなかったりした。
 あまりにもランダムだと感じられたので、次の手に移行。</p>
 </li>
 <li>
 <p>出てくる単語を診療科の単語毎に区分け
-まず教師データ、テストデータ、評価データの性質を均等に均そうと考えた。
+まず教師データ、テストデータ、評価データの性質を均等化しようと考えた。
 ここで取り入れた評価軸は２つ。
 患者が男性or女性
 患者の想定される疾患「1.循環器,2.消化器,3.婦人科,4.精神科,5.循環器と消化器,6.その他」
@@ -229,7 +229,7 @@
 <ol>
 <li>
 <p>顛末
-modelが完全一致の数で精度を測るものになってしまっており、部分一致を評価できないmodelだったらしく全員意気消沈。今回は諦めることに。</p>
+モデルが完全一致の数で精度を測るものになってしまっており、部分一致を評価できないモデルだったらしく全員意気消沈。今回は諦めることに。</p>
 </li>
 <li>
 <p>最後に：感想戦
@@ -383,10 +383,58 @@ modelが完全一致の数で精度を測るものになってしまっており
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">5</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
       </a>
     </span>
     <span class="tag-2">
@@ -395,22 +443,10 @@ modelが完全一致の数で精度を測るものになってしまっており
         競技プログラミング
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
     <span class="tag-3">
@@ -425,28 +461,10 @@ modelが完全一致の数で精度を測るものになってしまっており
         GitHub
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">28</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
     <span class="tag-2">
@@ -456,33 +474,27 @@ modelが完全一致の数で精度を測るものになってしまっており
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
         ハードウェア
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-1">
@@ -497,22 +509,10 @@ modelが完全一致の数で精度を測るものになってしまっており
         Bioinformatics
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
       </a>
     </span>
 </p>
