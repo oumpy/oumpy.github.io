@@ -199,16 +199,16 @@
 <p>WSIの前処理はkaggleの<a href="https://www.kaggle.com/competitions/prostate-cancer-grade-assessment/overview">PANDAコンペ</a>などでも扱われており、背景は白で組織はピンク〜紫なので巨大画像を256*256などのpatchに分割→ほとんど余白であるpatchは捨てる、といった前処理がされます。</p>
 <p>今回のデータでは、組織以外の余白部分が多いだけでなく、①スライドガラスの縁があれば黒い線として写ってしまう。②手術で取得したものであるというデータ作成過程上の特徴により組織以外の紫~黒の物体(血液など)が小さいながらも写っている。という2点が前処理上ネックとなりkaggle上の前処理をするだけではうまくいきませんでした。</p>
 <p>そこで、一旦元画像上で組織部分だけ2値化→組織以外の部分は白に塗り直す、という処理をあらかじめ行うことにより色の濃いノイズに対応しました。組織のpatch作成は<a href="https://www.kaggle.com/code/rftexas/better-image-tiles-removing-white-spaces">PANDAコンペで紹介されていた組織部分をより効率的に除く処理</a>を参考にしました。</p>
-<p><img src="../../../blog/2022/04/images/Crohn_figs/pathology_fig1.jpg" alt="pathology_figs_1" width="400px"></p>
+<p><img src="../../../articles/2022sy/blog/images/Crohn_figs/pathology_fig1.jpg" alt="pathology_figs_1" width="400px"></p>
 <h3><span id="pelican-subsections-2">モデル作成</span></h3>
 <p>取得したpatchを入力としてWSIについていた再発するかどうかの2値のラベルを予測するモデルを学習させました。モデルはお馴染みの"tf_efficientnet_b5_ns"を使っています。<br>
 augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rvi=1">ベンガルコンペ</a>で紹介されていた<a href="https://www.kaggle.com/code/haqishen/augmix-based-on-albumentations">augmix</a>と<a href="https://www.kaggle.com/code/haqishen/gridmask">gridmask</a>を使用しました。手元の実験ではcutmixも有効でした。GeM poolingは若干良い程度でavg poolingで十分だった気もします。細胞診の分類でもcutmixが有効だったのでpatch分割とcutmixは相性が良いのではないかと個人的に考えています。</p>
 <h3><span id="pelican-subsections-3">予測の解析</span></h3>
 <p>予測値が両極に近いpatchを見てみると漿膜下脂肪組織に差があるのではないかという仮説が生まれました。
-<img src="../../../blog/2022/04/images/Crohn_figs/pathology_fig3.jpg" alt="pathology_figs_3" width="400px"></p>
+<img src="../../../articles/2022sy/blog/images/Crohn_figs/pathology_fig3.jpg" alt="pathology_figs_3" width="400px"></p>
 <p>そこで脂肪細胞数/細胞の面積/細胞間距離/細胞の丸み(楕円fittingしたときの長軸)/短軸の割合/間質の面積を計測しました。この作業にはインスタンスセグメンテーションが必要だったのですが自分でmaskを作成してモデルを構築だけのパワーがなかったので深層学習は使用せずに<a href="http://labs.eecs.tottori-u.ac.jp/sd/Member/oyamada/OpenCV/html/py_tutorials/py_imgproc/py_watershed/py_watershed.html">opencv</a>などを駆使しました。<br></p>
 <p>以下が脂肪細胞の解析結果です。
-<img src="../../../blog/2022/04/images/Crohn_figs/pathology_fig5.jpg" alt="pathology_figs5" width="400px"></p>
+<img src="../../../articles/2022sy/blog/images/Crohn_figs/pathology_fig5.jpg" alt="pathology_figs5" width="400px"></p>
 <p>結果として『<strong>脂肪細胞の収縮が、疾患の再発に関係する</strong>』ことが示唆されました。</p>
 <h3><span id="pelican-subsections-4">感想</span></h3>
 <p>解析実際にやっていたのは2020年冬~2021年春でまだkaggleは"見る専"だった頃のものですが見よう見真似でkaggle上から引っ張ってきたアイデアが効いたり、自分なりに前処理を変更したりと楽しかった記憶があります。</p>
@@ -363,52 +363,10 @@ augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rv
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">19</span>
-        Python
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-4">
@@ -418,9 +376,15 @@ augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rv
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">6</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-4">
@@ -430,27 +394,15 @@ augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rv
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">6</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-2">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">11</span>
         Statistics
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
@@ -459,22 +411,40 @@ augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rv
         Data Science Competition
       </a>
     </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">3</span>
+        検定試験
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/mian-qiang-hui.html">
           <span class="badge badge-primary">10</span>
         勉強会
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">19</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-1">
@@ -484,9 +454,39 @@ augmentationには<a href="https://www.kaggle.com/competitions/bengaliai-cv19?rv
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-2">
