@@ -5,21 +5,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/</loc>
-<lastmod>2022-07-11T06:00:53-00:00</lastmod>
+<lastmod>2022-07-11T06:10:01-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/tags.html</loc>
-<lastmod>2022-07-11T06:00:53-00:00</lastmod>
+<lastmod>2022-07-11T06:10:01-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
 <loc>https://oumpy.github.io/authors.html</loc>
-<lastmod>2022-07-11T06:00:53-00:00</lastmod>
+<lastmod>2022-07-11T06:10:01-00:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -85,6 +85,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2021-09-25T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/blog/2022/07/wsi_ssl.html</loc>
+<lastmod>2022-07-03T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
 </url>
 
 <url>
@@ -838,7 +845,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/blog.html</loc>
-<lastmod>2022-06-11T00:00:00+09:19</lastmod>
+<lastmod>2022-07-03T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -851,15 +858,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://oumpy.github.io/tag/data-science-competition.html</loc>
-<lastmod>2022-06-11T00:00:00+09:19</lastmod>
+<loc>https://oumpy.github.io/tag/machine-learning.html</loc>
+<lastmod>2022-07-03T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
 
 <url>
-<loc>https://oumpy.github.io/tag/machine-learning.html</loc>
-<lastmod>2022-05-24T00:00:00+09:19</lastmod>
+<loc>https://oumpy.github.io/tag/lun-wen-matome.html</loc>
+<lastmod>2022-07-03T00:00:00+09:19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.1</priority>
+</url>
+
+<url>
+<loc>https://oumpy.github.io/tag/data-science-competition.html</loc>
+<lastmod>2022-06-11T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -902,13 +916,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://oumpy.github.io/tag/jing-ji-puroguramingu.html</loc>
 <lastmod>2022-03-13T00:00:00+09:19</lastmod>
-<changefreq>weekly</changefreq>
-<priority>0.1</priority>
-</url>
-
-<url>
-<loc>https://oumpy.github.io/tag/lun-wen-matome.html</loc>
-<lastmod>2022-02-20T23:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
@@ -1006,7 +1013,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://oumpy.github.io/author/an-bu.html</loc>
-<lastmod>2022-04-02T00:00:00+09:19</lastmod>
+<lastmod>2022-07-03T00:00:00+09:19</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.1</priority>
 </url>
