@@ -188,7 +188,7 @@
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
 	<h2><span id="pelican-subsections-0">TeXの処理動作</span></h2>
-<p>TeXは前からソースコードを認識し、<code>\textbackslash（英字）</code>というカタマリ<sup id="sf-tex_expand-1-back"><a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 ">1</a></sup>
+<p>TeXは前からソースコードを認識し、<code>\textbackslash（英字）</code>というカタマリ<sup id="sf-tex_expand-1-back"><a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 ">1</a></sup>
 を一つの制御綴（コントロールシークエンス）として処理します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\csone\cstwo</span>            <span class="k">\csthree</span>
 </code></pre></div>
@@ -266,7 +266,7 @@ one;two;three;
 </code></pre></div>
 
 <p>1行目で、先頭の<code>\expandafter</code>は直後の<code>\expandafter</code>を抑制するため、先に<code>\A</code>が展開されます。
-2行目で、<code>\expandafter\B</code>の\textbf{直後}は制御綴でないため、特に効果はありません。</p>
+2行目で、<code>\expandafter\B</code>の<strong>直後</strong>は制御綴でないため、特に効果はありません。</p>
 <h3><span id="pelican-subsections-5">例4</span></h3>
 <p><code>\expandafter\expandafter\expandafter\A\B\C</code>。<code>\expandafter</code>が3連続の場合は次のように、2つ後の制御綴が先ず展開されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">\expandafter\expandafter\expandafter\A\B\C</span>
@@ -313,7 +313,7 @@ one;two;three;
 <h2><span id="pelican-subsections-10">脚注</span></h2><ol class="simple-footnotes"><li id="sf-tex_expand-1">
 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
 従って、日本語の混ざった制御綴も作れる。
-<code>\relax␣あ</code>の場合は、<code>\relax</code>という制御綴と「あ」という文字として認識されるが、<code>\relaxあ</code>の場合は、<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く。
+<code>\relax␣あ</code>の場合は、<code>\relax</code>という制御綴と「あ」という文字として認識されるが、<code>\relaxあ</code>の場合は、<code>\relaxあ</code>という制御綴として認識され（定義しない限り）エラーを吐く。
  <a href="#sf-tex_expand-1-back" class="simple-footnote-back">↩</a></li></ol>
   </div>
   
@@ -457,12 +457,6 @@ one;two;three;
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
-      </a>
-    </span>
     <span class="tag-3">
       <a href="../../../tag/hadouea.html">
           <span class="badge badge-primary">2</span>
@@ -476,39 +470,9 @@ one;two;three;
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
+      <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">6</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+        自動化
       </a>
     </span>
     <span class="tag-1">
@@ -523,40 +487,22 @@ one;two;three;
         Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
+        企業インターン
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-2">
@@ -566,9 +512,51 @@ one;two;three;
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">6</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">11</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/jian-ding-shi-yan.html">
           <span class="badge badge-primary">3</span>
         検定試験
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-4">
@@ -578,9 +566,21 @@ one;two;three;
       </a>
     </span>
     <span class="tag-4">
-      <a href="../../../tag/github.html">
+      <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
-        GitHub
+        海外留学
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
       </a>
     </span>
     <span class="tag-1">
