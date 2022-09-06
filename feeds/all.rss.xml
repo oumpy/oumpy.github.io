@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Tue, 09 Aug 2022 23:00:00 +0900</lastBuildDate><item><title>境界条件を伴うカーネル密度推定</title><link>https://oumpy.github.io/blog/2022/08/reflecting-kde.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Sun, 04 Sep 2022 23:00:00 +0900</lastBuildDate><item><title>非可換ゲージ理論の頂点計算機</title><link>https://oumpy.github.io/blog/2022/09/nonabelian_1loop.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Non-Abelian-1-loop"&gt;Non-Abelian 1-loop&lt;a class="anchor-link" href="#Non-Abelian-1-loop"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;非可換ゲージ理論の頂点計算をする．添字は全て下に付ける仕様．&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">河村</dc:creator><pubDate>Sun, 04 Sep 2022 23:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2022-09-04:/blog/2022/09/nonabelian_1loop.html</guid><category>技術ブログ</category><category>Python</category></item><item><title>境界条件を伴うカーネル密度推定</title><link>https://oumpy.github.io/blog/2022/08/reflecting-kde.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="境界条件を伴うカーネル密度推定"&gt;&amp;#22659;&amp;#30028;&amp;#26465;&amp;#20214;&amp;#12434;&amp;#20276;&amp;#12358;&amp;#12459;&amp;#12540;&amp;#12493;&amp;#12523;&amp;#23494;&amp;#24230;&amp;#25512;&amp;#23450;&lt;a class="anchor-link" href="#境界条件を伴うカーネル密度推定"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="カーネル密度推定と境界"&gt;&amp;#12459;&amp;#12540;&amp;#12493;&amp;#12523;&amp;#23494;&amp;#24230;&amp;#25512;&amp;#23450;&amp;#12392;&amp;#22659;&amp;#30028;&lt;a class="anchor-link" href="#カーネル密度推定と境界"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;カーネル密度推定 (kernel density estimation; KDE)&lt;/strong&gt; はカーネル関数を用いてデータの確率密度関数を推定する手法である．Pythonの場合は&lt;code&gt;scipy.stats.gaussian_kde&lt;/code&gt;を使うのが主である．この記事では境界条件があるときにカーネル密度推定をどうすればいいかを扱う．問題を把握するために一様分布$U(-1,1)$からデータをサンプリングして密度推定してみよう．&lt;/p&gt;
