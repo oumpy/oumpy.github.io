@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会) (テスト用ページ)</title><link>/previews/refs/heads/article/medicalSSL/</link><description>Now is better than never.</description><lastBuildDate>Tue, 03 Jan 2023 00:00:00 +0900</lastBuildDate><item><title>医療画像と自己教師あり学習まとめ</title><link>/previews/refs/heads/article/medicalSSL/blog/2023/01/medicalssl.html</link><description>&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
-    src="{attach}./attach/medicalSSL/medicalSSSL202301.pdf"
+    src="{attach}./attach/medicalSSL/medicalSSL202301.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
   &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;休み中に読んだ自己教師あり学習の医療画像への応用について３つまとめました。&lt;br&gt;
