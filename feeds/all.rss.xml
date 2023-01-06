@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Sat, 17 Sep 2022 00:00:00 +0900</lastBuildDate><item><title>統計検定準1級 合格体験記</title><link>https://oumpy.github.io/blog/2022/09/statistics_certificate.html</link><description>&lt;p&gt;2022年7月9日にCBT方式で統計検定準1級に合格したので、合格体験記を残します。
+<rss version="2.0"><channel><title>大阪大学医学部 Python会 (情報医科学研究会)</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Tue, 03 Jan 2023 00:00:00 +0900</lastBuildDate><item><title>医療画像と自己教師あり学習まとめ</title><link>https://oumpy.github.io/blog/2023/01/medicalssl.html</link><description>&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+  &lt;iframe width=640" height="390"
+    src="{attach}./attach/medicalSSL/medicalSSL202301.pdf"
+    frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
+  &lt;/iframe&gt;&lt;/span&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;休み中に読んだ自己教師あり学習の医療画像への応用について３つまとめました。&lt;br&gt;
+APTOS2019で検証するときはkaggle上でsubmitしてスコアを出してほしいなと個人的には思いました。&lt;br&gt;
+画像に紐付いた別データ(テキストや遺伝子デ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">安部</dc:creator><pubDate>Tue, 03 Jan 2023 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2023-01-03:/blog/2023/01/medicalssl.html</guid><category>技術ブログ</category><category>Machine Learning</category><category>論文まとめ</category></item><item><title>統計検定準1級 合格体験記</title><link>https://oumpy.github.io/blog/2022/09/statistics_certificate.html</link><description>&lt;p&gt;2022年7月9日にCBT方式で統計検定準1級に合格したので、合格体験記を残します。
 あくまでも合格体験記なので、合格のためのコツなどはあまり紹介しません。
 統計検定を受 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">池側</dc:creator><pubDate>Sat, 17 Sep 2022 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2022-09-17:/blog/2022/09/statistics_certificate.html</guid><category>技術ブログ</category><category>検定試験</category><category>Statistics</category></item><item><title>非可換ゲージ理論の頂点計算機</title><link>https://oumpy.github.io/blog/2022/09/nonabelian_1loop.html</link><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
@@ -49,9 +56,9 @@
 &lt;li&gt;github: &lt;a href="https://github.com/nbara/python-meegkit"&gt;https://github.com/nbara/python-meegkit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="必要なライブラリのinstall"&gt;&amp;#24517;&amp;#35201;&amp;#12394;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;install&lt;a class="anchor-link" href="#必要なライブラリのinstall"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;pipにより，&lt;code&gt;pyedflib&lt;/code&gt;, &lt;code&gt;pyriemann&lt;/code&gt;, &lt;code&gt;meegkit&lt;/code&gt;をinstallする．&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install pyedflib
-pip install pyriemann
-pip install git+https://github.com/nbara/python-meegkit.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pyedflib
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;pyriemann
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;git+https://github.com/nbara/python-meegkit.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href="https://pyedflib.readthedocs.io/en/latest/"&gt;&lt;code&gt;pyedflib&lt;/code&gt;&lt;/a&gt;は.bdfファイルを読み込むために使用する．&lt;code&gt;pyriemann&lt;/code&gt;は&lt;code&gt;meegkit&lt;/code&gt;で使用されており，別途installが必要となった．&lt;/p&gt;
 &lt;h3 id="ライブラリのimport"&gt;&amp;#12521;&amp;#12452;&amp;#12502;&amp;#12521;&amp;#12522;&amp;#12398;import&lt;a class="anchor-link" href="#ライブラリのimport"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;以下では&lt;code&gt;meegkit&lt;/code&gt;の&lt;a href="https://nbara.github.io/python-meegkit/auto_examples/example_dss_line.html#sphx-glr-auto-examples-example-dss-line-py"&gt;example&lt;/a&gt;を参考にしてZapLineの使用法を見ていく．まずライブラリをimportする．&lt;/p&gt;
@@ -158,12 +165,10 @@ $$&lt;p&gt;一応学習は進みますが，効率的ではありません．誤
 &lt;p&gt;Caron, Mathilde, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, and …&lt;/p&gt;&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山本</dc:creator><pubDate>Fri, 07 May 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-05-07:/blog/2021/05/dino.html</guid><category>技術ブログ</category><category>Machine Learning</category><category>論文まとめ</category></item><item><title>令和2年度自主研究奨励事業『眼底画像から緑内障か否か判断する深層学習モデル開発』</title><link>https://oumpy.github.io/blog/2021/05/jisyukenkyu.html</link><description>&lt;p&gt;2021/04/30に銀杏会館でとりおこなわれた令和2年度学部学生による自主研究奨励事業、全学選抜自主研究成果発表会にて優秀賞をいただきました。&lt;/p&gt;
 &lt;p&gt;&lt;img src="{attach}./images/jisyukenkyu_figs/8519.jpg" alt="jisyukenkyu_figs8519" width="400px"&gt;&lt;/p&gt;
 &lt;p&gt;テーマは『&lt;strong&gt;眼底画像から緑内障か否か判断する深 …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">安部</dc:creator><pubDate>Thu, 06 May 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-05-06:/blog/2021/05/jisyukenkyu.html</guid><category>技術ブログ</category><category>Machine Learning</category></item><item><title>RNA-seq pipeline ikra v2.0 リリース</title><link>https://oumpy.github.io/blog/2021/05/ikra_v2.html</link><description>&lt;p&gt;阪大医学部Python会では、RNA-Seqのパイプラインである &lt;strong&gt;ikra&lt;/strong&gt; (&lt;a href="https://github.com/yyoshiaki/ikra"&gt;https://github.com/yyoshiaki/ikra&lt;/a&gt;)をリリースしておりました (cf. &lt;a href="https://oumpy.github.io/blog/2019/03/original_rnaseq_pipeline.html"&gt;阪医Python会特製 RNA-seq pipeline ver. 1.0 リリース&lt;/a&gt;)。このたびikraの機能を大幅にアップデートし、ikra v2.0としてリリースしました。アップデ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山崎</dc:creator><pubDate>Wed, 05 May 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-05-05:/blog/2021/05/ikra_v2.html</guid><category>技術ブログ</category><category>Bioinformatics</category></item><item><title>LaTeX の展開</title><link>https://oumpy.github.io/blog/2021/03/tex_expand.html</link><description>&lt;h2&gt;TeXの処理動作&lt;/h2&gt;
-&lt;p&gt;TeXは前からソースコードを認識し、&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ&lt;sup id="sf-tex_expand-1-back"&gt;&lt;a href="#sf-tex_expand-1" class="simple-footnote" title=" 制御綴に使える文字はcatcodeが11の文字（英字・日本語）。 従って、日本語の混ざった制御綴も作れる。 \relax␣あの場合は、\relaxという制御綴と「あ」という文字として認識されるが、\relaxあの場合は、\relaxあという制御綴として認識され（定義しない限り）エラーを吐く。 "&gt;1&lt;/a&gt;&lt;/sup&gt;
-を一つの制御綴（コントロールシークエンス）として処理します。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;\csone\cstwo&lt;/span&gt;            &lt;span class="k"&gt;\csthree&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;この場合の制御 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">河村</dc:creator><pubDate>Tue, 30 Mar 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-03-30:/blog/2021/03/tex_expand.html</guid><category>技術ブログ</category><category>その他言語</category></item><item><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link>https://oumpy.github.io/blog/2021/03/movie2pdf.html</link><description>&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
+&lt;p&gt;TeXは前からソースコードを認識し、&lt;code&gt;\textbackslash（英字）&lt;/code&gt;というカタマリ[ref]
+制御綴に使える文字はcatcodeが11の文字（英字・日本語）。
+従って、日本語の混ざった制御綴も作れる。
+&lt;code&gt;\relax␣あ …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">河村</dc:creator><pubDate>Tue, 30 Mar 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-03-30:/blog/2021/03/tex_expand.html</guid><category>技術ブログ</category><category>その他言語</category></item><item><title>プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</title><link>https://oumpy.github.io/blog/2021/03/movie2pdf.html</link><description>&lt;p&gt;昨年度はずっとオンラインの授業であったため、それに役立つようなプログラムを作ったりしていました。
 中でも、
 「プ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">山田</dc:creator><pubDate>Tue, 23 Mar 2021 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2021-03-23:/blog/2021/03/movie2pdf.html</guid><category>技術ブログ</category><category>自動化</category><category>勉学支援</category></item><item><title>attention勉強会2.5</title><link>https://oumpy.github.io/blog/2021/03/studymeeting_attention25.html</link><description>&lt;p&gt;2021/03/21開催の勉強会の資料です。&lt;/p&gt;
 &lt;h2&gt;スライド&lt;/h2&gt;

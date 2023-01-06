@@ -205,14 +205,14 @@ d    e    f
 配列つかったりしてもっといいスクリプトもきっとあります。</p>
 <p>bashは汚いスクリプトでもたいてい速く動いてくれるので成長しないですね。</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nv">row</span><span class="o">=</span><span class="m">0</span> <span class="c1">## 行番号に使う変数の設定。</span>
-<span class="k">while</span> <span class="nb">read</span> x1 x2 x3 <span class="c1">## 解説①</span>
+<span class="nv">row</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="c1">## 行番号に使う変数の設定。</span>
+<span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>x1<span class="w"> </span>x2<span class="w"> </span>x3<span class="w"> </span><span class="c1">## 解説①</span>
 <span class="k">do</span>
-    <span class="nv">row</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$row</span> + <span class="m">1</span><span class="sb">`</span> <span class="c1">## 1行ずつ読んでくので、1ずつ足していく。</span>
-    <span class="k">for</span> col <span class="k">in</span> <span class="sb">`</span>seq <span class="m">1</span> <span class="m">3</span><span class="sb">`</span> <span class="c1">## 今読んでる行での列番号をfor文で回す。</span>
-    <span class="k">do</span>
-        <span class="nb">eval</span> mat_<span class="si">${</span><span class="nv">row</span><span class="si">}</span>_<span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="o">=</span><span class="sb">`</span><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\\</span><span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="sb">`</span> <span class="c1">## 解説②</span>
-    <span class="k">done</span>
+<span class="w">    </span><span class="nv">row</span><span class="o">=</span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$row</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="sb">`</span><span class="w"> </span><span class="c1">## 1行ずつ読んでくので、1ずつ足していく。</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>col<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="sb">`</span><span class="w"> </span><span class="c1">## 今読んでる行での列番号をfor文で回す。</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">        </span><span class="nb">eval</span><span class="w"> </span>mat_<span class="si">${</span><span class="nv">row</span><span class="si">}</span>_<span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="o">=</span><span class="sb">`</span><span class="nb">eval</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="se">\\</span><span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span><span class="sb">`</span><span class="w"> </span><span class="c1">## 解説②</span>
+<span class="w">    </span><span class="k">done</span>
 <span class="k">done</span><span class="p">&amp;</span>lt<span class="p">;</span>table.txt
 
 <span class="c1">### 変数mat_$i_$j を使った処理が続く。</span>
@@ -222,7 +222,7 @@ d    e    f
 少し小技があります。</p>
 <h2><span id="pelican-subsections-0">1) while readの使い方</span></h2>
 <p>よく見かけるのは、<code>cat</code>からパイプで<code>while read</code>につなぐやつです。</p>
-<div class="highlight"><pre><span></span><code>cat table.txt <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> x1 x2 x3
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>table.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>x1<span class="w"> </span>x2<span class="w"> </span>x3
 </code></pre></div>
 
 <p>ファイルを一行ずつ読んで、各列の要素を<code>read</code>の後ろに置いた変数名<code>（x1,x2,x3）</code>に格納していきます。変数名の個数は任意です。ここでは列の数に合わせてます。
@@ -247,7 +247,7 @@ d    e    f
 （ちなみに、どこまでが変数名か分からなくなる状況では、変数名を{}でくくります。ここではiとj。）</p>
 <p>変数を使った変数名の中身を出力させる場合には、echoとevalを組み合わせます。
 <code>col=1</code>として、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="se">\$</span>x<span class="si">${</span><span class="nv">col</span><span class="si">}</span>
 </code></pre></div>
 
 <p>と書けば、まず、<code>eval</code>が<code>$col</code>の中身を出してからスクリプトとして評価するので、
@@ -263,27 +263,27 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 そういう時は、アクサングラーブ（` シフト押しながら＠）でくくります。</p>
 <p>アクサングラーブは、その中にあるスクリプトの実行結果を出力します。
 なので、</p>
-<div class="highlight"><pre><span></span><code><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$k</span><span class="sb">`</span>
+<div class="highlight"><pre><span></span><code><span class="nv">test</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$k</span><span class="sb">`</span>
 </code></pre></div>
 
 <p>とすれば、<code>$k</code>の中身が出力されて、<code>test</code>に格納されます。
 <code>row</code>に1ずつ足していくとこでも使ってます。よく見る方法です。
 <code>for</code>文使わなくていいので、見た目がすっきりします。</p>
 <p>では、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
+<div class="highlight"><pre><span></span><code>eval<span class="w"> </span>mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval<span class="w"> </span>echo<span class="w"> </span>\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
 </code></pre></div>
 
 <p>と書けば、<code>mat_2_3</code>に<code>$x1</code>の中身が代入されるはず！
 となるのですが、不完全です。</p>
 <p>アクサングラーブでの評価で、<code>\</code>が一個消費されてしまうので、実行する<code>eval echo</code>の文が、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">eval</span> <span class="nb">echo</span> <span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
+<div class="highlight"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$x</span><span class="si">${</span><span class="nv">col</span><span class="si">}</span>
 </code></pre></div>
 
 <p>となるので、<code>eval</code>での評価時に<code>$x</code>の中身（設定してないので空っぽ）と<code>$col</code>が出されてしまって、
 <code>echo (空)1</code>
 となって、最終的に、<code>mat_2_3</code>には<code>$x1</code>ではなく、<code>$col</code>の中身である1が代入されてしまいます。</p>
 <p>なので、</p>
-<div class="highlight"><pre><span></span><code>eval mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval echo \\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
+<div class="highlight"><pre><span></span><code>eval<span class="w"> </span>mat_<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>_<span class="cp">${</span><span class="n">j</span><span class="cp">}</span>=`eval<span class="w"> </span>echo<span class="w"> </span>\\<span class="nv">$x</span><span class="cp">${</span><span class="n">col</span><span class="cp">}</span>`
 </code></pre></div>
 
 <p>と、\を一個増やして書けば、目的達成です。
@@ -446,6 +446,12 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">1/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
   <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
   <tr>
     <td class="recent-posts-date">9/17</td>
@@ -482,11 +488,6 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/05/zapline.html"><span class="recent-posts-title">ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">5/12</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/05/tensorpac.html"><span class="recent-posts-title">Tensorpacによる位相-振幅カップリング (PAC) 推定</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -494,16 +495,46 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">20</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">7</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
       </a>
     </span>
     <span class="tag-4">
@@ -519,33 +550,57 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">12</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-2">
       <a href="../../../tag/news.html">
           <span class="badge badge-primary">9</span>
         News
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
       </a>
     </span>
     <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
       </a>
     </span>
     <span class="tag-3">
@@ -560,70 +615,16 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
         GitHub
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">27</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">20</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">6</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/jing-ji-puroguramingu.html">
           <span class="badge badge-primary">8</span>
         競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
       </a>
     </span>
 </p>
@@ -657,7 +658,7 @@ xの\)</span>にかかってた\は、<code>eval</code>での評価で消費さ�
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2022 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2023 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
