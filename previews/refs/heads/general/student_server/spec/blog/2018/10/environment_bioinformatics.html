@@ -101,9 +101,9 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-13">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-20">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-25">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-14">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-29">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -191,46 +191,46 @@
 <h2><span id="pelican-subsections-0">Pythonのインストール</span></h2>
 <p>Ubuntuのバージョンによってはpython2.7がデフォルトとなっている場合もあるので、python3系をダウンロードし、デフォルトに設定しよう。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># check the version of python.</span>
-$ python --version
-&gt;&gt;&gt; Python <span class="m">2</span>.7.15rc1
+$<span class="w"> </span>python<span class="w"> </span>--version
+&gt;&gt;&gt;<span class="w"> </span>Python<span class="w"> </span><span class="m">2</span>.7.15rc1
 </code></pre></div>
 
 <h2><span id="pelican-subsections-1">Biocondaのインストール</span></h2>
 <p><a href="https://www.anaconda.com/download/#macos">Anaconda</a>のインストーラーをダウンロードします。</p>
-<div class="highlight"><pre><span></span><code>$ bash ~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
-$ <span class="nb">echo</span> <span class="s1">&#39;export PATH=/home/user/anaconda3/bin:$PATH&#39;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> ~/.bashrc
-$ conda -V
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>bash<span class="w"> </span>~/Downloads/Anaconda3-4.1.0-Linux-x86_64.sh
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=/home/user/anaconda3/bin:$PATH&#39;</span><span class="w"> </span><span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span><span class="w"> </span>~/.bashrc
+$<span class="w"> </span>conda<span class="w"> </span>-V
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>$ python --version
-&gt;&gt;&gt; Python <span class="m">3</span>.6.6+
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>--version
+&gt;&gt;&gt;<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.6.6+
 </code></pre></div>
 
 <p>バイオインフォマティクスの分野では解析のために様々なツールを利用しますが、インストールのたびにパスを通すなどの作業をしていると大変煩雑ですし、バージョン管理もしにくくなります。パッケージマネージャーを使ってツールを一元管理するのが賢明です。
 Homebrewなどのパッケージ管理システムは有名ですが、対応していないツールの多く、現状はBiocondaというパッケージマネージャーがおすすめです。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download a Miniconda package for linux python3</span>
-$ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-$ bash Miniconda3-latest-Linux-x86_64.sh
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$<span class="w"> </span>bash<span class="w"> </span>Miniconda3-latest-Linux-x86_64.sh
 </code></pre></div>
 
 <p>EnterやYesを入力していくとインストールが終了し、パスも通った状態になります。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># condaコマンドが正常に動作していれば成功です。（terminalを開き直しましょう。）</span>
-$ conda -h
+$<span class="w"> </span>conda<span class="w"> </span>-h
 </code></pre></div>
 
 <p>biocondaのチャンネルを追加。biocondaチャンネルが最上位に来るように設定。</p>
-<div class="highlight"><pre><span></span><code>$ conda config --add channels conda-forge
-$ conda config --add channels defaults
-$ conda config --add channels r
-$ conda config --add channels bioconda
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>conda-forge
+$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>defaults
+$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>r
+$<span class="w"> </span>conda<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>channels<span class="w"> </span>bioconda
 </code></pre></div>
 
 <p>それでは早速ツールをインストールしていきましょう。基本 <code>conda install ???</code>でインストールが完了し正常に動作していきます。非常に便利ですね。</p>
-<div class="highlight"><pre><span></span><code>$ conda install parallel-fastq-dump
-$ conda install fastqc
-$ conda install multiqc
-$ conda install trimmomatic
-$ conda install kallisto
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>parallel-fastq-dump
+$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>fastqc
+$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>multiqc
+$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>trimmomatic
+$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>kallisto
 </code></pre></div>
 
 <h3><span id="pelican-subsections-2">参照</span></h3>
@@ -240,13 +240,13 @@ $ conda install kallisto
 <h2><span id="pelican-subsections-3">Rツールのインストール</span></h2>
 <p>Rのコンソールを開いて、Rのツールをインストールしていきます。
 Tximportのインストール</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;tximport&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;tximport&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>DESeq2のインストール</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;DESeq2&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;https://bioconductor.org/biocLite.R&quot;</span><span class="p">)</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;DESeq2&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-4">参照</span></h3>
@@ -350,46 +350,47 @@ Tximportのインストール</p>
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
-  <tr><td colspan="3"><span class="recent-posts-year">2021</span></td></tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
   <tr>
-    <td class="recent-posts-date">12/18</td>
+    <td class="recent-posts-date">1/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/12/kaggle_advent_2021_18.html"><span class="recent-posts-title">SwinTransformerで物体検出</span></a></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">9/17</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/09/statistics_certificate.html"><span class="recent-posts-title">統計検定準1級 合格体験記</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">11/8</td>
+    <td class="recent-posts-date">9/4</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/11/cyclecompe.html"><span class="recent-posts-title">自転車コンペ</span></a></td>
+    <td><a href="../../../blog/2022/09/nonabelian_1loop.html"><span class="recent-posts-title">非可換ゲージ理論の頂点計算機</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">9/22</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2021/09/server_news.html"><span class="recent-posts-title">医学科学生用計算機の管理委員長変更</span></a></td>
+    <td class="recent-posts-date">8/9</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/08/reflecting-kde.html"><span class="recent-posts-title">境界条件を伴うカーネル密度推定</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">8/28</td>
+    <td class="recent-posts-date">7/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/08/seti.html"><span class="recent-posts-title">宇宙人コンペ</span></a></td>
+    <td><a href="../../../blog/2022/07/wsi_ssl.html"><span class="recent-posts-title">WSI＊自己教師あり学習のメモ</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">6/24</td>
+    <td class="recent-posts-date">6/10</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/06/cytology.html"><span class="recent-posts-title">甲状腺細胞診分類モデル＠日本臨床細胞学会</span></a></td>
+    <td><a href="../../../blog/2022/06/medicalrecord_competition.html"><span class="recent-posts-title">英語のカルテデータのコンペに参加してみた(際の失敗と反省)</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">5/7</td>
+    <td class="recent-posts-date">5/24</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/05/dino.html"><span class="recent-posts-title">【論文まとめ】DINO: Emerging Properties in Self-Supervised Vision Transformers</span></a></td>
+    <td><a href="../../../blog/2022/05/clip_tutorial.html"><span class="recent-posts-title">CLIPを実装し理解する</span></a></td>
   </tr>
   <tr>
-    <td class="recent-posts-date">5/6</td>
+    <td class="recent-posts-date">5/21</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/05/jisyukenkyu.html"><span class="recent-posts-title">令和2年度自主研究奨励事業『眼底画像から緑内障か否か判断する深層学習モデル開発』</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">5/5</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2021/05/ikra_v2.html"><span class="recent-posts-title">RNA-seq pipeline ikra v2.0 リリース</span></a></td>
+    <td><a href="../../../blog/2022/05/zapline.html"><span class="recent-posts-title">ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</span></a></td>
   </tr>
 </table>
 </div>
@@ -398,40 +399,28 @@ Tximportのインストール</p>
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-4">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">1</span>
-        Simulation
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">12</span>
+        Statistics
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">25</span>
-        Machine Learning
+        Simulation
       </a>
     </span>
     <span class="tag-3">
@@ -441,26 +430,8 @@ Tximportのインストール</p>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">14</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">3</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
       <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">4</span>
+          <span class="badge badge-primary">7</span>
         論文まとめ
       </a>
     </span>
@@ -470,16 +441,40 @@ Tximportのインストール</p>
         その他言語
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">6</span>
-        競技プログラミング
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">20</span>
+        Python
       </a>
     </span>
     <span class="tag-3">
@@ -495,15 +490,21 @@ Tximportのインストール</p>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">11</span>
-        Statistics
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">8</span>
-        News
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
       </a>
     </span>
     <span class="tag-4">
@@ -513,21 +514,21 @@ Tximportのインストール</p>
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">5</span>
-        自動化
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">5</span>
+          <span class="badge badge-primary">7</span>
         Data Science Competition
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
       </a>
     </span>
 </p>
@@ -561,7 +562,7 @@ Tximportのインストール</p>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2021 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2023 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
