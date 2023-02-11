@@ -101,9 +101,9 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-13">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-22">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-27">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-14">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-29">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -191,46 +191,46 @@
 <p>PAR-CLIPは photoactivatable ribonucleoside-enhanced crosslinking and immunoprecipitation の略でRNAやmicroRNA結合タンパクの結合サイトを特定するために使います。</p>
 <p>実験法としては、まず4SU（4-チオウリジン）を細胞培地中に添加し、4SUによるラベル標識を行います。次にUVの照射を行い、RNA結合タンパクとRNAの間で架橋反応を起こします。その後、RBPと結合したリードの抽出を行い、サンプルとして用います。</p>
 <p>サンプルRNAを逆転写するときに、4SUがシトシン( C )に置換されます(misread)。そのため、リードがピークを形成し、かつT -&gt; C置換が入っていた場合、RBPと結合していた可能性が高いということになります。これによりあるタンパクが、RNAのどの領域に結合するのか？結合領域間でどのような相互作用があるのかを知ることができます。特に一塩基という高い解像度での解析ができることが特徴です。</p>
-<p><img alt="1" src="../../../blog/2019/01/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
+<p><img alt="1" src="../../../articles/2018sy/blog/images/mockinbird_parclip_figs/hits-clip-clip-seq-ptb-seq.png"></p>
 <h2><span id="pelican-subsections-1">Mockinbirdとは？</span></h2>
 <p><a href="//wwwuser.gwdg.de/~compbiol/mockinbird/doc/intro.html”">公式ドキュメント</a>、<a href="//github.com/soedinglab/mockinbird)”">GitHub</a>に詳細は記載されていますが、日本語での情報が少ない、というか全くない。のでまとめていきたいと思います。</p>
 <p>PAR-CLIPの解析は生のFASTQデータから、Quality Check -&gt; Trimming -&gt; Mapping -&gt; Downstream Analysisという流れで行いますが、それらすべての解析をMockinbirdでは一気に行ってくれます。また、MockinbirdModule（詳細は後述）を使うことでmock PAR-CLIP experimentを考慮に入れた解析を行うことができるのも大きな特徴です。</p>
 <p>このソフトでは、２つにパイプラインが分かれており、preprocessing phaseとpostprocessing phaseと呼ばれています。タンパク結合サイトの情報が書かれたテーブルを出力するまでが、preprocessing phaseでそれ以降のDownstream解析をpostprocessing phaseと呼んでいます。それぞれにYAMLファイルが用意されており、ユーザーはYAMLファイルで解析したいサンプルデータ、使いたいリファレンスデータ、使いたいモジュール（Mappingの時にSTARやBowtieを選べたりする。）閾値などのパラメータを指定します。最後にコマンドを一行実行するだけで、解析がすべて自動で流れていきます。あるモジュールで出力されたファイルのパスが次のモジュールに自動で設定されていくシステムになっているので、慣れると非常に便利です。</p>
 <p>ただ、ドキュメントでも、既存の解析手法に完全に取って代わるものではなく、PAR-CLIP実験のコンディションのトラブルシューティングを再現可能性が高い状態で行なったり、研究の最初の仮説づくりを短時間で行うために使ってもらうことが目的と書かれていました。</p>
-<p><img alt="2" src="../../../blog/2019/01/images/mockinbird_parclip_figs/library.png"></p>
+<p><img alt="2" src="../../../articles/2018sy/blog/images/mockinbird_parclip_figs/library.png"></p>
 <h2><span id="pelican-subsections-2">環境構築</span></h2>
 <p>前置きが長くなりましたが、実際に環境構築から進めていきます。</p>
-<div class="highlight"><pre><span></span><code>conda create -n mockinbird -c bioconda -c conda-forge <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 mockinbird
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mockinbird<span class="w"> </span>-c<span class="w"> </span>bioconda<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6<span class="w"> </span>mockinbird
 </code></pre></div>
 
 <p>Anacondaでmockinbirdという名前の仮想環境を作ります。mockinbirdが仮想環境にインストールされることになり、これにより、下記のライブラリとツールが環境内で使えるようになります。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> activate mockinbird
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>mockinbird
 </code></pre></div>
 
 <p>でmockinbirdの仮想環境を立ち上げ、</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span> deactivate mockinbird
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>deactivate<span class="w"> </span>mockinbird
 </code></pre></div>
 
 <p>で仮想環境を閉じます。</p>
-<div class="highlight"><pre><span></span><code>conda remove --all -n mockinbird
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>remove<span class="w"> </span>--all<span class="w"> </span>-n<span class="w"> </span>mockinbird
 </code></pre></div>
 
 <p>で環境を削除します。</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/soedinglab/mockinbird.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/soedinglab/mockinbird.git
 </code></pre></div>
 
 <p>でgithubからクローンします。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> mockinbird/mockinbird/data
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>mockinbird/mockinbird/data
 </code></pre></div>
 
 <p>とディレクトリを進めていくと、<code>preprocess.yaml</code>, <code>postprocess.yaml</code>というファイルがあります。基本はこの二つのYAMLファイルを調整していくことになります。terminalでコマンドを出すときも <code>mockinbird/mockinbird/data</code>ディレクトリで実行するのが個人的にはおすすめです（ファイルの構成が綺麗になる。パスの調整も楽）。</p>
 <p><a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/getting_started.html#tutorial">Tutorialデータ</a>がドキュメントの方に書かれていましたが、私が見たときはリンクがNotFoundになっていました。ので、私は<a href="http://wwwuser.gwdg.de/~compbiol/mockinbird/doc/">公式ドキュメント</a>や<a href="https://github.com/soedinglab/mockinbird">GitHub</a>を参考にYAMLファイルの調整などを行いました。</p>
 <p><code>preprocess</code>, <code>postprocess</code>の実行のコードは以下のようになっています。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># mockinbird preprocess [parclip_fastq] [output_dir] [prefix] [config_file]</span>
-$ mockinbird preprocess nrd1.fastq nrd1 nrd1 preprocess.yaml
+$<span class="w"> </span>mockinbird<span class="w"> </span>preprocess<span class="w"> </span>nrd1.fastq<span class="w"> </span>nrd1<span class="w"> </span>nrd1<span class="w"> </span>preprocess.yaml
 
 <span class="c1"># mockinbird postprocess {{genomefasta}} {{output_dir}} {{output_dir}} {{script_dir}}</span>
-$ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
+$<span class="w"> </span>mockinbird<span class="w"> </span>postprocess<span class="w"> </span>nrd1<span class="w"> </span>nrd1_pp<span class="w"> </span>postprocess.yaml
 </code></pre></div>
 
 <p>ですが、コードの実行はYAMLの設定ができてからになります。ということでYAMLの中身について説明していきます。</p>
@@ -244,37 +244,37 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 </ul>
 <p>① 変数設定
 下記のコードはドキュメントから引用していますが、モジュールで使う、ディレクトリの変数化と、mock_processing をFalseに設定しています。（ここ重要！）</p>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set data_dir = &quot;data&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set data_dir = &quot;data&quot; %</span><span class="p p-Indicator">}</span>
 
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set genome_fasta = data_dir + &quot;/genome.fa&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_pileup = data_dir + &quot;/mock.mpileup&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_statistics = data_dir + &quot;/mock_stat.json&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set norm_pileup = data_dir + &quot;/normalization.mpileup&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set bowtie_index = data_dir + &quot;/bowtie_index/genome&quot; %</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set genome_fasta = data_dir + &quot;/genome.fa&quot; %</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_pileup = data_dir + &quot;/mock.mpileup&quot; %</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_statistics = data_dir + &quot;/mock_stat.json&quot; %</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set norm_pileup = data_dir + &quot;/normalization.mpileup&quot; %</span><span class="p p-Indicator">}</span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set bowtie_index = data_dir + &quot;/bowtie_index/genome&quot; %</span><span class="p p-Indicator">}</span>
 
-<span class="c1"># setting mock_processing to True will only process the mock. Setting to `False` will run the full</span><span class="w"></span>
-<span class="c1"># pipeline</span><span class="w"></span>
-<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_processing = False %</span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="c1"># setting mock_processing to True will only process the mock. Setting to `False` will run the full</span>
+<span class="c1"># pipeline</span>
+<span class="p p-Indicator">{</span><span class="err">%</span><span class="w"> </span><span class="nv">set mock_processing = False %</span><span class="p p-Indicator">}</span>
 </code></pre></div>
 
 <p>② general. 必須情報の設定
 アダプター配列の指定、リファレンスデータの指定、UMI(Unique molecular identifiers)の有無、スレッド数の指定。</p>
 <p>③ reads. リードについての情報
 リードの最短長、T -&gt; C mutationの指定</p>
-<div class="highlight"><pre><span></span><code><span class="nt">general</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">adapter5prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GTTCAGAGTTCTACAGTCCGACGATC</span><span class="w"></span>
-<span class="w">    </span><span class="nt">adapter3prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TGGAATTCTCGGGTGCCAAGG</span><span class="w"></span>
-<span class="w">    </span><span class="nt">genomefasta</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">genome_fasta</span><span class="w"> </span><span class="p p-Indicator">}}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">normalization_pileup</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">norm_pileup</span><span class="w"> </span><span class="p p-Indicator">}}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">rmTemp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span><span class="w"></span>
-<span class="w">    </span><span class="nt">n_threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">general</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">adapter5prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GTTCAGAGTTCTACAGTCCGACGATC</span>
+<span class="w">    </span><span class="nt">adapter3prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TGGAATTCTCGGGTGCCAAGG</span>
+<span class="w">    </span><span class="nt">genomefasta</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">genome_fasta</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">    </span><span class="nt">normalization_pileup</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">norm_pileup</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">    </span><span class="nt">rmTemp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">    </span><span class="nt">n_threads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 
-<span class="nt">reads</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">bc_5prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="w">    </span><span class="nt">bc_3prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="w">    </span><span class="nt">min_len</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"></span>
-<span class="w">    </span><span class="nt">reference_nucleotide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T</span><span class="w"></span>
-<span class="w">    </span><span class="nt">mutation_nucleotide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span><span class="w"></span>
+<span class="nt">reads</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">bc_5prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">bc_3prime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="nt">min_len</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">    </span><span class="nt">reference_nucleotide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">T</span>
+<span class="w">    </span><span class="nt">mutation_nucleotide</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
 </code></pre></div>
 
 <p>④ pipeline. 使うモジュールと各引数の設定
@@ -292,7 +292,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
 <span class="x">  - FastQCModule:</span>
 <span class="x">      outdir_name: fastQC_clipped</span>
-<span class="x">      genome_index: </span><span class="cp">{{</span> <span class="nv">bowtie_index</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">      genome_index: </span><span class="cp">{{</span> <span class="nv">bowtie_index</span> <span class="cp">}}</span>
 
 <span class="x">  - BamPPModule:</span>
 <span class="x">      remove_n_edge_mut: 2</span>
@@ -320,22 +320,22 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 <p>PileupModule, BamStatisticsModuleによって、Mock Experimentの.mpileupファイルと_stat.jsonファイルがそれぞれ生成されます。（この二つのファイルを次に使うことになります。）</p>
 <p>次に<code>mock_processing = False</code>に戻し、
 <code>$ mockinbird preprocess nrd1.fastq nrd1 nrd1 preprocess.yaml</code>を実行します。すると下記のコードも一緒に実行されます。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">mock_processing</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">mock_processing</span> <span class="cp">%}</span>
 
 <span class="x">    - PredictionSitesModule:</span>
 <span class="x">        sites_file: </span><span class="cp">{{</span> <span class="nv">data_dir</span> <span class="cp">}}</span><span class="x">/genome.sites</span>
-<span class="x">        fasta_file: </span><span class="cp">{{</span> <span class="nv">genome_fasta</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">        fasta_file: </span><span class="cp">{{</span> <span class="nv">genome_fasta</span> <span class="cp">}}</span>
 <span class="x">        transition_nucleotide: T</span>
 
 <span class="x">    - MockTableModule:</span>
 <span class="x">        mock_table: </span><span class="cp">{{</span> <span class="nv">data_dir</span> <span class="cp">}}</span><span class="x">/mock.table</span>
-<span class="x">        mock_pileup: </span><span class="cp">{{</span> <span class="nv">mock_pileup</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">        mock_pileup: </span><span class="cp">{{</span> <span class="nv">mock_pileup</span> <span class="cp">}}</span>
 
 <span class="x">    - TransitionTableModule</span>
 
 <span class="x">    - LearnMockModule:</span>
 <span class="x">        mock_model: mock_model/model.pkl</span>
-<span class="x">        mock_statistics: </span><span class="cp">{{</span> <span class="nv">mock_statistics</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">        mock_statistics: </span><span class="cp">{{</span> <span class="nv">mock_statistics</span> <span class="cp">}}</span>
 <span class="x">        n_mixture_components: 5</span>
 <span class="x">        em_iterations: 250</span>
 
@@ -343,7 +343,7 @@ $ mockinbird postprocess nrd1 nrd1_pp postprocess.yaml
 
 <span class="x">    - NormalizationModule</span>
 <span class="x">    - QuantileCapModule</span>
-<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
 </code></pre></div>
 
 <p>これによって、Mock Experimentの<code>.mpileupファイル</code>と<code>_stat.jsonファイル</code>を受け取りつつ、最終的なCLIP-seqのテーブルを作ることができ、preprocessは終了となります。下記のようなテーブルが出力され、これをもとにpostprocessに進んでいくことになります。</p>
@@ -450,7 +450,18 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">1/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
   <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">9/17</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/09/statistics_certificate.html"><span class="recent-posts-title">統計検定準1級 合格体験記</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">7/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -481,16 +492,6 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/03/seirei.html"><span class="recent-posts-title">清麗戦の研究：早く負けるが得か？</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/13</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/03/car_allocate_linebot.html"><span class="recent-posts-title">”車割り”を最適化</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">3/10</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html"><span class="recent-posts-title">Kaggle Tabular Playground Series - Dec 2021</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -498,16 +499,40 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">5</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
       </a>
     </span>
     <span class="tag-2">
@@ -522,16 +547,28 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
         ハードウェア
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">13</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">11</span>
+        Python
+      </a>
+    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        Simulation
+        GitHub
       </a>
     </span>
     <span class="tag-4">
@@ -541,9 +578,15 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">11</span>
-        Python
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">6</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-3">
@@ -552,70 +595,10 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
         勉学支援
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">23</span>
+          <span class="badge badge-primary">24</span>
         Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">4</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
       </a>
     </span>
     <span class="tag-2">
@@ -625,9 +608,27 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
-        検定試験
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
 </p>
@@ -661,7 +662,7 @@ chrI    35805   5       5       9.376254703871467       +       0.03184713375796
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2022 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2023 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

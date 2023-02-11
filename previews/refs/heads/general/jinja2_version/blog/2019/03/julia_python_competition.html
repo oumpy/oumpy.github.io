@@ -102,9 +102,9 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-13">研究開発活動</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-22">所属メンバー論文</a>
-<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-27">出版記事等</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-14">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-29">出版記事等</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
@@ -200,11 +200,11 @@
 <h3><span id="pelican-subsections-2">AtCoder Beginner Contest 121 問題A "White Cells"</span></h3>
 <p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_a">https://atcoder.jp/contests/abc121/tasks/abc121_a</a>）</p>
 <p>入力値4個を読み込んで簡単な演算結果を返すだけの問題です。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span><span class="w"></span>
-<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span><span class="w"></span>
-<span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="n">println</span><span class="p">((</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">-</span><span class="n">w</span><span class="p">))</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-A &quot;White Cells&quot; in Julia</span>
+<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
+<span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="n">println</span><span class="p">((</span><span class="n">H</span><span class="o">-</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">W</span><span class="o">-</span><span class="n">w</span><span class="p">))</span>
 </code></pre></div>
 
 <p>所要時間が入力にほぼ依存しない問題ですが、、各言語でのAtCoder上実行結果。</p>
@@ -249,22 +249,22 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 問題はこちら → <https://atcoder.jp/contests/abc121/tasks/abc121_b>
 
 
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-B by Julia</span><span class="w"></span>
-<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span><span class="w"></span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">()</span><span class="w"></span>
-<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="w"></span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">+</span><span class="n">C</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">D</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">    </span><span class="n">ans</span><span class="o">+=</span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="k">end</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-B by Julia</span>
+<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
+<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">()</span>
+<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="k">end</span>
+<span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">+</span><span class="n">C</span>
+<span class="k">for</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">D</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="n">ans</span><span class="o">+=</span><span class="mi">1</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -274,25 +274,25 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <h3><span id="pelican-subsections-3">AtCoder Beginner Contest 121 問題C "Energy Drink Collector"</span></h3>
 <p>（問題はこちら → <a href="https://atcoder.jp/contests/abc121/tasks/abc121_c">https://atcoder.jp/contests/abc121/tasks/abc121_c</a>）</p>
 <p>読み込んだ値の列をソートして、条件判定をしながら順番に足し上げていく問題。</p>
-<div class="highlight"><pre><span></span><code><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span><span class="w"></span>
-<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span><span class="w"></span>
-<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="w"></span>
-<span class="w">  </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sortrows</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
-<span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
-<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">M</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="k">break</span><span class="w"></span>
-<span class="w">  </span><span class="k">else</span><span class="w"></span>
-<span class="w">    </span><span class="n">M</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
-<span class="w">  </span><span class="k">end</span><span class="w"></span>
-<span class="k">end</span><span class="w"></span>
-<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c"># ABC121-C &quot;Energy Drink Collector&quot; in Julia</span>
+<span class="n">inpl</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">parse</span><span class="p">,</span><span class="n">split</span><span class="p">(</span><span class="n">readline</span><span class="p">()))</span>
+<span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Int</span><span class="p">}(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+<span class="w">  </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inpl</span><span class="p">()</span>
+<span class="k">end</span>
+<span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sortrows</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="o">=</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">N</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">M</span>
+<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">M</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">    </span><span class="k">break</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="n">M</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="n">println</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
 </code></pre></div>
 
 <p>なんと、テスト16個中15個でタイムアウト（2000ms以上）。。。</p>
@@ -422,7 +422,18 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <div class="box-contents">
 <div class="horizontal-scroll">
 <table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">1/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
   <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">9/17</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/09/statistics_certificate.html"><span class="recent-posts-title">統計検定準1級 合格体験記</span></a></td>
+  </tr>
   <tr>
     <td class="recent-posts-date">7/3</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
@@ -453,16 +464,6 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/03/seirei.html"><span class="recent-posts-title">清麗戦の研究：早く負けるが得か？</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">3/13</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/03/car_allocate_linebot.html"><span class="recent-posts-title">”車割り”を最適化</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">3/10</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/03/kaggle-tabular-playground-series-dec-2021.html"><span class="recent-posts-title">Kaggle Tabular Playground Series - Dec 2021</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -470,16 +471,40 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-intan.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
     <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">13</span>
-        Bioinformatics
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">5</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">1</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
       </a>
     </span>
     <span class="tag-2">
@@ -494,16 +519,28 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
         ハードウェア
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">13</span>
+        Bioinformatics
+      </a>
+    </span>
     <span class="tag-3">
       <a href="../../../tag/unix.html">
           <span class="badge badge-primary">2</span>
         Unix
       </a>
     </span>
+    <span class="tag-2">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">11</span>
+        Python
+      </a>
+    </span>
     <span class="tag-4">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/github.html">
           <span class="badge badge-primary">1</span>
-        Simulation
+        GitHub
       </a>
     </span>
     <span class="tag-4">
@@ -513,9 +550,15 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">11</span>
-        Python
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">6</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-3">
@@ -524,70 +567,10 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
         勉学支援
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
     <span class="tag-1">
       <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">23</span>
+          <span class="badge badge-primary">24</span>
         Machine Learning
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">4</span>
-        Statistics
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">5</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">1</span>
-        Neuroscience
       </a>
     </span>
     <span class="tag-2">
@@ -597,9 +580,27 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
-        検定試験
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">1</span>
+        Neuroscience
       </a>
     </span>
 </p>
@@ -633,7 +634,7 @@ Pythonの半コンパイラ型実装であるPyPyはJuliaの半分程度でし�
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2022 大阪大学医学部 情報医科学研究会 (Python会)
+        © 2023 大阪大学医学部 情報医科学研究会 (Python会)
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
