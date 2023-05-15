@@ -75,9 +75,9 @@
         <div class="dropdown-hover-all">
           <ul class="nav navbar-nav mr-auto">
             <li class="nav-item dropdown dropdown-hover">
-<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">大阪大学医学部情報医科学研究会（Python会）について</a>
 <div class="dropdown-menu" aria-labelledby="dropdown1">
-<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<a class="dropdown-item" href="../../../index.html">大阪大学医学部情報医科学研究会（Python会）について</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../constitution.html">会規約</a>
 </div>
@@ -226,38 +226,38 @@
 <h3><span id="pelican-subsections-5">今回使ったネットワーク</span></h3>
 <p>入力と出力が決まったので、あとは工夫しだい。
 今回は適当に、こんなネットワークでやってみます。</p>
-<div class="highlight"><pre><span></span><code>____________________________________________________________________________________________________
-Layer (type)                     Output Shape          Param #     Connected to                     
-====================================================================================================
-input_1 (InputLayer)             (None, 3, 4, 11)      0                                            
-____________________________________________________________________________________________________
-input_2 (InputLayer)            (None, 2, 3, 2)       0                                            
-____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 132)           0           input_1[0][0]                    
-____________________________________________________________________________________________________
-flatten_2 (Flatten)             (None, 12)            0           input_2[0][0]                   
-____________________________________________________________________________________________________
-concatenate_1 (Concatenate)      (None, 144)           0           flatten_1[0][0]                  
-                                                                   flatten_2[0][0]                 
-____________________________________________________________________________________________________
-dense_1 (Dense)                 (None, 128)           18560       concatenate_1[0][0]              
-____________________________________________________________________________________________________
-dense_2 (Dense)                 (None, 128)           16512       dense_1[0][0]                   
-____________________________________________________________________________________________________
-dense_3 (Dense)                 (None, 128)           16512       dense_2[0][0]                   
-____________________________________________________________________________________________________
-dense_4 (Dense)                 (None, 128)           16512       dense_3[0][0]                   
-____________________________________________________________________________________________________
-dense_5 (Dense)                 (None, 128)           16512       dense_4[0][0]                   
-____________________________________________________________________________________________________
-dense_6 (Dense)                 (None, 128)           16512       dense_5[0][0]                   
-____________________________________________________________________________________________________
-dense_7 (Dense)                 (None, 97)            12513       dense_6[0][0]                   
-====================================================================================================
-Total params: 113,633
-Trainable params: 113,633
-Non-trainable params: 0
-____________________________________________________________________________________________________
+<div class="highlight"><pre><span></span><code><span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">Layer</span><span class="w"> </span><span class="p">(</span><span class="k">type</span><span class="p">)</span><span class="w">                     </span><span class="nx">Output</span><span class="w"> </span><span class="nx">Shape</span><span class="w">          </span><span class="nx">Param</span><span class="w"> </span><span class="err">#</span><span class="w">     </span><span class="nx">Connected</span><span class="w"> </span><span class="nx">to</span><span class="w">                     </span>
+<span class="o">====================================================================================================</span>
+<span class="nx">input_1</span><span class="w"> </span><span class="p">(</span><span class="nx">InputLayer</span><span class="p">)</span><span class="w">             </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w">      </span><span class="mi">0</span><span class="w">                                            </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">input_2</span><span class="w"> </span><span class="p">(</span><span class="nx">InputLayer</span><span class="p">)</span><span class="w">            </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">       </span><span class="mi">0</span><span class="w">                                            </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">flatten_1</span><span class="w"> </span><span class="p">(</span><span class="nx">Flatten</span><span class="p">)</span><span class="w">              </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">132</span><span class="p">)</span><span class="w">           </span><span class="mi">0</span><span class="w">           </span><span class="nx">input_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                    </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">flatten_2</span><span class="w"> </span><span class="p">(</span><span class="nx">Flatten</span><span class="p">)</span><span class="w">             </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w">            </span><span class="mi">0</span><span class="w">           </span><span class="nx">input_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">concatenate_1</span><span class="w"> </span><span class="p">(</span><span class="nx">Concatenate</span><span class="p">)</span><span class="w">      </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">144</span><span class="p">)</span><span class="w">           </span><span class="mi">0</span><span class="w">           </span><span class="nx">flatten_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                  </span>
+<span class="w">                                                                   </span><span class="nx">flatten_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                 </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_1</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">18560</span><span class="w">       </span><span class="nx">concatenate_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">              </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_2</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">16512</span><span class="w">       </span><span class="nx">dense_1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_3</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">16512</span><span class="w">       </span><span class="nx">dense_2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_4</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">16512</span><span class="w">       </span><span class="nx">dense_3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_5</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">16512</span><span class="w">       </span><span class="nx">dense_4</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_6</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">)</span><span class="w">           </span><span class="mi">16512</span><span class="w">       </span><span class="nx">dense_5</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="nx">____________________________________________________________________________________________________</span>
+<span class="nx">dense_7</span><span class="w"> </span><span class="p">(</span><span class="nx">Dense</span><span class="p">)</span><span class="w">                 </span><span class="p">(</span><span class="nx">None</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">)</span><span class="w">            </span><span class="mi">12513</span><span class="w">       </span><span class="nx">dense_6</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w">                   </span>
+<span class="o">====================================================================================================</span>
+<span class="nx">Total</span><span class="w"> </span><span class="nx">params</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="mi">633</span>
+<span class="nx">Trainable</span><span class="w"> </span><span class="nx">params</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="mi">633</span>
+<span class="nx">Non</span><span class="o">-</span><span class="nx">trainable</span><span class="w"> </span><span class="nx">params</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="nx">____________________________________________________________________________________________________</span>
 </code></pre></div>
 
 <p>input_1とinput_2がそれぞれ盤面と持駒の入力です。中間層6層、活性化関数は途中全てReLU、最後はsoftmax。パラメータ数は11万余り。<br>
@@ -446,64 +446,16 @@ ________________________________________________________________________________
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/qi-ye-intan.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">12</span>
+        Statistics
       </a>
     </span>
     <span class="tag-1">
@@ -512,22 +464,16 @@ ________________________________________________________________________________
         Python
       </a>
     </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">7</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">2</span>
-        企業インターン
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-3">
@@ -537,9 +483,9 @@ ________________________________________________________________________________
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-3">
@@ -548,22 +494,22 @@ ________________________________________________________________________________
         検定試験
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">6</span>
+        自動化
       </a>
     </span>
     <span class="tag-4">
       <a href="../../../tag/hai-wai-liu-xue.html">
           <span class="badge badge-primary">1</span>
         海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
       </a>
     </span>
     <span class="tag-1">
@@ -573,9 +519,63 @@ ________________________________________________________________________________
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/statistics.html">
-          <span class="badge badge-primary">12</span>
-        Statistics
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hadouea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
       </a>
     </span>
 </p>
