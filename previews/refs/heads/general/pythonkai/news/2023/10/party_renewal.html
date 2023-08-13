@@ -8,16 +8,16 @@
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="クラスター分析"/>
-    <meta property="og:url" content="../../../blog/2018/09/cluster_analysis.html"/>
-      <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Machine Learning"/>
+    <meta property="og:title" content="Python会は情報医科学研究会より分会しました"/>
+    <meta property="og:url" content="../../../news/2023/10/party_renewal.html"/>
+      <meta property="article:section" content="お知らせ"/>
+        <meta property="article:tag" content="News"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="クラスター分析">
+    <meta name="twitter:title" content="Python会は情報医科学研究会より分会しました">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +25,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>クラスター分析 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+    <title>Python会は情報医科学研究会より分会しました - 大阪大学医学部 Python会 (テスト用ページ)</title>
 
    
         <link rel="stylesheet"
@@ -106,16 +106,16 @@
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-29">出版記事等</a>
 </div>
 </li>
-<li class="nav-item dropdown dropdown-hover active">
+<li class="nav-item dropdown dropdown-hover">
 <a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
 <div class="dropdown-menu" aria-labelledby="dropdown18">
-<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<a class="dropdown-item" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
 <a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
 </div>
 </li>
-<li class="nav-item">
+<li class="nav-item active">
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
@@ -144,10 +144,10 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="cluster_analysis">
-    <meta name="article:category" property="og:article:category" content="技術ブログ">
-    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2018-09-24">
+    <meta name="article:slug" property="og:article:slug" content="party_renewal">
+    <meta name="article:category" property="og:article:category" content="お知らせ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="news">
+    <meta name="article:date" property="og:article:date" content="2023-10-01">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -155,114 +155,55 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2018/09/cluster_analysis.html" rel="bookmark"
-     title="Permalink to クラスター分析">
-    クラスター分析
+  <a href="../../../news/2023/10/party_renewal.html" rel="bookmark"
+     title="Permalink to Python会は情報医科学研究会より分会しました">
+    Python会は情報医科学研究会より分会しました
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2018-09-24(Mon)
+  2023-10-01(Sun)
 </abbr>       - Posted by 
-<a href="../../../author/liu-ze.html">柳澤</a>    in 
-    <a href="../../../blog.html">
-      技術ブログ</a>
+<a href="../../../author/pythonhui.html">Python会</a>    in 
+    <a href="../../../news.html">
+      お知らせ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+        <a href="../../../tag/news.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=News&labelColor=black&color=hotpink" alt="tag:News" title="tag:News"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>現在、クラスター分析の勉強をしています。
-勉強し始めて数時間ですが、少しまとめてみたいと思います。</p>
-<h2><span id="pelican-subsections-0">クラスター分析とは</span></h2>
-<p>簡単に言うと、クラスター分析とは異なる性質のものが混ざり合った集団から互いに似た性質を持つものを集める方法のことです。
-あらかじめ分類の基準が決まっておらず分類のための外的基準や評価が与えられていない「教師無しの分類法」です。</p>
-<h3><span id="pelican-subsections-1">グループ分けの対象</span></h3>
-<p>サンプルを分類するのか、変数を分類するのか</p>
-<h3><span id="pelican-subsections-2">分類の形式（種類、生成）</span></h3>
-<p>階層的方法か非階層的方法か</p>
-<h3><span id="pelican-subsections-3">分類に用いる対象間の距離（類似度）</span></h3>
-<p>ユークリッド距離、マハラノビス距離、コサイン距離 ・・・</p>
-<h3><span id="pelican-subsections-4">クラスターの合併方法（クラスター間の距離の測定方法）</span></h3>
-<p>ウォード法、群平均法、最短距離法、最長距離法・・・</p>
-<p>クラスター分類するにはここら辺を決めなくてはいけません。
-特に後ろ二つが馴染みがなく難しい。。。</p>
-<h2><span id="pelican-subsections-5">デンドログラム</span></h2>
-<p>階層的クラスタリングを可視化する代表的な方法にデンドログラムがあります。Scikit-learnのirisデータセットで試しにやってみます。調べたところ、scikit-learnでデンドログラム描写はできないみたいだったので、Scipyからimportして使います。
-（Scipyのクラスタリングアルゴリズムはscikit-learnのアルゴリズムを若干違うみたいです。）
-上で書いた後ろ２つを以下で指定しています。</p>
-<h3><span id="pelican-subsections-6">実装</span></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span> <span class="c1"># data load</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
-
-<span class="c1"># ウォード法 &amp; ユークリッド距離</span>
-<span class="n">linkage_result</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ward&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">dn</span> <span class="o">=</span> <span class="n">dendrogram</span><span class="p">(</span><span class="n">linkage_result</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">]),</span>
-                              <span class="n">above_threshold_color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">)</span>
-
-<span class="c1"># 各ラベルに色を割り当て</span>
-<span class="n">label_colors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;setosa&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;versicolor&#39;</span><span class="p">:</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;virginica&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">}</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">xlbls</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xmajorticklabels</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">lbl</span> <span class="ow">in</span> <span class="n">xlbls</span><span class="p">:</span>
-    <span class="n">lbl</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">label_colors</span><span class="p">[</span><span class="n">lbl</span><span class="o">.</span><span class="n">get_text</span><span class="p">()])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Dendrogram of Iris dataset &quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-7">結果</span></h3>
-<p>縦軸がクラスタ間距離です。横軸のラベルでは、setosaをシアン、versicolorをマゼンタ、virginicaを黄色としました。</p>
-<p><img alt="1" src="../../../blog/2018/09/images/cluster_analysis_figs/dendrogram.png"></p>
-<p>setosaは綺麗に分かれますが、versicolorとvirginicaはうまく分けられていないのがわかります。なるほど。</p>
-<p>イメージング画像でクラスタリングしたいなあとか思っているんですが、
-なかなかサンプル数とか特徴量の問題で難しそう。</p>
-<p>うまく特徴がつかめるような解析がしたいなあ。</p>
-<p>頑張って勉強してみます。
-何かいいサイトや参考資料があったら教えてください。</p>
-<h2><span id="pelican-subsections-8">参考資料</span></h2>
-<ul>
-<li><a href="http://www.kamishima.net/jp/clustering/">http://www.kamishima.net/jp/clustering/</a></li>
-<li><a href="http://datanongrata.com/2019/04/27/67/">http://datanongrata.com/2019/04/27/67/</a></li>
-<li><a href="https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours">https://stackoverflow.com/questions/14802048/scipy-dendrogram-leaf-label-colours</a></li>
-<li>Pythonではじめる機械学習 オライリー社</li>
-</ul>
+	<p>大阪大学医学部情報医科学研究会は、大阪大学医学部当局（学生支援委員会、委員長：<a href="http://www.pedsurg.med.osaka-u.ac.jp/icare/staff-kenji-watabe.html">渡部健二</a>教授）および顧問教員（<a href="http://plaza.umin.ac.jp/~yokada/">岡田随象</a>教授）の指導を受け、結果として以下のことが決せられました。</p>
+<ol>
+<li>情報医科学研究会には今後、OB/準会員の参加が今後認められないこと</li>
+<li>情報医科学研究会の通称となっていた「Python会」名の使用は廃止すること</li>
+</ol>
+<p>この事態を受け、現役学生のみならずOB会員・準会員のネットワークを維持し、人材育成および医学・社会の発展に引き続き貢献していくことを目的として、OB/準会員を含む「Python会」は、情報医科学研究会から分会いたします。
+両会は今後、友会関係を保ちつつ、それぞれ独立して活動します。</p>
+<p>医学科学生用サーバ管理業務などの公式活動は、引き続き情報医科学研究会が担います。
+<a href="https://www.kantei.go.jp">情報医科学研究会の新サイト</a>も立ち上げられました。</p>
+<p>Python会は、本HPを含めた「Python会」としての固有資産を情報医科学研究会より継承し、2020年7月以前と同じく任意団体として、従来から培われた広い相互交流のもとで活動して参ります。</p>
+<p>今後とも引き続き、Python会をよろしくお願いいたします。</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/news.html"><i class="fa fa-tag"></i>News</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
-            <a href="../../../blog/2018/09/sushi_typing.html">
-                寿司打タイピング自動化
-            </a>
-        </li>
-        <li>
-            次の記事 :
-            <a href="../../../blog/2018/09/breast_cancer_detection.html">
-                【論文まとめ】Improving Breast Cancer Detection using Symmetry Information with Deep Learning
+            <a href="../../../news/2022/04/grameye.html">
+                株式会社GramEyeが資金調達を実施
             </a>
         </li>
         <li>    
             関連記事 :
             <ul>
-                <li><a href="../../../blog/2023/01/medicalssl.html">医療画像と自己教師あり学習まとめ</a></li>
-                <li><a href="../../../blog/2022/07/wsi_ssl.html">WSI＊自己教師あり学習のメモ</a></li>
-                <li><a href="../../../blog/2022/05/clip_tutorial.html">CLIPを実装し理解する</a></li>
+                <li><a href="../../../news/2022/04/grameye.html">株式会社GramEyeが資金調達を実施</a></li>
+                <li><a href="../../../news/2021/09/server_news.html">医学科学生用計算機の管理委員長変更</a></li>
+                <li><a href="../../../news/2020/07/officialize_accept.html">医学部公認団体として正式承認されました</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -278,7 +219,7 @@
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2018/09/cluster_analysis.html" 
+        data-href="../../../news/2023/10/party_renewal.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">
