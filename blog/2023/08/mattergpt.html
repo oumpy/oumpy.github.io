@@ -8,16 +8,17 @@
     <meta name="author" content="情報医科学研究会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="VELOCYTO"/>
-    <meta property="og:url" content="../../../blog/2019/03/velocyto.html"/>
+    <meta property="og:title" content="MatterGPT: Mattermostで動作するChatGPT連携チャットボット"/>
+    <meta property="og:url" content="../../../blog/2023/08/mattergpt.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="Bioinformatics"/>
+        <meta property="article:tag" content="自動化"/>
+        <meta property="article:tag" content="Python"/>
       <meta property="article:author"
             content="情報医科学研究会"/>
         <meta property="og:image"
               content="../../../images/images/logo.jpg"/>
     <meta name="twitter:card" content="summary"> 
-    <meta name="twitter:title" content="VELOCYTO">
+    <meta name="twitter:title" content="MatterGPT: Mattermostで動作するChatGPT連携チャットボット">
     <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
@@ -25,7 +26,7 @@
         <meta property="twitter:image"
               content="../../../images/images/logo.jpg"/>
 
-    <title>VELOCYTO - 大阪大学医学部 情報医科学研究会 <span style="font-size:smaller;">（通称：Python会）</span></title>
+    <title>MatterGPT: Mattermostで動作するChatGPT連携チャットボット - 大阪大学医学部 情報医科学研究会 <span style="font-size:smaller;">（通称：Python会）</span></title>
 
    
         <link rel="stylesheet"
@@ -155,10 +156,11 @@
 		<p class="lead">Now is better than never.</p>
 	  </div>
 	</div>
-    <meta name="article:slug" property="og:article:slug" content="velocyto">
+    <meta name="article:slug" property="og:article:slug" content="mattergpt">
     <meta name="article:category" property="og:article:category" content="技術ブログ">
     <meta name="article:category:slug" property="og:article:category:slug" content="blog">
-    <meta name="article:date" property="og:article:date" content="2019-03-24">
+    <meta name="article:date" property="og:article:date" content="2023-08-16">
+    <meta name="article:modified" property="og:article:modified" content="2023-08-16">
 
     <div class="container" id="main-container">
       <div class="row">
@@ -166,121 +168,70 @@
 <article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
   <header class="article-header">
 <h1>
-  <a href="../../../blog/2019/03/velocyto.html" rel="bookmark"
-     title="Permalink to VELOCYTO">
-    VELOCYTO
+  <a href="../../../blog/2023/08/mattergpt.html" rel="bookmark"
+     title="Permalink to MatterGPT: Mattermostで動作するChatGPT連携チャットボット">
+    MatterGPT: Mattermostで動作するChatGPT連携チャットボット
   </a>
 </h1><div class="article-header-info">
   <p>
 <abbr class="article-header-date">
-  2019-03-24(Sun)
+  2023-08-16(Wed)
 </abbr>       - Posted by 
-<a href="../../../author/guang-lai.html">廣瀬</a>    in 
+<a href="../../../author/xiao-chuan.html">小川</a>    in 
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></img></a>
+        <a href="../../../tag/zi-dong-hua.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%87%AA%E5%8B%95%E5%8C%96&labelColor=black&color=green" alt="tag:自動化" title="tag:自動化"></img></a>
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p><strong>Velocyto</strong> とは、RNAseq の結果に含まれるイントロンの割合からその細胞の分化指向性を算出するという解析手法です。</p>
-<h2><span id="pelican-subsections-0">RNAseq でイントロン??</span></h2>
-<p>RNAseq においては totalRNA のうち 99%ともいわれる rRNA を除き mRNA のみを効率よくSequence する目的で、Poly(A)で成熟 mRNA を濃縮することがしばしば行われています。しかし、そのようなサンプルにおいても、実際の Sequence 結果ではイントロンにあたる配列が読まれてくることが指摘されており、この原因は Poly(A)類似モチーフの存在であると推察されています。</p>
-<h2><span id="pelican-subsections-1">結果の例</span></h2>
-<p>概日時間の検討ではとてもきれいな結果が得られています。関連遺伝子のunspliced(u) とspliced(s)を観察していくと、circadian timeの経過とともにu がs に変化していきます。</p>
-<p>また、未分化細胞からの分化の方向性を見積もることも可能と報告されています。マウスのオリゴデンドロサイト前駆体細胞がオリゴデンドロサイトへ分化する方向に Velocityを持っていることが示されました。</p>
-<h2><span id="pelican-subsections-2">実践編</span></h2>
-<p>Developer の WEB(<a href="http://velocyto.org/">http://velocyto.org/</a>)の tutorial を参考に手持ちの BAM で挑戦します。R 用と Python 用とあるようですが、もちろん Python です。二部構成となっており、前半はCommand lineでBAMファイルから.loomファイルを作成、後半では作成した.loomファイルから解析を行うとのことです。</p>
-<h3><span id="pelican-subsections-3">準備</span></h3>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>cython<span class="w"> </span>numba<span class="w"> </span>matplotlib<span class="w"> </span>scikit-learn<span class="w"> </span>h5py<span class="w"> </span>click
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>velocyto
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>scanpy
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>scvelo
-</code></pre></div>
-
-<p>※pysam は Windows 環境下では仮想環境下であってもインストールできないそうです。
-- <a href="https://qiita.com/chaoi/items/6d7702cd70430610f844">https://qiita.com/chaoi/items/6d7702cd70430610f844</a></p>
-<p>これに気付かず数日はまりました。。</p>
-<h3><span id="pelican-subsections-4">Genome annotation file のダウンロード</span></h3>
-<p>GENCODE のサイトから GTF ファイルをダウンロードし、適当な場所に保存して
-gunzip。</p>
-<h3><span id="pelican-subsections-5">実行</span></h3>
-<p>Sequence の手法ごとに Command を選べます。今回は smart-seq2 で行います。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>velocyto<span class="w"> </span>run-smartseq2<span class="w"> </span>-e<span class="w"> </span>hogehoge<span class="w"> </span>/*.bam<span class="w"> </span>annotation.gtf
-</code></pre></div>
-
-<p>オプション</p>
-<ul>
-<li><code>-o, --outputfolder</code>：出力ディレクトリを作成・指定</li>
-<li><code>-e, --sampleid</code>：出力ファイル名</li>
-<li><code>-m, --repmask</code>：リピート配列をマスクする場合</li>
-<li><code>-t, --dtype</code>：出力ファイルのデータ型(default は unit32)</li>
-<li><code>-d, --dump</code></li>
-<li><code>-v, --verbose</code></li>
-</ul>
-<p>サンプルごとに BAM があることを想定して複数ファイルを*で受け付けてくれます。BAM と GTF ファイルは必須です。なお、BAM の代わりに SAM を入れてもエラーは吐かないようです。これにより、hogehoge.loom ファイルが得られました。この中には、各分子のスプライシング状態が格納されています。</p>
-<p>※TOPHAT でアラインメントしたデータはそのままではうまく行かないようです。なので、TopHat-Recondition で unmap のデータを拾ってくればいけるかもしれません。今回はHISAT2 でアラインメントし直してから velocyto をかけ、改めてhogehoge.loom ファイルを得ました。</p>
-<h3><span id="pelican-subsections-6">描画</span></h3>
-<p>Scanpy と組み合わせて使用するために scvelo を用いました。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
-<span class="kn">import</span> <span class="nn">scvelo</span> <span class="k">as</span> <span class="nn">scv</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-7">データ読み込み</span></h3>
-<div class="highlight"><pre><span></span><code><span class="n">adata</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;hogehoge.loom&quot;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-8">次元圧縮</span></h3>
-<div class="highlight"><pre><span></span><code><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">pca</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_comps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-9">速度計算</span></h3>
-<div class="highlight"><pre><span></span><code><span class="n">scv</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">moments</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
-<span class="n">scv</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">velocity</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
-</code></pre></div>
-
-<h3><span id="pelican-subsections-10">描画</span></h3>
-<div class="highlight"><pre><span></span><code><span class="n">scv</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">velocity_embedding</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
-</code></pre></div>
-
-<p><img alt="1" src="../../../blog/2019/03/images/velocyte_figs/picture1.png"></p>
-<p>※それぞれの細胞における特定遺伝子の発現レベルを色で表したり、PCA 以外の次元圧縮法を用いることもできます。この場合は tSNE のほうがきれいに見えるようです。パラメータはたくさん用意されているので、各データセットで最適な条件を検討する必要があるでしょう。</p>
-<p><img alt="2" src="../../../blog/2019/03/images/velocyte_figs/picture2.png">
-<img alt="3" src="../../../blog/2019/03/images/velocyte_figs/picture3.png"></p>
-<h2><span id="pelican-subsections-11">参考文献</span></h2>
-<ul>
-<li><a href="https://www.nature.com/articles/s41586-018-0414-6">https://www.nature.com/articles/s41586-018-0414-6</a></li>
-<li><a href="http://velocyto.org/velocyto.py/index.html">http://velocyto.org/velocyto.py/index.html</a></li>
-<li><a href="http://catway.jp/bioinformatics/qc/rmrepeat.html">http://catway.jp/bioinformatics/qc/rmrepeat.html</a></li>
-<li><a href="https://github.com/theislab/scvelo">https://github.com/theislab/scvelo</a></li>
-</ul>
+	<p>本会での利用のために新たに開発したMatterGPTは、OpenAIのChatGPTと連携し、Mattermost上での会話をサポートするチャットボットです。
+このボットを活用することで、自然言語の形式で質問やコメントを行うことが可能となります。
+特筆すべき点として、MatterGPTの全てのコードはChatGPTを使用して開発されました。</p>
+<h2><span id="pelican-subsections-0">特徴</span></h2>
+<h3><span id="pelican-subsections-1">1. ChatGPTとの連携</span></h3>
+<p>MatterGPTは、OpenAIが提供する先進的な言語モデルであるChatGPTと連携して動作します。
+これにより、人と変わらない自然な会話を体験することができます。</p>
+<h3><span id="pelican-subsections-2">2. シンプルな導入手順</span></h3>
+<p>簡単な設定を行うだけで、Mattermost上にボットとして迅速に導入することが可能です。</p>
+<h3><span id="pelican-subsections-3">3. カスタマイズの自由度</span></h3>
+<p>ニーズや要望に合わせて、多岐にわたる設定や機能を調整することができます。</p>
+<h2><span id="pelican-subsections-4">使い方</span></h2>
+<ol>
+<li>公式のレポジトリ <a href="https://github.com/oumpy/MatterGPT">https://github.com/oumpy/MatterGPT</a> からMatterGPTをクローンまたはダウンロードします。</li>
+<li><code>.env</code> ファイルを準備し、必要な情報（APIキーやトークンなど）を設定します。</li>
+<li>設定が完了したら、コマンドラインからMatterGPTを起動します。</li>
+<li>Mattermost上にボットが登場するので、チャンネルやダイレクトメッセージで会話を始めることができます。</li>
+<li>MatterGPTはスレッドを活用して会話を進めるため、一つの質問やコメントに対してスレッド形式で返答します。これにより、会話が整然と進行し、他のメンバーのコミュニケーションの妨げにならないようになっています。</li>
+</ol>
+<p>詳細な手順や設定については、公式のレポジトリで詳しく確認することができます。</p>
+<h2><span id="pelican-subsections-5">まとめ</span></h2>
+<p>MatterGPTは、Mattermost上での会話をさらに豊かで効果的にするための強力なツールです。
+ChatGPTの技術力を活用して、日常のコミュニケーションを新しいレベルへと引き上げてみませんか？</p>
+<p>(この記事もChatGPTによって生成されました)</p>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
+	<a href="../../../tag/zi-dong-hua.html"><i class="fa fa-tag"></i>自動化</a>&nbsp;
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
-            <a href="../../../blog/2019/03/n_number.html">
-                必要n数の決定～研究計画～
-            </a>
-        </li>
-        <li>
-            次の記事 :
-            <a href="../../../blog/2019/03/lorenz.html">
-                ローレンツ曲線とPythonで日本人の年収の偏りを示そう！
+            <a href="../../../blog/2023/01/medicalssl.html">
+                医療画像と自己教師あり学習まとめ
             </a>
         </li>
         <li>    
             関連記事 :
             <ul>
-                <li><a href="../../../blog/2021/05/ikra_v2.html">RNA-seq pipeline ikra v2.0 リリース</a></li>
-                <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
-                <li><a href="../../../blog/2019/06/cancer_signature.html">がんゲノム変異シグネチャー解析</a></li>
+                <li><a href="../../../blog/2022/03/car_allocate_linebot.html">”車割り”を最適化</a></li>
+                <li><a href="../../../blog/2021/03/movie2pdf.html">プレゼン形式の動画からスライドのpdfを自動作成する＋OCRをつける</a></li>
+                <li><a href="../../../blog/2020/06/youtube_api.html">やさしいYouTube APIのはなし</a></li>
             </ul>
         </li>
 </ul>  <hr />
@@ -296,7 +247,7 @@ gunzip。</p>
 
     <!-- Facebook -->
     <div class="fb-like" 
-        data-href="../../../blog/2019/03/velocyto.html" 
+        data-href="../../../blog/2023/08/mattergpt.html" 
         data-layout="button_count" 
         data-action="like" data-show-faces="true" 
         data-share="true">

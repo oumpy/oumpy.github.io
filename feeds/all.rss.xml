@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>大阪大学医学部 情報医科学研究会 （通称：Python会）</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Fri, 16 Jun 2023 00:00:00 +0900</lastBuildDate><item><title>医療画像と自己教師あり学習まとめ</title><link>https://oumpy.github.io/blog/2023/01/medicalssl.html</link><description>&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
+<rss version="2.0"><channel><title>大阪大学医学部 情報医科学研究会 （通称：Python会）</title><link>https://oumpy.github.io/</link><description>Now is better than never.</description><lastBuildDate>Wed, 16 Aug 2023 00:00:00 +0900</lastBuildDate><item><title>MatterGPT: Mattermostで動作するChatGPT連携チャットボット</title><link>https://oumpy.github.io/blog/2023/08/mattergpt.html</link><description>&lt;p&gt;本会での利用のために新たに開発したMatterGPTは、OpenAIのChatGPTと連携し、Mattermost上での会話をサポートするチャットボットです。
+このボットを活用することで、自然言語の形式で質問やコメントを行 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">小川</dc:creator><pubDate>Wed, 16 Aug 2023 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:oumpy.github.io,2023-08-16:/blog/2023/08/mattergpt.html</guid><category>技術ブログ</category><category>自動化</category><category>Python</category></item><item><title>医療画像と自己教師あり学習まとめ</title><link>https://oumpy.github.io/blog/2023/01/medicalssl.html</link><description>&lt;p&gt;&lt;p&gt;&lt;span class="videobox"&gt;
   &lt;iframe width=640" height="390"
     src="{attach}./attach/medicalSSL/medicalSSL202301.pdf"
     frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;
