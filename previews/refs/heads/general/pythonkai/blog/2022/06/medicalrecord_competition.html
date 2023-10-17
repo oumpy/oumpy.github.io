@@ -89,12 +89,13 @@
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
 <a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
-<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">過去の活動</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover">
-<a class="nav-link dropdown-toggle" id="dropdown9" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
-<div class="dropdown-menu" aria-labelledby="dropdown9">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
 <a class="dropdown-item" href="../../../achievements.html">実績</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
@@ -106,8 +107,8 @@
 </div>
 </li>
 <li class="nav-item dropdown dropdown-hover active">
-<a class="nav-link dropdown-toggle" id="dropdown17" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
-<div class="dropdown-menu" aria-labelledby="dropdown17">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
 <a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../authors.html">著者一覧</a>
@@ -118,13 +119,24 @@
 <a class="nav-link" href="../../../news.html">お知らせ</a>
 </li>
 <li class="nav-item dropdown dropdown-hover">
-<a class="nav-link dropdown-toggle" id="dropdown22" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
-<div class="dropdown-menu" aria-labelledby="dropdown22">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
 <a class="dropdown-item" href="../../../recruit.html">会員募集</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2021年度</a>
 <a class="dropdown-item" href="../../../recruit.html#pelican-subsections-3">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown28" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown28">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">利用申請の方法・書式など</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-1">申請後</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-2">計算機スペックなど</a>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-3">利用状況</a>
 </div>
 </li>
 <li class="nav-item">
@@ -186,7 +198,7 @@
 <ol>
 <li>
 <p>教師データと現状のモデルでの出力結果を眺める
-    <img alt="fig1" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig1.png">
+    <img alt="fig1" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig1.png">
     上記のデータは上が教師データ、下が<a href="https://github.com/noroka/uth_bert">uth-bert</a>を元に学習させて出力したデータになる。
     そもそも教師データ自体に何の法則性もなく、年齢が含まれていたり性別が含まれていなかったりした。
     あまりにもランダムだと感じられたので、次の手に移行。</p>
@@ -197,20 +209,20 @@
     ここで取り入れた評価軸は２つ。
     患者が男性or女性
     患者の想定される疾患「1.循環器,2.消化器,3.婦人科,4.精神科,5.循環器と消化器,6.その他」
-    <img alt="fig2" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig2.png">
+    <img alt="fig2" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig2.png">
     上記のように頻出単語にマークし、それを主訴により5種類の疾患分野に分類した。</p>
 </li>
 <li>
 <p>教師データとテストデータを均等化した学習結果
     〜1.循環器,2.消化器,3.婦人科,4.精神科,5.循環器と消化器,6.その他が教師データとテストデータに占める割合を調整してみた〜</p>
 <p>分け方1:何も分けない(下記)
-<img alt="分け方1" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig3.png">
+<img alt="分け方1" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig3.png">
 分け方2:男性or女性で分ける,疾患で分けない(下記)
-<img alt="分け方2" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig4.png">
+<img alt="分け方2" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig4.png">
 分け方3:男性or女性で分けない,疾患で分ける(下記)
-<img alt="分け方3" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig5.png">
+<img alt="分け方3" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig5.png">
 分け方4:男性or女性で分ける,疾患で分ける(下記)
-<img alt="分け方4" src="../../../blog/2022/06/images/medicalrecord_competition_figs/sugiharacompe_fig6.png">
+<img alt="分け方4" src="../../../articles/2022sy/blog/images/medicalrecord_competition_figs/sugiharacompe_fig6.png">
 →分け方4はf1値が最高！分けてよかったね。(めっちゃ微差だけど)</p>
 </li>
 <li>
@@ -323,9 +335,9 @@
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
   <tr>
-    <td class="recent-posts-date">10/1</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
-    <td><a href="../../../news/2023/10/party_renewal.html"><span class="recent-posts-title">Python会は情報医科学研究会より分会しました</span></a></td>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
   </tr>
   <tr>
     <td class="recent-posts-date">1/3</td>
@@ -370,6 +382,24 @@
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
+    <span class="tag-4">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">1</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
     <span class="tag-2">
       <a href="../../../tag/statistics.html">
           <span class="badge badge-primary">12</span>
@@ -377,45 +407,33 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/shell-script.html">
-          <span class="badge badge-primary">3</span>
-        Shell script
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
+      <a href="../../../tag/qi-ye-inta-n.html">
           <span class="badge badge-primary">2</span>
-        Unix
+        企業インターン
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
       </a>
     </span>
     <span class="tag-2">
       <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">6</span>
+          <span class="badge badge-primary">7</span>
         自動化
       </a>
     </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">28</span>
-        Machine Learning
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/hadouea.html">
+      <a href="../../../tag/simulation.html">
           <span class="badge badge-primary">2</span>
-        ハードウェア
+        Simulation
       </a>
     </span>
     <span class="tag-4">
@@ -425,21 +443,15 @@
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">4</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">20</span>
-        Python
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
       </a>
     </span>
     <span class="tag-2">
@@ -455,21 +467,33 @@
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
       </a>
     </span>
-    <span class="tag-3">
-      <a href="../../../tag/simulation.html">
-          <span class="badge badge-primary">2</span>
-        Simulation
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">21</span>
+        Python
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
-          <span class="badge badge-primary">7</span>
-        Data Science Competition
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">9</span>
+        News
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
       </a>
     </span>
     <span class="tag-3">
@@ -478,28 +502,16 @@
         勉学支援
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
     <span class="tag-3">
-      <a href="../../../tag/qi-ye-intan.html">
-          <span class="badge badge-primary">2</span>
-        企業インターン
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
 </p>
