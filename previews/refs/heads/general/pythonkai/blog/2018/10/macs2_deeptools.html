@@ -306,7 +306,7 @@ samtools<span class="w"> </span>index<span class="w"> </span>data/<span class="s
 
 <p>これでbamファイルが出来ているはず。</p>
 <p>igvで表示してみるとこんな感じ。
-<img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"></p>
+<img alt="1" src="../../../articles/2018sy/blog/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-04-52.png"></p>
 <h3><span id="pelican-subsections-6">補足 prefetchのoutputを変更する方法（Yoshiharaさんより）</span></h3>
 <p>デフォルトではプロジェクトのディレクトリの外にsraファイルを保存してしまう。また、データ用のストレージを分けている際もそちらに書き出してやりたい。そこでprefetchのoutputを変更したいという話になるわけだが、やり方は2つ。</p>
 <h4><span id="pelican-subsections-7">1)</span></h4>
@@ -371,7 +371,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
 <code>--nomodel</code>はshifting modelを作るかどうか。defaultでshiftは100。
 実際はigvにはbdgファイルも読み込めてしまうので、特にbigwigにする必要はなかった。</p>
 <h2><span id="pelican-subsections-10">deepToolsによるbwファイルの生成</span></h2>
-<p><img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/start_workflow1.png"></p>
+<p><img alt="1" src="../../../articles/2018sy/blog/images/macs2_deeptools_figs/start_workflow1.png"></p>
 <blockquote>
 <p>Ramírez, F. et al. deepTools2: a next generation web server for deep-sequencing data analysis. Nucleic Acids Res. 44, W160–W165 (2016).</p>
 </blockquote>
@@ -397,7 +397,7 @@ $<span class="w"> </span>bamCompare<span class="w"> </span>-p<span class="w"> </
 
 <p>※ 181107 subtractのoutput fileが間違えていたので修正しました。（Yoshiharaさんより）</p>
 <h2><span id="pelican-subsections-11">igvによる比較</span></h2>
-<p><img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"></p>
+<p><img alt="1" src="../../../articles/2018sy/blog/images/macs2_deeptools_figs/screenshot-from-2018-10-28-20-36-19.png"></p>
 <p>上からmacs2, deepTools subtract, deepTools log2 fold changeになっている。macs2の結果はdeepToolsのsubtractに近いことがわかる。</p>
 <p>macs2のsummits.bedとnarrowPeakも表示してみた（下2つ）。これはこれで取り回しが効いて良い。narrowPeakはp valueに応じて色が変わっている。</p>
 <p>deepToolsが少しギザギザしているように見えるが、binを変えると細かくできる。</p>
@@ -416,7 +416,7 @@ $<span class="w"> </span>plotHeatmap<span class="w"> </span>-m<span class="w"> <
 --kmeans<span class="w"> </span><span class="m">4</span><span class="w"> </span>--samplesLabel<span class="w"> </span>Treg_H3K27ac_1<span class="w">  </span>Treg_H3K27ac_2
 </code></pre></div>
 
-<p><img alt="1" src="../../../blog/2018/10/images/macs2_deeptools_figs/heatmap-3.png"></p>
+<p><img alt="1" src="../../../articles/2018sy/blog/images/macs2_deeptools_figs/heatmap-3.png"></p>
 <p>plotHeatmapのクラスタリングは複数のサンプルがある時は１つ目のサンプルでクラスタリングするみたい。せっかく他のサンプルもあるのだから、いろいろ混ぜてクラスタリングできたらいいな。
 colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.html">matplotlibでおなじみのもの</a>である。fontsizeは変更する方法は見つからなかった。これは結構困りどころ。強いて言うならissueで自分で書いてみてねとの<a href="https://github.com/deeptools/deepTools/issues/444">回答</a>があった。</p>
 <p>deepToolsに関して、いつもお世話になっている<a href="http://kazumaxneo.hatenablog.com/entry/2018/06/25/210934">macでインフォマティクス</a>さんにも記事があった。とても詳しい。他にもいろいろな機能があったので是非。</p>
@@ -526,6 +526,16 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <table class="recent-posts" id="recentposts">
   <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
   <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
     <td class="recent-posts-date">8/16</td>
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
@@ -556,16 +566,6 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
     <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
     <td><a href="../../../blog/2022/07/wsi_ssl.html"><span class="recent-posts-title">WSI＊自己教師あり学習のメモ</span></a></td>
   </tr>
-  <tr>
-    <td class="recent-posts-date">6/10</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/06/medicalrecord_competition.html"><span class="recent-posts-title">英語のカルテデータのコンペに参加してみた(際の失敗と反省)</span></a></td>
-  </tr>
-  <tr>
-    <td class="recent-posts-date">5/24</td>
-    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
-    <td><a href="../../../blog/2022/05/clip_tutorial.html"><span class="recent-posts-title">CLIPを実装し理解する</span></a></td>
-  </tr>
 </table>
 </div>
 </div>
@@ -573,70 +573,10 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
 <div class="sidebar_box">
 <div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
 <p class="tag-cloud">
-    <span class="tag-3">
-      <a href="../../../tag/unix.html">
-          <span class="badge badge-primary">2</span>
-        Unix
-      </a>
-    </span>
     <span class="tag-2">
-      <a href="../../../tag/zi-dong-hua.html">
-          <span class="badge badge-primary">7</span>
-        自動化
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/jian-ding-shi-yan.html">
-          <span class="badge badge-primary">4</span>
-        検定試験
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/python.html">
-          <span class="badge badge-primary">21</span>
-        Python
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/lun-wen-matome.html">
-          <span class="badge badge-primary">7</span>
-        論文まとめ
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/neuroscience.html">
-          <span class="badge badge-primary">4</span>
-        Neuroscience
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/mian-xue-zhi-yuan.html">
-          <span class="badge badge-primary">2</span>
-        勉学支援
-      </a>
-    </span>
-    <span class="tag-1">
-      <a href="../../../tag/machine-learning.html">
-          <span class="badge badge-primary">28</span>
-        Machine Learning
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
-        Bioinformatics
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/lun-wen-guan-lian.html">
-          <span class="badge badge-primary">1</span>
-        論文関連
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/github.html">
-          <span class="badge badge-primary">1</span>
-        GitHub
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">10</span>
+        News
       </a>
     </span>
     <span class="tag-3">
@@ -646,45 +586,15 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
       </a>
     </span>
     <span class="tag-2">
-      <a href="../../../tag/news.html">
-          <span class="badge badge-primary">9</span>
-        News
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/ha-douea.html">
-          <span class="badge badge-primary">2</span>
-        ハードウェア
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/jing-ji-puroguramingu.html">
-          <span class="badge badge-primary">8</span>
-        競技プログラミング
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/mian-qiang-hui.html">
-          <span class="badge badge-primary">10</span>
-        勉強会
-      </a>
-    </span>
-    <span class="tag-2">
-      <a href="../../../tag/data-science-competition.html">
+      <a href="../../../tag/zi-dong-hua.html">
           <span class="badge badge-primary">7</span>
-        Data Science Competition
+        自動化
       </a>
     </span>
-    <span class="tag-4">
-      <a href="../../../tag/hai-wai-liu-xue.html">
-          <span class="badge badge-primary">1</span>
-        海外留学
-      </a>
-    </span>
-    <span class="tag-3">
-      <a href="../../../tag/sonota-yan-yu.html">
-          <span class="badge badge-primary">2</span>
-        その他言語
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">7</span>
+        論文まとめ
       </a>
     </span>
     <span class="tag-2">
@@ -694,15 +604,105 @@ colormapは<a href="https://matplotlib.org/examples/color/colormaps_reference.ht
       </a>
     </span>
     <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
       <a href="../../../tag/shell-script.html">
           <span class="badge badge-primary">3</span>
         Shell script
       </a>
     </span>
     <span class="tag-3">
-      <a href="../../../tag/simulation.html">
+      <a href="../../../tag/ha-douea.html">
           <span class="badge badge-primary">2</span>
-        Simulation
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
       </a>
     </span>
 </p>
