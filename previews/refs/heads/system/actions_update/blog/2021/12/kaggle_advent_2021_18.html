@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="SwinTransformerで物体検出"/>
+    <meta property="og:url" content="../../../blog/2021/12/kaggle_advent_2021_18.html"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Machine Learning"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="SwinTransformerで物体検出">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>SwinTransformerで物体検出 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+
+   
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh" crossorigin="anonymous"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/system/actions_update/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/system/actions_update/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand py-0 fixed-top">
+      <div class="container">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">会規約</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-14">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-23">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-29">出版記事等</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2021年度</a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-3">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown28" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown28">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">過去の利用状況</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+        </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
+      </div> <!-- /navbar-collapse -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="kaggle_advent_2021_18">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2021-12-18">
+    <meta name="article:modified" property="og:article:modified" content="2021-12-18">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2021/12/kaggle_advent_2021_18.html" rel="bookmark"
+     title="Permalink to SwinTransformerで物体検出">
+    SwinTransformerで物体検出
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2021-12-18(Sat)
+</abbr>       - Posted by 
+<a href="../../../author/an-bu.html">安部</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></img></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<h2><span id="pelican-subsections-0">なんの記事か</span></h2>
+<p><a href="https://qiita.com/advent-calendar/2021/kaggle">Kaggle Advent Calendar 2021</a>の2枚目の18日目の記事です。</p>
+<p>最近流行りのSwinTransformerを使って物体検出を触ってみます。<a href="https://www.kaggle.com/c/siim-covid19-detection/discussion/263654">SIIM2021 3rd解法</a>では Swin Transformer with RepPoints(mmdetection)がアンサンブルの種として使用されています。自分で手を動かせばわかることがあるかもしれないと思い過去コンペで追試をしてみます。</p>
+<p>行った追試は以下の通りです。</p>
+<ol>
+<li>swin_tiny mask_r_cnnの公式configをいじって使う</li>
+<li>augmentationを追加</li>
+<li>さらにaugmentationを強める</li>
+<li>backboneを大きいモデルに変更する</li>
+<li>他のモデルを試す</li>
+<li>cocoの事前学習が有効か見てみる</li>
+</ol>
+<h3><span id="pelican-subsections-1">追試に用いたデータ</span></h3>
+<p>kaggleの過去コンペ&amp;csv提出ができる&amp;自分のドメインに近い、という理由で<a href="https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/overview">VinBig</a> を追試の対象としました。<br>
+アノテーションはdiscussionに多く挙げられていた「複数のアノテーターのbboxはナイーブにWBFで統合する」という方法で前処理し、single foldで学習、subをしています。手元のmAP0.5とprivateでのスコアを確認していきます。(スコアの確認が歯切れの悪い形になっています。ご了承ください)<br>以下全てのsubに<a href="https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/210351">2cls fillter</a> をつけています。コンペ特有の課題(複数のアノテーターへの対処)は本記事では扱いません。推論のコードは<a href="https://www.kaggle.com/kc3222/mmdet-pytorch-framework-infer-vfnet">これ</a>を参考にしました。</p>
+<h3><span id="pelican-subsections-2">実験</span></h3>
+<h4><span id="pelican-subsections-3">1. swin_tiny mask_r_cnnの公式configをいじって使う</span></h4>
+<p><a href="https://github.com/open-mmlab/mmdetection/tree/master/configs/swin">mmdetectionの公式のレポジトリ</a>にはmask_Rcnn系列のbackboneにswin_tiny/smallを用いた場合のconfig/log/weightが存在します。<br>
+まずこれをそのまま使用したいのですがmaskの情報はvinbigには無いのでmask headを消しておきます。</p>
+<div class="highlight"><pre><span></span><code>   <span class="n">roi_head</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+       <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;StandardRoIHead&#39;</span><span class="p">,</span>
+       <span class="n">bbox_roi_extractor</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+           <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SingleRoIExtractor&#39;</span><span class="p">,</span>
+           <span class="n">roi_layer</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RoIAlign&#39;</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">sampling_ratio</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+           <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+           <span class="n">featmap_strides</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">]),</span>
+       <span class="n">bbox_head</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+           <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Shared2FCBBoxHead&#39;</span><span class="p">,</span>
+           <span class="n">in_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+           <span class="n">fc_out_channels</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+           <span class="n">roi_feat_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+           <span class="n">num_classes</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+           <span class="n">bbox_coder</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+               <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;DeltaXYWHBBoxCoder&#39;</span><span class="p">,</span>
+               <span class="n">target_means</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+               <span class="n">target_stds</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]),</span>
+           <span class="n">reg_class_agnostic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">loss_cls</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+               <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;CrossEntropyLoss&#39;</span><span class="p">,</span> <span class="n">use_sigmoid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">loss_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+           <span class="n">loss_bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;L1Loss&#39;</span><span class="p">,</span> <span class="n">loss_weight</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)),</span>
+       <span class="n">mask_roi_extractor</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+           <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SingleRoIExtractor&#39;</span><span class="p">,</span>
+           <span class="n">roi_layer</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RoIAlign&#39;</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">sampling_ratio</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+           <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+           <span class="n">featmap_strides</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">]),</span>
+       <span class="c1">#mask_head=dict(</span>
+       <span class="c1">#    type=&#39;FCNMaskHead&#39;,</span>
+       <span class="c1">#    num_convs=4,</span>
+       <span class="c1">#    in_channels=256,</span>
+       <span class="c1">#    conv_out_channels=256,</span>
+       <span class="c1">#    num_classes=14,</span>
+       <span class="c1">#    loss_mask=dict(</span>
+       <span class="c1">#        type=&#39;CrossEntropyLoss&#39;, use_mask=True, loss_weight=1.0))</span>
+       <span class="p">),</span>
+</code></pre></div>
+
+<p>次にbackboneを変更します。</p>
+<div class="highlight"><pre><span></span><code>   <span class="n">backbone</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+       <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SwinTransformer&#39;</span><span class="p">,</span>
+       <span class="n">embed_dims</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span>
+       <span class="n">depths</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="n">num_heads</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+       <span class="n">window_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+       <span class="n">mlp_ratio</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+       <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">qk_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+       <span class="n">drop_rate</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+       <span class="n">attn_drop_rate</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+       <span class="n">drop_path_rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+       <span class="n">patch_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">out_indices</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+       <span class="n">with_cp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+       <span class="n">convert_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">init_cfg</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Pretrained&#39;</span><span class="p">,</span> <span class="n">checkpoint</span><span class="o">=</span><span class="s2">&quot;https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_tiny_patch4_window7_224.pth&#39;&quot;</span><span class="p">)),</span>
+
+   <span class="n">neck</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+       <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;FPN&#39;</span><span class="p">,</span>
+       <span class="n">in_channels</span><span class="o">=</span><span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">384</span><span class="p">,</span> <span class="mi">768</span><span class="p">],</span>
+       <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+       <span class="n">num_outs</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+</code></pre></div>
+
+<p>load_from = ”~/mmdetection/checkpoints/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco_20210906_131725-bacf6f7b.pth”のように指定すれば事前学習済みの重みを使用できます。<br>
+結果は以下です。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tiny</td>
+<td>0.3600</td>
+<td>0.223</td>
+</tr>
+<tr>
+<td>small</td>
+<td>0.3560</td>
+<td>0.221</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="pelican-subsections-4">2. augmentationを追加</span></h4>
+<p><a href="https://github.com/open-mmlab/mmdetection/blob/master/configs/albu_example/mask_rcnn_r50_fpn_albu_1x_coco.py">albumentationsの使用例</a>があったのでそのままコピペします。SIIM2021の3rd解法のものを借用したものも試しました。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>small</td>
+<td>0.3560</td>
+<td>0.221</td>
+</tr>
+<tr>
+<td>small+aug</td>
+<td>0.3790</td>
+<td>0.240</td>
+</tr>
+<tr>
+<td>small+aug_3rd</td>
+<td>0.3840</td>
+<td>0.234</td>
+</tr>
+</tbody>
+</table>
+<p>augmentationの追加は気兼ねなくできる＆伸び代もありそうなので良さそうです。</p>
+<h4><span id="pelican-subsections-5">3. さらにaugmentationを強める</span></h4>
+<p>mmdetetionでのmosaic/mixupの使用には<a href="https://github.com/open-mmlab/mmdetection/blob/master/configs/yolox/yolox_s_8x8_300e_coco.py">yoloxのconfig</a>をみれば良さそうです。datasetのtypeをMultiImageMixDatasetにするなどの修正が必要です。</p>
+<div class="highlight"><pre><span></span><code><span class="n">img_scale</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span> <span class="c1"># (1333, 800)</span>
+<span class="n">train_pipeline</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1">#dict(type=&#39;LoadImageFromFile&#39;),</span>
+    <span class="c1">#dict(type=&#39;LoadAnnotations&#39;, with_bbox=True),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Mosaic&#39;</span><span class="p">,</span> <span class="n">img_scale</span><span class="o">=</span><span class="n">img_scale</span><span class="p">,</span> <span class="n">pad_val</span><span class="o">=</span><span class="mf">114.0</span><span class="p">),</span>
+    <span class="c1">#dict(</span>
+    <span class="c1">#    type=&#39;RandomAffine&#39;,</span>
+    <span class="c1">#    scaling_ratio_range=(0.1, 2),</span>
+    <span class="c1">#    border=(-img_scale[0] // 2, -img_scale[1] // 2)),</span>
+    <span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Albu&#39;</span><span class="p">,</span>
+        <span class="n">transforms</span><span class="o">=</span><span class="n">albu_train_transforms</span><span class="p">,</span>
+        <span class="n">bbox_params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;BboxParams&#39;</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pascal_voc&#39;</span><span class="p">,</span>
+            <span class="n">label_fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gt_labels&#39;</span><span class="p">],</span>
+            <span class="n">min_visibility</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">filter_lost_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">keymap</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;img&#39;</span><span class="p">:</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+            <span class="c1">#&#39;gt_masks&#39;: &#39;masks&#39;,</span>
+            <span class="s1">&#39;gt_bboxes&#39;</span><span class="p">:</span> <span class="s1">&#39;bboxes&#39;</span>
+        <span class="p">},</span>
+        <span class="n">update_pad_shape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">skip_img_without_anno</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="c1">#dict(</span>
+    <span class="c1">#    type=&#39;MixUp&#39;,</span>
+    <span class="c1">#    img_scale=img_scale,</span>
+    <span class="c1">#    ratio_range=(0.8, 1.6),</span>
+    <span class="c1">#    pad_val=114.0),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Resize&#39;</span><span class="p">,</span> <span class="n">img_scale</span><span class="o">=</span><span class="n">img_scale</span><span class="p">,</span> <span class="n">keep_ratio</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;RandomFlip&#39;</span><span class="p">,</span> <span class="n">flip_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Normalize&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">img_norm_cfg</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Pad&#39;</span><span class="p">,</span> <span class="n">size_divisor</span><span class="o">=</span><span class="mi">32</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;DefaultFormatBundle&#39;</span><span class="p">),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Collect&#39;</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">,</span> <span class="s1">&#39;gt_bboxes&#39;</span><span class="p">,</span> <span class="s1">&#39;gt_labels&#39;</span><span class="p">]),</span>
+<span class="p">]</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;MultiImageMixDataset&#39;</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span> <span class="s1">&#39;~/vinbig/dataset/fold0/annotations/train.json&#39;</span><span class="p">,</span>
+        <span class="n">img_prefix</span><span class="o">=</span> <span class="s1">&#39;~/vinbig/dataset/fold0/train2017/&#39;</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="p">[</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadImageFromFile&#39;</span><span class="p">),</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;LoadAnnotations&#39;</span><span class="p">,</span> <span class="n">with_bbox</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="n">filter_empty_gt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">pipeline</span><span class="o">=</span><span class="n">train_pipeline</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">samples_per_gpu</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">workers_per_gpu</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="c1">#train=dict(</span>
+    <span class="c1">#    type=dataset_type,</span>
+    <span class="c1">#    classes=classes,</span>
+    <span class="c1">#    ann_file=&#39;~/vinbig/dataset/fold0/annotations/train.json&#39;,</span>
+    <span class="c1">#    img_prefix=&#39;~/vinbig/dataset/fold0/train2017/&#39;,</span>
+    <span class="c1">#    pipeline=train_pipeline),</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">,</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">dataset_type</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+        <span class="n">ann_file</span><span class="o">=</span><span class="s1">&#39;~/vinbig/dataset/fold0/annotations/val.json&#39;</span><span class="p">,</span>
+        <span class="n">img_prefix</span><span class="o">=</span> <span class="s2">&quot;~/vinbig/dataset/fold0/val2017/&quot;</span><span class="p">,</span>
+        <span class="n">pipeline</span><span class="o">=</span><span class="n">test_pipeline</span><span class="p">),</span>
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>small+aug</td>
+<td>0.3790</td>
+<td>0.240</td>
+</tr>
+<tr>
+<td>small+mosaic</td>
+<td>0.3310</td>
+<td>0.208</td>
+</tr>
+</tbody>
+</table>
+<p>適当に使って良いものでは無さそうです。</p>
+<h4><span id="pelican-subsections-6">4. backboneを大きいモデルに変更する</span></h4>
+<p><a href="https://github.com/yujiariyasu/siim_covid19_detection/blob/main/ian-siim/mmdetection/configs/swin">SIIM2021の3rd解法のレポジトリ</a>にはモデルの大きさを大きくしてみるという実験を行った痕跡が残されているので倣ってみます。(swin_rsna000.py swin_rsna001.py)<br>backboneとneckの値をいじればなんとかなりそうです。以下はtiny→baseの変更をおこなったものです。</p>
+<div class="highlight"><pre><span></span><code>   <span class="n">backbone</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+       <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SwinTransformer&#39;</span><span class="p">,</span>
+       <span class="c1">#embed_dims=96,</span>
+       <span class="n">embed_dim</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+       <span class="c1">#embed_dim=192, #large</span>
+       <span class="c1">#depths=[2, 2, 6, 2],</span>
+       <span class="n">depths</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="c1">#largeもおなじ</span>
+       <span class="c1">#num_heads=[3, 6, 12, 24],</span>
+       <span class="n">num_heads</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span>
+       <span class="c1">#num_heads=[6, 12, 24, 48], #large</span>
+       <span class="c1">#window_size=7,</span>
+       <span class="n">window_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+       <span class="n">mlp_ratio</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+       <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">qk_scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+       <span class="n">drop_rate</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+       <span class="n">attn_drop_rate</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span>
+       <span class="n">drop_path_rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+       <span class="n">patch_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">out_indices</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+       <span class="n">with_cp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+       <span class="n">convert_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+       <span class="n">init_cfg</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;Pretrained&#39;</span><span class="p">,</span> <span class="n">checkpoint</span><span class="o">=</span><span class="s2">&quot;https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22kto1k.pth&#39;&quot;</span><span class="p">)),</span>
+
+   <span class="n">neck</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+       <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;FPN&#39;</span><span class="p">,</span>
+       <span class="c1">#in_channels=[96, 192, 384, 768],</span>
+       <span class="n">in_channels</span><span class="o">=</span><span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span>
+       <span class="c1">#in_channels=[192, 384, 768, 1536],, #large</span>
+       <span class="n">out_channels</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+       <span class="n">num_outs</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+</code></pre></div>
+
+<p>base large smallの結果は以下です。モデルを大きくすると収束が遅くなるのでは無いかと思ったのでlargeを長めに学習させるものも試しました。augmentationはSIIM2021の3rd解法のものを使用しています。</p>
+<table>
+<thead>
+<tr>
+<th>TH</th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>small</td>
+<td>0.3840</td>
+<td>0.234</td>
+</tr>
+<tr>
+<td>base</td>
+<td>0.3770</td>
+<td>0.246</td>
+</tr>
+<tr>
+<td>lagre</td>
+<td>0.3330</td>
+<td>0.230</td>
+</tr>
+<tr>
+<td>lagre(3x)</td>
+<td>0.3640</td>
+<td>0.234</td>
+</tr>
+</tbody>
+</table>
+<p>largeは収束が遅い&amp;脳死で使って良いわけでは無さそうです。</p>
+<h4><span id="pelican-subsections-7">5. 他のモデルを試す</span></h4>
+<p>CascadeRcnn,retinanet,HTCもsubしてみます。各々backboneとneckを書き換えれば使用可能です。</p>
+<table>
+<thead>
+<tr>
+<th>TH</th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cascade</td>
+<td>0.3840</td>
+<td>0.226</td>
+</tr>
+<tr>
+<td>retinanet</td>
+<td>0.3790</td>
+<td>0.232</td>
+</tr>
+<tr>
+<td>HTC</td>
+<td>0.3640</td>
+<td>0.229</td>
+</tr>
+</tbody>
+</table>
+<p>使いこなせないですね...</p>
+<h4><span id="pelican-subsections-8">6. cocoの事前学習が有効か見てみる</span></h4>
+<p>mask R cnnでのcoco2017の事前学習済みの重みはmmdetectionに公開されていますが、他のモデルについては公式のmmdetectionには見当たりません。ネットを探しても見つからない場合、自分でcoco2017の事前学習をすることになります。A100１枚でswin smallのretinanetを12epoch学習させるのに2.5日ほどかかるので非常にしんどいです。<br>
+事前学習でのmAPが高ければ高いほどよいのか確認するため8epoch終了時(学習途中)と12epoch終了時(最終epoch)の2つの重みを用いました。2つのcocoでのmAP_valは以下の通りです。</p>
+<table>
+<thead>
+<tr>
+<th>TH</th>
+<th>val_mAP@0.5:0.95</th>
+<th>val_mAP@0.5</th>
+<th>val_mAP@0.75</th>
+<th>val_mAP small</th>
+<th>val_mAP medium</th>
+<th>val_mAP large</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8epoch</td>
+<td>0.407</td>
+<td>0.619</td>
+<td>0.438</td>
+<td>0.245</td>
+<td>0.450</td>
+<td>0.542</td>
+</tr>
+<tr>
+<td>12epoch</td>
+<td>0.457</td>
+<td>0.670</td>
+<td>0.492</td>
+<td>0.300</td>
+<td>0.498</td>
+<td>0.605</td>
+</tr>
+</tbody>
+</table>
+<p>結果は以下です。</p>
+<table>
+<thead>
+<tr>
+<th>TH</th>
+<th>val_mAP@0.5</th>
+<th>private LB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>without pretraining</td>
+<td>0.3790</td>
+<td>0.232</td>
+</tr>
+<tr>
+<td>8epoch</td>
+<td>0.3820</td>
+<td>0.239</td>
+</tr>
+<tr>
+<td>12epoch</td>
+<td>0.3940</td>
+<td>0.238</td>
+</tr>
+</tbody>
+</table>
+<p>cocoの事前学習を用いればLBが上昇しました。事前学習でのmAPが高ければ高いほどよいとも言いきれ無さそうです。</p>
+<h3><span id="pelican-subsections-9">まとめ</span></h3>
+<p>mmdetectionを使用してSwinTransformerを物体検出に適用しました。勘所は不明ですがmmdetectionを気兼ねなく使えるようになったのはよかったと思います。追試はモチベがなかなか出ない問題がありますが一日のsub数など気にせず実験のフィードバックが得られるので楽しかったです。</p>
+<h3><span id="pelican-subsections-10">おまけ</span></h3>
+<p>mmdetection以外でもswinで物体検出が可能です。</p>
+<ol>
+<li><a href="https://github.com/yl305237731/flexible-yolov5">yolov5</a></li>
+</ol>
+<p>yolov5のbackboneなどを自分で変えて実験できます。coco2017で事前学習した重みは載っていません。<a href="https://github.com/nvnnghia/siim2021/tree/main/detection">SIIM2021の2ndのレポジトリ</a>に似たようなものがありました。
+<br>
+これをvinbigに試しても散々でした。
+nvnn氏曰く「SIIM2021の検出タスクは解像度が低くても&amp;cocoの精度が低いものでもcv/lbがそんなに変わらなかったのでcocoで事前学習されていないモデルでも構わず使用した。有効かどうかはデータセット依存だよ」とのことです。”そんなに変わらない”の肌感は不明です｡｡｡</p>
+<ol>
+<li><a href="https://github.com/xiaohu2015/SwinT_detectron2">detectron2</a></li>
+</ol>
+<p>detectron2でswin_Tinyのretinanetを36epoch事前学習させた重みなどがあります。詳細は未確認です。</p>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2021/11/cyclecompe.html">
+                自転車コンペ
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2022/02/directional_gradient_optimization.html">
+                方向微分によるニューラルネットワークの勾配近似
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2023/01/medicalssl.html">医療画像と自己教師あり学習まとめ</a></li>
+                <li><a href="../../../blog/2022/07/wsi_ssl.html">WSI＊自己教師あり学習のメモ</a></li>
+                <li><a href="../../../blog/2022/05/clip_tutorial.html">CLIPを実装し理解する</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+    <!-- Twitter -->
+    <a href="https://twitter.com/share" class="twitter-share-button" 
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="../../../blog/2021/12/kaggle_advent_2021_18.html" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">
+  <li><a href="https://twitter.com/oumed_python" target="_blank" title="Twitter">
+    <span style="color:#1DA1F2; font-size:larger;"><i class="fab fa-twitter"></i><span>
+  </a></li>
+  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail">
+    <span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i><span>
+  </a></li>
+  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization">
+    <span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i><span>
+  </a></li>
+  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
+    <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
+  </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
+  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed">
+    <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
+  </a></li>
+  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed">
+    <span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i><span>
+  </a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">1/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2022</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">9/17</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/09/statistics_certificate.html"><span class="recent-posts-title">統計検定準1級 合格体験記</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">9/4</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/09/nonabelian_1loop.html"><span class="recent-posts-title">非可換ゲージ理論の頂点計算機</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/9</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/08/reflecting-kde.html"><span class="recent-posts-title">境界条件を伴うカーネル密度推定</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">7/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2022/07/wsi_ssl.html"><span class="recent-posts-title">WSI＊自己教師あり学習のメモ</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">14</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">10</span>
+        News
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">8</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">7</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-inta-n.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/system/actions_update/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-xs-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=600 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        © 2024 大阪大学医学部Python会
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px"></img>';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px"></img>';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (url_base.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var site_url = document.getElementsByName('siteurl')[0].content;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+$(function() {
+  const myhost = $(location).attr('hostname'); /* hogehoge.github.io */
+  /* in order to work only on github pages, add:
+  if (! myhost.match(/^[^\.]+\.github\.io$/)) {
+    return;
+  }
+  */
+  const account = myhost.split('.')[0]; /* hogehoge */
+  const repo = account + '/' + myhost + '/blob/master';
+  const root = 'https://colab.research.google.com/github/' + repo;
+  $('a').each(function() {
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
+      let target_split = target.split('/');
+      upper_split.pop();
+      let head = true;
+      while (true) {
+        if (head && target_split[0] == '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      colablink = upper_split.join('/') + '/' + target_split.join('/');
+      $(this).after(' <a href='+colablink+'>'+colab_img+'</a>');
+    }
+  });
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+!function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
+</script>
+<script>
+$(function(){
+  $('a[href*="#"]').on('click',function() {
+    var container = $('.container');
+    var add_move = container.height() + 50
+    var speed = 400;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top - add_move;
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});
+</script>
+<script type="text/javascript">
+    $("#toc").toc({headings: "h2,h3"});
+    if( $('#toc').is(':empty') ) {
+      $('.toc_box').remove();
+    }
+</script><p class="pagetop" id="pagetop"><a href="#wrap"></a></p>
+<script>
+$(document).ready(function() {
+    var pagetop = $('#pagetop');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+            }
+        });
+        pagetop.click(function () {
+            $('body, html').animate({ scrollTop: 0 }, 500);
+                return false;
+    });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+});
+</script>  </body>
+</html>
