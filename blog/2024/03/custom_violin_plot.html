@@ -11,7 +11,7 @@
     <meta property="og:title" content="single cell解析における遺伝子発現量の可視化"/>
     <meta property="og:url" content="../../../blog/2024/03/custom_violin_plot.html"/>
       <meta property="article:section" content="技術ブログ"/>
-        <meta property="article:tag" content="bioinfomatics"/>
+        <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
             content="Python会"/>
         <meta property="og:image"
@@ -176,45 +176,48 @@
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/bioinfomatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=bioinfomatics&labelColor=black&color=blue" alt="tag:bioinfomatics" title="tag:bioinfomatics"></img></a>
+        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></img></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<h2><span id="pelican-subsections-0">single cell解析における遺伝子発現量の可視化</span></h2>
-<h3><span id="pelican-subsections-1">目的</span></h3>
+	<h2><span id="pelican-subsections-0">目的</span></h2>
 <ul>
-<li>scanpyでsingle cellの解析を行う際、遺伝子の発現量を見るとき、sc.pl.stacked_violinを用いて、以下の画像のように細胞タイプごとのさまざまな遺伝子の発現量の比較が可能です。
- <img alt="scanpy_image" src="https://scanpy-tutorials.readthedocs.io/en/latest/_images/pbmc3k_104_0.png"></li>
+<li>scanpyでsingle cellの解析を行う際、遺伝子の発現量を見るとき、sc.pl.stacked_violinを用いて、以下の画像のように細胞タイプごとのさまざまな遺伝子の発現量の比較が可能です。</li>
+</ul>
+<p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/scanpy_image.png" alt="scanpy_image.png" width="600"></p>
+<ul>
 <li>普段、研究室に所属して研究に協力させていただいてるのですが、研究室で「<strong>特定の遺伝子について臓器間でセルタイプごとに発現量が異なるかを可視化する方法はないか</strong>」と質問されて、調べてみたものの既存の関数では対応できず困っていました。</li>
 <li>実際、異なる遺伝子間の発現量の比較を行うために、<strong>複数の遺伝子を引数にとることができる関数</strong>（sc.pl.stacked_violin）は存在しますが、一つの遺伝子に着目して色々な角度から発現量を可視化したい場合、<strong>複数のobsを引数にとる関数</strong>が用意されていないため、実装してみました。</li>
 <li>本コードを使うことで、例えば、臓器によって、それぞれの細胞タイプでの、ある遺伝子(GAPDHなど)の発現量がどのように変わるかを可視化することが可能となり、複数の軸から発現量を見える化できます。</li>
-<li>具体的に解析対象として、こちら（https://www.gutcellatlas.org/ ）の「Colon Immune Atlas」の腸管免疫細胞のデータを用いて、実装してみました。</li>
+<li>具体的に解析対象として、<a href="https://www.gutcellatlas.org/">Colon Immune Atlas</a>の腸管免疫細胞のデータを用いて、実装してみました。</li>
 </ul>
-<h3><span id="pelican-subsections-2">データの概要</span></h3>
+<h2><span id="pelican-subsections-1">データの概要</span></h2>
 <ul>
 <li>データセット : 5人のdonorからの大腸免疫細胞（41,650細胞）</li>
 <li>region : 大腸から採取されたサンプルは、盲腸（cecum）、横行結腸（transverse colon）、S状結腸（sigmoid colon）、および腸間膜リンパ節（MLNs）の4つの場所から取得されています。</li>
 <li>cell_type : 細胞はB細胞、Th1細胞など25の細胞タイプにクラスタリングされています。</li>
 </ul>
-<h3><span id="pelican-subsections-3">sc.pl.stacked_violinで可視化</span></h3>
+<h2><span id="pelican-subsections-2">sc.pl.stacked_violinで可視化</span></h2>
 <ul>
 <li>以下の図の通り、複数の遺伝子を引数にとり、クラスタ－ごとの発現量を見ることはデフォルトの関数で実装可能です。</li>
 </ul>
-<h5><span id="pelican-subsections-4">細胞タイプごとの様々な遺伝子の発現量の違い</span></h5>
-<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,[</span><span class="s1">&#39;GAPDH&#39;</span><span class="p">,</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span><span class="s1">&#39;CD14&#39;</span><span class="p">],</span><span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;cell_type&#39;</span><span class="p">,</span><span class="n">swap_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<h4><span id="pelican-subsections-3">細胞タイプごとの様々な遺伝子の発現量の違い</span></h4>
+<div class="highlight"><pre><span></span><code><span class="n">sc</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,[</span><span class="s1">&#39;GAPDH&#39;</span><span class="p">,</span><span class="s1">&#39;CD3E&#39;</span><span class="p">,</span><span class="s1">&#39;CD14&#39;</span><span class="p">],</span><span class="n">groupby</span><span class="o">=</span><span class="s1">&#39;cell_type&#39;</span><span class="p">,</span><span class="n">swap_axes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/image.png" alt="violin_plot" width="600"></p>
-<h3><span id="pelican-subsections-5">作成コード</span></h3>
-<h4><span id="pelican-subsections-6">条件</span></h4>
-<p>関数を作成するに当たって、主に公式のコードに従って、以下のように設定しています。
-- カラーバーは発現量は、バイオリンの中央値のデータを参照して、発現量の中央値の大きさによって色づける。
-- データがない場合や発現量が負の場合は、発現量が0として可視化する。
-- 図のサイズは、x軸、y軸のサイズに従って大きさが変更するように設定する。</p>
-<h4><span id="pelican-subsections-7">コード</span></h4>
+<h2><span id="pelican-subsections-4">作成コード</span></h2>
+<h3><span id="pelican-subsections-5">条件</span></h3>
+<p>関数を作成するに当たって、主に公式のコードに従って、以下のように設定しています。</p>
+<ul>
+<li>カラーバーは発現量は、バイオリンの中央値のデータを参照して、発現量の中央値の大きさによって色づける。</li>
+<li>データがない場合や発現量が負の場合は、発現量が0として可視化する。</li>
+<li>図のサイズは、x軸、y軸のサイズに従って大きさが変更するように設定する。</li>
+</ul>
+<h3><span id="pelican-subsections-6">コード</span></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -355,44 +358,52 @@
     <span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
 
-<h4><span id="pelican-subsections-8">使用例</span></h4>
+<h3><span id="pelican-subsections-7">使用例</span></h3>
 <ul>
-<li>geneに着目したい遺伝子、obs1に横軸に設定したいクラスター、obs2に縦軸に設定したいクラスターを設定します。</li>
+<li>"gene"に着目したい遺伝子、"obs1"に横軸に設定したいクラスター、"obs2"に縦軸に設定したいクラスターを設定します。</li>
 </ul>
-<h5><span id="pelican-subsections-9">臓器間での細胞タイプごとの発現量の違い</span></h5>
-<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
+<h4><span id="pelican-subsections-8">臓器間での細胞タイプごとの発現量の違い</span></h4>
+<div class="highlight"><pre><span></span><code><span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/image-2.png" alt="organ_violin" width="600"></p>
-<h5><span id="pelican-subsections-10">臓器間でのドナーごとの発現量の違い</span></h5>
-<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;donor&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
+<h4><span id="pelican-subsections-9">臓器間でのドナーごとの発現量の違い</span></h4>
+<div class="highlight"><pre><span></span><code><span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;donor&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/image-5.png" alt="donor_violin" width="600"></p>
-<h3><span id="pelican-subsections-11">まとめ</span></h3>
+<h2><span id="pelican-subsections-10">まとめ</span></h2>
 <ul>
 <li>解析を進める中で、着目した遺伝子の発現量を、疾患の有無、臓器別でみたい場面は多々あったので、今後解析ツールとして使っていきたいです。</li>
 <li>普段、scanpyはツールとして使うのみだったので、ソースコードを少しでも見る機会ができ、可視化する前にどういう処理がされているのかを理解するきっかけとなり、勉強になりました。</li>
 <li>本コードは自己責任で自由に使っていただいて問題ありません。データによってはうまく動かない場合などあると思いますが、ご容赦ください。</li>
 <li>本コードはpython会内のプラットフォームで質問をして、岸くんがアイディアをくれたところから作成することとなりました。python会では、定期的に勉強会をするなど、バイオインフォマティクスについても積極的に活動しております。</li>
 </ul>
-<h3><span id="pelican-subsections-12">参考文献</span></h3>
+<h2><span id="pelican-subsections-11">参考文献</span></h2>
 <ul>
-<li>James, K.R., Gomes, T., Elmentaite, R. et al. Distinct microbial and immune niches of the human colon. Nat Immunol 21, 343–353 (2020). https://doi.org/10.1038/s41590-020-0602-z</li>
-<li>stacked_violin_plot(https://scanpy.readthedocs.io/en/stable/generated/scanpy.pl.stacked_violin.html)</li>
-<li>Preprocessing and clustering 3k PBMCs (https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html)</li>
+<li>James, K.R., Gomes, T., Elmentaite, R. et al. Distinct microbial and immune niches of the human colon. Nat Immunol 21, 343–353 (2020). <a href="https://doi.org/10.1038/s41590-020-0602-z">https://doi.org/10.1038/s41590-020-0602-z</a></li>
+<li><a href="https://scanpy.readthedocs.io/en/stable/generated/scanpy.pl.stacked_violin.html">stacked_violin_plot</a></li>
+<li><a href="https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html">Preprocessing and clustering 3k PBMCs</a></li>
 </ul>
   </div>
   
 <div class="article-tag-list">
 <span class="label label-default">Tags</span>
-	<a href="../../../tag/bioinfomatics.html"><i class="fa fa-tag"></i>bioinfomatics</a>&nbsp;
+	<a href="../../../tag/bioinformatics.html"><i class="fa fa-tag"></i>Bioinformatics</a>&nbsp;
 </div><hr><ul>
         <li>
             前の記事 :
             <a href="../../../blog/2023/10/harvard_student_internship.html">
                 5年次研究留学 @ ハーバード大学
             </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2021/05/ikra_v2.html">RNA-seq pipeline ikra v2.0 リリース</a></li>
+                <li><a href="../../../blog/2019/12/bioinfoexam2019_answer.html">バイオインフォマティクス技術者認定試験2019 解答速報？</a></li>
+                <li><a href="../../../blog/2019/06/cancer_signature.html">がんゲノム変異シグネチャー解析</a></li>
+            </ul>
         </li>
 </ul>  <hr />
   <div class="well well-sm">  <!-- Social media sharing buttons -->
@@ -528,7 +539,7 @@
     </span>
     <span class="tag-2">
       <a href="../../../tag/bioinformatics.html">
-          <span class="badge badge-primary">14</span>
+          <span class="badge badge-primary">15</span>
         Bioinformatics
       </a>
     </span>
@@ -632,12 +643,6 @@
       <a href="../../../tag/qi-ye-inta-n.html">
           <span class="badge badge-primary">2</span>
         企業インターン
-      </a>
-    </span>
-    <span class="tag-4">
-      <a href="../../../tag/bioinfomatics.html">
-          <span class="badge badge-primary">1</span>
-        bioinfomatics
       </a>
     </span>
     <span class="tag-4">
