@@ -320,8 +320,8 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">categ</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genes</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="p">)))</span>
-                <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categ</span><span class="p">)))</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">categ</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Add a colorbar to the plot</span>
@@ -370,7 +370,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/image-1.png" alt="organ_violin" width="600"></p>
+<p><img src="../../../articles/2023sy/blog/images/custom_violin_plot/image-3.png" alt="organ_violin" width="600"></p>
 <h4><span id="pelican-subsections-9">臓器間でのドナーごとの発現量の違い</span></h4>
 <div class="highlight"><pre><span></span><code><span class="n">custom_stacked_violin</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">gene</span> <span class="o">=</span> <span class="s1">&#39;CD3E&#39;</span><span class="p">,</span> <span class="n">obs1</span> <span class="o">=</span> <span class="s1">&#39;donor&#39;</span><span class="p">,</span> <span class="n">obs2</span> <span class="o">=</span> <span class="s1">&#39;region&#39;</span><span class="p">)</span>
 </code></pre></div>
