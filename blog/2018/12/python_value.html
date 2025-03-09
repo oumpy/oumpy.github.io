@@ -243,7 +243,7 @@ C++で書いた似たようなコード、</p>
 <p>「変数が全て参照」であることから、関数引数もまた<strong>参照渡し</strong>となります。C/C++のデフォルトである<strong>値渡し</strong>と異なり、メモリのコピーなどは行われません。</p>
 <p>では再び問題。次のコードは何を出力するでしょう？</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
@@ -268,7 +268,7 @@ C++で書いた似たようなコード、</p>
 <p>これは、前項の関数引数で若干の問題を引き起こします。<br>
 次のコード、前項で見たものにそっくりですが、、、</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Python3</span>
-<span class="k">def</span> <span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">func2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -591,7 +591,7 @@ C++で書いた似たようなコード、</p>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

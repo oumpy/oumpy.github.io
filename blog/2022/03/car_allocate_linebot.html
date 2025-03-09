@@ -222,7 +222,7 @@
 </ol>
 <p>①割り振り、では　車のスタート地点、割り振られる部員を入力として</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/callback&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">():</span>
     <span class="o">~~~~</span>
     <span class="nb">input</span><span class="p">,</span><span class="n">has_error</span> <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">has_error</span><span class="p">:</span>
@@ -248,7 +248,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="o">....</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/callback&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">():</span>
     <span class="o">~~~~</span>
     <span class="k">global</span> <span class="n">X</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">new_X</span>
@@ -573,7 +573,7 @@ heroku login:https://qiita.com/WEByamori/items/4cab4be8ce336ed3e4d6</p>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

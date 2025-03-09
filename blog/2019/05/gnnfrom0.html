@@ -255,25 +255,25 @@
 <p><code>GNN1</code>クラスとして実装。
 Gを隣接行列で与えることにすると、集約は2段階とも単なる行列積（と活性化関数）です。numpyの<strong>np.dot()</strong>で簡単・高速に行えます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task1.py</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="k">class</span> <span class="nc">GNN1</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GNN1</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
         <span class="o">...</span>
     <span class="o">...</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">relu</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">aggregate1</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate1</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">a</span>
-    <span class="k">def</span> <span class="nf">aggregate2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">x</span>
 
-    <span class="k">def</span> <span class="nf">readout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
         <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x0</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
@@ -294,20 +294,20 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 実際、<code>GNN2.grad()</code> や <code>GNN2.shift_Theta()</code> 関数の中には <code>W</code> や <code>A</code> の文字すら登場しません。<br>
 （そのため、クラスを継承・拡張してパラメータ構造に変化があっても、修正する必要がない。）  </p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task2.py</span>
-<span class="kn">from</span> <span class="nn">task1</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">task1</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">GNN2</span><span class="p">(</span><span class="n">GNN1</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GNN2</span><span class="p">(</span><span class="n">GNN1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
                  <span class="n">epsilon</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">):</span> <span class="c1"># 数値微分の微小変分</span>
         <span class="o">...</span>
     <span class="o">...</span>
 
     <span class="c1"># 学習パラメータの初期化。Thetaと(W,A,b)でメモリを共有する。</span>
     <span class="c1"># bも1要素numpy配列にしておくこと。</span>
-    <span class="k">def</span> <span class="nf">init_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode_Theta</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">decode_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">)),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
@@ -316,16 +316,16 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
         <span class="c1"># 不意の副作用を気にすることが多いが、ここでは積極的に利用。</span>
 
     <span class="c1"># GNN1で定義したreadout()を用いて陽性確率／損失関数を計算する</span>
-    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
         <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-    <span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">binary_cross_entropy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 
     <span class="c1"># 損失関数loss()の数値微分</span>
-    <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="n">L0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
         <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">)</span>
         <span class="n">dL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
@@ -336,9 +336,9 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
         <span class="k">return</span> <span class="n">dL</span>
 
     <span class="c1"># 勾配降下</span>
-    <span class="k">def</span> <span class="nf">shift_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dTheta</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shift_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dTheta</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span> <span class="o">+=</span> <span class="n">dTheta</span>
-    <span class="k">def</span> <span class="nf">descendant_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">descendant_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shift_Theta</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
 </code></pre></div>
 
@@ -349,12 +349,12 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <p>ここでは (momentum) SGDの実装を求められているわけですが、アルゴリズム個々に学習メソッドを実装するのはさすがに無駄が多過ぎます。<br>
 実際は学習メソッドは <code>GNN3.fit()</code> ひとつだけでいいです。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task3.py</span>
-<span class="kn">from</span> <span class="nn">task2</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">task2</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">GNN3</span><span class="p">(</span><span class="n">GNN2</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GNN3</span><span class="p">(</span><span class="n">GNN2</span><span class="p">):</span>
     <span class="o">...</span>
 
-    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>   <span class="c1"># 学習データ。</span>
             <span class="n">optimizer</span><span class="p">,</span>      <span class="c1"># Optimizer派生クラスのオブジェクトを与える。</span>
             <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batchsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
@@ -388,31 +388,31 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <p>オプティマイザの中身はこちら。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task3.py つづき</span>
 <span class="c1">### ほぼダミーの基底クラス。（抽象クラスにした方がすっきりするが、さぼった）</span>
-<span class="k">class</span> <span class="nc">Optimizer</span><span class="p">():</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Optimizer</span><span class="p">():</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">grad</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">grad</span><span class="p">):</span>
         <span class="c1"># 勾配を受け取り、内部状態を更新し、変化量を返すメソッド。</span>
         <span class="c1"># （派生クラスではそのような関数に再定義する。）</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">grad</span>
 
 <span class="c1">### 確率的勾配降下法</span>
 <span class="c1"># Optimizerを継承してupdate()を上書き再定義。</span>
-<span class="k">class</span> <span class="nc">SGD</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SGD</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
         <span class="c1"># SGDは更新される内部状態を持たない。</span>
         <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">grad</span>
 
 <span class="c1">### 運動量付き確率的勾配降下法</span>
-<span class="k">class</span> <span class="nc">MomentumSGD</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MomentumSGD</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
         <span class="c1"># 内部のwを更新しながら変化量を返す。</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grad</span><span class="p">))</span>
@@ -430,17 +430,17 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <h4><span id="pelican-subsections-9">(a) Adamの実装</span></h4>
 <p>オプティマイザ派生クラスを作るだけ。GNNクラスには1ミリも触れなくてOK。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task4a.py</span>
-<span class="kn">from</span> <span class="nn">task3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">task3</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># 原論文 https://arxiv.org/abs/1412.6980 の通り、愚直に実装する。</span>
-<span class="k">class</span> <span class="nc">Adam</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Adam</span><span class="p">(</span><span class="n">Optimizer</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span> <span class="n">beta1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">beta2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span>
                  <span class="n">epsilon</span><span class="o">=</span><span class="mf">1.0e-8</span><span class="p">):</span>
         <span class="c1"># 内部状態ベクトル m,v を初期化</span>
         <span class="o">...</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
         <span class="c1"># m,v を更新して変化量を返す</span>
         <span class="o">...</span>
 </code></pre></div>
@@ -449,26 +449,26 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <p>祖先クラスである <code>GNN1</code> や <code>GNN2</code> で定義した関数を、<code>W</code> の多層化に合わせて上書き再定義した派生クラス <code>GNN4</code> を作る。
 変更箇所はわりと少なく、実質これだけ。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># task4b.py</span>
-<span class="kn">from</span> <span class="nn">task3</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">task3</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">GNN4</span><span class="p">(</span><span class="n">GNN3</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GNN4</span><span class="p">(</span><span class="n">GNN3</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
                  <span class="n">Nw</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span> <span class="c1"># Wのlayer数。 W.shape=(Nw,D,D)</span>
         <span class="o">...</span>
 
     <span class="c1">### パラメータ初期化の関数2つを上書きする。</span>
-    <span class="k">def</span> <span class="nf">init_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">init_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">Nw</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode_Theta</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">decode_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode_Theta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">Wsize</span><span class="p">,</span> <span class="n">Asize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Nw</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[:</span><span class="n">Wsize</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">Nw</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">)),</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[</span><span class="n">Wsize</span><span class="p">:</span><span class="n">Wsize</span><span class="o">+</span><span class="n">Asize</span><span class="p">],</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">Theta</span><span class="p">[</span><span class="n">Wsize</span><span class="o">+</span><span class="n">Asize</span><span class="p">:</span><span class="n">Wsize</span><span class="o">+</span><span class="n">Asize</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
 
     <span class="c1">### 集約2を多層ニューラルネットに変更。</span>
-    <span class="k">def</span> <span class="nf">aggregate2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Nw</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
@@ -480,8 +480,8 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <p>与えられたN=2000のデータセットで、(学習,検証)=(1600,400) に分割してとりあえず描いてみた学習曲線。
 とにかくAdamの性能が圧倒的にいいですね。
 このグラフは1-shotだけど、反復しても傾向は同じ。</p>
-<p><a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03.png"></a>
-<a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03a.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4a_plot03a.png"></a></p>
+<p><a href="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03.png"></a>
+<a href="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03a.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4a_plot03a.png"></a></p>
 <h3><span id="pelican-subsections-13">多層化GNNの性能評価</span></h3>
 <ul>
 <li>単層<code>GNN3</code>と<code>Nw=2</code>の<code>GNN4</code>で比較（Adamを使用）。
@@ -489,8 +489,8 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 どちらも正答率(vacc)は60%程度。
 （図のaccはvaccの意味。）</li>
 </ul>
-<p><a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04.png"></a>
-<a href="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04a.pdf"><img src="../../../articles/2019sy/blog/images/GNNfrom0_figs/task4b_plot04a.png"></a></p>
+<p><a href="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04.png"></a>
+<a href="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04a.pdf"><img src="../../../blog/2019/05/images/GNNfrom0_figs/task4b_plot04a.png"></a></p>
 <ul>
 <li>補足と反省<ul>
 <li>後で試したところ、実は <code>Nw=6</code> くらいまで深層化すると <strong>vacc&gt;=0.65</strong> くらいにはなることがわかった。
@@ -886,7 +886,7 @@ Gを隣接行列で与えることにすると、集約は2段階とも単なる
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

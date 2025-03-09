@@ -249,7 +249,7 @@
 <h4><span id="pelican-subsections-8">トーナメントのシミュレートと確率計算</span></h4>
 <p>挑戦者決定までの全対局は、本予選トーナメント63局、再挑戦トーナメント57局、プレーオフ3局、本戦決勝トーナメント3局、合計126局です。</p>
 <p>このうち、実際にサイコロを振ってシミュレーションを行うのは本予選63局のみです。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">simulate_match</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simulate_match</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">win_prob</span><span class="p">(</span><span class="n">rates</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">rates</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">():</span> <span class="c1"># 期待勝率が[0,1)乱数より大きければ勝ち</span>
         <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="c1"># 勝者, 敗者</span>
     <span class="k">else</span><span class="p">:</span>
@@ -258,7 +258,7 @@
 
 <p>残りは単純な1敗失格式トーナメントになるので、厳密な確率計算が可能です。
 プレーオフは15通り、本戦は3通りの組み合わせ抽選結果があり得ますが、全ての場合を単純に平均すればよいです。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">prob_match</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prob_match</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">pa</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>     <span class="c1"># 左の山に登場する女流棋士とその確率</span>
         <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">pb</span> <span class="ow">in</span> <span class="n">B</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1"># 右の山について同様</span>
@@ -274,10 +274,10 @@
 また本戦の枠のひとつには予選優勝者が同様に確率1で入ります。</p>
 <p>辞書を並べて配列にし、隣同士順番に当てていけば自動的にトーナメントができます。
 今期は出場者がちょうど64名で半端な山がないこともあり、実装がとても楽です。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">prob_match_together</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">prob_match_together</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">prob_match</span><span class="p">(</span><span class="o">*</span><span class="n">players</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span> <span class="n">rates</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)]</span> <span class="c1"># 勝ち残り者の分布リストを返す</span>
 
-<span class="k">def</span> <span class="nf">prob_tournament</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prob_tournament</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">players</span> <span class="o">=</span> <span class="n">prob_match_together</span><span class="p">(</span><span class="n">players</span><span class="p">,</span> <span class="n">rates</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">players</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># 優勝者の分布を返す</span>
@@ -295,7 +295,7 @@
 <p>強い者同士ほど後から当たるようにする方式です。
 こちらもトーナメント表は固定です。</p>
 <p>「端からの位置（0, 1, 2,...）を2進数で表し、ビット順を逆転した順位の者（0: 里見, 1:西山,...）を入れる」という簡便なアルゴリズムが使われます（表の見た目は里見西山が両端にならないですが、対戦順は同じです）。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">seed_bracket</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">seed_bracket</span><span class="p">(</span><span class="n">players</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="c1"># 引数playersには第4期予選出場メンバー64名を並べて入れる。順番は任意。</span>
     <span class="c1"># 実際は第4期の対戦表をそのまま入れればOK。</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
@@ -1244,7 +1244,7 @@
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

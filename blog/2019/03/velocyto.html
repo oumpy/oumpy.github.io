@@ -222,8 +222,8 @@ gunzip。</p>
 <p>※TOPHAT でアラインメントしたデータはそのままではうまく行かないようです。なので、TopHat-Recondition で unmap のデータを拾ってくればいけるかもしれません。今回はHISAT2 でアラインメントし直してから velocyto をかけ、改めてhogehoge.loom ファイルを得ました。</p>
 <h3><span id="pelican-subsections-6">描画</span></h3>
 <p>Scanpy と組み合わせて使用するために scvelo を用いました。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
-<span class="kn">import</span> <span class="nn">scvelo</span> <span class="k">as</span> <span class="nn">scv</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">scanpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scvelo</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scv</span>
 </code></pre></div>
 
 <h3><span id="pelican-subsections-7">データ読み込み</span></h3>
@@ -243,10 +243,10 @@ gunzip。</p>
 <div class="highlight"><pre><span></span><code><span class="n">scv</span><span class="o">.</span><span class="n">pl</span><span class="o">.</span><span class="n">velocity_embedding</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span>
 </code></pre></div>
 
-<p><img alt="1" src="../../../articles/2018sy/blog/images/velocyte_figs/picture1.png"></p>
+<p><img alt="1" src="../../../blog/2019/03/images/velocyte_figs/picture1.png"></p>
 <p>※それぞれの細胞における特定遺伝子の発現レベルを色で表したり、PCA 以外の次元圧縮法を用いることもできます。この場合は tSNE のほうがきれいに見えるようです。パラメータはたくさん用意されているので、各データセットで最適な条件を検討する必要があるでしょう。</p>
-<p><img alt="2" src="../../../articles/2018sy/blog/images/velocyte_figs/picture2.png">
-<img alt="3" src="../../../articles/2018sy/blog/images/velocyte_figs/picture3.png"></p>
+<p><img alt="2" src="../../../blog/2019/03/images/velocyte_figs/picture2.png">
+<img alt="3" src="../../../blog/2019/03/images/velocyte_figs/picture3.png"></p>
 <h2><span id="pelican-subsections-11">参考文献</span></h2>
 <ul>
 <li><a href="https://www.nature.com/articles/s41586-018-0414-6">https://www.nature.com/articles/s41586-018-0414-6</a></li>
@@ -562,7 +562,7 @@ gunzip。</p>
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>

@@ -220,9 +220,9 @@ ACCESS_TOKEN_SECRET = &quot;******************************************&quot;
 <p>事前に<code>pip install requests</code>と<code>pip install requests_oauthlib</code>しておきます。</p>
 <p>先ほど取得した4つのKeyはconfig.pyとして同じ階層に忘れずに置いておきます。</p>
 <p>内容は1.取ってきて 2.整形して 3.ツイートする という流れです。シンプルですね。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>　<span class="c1">#スクレイピング</span>
-<span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">config</span> <span class="c1">#jsonモジュールとconfig.pyの読み込み</span>
-<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1Session</span> <span class="c1">#OAuthのライブラリの読み込みURL = &quot;hoge&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>　<span class="c1">#スクレイピング</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span><span class="o">,</span><span class="w"> </span><span class="nn">config</span> <span class="c1">#jsonモジュールとconfig.pyの読み込み</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests_oauthlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">OAuth1Session</span> <span class="c1">#OAuthのライブラリの読み込みURL = &quot;hoge&quot;</span>
 <span class="n">UserAgent</span> <span class="o">=</span> <span class="s2">&quot;huga&quot;</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">UserAgent</span><span class="p">}</span>
@@ -255,7 +255,7 @@ ACCESS_TOKEN_SECRET = &quot;******************************************&quot;
 </code></pre></div>
 
 <h2><span id="pelican-subsections-3">実行結果</span></h2>
-<p><img alt="1" src="../../../articles/2018sy/blog/images/twitter_automation_figs/picture1.png"></p>
+<p><img alt="1" src="../../../blog/2019/01/images/twitter_automation_figs/picture1.png"></p>
 <p>成功です。語尾は適当です。</p>
 <p>(この後自動投稿するまでの流れがありますが締め切りが来てしまったので一旦提出します。)</p>
   </div>
@@ -566,7 +566,7 @@ ACCESS_TOKEN_SECRET = &quot;******************************************&quot;
 <address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
     <div class="text-center">
     <p class="text-dark" style="margin:0px">
-        © 2024 大阪大学医学部Python会
+        © 2025 大阪大学医学部Python会
     </p>
     <p class="text-muted">
     Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
