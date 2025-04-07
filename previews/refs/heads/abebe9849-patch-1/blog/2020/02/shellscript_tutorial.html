@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="シェルコマンドに触れてみよう"/>
+    <meta property="og:url" content="../../../blog/2020/02/shellscript_tutorial.html"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Unix"/>
+        <meta property="article:tag" content="Shell script"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="シェルコマンドに触れてみよう">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>シェルコマンドに触れてみよう - 大阪大学医学部 Python会 (テスト用ページ)</title>
+
+   
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" integrity="sha384-FFgGfda92tXC8nCNOxrCQ3R8x1TNkMFqDZVQdDaaJiiVbjkPBXIJBx0o7ETjy8Bh" crossorigin="anonymous"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/abebe9849-patch-1/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/abebe9849-patch-1/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand py-0 fixed-top">
+      <div class="container">
+      <div class="row dropdown-hover-all">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg text-muted"> </i>
+          </a>
+		<button type="button" class="navbar-toggler" 
+            data-toggle="collapse" data-target="#main-navbar-collapse"
+            area-controls="main-navbar-collapse" area-extended="false">
+      <span class="navbar-toggler-icon"></span>
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+      <div class="collapse navbar-collapse" id="main-navbar-collapse">
+        <div class="dropdown-hover-all">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown1" href="../../../index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Python会について</a>
+<div class="dropdown-menu" aria-labelledby="dropdown1">
+<a class="dropdown-item" href="../../../index.html">Python会について</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../constitution.html">会規約</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown4" href="../../../activities.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">活動内容</a>
+<div class="dropdown-menu" aria-labelledby="dropdown4">
+<a class="dropdown-item" href="../../../activities.html">活動内容</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-0">学習・研究</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>
+<a class="dropdown-item" href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown10" href="../../../achievements.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">実績</a>
+<div class="dropdown-menu" aria-labelledby="dropdown10">
+<a class="dropdown-item" href="../../../achievements.html">実績</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-15">研究開発活動</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-24">所属メンバー論文</a>
+<a class="dropdown-item" href="../../../achievements.html#pelican-subsections-31">出版記事等</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover active">
+<a class="nav-link dropdown-toggle" id="dropdown18" href="../../../blog.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+<div class="dropdown-menu" aria-labelledby="dropdown18">
+<a class="dropdown-item active" href="../../../blog.html">技術ブログ</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../authors.html">著者一覧</a>
+<a class="dropdown-item" href="../../../archives.html">過去記事一覧</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../news.html">お知らせ</a>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown23" href="../../../recruit.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">会員募集</a>
+<div class="dropdown-menu" aria-labelledby="dropdown23">
+<a class="dropdown-item" href="../../../recruit.html">会員募集</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-1">新歓2021年度</a>
+<a class="dropdown-item" href="../../../recruit.html#pelican-subsections-3">新歓2020年度</a>
+</div>
+</li>
+<li class="nav-item dropdown dropdown-hover">
+<a class="nav-link dropdown-toggle" id="dropdown28" href="../../../student_server.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+<div class="dropdown-menu" aria-labelledby="dropdown28">
+<a class="dropdown-item" href="../../../student_server.html">学生用計算機</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="../../../student_server.html#pelican-subsections-0">過去の利用状況</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+        </ul> <!-- /nav -->
+        </div> <!-- /dropdown-hover -->
+      </div> <!-- /navbar-collapse -->
+    </div> <!-- /row -->
+    </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="shellscript_tutorial">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2020-02-26">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2020/02/shellscript_tutorial.html" rel="bookmark"
+     title="Permalink to シェルコマンドに触れてみよう">
+    シェルコマンドに触れてみよう
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2020-02-26(Wed)
+</abbr>       - Posted by 
+<a href="../../../author/shan-tian.html">山田</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/unix.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Unix&labelColor=black&color=green" alt="tag:Unix" title="tag:Unix"></img></a>
+        <a href="../../../tag/shell-script.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Shell%20script&labelColor=black&color=green" alt="tag:Shell script" title="tag:Shell script"></img></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<h2><span id="pelican-subsections-0">シェルって？　コマンドってなに？</span></h2>
+<p>詳しくはググるなり下の記事等を見てもらえばよいのですが、  簡単にまとめると
+- コマンド：マウスやトラックパッドを用いて操作するのではなく、キーボードでコンピュータに命令を与えるもの
+- シェル：命令をコンピュータに伝えるプログラムのこと  </p>
+<p>つまるところ、Pythonに限らず<strong>プログラミングをやりたければ必須の内容</strong>というわけです！<br>
+これができないと、極論プログラミングを始めることもできないかもしれません。  （installすらできないかも...）<br>
+ですが、複雑なものではないので、下を読んでさくっと学んでしまいましょう！</p>
+<ul>
+<li>コマンドについてもっと知りたい方へ  </li>
+<li><a href="https://qiita.com/lrf141/items/6c01d2f7afff79cd7286">Linux初心者のシェルスクリプト入門 - Qiita</a>  </li>
+<li><a href="https://eng-entrance.com/linux-what-is-command">【初心者用】Linuxのコマンドとは？とコマンドラインの表示方法</a>  </li>
+<li><a href="https://www.sejuku.net/blog/5465">ブクマ必至！Linuxコマンド一覧表【全33種】 | 侍エンジニア塾ブログ（Samurai Blog） - プログラミング入門者向けサイト</a>  </li>
+</ul>
+<h2><span id="pelican-subsections-1">シェルコマンドを学ぶ上でのポイント</span></h2>
+<ol>
+<li>ムリにおぼえようとしない</li>
+<li>日頃使っていたら自然と覚えていく</li>
+<li>コマンドの名前は英語の省略かも？</li>
+<li>忘れたら、すぐググればよし</li>
+</ol>
+<h2><span id="pelican-subsections-2">シェルコマンドってどういう風に書くの？</span></h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span>
+$<span class="w"> </span>ls
+$<span class="w"> </span>emacs
+</code></pre></div>
+
+<p>などのように、黒い画面（terminal、cmd）上にて、一つ一つの処理ごとに命令を書いてEnterキーで実行していきます。  </p>
+<h2><span id="pelican-subsections-3">ランク別よく使うシェルコマンド</span></h2>
+<p>筆者の独断と偏見による、日頃よく使うコマンドを3段階にわけてまとめてみました。<br>
+詳しい使い方は各自調べてもらいたいので、ここでは「何ができるか」だけ簡単に書いておきます。(<strong>自分で調べていく力</strong>がプログラミングには大事ですよ！)<br>
+ランク1、2あたりはググらずに使えるようになるといいと思います。<br>
+もちろんこの他にも様々なコマンドがありますが、最初の1歩として学んでみて下さい。</p>
+<h3><span id="pelican-subsections-4">ランク1</span></h3>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>ディレクトリ移動</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>カレントディレクトリを表示</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>フォルダの内容をリスト形式で表示する</td>
+</tr>
+<tr>
+<td>ファイル操作編</td>
+<td></td>
+</tr>
+<tr>
+<td>mv</td>
+<td>ファイルを移動<br>ファイルの名前を編集</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>ファイルやフォルダをコピーする</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>ファイルやフォルダを削除</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>フォルダを作成</td>
+</tr>
+<tr>
+<td>rmdir</td>
+<td>フォルダを削除</td>
+</tr>
+<tr>
+<td>less</td>
+<td>テキストファイルを閲覧</td>
+</tr>
+<tr>
+<td>more</td>
+<td>ファイルの中身を表示<br>（lessがおすすめ）</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>ファイルの内容を表示</td>
+</tr>
+<tr>
+<td>grep</td>
+<td>指定した文字列がテキスト内に存在した場合その行を抽出</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="pelican-subsections-5">ランク2</span></h3>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chmod</td>
+<td>ファイルやフォルダのアクセス権限を変更</td>
+</tr>
+<tr>
+<td>touch</td>
+<td>空のファイルを作成</td>
+</tr>
+<tr>
+<td>emacs<br>vim<br>など</td>
+<td>（それぞれのエディタで）ファイルを新規作成</td>
+</tr>
+<tr>
+<td>echo</td>
+<td>画面に文字列や数値、変数を表示</td>
+</tr>
+<tr>
+<td>open</td>
+<td>Finderを開く</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="pelican-subsections-6">ランク3</span></h3>
+<table>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>何ができるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ps</td>
+<td>現在動作しているプロセスを表示する</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>リモートマシンにSSHでログイン</td>
+</tr>
+<tr>
+<td>zip<br>tar<br>gzip/gunzip</td>
+<td>ファイル・ディレクトリの解凍、圧縮</td>
+</tr>
+</tbody>
+</table>
+<p>何度も使ってみておぼえていきましょう！</p>
+<h2><span id="pelican-subsections-7">おまけ</span></h2>
+<ol>
+<li>シェル芸<br>
+気になる方は下の記事でも読んでみて下さい。  </li>
+<li><a href="https://qiita.com/t_nakayama0714/items/bfe4852e0535858ee662">【シェル芸人への道】シェル芸人の第一歩 - Qiita</a></li>
+<li>
+<p><a href="https://qiita.com/_-_-_-_-_/items/214d537aae2c1488692c">【危険シェル芸】禁じられた闇の魔術とその防衛術💥 - Qiita</a></p>
+</li>
+<li>
+<p>Clipyなどのクリップボードを活用する<br>
+よく使うコマンドを登録しておくと便利！</p>
+</li>
+</ol>
+<h2><span id="pelican-subsections-8">コマンドの次へ</span></h2>
+<p>上の文にもいくつかでてきているのですが、コマンドに入門した次に勉強するおすすめとして、以下の単語を調べてみましょう。<br>
+それぞれ今度何度も目にする単語なので、早めに知っておいて損はないと思います。</p>
+<ol>
+<li>パスとは？<br>
+キーワード：相対/絶対パス</li>
+<li>エディタとは？<br>
+emacs/vim/atom/vscode...</li>
+</ol>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/unix.html"><i class="fa fa-tag"></i>Unix</a>&nbsp;
+	<a href="../../../tag/shell-script.html"><i class="fa fa-tag"></i>Shell script</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2019/12/bioinfoexam2019_answer.html">
+                バイオインフォマティクス技術者認定試験2019 解答速報？
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2020/03/unix_permission.html">
+                UNIX系OSのファイルアクセス権
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2020/03/unix_permission.html">UNIX系OSのファイルアクセス権</a></li>
+                <li><a href="../../../blog/2018/11/shellscript_2.html">シェルスクリプト入門(2)</a></li>
+                <li><a href="../../../blog/2018/11/shellscript_1.html">シェルスクリプト入門(1)</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="well well-sm">  <!-- Social media sharing buttons -->
+    <!-- Twitter -->
+    <a href="https://twitter.com/share" class="twitter-share-button" 
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Google+ -->
+    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="g-plusone" data-size="medium"></div>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like" 
+        data-href="../../../blog/2020/02/shellscript_tutorial.html" 
+        data-layout="button_count" 
+        data-action="like" data-show-faces="true" 
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-xs-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">
+  <li><a href="https://twitter.com/oumed_python" target="_blank" title="Twitter">
+    <span style="color:#1DA1F2; font-size:larger;"><i class="fab fa-twitter"></i><span>
+  </a></li>
+  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail">
+    <span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i><span>
+  </a></li>
+  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization">
+    <span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i><span>
+  </a></li>
+  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
+    <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
+  </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
+  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed">
+    <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
+  </a></li>
+  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed">
+    <span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i><span>
+  </a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2024</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2024/10/icpc2024wf.html"><span class="recent-posts-title">富本がICPC 2024 World Finalsへ出場</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/08/codequeen2024.html"><span class="recent-posts-title">CodeQUEEN2024</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/4</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/03/custom_violin_plot.html"><span class="recent-posts-title">single cell解析における遺伝子発現量の可視化</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/31</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/jsc2023-tomimoto.html"><span class="recent-posts-title">富本が全国6位：日本最強プログラマー学生選手権決勝</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">1/3</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/01/medicalssl.html"><span class="recent-posts-title">医療画像と自己教師あり学習まとめ</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge badge-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge badge-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge badge-primary">15</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge badge-primary">12</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge badge-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge badge-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge badge-primary">9</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge badge-primary">7</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge badge-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge badge-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge badge-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge badge-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge badge-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge badge-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge badge-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge badge-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge badge-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge badge-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge badge-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-inta-n.html">
+          <span class="badge badge-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge badge-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge badge-primary">1</span>
+        論文関連
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/abebe9849-patch-1/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-xs-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents">
+    <a class="twitter-timeline" data-height=600 href=https://twitter.com/oumed_python?ref_src=twsrc%5Etfw>Tweets by oumed_python</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        ©2018-2025 大阪大学医学部Python会
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <!-- https://github.com/dallaslu/bootstrap-4-multi-level-dropdown -->
+    <script src="https://raw.githubusercontent.com/dallaslu/bootstrap-4-multi-level-dropdown/master/bootstrap4-dropdown-ml-hack-hover.js"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google+ -->
+<!-- Synchronous 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+-->
+<!-- Asynchronous -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px"></img>';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px"></img>';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content; 
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (url_base.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var site_url = document.getElementsByName('siteurl')[0].content;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+$(function() {
+  const myhost = $(location).attr('hostname'); /* hogehoge.github.io */
+  /* in order to work only on github pages, add:
+  if (! myhost.match(/^[^\.]+\.github\.io$/)) {
+    return;
+  }
+  */
+  const account = myhost.split('.')[0]; /* hogehoge */
+  const repo = account + '/' + myhost + '/blob/master';
+  const root = 'https://colab.research.google.com/github/' + repo;
+  $('a').each(function() {
+    const target = $(this).attr('href').replace('https://'+myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      let upper = root + $(location).attr('pathname');
+      let upper_split = upper.split('/');
+      let target_split = target.split('/');
+      upper_split.pop();
+      let head = true;
+      while (true) {
+        if (head && target_split[0] == '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] == '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] == '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      colablink = upper_split.join('/') + '/' + target_split.join('/');
+      $(this).after(' <a href='+colablink+'>'+colab_img+'</a>');
+    }
+  });
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+!function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));var o=n.text();o=o.replace("¶",""),t("<li/>").appendTo(c[0]).append(t("<a/>").text(o).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
+</script>
+<script>
+$(function(){
+  $('a[href*="#"]').on('click',function() {
+    var container = $('.container');
+    var add_move = container.height() + 50
+    var speed = 400;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top - add_move;
+    $('body,html').animate({scrollTop:position}, speed, 'swing');
+    return false;
+  });
+});
+</script>
+<script type="text/javascript">
+    $("#toc").toc({headings: "h2,h3"});
+    if( $('#toc').is(':empty') ) {
+      $('.toc_box').remove();
+    }
+</script><p class="pagetop" id="pagetop"><a href="#wrap"></a></p>
+<script>
+$(document).ready(function() {
+    var pagetop = $('#pagetop');
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            pagetop.fadeIn();
+        } else {
+            pagetop.fadeOut();
+            }
+        });
+        pagetop.click(function () {
+            $('body, html').animate({ scrollTop: 0 }, 500);
+                return false;
+    });
+});
+</script><script>
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+});
+</script>  </body>
+</html>
