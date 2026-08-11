@@ -500,6 +500,11 @@ ul.social-links > li {
   display:inline;
   font-size: 1.5em;
 }
+/* かつてアイコン間隔を作っていたリンク内の空白文字 (BS5では下線が
+   「_」として見えるため除去済み) の分の間隔を margin で確保する */
+ul.social-links > li:not(:last-child) {
+  margin-right: 0.35em;
+}
 /* Bootstrap 5 はリンクを常時下線表示にするが、アイコンリンクでは
    下線 (空白部分が「_」に見える) を出さない */
 ul.social-links a,
