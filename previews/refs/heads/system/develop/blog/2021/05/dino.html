@@ -321,66 +321,21 @@ $$</div>
 <p>これに関して否定はできず，例えばヘッドマウントカメラを付けて日常生活を送らせた動画フレームで学習すると，どのような結果になるのかというのは気になるところです．ただし，SAYCam (<a href="https://psyarxiv.com/fy8zx/">Sullivan et al., 2020</a>) という生後6～32か月の乳児にヘッドマウントカメラを装着させた動画データセットに対し，自己教師あり学習を適応したという研究 (<a href="https://arxiv.org/abs/2007.16189">Orhan et al., NeurIPS. 2020</a>) の結果を踏まえると，膨大な視覚入力を受けていればImageNetのような高品質なデータセットで学習しなくてもよいと考えられます．</p>
 <h3><span id="pelican-subsections-11">自己教師あり学習の展望</span></h3>
 <p>この記事を書く上で自己教師あり学習の論文を複数読み，手法がよりシンプルかつ効果的なものになってきていることが分かりました．手法がシンプルというのには実装が楽になる，メモリを節約できるなどの利点があります．一方で，(<a href="https://www.pnas.org/content/118/3/e2014196118.long">Zhuang et al., PNAS. 2021</a>) のように，自分は計算論的神経科学における視覚モデルという観点で自己教師あり学習に注目しています．このため，今後よりシンプルで生物学的妥当性の高い自己教師あり学習モデルが考案されるのではないかと期待をしています．</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
     var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-
-    var configscript = document.createElement('script');
-    configscript.type = 'text/x-mathjax-config';
-    configscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        availableFonts: ['STIX', 'TeX']," +
-        "        preferredFont: 'STIX'," +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
 }
 </script>
   </div>
