@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="非可換ゲージ理論の頂点計算機"/>
+    <meta property="og:url" content="../../../blog/2022/09/nonabelian_1loop.html"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Python"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="非可換ゲージ理論の頂点計算機">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>非可換ゲージ理論の頂点計算機 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme-overrides.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/system/menu-bs5-standard/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/system/menu-bs5-standard/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand-lg py-0 sticky-top" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i>
+          </a>
+        <button type="button" class="navbar-toggler"
+            data-bs-toggle="collapse" data-bs-target="#main-navbar-collapse"
+            aria-controls="main-navbar-collapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd1"
+     href="../../../index.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">Python会について</a>
+  <div class="dropdown-menu" aria-labelledby="navdd1">    <a class="dropdown-item"
+       href="../../../index.html">Python会について</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../constitution.html">会規約</a>  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd2"
+     href="../../../activities.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">活動内容</a>
+  <div class="dropdown-menu" aria-labelledby="navdd2">    <a class="dropdown-item"
+       href="../../../activities.html">活動内容</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../activities.html#pelican-subsections-0">学習・研究</a>    <a class="dropdown-item"
+       href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>    <a class="dropdown-item"
+       href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>    <a class="dropdown-item"
+       href="../../../activities.html#pelican-subsections-6">過去の活動</a>  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd3"
+     href="../../../achievements.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">実績</a>
+  <div class="dropdown-menu" aria-labelledby="navdd3">    <a class="dropdown-item"
+       href="../../../achievements.html">実績</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-15">研究開発活動</a>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-24">所属メンバー論文</a>    <a class="dropdown-item"
+       href="../../../achievements.html#pelican-subsections-32">出版記事等</a>  </div>
+</li><li class="nav-item dropdown active">
+  <a class="nav-link dropdown-toggle" id="navdd4"
+     href="../../../blog.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">技術ブログ</a>
+  <div class="dropdown-menu" aria-labelledby="navdd4">    <a class="dropdown-item active"
+       href="../../../blog.html">技術ブログ</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../authors.html">著者一覧</a>    <a class="dropdown-item"
+       href="../../../archives.html">過去記事一覧</a>  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../news.html">お知らせ</a>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd6"
+     href="../../../recruit.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">会員募集</a>
+  <div class="dropdown-menu" aria-labelledby="navdd6">    <a class="dropdown-item"
+       href="../../../recruit.html">会員募集</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>    <a class="dropdown-item"
+       href="../../../recruit.html#pelican-subsections-1">新歓2025年度</a>    <a class="dropdown-item"
+       href="../../../recruit.html#pelican-subsections-2">新歓2021年度</a>    <a class="dropdown-item"
+       href="../../../recruit.html#pelican-subsections-4">新歓2020年度</a>  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd7"
+     href="../../../student_server.html" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">学生用計算機</a>
+  <div class="dropdown-menu" aria-labelledby="navdd7">    <a class="dropdown-item"
+       href="../../../student_server.html">学生用計算機</a>    <div class="dropdown-divider"></div>    <a class="dropdown-item"
+       href="../../../student_server.html#pelican-subsections-0">過去の利用状況</a>  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+          </ul> <!-- /navbar-nav -->
+        </div> <!-- /navbar-collapse -->
+      </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="nonabelian_1loop">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2022-09-04">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2022/09/nonabelian_1loop.html" rel="bookmark"
+     title="Permalink to 非可換ゲージ理論の頂点計算機">
+    非可換ゲージ理論の頂点計算機
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2022-09-04(Sun)
+</abbr>       - Posted by 
+<a href="../../../author/he-cun.html">河村</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></img></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<div class="jupyter-notebook">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>非可換ゲージ理論の頂点計算をする．添字は全て下に付ける仕様．</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [22]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>縮約を計算する．入力は<code>[coeff, momentum or metric, ...]</code>のリスト</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [23]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_contract</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="c1"># input: [coeff, momentum or metric, ...]</span>
+    <span class="n">coeff</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># get metrics and momentums from input</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">momentums</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+            <span class="nb">str</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">first_index_abr</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">second_index_abr</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">first_index_abr</span> <span class="o">+</span> <span class="n">second_index_abr</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">momentums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">input_abr</span> <span class="o">=</span> <span class="p">[</span><span class="n">coeff</span><span class="p">]</span> <span class="o">+</span> <span class="n">metrics</span> <span class="o">+</span> <span class="n">momentums</span>
+
+    <span class="c1"># define dict of metrics {&#39;original_key&#39;: [current index, current index], ...}</span>
+    <span class="n">metrics_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+        <span class="n">metrics_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="c1"># define dict of momentums {&#39;original_key&#39;: [label, current index], ...}</span>
+    <span class="n">momentums_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">momentums</span><span class="p">:</span>
+        <span class="n">momentums_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+
+    <span class="c1"># get indices of metrics</span>
+    <span class="n">metrics_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)):</span>
+        <span class="n">metrics_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">metrics_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># get indices of momentums</span>
+    <span class="n">momentums_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">momentums</span><span class="p">)):</span>
+        <span class="n">momentums_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">momentums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># find true and dummy indices</span>
+    <span class="n">all_indices</span> <span class="o">=</span> <span class="n">metrics_indices</span> <span class="o">+</span> <span class="n">momentums_indices</span>
+    <span class="n">summing_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tensor_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_indices</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">all_indices</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">summing_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">all_indices</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;too many !&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tensor_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">summing_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">summing_indices</span><span class="p">))</span>
+
+    <span class="c1"># sum over dummy indices</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">summing_indices</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">metrics_indices</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># vector and metric</span>
+            <span class="n">metric_at</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">metrics_indices</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">momentum_at</span> <span class="o">=</span> <span class="n">momentums_indices</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">contracting_metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">metric_at</span><span class="p">]</span>
+            <span class="n">contracting_momentum</span> <span class="o">=</span> <span class="n">momentums</span><span class="p">[</span><span class="n">momentum_at</span><span class="p">]</span>
+            <span class="n">another_index</span> <span class="o">=</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="n">contracting_metric</span><span class="p">]</span>
+            <span class="n">another_index</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">metrics_dict</span><span class="p">[</span><span class="n">contracting_metric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">metric_at</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">metric_at</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">momentums_dict</span><span class="p">[</span><span class="n">contracting_momentum</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">contracting_momentum</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">momentums_indices</span><span class="p">[</span><span class="n">momentum_at</span><span class="p">]</span> <span class="o">=</span> <span class="n">another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># print(str(&#39;\u03A3&#39; + i + &#39;:&#39;), contracting_metric, contracting_momentum, &#39;-&gt;&#39;, str(contracting_momentum[0]+ &#39;_&#39;+ another_index[0]))</span>
+        <span class="k">elif</span> <span class="n">metrics_indices</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># metric and metric</span>
+            <span class="n">metrics_loc</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metrics_indices</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">first_metric_at</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">metrics_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">second_metric_at</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">metrics_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">first_contracting_metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">first_metric_at</span><span class="p">]</span>
+            <span class="n">second_contracting_metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">second_metric_at</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">first_metric_at</span> <span class="o">==</span> <span class="n">second_metric_at</span><span class="p">:</span> <span class="c1"># g_ss = 4</span>
+                <span class="n">metrics_dict</span><span class="p">[</span><span class="n">first_contracting_metric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                <span class="c1"># print(str(&#39;\u03A3&#39; + i + &#39;:&#39;), metrics[first_metric_at], &#39;-&gt; 4&#39;)</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">first_metric_at</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">first_metric_at</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">first_another_index</span> <span class="o">=</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="n">first_contracting_metric</span><span class="p">]</span>
+                <span class="n">first_another_index</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">second_another_index</span> <span class="o">=</span> <span class="n">metrics_dict</span><span class="p">[</span><span class="n">second_contracting_metric</span><span class="p">]</span>
+                <span class="n">second_another_index</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">metrics_dict</span><span class="p">[</span><span class="n">first_contracting_metric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">first_another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">second_another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">first_metric_at</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">first_metric_at</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">second_another_index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">metrics_dict</span><span class="p">[</span><span class="n">second_contracting_metric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">second_metric_at</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="n">metrics_indices</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">second_metric_at</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                <span class="c1"># print(str(&#39;\u03A3&#39; + i + &#39;:&#39;), metrics[first_metric_at], metrics[second_metric_at], &#39;-&gt;&#39;, str(&#39;g_&#39; + first_another_index[0] + second_another_index[0]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># vector and vector</span>
+            <span class="n">momentums_loc</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">momentums_indices</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">first_momentum_at</span> <span class="o">=</span> <span class="n">momentums_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">second_momentum_at</span> <span class="o">=</span> <span class="n">momentums_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">first_contracting_momentum</span> <span class="o">=</span> <span class="n">momentums</span><span class="p">[</span><span class="n">first_momentum_at</span><span class="p">]</span>
+            <span class="n">second_contracting_momentum</span> <span class="o">=</span> <span class="n">momentums</span><span class="p">[</span><span class="n">second_momentum_at</span><span class="p">]</span>
+            <span class="n">momentums_dict</span><span class="p">[</span><span class="n">first_contracting_momentum</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">momentums_dict</span><span class="p">[</span><span class="n">first_contracting_momentum</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">momentums_dict</span><span class="p">[</span><span class="n">second_contracting_momentum</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+            <span class="n">momentums_dict</span><span class="p">[</span><span class="n">second_contracting_momentum</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># concatenate dictinoaries</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">coeff</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">metrics_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">!=</span> <span class="p">[]:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">momentums_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="p">[]:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># print(&#39; &#39;.join(input_abr) , &#39;=&#39;, &#39; &#39;.join(output))</span>
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量文字とLorentz添字から4運動量の成分を返す：
+\[ k, \mu \to k_\mu . \]</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [24]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mo</span><span class="p">(</span><span class="n">momentum</span><span class="p">,</span> <span class="n">index_abr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">momentum</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Add</span><span class="o">.</span><span class="n">make_args</span><span class="p">(</span><span class="n">momentum</span><span class="p">))</span>
+        <span class="n">momentum_indexed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)):</span>
+            <span class="n">term_indexed</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">index_abr</span>
+            <span class="n">term_indexed</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="n">term_indexed</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+            <span class="n">momentum_indexed</span> <span class="o">+=</span> <span class="n">term_indexed</span>
+        <span class="k">return</span> <span class="n">momentum_indexed</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量文字とLorentz添字から3-boson頂点を返す：
+\[ \mu, \nu, \rho, k, p, q \to  g_{\mu\nu} (k-p)<em _nu_rho="\nu\rho">\rho + g</em> (p-q)<em _rho_mu="\rho\mu">\mu + g</em> (q-k)_\nu . \]</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [25]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">three_vertex</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span><span class="o">+</span><span class="n">p</span><span class="o">+</span><span class="n">q</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;momentum not conserved!&#39;</span><span class="p">)</span>
+    <span class="n">T1</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">mo</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+    <span class="n">T2</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">mo</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">q</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+    <span class="n">T3</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">mo</span><span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">T1</span> <span class="o">+</span> <span class="n">T2</span> <span class="o">+</span> <span class="n">T3</span>
+    <span class="k">return</span> <span class="n">T</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>ゲージ群添字とLorentz添字から4-bosonを返す：
+\[ a, b, c, d, \mu, \nu, \rho, \sigma  \to f^{abe} f^{cde} (g_{\mu\rho} g_{\nu\sigma} - g_{\mu\sigma} g_{\nu\rho}) +  f^{ace} f^{bde} (g_{\mu\nu} g_{\rho\sigma} - g_{\mu\sigma} g_{\nu\rho})  +  f^{ade} f^{bce} (g_{\mu\nu} g_{\rho\sigma} - g_{\mu\rho} g_{\nu\sigma}) . \]</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [26]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">four_vertex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="n">F1</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">-</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="nb">globals</span><span class="p">()))</span>
+    <span class="n">F2</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">-</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="nb">globals</span><span class="p">()))</span>
+    <span class="n">F3</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">e</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">-</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="n">s</span><span class="p">,</span> <span class="nb">globals</span><span class="p">()))</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">F1</span> <span class="o">+</span> <span class="n">F2</span> <span class="o">+</span> <span class="n">F3</span>
+    <span class="k">return</span> <span class="n">F</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量文字，Lorentz添字，ゲージ群の添字を定義</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [27]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">momentum_chars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">]</span>
+<span class="n">Lorentz_indices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="s1">&#39;nu&#39;</span><span class="p">,</span> <span class="s1">&#39;rho&#39;</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda&#39;</span><span class="p">,</span> <span class="s1">&#39;kappa&#39;</span><span class="p">,</span> <span class="s1">&#39;tau&#39;</span><span class="p">,</span> <span class="s1">&#39;xi&#39;</span><span class="p">,</span> <span class="s1">&#39;eta&#39;</span><span class="p">]</span>
+<span class="n">gruoup_indices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">]</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>Lorentz添字を1文字目で表す(m=<span class="math">\(\mu\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [28]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">Lorentz_indices_abr</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">Lorentz_indices</span><span class="p">]</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量文字のsymbolを定義する</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [29]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">momentum_chars</span><span class="p">:</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="s1">&#39; = sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>計量成分のsymbolを定義する(g_mn=<span class="math">\(g_{\mu\nu}\)</span>)．1文字目の添字の順番≤2文字目の添字の順番とする．</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [30]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Lorentz_indices</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Lorentz_indices</span><span class="p">)):</span>
+        <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices_abr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Lorentz_indices_abr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">g_{</span><span class="se">\\\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;}</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;g_&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices_abr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">Lorentz_indices_abr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">g_{</span><span class="se">\\\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;}</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量成分のsymbolを定義する(k_m=<span class="math">\(k_\mu\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [31]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Lorentz_indices</span><span class="p">)):</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices_abr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_</span><span class="se">\\\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">Lorentz_indices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>運動量の内積を定義する(kp=<span class="math">\(k\cdot p\)</span>)．1文字目の運動量の順番≤2文字目の運動量の順番</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [32]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">)):</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">(&#39;</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">momentum_chars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">(&#39;</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">momentum_chars</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>ゲージ群の構造定数を定義する(f_abc=<span class="math">\(f_{abc}\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [33]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gruoup_indices</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gruoup_indices</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gruoup_indices</span><span class="p">)):</span>
+            <span class="n">exec</span><span class="p">(</span><span class="s1">&#39;f_&#39;</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;= sympy.symbols(</span><span class="se">\&#39;</span><span class="s1">f_&#39;</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="n">gruoup_indices</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>頂点の積を計算する．入力はsympyのequation</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [34]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_vertices</span><span class="p">(</span><span class="n">eq</span><span class="p">):</span>
+    <span class="n">eq</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+    <span class="n">terms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Add</span><span class="o">.</span><span class="n">make_args</span><span class="p">(</span><span class="n">eq</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)):</span>
+        <span class="n">terms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">terms_cal</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">terms</span><span class="p">)):</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">terms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">term</span> <span class="o">=</span> <span class="n">term</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;-1*&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">term</span> <span class="o">=</span> <span class="s1">&#39;1*&#39;</span> <span class="o">+</span> <span class="n">term</span>
+        <span class="k">while</span> <span class="s1">&#39;**2&#39;</span> <span class="ow">in</span> <span class="n">term</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">term</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;**2&#39;</span><span class="p">)</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">term</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+            <span class="n">term</span> <span class="o">=</span> <span class="n">term</span><span class="p">[:</span><span class="n">end</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">term</span><span class="p">[</span><span class="n">start</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">+</span> <span class="n">term</span><span class="p">[</span><span class="n">end</span><span class="o">+</span><span class="mi">3</span><span class="p">:]</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="n">term</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">term</span><span class="p">)):</span>
+            <span class="n">dups</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">if</span> <span class="n">term</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">dups</span><span class="p">:</span>
+                <span class="n">term</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="n">term</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="n">momentum_chars</span><span class="p">:</span>
+                    <span class="c1"># [..., k_m, k_m, ...] -&gt; [kk..., ...]</span>
+                    <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+                    <span class="c1"># [..., g_mn, g_mn, ...] -&gt; [4..., ...]</span>
+                    <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;4*&#39;</span> <span class="o">+</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># [..., x, x, ...] -&gt; [x**2..., ...]</span>
+                    <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Lorentz scalars in coeff</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">term</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">momentum_chars</span> <span class="ow">and</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;g&#39;</span><span class="p">:</span>
+                <span class="n">term</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span> <span class="o">+</span> <span class="n">i</span>
+        <span class="n">term_cal</span> <span class="o">=</span> <span class="n">calculate_contract</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
+        <span class="n">term_cal</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">term_cal</span><span class="p">)</span>
+        <span class="n">terms_cal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">term_cal</span><span class="p">)</span>
+
+    <span class="n">eq_cal</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">terms_cal</span><span class="p">:</span>
+        <span class="n">eq_cal</span> <span class="o">+=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+    <span class="n">eq_cal</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">eq_cal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">eq_cal</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>以下では，An Introduction to Quantum Field Theory (Peskin &amp; Schroeder)のProblemでの実際の使用例を書く．</p></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-0">Problem 16.3</span></h2>
+<p>3-boson頂点(<span class="math">\(AAA + AAA + AAA\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [35]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">g_ms</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p_k</span> <span class="o">-</span> <span class="n">k_k</span><span class="p">)</span> <span class="o">+</span> <span class="n">g_sk</span><span class="o">*</span><span class="p">(</span><span class="o">-</span> <span class="n">p_m</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k_m</span><span class="p">)</span> <span class="o">+</span> <span class="n">g_km</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">k_s</span> <span class="o">-</span> <span class="n">p_s</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">g_sn</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p_l</span> <span class="o">-</span> <span class="n">k_l</span><span class="p">)</span> <span class="o">+</span> <span class="n">g_nl</span><span class="o">*</span><span class="p">(</span><span class="o">-</span> <span class="n">p_s</span> <span class="o">-</span> <span class="n">k_s</span><span class="p">)</span> <span class="o">+</span> <span class="n">g_ls</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k_n</span> <span class="o">-</span> <span class="n">p_n</span><span class="p">)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">g_kl</span><span class="o">*</span><span class="n">k_r</span> <span class="o">-</span> <span class="n">g_lr</span><span class="o">*</span><span class="n">k_k</span> <span class="o">-</span> <span class="n">g_rk</span><span class="o">*</span><span class="n">k_l</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t2</span><span class="o">*</span><span class="n">t3</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>2 (kk) g_{\mu\nu} k_{\rho} + 4 (kk) g_{\mu\nu} p_{\rho} + 2 (kk) g_{\mu\rho} k_{\nu} - 3 (kk) g_{\mu\rho} p_{\nu} + 2 (kk) g_{\nu\rho} k_{\mu} - 3 (kk) g_{\nu\rho} p_{\mu} - 8 (kp) g_{\mu\nu} p_{\rho} - 2 (kp) g_{\mu\rho} k_{\nu} + 3 (kp) g_{\mu\rho} p_{\nu} - 2 (kp) g_{\nu\rho} k_{\mu} + 3 (kp) g_{\nu\rho} p_{\mu} + 10 (pp) g_{\mu\nu} k_{\rho} - (pp) g_{\mu\rho} k_{\nu} - (pp) g_{\nu\rho} k_{\mu} + 18 k_{\mu} k_{\nu} k_{\rho} - 9 k_{\mu} k_{\rho} p_{\nu} + 3 k_{\mu} p_{\nu} p_{\rho} - 9 k_{\nu} k_{\rho} p_{\mu} + 3 k_{\nu} p_{\mu} p_{\rho} - 6 k_{\rho} p_{\mu} p_{\nu}
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>4-boson頂点(<span class="math">\(AAAA + AAAA\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [36]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">four_vertex</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">four_vertex</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t2</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>2 f_{abg} f_{cdh} f_{efg} f_{efh} g_{\mu\rho} g_{\nu\sigma} - 2 f_{abg} f_{cdh} f_{efg} f_{efh} g_{\mu\sigma} g_{\nu\rho} + f_{abg} f_{ech} f_{efg} f_{fdh} g_{\mu\rho} g_{\nu\sigma} - f_{abg} f_{ech} f_{efg} f_{fdh} g_{\mu\sigma} g_{\nu\rho} - f_{abg} f_{edh} f_{efg} f_{fch} g_{\mu\rho} g_{\nu\sigma} + f_{abg} f_{edh} f_{efg} f_{fch} g_{\mu\sigma} g_{\nu\rho} + f_{aeg} f_{bfg} f_{cdh} f_{efh} g_{\mu\rho} g_{\nu\sigma} - f_{aeg} f_{bfg} f_{cdh} f_{efh} g_{\mu\sigma} g_{\nu\rho} + 2 f_{aeg} f_{bfg} f_{ech} f_{fdh} g_{\mu\nu} g_{\rho\sigma} + f_{aeg} f_{bfg} f_{ech} f_{fdh} g_{\mu\rho} g_{\nu\sigma} + 2 f_{aeg} f_{bfg} f_{edh} f_{fch} g_{\mu\nu} g_{\rho\sigma} + f_{aeg} f_{bfg} f_{edh} f_{fch} g_{\mu\sigma} g_{\nu\rho} - f_{afg} f_{beg} f_{cdh} f_{efh} g_{\mu\rho} g_{\nu\sigma} + f_{afg} f_{beg} f_{cdh} f_{efh} g_{\mu\sigma} g_{\nu\rho} + 2 f_{afg} f_{beg} f_{ech} f_{fdh} g_{\mu\nu} g_{\rho\sigma} + f_{afg} f_{beg} f_{ech} f_{fdh} g_{\mu\sigma} g_{\nu\rho} + 2 f_{afg} f_{beg} f_{edh} f_{fch} g_{\mu\nu} g_{\rho\sigma} + f_{afg} f_{beg} f_{edh} f_{fch} g_{\mu\rho} g_{\nu\sigma}
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>3, 4-boson頂点(<span class="math">\(AAAA + AAA + AAA\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [37]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">four_vertex</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">t2*t3 =</span>
+<span class="sd">(kk) g_{\mu\lambda} g_{\nu\kappa} + 4 g_{\kappa\lambda} k_{\mu} k_{\nu} - 2 g_{\mu\kappa} k_{\lambda} k_{\nu} - g_{\mu\lambda} k_{\kappa} k_{\nu} + g_{\mu\nu} k_{\kappa} k_{\lambda} - g_{\nu\kappa} k_{\lambda} k_{\mu} - 2 g_{\nu\lambda} k_{\kappa} k_{\mu}</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">t23</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">g_mn</span><span class="o">*</span><span class="n">g_lk</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">g_ml</span><span class="o">*</span><span class="n">g_nk</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">g_mk</span><span class="o">*</span><span class="n">g_nl</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t23</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>6 f_{cdh} f_{efh} g_{\mu\rho} g_{\nu\sigma} - 6 f_{cdh} f_{efh} g_{\mu\sigma} g_{\nu\rho} + 13 f_{ech} f_{fdh} g_{\mu\nu} g_{\rho\sigma} + 4 f_{ech} f_{fdh} g_{\mu\rho} g_{\nu\sigma} - 2 f_{ech} f_{fdh} g_{\mu\sigma} g_{\nu\rho} + 13 f_{edh} f_{fch} g_{\mu\nu} g_{\rho\sigma} - 2 f_{edh} f_{fch} g_{\mu\rho} g_{\nu\sigma} + 4 f_{edh} f_{fch} g_{\mu\sigma} g_{\nu\rho}
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>3, 4-boson頂点(<span class="math">\(AAA + AAA + AAA + AAAA\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [38]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t2</span><span class="o">*</span><span class="n">t3</span><span class="o">*</span><span class="n">t4</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>(kk)^{2} g_{\mu\nu} g_{\rho\sigma} + (kk)^{2} g_{\mu\rho} g_{\nu\sigma} + 3 (kk) g_{\mu\nu} k_{\rho} k_{\sigma} + 3 (kk) g_{\mu\rho} k_{\nu} k_{\sigma} + 3 (kk) g_{\nu\sigma} k_{\mu} k_{\rho} + 3 (kk) g_{\rho\sigma} k_{\mu} k_{\nu} + 34 k_{\mu} k_{\nu} k_{\rho} k_{\sigma}
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-1">Problem 18.3</span></h2>
+<p>3-boson頂点(<span class="math">\(AAA + AAA + \mathcal{O}_g\)</span>)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [39]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t2</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>2 (kk) g_{\rho\sigma} - 2 (kp) g_{\rho\sigma} + 5 (pp) g_{\rho\sigma} + 10 k_{\rho} k_{\sigma} - 5 k_{\rho} p_{\sigma} - 5 k_{\sigma} p_{\rho} - 2 p_{\rho} p_{\sigma}
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [40]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">t12</span> <span class="o">=</span> <span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t1</span><span class="o">*</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [41]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">t3</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="n">three_vertex</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="o">-</span><span class="n">k</span><span class="p">,</span> <span class="o">-</span><span class="n">p</span><span class="p">)</span>
+
+<span class="n">t34</span> <span class="o">=</span> <span class="n">calculate_vertices</span><span class="p">(</span><span class="n">t3</span><span class="o">*</span><span class="n">t4</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [42]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">t12</span> <span class="o">+</span> <span class="n">t34</span><span class="p">)))</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>(kk) g_{\rho\tau} g_{\sigma\xi} + (kk) g_{\rho\xi} g_{\sigma\tau} + 2 (kp) g_{\rho\tau} g_{\sigma\xi} + 2 (kp) g_{\rho\xi} g_{\sigma\tau} + (pp) g_{\rho\tau} g_{\sigma\xi} + (pp) g_{\rho\xi} g_{\sigma\tau} + 2 g_{\rho\sigma} k_{\tau} k_{\xi} - 4 g_{\rho\sigma} k_{\tau} p_{\xi} - 4 g_{\rho\sigma} k_{\xi} p_{\tau} + 8 g_{\rho\sigma} p_{\tau} p_{\xi} - 3 g_{\rho\tau} k_{\sigma} k_{\xi} + 3 g_{\rho\tau} k_{\xi} p_{\sigma} - 3 g_{\rho\tau} p_{\sigma} p_{\xi} - 3 g_{\rho\xi} k_{\sigma} k_{\tau} + 3 g_{\rho\xi} k_{\tau} p_{\sigma} - 3 g_{\rho\xi} p_{\sigma} p_{\tau} - 3 g_{\sigma\tau} k_{\rho} k_{\xi} + 3 g_{\sigma\tau} k_{\xi} p_{\rho} - 3 g_{\sigma\tau} p_{\rho} p_{\xi} - 3 g_{\sigma\xi} k_{\rho} k_{\tau} + 3 g_{\sigma\xi} k_{\tau} p_{\rho} - 3 g_{\sigma\xi} p_{\rho} p_{\tau} + 8 g_{\tau\xi} k_{\rho} k_{\sigma} - 4 g_{\tau\xi} k_{\rho} p_{\sigma} - 4 g_{\tau\xi} k_{\sigma} p_{\rho} + 2 g_{\tau\xi} p_{\rho} p_{\sigma}
+</pre></div></div></div></div></div>
+</div>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2022/08/reflecting-kde.html">
+                境界条件を伴うカーネル密度推定
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2022/09/statistics_certificate.html">
+                統計検定準1級 合格体験記
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2023/08/mattergpt.html">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</a></li>
+                <li><a href="../../../blog/2022/08/reflecting-kde.html">境界条件を伴うカーネル密度推定</a></li>
+                <li><a href="../../../blog/2022/05/zapline.html">ZapLineを用いたLFPに対する電源由来のアーティファクト除去 (Python)</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="sharing-buttons">  <!-- Social media sharing buttons -->
+    <!-- Twitter / X -->
+    <a href="https://twitter.com/share" class="twitter-share-button"
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like"
+        data-href="../../../blog/2022/09/nonabelian_1loop.html"
+        data-layout="button_count"
+        data-action="like" data-show-faces="true"
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="hidden" name="ie" value="UTF-8">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">
+  <li><a href="https://x.com/oumed_python" target="_blank" title="X (Twitter)">
+    <span style="color:#000000; font-size:larger;"><i class="fab fa-x-twitter"></i><span>
+  </a></li>
+  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail">
+    <span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i><span>
+  </a></li>
+  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization">
+    <span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i><span>
+  </a></li>
+  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel">
+    <span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i><span>
+  </a></li>
+  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass">
+    <span style="color:#000000; font-size:normal;"><img width="35px" src="https://connpass.com/static/img/72_72.png" style="display: inline;"/><span>
+  </a></li>
+  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed">
+    <span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i><span>
+  </a></li>
+  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed">
+    <span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i><span>
+  </a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2025</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">8/8</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2025/08/codequeen2025.html"><span class="recent-posts-title">CodeQUEEN 2025に参加しました！</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2024</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2024/10/icpc2024wf.html"><span class="recent-posts-title">富本がICPC 2024 World Finalsへ出場</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/08/codequeen2024.html"><span class="recent-posts-title">CodeQUEEN2024</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/4</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/03/custom_violin_plot.html"><span class="recent-posts-title">single cell解析における遺伝子発現量の可視化</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/31</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/jsc2023-tomimoto.html"><span class="recent-posts-title">富本が全国6位：日本最強プログラマー学生選手権決勝</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge text-bg-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge text-bg-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge text-bg-primary">15</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge text-bg-primary">12</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge text-bg-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge text-bg-primary">10</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge text-bg-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge text-bg-primary">7</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge text-bg-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge text-bg-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge text-bg-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge text-bg-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge text-bg-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge text-bg-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge text-bg-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge text-bg-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge text-bg-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge text-bg-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge text-bg-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-inta-n.html">
+          <span class="badge text-bg-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge text-bg-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge text-bg-primary">1</span>
+        論文関連
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/system/menu-bs5-standard/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-x-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents" id="twitter-timeline-box">
+    <a class="twitter-timeline" data-height="600" data-dnt="true"
+       data-chrome="noheader nofooter noborders"
+       href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">@oumed_python のポスト</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<script>
+/* X (Twitter) timeline embeds have become unreliable since 2023 and often
+   render nothing for logged-out visitors.  If the widget iframe has not
+   appeared after a few seconds, fall back to a simple link button. */
+(function () {
+  setTimeout(function () {
+    var box = document.getElementById('twitter-timeline-box');
+    if (!box) { return; }
+    var iframe = box.querySelector('iframe');
+    if (iframe && iframe.offsetHeight > 0) { return; }
+    box.innerHTML =
+      '<p style="text-align:center;">' +
+      '<a class="btn btn-primary" target="_blank" rel="noopener" ' +
+      'href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">' +
+      '<i class="fab fa-x-twitter"></i> @oumed_python をフォロー' +
+      '</a></p>';
+  }, 6000);
+})();
+</script>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        ©2018-2026 大阪大学医学部Python会
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px">';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px">';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content;
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (source_url.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+/* Add an "Open in Colab" badge after any local link to a .ipynb file. */
+(function () {
+  var myhost = window.location.hostname; /* hogehoge.github.io */
+  var account = myhost.split('.')[0]; /* hogehoge */
+  var repo = account + '/' + myhost + '/blob/master';
+  var root = 'https://colab.research.google.com/github/' + repo;
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    var target = link.getAttribute('href').replace('https://' + myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      var upper = root + window.location.pathname;
+      var upper_split = upper.split('/');
+      var target_split = target.split('/');
+      upper_split.pop();
+      var head = true;
+      while (true) {
+        if (head && target_split[0] === '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] === '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] === '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      var colablink = upper_split.join('/') + '/' + target_split.join('/');
+      link.insertAdjacentHTML('afterend', ' <a href=' + colablink + '>' + colab_img + '</a>');
+    }
+  });
+})();
+</script><script>
+/* Build a table of contents from h2/h3 headings inside the article body.
+   (Vanilla JS replacement of the old jQuery toc plugin.) */
+(function () {
+  var toc = document.getElementById('toc');
+  if (!toc) { return; }
+  var content = document.querySelector('.content-body') || document.body;
+  var headings = content.querySelectorAll('h2, h3');
+  var stack = [toc];
+  var lastLevel = 2;
+  headings.forEach(function (heading, i) {
+    var level = parseInt(heading.tagName.charAt(1), 10);
+    if (!heading.id) {
+      var base = (heading.textContent || 'section').trim().replace(/\s+/g, '_'),
+          id = base, n = 1;
+      while (document.getElementById(id)) { id = base + '_' + n++; }
+      heading.id = id;
+    }
+    if (level > lastLevel) {
+      var lastItem = stack[0].lastElementChild;
+      if (lastItem) {
+        var sub = document.createElement('ul');
+        lastItem.appendChild(sub);
+        stack.unshift(sub);
+      }
+    } else if (level < lastLevel) {
+      while (stack.length > 1) { stack.shift(); break; }
+    }
+    lastLevel = level;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = (heading.textContent || '').replace('¶', '');
+    li.appendChild(a);
+    stack[0].appendChild(li);
+  });
+  if (!toc.hasChildNodes()) {
+    var box = toc.closest('.toc_box');
+    if (box) { box.remove(); }
+  }
+})();
+</script><p class="pagetop" id="pagetop"><a href="#" aria-label="ページ先頭へ戻る"></a></p>
+<script>
+(function () {
+  var pagetop = document.getElementById('pagetop');
+  window.addEventListener('scroll', function () {
+    pagetop.style.display = (window.scrollY > 600) ? 'block' : 'none';
+  }, { passive: true });
+  pagetop.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>  </body>
+</html>
