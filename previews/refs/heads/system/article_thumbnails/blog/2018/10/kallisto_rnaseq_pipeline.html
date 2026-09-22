@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="description" content="今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。LinuxでのBioinformatics環境構築でこの記事への準備はすべて終了している流れになります。Kallistoは小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！" />
     <meta name="author" content="Python会" />
     <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="Kallistoを用いたRNA-seq解析パイプライン"/>
     <meta property="og:url" content="/previews/refs/heads/system/article_thumbnails/blog/2018/10/kallisto_rnaseq_pipeline.html"/>
+      <meta property="og:description" content="今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。LinuxでのBioinformatics環境構築でこの記事への準備はすべて終了している流れになります。Kallistoは小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！"/>
       <meta property="article:section" content="技術ブログ"/>
         <meta property="article:tag" content="Bioinformatics"/>
       <meta property="article:author"
@@ -17,7 +18,7 @@
       <meta property="og:image" content="/previews/refs/heads/system/article_thumbnails/blog/2018/10/images/kallisto_rnaseq_pipeline_figs/screen-shot-2018-10-31-at-19-29-38.png"/>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Kallistoを用いたRNA-seq解析パイプライン">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。LinuxでのBioinformatics環境構築でこの記事への準備はすべて終了している流れになります。Kallistoは小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！">
     <meta name="twitter:site" content="@oumed_python">
     <meta name="twitter:creator" content="@oumed_python">
     <meta name="twitter:domain" content="/previews/refs/heads/system/article_thumbnails">
@@ -160,14 +161,14 @@
     <a href="../../../blog.html">
       技術ブログ</a>
     &nbsp;&nbsp;
-        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></img></a>
+        <a href="../../../tag/bioinformatics.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Bioinformatics&labelColor=black&color=darkorange" alt="tag:Bioinformatics" title="tag:Bioinformatics"></a>
   </p>
 </div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
     <span class="box-title">Contents</span>
       <ul id="toc"></ul>
 </div>  </header>
   <div class="content-body" itemprop="text articleBody">
-	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="https://oumpy.github.io/articles/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
+	<p>今回はKallistoを用いたRNA-seq解析パイプラインを紹介します。<a href="../../../blog/2018/10/environment_bioinformatics.html">LinuxでのBioinformatics環境構築</a>でこの記事への準備はすべて終了している流れになります。<a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%82%B9%E3%83%88_(%E5%B0%8F%E6%83%91%E6%98%9F)">Kallisto</a>は小惑星の名前のようです。つっこみどころありましたら、コメントいただけると嬉しいです！それではいきましょう！</p>
 <h2><span id="pelican-subsections-0">リファレンスのダウンロード</span></h2>
 <p>kallistoでは、transcriptにシュードアラインメントするので、リファレンスにはcDNAを用います。今回は<a href="https://www.gencodegenes.org/">GenCodeGenes</a>のヒトtranscript sequencesのデータを用いました。</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_29/gencode.v29.transcripts.fa.gz
