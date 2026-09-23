@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="なぜ入試数学をPythonで？？ Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。 コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。 どの問題を解くか？ いろいろなサイトでPythonで" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="2018年阪大理系数学をPythonで解いてみた"/>
+    <meta property="og:url" content="../../../blog/2018/11/handai_math.html"/>
+      <meta property="og:description" content="なぜ入試数学をPythonで？？ Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。 コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。 どの問題を解くか？ いろいろなサイトでPythonで"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Python"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="2018年阪大理系数学をPythonで解いてみた">
+    <meta name="twitter:description" content="なぜ入試数学をPythonで？？ Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。 コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。 どの問題を解くか？ いろいろなサイトでPythonで">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>2018年阪大理系数学をPythonで解いてみた - 大阪大学医学部 Python会 (テスト用ページ)</title>
+
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme-overrides.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/article/neural_tangents/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/article/neural_tangents/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand-lg py-0 sticky-top" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i>
+          </a>
+        <button type="button" class="navbar-toggler"
+            data-bs-toggle="collapse" data-bs-target="#main-navbar-collapse"
+            aria-controls="main-navbar-collapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd1"
+     href="../../../index.html"
+     aria-haspopup="true" aria-expanded="false">Python会について</a>
+  <div class="dropdown-menu" aria-labelledby="navdd1">  <a class="dropdown-item"
+     href="../../../index.html">Python会について</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../constitution.html">会規約</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd2"
+     href="../../../activities.html"
+     aria-haspopup="true" aria-expanded="false">活動内容</a>
+  <div class="dropdown-menu" aria-labelledby="navdd2">  <a class="dropdown-item"
+     href="../../../activities.html">活動内容</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-0">学習・研究</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd3"
+     href="../../../achievements.html"
+     aria-haspopup="true" aria-expanded="false">実績</a>
+  <div class="dropdown-menu" aria-labelledby="navdd3">  <a class="dropdown-item"
+     href="../../../achievements.html">実績</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-15">研究開発活動</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-24">所属メンバー論文</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-32">出版記事等</a>
+  </div>
+</li><li class="nav-item dropdown active">
+  <a class="nav-link dropdown-toggle" id="navdd4"
+     href="../../../blog.html"
+     aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+  <div class="dropdown-menu" aria-labelledby="navdd4">  <a class="dropdown-item active"
+     href="../../../blog.html">技術ブログ</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../authors.html">著者一覧</a>  <a class="dropdown-item"
+     href="../../../archives.html">過去記事一覧</a>
+  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../news.html">お知らせ</a>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd6"
+     href="../../../recruit.html"
+     aria-haspopup="true" aria-expanded="false">会員募集</a>
+  <div class="dropdown-menu" aria-labelledby="navdd6">  <a class="dropdown-item"
+     href="../../../recruit.html">会員募集</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-1">新歓2025年度</a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-2">新歓2021年度</a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-4">新歓2020年度</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd7"
+     href="../../../student_server.html"
+     aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+  <div class="dropdown-menu" aria-labelledby="navdd7">  <a class="dropdown-item"
+     href="../../../student_server.html">学生用計算機</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../student_server.html#pelican-subsections-0">過去の利用状況</a>
+  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+          </ul> <!-- /navbar-nav -->
+        </div> <!-- /navbar-collapse -->
+      </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="handai_math">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2018-11-20">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2018/11/handai_math.html" rel="bookmark"
+     title="Permalink to 2018年阪大理系数学をPythonで解いてみた">
+    2018年阪大理系数学をPythonで解いてみた
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2018-11-20(Tue)
+</abbr>       - Posted by 
+<a href="../../../author/shan-tian.html">山田</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<div class="jupyter-notebook">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-0">なぜ入試数学をPythonで？？</span></h2>
+<p>Pythonについていろいろ調べているうちに、なんとプログラミングで数学の問題が解ける！ということを知りました。</p>
+<p>コードの勉強にもなると思い、じゃあやってみよう！ということで、今回の記事に至りました。</p>
+<h2><span id="pelican-subsections-1">どの問題を解くか？</span></h2>
+<p>いろいろなサイトでPythonで入試数学を解く記事は見つかります。京大、東大、センター数学などなど。</p>
+<p>ですが、阪大数学を扱っているものはありませんでした。ならば、せっかくなので阪大数学を解こう！ということになりました。これには、自分の受けた試験を再び解く、というのもなんとなく感慨深かったことも理由としてあります。</p>
+<p>※なお、プログラミングで解くことを重視し、本来の数学的な厳密な議論は飛ばしているため、「入試の解答」とはかけ離れたものになります。以上ご了承ください。</p>
+<h2><span id="pelican-subsections-2">環境</span></h2>
+<ul>
+<li><code>Python3.6.1</code></li>
+<li><code>sympy</code>：sympyはPythonのライブラリの一つで、記号計算を行うものです。</li>
+</ul>
+<p>各問題共通のコードとして、sympyをインポートしておきます。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [1]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sy</span>
+<span class="n">sy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span> <span class="c1"># Jupyter Notebook上で、レンダリングされた結果を表示する</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-3">大阪大学2018年 理系数学 第１問</span></h2></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p><img alt="問" src="../../../embedded_images/d5935b6a88c6e5cd.png" loading="lazy"></p></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-4">(1)</span></h3>
+<h4><span id="pelican-subsections-5">&lt;方針&gt;</span></h4>
+<p>普通に解くなら、<span class="math">\(y=\)</span>(真ん中)<span class="math">\(-\)</span>(左)、<span class="math">\(y=\)</span>(右)<span class="math">\(-\)</span>(真ん中)、とおいて、<br>
+微分 → 増減表 → グラフ → <span class="math">\(x&gt;0\)</span>で<span class="math">\(y&gt;0\)</span><br>
+という流れで示すのが一般的だと思いますが、<code>sympy</code>では、簡単にグラフが書けるので、一気にグラフを描いて示します。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [2]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>変数<code>ｘ</code>を<code>symbols()</code>を用いて変数定義します</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [3]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr1</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">expr2</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+<span class="n">expr3</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">sy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>3式をそれぞれ<code>expr1,2,3</code>と名前を付けて宣言します。なお、<code>sy.log()</code>で自然対数 <span class="math">\(\log\)</span> を定義できます。
+<code>sy.sqrt</code>は平方根です。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [4]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr1</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[4]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/9c19c98d5f8086f6.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [5]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr2</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[5]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/2c6b92d114aa8111.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [6]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr3</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[6]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/579f438a76166fd0.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>念のため、出力して確認。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [7]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr4</span> <span class="o">=</span> <span class="n">expr2</span> <span class="o">-</span> <span class="n">expr1</span>
+<span class="n">expr4</span> 
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[7]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/1fd22b7e60c5c466.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [8]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr5</span> <span class="o">=</span> <span class="n">expr3</span> <span class="o">-</span> <span class="n">expr2</span>
+<span class="n">expr5</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[8]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/bfd070752349f8a9.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>にて、(真ん中)ー(左)、(右)ー(真ん中)の関数を新たに設定。</p>
+<p>以下ではグラフを描画する。なお、<code>from sympy.plotting import plot</code>が正常に描画をしなかったので、<code>numpy</code>と<code>matplotlib</code>を用いました。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [9]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">func_expr4</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expr4</span><span class="p">,</span> <span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1"># numpyの関数に変換</span>
+<span class="n">x_expr4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">y_expr4</span> <span class="o">=</span> <span class="n">func_expr4</span><span class="p">(</span><span class="n">x_expr4</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_expr4</span><span class="p">,</span> <span class="n">y_expr4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/540683cf46620923.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>上のグラフから、<span class="math">\(x&gt;0\)</span> のとき、<code>expr4</code><span class="math">\(&gt;0\)</span> すなわち、(真ん中)<span class="math">\(-\)</span>(左)<span class="math">\(&gt;0\)</span> が示せる。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [10]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">func_expr5</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expr5</span><span class="p">,</span> <span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1"># numpyの関数に変換</span>
+<span class="n">x_expr5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">y_expr5</span> <span class="o">=</span> <span class="n">func_expr5</span><span class="p">(</span><span class="n">x_expr5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_expr5</span><span class="p">,</span> <span class="n">y_expr5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/886fe7b0b79eee69.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>上のグラフから、<span class="math">\(x&gt;0\)</span> のとき、<code>expr5</code><span class="math">\(&gt;0\)</span> すなわち、(右)<span class="math">\(-\)</span>(真ん中)<span class="math">\(&gt;0\)</span> が示せる。よって、(1) の上式は示される。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-6">(2)</span></h3>
+<h4><span id="pelican-subsections-7">＜方針＞</span></h4>
+<p>これも普通に解くなら、(1)の誘導を利用して、はさみうちやら微分やらで解けますが、今回は最大値・最小値・極限＋グラフで求めます。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [11]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr6</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">sy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">x</span><span class="p">)</span> 
+<span class="n">expr7</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [12]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">expr8</span> <span class="o">=</span> <span class="n">expr6</span> <span class="o">-</span> <span class="n">expr7</span>
+<span class="n">expr8</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[12]:</div><div class="output_subarea output_png"><img src="../../../embedded_images/aac7d1751db6db96.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [13]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">func_expr8</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">expr8</span><span class="p">,</span> <span class="s2">&quot;numpy&quot;</span><span class="p">)</span> <span class="c1"># numpyの関数に変換</span>
+<span class="n">x_expr8</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">y_expr8</span> <span class="o">=</span> <span class="n">func_expr8</span><span class="p">(</span><span class="n">x_expr8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_expr8</span><span class="p">,</span> <span class="n">y_expr8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/5f8eb2b3fdd76666.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p><span class="math">\(-1&lt;x&lt;1\)</span>の狭い範囲では上図のようになり、</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [14]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_expr8</span><span class="p">,</span> <span class="n">y_expr8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$f(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/6879f2a9f84820ba.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p><span class="math">\(1-&lt;x&lt;10^4\)</span>という広い範囲では、<code>expr8</code> は<span class="math">\(x \to \infty\)</span> のとき、<code>expr8</code><span class="math">\(\to 0\)</span>に収束すると予想できます。
+0に収束することを以下で示していきます。</p>
+<p>まず、最大値を求めます。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [15]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">differential_evolution</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>これは、関数の最小値を求めることができるアルゴリズムです。
+なお、これはscipyで定義域を指定した大域最小化が行える唯一の方法だそうです。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [16]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">numeric_expr8</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">lambdify</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">expr8</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p><code>lambda</code>を使って <code>expr8</code> を、<span class="math">\(x\)</span> を変数（引数）とする無名関数に変換します。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [17]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">minus_numeric_expr8</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">numeric_expr8</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>ここで<code>scipy.optimize</code>で求められるのは最小値、ということなので <code>expr8</code> の符号を反転させ、
+最小値を求め、のちに最小値の符号を反転させ最大値とする、という方法で求めます。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [18]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">differential_evolution</span><span class="p">(</span><span class="n">minus_numeric_expr8</span><span class="p">,</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">)])</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt">Out[18]:</div><div class="output_subarea output_text"><pre>     fun: -0.4999962766596582
+ message: 'Optimization terminated successfully.'
+    nfev: 477
+     nit: 28
+ success: True
+       x: array([4.46811027e-05])</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>という結果になります。</p>
+<p>ここで、<code>fun</code>以下が求めたい最小値なので、<code>expr8</code> の最大値は<span class="math">\(0.49980\cdots \approx 0.5=\frac{1}{2}\)</span>
+となります。</p>
+<p>次に、<code>expr8</code> の最小値として極限を求めます。
+無限大まで飛ばします。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [19]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">expr8</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sy</span><span class="o">.</span><span class="n">oo</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>極限式を<code>f1</code>と置きます。
+極限は<code>sy.limit()</code>で求められます。</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [20]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>0
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>すると、無限大への極限は0となることがわかります。</p>
+<p>以上より、<span class="math">\(x&gt;0\)</span>では<span class="math">\(0&lt;y&lt;\frac{1}{2}\)</span>の範囲を取りうるとわかります。</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-8">答え</span></h3>
+<p>(1)上記のグラフより<br>
+(2) <span class="math">\(0&lt;y&lt;\frac{1}{2}\)</span></p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-9">感想</span></h2>
+<ul>
+<li>今回は時間の都合で大問１しか解けませんでしたが、今後他のものにも挑戦したいと思います。（第4問の空間図形とか3次元で難しそうですが…）</li>
+<li>僕はPythonの文法の勉強がまだ終わっていない状態での今回の記事でしたが、実際に簡単目なコマンドを実行してみる、というのはとても良い練習になり、今後の勉強の理解の助けになると思いました。Jupyterに慣れることができたのも良かったです。</li>
+<li>（入試問題を見ていると、急に去年の受験時代が思い出され、良くも悪くも感傷に浸ってしまいます。去年のやる気に負けないようにしたい…！）</li>
+<li>これからも頑張って勉強していきます！</li>
+</ul></div></div></div>
+</div>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2018/11/kaplan_meier_curve.html">
+                カプランマイヤー曲線について
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2018/11/rdkit.html">
+                化合物データ処理ソフト RDKit
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2022/08/reflecting-kde.html">境界条件を伴うカーネル密度推定</a></li>
+                <li><a href="../../../blog/2022/05/tensorpac.html">Tensorpacによる位相-振幅カップリング (PAC) 推定</a></li>
+                <li><a href="../../../blog/2022/02/directional_gradient_optimization.html">方向微分によるニューラルネットワークの勾配近似</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="sharing-buttons">  <!-- Social media sharing buttons -->
+    <!-- Twitter / X -->
+    <a href="https://twitter.com/share" class="twitter-share-button"
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like"
+        data-href="../../../blog/2018/11/handai_math.html"
+        data-layout="button_count"
+        data-action="like" data-show-faces="true"
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">  <li><a href="https://x.com/oumed_python" target="_blank" title="X (Twitter)"><span style="color:#000000; font-size:larger;"><i class="fab fa-x-twitter"></i></span></a></li>  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail"><span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i></span></a></li>  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization"><span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i></span></a></li>  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel"><span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i></span></a></li>  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass"><span style="color:#E9463F; font-size:normal;"><img class="social-logo-image" src="https://help.connpass.com/_images/connpass_logo_3.png" alt="connpass"/></span></a></li>  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed"><span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i></span></a></li>  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed"><span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i></span></a></li></ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2025</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">8/8</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2025/08/codequeen2025.html"><span class="recent-posts-title">CodeQUEEN 2025に参加しました！</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2024</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2024/10/icpc2024wf.html"><span class="recent-posts-title">富本がICPC 2024 World Finalsへ出場</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/08/codequeen2024.html"><span class="recent-posts-title">CodeQUEEN2024</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/4</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/03/custom_violin_plot.html"><span class="recent-posts-title">single cell解析における遺伝子発現量の可視化</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/31</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/jsc2023-tomimoto.html"><span class="recent-posts-title">富本が全国6位：日本最強プログラマー学生選手権決勝</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge text-bg-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge text-bg-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge text-bg-primary">15</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge text-bg-primary">12</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge text-bg-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge text-bg-primary">10</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge text-bg-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge text-bg-primary">7</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge text-bg-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge text-bg-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge text-bg-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge text-bg-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge text-bg-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge text-bg-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge text-bg-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge text-bg-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge text-bg-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge text-bg-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge text-bg-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-inta-n.html">
+          <span class="badge text-bg-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge text-bg-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge text-bg-primary">1</span>
+        論文関連
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/article/neural_tangents/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-x-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents" id="twitter-timeline-box">
+    <a class="twitter-timeline" data-height="600" data-dnt="true"
+       data-chrome="noheader nofooter noborders"
+       href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">@oumed_python のポスト</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<script>
+/* X (Twitter) timeline embeds have become unreliable since 2023 and often
+   render nothing for logged-out visitors.  If the widget iframe has not
+   appeared after a few seconds, fall back to a simple link button. */
+(function () {
+  setTimeout(function () {
+    var box = document.getElementById('twitter-timeline-box');
+    if (!box) { return; }
+    var iframe = box.querySelector('iframe');
+    if (iframe && iframe.offsetHeight > 0) { return; }
+    box.innerHTML =
+      '<p style="text-align:center;">' +
+      '<a class="btn btn-primary" target="_blank" rel="noopener" ' +
+      'href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">' +
+      '<i class="fab fa-x-twitter"></i> @oumed_python をフォロー' +
+      '</a></p>';
+  }, 6000);
+})();
+</script>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        ©2018-2026 大阪大学医学部Python会
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+    <script src="../../../theme/js/voidy-menu.js"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px">';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px">';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content;
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (source_url.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+/* Add an "Open in Colab" badge after any local link to a .ipynb file. */
+(function () {
+  var myhost = window.location.hostname; /* hogehoge.github.io */
+  var account = myhost.split('.')[0]; /* hogehoge */
+  var repo = account + '/' + myhost + '/blob/master';
+  var root = 'https://colab.research.google.com/github/' + repo;
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    var target = link.getAttribute('href').replace('https://' + myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      var upper = root + window.location.pathname;
+      var upper_split = upper.split('/');
+      var target_split = target.split('/');
+      upper_split.pop();
+      var head = true;
+      while (true) {
+        if (head && target_split[0] === '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] === '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] === '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      var colablink = upper_split.join('/') + '/' + target_split.join('/');
+      link.insertAdjacentHTML('afterend', ' <a href=' + colablink + '>' + colab_img + '</a>');
+    }
+  });
+})();
+</script><script>
+/* Build a table of contents from h2/h3 headings inside the article body.
+   (Vanilla JS replacement of the old jQuery toc plugin.) */
+(function () {
+  var toc = document.getElementById('toc');
+  if (!toc) { return; }
+  var content = document.querySelector('.content-body') || document.body;
+  var headings = content.querySelectorAll('h2, h3');
+  var stack = [toc];
+  var lastLevel = 2;
+  headings.forEach(function (heading, i) {
+    var level = parseInt(heading.tagName.charAt(1), 10);
+    if (!heading.id) {
+      var base = (heading.textContent || 'section').trim().replace(/\s+/g, '_'),
+          id = base, n = 1;
+      while (document.getElementById(id)) { id = base + '_' + n++; }
+      heading.id = id;
+    }
+    if (level > lastLevel) {
+      var lastItem = stack[0].lastElementChild;
+      if (lastItem) {
+        var sub = document.createElement('ul');
+        lastItem.appendChild(sub);
+        stack.unshift(sub);
+      }
+    } else if (level < lastLevel) {
+      while (stack.length > 1) { stack.shift(); break; }
+    }
+    lastLevel = level;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = (heading.textContent || '').replace('¶', '');
+    li.appendChild(a);
+    stack[0].appendChild(li);
+  });
+  if (!toc.hasChildNodes()) {
+    var box = toc.closest('.toc_box');
+    if (box) { box.remove(); }
+  }
+})();
+</script><p class="pagetop" id="pagetop"><a href="#" aria-label="ページ先頭へ戻る"></a></p>
+<script>
+(function () {
+  var pagetop = document.getElementById('pagetop');
+  window.addEventListener('scroll', function () {
+    pagetop.style.display = (window.scrollY > 600) ? 'block' : 'none';
+  }, { passive: true });
+  pagetop.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>  </body>
+</html>

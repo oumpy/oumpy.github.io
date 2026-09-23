@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="この記事では(Silver, et al., &#34;Learning by Directional Gradient Descent.&#34; ICLR. 2021)および(Baydin, et al., &#34;Gradients without Backpropagation&#34;, arXiv, 2022)の解説&amp;実" />
+    <meta name="author" content="Python会" />
+    <meta name="generator" content="Pelican (VoidyBootstrap theme)" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="方向微分によるニューラルネットワークの勾配近似"/>
+    <meta property="og:url" content="../../../blog/2022/02/directional_gradient_optimization.html"/>
+      <meta property="og:description" content="この記事では(Silver, et al., &#34;Learning by Directional Gradient Descent.&#34; ICLR. 2021)および(Baydin, et al., &#34;Gradients without Backpropagation&#34;, arXiv, 2022)の解説&amp;実"/>
+      <meta property="article:section" content="技術ブログ"/>
+        <meta property="article:tag" content="Python"/>
+        <meta property="article:tag" content="Machine Learning"/>
+        <meta property="article:tag" content="論文まとめ"/>
+      <meta property="article:author"
+            content="Python会"/>
+        <meta property="og:image"
+              content="../../../images/images/logo.jpg"/>
+    <meta name="twitter:card" content="summary"> 
+    <meta name="twitter:title" content="方向微分によるニューラルネットワークの勾配近似">
+    <meta name="twitter:description" content="この記事では(Silver, et al., &#34;Learning by Directional Gradient Descent.&#34; ICLR. 2021)および(Baydin, et al., &#34;Gradients without Backpropagation&#34;, arXiv, 2022)の解説&amp;実">
+    <meta name="twitter:site" content="@oumed_python">
+    <meta name="twitter:creator" content="@oumed_python">
+    <meta name="twitter:domain" content="../../..">
+        <meta property="twitter:image"
+              content="../../../images/images/logo.jpg"/>
+
+    <title>方向微分によるニューラルネットワークの勾配近似 - 大阪大学医学部 Python会 (テスト用ページ)</title>
+
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+              crossorigin="anonymous">
+      <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"
+            crossorigin="anonymous">
+
+
+      <link rel="stylesheet" href="../../../theme/css/pygment.css" />
+      <link rel="stylesheet" href="../../../theme/css/theme-overrides.css" />
+      <link rel="stylesheet" href="../../../theme/css/voidybootstrap-custom.css" />
+
+    <link rel="shortcut icon" href="../../../favicon.ico" />
+    <meta name="siteurl" property="og:siteurl" content="../../..">
+    <meta name="source-repository" property="og:source-repository" content="https://github.com/oumpy/hp_management.git">
+        <link href="/previews/refs/heads/article/neural_tangents/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) Atom Feed" />
+        <link href="/previews/refs/heads/article/neural_tangents/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="大阪大学医学部 Python会 (テスト用ページ) RSS Feed" />
+  </head>
+
+  <body>
+   
+    <nav class="navbar navbar-expand-lg py-0 sticky-top" id="main-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="../../../" rel="home">
+          <i class="fa fa-home fa-fw fa-lg"> </i>
+          </a>
+        <button type="button" class="navbar-toggler"
+            data-bs-toggle="collapse" data-bs-target="#main-navbar-collapse"
+            aria-controls="main-navbar-collapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd1"
+     href="../../../index.html"
+     aria-haspopup="true" aria-expanded="false">Python会について</a>
+  <div class="dropdown-menu" aria-labelledby="navdd1">  <a class="dropdown-item"
+     href="../../../index.html">Python会について</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../constitution.html">会規約</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd2"
+     href="../../../activities.html"
+     aria-haspopup="true" aria-expanded="false">活動内容</a>
+  <div class="dropdown-menu" aria-labelledby="navdd2">  <a class="dropdown-item"
+     href="../../../activities.html">活動内容</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-0">学習・研究</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-4">ワークショップ等の開催</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-5">医学科学生用計算サーバの管理運用</a>  <a class="dropdown-item"
+     href="../../../activities.html#pelican-subsections-6">過去の活動</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd3"
+     href="../../../achievements.html"
+     aria-haspopup="true" aria-expanded="false">実績</a>
+  <div class="dropdown-menu" aria-labelledby="navdd3">  <a class="dropdown-item"
+     href="../../../achievements.html">実績</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-0">勉強会・成果発表活動</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-4">会外部との連携によるイベント開催</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-7">コンペティション実績</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-15">研究開発活動</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-24">所属メンバー論文</a>  <a class="dropdown-item"
+     href="../../../achievements.html#pelican-subsections-32">出版記事等</a>
+  </div>
+</li><li class="nav-item dropdown active">
+  <a class="nav-link dropdown-toggle" id="navdd4"
+     href="../../../blog.html"
+     aria-haspopup="true" aria-expanded="false">技術ブログ</a>
+  <div class="dropdown-menu" aria-labelledby="navdd4">  <a class="dropdown-item active"
+     href="../../../blog.html">技術ブログ</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../authors.html">著者一覧</a>  <a class="dropdown-item"
+     href="../../../archives.html">過去記事一覧</a>
+  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../news.html">お知らせ</a>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd6"
+     href="../../../recruit.html"
+     aria-haspopup="true" aria-expanded="false">会員募集</a>
+  <div class="dropdown-menu" aria-labelledby="navdd6">  <a class="dropdown-item"
+     href="../../../recruit.html">会員募集</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-0">Python会紹介動画 <!-- <small>[2020.07更新]</small> --></a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-1">新歓2025年度</a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-2">新歓2021年度</a>  <a class="dropdown-item"
+     href="../../../recruit.html#pelican-subsections-4">新歓2020年度</a>
+  </div>
+</li><li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="navdd7"
+     href="../../../student_server.html"
+     aria-haspopup="true" aria-expanded="false">学生用計算機</a>
+  <div class="dropdown-menu" aria-labelledby="navdd7">  <a class="dropdown-item"
+     href="../../../student_server.html">学生用計算機</a>  <div class="dropdown-divider"></div>  <a class="dropdown-item"
+     href="../../../student_server.html#pelican-subsections-0">過去の利用状況</a>
+  </div>
+</li><li class="nav-item">
+  <a class="nav-link" href="../../../contact.html">Contact</a>
+</li>
+          </ul> <!-- /navbar-nav -->
+        </div> <!-- /navbar-collapse -->
+      </div> <!-- /container -->
+    </nav> <!-- /navbar -->
+
+	<div class="jumbotron" id="overview">
+	  <div class="container">
+		<h1><a href="../../../">大阪大学医学部 Python会 (テスト用ページ)</a></h1>
+		<p class="lead">Now is better than never.</p>
+	  </div>
+	</div>
+    <meta name="article:slug" property="og:article:slug" content="directional_gradient_optimization">
+    <meta name="article:category" property="og:article:category" content="技術ブログ">
+    <meta name="article:category:slug" property="og:article:category:slug" content="blog">
+    <meta name="article:date" property="og:article:date" content="2022-02-20">
+
+    <div class="container" id="main-container">
+      <div class="row">
+        <div class="col-md-9" id="content">
+<article itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+  <header class="article-header">
+<h1>
+  <a href="../../../blog/2022/02/directional_gradient_optimization.html" rel="bookmark"
+     title="Permalink to 方向微分によるニューラルネットワークの勾配近似">
+    方向微分によるニューラルネットワークの勾配近似
+  </a>
+</h1><div class="article-header-info">
+  <p>
+<abbr class="article-header-date">
+  2022-02-20(Sun)
+</abbr>       - Posted by 
+<a href="../../../author/shan-ben.html">山本</a>    in 
+    <a href="../../../blog.html">
+      技術ブログ</a>
+    &nbsp;&nbsp;
+        <a href="../../../tag/python.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Python&labelColor=black&color=green" alt="tag:Python" title="tag:Python"></a>
+        <a href="../../../tag/machine-learning.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=Machine%20Learning&labelColor=black&color=darkorange" alt="tag:Machine Learning" title="tag:Machine Learning"></a>
+        <a href="../../../tag/lun-wen-matome.html"><img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=Tag&message=%E8%AB%96%E6%96%87%E3%81%BE%E3%81%A8%E3%82%81&labelColor=black&color=blue" alt="tag:論文まとめ" title="tag:論文まとめ"></a>
+  </p>
+</div> <!-- /.article-header-info --><div id="colablink"></div><div class="toc_box">
+    <span class="box-title">Contents</span>
+      <ul id="toc"></ul>
+</div>  </header>
+  <div class="content-body" itemprop="text articleBody">
+	<div class="jupyter-notebook">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html">
+<p>この記事では(<a href="https://openreview.net/forum?id=5i7lJLuhTm">Silver, et al., "Learning by Directional Gradient Descent." ICLR. 2021</a>)および(<a href="http://arxiv.org/abs/2202.08587">Baydin, et al., "Gradients without Backpropagation", arXiv, 2022</a>)の解説&amp;実装を行います．</p>
+<p>両者とも<strong>摂動 (perturbation)</strong> と<strong>方向微分(directional gradient)</strong> を用いて勾配を近似することで，誤差逆伝播法 (backpropagation)を用いずにニューラルネットワークを訓練するという手法を提案しています．gradient-free optimizationの一種とも言えるでしょう．以後，Silverらの提案手法を<strong>DODGE</strong>(Deep Online Directional Gradient Estimate), Baydinらの提案手法を<strong>FGD</strong> (Forward gradient descent)と呼ぶことにします．</p>
+<p>この手法の利点としては近似勾配の計算にニューラルネットワークの順伝播のみしか用いないため，パラメータを並列に更新することができる，ということが挙げられます．Baydinらは脳(神経回路網)の学習則にも触れていますが，biologicalなモデルに落とし込むとすれば次のように解釈できると思います：</p>
+<p>各シナプスにおいてランダムかつ微小なシナプス伝達強度の変化 (e.g. spine headの大きさ変化) の方向を"記憶"しておき，損失の方向微分の値というglobal factorを各シナプスにfeedbackした上で"記憶"しておいた微小なシナプス伝達強度変化に乗じて再度シナプス伝達強度を大きく変化させる． </p>
+<p>ただし，これはあくまで解釈です．この機構が実現可能かどうかの議論はこの記事ではしないことにします．</p>
+<h2><span id="pelican-subsections-0">下準備1: 摂動による学習法</span></h2>
+<p>やや外れた話題ですが，先に<strong>摂動 (perturbation)</strong> による勾配を使用しない単純な学習法を紹介しておきます．ニューラルネットワークのパラメータを<span class="math">\(\boldsymbol{\theta} \in \mathbb{R}^p\)</span>, データサンプルを<span class="math">\(\mathbf{x}\)</span>，損失関数を<span class="math">\(L(\boldsymbol{\theta}, \mathbf{x})\)</span>とします．また，パラメータへの摂動を<span class="math">\(\mathbf{v}\in \mathbb{R}^p\)</span>とします．ここで単純な学習法とは，「パラメータに摂動を加えて損失が下がったらそのパラメータに更新する」です．</p>
+<div class="math">$$
+\begin{align*}
+&amp;\Delta L = L(\boldsymbol{\theta}+\mathbf{v}, \mathbf{x}) - L(\boldsymbol{\theta}, \mathbf{x})\\
+&amp;\textbf{if}\ \Delta L &lt; 0\ \text{:}\\
+&amp;\quad \boldsymbol{\theta} \leftarrow \boldsymbol{\theta}+\mathbf{v}
+\end{align*}
+$$</div>
+<p>一応学習は進みますが，効率的ではありません．誤差逆伝播法を用いない学習法の研究においてベースラインとしてよく用いられます．</p>
+<h2><span id="pelican-subsections-1">下準備2: 方向微分とJacobian-vector productの計算</span></h2>
+<p>本記事で紹介する学習則では<strong>方向微分(directional gradient)</strong> というものが用いられます．関数<span class="math">\(f\)</span>について点<span class="math">\(\mathbf{u}\)</span>における方向<span class="math">\(\mathbf{v}\)</span>の方向微分は</p>
+<div class="math">$$
+\nabla_\mathbf{v}f(\mathbf{u})= \lim_{h\to 0} \frac{f(\mathbf{u}+h\mathbf{v}) - f(\mathbf{u})}{h}
+$$</div>
+<p>として定義されます．また<span class="math">\(f\)</span>が点<span class="math">\(\mathbf{u}\)</span>において微分可能なら</p>
+<div class="math">$$
+\nabla_\mathbf{v}f(\mathbf{u})=\nabla f(\mathbf{u})\cdot \mathbf{v}
+$$</div>
+<p>が成り立ちます．ここで右辺を<strong>Jacobian-vector product</strong> (JVP) と呼びます．JVPを計算する上でSilverらはForward Mode ADで計算できる<a href="https://jax.readthedocs.io/en/latest/_autosummary/jax.jvp.html#jax.jvp"><code>jax.jvp</code></a>を用いています．BaydinらはPytorch実装かつ自動微分部分は自前実装したようです．Pytorchにも<a href="https://pytorch.org/docs/stable/generated/torch.autograd.functional.jvp.html"><code>torch.autograd.functional.jvp</code></a>がありますが，"double backwards trick"というbackwardsを2回用いる手法を用いているので勾配が必要になります．</p>
+<p>妥協案として有限差分(finite difference)を用いてJacobian-vector productを近似計算します (<span class="math">\(\epsilon\)</span>は小さい値です)．</p>
+<div class="math">$$
+\nabla f(\mathbf{u})\cdot \mathbf{v} \approx \frac{f(\mathbf{u}+\epsilon \mathbf{v}) - f(\mathbf{u})}{\epsilon}
+$$</div>
+<p>なお，<span class="math">\(f(\mathbf{u})\in \mathbb{R}\)</span>の場合，<span class="math">\(\nabla f(\mathbf{u})\cdot \mathbf{v}\in \mathbb{R}\)</span>となります．有限差分で近似計算ができることを簡単な関数 (cos)で確かめてみましょう．先に今回使うライブラリを全てimportしておきます．</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [1]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchvision.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToTensor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>関数を定義します．今回は以下で定義されるBeale functionを用います．</p>
+<div class="math">$$
+f(x,y) = (1.5 - x+xy)^2+(2.25 - x+xy^2)^2+ (2.625 - x+xy^3)^2
+$$</div>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [2]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="mf">2.25</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span> <span class="p">(</span><span class="mf">2.625</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>方向微分を2通りで計算します．</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [3]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># torch func.</span>
+<span class="n">func_output</span><span class="p">,</span> <span class="n">jvp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">jvp</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># finite difference</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">f_v</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="n">eps</span><span class="o">*</span><span class="n">v</span><span class="p">),</span> <span class="n">func</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="n">jvp_fd</span> <span class="o">=</span> <span class="p">(</span><span class="n">f_v</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">eps</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;torch.autograd.functional.jvp: &quot;</span><span class="p">,</span> <span class="n">jvp</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finite diff.:&quot;</span><span class="p">,</span> <span class="n">jvp_fd</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>torch.autograd.functional.jvp:  tensor(-4.2418)
+finite diff.: tensor(-4.2384, grad_fn=&lt;DivBackward0&gt;)
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>自動微分の結果と有限差分による結果が概ね一致していることがわかります．以後，有限差分を用いますが，今回紹介する学習則に適応する場合，2回forward計算が必要なので効率は悪いことに注意してください．</p></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-2">摂動と方向微分による勾配近似</span></h2>
+<p>それでは本題の説明をしましょう．まず，誤差逆伝播法と確率的勾配降下法(SGD)で学習する場合，誤差逆伝播法で<span class="math">\(\nabla L(\boldsymbol{\theta}, \mathbf{x})=\dfrac{\partial L(\boldsymbol{\theta}, \mathbf{x})}{\partial \boldsymbol{\theta}}\)</span>を計算し，SGDにより</p>
+<div class="math">$$
+\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \cdot \nabla L(\boldsymbol{\theta}, \mathbf{x})
+$$</div>
+<p>とパラメータを更新します．ただし，<span class="math">\(\eta\)</span>は学習率です．一方，FGDとDODGEでは以下のようにパラメータを更新します．</p>
+<div class="math">$$
+\begin{align*}
+&amp;\textbf{if}\ \text{DODGE:}\\
+&amp;\quad \mathbf{v} \sim \{-1, 1\}^p\\
+&amp;\textbf{else if}\ \text{FGD:}\\
+&amp;\quad \mathbf{v} \sim \mathcal{N}(0, \mathbf{I})\\
+&amp;g(\boldsymbol{\theta}, \mathbf{x}) = (\nabla L(\boldsymbol{\theta}, \mathbf{x})\cdot \mathbf{v})\cdot \mathbf{v}\\
+&amp;\boldsymbol{\theta} \leftarrow \boldsymbol{\theta} - \eta \cdot g(\boldsymbol{\theta}, \mathbf{x})
+\end{align*}
+$$</div>
+<p>2つの手法は摂動をサンプリングする分布が異なるだけと言えます．ここで<span class="math">\(\nabla L(\boldsymbol{\theta}, \mathbf{x})\cdot \mathbf{v}\)</span>の計算の際に<span class="math">\(\nabla L(\boldsymbol{\theta}, \mathbf{x})\)</span>を計算する必要がないことに注意してください．また，<span class="math">\(g(\boldsymbol{\theta}, \mathbf{x})\)</span>が<span class="math">\(\nabla L(\boldsymbol{\theta}, \mathbf{x})\)</span>の<strong>不偏推定量(unbiased estimator)</strong> になるということが最も重要な点です．これについての証明はそれぞれの論文に書いてあるのでそちらを参照してください．</p>
+<p>以下では数値計算を用いてこの手法で勾配が近似できることを説明します．先ほどの続きとしてcos関数のuにおける勾配を計算します．</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [4]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">grad</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True grad: &quot;</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>True grad:  [-3.433947   -0.80788505]
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>勾配を推定する関数を作成します．</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [5]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grad_estimation</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;dodge&quot;</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>   
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;fgd&quot;</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;mode is dodge or fgd&quot;</span>
+    <span class="n">estimate_grad</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">jvp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">jvp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">estimate_grad</span> <span class="o">+=</span> <span class="n">jvp</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">estimate_grad</span> <span class="o">/=</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">estimate_grad</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [6]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">num_directions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">estimated_grad_dodge</span><span class="p">,</span> <span class="n">estimated_grad_fgd</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">num_directions</span><span class="p">),</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">num_directions</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num_directions</span><span class="p">):</span>
+    <span class="n">estimated_grad_dodge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grad_estimation</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">)</span>
+    <span class="n">estimated_grad_fgd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grad_estimation</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;fgd&quot;</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>結果を描画しましょう．DODGE, FGDのいずれにおいても摂動の数 (<code>num_directions</code>)を増やすことで推定された勾配が真の勾配に近づくことが分かります．複数回実行すればわかりますが，DODGEの方が推定の精度は良いです．(数学的に証明できると思います)</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [7]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">scale</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">px</span><span class="p">,</span> <span class="n">py</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">1000</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">1000</span><span class="n">j</span><span class="p">]</span>
+<span class="n">Zb</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">Xb</span><span class="p">)</span>
+
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s2">&quot;$x$ grad.&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$y$ grad.&quot;</span><span class="p">];</span> <span class="n">idx_dir</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Gradients of Beale function&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">num_directions</span><span class="p">,</span> <span class="n">estimated_grad_dodge</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Estimated w/ DODGE&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">num_directions</span><span class="p">,</span> <span class="n">estimated_grad_fgd</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Estimated w/ FGD&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">grad</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Num. directions&quot;</span><span class="p">);</span> 
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Num. directions:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num_directions</span><span class="p">[</span><span class="n">idx_dir</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">Xb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Xb</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Zb</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">estimated_grad_dodge</span><span class="p">[</span><span class="n">idx_dir</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span>  <span class="n">estimated_grad_dodge</span><span class="p">[</span><span class="n">idx_dir</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Estimated w/ DODGE&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">estimated_grad_fgd</span><span class="p">[</span><span class="n">idx_dir</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span>  <span class="n">estimated_grad_fgd</span><span class="p">[</span><span class="n">idx_dir</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Estimated w/ FGD&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">grad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">head_width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/33cdb00513089252.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h2><span id="pelican-subsections-3">Pytorchによる実装</span></h2>
+<p>ここから実装に入っていきます．MNISTデータセットをbackprop, DODGE, FGDで学習させます．このコードは<a href="https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html">pytorch tutorial</a>を元に作成しました.</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [8]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ToTensor</span><span class="p">())</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ToTensor</span><span class="p">())</span>
+
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">test_dataloader</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of X [N, C, H, W]: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of y: </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Shape of X [N, C, H, W]: torch.Size([64, 1, 28, 28])
+Shape of y: torch.Size([64]) torch.int64
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [9]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get cpu or gpu device for training.</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2"> device&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define model</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NeuralNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NeuralNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">logits</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Using cuda device
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-4">誤差逆伝播法による訓練</span></h3>
+<p>比較のため，勾配を正確に取得できる誤差逆伝播法を用いてモデルを訓練します．バッチサイズ64で15 epoch訓練します．</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [10]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [11]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+    <span class="n">loss_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Compute prediction error</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Backpropagation</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">batch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">loss</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">batch</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">&gt;7f</span><span class="si">}</span><span class="s2">  [</span><span class="si">{</span><span class="n">current</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">size</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">loss_list</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [12]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">num_batches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">test_loss</span><span class="p">,</span> <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">test_loss</span> <span class="o">/=</span> <span class="n">num_batches</span>
+    <span class="n">correct</span> <span class="o">/=</span> <span class="n">size</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test Error: </span><span class="se">\n</span><span class="s2"> Accuracy: </span><span class="si">{</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">correct</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;0.1f</span><span class="si">}</span><span class="s2">%, Avg loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">test_loss</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [13]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">model_bp</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer_bp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model_bp</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">train_loss_bp</span><span class="p">,</span> <span class="n">test_loss_bp</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">-------------------------------&quot;</span><span class="p">)</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model_bp</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer_bp</span><span class="p">)</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">,</span> <span class="n">model_bp</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+    <span class="n">train_loss_bp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+    <span class="n">test_loss_bp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
+<span class="n">train_loss_bp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">train_loss_bp</span><span class="p">)</span>
+<span class="n">test_loss_bp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_loss_bp</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Epoch 1
+-------------------------------
+loss: 2.299546  [    0/60000]
+loss: 2.243087  [ 6400/60000]
+loss: 2.193906  [12800/60000]
+loss: 1.990515  [19200/60000]
+loss: 1.825056  [25600/60000]
+loss: 1.497010  [32000/60000]
+loss: 1.088965  [38400/60000]
+loss: 1.071147  [44800/60000]
+loss: 0.839060  [51200/60000]
+loss: 0.702301  [57600/60000]
+Test Error: 
+ Accuracy: 83.7%, Avg loss: 0.645017 
+
+Epoch 2
+-------------------------------
+loss: 0.738222  [    0/60000]
+loss: 0.536721  [ 6400/60000]
+loss: 0.543878  [12800/60000]
+loss: 0.521499  [19200/60000]
+loss: 0.463977  [25600/60000]
+loss: 0.448645  [32000/60000]
+loss: 0.326735  [38400/60000]
+loss: 0.522257  [44800/60000]
+loss: 0.468751  [51200/60000]
+loss: 0.475883  [57600/60000]
+Test Error: 
+ Accuracy: 88.9%, Avg loss: 0.391872 
+
+Epoch 3
+-------------------------------
+loss: 0.428448  [    0/60000]
+loss: 0.321109  [ 6400/60000]
+loss: 0.325715  [12800/60000]
+loss: 0.404429  [19200/60000]
+loss: 0.327921  [25600/60000]
+loss: 0.372084  [32000/60000]
+loss: 0.230002  [38400/60000]
+loss: 0.442992  [44800/60000]
+loss: 0.386030  [51200/60000]
+loss: 0.438659  [57600/60000]
+Test Error: 
+ Accuracy: 90.4%, Avg loss: 0.332632 
+
+Epoch 4
+-------------------------------
+loss: 0.320814  [    0/60000]
+loss: 0.276162  [ 6400/60000]
+loss: 0.247757  [12800/60000]
+loss: 0.369032  [19200/60000]
+loss: 0.275181  [25600/60000]
+loss: 0.333127  [32000/60000]
+loss: 0.196659  [38400/60000]
+loss: 0.405020  [44800/60000]
+loss: 0.338511  [51200/60000]
+loss: 0.415403  [57600/60000]
+Test Error: 
+ Accuracy: 91.3%, Avg loss: 0.302255 
+
+Epoch 5
+-------------------------------
+loss: 0.263066  [    0/60000]
+loss: 0.256540  [ 6400/60000]
+loss: 0.207443  [12800/60000]
+loss: 0.350262  [19200/60000]
+loss: 0.241405  [25600/60000]
+loss: 0.307048  [32000/60000]
+loss: 0.179711  [38400/60000]
+loss: 0.379755  [44800/60000]
+loss: 0.300815  [51200/60000]
+loss: 0.394544  [57600/60000]
+Test Error: 
+ Accuracy: 92.0%, Avg loss: 0.280586 
+
+Epoch 6
+-------------------------------
+loss: 0.223930  [    0/60000]
+loss: 0.242454  [ 6400/60000]
+loss: 0.182857  [12800/60000]
+loss: 0.334236  [19200/60000]
+loss: 0.217351  [25600/60000]
+loss: 0.287452  [32000/60000]
+loss: 0.167590  [38400/60000]
+loss: 0.359716  [44800/60000]
+loss: 0.269568  [51200/60000]
+loss: 0.374653  [57600/60000]
+Test Error: 
+ Accuracy: 92.5%, Avg loss: 0.262961 
+
+Epoch 7
+-------------------------------
+loss: 0.195676  [    0/60000]
+loss: 0.230322  [ 6400/60000]
+loss: 0.164844  [12800/60000]
+loss: 0.319183  [19200/60000]
+loss: 0.198686  [25600/60000]
+loss: 0.272288  [32000/60000]
+loss: 0.157346  [38400/60000]
+loss: 0.342784  [44800/60000]
+loss: 0.242133  [51200/60000]
+loss: 0.355913  [57600/60000]
+Test Error: 
+ Accuracy: 92.8%, Avg loss: 0.247321 
+
+Epoch 8
+-------------------------------
+loss: 0.174269  [    0/60000]
+loss: 0.219391  [ 6400/60000]
+loss: 0.150918  [12800/60000]
+loss: 0.305854  [19200/60000]
+loss: 0.182818  [25600/60000]
+loss: 0.261800  [32000/60000]
+loss: 0.147795  [38400/60000]
+loss: 0.325437  [44800/60000]
+loss: 0.218672  [51200/60000]
+loss: 0.337907  [57600/60000]
+Test Error: 
+ Accuracy: 93.2%, Avg loss: 0.233048 
+
+Epoch 9
+-------------------------------
+loss: 0.157361  [    0/60000]
+loss: 0.209914  [ 6400/60000]
+loss: 0.139500  [12800/60000]
+loss: 0.292533  [19200/60000]
+loss: 0.169732  [25600/60000]
+loss: 0.253424  [32000/60000]
+loss: 0.138459  [38400/60000]
+loss: 0.308890  [44800/60000]
+loss: 0.198611  [51200/60000]
+loss: 0.321007  [57600/60000]
+Test Error: 
+ Accuracy: 93.6%, Avg loss: 0.219827 
+
+Epoch 10
+-------------------------------
+loss: 0.143458  [    0/60000]
+loss: 0.200823  [ 6400/60000]
+loss: 0.130008  [12800/60000]
+loss: 0.279433  [19200/60000]
+loss: 0.159168  [25600/60000]
+loss: 0.246027  [32000/60000]
+loss: 0.129360  [38400/60000]
+loss: 0.293391  [44800/60000]
+loss: 0.181554  [51200/60000]
+loss: 0.305260  [57600/60000]
+Test Error: 
+ Accuracy: 93.9%, Avg loss: 0.207685 
+
+Epoch 11
+-------------------------------
+loss: 0.131745  [    0/60000]
+loss: 0.192202  [ 6400/60000]
+loss: 0.121887  [12800/60000]
+loss: 0.265702  [19200/60000]
+loss: 0.150041  [25600/60000]
+loss: 0.239148  [32000/60000]
+loss: 0.120741  [38400/60000]
+loss: 0.279369  [44800/60000]
+loss: 0.168906  [51200/60000]
+loss: 0.290600  [57600/60000]
+Test Error: 
+ Accuracy: 94.1%, Avg loss: 0.196576 
+
+Epoch 12
+-------------------------------
+loss: 0.121396  [    0/60000]
+loss: 0.184836  [ 6400/60000]
+loss: 0.114914  [12800/60000]
+loss: 0.252048  [19200/60000]
+loss: 0.142015  [25600/60000]
+loss: 0.232030  [32000/60000]
+loss: 0.113253  [38400/60000]
+loss: 0.266646  [44800/60000]
+loss: 0.160878  [51200/60000]
+loss: 0.278118  [57600/60000]
+Test Error: 
+ Accuracy: 94.5%, Avg loss: 0.186402 
+
+Epoch 13
+-------------------------------
+loss: 0.112123  [    0/60000]
+loss: 0.178441  [ 6400/60000]
+loss: 0.108902  [12800/60000]
+loss: 0.239651  [19200/60000]
+loss: 0.134386  [25600/60000]
+loss: 0.224691  [32000/60000]
+loss: 0.106507  [38400/60000]
+loss: 0.254671  [44800/60000]
+loss: 0.155029  [51200/60000]
+loss: 0.267427  [57600/60000]
+Test Error: 
+ Accuracy: 94.7%, Avg loss: 0.177047 
+
+Epoch 14
+-------------------------------
+loss: 0.104444  [    0/60000]
+loss: 0.172944  [ 6400/60000]
+loss: 0.103483  [12800/60000]
+loss: 0.227711  [19200/60000]
+loss: 0.127313  [25600/60000]
+loss: 0.216363  [32000/60000]
+loss: 0.100120  [38400/60000]
+loss: 0.243856  [44800/60000]
+loss: 0.150323  [51200/60000]
+loss: 0.257463  [57600/60000]
+Test Error: 
+ Accuracy: 94.9%, Avg loss: 0.168542 
+
+Epoch 15
+-------------------------------
+loss: 0.097420  [    0/60000]
+loss: 0.167871  [ 6400/60000]
+loss: 0.098468  [12800/60000]
+loss: 0.216863  [19200/60000]
+loss: 0.120679  [25600/60000]
+loss: 0.208238  [32000/60000]
+loss: 0.094022  [38400/60000]
+loss: 0.233274  [44800/60000]
+loss: 0.146389  [51200/60000]
+loss: 0.248148  [57600/60000]
+Test Error: 
+ Accuracy: 95.2%, Avg loss: 0.160844 
+
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-5">方向微分による訓練</span></h3>
+<p>同じ構造のモデルを2つ (<code>model</code>, <code>model_v</code>) 用意し，以下のような手順でパラメータを更新します．
+1. <code>model</code>で順伝播を行い，<code>loss</code>を計算する．
+2. 勾配の推定値を保存するDict<code>grad_estimate</code>を用意する．
+3. 摂動<code>v</code>を生成する．この際，<code>model</code>のパラメータのkeyを辞書形式 <code>model.state_dict()</code>で取得し同じkeyで登録．同時に<code>model</code>と同じ構造の<code>model_v</code>のパラメータを<code>model</code>のパラメータに摂動<code>v</code>を加えたもので置換する．
+4. <code>model_v</code>で順伝播を行い，<code>loss_v</code>を計算する．
+5. 方向微分を<code>loss_v</code>と<code>loss</code>を用いて有限差分で計算する．
+6. <code>grad_estimate</code>に勾配の推定値を加算する．
+7. <code>num_direction</code>の数だけ3-6を繰り返す．
+8. <code>grad_estimate</code>の値を<code>num_direction</code>で平均化し<code>torch.clamp()</code>でgradient clippingする (数値的に不安定なため)．
+9. <code>optimizer.zero_grad()</code>で<code>model</code>のパラメータの勾配をzeroにする．
+10. <code>param.grad</code>に推定した勾配値を代入する．
+11. <code>optimizer.step()</code>でパラメータを更新する．</p>
+<p>前節のシミュレーションでは<code>num_directions</code>を増やさないと推定された勾配が真の勾配に近づきませんでしたが，<code>num_directions=1</code>でも学習は進行します．もちろん増やしてもいいですが，計算量が増えます．また，学習率<span class="math">\(lr\)</span>は0.001とbackpropの0.01よりも小さいものを用いていますが，これは<code>lr</code>を0.01にすると発散したためです．</p>
+<script type="text/javascript">
+if (!window._pelican_mathjax_loading) {
+    window._pelican_mathjax_loading = true;
+    window.MathJax = Object.assign({
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        }
+    }, window.MathJax || {});
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican';
+    mathjaxscript.defer = true;
+    mathjaxscript.src = 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js';
+    document.head.appendChild(mathjaxscript);
+}
+</script></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [14]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_nograd</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_v</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">,</span> <span class="n">num_directions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                 <span class="n">eps</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">grad_clip</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="n">loss_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># prediction</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># loss</span>
+            <span class="n">grad_estimate</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># Dict for estimated gradient</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_directions</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># Dict for perturbation</span>
+                <span class="k">for</span> <span class="n">param_v</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model_v</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()):</span>
+                    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;dodge&quot;</span><span class="p">:</span>
+                        <span class="n">v</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> 
+                    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;fgd&quot;</span><span class="p">:</span>
+                        <span class="n">v</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;mode is dodge or fgd&quot;</span>
+
+                    <span class="n">param_v</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()[</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="n">eps</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="c1"># substitution with perturbated param.</span>
+
+                <span class="n">pred_v</span> <span class="o">=</span> <span class="n">model_v</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># perturbated prediction</span>
+                <span class="n">loss_v</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred_v</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># perturbated loss</span>
+                <span class="n">jvp</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss_v</span> <span class="o">-</span> <span class="n">loss</span><span class="p">)</span> <span class="o">/</span> <span class="n">eps</span>  <span class="c1"># directional derivative of loss at point params in direction v</span>
+            
+                <span class="c1"># gradient estimation</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">grad_estimate</span><span class="p">:</span>
+                        <span class="n">grad_estimate</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+=</span> <span class="n">jvp</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">grad_estimate</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">jvp</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="c1"># averaging &amp; gradient clipping for estimated gradient</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">():</span>
+                <span class="n">grad_estimate</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">grad_estimate</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">/</span><span class="n">num_directions</span><span class="p">,</span> <span class="o">-</span><span class="n">grad_clip</span><span class="p">,</span> <span class="n">grad_clip</span><span class="p">)</span>
+
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="c1"># replacement of loss.backward()</span>
+            <span class="k">for</span> <span class="n">param</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()):</span>
+                <span class="n">param</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="n">grad_estimate</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>        
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            
+        <span class="k">if</span> <span class="n">batch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">loss</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">batch</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">&gt;7f</span><span class="si">}</span><span class="s2">  [</span><span class="si">{</span><span class="n">current</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">size</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+            <span class="n">loss_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">loss_list</span><span class="p">)</span>
+</pre></div>
+</div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h4><span id="pelican-subsections-6">DODGE</span></h4></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [15]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">model_dodge</span><span class="p">,</span> <span class="n">model_dodgev</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model_dodge</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model_dodgev</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1">#optimizer = torch.optim.Adam(model_dodge.parameters(), lr=1e-3)</span>
+<span class="n">optimizer_dodge</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model_dodge</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="n">train_loss_dodge</span><span class="p">,</span> <span class="n">test_loss_dodge</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">-------------------------------&quot;</span><span class="p">)</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train_nograd</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model_dodge</span><span class="p">,</span> <span class="n">model_dodgev</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer_dodge</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">)</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">,</span> <span class="n">model_dodge</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+    <span class="n">train_loss_dodge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+    <span class="n">test_loss_dodge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
+<span class="n">train_loss_dodge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">train_loss_dodge</span><span class="p">)</span>
+<span class="n">test_loss_dodge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_loss_dodge</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Epoch 1
+-------------------------------
+loss: 2.293013  [    0/60000]
+loss: 2.278605  [ 6400/60000]
+loss: 2.305957  [12800/60000]
+loss: 2.261985  [19200/60000]
+loss: 2.278600  [25600/60000]
+loss: 2.274848  [32000/60000]
+loss: 2.264979  [38400/60000]
+loss: 2.264772  [44800/60000]
+loss: 2.243997  [51200/60000]
+loss: 2.230047  [57600/60000]
+Test Error: 
+ Accuracy: 27.0%, Avg loss: 2.238401 
+
+Epoch 2
+-------------------------------
+loss: 2.238425  [    0/60000]
+loss: 2.213653  [ 6400/60000]
+loss: 2.250131  [12800/60000]
+loss: 2.172260  [19200/60000]
+loss: 2.199060  [25600/60000]
+loss: 2.191102  [32000/60000]
+loss: 2.158249  [38400/60000]
+loss: 2.203896  [44800/60000]
+loss: 2.136338  [51200/60000]
+loss: 2.109188  [57600/60000]
+Test Error: 
+ Accuracy: 51.2%, Avg loss: 2.119787 
+
+Epoch 3
+-------------------------------
+loss: 2.115482  [    0/60000]
+loss: 2.104982  [ 6400/60000]
+loss: 2.143744  [12800/60000]
+loss: 2.017807  [19200/60000]
+loss: 2.061916  [25600/60000]
+loss: 2.045247  [32000/60000]
+loss: 2.010787  [38400/60000]
+loss: 2.053323  [44800/60000]
+loss: 1.954429  [51200/60000]
+loss: 1.921283  [57600/60000]
+Test Error: 
+ Accuracy: 60.1%, Avg loss: 1.933119 
+
+Epoch 4
+-------------------------------
+loss: 1.946108  [    0/60000]
+loss: 1.871284  [ 6400/60000]
+loss: 1.959304  [12800/60000]
+loss: 1.783304  [19200/60000]
+loss: 1.854810  [25600/60000]
+loss: 1.832346  [32000/60000]
+loss: 1.746651  [38400/60000]
+loss: 1.863106  [44800/60000]
+loss: 1.712567  [51200/60000]
+loss: 1.637663  [57600/60000]
+Test Error: 
+ Accuracy: 63.5%, Avg loss: 1.674136 
+
+Epoch 5
+-------------------------------
+loss: 1.716559  [    0/60000]
+loss: 1.619153  [ 6400/60000]
+loss: 1.696653  [12800/60000]
+loss: 1.460011  [19200/60000]
+loss: 1.512218  [25600/60000]
+loss: 1.541011  [32000/60000]
+loss: 1.445283  [38400/60000]
+loss: 1.622717  [44800/60000]
+loss: 1.419001  [51200/60000]
+loss: 1.323012  [57600/60000]
+Test Error: 
+ Accuracy: 68.3%, Avg loss: 1.363791 
+
+Epoch 6
+-------------------------------
+loss: 1.388289  [    0/60000]
+loss: 1.309341  [ 6400/60000]
+loss: 1.442154  [12800/60000]
+loss: 1.223235  [19200/60000]
+loss: 1.275618  [25600/60000]
+loss: 1.317449  [32000/60000]
+loss: 1.236379  [38400/60000]
+loss: 1.375583  [44800/60000]
+loss: 1.237414  [51200/60000]
+loss: 1.128840  [57600/60000]
+Test Error: 
+ Accuracy: 70.2%, Avg loss: 1.175376 
+
+Epoch 7
+-------------------------------
+loss: 1.216448  [    0/60000]
+loss: 1.130485  [ 6400/60000]
+loss: 1.316219  [12800/60000]
+loss: 1.005424  [19200/60000]
+loss: 1.101283  [25600/60000]
+loss: 1.078783  [32000/60000]
+loss: 0.955078  [38400/60000]
+loss: 1.135801  [44800/60000]
+loss: 1.091042  [51200/60000]
+loss: 1.044853  [57600/60000]
+Test Error: 
+ Accuracy: 73.0%, Avg loss: 1.016321 
+
+Epoch 8
+-------------------------------
+loss: 1.043064  [    0/60000]
+loss: 1.013704  [ 6400/60000]
+loss: 1.106562  [12800/60000]
+loss: 0.749295  [19200/60000]
+loss: 0.878776  [25600/60000]
+loss: 1.041634  [32000/60000]
+loss: 0.925950  [38400/60000]
+loss: 1.054278  [44800/60000]
+loss: 1.059773  [51200/60000]
+loss: 0.884302  [57600/60000]
+Test Error: 
+ Accuracy: 75.0%, Avg loss: 0.929963 
+
+Epoch 9
+-------------------------------
+loss: 0.957271  [    0/60000]
+loss: 0.913348  [ 6400/60000]
+loss: 1.025013  [12800/60000]
+loss: 0.706904  [19200/60000]
+loss: 0.794365  [25600/60000]
+loss: 0.886365  [32000/60000]
+loss: 0.795565  [38400/60000]
+loss: 1.042791  [44800/60000]
+loss: 0.918600  [51200/60000]
+loss: 0.846945  [57600/60000]
+Test Error: 
+ Accuracy: 76.0%, Avg loss: 0.840766 
+
+Epoch 10
+-------------------------------
+loss: 0.865723  [    0/60000]
+loss: 0.866054  [ 6400/60000]
+loss: 0.886908  [12800/60000]
+loss: 0.670420  [19200/60000]
+loss: 0.691289  [25600/60000]
+loss: 0.806679  [32000/60000]
+loss: 0.669625  [38400/60000]
+loss: 0.989060  [44800/60000]
+loss: 0.883575  [51200/60000]
+loss: 0.833742  [57600/60000]
+Test Error: 
+ Accuracy: 77.1%, Avg loss: 0.779454 
+
+Epoch 11
+-------------------------------
+loss: 0.862591  [    0/60000]
+loss: 0.878451  [ 6400/60000]
+loss: 0.820222  [12800/60000]
+loss: 0.643583  [19200/60000]
+loss: 0.638248  [25600/60000]
+loss: 0.738340  [32000/60000]
+loss: 0.646759  [38400/60000]
+loss: 0.894081  [44800/60000]
+loss: 0.858162  [51200/60000]
+loss: 0.829792  [57600/60000]
+Test Error: 
+ Accuracy: 76.5%, Avg loss: 0.770023 
+
+Epoch 12
+-------------------------------
+loss: 0.835574  [    0/60000]
+loss: 0.877235  [ 6400/60000]
+loss: 0.857782  [12800/60000]
+loss: 0.690486  [19200/60000]
+loss: 0.617188  [25600/60000]
+loss: 0.711040  [32000/60000]
+loss: 0.721151  [38400/60000]
+loss: 0.966661  [44800/60000]
+loss: 0.844607  [51200/60000]
+loss: 0.791053  [57600/60000]
+Test Error: 
+ Accuracy: 76.8%, Avg loss: 0.756590 
+
+Epoch 13
+-------------------------------
+loss: 0.799021  [    0/60000]
+loss: 0.806324  [ 6400/60000]
+loss: 0.743709  [12800/60000]
+loss: 0.620406  [19200/60000]
+loss: 0.595102  [25600/60000]
+loss: 0.694497  [32000/60000]
+loss: 0.610044  [38400/60000]
+loss: 0.986340  [44800/60000]
+loss: 0.834452  [51200/60000]
+loss: 0.761270  [57600/60000]
+Test Error: 
+ Accuracy: 75.1%, Avg loss: 0.781446 
+
+Epoch 14
+-------------------------------
+loss: 0.803079  [    0/60000]
+loss: 0.924776  [ 6400/60000]
+loss: 0.730276  [12800/60000]
+loss: 0.619014  [19200/60000]
+loss: 0.689474  [25600/60000]
+loss: 0.743778  [32000/60000]
+loss: 0.648899  [38400/60000]
+loss: 0.996702  [44800/60000]
+loss: 0.776125  [51200/60000]
+loss: 0.803975  [57600/60000]
+Test Error: 
+ Accuracy: 75.8%, Avg loss: 0.755003 
+
+Epoch 15
+-------------------------------
+loss: 0.811652  [    0/60000]
+loss: 0.835664  [ 6400/60000]
+loss: 0.662330  [12800/60000]
+loss: 0.673836  [19200/60000]
+loss: 0.564571  [25600/60000]
+loss: 0.718223  [32000/60000]
+loss: 0.634960  [38400/60000]
+loss: 0.828920  [44800/60000]
+loss: 0.767297  [51200/60000]
+loss: 0.876423  [57600/60000]
+Test Error: 
+ Accuracy: 75.1%, Avg loss: 0.764193 
+
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h4><span id="pelican-subsections-7">FGD</span></h4></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [16]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">model_fgd</span><span class="p">,</span> <span class="n">model_fgdv</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">NeuralNetwork</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model_fgd</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">model_fgdv</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+    <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">optimizer_fgd</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model_fgd</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="n">train_loss_fgd</span><span class="p">,</span> <span class="n">test_loss_fgd</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">-------------------------------&quot;</span><span class="p">)</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">train_nograd</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model_fgd</span><span class="p">,</span> <span class="n">model_fgdv</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer_fgd</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;fgd&quot;</span><span class="p">)</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="n">test</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">,</span> <span class="n">model_fgd</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+    <span class="n">train_loss_fgd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_loss</span><span class="p">)</span>
+    <span class="n">test_loss_fgd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_loss</span><span class="p">)</span>
+<span class="n">train_loss_fgd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">train_loss_fgd</span><span class="p">)</span>
+<span class="n">test_loss_fgd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_loss_fgd</span><span class="p">)</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Epoch 1
+-------------------------------
+loss: 2.296826  [    0/60000]
+loss: 2.283787  [ 6400/60000]
+loss: 2.293741  [12800/60000]
+loss: 2.277387  [19200/60000]
+loss: 2.291229  [25600/60000]
+loss: 2.284855  [32000/60000]
+loss: 2.269791  [38400/60000]
+loss: 2.282986  [44800/60000]
+loss: 2.260365  [51200/60000]
+loss: 2.257126  [57600/60000]
+Test Error: 
+ Accuracy: 28.9%, Avg loss: 2.261620 
+
+Epoch 2
+-------------------------------
+loss: 2.260387  [    0/60000]
+loss: 2.243361  [ 6400/60000]
+loss: 2.258446  [12800/60000]
+loss: 2.217143  [19200/60000]
+loss: 2.243744  [25600/60000]
+loss: 2.238254  [32000/60000]
+loss: 2.216753  [38400/60000]
+loss: 2.238729  [44800/60000]
+loss: 2.210622  [51200/60000]
+loss: 2.196457  [57600/60000]
+Test Error: 
+ Accuracy: 31.1%, Avg loss: 2.202523 
+
+Epoch 3
+-------------------------------
+loss: 2.204142  [    0/60000]
+loss: 2.184506  [ 6400/60000]
+loss: 2.217151  [12800/60000]
+loss: 2.137058  [19200/60000]
+loss: 2.168483  [25600/60000]
+loss: 2.161743  [32000/60000]
+loss: 2.135093  [38400/60000]
+loss: 2.179393  [44800/60000]
+loss: 2.139675  [51200/60000]
+loss: 2.107305  [57600/60000]
+Test Error: 
+ Accuracy: 47.7%, Avg loss: 2.113572 
+
+Epoch 4
+-------------------------------
+loss: 2.093888  [    0/60000]
+loss: 2.081323  [ 6400/60000]
+loss: 2.133465  [12800/60000]
+loss: 2.013201  [19200/60000]
+loss: 2.053054  [25600/60000]
+loss: 2.050395  [32000/60000]
+loss: 2.011332  [38400/60000]
+loss: 2.068287  [44800/60000]
+loss: 2.015212  [51200/60000]
+loss: 1.967663  [57600/60000]
+Test Error: 
+ Accuracy: 53.5%, Avg loss: 1.981888 
+
+Epoch 5
+-------------------------------
+loss: 1.974730  [    0/60000]
+loss: 1.947753  [ 6400/60000]
+loss: 1.988854  [12800/60000]
+loss: 1.846123  [19200/60000]
+loss: 1.906788  [25600/60000]
+loss: 1.896905  [32000/60000]
+loss: 1.839852  [38400/60000]
+loss: 1.927831  [44800/60000]
+loss: 1.821989  [51200/60000]
+loss: 1.782795  [57600/60000]
+Test Error: 
+ Accuracy: 65.5%, Avg loss: 1.789055 
+
+Epoch 6
+-------------------------------
+loss: 1.783425  [    0/60000]
+loss: 1.762594  [ 6400/60000]
+loss: 1.817015  [12800/60000]
+loss: 1.638735  [19200/60000]
+loss: 1.747962  [25600/60000]
+loss: 1.718608  [32000/60000]
+loss: 1.656324  [38400/60000]
+loss: 1.748703  [44800/60000]
+loss: 1.658347  [51200/60000]
+loss: 1.596796  [57600/60000]
+Test Error: 
+ Accuracy: 68.5%, Avg loss: 1.607141 
+
+Epoch 7
+-------------------------------
+loss: 1.634365  [    0/60000]
+loss: 1.542256  [ 6400/60000]
+loss: 1.632949  [12800/60000]
+loss: 1.462924  [19200/60000]
+loss: 1.525259  [25600/60000]
+loss: 1.459265  [32000/60000]
+loss: 1.416846  [38400/60000]
+loss: 1.571794  [44800/60000]
+loss: 1.409128  [51200/60000]
+loss: 1.359775  [57600/60000]
+Test Error: 
+ Accuracy: 70.4%, Avg loss: 1.389032 
+
+Epoch 8
+-------------------------------
+loss: 1.412317  [    0/60000]
+loss: 1.306484  [ 6400/60000]
+loss: 1.405024  [12800/60000]
+loss: 1.290675  [19200/60000]
+loss: 1.304878  [25600/60000]
+loss: 1.247403  [32000/60000]
+loss: 1.253526  [38400/60000]
+loss: 1.363694  [44800/60000]
+loss: 1.201337  [51200/60000]
+loss: 1.205393  [57600/60000]
+Test Error: 
+ Accuracy: 74.7%, Avg loss: 1.200503 
+
+Epoch 9
+-------------------------------
+loss: 1.217961  [    0/60000]
+loss: 1.156513  [ 6400/60000]
+loss: 1.214847  [12800/60000]
+loss: 1.072343  [19200/60000]
+loss: 1.085704  [25600/60000]
+loss: 1.088957  [32000/60000]
+loss: 1.117683  [38400/60000]
+loss: 1.231151  [44800/60000]
+loss: 1.047312  [51200/60000]
+loss: 1.061814  [57600/60000]
+Test Error: 
+ Accuracy: 76.5%, Avg loss: 1.047569 
+
+Epoch 10
+-------------------------------
+loss: 1.082913  [    0/60000]
+loss: 0.924575  [ 6400/60000]
+loss: 1.074471  [12800/60000]
+loss: 0.963778  [19200/60000]
+loss: 0.914800  [25600/60000]
+loss: 0.905806  [32000/60000]
+loss: 0.930664  [38400/60000]
+loss: 1.089383  [44800/60000]
+loss: 1.017955  [51200/60000]
+loss: 0.919721  [57600/60000]
+Test Error: 
+ Accuracy: 78.4%, Avg loss: 0.918273 
+
+Epoch 11
+-------------------------------
+loss: 0.951236  [    0/60000]
+loss: 0.796322  [ 6400/60000]
+loss: 0.907597  [12800/60000]
+loss: 0.826737  [19200/60000]
+loss: 0.859733  [25600/60000]
+loss: 0.843981  [32000/60000]
+loss: 0.836354  [38400/60000]
+loss: 1.045860  [44800/60000]
+loss: 0.936381  [51200/60000]
+loss: 0.862719  [57600/60000]
+Test Error: 
+ Accuracy: 77.9%, Avg loss: 0.851654 
+
+Epoch 12
+-------------------------------
+loss: 0.876074  [    0/60000]
+loss: 0.755115  [ 6400/60000]
+loss: 0.857361  [12800/60000]
+loss: 0.767043  [19200/60000]
+loss: 0.818982  [25600/60000]
+loss: 0.817685  [32000/60000]
+loss: 0.769299  [38400/60000]
+loss: 0.890136  [44800/60000]
+loss: 0.880792  [51200/60000]
+loss: 0.812595  [57600/60000]
+Test Error: 
+ Accuracy: 78.6%, Avg loss: 0.781197 
+
+Epoch 13
+-------------------------------
+loss: 0.823996  [    0/60000]
+loss: 0.696730  [ 6400/60000]
+loss: 0.779315  [12800/60000]
+loss: 0.726534  [19200/60000]
+loss: 0.784454  [25600/60000]
+loss: 0.753779  [32000/60000]
+loss: 0.698076  [38400/60000]
+loss: 0.857928  [44800/60000]
+loss: 0.906583  [51200/60000]
+loss: 0.706785  [57600/60000]
+Test Error: 
+ Accuracy: 79.5%, Avg loss: 0.745699 
+
+Epoch 14
+-------------------------------
+loss: 0.801857  [    0/60000]
+loss: 0.696863  [ 6400/60000]
+loss: 0.638847  [12800/60000]
+loss: 0.805713  [19200/60000]
+loss: 0.751706  [25600/60000]
+loss: 0.675668  [32000/60000]
+loss: 0.638079  [38400/60000]
+loss: 0.893166  [44800/60000]
+loss: 0.885967  [51200/60000]
+loss: 0.713033  [57600/60000]
+Test Error: 
+ Accuracy: 78.5%, Avg loss: 0.720166 
+
+Epoch 15
+-------------------------------
+loss: 0.735028  [    0/60000]
+loss: 0.600313  [ 6400/60000]
+loss: 0.638438  [12800/60000]
+loss: 0.746406  [19200/60000]
+loss: 0.738696  [25600/60000]
+loss: 0.622368  [32000/60000]
+loss: 0.647141  [38400/60000]
+loss: 0.877152  [44800/60000]
+loss: 0.862342  [51200/60000]
+loss: 0.672747  [57600/60000]
+Test Error: 
+ Accuracy: 78.6%, Avg loss: 0.708830 
+
+</pre></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><h3><span id="pelican-subsections-8">学習則の比較</span></h3>
+<p>最後に各学習則の訓練誤差を比較してみましょう．</p></div></div></div>
+<div class="cell border-box-sizing code_cell rendered"><div class="input"><div class="prompt input_prompt">In [17]:</div><div class="inner_cell"><div class="input_area"><div class="highlight hl-ipython3"><pre><span></span><span class="n">iterations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_loss_bp</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">train_loss_bp</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Backprop. w/ lr=1e-2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">train_loss_dodge</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;DODGE w/ lr=1e-3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">train_loss_fgd</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FGD w/ lr=1e-3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Iterations&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Train loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div></div></div><div class="output_wrapper"><div class="output"><div class="output_area"><div class="prompt output_prompt"></div><div class="output_subarea output_png"><img src="../../../embedded_images/f355553988fc1fbc.png" alt="" loading="lazy"/></div></div></div></div></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="text_cell_render border-box-sizing rendered_html"><p>学習初期の学習速度はDODGEの方が優れていましたが，最終的には同程度の損失・精度に収束しました．今回はPytorch自体のoptimizerを使用できるような実装にしましたが，Adamを用いてもテストデータに対する予測精度は変わりませんでした (～80%程度，確認にはoptimizaerの部分を変更してみてください)．<code>num_directions</code>を大きくすれば数値的に安定し，大きな学習率でも機能するかもしれません．あるいは学習率を下げて長い時間学習させればテストデータに対する予測精度は向上するかもしれません．いずれにせよ検証はしていないので興味がある方はやってみてください．DODGEもFGDも著者実装が公開されていないのですが，報告を読む限りはより効率的で安定した実装があるのかもしれません．</p></div></div></div>
+</div>
+  </div>
+  
+<div class="article-tag-list">
+<span class="label label-default">Tags</span>
+	<a href="../../../tag/python.html"><i class="fa fa-tag"></i>Python</a>&nbsp;
+	<a href="../../../tag/machine-learning.html"><i class="fa fa-tag"></i>Machine Learning</a>&nbsp;
+	<a href="../../../tag/lun-wen-matome.html"><i class="fa fa-tag"></i>論文まとめ</a>&nbsp;
+</div><hr><ul>
+        <li>
+            前の記事 :
+            <a href="../../../blog/2021/12/kaggle_advent_2021_18.html">
+                SwinTransformerで物体検出
+            </a>
+        </li>
+        <li>
+            次の記事 :
+            <a href="../../../blog/2022/03/ze-tamebiusubian-huan.html">
+                ゼータ・メビウス変換
+            </a>
+        </li>
+        <li>    
+            関連記事 :
+            <ul>
+                <li><a href="../../../blog/2021/05/dino.html">【論文まとめ】DINO: Emerging Properties in Self-Supervised Vision Transformers</a></li>
+                <li><a href="../../../blog/2020/11/irmae.html">線形多層ニューラルネットワークにおける陰的正則化とIRMAE</a></li>
+                <li><a href="../../../blog/2020/04/neural_tangents.html">Neural Tangentsによる無限幅深層ニューラルネットワークの構築とベイズ推論</a></li>
+            </ul>
+        </li>
+</ul>  <hr />
+  <div class="sharing-buttons">  <!-- Social media sharing buttons -->
+    <!-- Twitter / X -->
+    <a href="https://twitter.com/share" class="twitter-share-button"
+       data-via="oumed_python" >Tweet</a>&nbsp;
+
+    <!-- Facebook -->
+    <div class="fb-like"
+        data-href="../../../blog/2022/02/directional_gradient_optimization.html"
+        data-layout="button_count"
+        data-action="like" data-show-faces="true"
+        data-share="true">
+    </div>
+    &nbsp;
+  </div> <!-- /Social media sharing buttons --><!-- Comment system with utteranc.es -->
+<script src="https://utteranc.es/client.js"
+        repo="oumpy/oumpy.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</article>
+        </div><!-- /content -->
+
+        <div class="col-md-3 sidebar-nav" id="sidebar">
+<div class="row"><div class="col-md-12 col-sm-4 col-12">
+<form id="cse-search-box" action="../../../search.html">
+<input type="text" name="q" placeholder="サイト内を検索" style="height: 1.7em; width: 82.5%;">
+<input type="submit" value="&#xf002;" class="fas" style="height: 1.7em; width: 15%;">
+</form>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-comment fa-fw fa-lg"></i> ソーシャル</div>
+<div class="box-contents">
+<ul class="list-unstyled social-links">  <li><a href="https://x.com/oumed_python" target="_blank" title="X (Twitter)"><span style="color:#000000; font-size:larger;"><i class="fab fa-x-twitter"></i></span></a></li>  <li><a href="mailto:handai.python@gmail.com" target="_blank" title="E-mail"><span style="color:#0078D4; font-size:larger;"><i class="far fa-envelope"></i></span></a></li>  <li><a href="https://github.com/oumpy" target="_blank" title="GitHub Organization"><span style="color:#211F1F; font-size:larger;"><i class="fab fa-github"></i></span></a></li>  <li><a href="https://www.youtube.com/channel/UCh1eAeDCpsZeOh0Z9paNfHQ" target="_blank" title="YouTube Channel"><span style="color:#c4302b; font-size:larger;"><i class="fab fa-youtube"></i></span></a></li>  <li><a href="https://oum-python.connpass.com" target="_blank" title="Connpass"><span style="color:#E9463F; font-size:normal;"><img class="social-logo-image" src="https://help.connpass.com/_images/connpass_logo_3.png" alt="connpass"/></span></a></li>  <li><a href="../../../feeds/all.atom.xml" target="_blank" title="Atom Feed"><span style="color:#00008b; font-size:smaller;"><i class="fa fa-rss fa-fw fa-lg"></i></span></a></li>  <li><a href="../../../feeds/all.rss.xml" target="_blank" title="RSS Feed"><span style="color:#f26522; font-size:normal;"><i class="fas fa-rss-square fa-fw fa-lg"></i></span></a></li></ul>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fas fa-bell"></i> 新着記事</div>
+<div class="box-contents">
+<div class="horizontal-scroll">
+<table class="recent-posts" id="recentposts">
+  <tr><td colspan="3"><span class="recent-posts-year">2025</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">8/8</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2025/08/codequeen2025.html"><span class="recent-posts-title">CodeQUEEN 2025に参加しました！</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2024</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2024/10/icpc2024wf.html"><span class="recent-posts-title">富本がICPC 2024 World Finalsへ出場</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/08/codequeen2024.html"><span class="recent-posts-title">CodeQUEEN2024</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">3/4</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2024/03/custom_violin_plot.html"><span class="recent-posts-title">single cell解析における遺伝子発現量の可視化</span></a></td>
+  </tr>
+  <tr><td colspan="3"><span class="recent-posts-year">2023</span></td></tr>
+  <tr>
+    <td class="recent-posts-date">10/31</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/jsc2023-tomimoto.html"><span class="recent-posts-title">富本が全国6位：日本最強プログラマー学生選手権決勝</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/27</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../news.html">News</a>]</span></td>
+    <td><a href="../../../news/2023/10/unofficialize.html"><span class="recent-posts-title">非公認団体に復帰のお知らせ</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">10/23</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/10/harvard_student_internship.html"><span class="recent-posts-title">5年次研究留学 @ ハーバード大学</span></a></td>
+  </tr>
+  <tr>
+    <td class="recent-posts-date">8/16</td>
+    <td><span class="recent-posts-prefix-category">[<a href="../../../blog.html">Blog</a>]</span></td>
+    <td><a href="../../../blog/2023/08/mattergpt.html"><span class="recent-posts-title">MatterGPT: Mattermostで動作するChatGPT連携チャットボット</span></a></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sidebar_box">
+<div class="box-title"><i class="fa fa-tags fa-fw fa-lg"></i> タグ一覧</div>
+<p class="tag-cloud">
+    <span class="tag-1">
+      <a href="../../../tag/machine-learning.html">
+          <span class="badge text-bg-primary">28</span>
+        Machine Learning
+      </a>
+    </span>
+    <span class="tag-1">
+      <a href="../../../tag/python.html">
+          <span class="badge text-bg-primary">21</span>
+        Python
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/bioinformatics.html">
+          <span class="badge text-bg-primary">15</span>
+        Bioinformatics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/news.html">
+          <span class="badge text-bg-primary">12</span>
+        News
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/statistics.html">
+          <span class="badge text-bg-primary">12</span>
+        Statistics
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/jing-ji-puroguramingu.html">
+          <span class="badge text-bg-primary">10</span>
+        競技プログラミング
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/mian-qiang-hui.html">
+          <span class="badge text-bg-primary">10</span>
+        勉強会
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/zi-dong-hua.html">
+          <span class="badge text-bg-primary">7</span>
+        自動化
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/lun-wen-matome.html">
+          <span class="badge text-bg-primary">7</span>
+        論文まとめ
+      </a>
+    </span>
+    <span class="tag-2">
+      <a href="../../../tag/data-science-competition.html">
+          <span class="badge text-bg-primary">7</span>
+        Data Science Competition
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/jian-ding-shi-yan.html">
+          <span class="badge text-bg-primary">4</span>
+        検定試験
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/neuroscience.html">
+          <span class="badge text-bg-primary">4</span>
+        Neuroscience
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/shell-script.html">
+          <span class="badge text-bg-primary">3</span>
+        Shell script
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/hai-wai-liu-xue.html">
+          <span class="badge text-bg-primary">2</span>
+        海外留学
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/simulation.html">
+          <span class="badge text-bg-primary">2</span>
+        Simulation
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/sonota-yan-yu.html">
+          <span class="badge text-bg-primary">2</span>
+        その他言語
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/mian-xue-zhi-yuan.html">
+          <span class="badge text-bg-primary">2</span>
+        勉学支援
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/unix.html">
+          <span class="badge text-bg-primary">2</span>
+        Unix
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/ha-douea.html">
+          <span class="badge text-bg-primary">2</span>
+        ハードウェア
+      </a>
+    </span>
+    <span class="tag-3">
+      <a href="../../../tag/qi-ye-inta-n.html">
+          <span class="badge text-bg-primary">2</span>
+        企業インターン
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/github.html">
+          <span class="badge text-bg-primary">1</span>
+        GitHub
+      </a>
+    </span>
+    <span class="tag-4">
+      <a href="../../../tag/lun-wen-guan-lian.html">
+          <span class="badge text-bg-primary">1</span>
+        論文関連
+      </a>
+    </span>
+</p>
+</div><div class="sidebar_box">
+<div class="box-title"><i class="fas fa-hand-holding-heart"></i> 会へのご支援</div>
+<div class="box-contents">
+<div style="display:flex; justify-content:center;">
+<ul style="list-style:none; padding-left:0;">
+  <li>
+    <a href="https://paypal.me/oumpy/"><span style="font-size:larger;"><span class="text-primary" style="margin-right:5px;"><i class="fab fa-paypal"></i></span><font color="#003087">Pay</font><font color="#009cde">Pal</font><font color="#012169">.Me</font></span></a><br><span style="font-size:smaller; margin-left:0px;">(<a href="/previews/refs/heads/article/neural_tangents/donations.html">ご寄付を頂いた方々</a>)</span>
+  </li>
+</ul>
+</div>
+</div>
+</div></div> <!-- col -->
+<div class="col-md-12 col-sm-8 col-12">
+<div class="sidebar_box">
+<div class="box-title"><i class="fab fa-x-twitter fa-fw fa-lg"></i> Timeline</div>
+<div class="box-contents" id="twitter-timeline-box">
+    <a class="twitter-timeline" data-height="600" data-dnt="true"
+       data-chrome="noheader nofooter noborders"
+       href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">@oumed_python のポスト</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<script>
+/* X (Twitter) timeline embeds have become unreliable since 2023 and often
+   render nothing for logged-out visitors.  If the widget iframe has not
+   appeared after a few seconds, fall back to a simple link button. */
+(function () {
+  setTimeout(function () {
+    var box = document.getElementById('twitter-timeline-box');
+    if (!box) { return; }
+    var iframe = box.querySelector('iframe');
+    if (iframe && iframe.offsetHeight > 0) { return; }
+    box.innerHTML =
+      '<p style="text-align:center;">' +
+      '<a class="btn btn-primary" target="_blank" rel="noopener" ' +
+      'href="https://twitter.com/oumed_python?ref_src=twsrc%5Etfw">' +
+      '<i class="fab fa-x-twitter"></i> @oumed_python をフォロー' +
+      '</a></p>';
+  }, 6000);
+})();
+</script>
+</div>
+</div></div>  <!-- row, col -->        </div><!--/sidebar -->
+      </div><!--/row-->
+    </div><!--/.container /#main-container -->
+
+    <footer id="site-footer">
+<!-- colophon  -->
+<!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+<address id="site-colophon" style="padding-top:0rem;padding-bottom:0.03rem;">
+    <div class="text-center">
+    <p class="text-dark" style="margin:0px">
+        ©2018-2026 大阪大学医学部Python会
+    </p>
+    <p class="text-muted">
+    Site built using <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    powered by <a href="https://www.python.org/">Python</a>
+    &nbsp;&bull;&nbsp; Theme based on
+    <a href="http://www.voidynullness.net/page/voidy-bootstrap-pelican-theme/"
+       target="_blank">VoidyBootstrap</a> by 
+    <a href="http://www.robertiwancz.com/"
+       target="_blank">RKI</a>  
+    </p>
+    </div>
+</address><!-- /colophon  --> 
+      <!-- Site built using Pelican.  Theme based on VoidyBootstrap. -->
+    </footer>
+
+
+    <!-- javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+    <script src="../../../theme/js/voidy-menu.js"></script>
+
+
+<!-- Facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><script>
+const colab_img_url = 'https://colab.research.google.com/assets/colab-badge.svg'
+const github_img_url = 'https://img.shields.io/static/v1?label=&logo=github&message=View%20On%20GitHub&labelColor=black&color=gray'
+const colab_img = '<img class="notebook-badge-image" src="' + colab_img_url + '" alt="Open In Colab" title="Open In Colab" width="119px">';
+const github_img = '<img class="notebook-badge-image" src="' + github_img_url + '" alt="View On GitHub" title="View On GitHub" width="124px">';
+var check_ipynb = document.getElementsByClassName('highlight hl-ipython3');
+if (check_ipynb.length > 0) {
+    var doc0 = document.getElementById("colablink");
+    var article_date = document.getElementsByName('article:date')[0].content;
+    var article_year = article_date.slice(0, 4);
+    var article_month = article_date.slice(5, 7);
+    var article_category = document.getElementsByName('article:category:slug')[0].content;
+    if (parseInt(article_month) <= 3) {
+      article_year = article_year - 1;
+    }
+    var article_name = document.getElementsByName('article:slug')[0].content;
+    var source_url = document.getElementsByName('source-repository')[0].content;
+    if (source_url.endsWith('.git')) {
+      source_url = source_url.slice(0, -4);
+    } else if (source_url.endsWith('/')) {
+      source_url = source_url.slice(0, -1);
+    }
+    var source_url_hierarchies = source_url.split('/');
+    var repname = source_url_hierarchies.pop();
+    var account = source_url_hierarchies.pop();
+    var urlroot_colab = "https://colab.research.google.com/github/"+account+"/"+repname+"/blob/master/content/articles/";
+    var urlroot_github = source_url + "/blob/master/content/articles/";
+    var filepath = article_year+"sy/"+article_category+"/"+article_name+".ipynb"
+    var colab_url = urlroot_colab + filepath;
+    var github_url = urlroot_github + filepath;
+    var button = '<a href='+github_url+'>'+github_img+'</a>'
+               +'<a href='+colab_url+'>'+colab_img+'</a>';
+    doc0.innerHTML= button;
+}
+
+/* Add an "Open in Colab" badge after any local link to a .ipynb file. */
+(function () {
+  var myhost = window.location.hostname; /* hogehoge.github.io */
+  var account = myhost.split('.')[0]; /* hogehoge */
+  var repo = account + '/' + myhost + '/blob/master';
+  var root = 'https://colab.research.google.com/github/' + repo;
+  document.querySelectorAll('a[href]').forEach(function (link) {
+    var target = link.getAttribute('href').replace('https://' + myhost, '');
+    if ((target.startsWith('.') || target.startsWith('/')) && target.endsWith('.ipynb')) {
+      var upper = root + window.location.pathname;
+      var upper_split = upper.split('/');
+      var target_split = target.split('/');
+      upper_split.pop();
+      var head = true;
+      while (true) {
+        if (head && target_split[0] === '') {
+          target_split.shift();
+          upper_split = root.split('/');
+          break;
+        } else if (target_split[0] === '.') {
+          target_split.shift();
+          head = false;
+        } else if (target_split[0] === '..') {
+          target_split.shift();
+          upper_split.pop();
+          head = false;
+        } else {
+          break;
+        }
+      }
+      var colablink = upper_split.join('/') + '/' + target_split.join('/');
+      link.insertAdjacentHTML('afterend', ' <a href=' + colablink + '>' + colab_img + '</a>');
+    }
+  });
+})();
+</script><script>
+/* Build a table of contents from h2/h3 headings inside the article body.
+   (Vanilla JS replacement of the old jQuery toc plugin.) */
+(function () {
+  var toc = document.getElementById('toc');
+  if (!toc) { return; }
+  var content = document.querySelector('.content-body') || document.body;
+  var headings = content.querySelectorAll('h2, h3');
+  var stack = [toc];
+  var lastLevel = 2;
+  headings.forEach(function (heading, i) {
+    var level = parseInt(heading.tagName.charAt(1), 10);
+    if (!heading.id) {
+      var base = (heading.textContent || 'section').trim().replace(/\s+/g, '_'),
+          id = base, n = 1;
+      while (document.getElementById(id)) { id = base + '_' + n++; }
+      heading.id = id;
+    }
+    if (level > lastLevel) {
+      var lastItem = stack[0].lastElementChild;
+      if (lastItem) {
+        var sub = document.createElement('ul');
+        lastItem.appendChild(sub);
+        stack.unshift(sub);
+      }
+    } else if (level < lastLevel) {
+      while (stack.length > 1) { stack.shift(); break; }
+    }
+    lastLevel = level;
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = (heading.textContent || '').replace('¶', '');
+    li.appendChild(a);
+    stack[0].appendChild(li);
+  });
+  if (!toc.hasChildNodes()) {
+    var box = toc.closest('.toc_box');
+    if (box) { box.remove(); }
+  }
+})();
+</script><p class="pagetop" id="pagetop"><a href="#" aria-label="ページ先頭へ戻る"></a></p>
+<script>
+(function () {
+  var pagetop = document.getElementById('pagetop');
+  window.addEventListener('scroll', function () {
+    pagetop.style.display = (window.scrollY > 600) ? 'block' : 'none';
+  }, { passive: true });
+  pagetop.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>  </body>
+</html>
